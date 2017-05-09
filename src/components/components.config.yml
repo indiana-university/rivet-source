@@ -1,0 +1,16 @@
+context:
+    title_short: This is a short title
+    lipsum_short: Sequi dolorem voluptatem fugiat ducimus nesciunt esse ad fugit, blanditiis, similique accusamus ullam dolore quis eligendi.
+
+    # Fake people
+    people:
+        -   name: Bert Macklin
+            title: The FBI
+        -   name: Leslie Knope
+            title: Assistan Director, Pawnee Parks Department
+        -   name: Ron Swanson
+            title: Director, Pawnee Parks Department
+        -   name: April Ludgate
+            title: Animal Control
+        -   name: Ben Wayatt
+            title: Creator, The Cones of Dunshire

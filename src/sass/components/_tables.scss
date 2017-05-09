@@ -1,0 +1,28 @@
+/**
+ * Tables
+ */
+
+table {
+    text-align: left;
+    width: 100%;
+}
+
+thead {
+    text-transform: uppercase;
+    font-size: .875rem;
+    border-bottom: 1px solid $color-black--200;
+    background-color: $color-black--100;
+
+    th {
+        padding: $sm + rem;
+        line-height: 1;
+    }
+}
+
+tr {
+    border-bottom: 1px solid $color-black--200;
+}
+
+tr td {
+    padding: $sm + rem;
+}

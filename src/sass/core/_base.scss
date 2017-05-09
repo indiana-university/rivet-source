@@ -1,0 +1,43 @@
+html {
+    font-size: 100%;
+}
+
+html * {
+    box-sizing: border-box;
+    // -moz-osx-font-smoothing: grayscale;
+    //  -webkit-font-smoothing: antialiased;
+}
+
+body {
+    color: $color-text;
+    font-family: $font-base;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/**
+ * Normalize Headig sizes since we're dealing with applications not
+ * Editoral/article-like content. We'll make them slightly bigger than the
+ * base font size.
+ */
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     font-size: 1.125rem;
+     font-weight: 400;
+     margin: 0;
+ }
+
+strong {
+    font-weight: 700;
+}
+
+hr {
+     border-top: 1px solid #eee;
+     color: white;
+}

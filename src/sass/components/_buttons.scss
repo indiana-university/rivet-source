@@ -1,0 +1,76 @@
+button,
+.button {
+    background-color: $color-midnight;
+    border-style: solid;
+    border: 2px solid $color-midnight;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+    /**
+     * This padding sets the button-height to be the same as the text
+     * input height.
+     */
+    padding: .625rem 1rem;
+    text-decoration: none;
+    vertical-align: middle;
+
+    &:focus,
+    &-focus {
+        outline: none;
+        box-shadow: 0 0 6px 3px $color-midnight--400;
+    }
+
+    &:hover,
+    &-hover {
+        background-color: mix($color-midnight, black, 70%);
+        border-color: mix($color-midnight, black, 70%);
+        color: $color-background;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-midnight, black, 50%);
+        border-color: mix($color-midnight, black, 50%);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        background-color: $color-black--100;
+        color: $color-black--700;
+        border-color: $color-black--400;
+        cursor: not-allowed;
+    }
+}
+
+.button--secondary {
+    background-color: transparent;
+    color: $color-midnight;
+
+    &:hover,
+    &-hover {
+        background-color: mix($color-midnight, white, 20%);
+        border-color: $color-midnight;
+        color: $color-midnight;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-midnight, white, 35%);
+    }
+}
+
+.button--plain {
+    border-color: transparent;
+    background-color: transparent;
+    color: $color-action;
+
+    &:hover {
+        background-color: mix($color-midnight, white, 20%);
+        border-color: mix($color-midnight, white, 20%);
+        color: $color-midnight;
+    }
+}

@@ -1,0 +1,101 @@
+$font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif";
+
+// Type Sizes
+$ts-12: .75rem;
+$ts-14: .875rem;
+$ts-16: 1rem;
+$ts-base: $ts-16;
+$ts-18: 1.125rem;
+$ts-20: 1.25rem;
+$ts-23: 1.4375rem;
+$ts-26: 1.625rem;
+$ts-29: 1.8125rem;
+$ts-32: 2rem;
+$ts-36: 2.25rem;
+$ts-41: 2.5625rem;
+$ts-46: 2.875rem;
+$ts-52: 3.25rem;
+
+// Base colors
+$color-white: #ffffff;
+$color-black: #333333;
+
+// Brand Colors
+$color-cream: #EDEBEB;
+$color-crimson: #990000;
+$color-midnight: #006298;
+$color-dark-midnight: #01426A;
+
+// Black tints
+
+$color-black--100: #eeeeee;
+$color-black--200: #dddddd;
+$color-black--300: #cccccc;
+$color-black--400: #aaaaaa;
+$color-black--500: #999999;
+$color-black--600: #777777;
+$color-black--700: #666666;
+$color-black--800: #555555;
+$color-black--900: #444444;
+
+// Midnight Variations
+$color-midnight--100: #dce3ee;
+$color-midnight--200: #b8c8dc;
+$color-midnight--300: #95adcb;
+$color-midnight--400: #7194ba;
+$color-midnight--500: #497ba9;
+$color-midnight--600: #076399;
+$color-midnight--700: #134a71;
+$color-midnight--800: #16324b;
+$color-midnight--900: #121c28;
+
+// Colors by purpose
+$color-text: $color-black;
+$color-background: $color-white;
+$color-action: $color-midnight;
+$color-link: $color-midnight;
+$color-link-visited: $color-dark-midnight;
+
+// Alert colors
+// https://styleguide.iu.edu/visual-style/colors.html
+
+$color-alert-gray: #A7A9AB;
+$color-alert-gray-light: #eeeeee;
+$color-alert-green: #009933;
+$color-alert-green-light: #DDF4EA;
+$color-alert-blue: #49AFC7;
+$color-alert-blue-light: #E9F6FC;
+$color-alert-yellow: #F5BB17;
+$color-alert-yellow-light: #FDF7E7;
+$color-alert-orange: #F25B19;
+$color-alert-orange-light: #FDEEE8;
+
+// TODO: Should we keep all colors in a map so that we can iterate
+// through them to make utility classes?
+$color-map: (
+    "cream": $color-cream,
+    "crimson": $color-crimson,
+    "midnight": $color-midnight,
+    "dark-midnight": $color-dark-midnight,
+    "gray": $color-alert-gray,
+    "green": $color-alert-green,
+    "blue": $color-alert-blue,
+    "yellow": $color-alert-yellow,
+    "orange": $color-alert-orange
+);
+
+
+$spacing-unit: .5;
+
+$xxs: $spacing-unit/2;
+$xs: $spacing-unit;
+$sm: $spacing-unit * 2;
+$md: $spacing-unit * 3;
+$lg: $spacing-unit * 4;
+$xl: $spacing-unit * 5;
+$xxl: $spacing-unit * 8;
+
+
+
+// Radius
+$radius-small: 3px;

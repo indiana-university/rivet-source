@@ -1,0 +1,23 @@
+a,
+.uitsds-link {
+    color: $color-midnight;
+
+    &:hover {
+        color: $color-dark-midnight;
+    }
+
+    a:visited {
+        /**
+         * TODO: Come up with a better color for the :visited state.
+         */
+        color: $color-dark-midnight;
+    }
+}
+
+.uitsds-link-reverse {
+    color: rgba($color-background, .8);
+
+    &:hover {
+        color: $color-background;
+    }
+}

@@ -1,0 +1,606 @@
+/**
+ * TODO: Maybe we should think of a way to abstract all these
+ * hand-written classes into a a more reusabel mixin?
+ *
+ * My thinking is that if devs are using Sass source and not plug and play
+ * CSS they could use the spacing unit variables just as easily.
+ * In that case most of the mixins wouldn't save any time or be any
+ * shorter than just writing "margin-top: $md;"
+ */
+
+
+/**
+ * Remove margins per side
+ */
+
+.m-all-remove {
+    margin: 0;
+}
+
+.m-top-remove {
+    margin-top: 0;
+}
+
+.m-right-remove {
+    margin-right: 0;
+}
+
+.m-btm-remove {
+    margin-bottom: 0;
+}
+
+.m-left-remove {
+    margin-left: 0;
+}
+
+.m-vertical-remove {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.m-horizontal-remove {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+/**
+ * These utilities add equal margin to **ALL** sides of an element.
+ */
+
+// Use this mixing to add margin to all sides of an element.
+// Defaults to $sm (1rem) margin on all sides.
+
+// @param {String} [$sm]
+// @example - scss
+// .element {
+//     @include m-all($lg);
+// }
+//
+// @example - CSS output
+// .element {
+//     margin: 2rem;
+// }
+
+// TODO: Make mixins like this for all other spacing utilities below?
+
+@mixin m-all($size: $sm) {
+    margin: $size + rem
+}
+
+ .m-all-xxs {
+     @include m-all($xxs);
+ }
+
+.m-all-xs {
+    margin: $xs + rem;
+}
+
+.m-all-sm {
+    margin: $sm + rem;
+}
+
+.m-all-md {
+    margin: $md + rem;
+}
+
+.m-all-lg {
+    margin: $lg + rem;
+}
+
+.m-all-xl {
+    margin: $xl + rem;
+}
+
+.m-all-xxl {
+    margin: $xxl + rem;
+}
+
+/**
+ * These utilities add equal vertical (top and bottom) margin to an element.
+ */
+
+ .m-vertical-xxs {
+    margin-top: $xxs + rem;
+    margin-bottom: $xxs + rem;
+ }
+
+.m-vertical-xs {
+    margin-top: $xs + rem;
+    margin-bottom: $xs + rem;
+}
+
+.m-vertical-sm {
+    margin-top: $sm + rem;
+    margin-bottom: $sm + rem;
+}
+
+.m-vertical-md {
+    margin-top: $md + rem;
+    margin-bottom: $md + rem;
+}
+
+.m-vertical-lg {
+    margin-top: $lg + rem;
+    margin-bottom: $lg + rem;
+}
+
+.m-vertical-xl {
+    margin-top: $xl + rem;
+    margin-bottom: $xl + rem;
+}
+
+.m-vertical-xxl {
+    margin-top: $xxl + rem;
+    margin-bottom: $xxl + rem;
+}
+
+/**
+ * These utilities add equal horizontal (top and bottom) margin to an element.
+ */
+
+ .m-horizontal-xxs {
+     margin-right: $xxs + rem;
+     margin-left: $xxs + rem;
+ }
+
+
+.m-horizontal-xs {
+    margin-right: $xs + rem;
+    margin-left: $xs + rem;
+}
+
+.m-horizontal-sm {
+    margin-right: $sm + rem;
+    margin-left: $sm + rem;
+}
+
+.m-horizontal-md {
+    margin-right: $md + rem;
+    margin-left: $md + rem;
+}
+
+.m-horizontal-lg {
+    margin-right: $lg + rem;
+    margin-left: $lg + rem;
+}
+
+.m-horizontal-xl {
+    margin-right: $xl + rem;
+    margin-left: $xl + rem;
+}
+
+.m-horizontal-xxl {
+    margin-right: $xxl + rem;
+    margin-left: $xxl + rem;
+}
+
+/**
+ * Extra extra small margin utilities
+ */
+
+.m-top-xxs {
+    margin-top: $xxs + rem;
+}
+
+.m-right-xxs {
+    margin-right: $xxs + rem;
+}
+
+.m-btm-xxs {
+    margin-bottom: $xxs + rem;
+}
+
+.m-left-xxs {
+    margin-left: $xxs + rem;
+}
+
+/**
+ * Extra small margin utilities
+ */
+
+.m-top-xs {
+    margin-top: $xs + rem;
+}
+
+.m-right-xs {
+    margin-right: $xs + rem;
+}
+
+.m-btm-xs {
+    margin-bottom: $xs + rem;
+}
+
+.m-left-xs {
+    margin-left: $xs + rem;
+}
+
+
+/**
+ * Small margin utilities
+ */
+
+.m-top-sm {
+   margin-top: $sm + rem;
+}
+
+.m-right-sm {
+    margin-right: $sm + rem;
+}
+
+.m-btm-sm {
+    margin-bottom: $sm + rem;
+}
+
+.m-left-sm {
+    left-right: $sm + rem;
+}
+
+
+/**
+ * Medium margin utilities
+ */
+
+.m-top-md {
+    margin-top: $md + rem;
+}
+
+.m-right-md {
+    margin-right: $md + rem;
+}
+
+.m-btm-md {
+    margin-bottom: $md + rem;
+}
+
+.m-left-md {
+    margin-left: $md + rem;
+}
+
+/**
+ * Large margin utilities
+ */
+
+.m-top-lg {
+    margin-top: $lg + rem;
+}
+
+.m-right-lg {
+    margin-right: $lg + rem;
+}
+
+.m-btm-lg {
+    margin-bottom: $lg + rem;
+}
+
+.m-left-lg {
+    margin-left: $lg + rem;
+}
+
+/**
+ * Extra lage margin utilities
+ */
+
+.m-top-xl {
+    margin-top: $xl + rem;
+}
+
+.m-right-xl {
+    margin-right: $xl + rem;
+}
+
+.m-btm-xl {
+    margin-bottom: $xl + rem;
+}
+
+.m-left-xl {
+    margin-left: $xl + rem;
+}
+
+
+/**
+ * Extra extra lage margin utilities
+ */
+
+.m-top-xxl {
+    margin-top: $xxl + rem;
+}
+
+.m-right-xxl {
+    margin-right: $xxl + rem;
+}
+
+.m-btm-xxl {
+    margin-bottom: $xxl + rem;
+}
+
+.m-left-xxl {
+    margin-left: $xxl + rem;
+}
+
+/**
+ * Remove padding per side
+ */
+
+ .p-all-remove {
+     padding: 0;
+ }
+
+.p-top-remove {
+    padding-top: 0;
+}
+
+.p-right-remove {
+    padding-right: 0;
+}
+
+.p-btm-remove {
+    padding-bottom: 0;
+}
+
+.p-left-remove {
+    padding-left: 0;
+}
+
+.p-vertical-remove {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.p-horizontal-remove {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/**
+ * These utilities add equal padding to **ALL** sides of an element.
+ */
+
+ .p-all-xxs {
+     padding: $xxs +rem;
+ }
+
+.p-all-xs {
+    padding: $xs +rem;
+}
+
+.p-all-sm {
+    padding: $sm +rem;
+}
+
+.p-all-md {
+    padding: $md + rem;
+}
+
+.p-all-lg {
+    padding: $lg + rem;
+}
+
+.p-all-xl {
+    padding: $xl + rem;
+}
+
+.p-all-xxl {
+    padding: $xxl + rem;
+}
+
+/**
+ * These utilities add equal vertical (top and bottom) padding to an element.
+ */
+
+ .p-vertical-xxs {
+     padding-top: $xxs + rem;
+     padding-bottom: $xxs + rem;
+ }
+
+.p-vertical-xs {
+    padding-top: $xs + rem;
+    padding-bottom: $xs + rem;
+}
+
+.p-vertical-sm {
+    padding-top: $sm + rem;
+    padding-bottom: $sm + rem;
+}
+
+.p-vertical-md {
+    padding-top: $md + rem;
+    padding-bottom: $md + rem;
+}
+
+.p-vertical-lg {
+    padding-top: $lg + rem;
+    padding-bottom: $lg + rem;
+}
+
+.p-vertical-xl {
+    padding-top: $xl + rem;
+    padding-bottom: $xl + rem;
+}
+
+.p-vertical-xxl {
+    padding-top: $xxl + rem;
+    padding-bottom: $xxl + rem;
+}
+
+/**
+ * These utilities add equal horizontal (top and bottom) padding to an element.
+ */
+
+ .p-horizontal-xxs {
+     padding-right: $xxs + rem;
+     padding-left: $xxs + rem;
+ }
+
+.p-horizontal-xs {
+    padding-right: $xs + rem;
+    padding-left: $xs + rem;
+}
+
+.p-horizontal-sm {
+    padding-right: $sm + rem;
+    padding-left: $sm + rem;
+}
+
+.p-horizontal-md {
+    padding-right: $md + rem;
+    padding-left: $md + rem;
+}
+
+.p-horizontal-lg {
+    padding-right: $lg + rem;
+    padding-left: $lg + rem;
+}
+
+.p-horizontal-xl {
+    padding-right: $xl + rem;
+    padding-left: $xl + rem;
+}
+
+.p-horizontal-xxl {
+    padding-right: $xxl + rem;
+    padding-left: $xxl + rem;
+}
+
+/**
+ * Extra extra small padding utilities
+ */
+
+.p-top-xxs {
+    padding-top: $xxs + rem;
+}
+
+.p-right-xxs {
+    padding-right: $xxs + rem;
+}
+
+.p-btm-xxs {
+    padding-bottom: $xxs + rem;
+}
+
+.p-left-xxs {
+    padding-left: $xxs + rem;
+}
+
+/**
+ * Extra small padding utilities
+ */
+
+.p-top-xs {
+    padding-top: $xs + rem;
+}
+
+.p-right-xs {
+    padding-right: $xs + rem;
+}
+
+.p-btm-xs {
+    padding-bottom: $xs + rem;
+}
+
+.p-left-xs {
+    padding-left: $xs + rem;
+}
+
+
+/**
+ * Small padding utilities
+ */
+
+.p-top-sm {
+   padding-top: $sm + rem;
+}
+
+.p-right-sm {
+    padding-right: $sm + rem;
+}
+
+.p-btm-sm {
+    padding-bottom: $sm + rem;
+}
+
+.p-left-sm {
+    left-right: $sm + rem;
+}
+
+
+/**
+ * Medium padding utilities
+ */
+
+.p-top-md {
+    padding-top: $md + rem;
+}
+
+.p-right-md {
+    padding-right: $md + rem;
+}
+
+.p-btm-md {
+    padding-bottom: $md + rem;
+}
+
+.p-left-md {
+    padding-left: $md + rem;
+}
+
+/**
+ * Large padding utilities
+ */
+
+.p-top-lg {
+    padding-top: $lg + rem;
+}
+
+.p-right-lg {
+    padding-right: $lg + rem;
+}
+
+.p-btm-lg {
+    padding-bottom: $lg + rem;
+}
+
+.p-left-lg {
+    padding-left: $lg + rem;
+}
+
+/**
+ * Extra lage padding utilities
+ */
+
+.p-top-xl {
+    padding-top: $xl + rem;
+}
+
+.p-right-xl {
+    padding-right: $xl + rem;
+}
+
+.p-btm-xl {
+    padding-bottom: $xl + rem;
+}
+
+.p-left-xl {
+    padding-left: $xl + rem;
+}
+
+
+/**
+ * Extra extra lage padding utilities
+ */
+
+.p-top-xxl {
+    padding-top: $xxl + rem;
+}
+
+.p-right-xxl {
+    padding-right: $xxl + rem;
+}
+
+.p-btm-xxl {
+    padding-bottom: $xxl + rem;
+}
+
+.p-left-xxl {
+    padding-left: $xxl + rem;
+}

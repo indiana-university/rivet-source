@@ -1,0 +1,14 @@
+{
+  "name": "uitsds",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "gulp sass && gulp",
+    "build": "gulp build"
+  },
+  "dependencies": {
+    "@frctl/fractal": "^1.1.4",
+    "@frctl/mandelbrot": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

@@ -1,0 +1,39 @@
+// Plain list mixin
+
+ul li,
+ol li {
+    /**
+     * Making the line-height a little taller here makes list items easier
+     * to scan. It also helps when you want to make plain lists of
+     * radio and checkbox inputs.
+     */
+    line-height: 2;
+}
+
+@mixin plain-list {
+    list-style: none;
+    padding: 0;
+    /**
+     * So we can absolutely position stuff inside list items.
+     */
+    position: relative;
+}
+
+@mixin inline-list {
+    @include plain-list;
+     & li {
+         display: inline-block;
+         /**
+          * So we can absolutely position stuff inside list items.
+          */
+         position: relative;
+     }
+}
+
+.plain-list {
+    @include plain-list;
+}
+
+.inline-list {
+    @include inline-list;
+}

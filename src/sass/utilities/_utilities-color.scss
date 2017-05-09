@@ -1,0 +1,26 @@
+@each $key, $value in $color-map {
+
+    .color-#{$key} {
+        color: #{$value};
+    }
+
+}
+
+// @example - CSS output
+// .bg-midnight {
+//     background-color: #006298;
+// }
+@each $key, $value in $color-map {
+    .bg-#{$key} {
+        background-color: #{$value};
+        color: $color-background;
+
+        a {
+            color: rgba($color-background, .8);
+        }
+
+        a:hover {
+            color: $color-background;
+        }
+    }
+}
