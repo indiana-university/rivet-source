@@ -53,7 +53,7 @@
 
 // @param {String} [$sm]
 // @example - scss
-// .element {
+//.element {
 //     @include m-all($lg);
 // }
 //
@@ -68,7 +68,7 @@
     margin: $size + rem
 }
 
- .m-all-xxs {
+.m-all-xxs {
      @include m-all($xxs);
  }
 
@@ -100,7 +100,7 @@
  * These utilities add equal vertical (top and bottom) margin to an element.
  */
 
- .m-vertical-xxs {
+.m-vertical-xxs {
     margin-top: $xxs + rem;
     margin-bottom: $xxs + rem;
  }
@@ -139,7 +139,7 @@
  * These utilities add equal horizontal (top and bottom) margin to an element.
  */
 
- .m-horizontal-xxs {
+.m-horizontal-xxs {
      margin-right: $xxs + rem;
      margin-left: $xxs + rem;
  }
@@ -322,7 +322,7 @@
  * Remove padding per side
  */
 
- .p-all-remove {
+.p-all-remove {
      padding: 0;
  }
 
@@ -356,7 +356,7 @@
  * These utilities add equal padding to **ALL** sides of an element.
  */
 
- .p-all-xxs {
+.p-all-xxs {
      padding: $xxs +rem;
  }
 
@@ -388,7 +388,7 @@
  * These utilities add equal vertical (top and bottom) padding to an element.
  */
 
- .p-vertical-xxs {
+.p-vertical-xxs {
      padding-top: $xxs + rem;
      padding-bottom: $xxs + rem;
  }
@@ -427,7 +427,7 @@
  * These utilities add equal horizontal (top and bottom) padding to an element.
  */
 
- .p-horizontal-xxs {
+.p-horizontal-xxs {
      padding-right: $xxs + rem;
      padding-left: $xxs + rem;
  }
