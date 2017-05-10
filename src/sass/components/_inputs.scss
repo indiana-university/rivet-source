@@ -144,80 +144,83 @@ select {
      }
  }
 
- input[type="radio"]:checked + label {
-     &:before {
-         background-color: $color-action;
-         box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
-     }
- }
+input[type="radio"]:checked + label {
+    &:before {
+        background-color: $color-action;
+        box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
+    }
+}
 
- input[type="radio"]:focus + label:before {
-     box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
- }
+input[type="radio"]:focus + label:before {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
+}
 
- input[type="radio"]:disabled + label:before {
-     box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
-     background-color: #dddddd;
- }
+input[type="radio"]:focus + label:before {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
+}
 
- input[type="radio"]:disabled + label:before {
-     background-color: #dddddd;
- }
+input[type="radio"]:disabled + label:before {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
+    background-color: #dddddd;
+}
 
- input[type="radio"]:disabled + label {
-     cursor: not-allowed;
-     color: #999999;
- }
+input[type="radio"]:disabled + label:before {
+    background-color: #dddddd;
+}
 
- input[type="checkbox"] + label {
-     font-size: 1rem;
+input[type="radio"]:disabled + label {
+    cursor: not-allowed;
+    color: #999999;
+}
 
-     margin-left: .4rem;
+input[type="checkbox"] + label {
+    font-size: 1rem;
+    margin-left: .4rem;
 
-     &:before {
-         display: inline-block;
-         content: " ";
-         border-radius: 2px;
-         margin-right: 1rem;
-         width: .8rem;
-         height: .8rem;
-         box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
-         /**
-          * This helps visually center the label with the pseudo
-          * element checkbox.
-          */
-         vertical-align: middle;
-         margin-top: -.1rem;
-     }
- }
+    &:before {
+    display: inline-block;
+    content: " ";
+    border-radius: 2px;
+    margin-right: 1rem;
+    width: .8rem;
+    height: .8rem;
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
+    /**
+    * This helps visually center the label with the pseudo
+    * element checkbox.
+    */
+    vertical-align: middle;
+    margin-top: -.1rem;
+    }
+}
 
- input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label {
 
-     &:before {
-         color: $color-white;
-         background-color: $color-action;
-         box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
-         background-image: url("../img/checkbox-input-check.svg");
-         background-position: 50% 50%;
-         background-repeat: no-repeat;
-         /**
-          * Adding this is kind of a hack. May need to rework the actual
-          * SVG icon.
-          */
-         background-size: 90%;
-     }
+    &:before {
+        color: $color-white;
+        background-color: $color-action;
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
+        background-image: url("../img/checkbox-input-check.svg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        /**
+        * Adding this is kind of a hack. May need to rework the actual
+        * SVG icon.
+        */
+        background-size: 90%;
+    }
 
- }
+}
 
- input[type="checkbox"]:disabled + label:before {
-     background-color: #dddddd;
- }
+input[type="checkbox"]:disabled + label:before {
+    background-color: #dddddd;
+}
 
- input[type="checkbox"]:disabled + label {
-     cursor: not-allowed;
-     color: #999999;
- }
+input[type="checkbox"]:disabled + label {
+    cursor: not-allowed;
+    color: #999999;
+}
 
- input[type="checkbox"]:focus + label:before {
-     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
- }
+input[type="checkbox"]:focus + label:before {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
+}
