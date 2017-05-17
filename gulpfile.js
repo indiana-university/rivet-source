@@ -93,7 +93,7 @@ gulp.task('images:watch', function() {
  * Build the fractal UI with all components and CSS compiled.
  */
 
-gulp.task('build', ['sass', 'fractal:build']);
+gulp.task('build', ['sass', 'images', 'fractal:build']);
 
 /**
  * Default development task
