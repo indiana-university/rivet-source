@@ -200,6 +200,7 @@ input[type="checkbox"]:checked + label {
         color: $color-white;
         background-color: $color-action;
         box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
+        background-image: url("../img/checkbox-input-check.png");
         background-image: url("../img/checkbox-input-check.svg");
         background-position: 50% 50%;
         background-repeat: no-repeat;
