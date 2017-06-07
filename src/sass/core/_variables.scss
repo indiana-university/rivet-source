@@ -1,30 +1,63 @@
+
+// Base font family
 $font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif";
 
-// Type Sizes
-$ts-12: .75rem;
-$ts-14: .875rem;
-$ts-16: 1rem;
+
+
+
+// Main type sizes map. This is used to generate all of the .ts-
+// utilitiy classes in "components/_type-scale.scss"
+
+// $key = pixel size, $value = relational units
+$type-sizes: (
+    12: .75rem,
+    14: .875rem,
+    16: 1rem,
+    18: 1.125rem,
+    20: 1.25rem,
+    23: 1.4375rem,
+    26: 1.625rem,
+    29: 1.8125rem,
+    32: 2rem,
+    36: 2.25rem,
+    41: 2.5625rem,
+    46: 2.875rem,
+    52: 3.25rem,
+);
+
+// Type Size variables
+$ts-12: map-get($type-sizes, 12);
+$ts-14: map-get($type-sizes, 14);;
+$ts-16: map-get($type-sizes, 16);;
 $ts-base: $ts-16;
-$ts-18: 1.125rem;
-$ts-20: 1.25rem;
-$ts-23: 1.4375rem;
-$ts-26: 1.625rem;
-$ts-29: 1.8125rem;
-$ts-32: 2rem;
-$ts-36: 2.25rem;
-$ts-41: 2.5625rem;
-$ts-46: 2.875rem;
-$ts-52: 3.25rem;
+$ts-18: map-get($type-sizes, 18);
+$ts-20: map-get($type-sizes, 20);
+$ts-23: map-get($type-sizes, 23);
+$ts-26: map-get($type-sizes, 26);
+$ts-29: map-get($type-sizes, 29);
+$ts-32: map-get($type-sizes, 32);
+$ts-36: map-get($type-sizes, 36);
+$ts-41: map-get($type-sizes, 41);
+$ts-46: map-get($type-sizes, 46);
+$ts-52: map-get($type-sizes, 52);
+
+
+
 
 // Base colors
+
 $color-white: #ffffff;
 $color-black: #333333;
 
 // Brand Colors
+
 $color-cream: #EDEBEB;
 $color-crimson: #990000;
 $color-midnight: #006298;
 $color-dark-midnight: #01426A;
+
+
+
 
 // Black tints
 
@@ -38,7 +71,11 @@ $color-black--700: #666666;
 $color-black--800: #555555;
 $color-black--900: #444444;
 
+
+
+
 // Midnight Variations
+
 $color-midnight--100: #dce3ee;
 $color-midnight--200: #b8c8dc;
 $color-midnight--300: #95adcb;
@@ -49,12 +86,19 @@ $color-midnight--700: #134a71;
 $color-midnight--800: #16324b;
 $color-midnight--900: #121c28;
 
+
+
+
 // Colors by purpose
+
 $color-text: $color-black;
 $color-background: $color-white;
 $color-action: $color-midnight;
 $color-link: $color-midnight;
 $color-link-visited: $color-dark-midnight;
+
+
+
 
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
@@ -70,8 +114,12 @@ $color-alert-yellow-light: #FDF7E7;
 $color-alert-orange: #F25B19;
 $color-alert-orange-light: #FDEEE8;
 
+
+
+
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
+
 $color-map: (
     "cream": $color-cream,
     "crimson": $color-crimson,
@@ -84,6 +132,9 @@ $color-map: (
     "orange": $color-alert-orange
 );
 
+
+
+
 // Global spacing units
 
 $spacing-unit: .5rem;        // 8px
@@ -95,6 +146,18 @@ $md: $spacing-unit * 3;      // 24px
 $lg: $spacing-unit * 4;      // 32px
 $xl: $spacing-unit * 5;      // 40px
 $xxl: $spacing-unit * 8;     // 64px
+
+
+
+// Global breakpoints
+
+$breakpoints: (
+    md-up: 480px,
+    lg-up: 1040px,
+    xl-up: 1260px,
+    xxl-up: 1400px
+);
+
 
 
 

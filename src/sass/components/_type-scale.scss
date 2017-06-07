@@ -1,116 +1,90 @@
-// Explicitly define the typescale here.
-// I used this scale as reference:
-// http://carbondesignsystem.com/style/typography#normalized-major-second-type-scale-1-125
 
-@mixin ts-12 {
-    font-size: $ts-12;
+// This little function makes it easier to get values out
+// of the type-sizes map. see "core/_varibales.scss".
+
+@function ts($key) {
+    @return map-get($type-sizes, $key);
 }
 
-@mixin ts-14 {
-    font-size: $ts-14;
+
+// This type scale mixin allows you to easily use values from the
+// define type-sizes map above if you don't want to use the utility
+// classes in your markup.
+
+// @example
+//     .my-element {
+//         @include ts-size(18);
+//     }
+
+@mixin ts-size($ts-value) {
+    font-size: ts($ts-value);
 }
 
-@mixin ts-base {
-    font-size: $ts-base;
+
+// @param {number (with unit)}
+
+// @example
+//     @include mq(480px) {
+//         .my-element {
+//             color: red;
+//         }
+//     }
+
+// @example
+//     @media screen and (min-width: 480px) {
+//         .my-element {
+//             color: red;
+//         }
+//     }
+
+@mixin mq($size) {
+
+    @media screen and (min-width: $size) {
+        @content
+    }
+
 }
 
-@mixin ts-16 {
-    font-size: $ts-16;
-}
-
-@mixin ts-18 {
-    font-size: $ts-18;
-}
-
-@mixin ts-20 {
-    font-size: $ts-20;
-}
-
-@mixin ts-23 {
-    font-size: $ts-23;
-}
-
-@mixin ts-26 {
-    font-size: $ts-26;
-}
-
-@mixin ts-29 {
-    font-size: $ts-29;
-}
-
-@mixin ts-32 {
-    font-size: $ts-32;
-}
-
-@mixin ts-36 {
-    font-size: $ts-36;
-}
-
-@mixin ts-41 {
-    font-size: $ts-41;
-}
-
-@mixin ts-46 {
-    font-size: $ts-46;
-}
-
-@mixin ts-52 {
-    font-size: $ts-52;
-}
 
 /**
- * Typescale helper classes
+ * These type scale classes will maintain the same font sizes across all
+ * screens when applied. Use the responsive utility classes below to
+ * apply different font sizes based on screen size.
  */
 
-.ts-12 {
-    @include ts-12;
+@each $ts-pixels, $ts-rems in $type-sizes {
+
+    .ts-#{$ts-pixels} {
+        font-size: $ts-rems !important;
+    }
+
 }
 
-.ts-14 {
-    @include ts-14;
-}
 
-.ts-base,
-.ts-16 {
-    @include ts-base;
-}
 
-.ts-18 {
-    @include ts-18;
-}
 
-.ts-20 {
-    @include ts-20;
-}
+/**
+ * These responsive type scale classes make it easy to apply different
+ * font sizes based on screen sizes.
+ * Example:
+ * <h1 class="ts-18 ts-20-md-up ts-32-lg-up">Hello, world!</h1>
+ *
+ * The font size on this h1 element would be 18px on small screens,
+ * 20px on medium screens and up, and 32px on large screens and up.
+ */
 
-.ts-23 {
-    @include ts-23;
-}
+@each $bp-name, $bp-size in $breakpoints {
 
-.ts-26 {
-    @include ts-26;
-}
+    @include mq($bp-size) {
 
-.ts-29 {
-    @include ts-29;
-}
+        @each $ts-pixels, $ts-rems in $type-sizes {
 
-.ts-32 {
-    @include ts-32;
-}
+            .ts-#{$ts-pixels}-#{$bp-name} {
+                font-size: $ts-rems !important;
+            }
 
-.ts-36 {
-    @include ts-36;
-}
+        }
 
-.ts-41 {
-    @include ts-41;
-}
+    }
 
-.ts-46 {
-    @include ts-46;
-}
-
-.ts-52 {
-    @include ts-52;
 }
