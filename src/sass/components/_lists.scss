@@ -20,13 +20,20 @@ ol li {
 }
 
 @mixin inline-list {
+    /**
+     * This is a hack that remove extras space between elements that are
+     * set to display inline-block.
+     */
+    font-size: 0;
+
     @include plain-list;
-     & li {
-         display: inline-block;
-         /**
-          * So we can absolutely position stuff inside list items.
-          */
-         position: relative;
+    
+    & li {
+        display: inline-block;
+        /**
+        * So we can absolutely position stuff inside list items.
+        */
+        position: relative;
      }
 }
 
