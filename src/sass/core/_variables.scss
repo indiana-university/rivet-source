@@ -84,16 +84,17 @@ $color-map: (
     "orange": $color-alert-orange
 );
 
+// Global spacing units
 
-$spacing-unit: .5rem;
+$spacing-unit: .5rem;        // 8px
 
-$xxs: $spacing-unit/2;
-$xs: $spacing-unit;
-$sm: $spacing-unit * 2;
-$md: $spacing-unit * 3;
-$lg: $spacing-unit * 4;
-$xl: $spacing-unit * 5;
-$xxl: $spacing-unit * 8;
+$xxs: $spacing-unit/2;       // 4px
+$xs: $spacing-unit;          // 8px
+$sm: $spacing-unit * 2;      // 16px Base
+$md: $spacing-unit * 3;      // 24px
+$lg: $spacing-unit * 4;      // 32px
+$xl: $spacing-unit * 5;      // 40px
+$xxl: $spacing-unit * 8;     // 64px
 
 
 
