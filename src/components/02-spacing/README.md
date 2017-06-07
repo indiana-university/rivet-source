@@ -7,7 +7,7 @@ To maintain consistent spacing between components and to help create a sense of 
 The CSS classes for the spacing system use the following conventions:
 
 - `m`, `p` = margin, padding
-- `top`, `right`, `btm`, `left` = the top, right, btm, left side of the element
+- `top`, `right`, `bottom`, `left` = the top, right, bottom, left side of the element
 - `xs` = Extra Small (8px/.5rem)
 - `sm` = Small (16px/1rem)
 - `md` = Medium (24px/1.5rem)
@@ -16,9 +16,6 @@ The CSS classes for the spacing system use the following conventions:
 - `xxl` = Extra extra large (48px/3rem)
 
 So a the class `.m-top-sm` would add 16px/1rem of margin to the top of the element it was applied to.
-
-### Vertical and horizontal Spacing
-The spacing system also includes utilities for for creating equal vertical and horizonal spacing, or removing all padding and margin from an element if you want no spacing! For example, you could add the class `.m-horizontal-sm` to add equal amounts (16px/1rem) of margin to both the right and left side of an element.
 
 ### All spacing
 Using the size conventions above you could apply the class `.p-all-xl` to add an Extra large amount (40px/2.5rem) to both the top and bottom of an element.
