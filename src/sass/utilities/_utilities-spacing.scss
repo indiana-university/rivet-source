@@ -65,35 +65,35 @@
 // TODO: Make mixins like this for all other spacing utilities below?
 
 @mixin m-all($size: $sm) {
-    margin: $size + rem
+    margin: $size;
 }
 
 .m-all-xxs {
-     @include m-all($xxs);
+     margin: $xxs
  }
 
 .m-all-xs {
-    margin: $xs + rem;
+    margin: $xs;
 }
 
 .m-all-sm {
-    margin: $sm + rem;
+    margin: $sm;
 }
 
 .m-all-md {
-    margin: $md + rem;
+    margin: $md;
 }
 
 .m-all-lg {
-    margin: $lg + rem;
+    margin: $lg;
 }
 
 .m-all-xl {
-    margin: $xl + rem;
+    margin: $xl;
 }
 
 .m-all-xxl {
-    margin: $xxl + rem;
+    margin: $xxl;
 }
 
 /**
@@ -101,38 +101,38 @@
  */
 
 .m-vertical-xxs {
-    margin-top: $xxs + rem;
-    margin-bottom: $xxs + rem;
+    margin-top: $xxs;
+    margin-bottom: $xxs;
  }
 
 .m-vertical-xs {
-    margin-top: $xs + rem;
-    margin-bottom: $xs + rem;
+    margin-top: $xs;
+    margin-bottom: $xs;
 }
 
 .m-vertical-sm {
-    margin-top: $sm + rem;
-    margin-bottom: $sm + rem;
+    margin-top: $sm;
+    margin-bottom: $sm;
 }
 
 .m-vertical-md {
-    margin-top: $md + rem;
-    margin-bottom: $md + rem;
+    margin-top: $md;
+    margin-bottom: $md;
 }
 
 .m-vertical-lg {
-    margin-top: $lg + rem;
-    margin-bottom: $lg + rem;
+    margin-top: $lg;
+    margin-bottom: $lg;
 }
 
 .m-vertical-xl {
-    margin-top: $xl + rem;
-    margin-bottom: $xl + rem;
+    margin-top: $xl;
+    margin-bottom: $xl;
 }
 
 .m-vertical-xxl {
-    margin-top: $xxl + rem;
-    margin-bottom: $xxl + rem;
+    margin-top: $xxl;
+    margin-bottom: $xxl;
 }
 
 /**
@@ -140,39 +140,39 @@
  */
 
 .m-horizontal-xxs {
-     margin-right: $xxs + rem;
-     margin-left: $xxs + rem;
+     margin-right: $xxs;
+     margin-left: $xxs;
  }
 
 
 .m-horizontal-xs {
-    margin-right: $xs + rem;
-    margin-left: $xs + rem;
+    margin-right: $xs;
+    margin-left: $xs;
 }
 
 .m-horizontal-sm {
-    margin-right: $sm + rem;
-    margin-left: $sm + rem;
+    margin-right: $sm;
+    margin-left: $sm;
 }
 
 .m-horizontal-md {
-    margin-right: $md + rem;
-    margin-left: $md + rem;
+    margin-right: $md;
+    margin-left: $md;
 }
 
 .m-horizontal-lg {
-    margin-right: $lg + rem;
-    margin-left: $lg + rem;
+    margin-right: $lg;
+    margin-left: $lg;
 }
 
 .m-horizontal-xl {
-    margin-right: $xl + rem;
-    margin-left: $xl + rem;
+    margin-right: $xl;
+    margin-left: $xl;
 }
 
 .m-horizontal-xxl {
-    margin-right: $xxl + rem;
-    margin-left: $xxl + rem;
+    margin-right: $xxl;
+    margin-left: $xxl;
 }
 
 /**
@@ -180,19 +180,19 @@
  */
 
 .m-top-xxs {
-    margin-top: $xxs + rem;
+    margin-top: $xxs;
 }
 
 .m-right-xxs {
-    margin-right: $xxs + rem;
+    margin-right: $xxs;
 }
 
 .m-btm-xxs {
-    margin-bottom: $xxs + rem;
+    margin-bottom: $xxs;
 }
 
 .m-left-xxs {
-    margin-left: $xxs + rem;
+    margin-left: $xxs;
 }
 
 /**
@@ -200,19 +200,19 @@
  */
 
 .m-top-xs {
-    margin-top: $xs + rem;
+    margin-top: $xs;
 }
 
 .m-right-xs {
-    margin-right: $xs + rem;
+    margin-right: $xs;
 }
 
 .m-btm-xs {
-    margin-bottom: $xs + rem;
+    margin-bottom: $xs;
 }
 
 .m-left-xs {
-    margin-left: $xs + rem;
+    margin-left: $xs;
 }
 
 
@@ -221,19 +221,19 @@
  */
 
 .m-top-sm {
-   margin-top: $sm + rem;
+   margin-top: $sm;
 }
 
 .m-right-sm {
-    margin-right: $sm + rem;
+    margin-right: $sm;
 }
 
 .m-btm-sm {
-    margin-bottom: $sm + rem;
+    margin-bottom: $sm;
 }
 
 .m-left-sm {
-    left-right: $sm + rem;
+    left-right: $sm;
 }
 
 
@@ -242,19 +242,19 @@
  */
 
 .m-top-md {
-    margin-top: $md + rem;
+    margin-top: $md;
 }
 
 .m-right-md {
-    margin-right: $md + rem;
+    margin-right: $md;
 }
 
 .m-btm-md {
-    margin-bottom: $md + rem;
+    margin-bottom: $md;
 }
 
 .m-left-md {
-    margin-left: $md + rem;
+    margin-left: $md;
 }
 
 /**
@@ -262,19 +262,19 @@
  */
 
 .m-top-lg {
-    margin-top: $lg + rem;
+    margin-top: $lg;
 }
 
 .m-right-lg {
-    margin-right: $lg + rem;
+    margin-right: $lg;
 }
 
 .m-btm-lg {
-    margin-bottom: $lg + rem;
+    margin-bottom: $lg;
 }
 
 .m-left-lg {
-    margin-left: $lg + rem;
+    margin-left: $lg;
 }
 
 /**
@@ -282,19 +282,19 @@
  */
 
 .m-top-xl {
-    margin-top: $xl + rem;
+    margin-top: $xl;
 }
 
 .m-right-xl {
-    margin-right: $xl + rem;
+    margin-right: $xl;
 }
 
 .m-btm-xl {
-    margin-bottom: $xl + rem;
+    margin-bottom: $xl;
 }
 
 .m-left-xl {
-    margin-left: $xl + rem;
+    margin-left: $xl;
 }
 
 
@@ -303,19 +303,19 @@
  */
 
 .m-top-xxl {
-    margin-top: $xxl + rem;
+    margin-top: $xxl;
 }
 
 .m-right-xxl {
-    margin-right: $xxl + rem;
+    margin-right: $xxl;
 }
 
 .m-btm-xxl {
-    margin-bottom: $xxl + rem;
+    margin-bottom: $xxl;
 }
 
 .m-left-xxl {
-    margin-left: $xxl + rem;
+    margin-left: $xxl;
 }
 
 /**
@@ -357,31 +357,31 @@
  */
 
 .p-all-xxs {
-     padding: $xxs +rem;
+     padding: $xxs;
  }
 
 .p-all-xs {
-    padding: $xs +rem;
+    padding: $xs;
 }
 
 .p-all-sm {
-    padding: $sm +rem;
+    padding: $sm;
 }
 
 .p-all-md {
-    padding: $md + rem;
+    padding: $md;
 }
 
 .p-all-lg {
-    padding: $lg + rem;
+    padding: $lg;
 }
 
 .p-all-xl {
-    padding: $xl + rem;
+    padding: $xl;
 }
 
 .p-all-xxl {
-    padding: $xxl + rem;
+    padding: $xxl;
 }
 
 /**
@@ -389,38 +389,38 @@
  */
 
 .p-vertical-xxs {
-     padding-top: $xxs + rem;
-     padding-bottom: $xxs + rem;
+     padding-top: $xxs;
+     padding-bottom: $xxs;
  }
 
 .p-vertical-xs {
-    padding-top: $xs + rem;
-    padding-bottom: $xs + rem;
+    padding-top: $xs;
+    padding-bottom: $xs;
 }
 
 .p-vertical-sm {
-    padding-top: $sm + rem;
-    padding-bottom: $sm + rem;
+    padding-top: $sm;
+    padding-bottom: $sm;
 }
 
 .p-vertical-md {
-    padding-top: $md + rem;
-    padding-bottom: $md + rem;
+    padding-top: $md;
+    padding-bottom: $md;
 }
 
 .p-vertical-lg {
-    padding-top: $lg + rem;
-    padding-bottom: $lg + rem;
+    padding-top: $lg;
+    padding-bottom: $lg;
 }
 
 .p-vertical-xl {
-    padding-top: $xl + rem;
-    padding-bottom: $xl + rem;
+    padding-top: $xl;
+    padding-bottom: $xl;
 }
 
 .p-vertical-xxl {
-    padding-top: $xxl + rem;
-    padding-bottom: $xxl + rem;
+    padding-top: $xxl;
+    padding-bottom: $xxl;
 }
 
 /**
@@ -428,38 +428,38 @@
  */
 
 .p-horizontal-xxs {
-     padding-right: $xxs + rem;
-     padding-left: $xxs + rem;
+     padding-right: $xxs;
+     padding-left: $xxs;
  }
 
 .p-horizontal-xs {
-    padding-right: $xs + rem;
-    padding-left: $xs + rem;
+    padding-right: $xs;
+    padding-left: $xs;
 }
 
 .p-horizontal-sm {
-    padding-right: $sm + rem;
-    padding-left: $sm + rem;
+    padding-right: $sm;
+    padding-left: $sm;
 }
 
 .p-horizontal-md {
-    padding-right: $md + rem;
-    padding-left: $md + rem;
+    padding-right: $md;
+    padding-left: $md;
 }
 
 .p-horizontal-lg {
-    padding-right: $lg + rem;
-    padding-left: $lg + rem;
+    padding-right: $lg;
+    padding-left: $lg;
 }
 
 .p-horizontal-xl {
-    padding-right: $xl + rem;
-    padding-left: $xl + rem;
+    padding-right: $xl;
+    padding-left: $xl;
 }
 
 .p-horizontal-xxl {
-    padding-right: $xxl + rem;
-    padding-left: $xxl + rem;
+    padding-right: $xxl;
+    padding-left: $xxl;
 }
 
 /**
@@ -467,19 +467,19 @@
  */
 
 .p-top-xxs {
-    padding-top: $xxs + rem;
+    padding-top: $xxs;
 }
 
 .p-right-xxs {
-    padding-right: $xxs + rem;
+    padding-right: $xxs;
 }
 
 .p-btm-xxs {
-    padding-bottom: $xxs + rem;
+    padding-bottom: $xxs;
 }
 
 .p-left-xxs {
-    padding-left: $xxs + rem;
+    padding-left: $xxs;
 }
 
 /**
@@ -487,19 +487,19 @@
  */
 
 .p-top-xs {
-    padding-top: $xs + rem;
+    padding-top: $xs;
 }
 
 .p-right-xs {
-    padding-right: $xs + rem;
+    padding-right: $xs;
 }
 
 .p-btm-xs {
-    padding-bottom: $xs + rem;
+    padding-bottom: $xs;
 }
 
 .p-left-xs {
-    padding-left: $xs + rem;
+    padding-left: $xs;
 }
 
 
@@ -508,19 +508,19 @@
  */
 
 .p-top-sm {
-   padding-top: $sm + rem;
+   padding-top: $sm;
 }
 
 .p-right-sm {
-    padding-right: $sm + rem;
+    padding-right: $sm;
 }
 
 .p-btm-sm {
-    padding-bottom: $sm + rem;
+    padding-bottom: $sm;
 }
 
 .p-left-sm {
-    left-right: $sm + rem;
+    left-right: $sm;
 }
 
 
@@ -529,19 +529,19 @@
  */
 
 .p-top-md {
-    padding-top: $md + rem;
+    padding-top: $md;
 }
 
 .p-right-md {
-    padding-right: $md + rem;
+    padding-right: $md;
 }
 
 .p-btm-md {
-    padding-bottom: $md + rem;
+    padding-bottom: $md;
 }
 
 .p-left-md {
-    padding-left: $md + rem;
+    padding-left: $md;
 }
 
 /**
@@ -549,19 +549,19 @@
  */
 
 .p-top-lg {
-    padding-top: $lg + rem;
+    padding-top: $lg;
 }
 
 .p-right-lg {
-    padding-right: $lg + rem;
+    padding-right: $lg;
 }
 
 .p-btm-lg {
-    padding-bottom: $lg + rem;
+    padding-bottom: $lg;
 }
 
 .p-left-lg {
-    padding-left: $lg + rem;
+    padding-left: $lg;
 }
 
 /**
@@ -569,19 +569,19 @@
  */
 
 .p-top-xl {
-    padding-top: $xl + rem;
+    padding-top: $xl;
 }
 
 .p-right-xl {
-    padding-right: $xl + rem;
+    padding-right: $xl;
 }
 
 .p-btm-xl {
-    padding-bottom: $xl + rem;
+    padding-bottom: $xl;
 }
 
 .p-left-xl {
-    padding-left: $xl + rem;
+    padding-left: $xl;
 }
 
 
@@ -590,17 +590,17 @@
  */
 
 .p-top-xxl {
-    padding-top: $xxl + rem;
+    padding-top: $xxl;
 }
 
 .p-right-xxl {
-    padding-right: $xxl + rem;
+    padding-right: $xxl;
 }
 
 .p-btm-xxl {
-    padding-bottom: $xxl + rem;
+    padding-bottom: $xxl;
 }
 
 .p-left-xxl {
-    padding-left: $xxl + rem;
+    padding-left: $xxl;
 }

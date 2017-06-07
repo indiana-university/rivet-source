@@ -21,7 +21,7 @@ select {
     border: 1px solid #ccc;
     background-color: #fefefe;
     padding: .5em;
-    height: $spacing-unit * 5 + rem;
+    height: $spacing-unit * 5;
 
     /**
      * TODO: Should we add a max-width to form inputs? It seems desirable
@@ -30,7 +30,7 @@ select {
 }
 
 textarea {
-    height: $spacing-unit * 15 + rem;
+    height: $spacing-unit * 15;
 }
 
 input[type="color"]:disabled,
@@ -88,7 +88,7 @@ label {
 legend {
     @include ts-18;
     font-weight: 700;
-    margin-bottom: $md + rem;
+    margin-bottom: $md;
 }
 
 select {
@@ -98,8 +98,8 @@ select {
     background-position: right -.5rem center;
     background-origin: content-box;
     background-repeat: no-repeat;
-    padding-right: $md + rem;
-    padding-left: $xs + rem;
+    padding-right: $md;
+    padding-left: $xs;
 
     /**
      * Prefixes get rid of browser default select element styles.

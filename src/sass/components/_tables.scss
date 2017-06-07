@@ -15,7 +15,7 @@ thead {
 
     th,
     tr th {
-        padding: $sm + rem;
+        padding: $sm;
         line-height: 1;
         font-weight: 700;
     }
@@ -27,11 +27,11 @@ tr {
 
 tr th {
     font-weight: 400;
-    padding: $sm + rem;
+    padding: $sm;
 }
 
 tr td {
-    padding: $sm + rem;
+    padding: $sm;
 }
 
 .table-stripes {
