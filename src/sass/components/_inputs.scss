@@ -81,12 +81,12 @@ select:focus {
 
 label {
     display: inline-block;
-    @include ts-14;
+    font-size: $ts-14;
     font-weight: 700;
 }
 
 legend {
-    @include ts-18;
+    font-size: $ts-18;
     font-weight: 700;
     margin-bottom: $md;
 }

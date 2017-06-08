@@ -1,0 +1,53 @@
+
+// These are some helpful mixins and functions that are used in other
+// parts of the codebase. Nothing in this file should generate CSS
+// on it's own only return CSS properties or values.
+
+
+
+
+// This little function makes it easier to get values out
+// of the type-sizes map. see "core/_varibales.scss".
+
+@function ts($key) {
+    @return map-get($type-sizes, $key);
+}
+
+
+// This type scale mixin allows you to easily use values from the
+// define type-sizes map above if you don't want to use the utility
+// classes in your markup.
+
+// @example
+//     .my-element {
+//         @include ts-size(18);
+//     }
+
+@mixin ts-size($ts-value) {
+    font-size: ts($ts-value);
+}
+
+
+// @param {number (with unit)}
+
+// @example
+//     @include mq(480px) {
+//         .my-element {
+//             color: red;
+//         }
+//     }
+
+// @example
+//     @media screen and (min-width: 480px) {
+//         .my-element {
+//             color: red;
+//         }
+//     }
+
+@mixin mq($size) {
+
+    @media screen and (min-width: $size) {
+        @content
+    }
+
+}
