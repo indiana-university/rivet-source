@@ -27,9 +27,10 @@ ol li {
     font-size: 0;
 
     @include plain-list;
-    
+
     & li {
         display: inline-block;
+        line-height: 1;
         /**
         * So we can absolutely position stuff inside list items.
         */
