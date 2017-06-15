@@ -2,7 +2,8 @@
  * screenreaders: h5bp.com/v
  */
 .visuallyhidden,
-.v-hide {
+.v-hide,
+.sr-only {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -20,7 +21,9 @@
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus,
 .v-hide.focusable:active,
-.v-hide.focusable:focus  {
+.v-hide.focusable:focus,
+.sr-only.focusable:active,
+.sr-only.focusable:focus  {
     clip: auto;
     height: auto;
     margin: 0;
