@@ -85,10 +85,16 @@ label {
     font-weight: 700;
 }
 
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
 legend {
-    font-size: $ts-18;
-    font-weight: 700;
-    margin-bottom: $md;
+    margin: 0;
+    font-weight: 400;
+    display: block;
 }
 
 select {
