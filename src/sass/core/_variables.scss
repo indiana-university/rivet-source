@@ -152,10 +152,11 @@ $xxl: $spacing-unit * 8;     // 64px
 // Global breakpoints
 
 $breakpoints: (
-    md-up: 480px,
-    lg-up: 1040px,
-    xl-up: 1260px,
-    xxl-up: 1400px
+    sm: 320px,
+    md: 480px,
+    lg: 940px,
+    xl: 1260px,
+    xxl: 1400px
 );
 
 
