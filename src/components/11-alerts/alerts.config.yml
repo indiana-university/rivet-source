@@ -1,1 +1,29 @@
 title: Alerts & errors
+variants:
+    - name: "default"
+      label: "Page-level alerts"
+    - name: "alert-lists"
+      label: "Alert lists"
+      notes: "Alert lists provide a way to group a set of errors together. For instance, when summarizing a list of errors on a long form."
+    - name: "inline-errors"
+      label: "Inline errors"
+      notes: >
+        # Inline alerts
+
+        Inline alerts provide just-in-time information regarding the state of specific components, like invalid form fields
+
+        ## When to use
+
+        * To highlight fields with errors in forms
+
+        * To provide users with form validation messaging
+
+
+        ## Implementation
+
+        Write helpful validation alert messages that explain the requirements for the form field(s).
+        Show inline validation messages after the user submits the form. For longer form highlight each field with a validation error and summarize the errors at the top of the form using a page-level alert.
+
+        ## Accessibility
+
+        TODO: accessibility content
