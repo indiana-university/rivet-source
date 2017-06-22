@@ -2,16 +2,16 @@
     <fieldset>
         <div class="input-error m-bottom-sm">
             <label for="error-1">Last name</label>
-            <input type="text" id="error-1" aria-describedby="input-error-message"/>
-            <div class="alert-inline m-top-sm">
-                <p class="alert-inline__message" id="input-error-message">Last name is required, duh.</p>
+            <input type="text" id="error-1" aria-describedby="unique-id-for-last-name-error" aria-invalid="true"/>
+            <div class="alert-inline m-top-sm" role="alert" id="unique-id-for-last-name-error">
+                <p class="alert-inline__message">Last name is required, duh.</p>
             </div>
         </div>
     </fieldset>
     <fieldset class="m-top-lg">
         <legend class="font-bold">Some choices</legend>
         <p class="m-top-remove m-bottom-md">What is your choice?</p>
-        <ul class="inline-list">
+        <ul class="inline-list" role="radiogroup" aria-describedby="unique-id-for-radio-error" aria-invalid="true">
             <li>
                 <input type="radio" name="radio-demo" id="radio-1">
                 <label for="radio-1" class="m-right-md">Option One</label>
@@ -21,7 +21,7 @@
                 <label for="radio-2">Option Two</label>
             </li>
         </ul>
-        <div class="alert-inline m-top-sm">
+        <div class="alert-inline m-top-sm" role="alert" id="unique-id-for-radio-error">
             <p class="alert-inline__message">Please make a choice.</p>
         </div>
     </fieldset>

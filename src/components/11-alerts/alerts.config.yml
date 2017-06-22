@@ -26,4 +26,8 @@ variants:
 
         ## Accessibility
 
-        TODO: accessibility content
+        * a `role="alert"` attribute should be applied to the `<div class="alert-inline">`, and it should be given a **unique `id` attribute**
+
+        * an invalid form element or other interactive component should be given an `aria-invalid="true"` attribute, and an `aria-describbedby="alert-id"` attribute which references the above **unique `id` attribute**
+
+        * these attributes can be placed on a wrapping `<div role="radiogroup">` or similar element in the case of grouped elements such as radio inputs
