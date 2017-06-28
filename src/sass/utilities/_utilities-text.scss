@@ -1,0 +1,17 @@
+
+.text-uppercase {
+    text-transform: uppercase;
+    /**
+     * All uppercase text is harder for humans to read. A little extra
+     * letter spacing helps make it easier.
+     */
+    letter-spacing: .04rem;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-regular {
+    font-weight: 400;
+}
