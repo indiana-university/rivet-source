@@ -21,7 +21,7 @@ button,
     &:focus,
     &-focus {
         outline: none;
-        box-shadow: 0 0 6px 3px $color-midnight--400;
+        box-shadow: 0 0 1px 3px $color-midnight--300;
     }
 
     &:hover,
@@ -63,14 +63,110 @@ button,
     }
 }
 
+.button--success {
+    background-color: $color-alert-green;
+    border-color: $color-alert-green;
+
+    &:hover,
+    &-hover {
+        background-color: mix($color-alert-green, black, 70%);
+        border-color: mix($color-alert-green, black, 70%);
+        color: #fff;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-alert-green, black, 50%);
+        border-color: mix($color-alert-green, black, 50%);
+    }
+}
+
+.button--success-secondary {
+    background-color: transparent;
+    border-color: $color-alert-green;
+    color: $color-alert-green;
+
+    &:hover,
+    &-hover {
+        background-color: mix($color-alert-green, white, 15%);
+        border-color: $color-alert-green;
+        color: $color-alert-green;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-alert-green, white, 30%);
+        border-color: $color-alert-green;
+    }
+}
+
+.button--danger {
+    background-color: $color-alert-orange;
+    border-color: $color-alert-orange;
+
+    &:hover,
+    &-hover {
+        background-color: mix($color-alert-orange, black, 70%);
+        border-color: mix($color-alert-orange, black, 70%);
+        color: #fff;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-alert-orange, black, 50%);
+        border-color: mix($color-alert-orange, black, 50%);
+    }
+}
+
+.button--danger-secondary {
+    background-color: transparent;
+    border-color: $color-alert-orange;
+    color: $color-alert-orange;
+
+    &:hover,
+    &-hover {
+        background-color: mix($color-alert-orange, white, 15%);
+        border-color: $color-alert-orange;
+        color: $color-alert-orange;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-alert-orange, white, 30%);
+        border-color: $color-alert-orange;
+    }
+}
+
+
+.button--small {
+    padding: .35rem .65rem;
+    font-size: $ts-14;
+}
+
 .button--plain {
     border-color: transparent;
     background-color: transparent;
     color: $color-action;
 
-    &:hover {
+    &:hover,
+    &-hover {
         background-color: mix($color-midnight, white, 20%);
-        border-color: mix($color-midnight, white, 20%);
+        border-color: rgba($color-midnight, 0);
         color: $color-midnight;
+    }
+
+    &:active,
+    &-active {
+        background-color: mix($color-midnight, white, 35%);
+        border-color: rgba($color-midnight, 0);
+        color: $color-action;
+    }
+}
+
+.button-group {
+    display: flex;
+
+    > *:not(:last-child) {
+        margin-right: $sm;
     }
 }
