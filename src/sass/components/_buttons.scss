@@ -10,6 +10,7 @@ button,
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
+    position: relative;
     /**
      * This padding sets the button-height to be the same as the text
      * input height.
@@ -160,6 +161,28 @@ button,
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
         color: $color-action;
+    }
+}
+
+/**
+ * NOTE: Starting to work on loading buttons. This will only work for
+ * the default primary button right now.
+ */
+.button--loading {
+    padding-right: 2.5rem;
+    cursor: not-allowed;
+
+    &:after {
+        content: " ";
+        margin-left: $xs;
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        position: absolute;
+        top: 6px;
+        background-image: url('../img/button-loader.gif');
+        background-size: 25px 25px;
+        background-repeat: no-repeat;
     }
 }
 
