@@ -16,7 +16,7 @@ Buttons are used to signal actions, submit forms, or trigger new content within 
 There are a number of button styles and sizes that can be achieved using a handful of modifier CSS classes.
 
 ### Contextual button modifiers
-Certain contexts may require alternate button styles. For example, when a user is about to take a destructive action it may be advisable to use a different color button to alert them. In this case, adding the class `.button--danger` will create orange button that matches the [error alert color](link-to-alerts).
+Certain contexts may require alternate button styles. For example, when a user is about to take a destructive action it may be advisable to use a different color button to alert them. In this case, adding the class `.button--danger` will create an orange button that matches the [error alert color](link-to-alerts).
 
 The available button color modifiers are:
 
