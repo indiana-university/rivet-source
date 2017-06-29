@@ -25,7 +25,7 @@ The available button color modifiers are:
 - `.button--danger`
 - `.button--danger-outline`
 
-## Small buttons
+### Small buttons
 You can create smaller buttons by adding the `.button--small` modifier class. The small button modifier can be used together with the other button modifier classes to make any variation of small buttons.
 
 For example, using the following markup, you could create a small secondary success (green) button.
@@ -39,7 +39,7 @@ For example, using the following markup, you could create a small secondary succ
 ### Link and input buttons
 The `.button button--*` classes are meant to be used on the `<button>` elements, but they will work if you need to make an `<a>` tag or an `<input>` look like a button. If you're not sure whether to use a `<button>` or an `<a>` tag, you can reference the [documentation on links](/components/detail/links).
 
-## Button groups
+### Button groups
 When you need to display a group of buttons you can wrap them in a `div` with the class `.button-group` applied to it. The `.button-group` class will add an equal amount of margin to the right side of every button in the group except the last one.
 
 ```html
