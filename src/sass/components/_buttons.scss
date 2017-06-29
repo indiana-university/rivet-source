@@ -193,3 +193,10 @@ button,
         margin-right: $sm;
     }
 }
+
+/**
+ * Right align buttons.
+ */
+.button-group--right {
+    justify-content: flex-end;
+}

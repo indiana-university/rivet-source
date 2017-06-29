@@ -39,5 +39,26 @@ For example, using the following markup, you could create a small secondary succ
 ### Link and input buttons
 The `.button button--*` classes are meant to be used on the `<button>` elements, but they will work if you need to make an `<a>` tag or an `<input>` look like a button. If you're not sure whether to use a `<button>` or an `<a>` tag, you can reference the [documentation on links](/components/detail/links).
 
-### Resources
+## Button groups
+When you need to display a group of buttons you can wrap them in a `div` with the class `.button-group` applied to it. The `.button-group` class will add an equal amount of margin to the right side of every button in the group except the last one.
+
+```html
+<div class="button-group">
+    <button class="button">Ok</button>
+    <button class="button button--secondary">Cancel</button>
+</div>
+```
+
+If you need to right align your buttons, you can add the `.button-group--right` modifier class to the `.button-group` div.
+
+```html
+<div class="button-group button-group--right">
+    <button class="button">Ok</button>
+    <button class="button button--secondary">Cancel</button>
+</div>
+```
+
+In the example above, the buttons would be aligned to the right edge of the `.button-group`'s parent container.
+
+## Resources
 - [Links vs. Buttons in Modern Web Applications](https://marcysutton.com/links-vs-buttons-in-modern-web-applications/)
