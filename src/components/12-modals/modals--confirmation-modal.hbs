@@ -1,0 +1,22 @@
+<button class="button open-modal" data-modal="modal-confirmation">Open Confirmation modal</button>
+
+<div class="uitsds-modal uitsds-modal--small uitsds-modal--confirmation"
+     id="modal-confirmation"
+     role="dialog"
+     aria-labelledby="modal-title-confirmation"
+     aria-describedby="modal-description-confirmation"
+     aria-hidden="true">
+
+    <header class="uitsds-modal__header">
+        <h1 class="uitsds-modal__title v-hide" id="modal-title-confirmation">Delete item</h1>
+    </header>
+    <div class="uitsds-modal__body">
+        <p class="m-top-remove m-bottom-xl" id="modal-description-confirmation">Are you sure you want to <strong>delete your progress</strong>?</p>
+    </div>
+    <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
+        <button class="button button--danger m-right-sm close-modal">Delete my progress</button>
+        <button class="button button--secondary close-modal">Cancel</button>
+    </footer>
+</div>
+
+<div class="uitsds-modal-overlay" tabindex="-1" aria-hidden="true"></div>

@@ -1,0 +1,17 @@
+title: Modals
+preview: "@preview-modals"
+variants:
+    - name: "modal-dialog"
+      label: "Modal - dialog"
+    - name: "information-modal"
+      label: "Modal - information"
+      notes: >
+        # Information modal
+    - name: "confirmation-modal"
+      label: "Modal - confirmation"
+      notes: >
+        # Confirmation modal
+    - name: "complex-modal"
+      label: "Modal - complex"
+      notes: >
+        # Complex modal
