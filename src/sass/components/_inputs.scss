@@ -74,8 +74,8 @@ select:focus {
     /**
      * Should we just leave this default?
      */
-     box-shadow: 0 0 0 2px $color-action;
-     border-color: $color-midnight;
+     box-shadow: 0 0 1px 3px $color-midnight--300;
+     border-color: $color-midnight--300;
      outline: none;
 }
 

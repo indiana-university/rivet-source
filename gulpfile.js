@@ -89,14 +89,32 @@ gulp.task('images:watch', function() {
     gulp.watch('src/img/**/*', ['images']);
 });
 
+
+/**
+ * JavaScript
+ */
+
+gulp.task('js', function() {
+    return gulp.src('src/js/**/*.js')
+        .pipe(gulp.dest('dist/js/'));
+});
+
+/**
+ * Watch scripts for changes and move to the "dist" folder
+ */
+
+gulp.task('js:watch', function() {
+    gulp.watch('src/js/**/*.js', ['js']);
+});
+
 /**
  * Build the fractal UI with all components and CSS compiled.
  */
 
-gulp.task('build', ['sass', 'images', 'fractal:build']);
+gulp.task('build', ['sass', 'images', 'js', 'fractal:build']);
 
 /**
  * Default development task
  */
 
-gulp.task('default', ['sass', 'fractal:start', 'sass:watch', 'images:watch']);
+gulp.task('default', ['sass', 'js', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
