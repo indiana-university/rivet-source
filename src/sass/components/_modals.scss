@@ -1,4 +1,4 @@
-.uitsds-modal {
+.modal {
     z-index: 999;
     position: absolute;
     top: 0;
@@ -78,12 +78,10 @@
     }
 }
 
-.uitsds-modal-overlay[aria-hidden="true"],
-.uitsds-modal[aria-hidden="true"] {
+.modal[aria-hidden="true"] {
 	display: none;
 }
 
-.uitsds-modal-overlay:not([aria-hidden="true"]),
-.uitsds-modal:not([aria-hidden="true"]) {
+.modal:not([aria-hidden="true"]) {
 	display: block;
 }

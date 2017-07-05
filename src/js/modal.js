@@ -21,8 +21,8 @@ function Modal(modalName) {
         console.error("Could not find modal element #" + modalName);
         return;
     }
-    this.overlayEl = document.querySelector('.uitsds-modal');
-    this.innerEl = document.querySelector('.uitsds-modal__inner');
+    this.overlayEl = document.querySelector('.modal');
+    this.innerEl = document.querySelector('.modal__inner');
     this.focusedElBeforeOpen;
 
     var focusableEls = this.modalEl.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
