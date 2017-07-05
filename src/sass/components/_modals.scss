@@ -5,20 +5,19 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .7);
     overflow-y: scroll;
     padding-bottom: 5rem;
 
-    &--small {
-        max-width: 500px;
-    }
-
-    &--medium {
-        max-width: 800px;
-    }
-
-    &--large {
-        max-width: 1040px;
+    &__inner {
+        position: relative;
+        top: 5rem;
+        max-width: 600px;
+        width: 90%;
+        background-color: white;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+        border-radius: $radius-small;
     }
 
     &__close {
@@ -64,20 +63,18 @@
     &__controls--right {
         justify-content: flex-end;
     }
-}
 
-.uitsds-modal__inner {
-    position: relative;
-    top: 5rem;
-    max-width: 600px;
-    width: 95%;
-    background-color: white;
-    margin: 0 auto;
-    margin-bottom: 5rem;
-}
+    &--small &__inner {
+        max-width: 500px;
+    }
 
-.uitsds-modal__body {
-    padding: 1rem;
+    &--medium {
+        max-width: 800px;
+    }
+
+    &--large {
+        max-width: 1040px;
+    }
 }
 
 .uitsds-modal-overlay {
@@ -86,21 +83,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .7);
-    transition: all .2s ease;
+    // background-color: rgba(0, 0, 0, .7);
     z-index: 998;
 }
 
 .uitsds-modal-overlay[aria-hidden="true"],
 .uitsds-modal[aria-hidden="true"] {
-	// display: none;
-    opacity: 0;
-    visibility: hidden;
+	display: none;
 }
 
 .uitsds-modal-overlay:not([aria-hidden="true"]),
 .uitsds-modal:not([aria-hidden="true"]) {
 	display: block;
-    visibility: visible;
-    opacity: 1;
 }
