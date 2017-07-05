@@ -43,6 +43,11 @@ Modal.prototype.open = function() {
 
     var Modal = this;
 
+    /** Add a modal-open class so we can set the overflow to hidden making
+     * only the modal content scrollable and not the body.
+     */
+    document.body.classList.add('modal-open');
+
     this.modalEl.removeAttribute('aria-hidden');
     this.overlayEl.removeAttribute('aria-hidden');
 
@@ -64,6 +69,9 @@ Modal.prototype.open = function() {
 };
 
 Modal.prototype.close = function() {
+
+    // Rove the 'modal-open' class by removing the class attribute all together
+    document.body.removeAttribute('class');
 
     this.modalEl.setAttribute('aria-hidden', true);
     this.overlayEl.setAttribute('aria-hidden', true);
