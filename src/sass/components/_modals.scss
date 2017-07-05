@@ -54,14 +54,8 @@
     &__controls {
         padding: $sm;
         display: flex;
-    }
-
-    &__controls--accent {
         border-top: 1px solid #eee;
         background-color: #fafafa;
-    }
-
-    &__controls--right {
         justify-content: flex-end;
     }
 
