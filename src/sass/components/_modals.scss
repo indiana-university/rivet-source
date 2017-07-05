@@ -1,3 +1,13 @@
+
+/**
+ * This class gets applied to the body of the document when the modal
+ * is open so that the modal scrolls but not the content of the body.
+ * It's removed when the modal is closed making the body scrollable again.
+ */
+.modal-open {
+    overflow: hidden;
+}
+
 .modal {
     z-index: 999;
     position: absolute;
