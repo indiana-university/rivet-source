@@ -8,22 +8,22 @@
      aria-describedby="modal-information-description"
      aria-hidden="true">
 
-    <header class="uitsds-modal__header">
-        <h1 class="uitsds-modal__title" id="modal-information-title">Simple informational modal</h1>
-        <p class="v-hide" id="modal-information-description">It may be advisable to also link up a description of the modal content using aria-describedby, but visually hide it using utility classes.</p>
-    </header>
-    <div class="uitsds-modal__body">
-        <p>Lorem ipsum dolor sit amet, <a href="#0">consectetur adipisicing</a> elit. Dolore consequatur odio, expedita quam eum, nihil tempore temporibus recusandae, cum dolores itaque eos quaerat laborum suscipit asperiores voluptate repellat exercitationem non.</p>
+    <div class="uitsds-modal__inner">
+        <header class="uitsds-modal__header">
+            <h1 class="uitsds-modal__title" id="modal-information-title">Simple informational modal</h1>
+            <p class="v-hide" id="modal-information-description">It may be advisable to also link up a description of the modal content using aria-describedby, but visually hide it using utility classes.</p>
+        </header>
+        <div class="uitsds-modal__body">
+            <p>Lorem ipsum dolor sit amet, <a href="#0">consectetur adipisicing</a> elit. Dolore consequatur odio, expedita quam eum, nihil tempore temporibus recusandae, cum dolores itaque eos quaerat laborum suscipit asperiores voluptate repellat exercitationem non.</p>
+        </div>
+        <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
+            <button class="close-modal">Close</button>
+        </footer>
+        <button class="button button--plain uitsds-modal__close close-modal">
+            <span class="v-hide">Close</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M10,8l5.63-5.63a1.39,1.39,0,0,0-2-2L8,6,2.37.41a1.39,1.39,0,0,0-2,2L6,8,.41,13.63a1.39,1.39,0,1,0,2,2L8,10l5.63,5.63a1.39,1.39,0,0,0,2-2Z" style="fill: #333"/>
+            </svg>
+        </button>
     </div>
-    <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
-        <button class="close-modal">Close</button>
-    </footer>
-    <button class="button button--plain uitsds-modal__close close-modal">
-        <span class="v-hide">Close</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M10,8l5.63-5.63a1.39,1.39,0,0,0-2-2L8,6,2.37.41a1.39,1.39,0,0,0-2,2L6,8,.41,13.63a1.39,1.39,0,1,0,2,2L8,10l5.63,5.63a1.39,1.39,0,0,0,2-2Z" style="fill: #333"/>
-        </svg>
-    </button>
 </div><!-- End uitsds-modal -->
-
-<div class="uitsds-modal-overlay" tabindex="-1" aria-hidden="true"></div>

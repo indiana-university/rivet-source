@@ -8,20 +8,20 @@
      aria-describedby="modal-dialog-description"
      aria-hidden="true">
 
-    <header class="uitsds-modal__header">
-        <h1 class="uitsds-modal__title" id="modal-dialog-title">Modal Dialog</h1>
-    </header>
-    <div class="uitsds-modal__body">
-        <p>A modal dialog:</p>
-        <ul>
-            <li>Is not dismissable i.e. doesn't have an (X) button</li>
-            <li>Requires user input before they contiue their work</li>
-        </ul>
+    <div class="uitsds-modal__inner">
+        <header class="uitsds-modal__header">
+            <h1 class="uitsds-modal__title" id="modal-dialog-title">Modal Dialog</h1>
+        </header>
+        <div class="uitsds-modal__body">
+            <p>A modal dialog:</p>
+            <ul>
+                <li>Is not dismissable i.e. doesn't have an (X) button</li>
+                <li>Requires user input before they contiue their work</li>
+            </ul>
+        </div>
+        <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
+            <button class="m-right-sm close-modal">OK</button>
+            <button class="button button--secondary close-modal">Cancel</button>
+        </footer>
     </div>
-    <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
-        <button class="m-right-sm close-modal">OK</button>
-        <button class="button button--secondary close-modal">Cancel</button>
-    </footer>
 </div>
-
-<div class="uitsds-modal-overlay" tabindex="-1" aria-hidden="true"></div>

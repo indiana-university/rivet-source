@@ -21,7 +21,8 @@ function Modal(modalName) {
         console.error("Could not find modal element #" + modalName);
         return;
     }
-    this.overlayEl = document.querySelector('.uitsds-modal-overlay');
+    this.overlayEl = document.querySelector('.uitsds-modal');
+    this.innerEl = document.querySelector('.uitsds-modal__inner');
     this.focusedElBeforeOpen;
 
     var focusableEls = this.modalEl.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
@@ -54,6 +55,10 @@ Modal.prototype.open = function() {
     this.overlayEl.addEventListener('click', function() {
         Modal.close();
     });
+
+    this.innerEl.addEventListener('click', function(e) {
+        e.stopPropagation();
+    })
 
     this.firstFocusableEl.focus();
 };
