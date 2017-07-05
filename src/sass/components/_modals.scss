@@ -9,7 +9,7 @@
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%,-40%);
-    z-index: 3;
+    z-index: 999;
 
     &--small {
         max-width: 500px;
@@ -43,7 +43,6 @@
     &--confirmation &__header {
         border-bottom: none;
     }
-
 
     &__title {
         font-size: 1.25rem;
@@ -82,7 +81,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, .7);
     transition: all .2s ease;
-    z-index: 2;
+    z-index: 998;
 }
 
 .uitsds-modal-overlay[aria-hidden="true"],
