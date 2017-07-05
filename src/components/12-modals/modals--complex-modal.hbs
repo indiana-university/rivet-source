@@ -2,39 +2,39 @@
 <button class="button open-modal" data-modal="modal-complex">Open Complex modal</button>
 
 <div class="uitsds-modal uitsds-modal--top-aligned"
-         role="dialog"
-         id="modal-complex"
-         aria-labelledby="modal-title-complex"
-         aria-describedby="modal-description-complex"
-         aria-hidden="true">
+     role="dialog"
+     id="modal-complex"
+     aria-labelledby="modal-title-complex"
+     aria-describedby="modal-description-complex"
+     aria-hidden="true">
 
-        <header class="uitsds-modal__header">
-            <h1 class="uitsds-modal__title" id="modal-title-complex">Complex transactional modal</h1>
-            <p class="v-hide" id="modal-description-complex">It may be advisable to also link up a description of the modal content using aria-describedby, but visually hide it using utility classes.</p>
-        </header>
-        <div class="uitsds-modal__body">
-            <label for="complex-title">Title</label>
-            <input type="text" id="complex-title" />
+    <header class="uitsds-modal__header">
+        <h1 class="uitsds-modal__title" id="modal-title-complex">Complex transactional modal</h1>
+        <p class="v-hide" id="modal-description-complex">It may be advisable to also link up a description of the modal content using aria-describedby, but visually hide it using utility classes.</p>
+    </header>
+    <div class="uitsds-modal__body">
+        <label for="complex-title">Title</label>
+        <input type="text" id="complex-title" />
 
-            <label for="complex-category" class="m-top-sm">Category</label>
-            <select name="" id="complex-category">
-                <option value="">Option 1</option>
-                <option value="">Option 2</option>
-                <option value="">Option 3</option>
-            </select>
+        <label for="complex-category" class="m-top-sm">Category</label>
+        <select name="" id="complex-category">
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+            <option value="">Option 3</option>
+        </select>
 
-            <label for="complex-message" class="m-top-sm">Message</label>
-            <textarea name="" id="complex-message" cols="30" rows="10"></textarea>
-        </div>
-        <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
-            <button class="m-right-sm close-modal">Save</button><button class="button button--secondary close-modal">Close</button>
-        </footer>
-        <button class="button button--plain uitsds-modal__close close-modal">
-            <span class="v-hide">Close</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path d="M10,8l5.63-5.63a1.39,1.39,0,0,0-2-2L8,6,2.37.41a1.39,1.39,0,0,0-2,2L6,8,.41,13.63a1.39,1.39,0,1,0,2,2L8,10l5.63,5.63a1.39,1.39,0,0,0,2-2Z" style="fill: #333"/>
-            </svg>
-        </button>
-    </div><!-- End uitsds-modal -->
+        <label for="complex-message" class="m-top-sm">Message</label>
+        <textarea name="" id="complex-message" cols="30" rows="10"></textarea>
+    </div>
+    <footer class="uitsds-modal__controls uitsds-modal__controls--right uitsds-modal__controls--accent">
+        <button class="m-right-sm close-modal">Save</button><button class="button button--secondary close-modal">Close</button>
+    </footer>
+    <button class="button button--plain uitsds-modal__close close-modal">
+        <span class="v-hide">Close</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M10,8l5.63-5.63a1.39,1.39,0,0,0-2-2L8,6,2.37.41a1.39,1.39,0,0,0-2,2L6,8,.41,13.63a1.39,1.39,0,1,0,2,2L8,10l5.63,5.63a1.39,1.39,0,0,0,2-2Z" style="fill: #333"/>
+        </svg>
+    </button>
+</div><!-- End uitsds-modal -->
 
-    <div class="uitsds-modal-overlay" tabindex="-1" aria-hidden="true"></div>
+<div class="uitsds-modal-overlay" tabindex="-1" aria-hidden="true"></div>
