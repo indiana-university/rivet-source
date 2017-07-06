@@ -1,11 +1,12 @@
 title: Modals
 preview: "@preview-modals"
 variants:
+    - name: default
+      label: "Modal component"
     - name: "modal-dialog"
-      label: "Modal - dialog"
+      label: "Modal dialog"
       notes: >
         # Modal dialog
-        
     - name: "information-modal"
       label: "Modal - information"
       notes: >
