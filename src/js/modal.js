@@ -12,16 +12,33 @@
  * 1. Pass the Modal() a name (ex: 'modal-alpha')
  * 2. Add the name as an id attribute on the modal element
  * 3. Add a data-modal attribute to the .open-modal with a value of the modal name
+ *
+ * The modal takes a second Boolean value (isDialog). If you want to use the modal
+ * as a modal dialog pass it a value of true. This will make the modal fucntion
+ * as a dialog meaning that clicking outside of the modal on the background
+ * will not close the modal.
+ *
  */
 
 
-function Modal(modalName) {
+/**
+ * @param {string} modalName - The id of the modal and the matching
+ * data attribute for the button trigger.
+ * @param {bool} isDialog - If set to true the modal will be treated as
+ * a dialog and clicking outside of the modal will not close it. isDialog
+ * is optional. If left out it will be assumed to be false and the modal
+ * will function as a normal modal (clicking outside closes it).
+ */
+
+function Modal(modalName, isDialog) {
     this.modalEl = document.querySelector('#' + modalName);
     if (!this.modalEl) {
         console.error("Could not find modal element #" + modalName);
         return;
     }
-    this.overlayEl = document.querySelector('.modal');
+
+    this.isDialog = isDialog || false;
+    this.overlayEl = document.querySelector('.modal#' + modalName);
     this.innerEl = document.querySelector('.modal__inner');
     this.focusedElBeforeOpen;
 
@@ -57,9 +74,16 @@ Modal.prototype.open = function() {
         Modal._handleKeyDown(e);
     });
 
-    this.overlayEl.addEventListener('click', function() {
-        Modal.close();
-    });
+    /**
+     * Checks to see if the isDialog variable is set. If it is the user
+     * can click on the background to close, otherwise the event listener
+     * isn't added and clicking on the background won't close the modal.
+     */
+    if (this.isDialog === !true) {
+        this.overlayEl.addEventListener('click', function() {
+            Modal.close();
+        });
+    }
 
     this.innerEl.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -72,7 +96,6 @@ Modal.prototype.close = function() {
 
     // Rove the 'modal-open' class by removing the class attribute all together
     document.body.removeAttribute('class');
-
     this.modalEl.setAttribute('aria-hidden', true);
     this.overlayEl.setAttribute('aria-hidden', true);
 
@@ -115,8 +138,11 @@ Modal.prototype._handleKeyDown = function(e) {
             }
             break;
         case KEY_ESC:
-            Modal.close();
-            break;
+            if (Modal.isDialog === !true) {
+                Modal.close();
+                break;
+            }
+
         default:
             break;
     }
