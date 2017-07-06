@@ -13,7 +13,7 @@ Modals are helpful when you need to create a focused space for a user to complet
 
 ### When to consider something else
 
-- When you need to display an error message consider using an [alert](link-to-alerts) on the page in which the error occurred.
+- When you need to display an error message consider using an [**alert**](link-to-alerts) on the page in which the error occurred.
 - When you need to display large amounts of information for multiple tasks consider using a dedicated page instead.
 
 ## Implementation notes
@@ -29,6 +29,12 @@ The modal component is made up of the following elements:
 
 The only elements required in order for the modal to work is the `.modal__body`, but it is advisable to use the `.modal__header` element to help describe what the modal is use for. Likewise, the `.modal__controls` element provides an easy way to add additional actions to the modal like "Save" and "Close".
 
-### Modals vs. dialogs
+## Accessibility notes
 
-We use the generic term "Modal" to mean any smaller window that is displayed on top of the main application.
+- When a modal is opened the first focusable element in the modal (other than the close button if it exists) should recieve focus.
+- When the modal is closed the focus should be returned to the button/trigger that was used to open the modal so that keyboard only users and those using assistive technologies do not loose their place in the document.
+- A modal should trap focus inside of itself so that when a keyboard-only user navigates from the last focusable element in the modal it returns back to the first focusable element.
+
+### Dialog vs. modal
+
+We use the generic term "Modal" to mean any smaller window that is displayed on top of the main application, but there are some subtle differences between a modal and a dialog. [**See the modal dialog example**](/components/detail/modals--modal-dialog) for more detailed documentation on how to implement a modal dialog.
