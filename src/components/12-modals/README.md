@@ -25,6 +25,26 @@ The modal component is made up of the following elements:
 - `.modal__controls` — An option footer element that holds modal controls, like "OK", "Save", and "Cancel"
 - `.modal__close` — An optional close button
 
+### Instantiating the modal
+
+To use the modal component you'll need to do a few things. First, add the markup to your page. Then, you'll need to instantiate your modal with JavaScript.
+
+```javascript
+var myModal = new Modal('my-modal-id');
+```
+
+`my-modal-id` should correspond to the `id` attribute on the the modal itself and as the value of a `data-modal` attribute on a `<button>` element that triggers the modal.
+
+Lastly, you'll need to add a `.open-modal` class to the button trigger that opens your modal. So given the example above, your code might look something like this:
+
+```html
+<button class="button open-modal" data-modal="my-modal-id">Open the modal</button>
+
+<div class="modal" id="my-modal-id">
+    modal markup here...
+</div>
+```
+
 ### Required elements
 
 The only elements required in order for the modal to work is the `.modal__body`, but it is advisable to use the `.modal__header` element to help describe what the modal is use for. Likewise, the `.modal__controls` element provides an easy way to add additional actions to the modal like "Save" and "Close".

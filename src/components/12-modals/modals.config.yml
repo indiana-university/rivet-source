@@ -2,7 +2,7 @@ title: Modals
 preview: "@preview-modals"
 variants:
     - name: default
-      label: "Modal component"
+      label: "Modal"
     - name: "modal-dialog"
       label: "Modal dialog"
       notes: |
@@ -24,4 +24,12 @@ variants:
 
         ## Implementation notes
 
-        WIP 
+        You can make a normal modal into a dialog by passing the `Modal()` function a second parameter of `true` when you instantiate it. For example:
+
+        ```javascript
+        var myDialog = new Modal('my-dialog-id', true);
+        ```
+
+        Given these options a modal with the id of `my-dialog-id` would not allow the user to click outside of the dialog to close it.
+
+        **WIP, to be continued...**
