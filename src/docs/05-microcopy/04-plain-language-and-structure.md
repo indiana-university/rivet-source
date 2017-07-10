@@ -19,7 +19,7 @@ If you’re struggling to use plain language, try writing conversationally. Pict
 
 Online, users tend to scan text until they find the information they need. Large chunks of text can overwhelm readers, so break up your text.
 1. **Use subheads and bullet points**; they provide clear narrative structure for readers in a hurry.
-2. **Put information-carrying words at the beginning** of the phrase, and use the [active voice](https://pages.18f.gov/content-guide/active-voice/).
+2. **Put information-carrying words at the beginning** of the phrase, and use the [active voice](/docs/microcopy/active-voice).
     Instead of:
     > Information and policies regarding the usage of IU branding assets
 
