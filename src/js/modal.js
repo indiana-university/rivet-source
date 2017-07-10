@@ -10,8 +10,9 @@
 
 /**
  * 1. Pass the Modal() a name (ex: 'modal-alpha')
- * 2. Add the name as an id attribute on the modal element
- * 3. Add a data-modal attribute to the .open-modal with a value of the modal name
+ * 2. Add the name as an id attribute on the .modal element
+ * 3. Add a data-trigger-modal attribute to the element that triggers the modal
+ *      with a value of the modal name
  *
  * The modal takes a second Boolean value (isDialog). If you want to use the modal
  * as a modal dialog pass it a value of true. This will make the modal fucntion
@@ -49,7 +50,7 @@ function Modal(modalName, isDialog) {
     this.lastFocusableEl = this.focusableEls[this.focusableEls.length - 1];
 
     this.addEventListeners(
-        ".open-modal[data-modal='" + modalName + "']",
+        "[data-trigger-modal='" + modalName + "']",
         '#' + modalName + ' .close-modal');
 
     this.close(); // Reset
@@ -89,7 +90,7 @@ Modal.prototype.open = function() {
         e.stopPropagation();
     })
 
-    this.firstFocusableEl.focus();
+    this.modalEl.focus();
 };
 
 Modal.prototype.close = function() {

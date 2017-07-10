@@ -1,7 +1,7 @@
 
 <div class="button-group">
-    <button class="button open-modal" data-modal="modal-dialog">Open modal dialog</button>
-    <button class="button open-modal" data-modal="modal-confirmation">Confirmation modal dialog</button>
+    <button class="button" data-trigger-modal="modal-dialog">Open modal dialog</button>
+    <button class="button" data-trigger-modal="modal-confirmation">Confirmation modal dialog</button>
 </div>
 
 <div class="modal"
@@ -9,7 +9,8 @@
      role="dialog"
      aria-labelledby="modal-dialog-title"
      aria-describedby="modal-dialog-description"
-     aria-hidden="true">
+     aria-hidden="true"
+     tabindex=-1>
     <div class="modal__inner">
         <header class="modal__header">
             <h1 class="modal__title" id="modal-dialog-title">Modal Dialog</h1>
@@ -33,7 +34,8 @@
      role="dialog"
      aria-labelledby="modal-title-confirmation"
      aria-describedby="modal-description-confirmation"
-     aria-hidden="true">
+     aria-hidden="true"
+     tabindex=-1>
     <div class="modal__inner">
         <header class="modal__header">
             <h1 class="modal__title v-hide" id="modal-title-confirmation">Delete item</h1>
