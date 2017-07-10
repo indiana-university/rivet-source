@@ -1,5 +1,4 @@
 title: Modals
-# preview: "@preview-modals"
 variants:
     - name: default
       label: "Modal"
