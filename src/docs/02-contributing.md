@@ -4,7 +4,7 @@ title: "Design contribution: Github Issues"
 
 We’ll be using Github issues to keep track of new component submissions, bugs, design feedback, and any other suggestions related to the design system. To help us understand the kind of contribution you want to make, we ask that you first [submit a Github issue on github.iu.edu](https://github.iu.edu/UITS/uitsds/issues).
 
-<a href="https://github.iu.edu/UITS/uitsds/issues" class="create-button">Create and issue</a>
+<a href="https://github.iu.edu/UITS/uitsds/issues" class="create-button">Create an issue</a>
 
 Here are a few guidelines to follow when creating a new issue:
 
