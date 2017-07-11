@@ -107,6 +107,18 @@
     border-color: $color-alert-orange;
 }
 
+.input-error > {
+    input,
+    input:focus,
+    textarea,
+    textarea:focus,
+    select,
+    select:focus {
+        box-shadow: 0 0 0 2px $color-alert-orange;
+        border-color: $color-alert-orange;
+    }
+}
+
 
 .alert-list {
     list-style: none;
