@@ -11,7 +11,7 @@ variants:
 
         ## Accessibility
 
-        Alert lists can be particularly useful for summarizing multiple errors on a page, and providing links to the invalid fields. These summaries are particularly helpful for non-sighted users, who will not recieve the visual cue provided by multiple [inline alerts](./alerts--inline-alerts) appearing on the page when a form is submitted.
+        Alert lists can be particularly useful for summarizing multiple errors on a page, and providing links to the invalid fields. These summaries are particularly helpful for non-sighted users, who will not recieve the visual cue provided by multiple [inline alerts](./alerts--inline-errors) appearing on the page when a form is submitted.
 
 
     - name: "inline-errors"
