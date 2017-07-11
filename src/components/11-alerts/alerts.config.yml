@@ -23,14 +23,13 @@ variants:
 
         ## When to use
 
-        * To highlight fields with errors in forms
-        * To provide users with form validation messaging
-
+        - To highlight fields with errors in forms
+        - To provide users with form validation messaging
 
         ## Implementation
 
-        Write helpful validation alert messages that explain the requirements for the form field(s).
-        Show inline validation messages after the user submits the form. For longer form highlight each field with a validation error and summarize the errors at the top of the form using a page-level alert.
+        - Write helpful validation alert messages that explain the requirements for the form field(s).
+        - Show inline validation messages after the user submits the form. For longer form highlight each field with a validation error and summarize the errors at the top of the form using a page-level alert.
 
         ## Accessibility
 
