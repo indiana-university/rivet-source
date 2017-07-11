@@ -2,6 +2,9 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const runSequence = require('run-sequence');
 
 
 /**
@@ -70,6 +73,15 @@ gulp.task('sass:watch', function() {
 });
 
 /**
+ * Autoprefixer
+ */
+gulp.task('prefix', function() {
+    return gulp.src('_build/css/*.css')
+        .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+        .pipe(gulp.dest('_build/css'));
+});
+
+/**
  * Images
  * TODO: Maybe add optimization step in to this images task for svg? Also
  * need to add a step to delete images from "dist" when they are deleted
@@ -93,7 +105,9 @@ gulp.task('images:watch', function() {
  * Build the fractal UI with all components and CSS compiled.
  */
 
-gulp.task('build', ['sass', 'images', 'fractal:build']);
+gulp.task('build', function(cb) {
+    runSequence('sass', 'images', 'fractal:build', 'prefix', cb);
+});
 
 /**
  * Default development task
