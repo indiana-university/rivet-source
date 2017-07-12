@@ -149,6 +149,10 @@ select {
          border-radius: 100%;
          background-color: $color-white;
      }
+
+     &:hover {
+         cursor: pointer;
+     }
  }
 
 input[type="radio"]:checked + label {
@@ -203,6 +207,10 @@ input[type="checkbox"] + label {
     */
     vertical-align: middle;
     margin-top: -.1rem;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
