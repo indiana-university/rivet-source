@@ -3,6 +3,9 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
+const reporter = require('postcss-reporter');
+const stylelint = require('stylelint');
+const scss = require("postcss-scss");
 const autoprefixer = require('autoprefixer');
 const runSequence = require('run-sequence');
 
@@ -68,8 +71,24 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('dist/css/'));
 });
 
+/**
+ * List .scss files. See .stylelintrc for config
+ */
+gulp.task('sass:lint', function() {
+    return gulp.src(['src/sass/**/*.scss', '!src/sass/libs/**/*.scss'])
+        .pipe(postcss(
+            [
+                stylelint(),
+                reporter({ clearMessages: true })
+            ],
+            {
+                syntax: scss
+            }
+        ));
+});
+
 gulp.task('sass:watch', function() {
-    gulp.watch('src/sass/**/*.scss', ['sass']);
+    gulp.watch('src/sass/**/*.scss', ['sass', 'sass:lint']);
 });
 
 /**
@@ -113,4 +132,4 @@ gulp.task('build', function(cb) {
  * Default development task
  */
 
-gulp.task('default', ['sass', 'fractal:start', 'sass:watch', 'images:watch']);
+gulp.task('default', ['sass:lint', 'sass', 'fractal:start', 'sass:watch', 'images:watch']);
