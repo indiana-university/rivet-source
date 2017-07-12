@@ -5,6 +5,10 @@
         "block-closing-brace-newline-before": "always",
         "block-opening-brace-space-before": "always",
         "selector-list-comma-newline-after": "always",
-        "indentation": 4
+        "indentation": 4,
+        "number-leading-zero": never,
+        "declaration-colon-space-after": "always-single-line",
+        "declaration-block-semicolon-newline-after": "always",
+        "rule-empty-line-before": ["always", { except: ["first-nested"] }]
     }
 }
