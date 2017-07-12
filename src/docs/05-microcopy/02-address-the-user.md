@@ -1,5 +1,5 @@
 ---
-title: "Address the user"
+label: "Address the user"
 ---
 Content on Indiana University sites and apps often makes a direct appeal to students, faculty, or staff to get involved or take action.
 

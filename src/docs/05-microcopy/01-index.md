@@ -1,5 +1,5 @@
 ---
-title: "What is microcopy?"
+label: "What is microcopy?"
 ---
 Microcopy is any text that stands apart from the content at large, including:
 
