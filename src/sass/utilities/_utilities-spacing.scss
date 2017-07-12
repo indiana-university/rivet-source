@@ -50,10 +50,10 @@ $spacing-sizes: (
             .p-all#{$size} {
                 padding: $value !important;
             }
-
+        /* stylelint-disable */
         // Otherwise create individual direction utilities.
         } @else {
-
+        /* stylelint-enable */
             .m#{$direction}#{$size} {
                 margin#{$direction}: $value !important;
             }
@@ -78,37 +78,39 @@ $spacing-sizes: (
 
         @each $direction in $spacing-directions {
 
-        @each $size, $value in $spacing-sizes {
-            // NOTE: We use !important here because we want these utilities to always
-            // produced the same result.
+            @each $size, $value in $spacing-sizes {
+                // NOTE: We use !important here because we want these utilities to always
+                // produced the same result.
 
-            // If the direction is "null", add margin to all directions.
-            @if $direction == null {
+                // If the direction is "null", add margin to all directions.
+                @if $direction == null {
 
-                .m-all#{$size}--#{$bp-name}-up {
-                    margin: $value !important;
+                    .m-all#{$size}--#{$bp-name}-up {
+                        margin: $value !important;
+                    }
+
+                    .p-all#{$size}--#{$bp-name}-up {
+                        padding: $value !important;
+                    }
+
+                    // Otherwise create individual direction utilities.
+                    /* stylelint-disable */
+                    } @else {
+                    /* stylelint-enable */
+
+                    .m#{$direction}#{$size}--#{$bp-name}-up {
+                        margin#{$direction}: $value !important;
+                    }
+
+                    .p#{$direction}#{$size}--#{$bp-name}-up {
+                        padding#{$direction}: $value !important;
+                    }
+
                 }
 
-                .p-all#{$size}--#{$bp-name}-up {
-                    padding: $value !important;
-                }
+            } // End $spacing-sizes loop
 
-            // Otherwise create individual direction utilities.
-            } @else {
-
-                .m#{$direction}#{$size}--#{$bp-name}-up {
-                    margin#{$direction}: $value !important;
-                }
-
-                .p#{$direction}#{$size}--#{$bp-name}-up {
-                    padding#{$direction}: $value !important;
-                }
-
-            }
-
-        } // End $spacing-sizes loop
-
-    } // End $spacing-directions loop
+        } // End $spacing-directions loop
 
     }
 
@@ -131,9 +133,9 @@ $spacing-sizes: (
         .p-all-remove {
             padding: 0 !important;
         }
-
+    /* stylelint-disable */
     } @else {
-
+    /* stylelint-enable */
         .m#{$direction}-remove {
             margin#{$direction}: 0 !important;
         }
