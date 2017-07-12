@@ -18,5 +18,3 @@ When in doubt, cut directly to the verb and give the reader clear directions.
 ## How to recognize the passive voice
 
 Use of the passive voice is common enough that many people don’t notice when they use it. Here’s a simple way to recognize it, courtesy of Dr. Rebecca Johnson: If you insert “**by zombies**” after the verb and the sentence still makes sense (“the banana was eaten by zombies”), you’re using the passive voice.
-
-Pls delete
