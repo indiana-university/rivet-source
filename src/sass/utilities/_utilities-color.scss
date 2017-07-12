@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 @each $key, $value in $color-map {
 
     .color-#{$key} {
@@ -24,3 +26,5 @@
         }
     }
 }
+
+/* stylelint-enable */

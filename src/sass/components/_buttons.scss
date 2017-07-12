@@ -168,6 +168,7 @@ button,
  * NOTE: Starting to work on loading buttons. This will only work for
  * the default primary button right now.
  */
+
 .button--loading {
     padding-right: 2.5rem;
     cursor: not-allowed;
@@ -197,6 +198,7 @@ button,
 /**
  * Right align buttons.
  */
+
 .button-group--right {
     justify-content: flex-end;
 }

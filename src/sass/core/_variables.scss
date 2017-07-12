@@ -27,8 +27,8 @@ $type-sizes: (
 
 // Type Size variables
 $ts-12: map-get($type-sizes, 12);
-$ts-14: map-get($type-sizes, 14);;
-$ts-16: map-get($type-sizes, 16);;
+$ts-14: map-get($type-sizes, 14);
+$ts-16: map-get($type-sizes, 16);
 $ts-base: $ts-16;
 $ts-18: map-get($type-sizes, 18);
 $ts-20: map-get($type-sizes, 20);

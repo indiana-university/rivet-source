@@ -35,7 +35,6 @@ tr td {
 }
 
 .table-stripes {
-
     tr {
         border-bottom: none;
     }
@@ -43,5 +42,4 @@ tr td {
     tr:nth-child(even) {
         background-color: $color-black--100;
     }
-
 }
