@@ -14,3 +14,23 @@ code {
     color: $color-midnight;
     border-radius: $radius-small;
 }
+
+
+.inline-list li {
+    line-height: 1;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    margin: 0;
+    font-weight: 400;
+}
+
+.font-bold {
+    font-weight: 700;
+}

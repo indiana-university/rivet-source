@@ -1,0 +1,135 @@
+
+
+.alert {
+    background-color: $color-alert-gray-light;
+    border-left: $xxs solid $color-alert-gray;
+    padding: $sm $sm $sm $sm;
+    position: relative;
+
+    &__title {
+        font-weight: 700;
+        font-size: 1.125rem;
+        /**
+         * We'll put bottom margin on the title here so that the .alert can
+         * be used with the __message only and still get the propper padding
+         * around all sides.
+         */
+        margin-bottom: $xxs;
+        /**
+         * Add a little padding on the right so that the title won't end up
+         * showing underneath the "X" button if it's used.
+         */
+        padding-right: $md;
+    }
+
+
+    &__message {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: .875rem;
+        padding-right: $md;
+    }
+
+
+    &__dismiss {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        border-radius: 3px;
+        color: #333;
+        padding: 0;
+        position: absolute;
+        top: $sm;
+        right: $sm;
+        width: $md;
+        height: $md;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .15);
+        }
+    }
+}
+
+
+
+
+.alert--info {
+    background-color: $color-alert-blue-light;
+    border-left-color: $color-alert-blue;
+}
+
+
+
+
+.alert--success {
+    background-color: $color-alert-green-light;
+    border-left-color: $color-alert-green;
+}
+
+
+
+
+.alert--message {
+    background-color: $color-alert-yellow-light;
+    border-left-color: $color-alert-yellow;
+}
+
+
+
+
+.alert--error {
+    background-color: $color-alert-orange-light;
+    border-left-color: $color-alert-orange;
+}
+
+
+
+
+.alert-inline {
+    background-color: $color-alert-orange-light;
+    border-left: $xxs solid $color-alert-orange;
+
+    &__message {
+        margin: 0;
+        padding: $sm;
+        line-height: 1;
+        font-weight: 700;
+        font-size: .875rem;
+    }
+}
+
+
+
+
+.input-error > input,
+.input-error > input:focus {
+    box-shadow: 0 0 0 2px $color-alert-orange;
+    border-color: $color-alert-orange;
+}
+
+.input-error > {
+    input,
+    input:focus,
+    textarea,
+    textarea:focus,
+    select,
+    select:focus {
+        box-shadow: 0 0 0 2px $color-alert-orange;
+        border-color: $color-alert-orange;
+    }
+}
+
+
+.alert-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        line-height: 1.5;
+    }
+
+    &__item:not(first-child) {
+        margin-top: $xs;
+    }
+}

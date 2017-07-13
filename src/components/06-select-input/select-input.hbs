@@ -1,15 +1,30 @@
-<label for="select-demo">Select input</label>
-<select class="m-bottom-md" id="select-demo">
-    <option value="">Option One</option>
-    <option value="">Option Two</option>
-    <option value="">Option Three</option>
-    <option value="">Option Four</option>
-</select>
+<form style="max-width: 36rem;">
+    <label for="select-demo">Select input</label>
+    <select class="m-bottom-md" id="select-demo">
+        <option value="">Option One</option>
+        <option value="">Option Two</option>
+        <option value="">Option Three</option>
+        <option value="">Option Four</option>
+    </select>
 
-<label for="select-demo-disabled">Select input (disabled)</label>
-<select id="select-demo-disabled" disabled>
-    <option value="">Option One</option>
-    <option value="">Option Two</option>
-    <option value="">Option Three</option>
-    <option value="">Option Four</option>
-</select>
+    <label for="select-demo-disabled">Select input (disabled)</label>
+    <select class="m-bottom-md" id="select-demo-disabled" disabled>
+        <option value="">Option One</option>
+        <option value="">Option Two</option>
+        <option value="">Option Three</option>
+        <option value="">Option Four</option>
+    </select>
+
+    <div class="input-error m-bottom-sm">
+        <label for="select-demo-error">Select error</label>
+        <select id="select-demo-error" aria-describedby="unique-id-for-select-error" aria-invalid="true">
+            <option value="">Option One</option>
+            <option value="">Option Two</option>
+            <option value="">Option Three</option>
+            <option value="">Option Four</option>
+        </select>
+        <div class="alert-inline m-top-sm" role="alert" id="unique-id-for-select-error">
+            <p class="alert-inline__message">An error message for a select element</p>
+        </div>
+    </div>
+</form>
