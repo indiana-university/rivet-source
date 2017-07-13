@@ -52,4 +52,4 @@ Clear, concise microcopy can turn a usable app into a user-friendly one.
 * Write a draft, test it out, gather feedback, and keep refining.
 
 
-_We drew heavily from 18F’s content guide to create this microcopy guide. Many thanks to 18F for keeping their work in the public domain!_
+_We drew heavily from [18F’s content guide](https://content-guide.18f.gov/) to create this microcopy guide. Many thanks to 18F for keeping their work in the public domain!_
