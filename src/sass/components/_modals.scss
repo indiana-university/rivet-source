@@ -1,0 +1,91 @@
+
+/**
+ * This class gets applied to the body of the document when the modal
+ * is open so that the modal scrolls but not the content of the body.
+ * It's removed when the modal is closed making the body scrollable again.
+ */
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    overflow-y: scroll;
+    padding-bottom: 5rem;
+
+    &__inner {
+        position: relative;
+        top: 5rem;
+        max-width: 600px;
+        width: 90%;
+        background-color: white;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+        border-radius: $radius-small;
+        overflow: hidden;
+    }
+
+    &__close {
+        position: absolute;
+        top: $sm;
+        right: $xs;
+        padding: $xs;
+    }
+
+    &__header {
+        padding: $md $sm;
+        border-bottom: 1px solid #eee;
+    }
+
+    &--confirmation &__header {
+        border-bottom: none;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    &--confirmation &__body {
+        text-align: center;
+    }
+
+    &__body {
+        padding: $md;
+    }
+
+    &__controls {
+        padding: $sm;
+        display: flex;
+        border-top: 1px solid #eee;
+        background-color: #fafafa;
+        justify-content: flex-end;
+    }
+
+    &--small &__inner {
+        max-width: 500px;
+    }
+
+    &--medium {
+        max-width: 800px;
+    }
+
+    &--large {
+        max-width: 1040px;
+    }
+}
+
+.modal[aria-hidden="true"] {
+	display: none;
+}
+
+.modal:not([aria-hidden="true"]) {
+	display: block;
+}

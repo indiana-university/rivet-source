@@ -1,0 +1,34 @@
+title: Modals
+variants:
+    - name: default
+      label: "Modal"
+    - name: "modal-dialog"
+      label: "Modal dialog"
+      notes: |
+        # Modal dialog
+
+        A modal dialog is similar to a regular modal except that **it requires the user to interact with it** before continuing any interaction with the main application. The user must select from the available actions in the dialog—they cannot disregard and simply close the window.
+
+        ## Usability notes
+
+        ### When to use
+
+        - Confirmation dialogs used to verify the action a user selected, especially when that action will result in the loss of data. For example, ‘All files in this folder will be deleted. Do you want to continue?’
+        - Provide the user with clarifying information before they continue with a task or action. For example, "A 10% fee will be charged to your account. Do you want to continue?"
+
+        ### When to consider something else
+
+        - Do not use to second guess the users’ choice of actions when no destruction or loss of data will occur.
+        - When you need to create a focused space for users to complete a small subtask, use a regular modal instead.
+
+        ## Implementation notes
+
+        You can make a normal modal into a dialog by passing the `Modal()` function a second parameter of `true` when you instantiate it. For example:
+
+        ```javascript
+        var myDialog = new Modal('my-dialog-id', true);
+        ```
+
+        Given these options a modal with the id of `my-dialog-id` would not allow the user to click outside of the dialog to close it.
+
+        **WIP, to be continued...**

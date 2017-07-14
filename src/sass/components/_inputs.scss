@@ -74,8 +74,8 @@ select:focus {
     /**
      * Should we just leave this default?
      */
-     box-shadow: 0 0 0 2px $color-action;
-     border-color: $color-midnight;
+     box-shadow: 0 0 1px 3px $color-midnight--300;
+     border-color: $color-midnight--300;
      outline: none;
 }
 
@@ -127,6 +127,7 @@ select {
 
  input[type="radio"] + label {
      font-size: 1rem;
+     font-weight: 400;
      /**
       * Visually adjust due to the bigger hit area for radio buttons.
       */
@@ -148,6 +149,10 @@ select {
          border-radius: 100%;
          background-color: $color-white;
      }
+
+     &:hover {
+         cursor: pointer;
+     }
  }
 
 input[type="radio"]:checked + label {
@@ -155,6 +160,10 @@ input[type="radio"]:checked + label {
         background-color: $color-action;
         box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
     }
+}
+
+input[type="radio"]:checked:focus + label:before {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 2px 6px #95adcb;
 }
 
 input[type="radio"]:focus + label:before {
@@ -182,6 +191,7 @@ input[type="radio"]:disabled + label {
 input[type="checkbox"] + label {
     font-size: 1rem;
     margin-left: .4rem;
+    font-weight: 400;
 
     &:before {
     display: inline-block;
@@ -197,6 +207,10 @@ input[type="checkbox"] + label {
     */
     vertical-align: middle;
     margin-top: -.1rem;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -217,6 +231,10 @@ input[type="checkbox"]:checked + label {
         background-size: 90%;
     }
 
+}
+
+input[type="checkbox"]:checked:focus + label:before {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 2px 6px #95adcb;
 }
 
 input[type="checkbox"]:disabled + label:before {
