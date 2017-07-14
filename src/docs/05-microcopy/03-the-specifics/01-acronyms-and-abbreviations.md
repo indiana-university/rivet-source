@@ -1,3 +1,0 @@
----
-label: "Acronyms and abbreviations"
----
