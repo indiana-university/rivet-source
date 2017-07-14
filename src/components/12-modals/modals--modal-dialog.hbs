@@ -1,0 +1,58 @@
+
+<div class="button-group">
+    <button class="button" data-trigger-modal="modal-dialog">Open modal dialog</button>
+    <button class="button" data-trigger-modal="modal-confirmation">Confirmation modal dialog</button>
+</div>
+
+<div class="modal"
+     id="modal-dialog"
+     role="dialog"
+     aria-labelledby="modal-dialog-title"
+     aria-describedby="modal-dialog-description"
+     aria-hidden="true"
+     tabindex=-1>
+    <div class="modal__inner">
+        <header class="modal__header">
+            <h1 class="modal__title" id="modal-dialog-title">Modal Dialog</h1>
+        </header>
+        <div class="modal__body">
+            <p>A modal dialog:</p>
+            <ul>
+                <li>Is not dismissable i.e. doesn't have an (X) button</li>
+                <li>Requires user input before they contiue their work</li>
+            </ul>
+        </div>
+        <footer class="modal__controls">
+            <button class="m-right-sm close-modal">Yes</button>
+            <button class="button button--secondary close-modal">No, thanks</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal modal--small modal--confirmation"
+     id="modal-confirmation"
+     role="dialog"
+     aria-labelledby="modal-title-confirmation"
+     aria-describedby="modal-description-confirmation"
+     aria-hidden="true"
+     tabindex=-1>
+    <div class="modal__inner">
+        <header class="modal__header">
+            <h1 class="modal__title v-hide" id="modal-title-confirmation">Delete item</h1>
+        </header>
+        <div class="modal__body">
+            <p class="m-top-remove m-bottom-xl" id="modal-description-confirmation">Are you sure you want to <strong>delete your progress</strong>? This modal is a dialog and can not be dismissed by clicking outside of the modal on the background.</p>
+        </div>
+        <footer class="modal__controls">
+            <button class="button button--danger m-right-sm">Delete my progress</button>
+            <button class="button button--secondary close-modal">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<script src="{{ path '/js/modal.js' }}"></script>
+
+<script>
+    var dialog = new Modal('modal-dialog', true);
+    var confirmation = new Modal('modal-confirmation', true);
+</script>
