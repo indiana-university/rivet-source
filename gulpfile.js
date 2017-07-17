@@ -8,7 +8,7 @@ const stylelint = require('stylelint');
 const scss = require("postcss-scss");
 const autoprefixer = require('autoprefixer');
 const runSequence = require('run-sequence');
-
+const eslint = require('gulp-eslint');
 
 /**
  * Require the fractal config file so that it can be reference with gulp
@@ -130,12 +130,18 @@ gulp.task('js', function() {
         .pipe(gulp.dest('dist/js/'));
 });
 
+gulp.task('js:lint', function() {
+    return gulp.src(['src/js/**/*.js', '!node_modules/**'])
+        .pipe(eslint())
+        .pipe(eslint.format());
+});
+
 /**
  * Watch scripts for changes and move to the "dist" folder
  */
 
 gulp.task('js:watch', function() {
-    gulp.watch('src/js/**/*.js', ['js']);
+    gulp.watch('src/js/**/*.js', ['js:lint', 'js']);
 });
 
 /**
@@ -150,4 +156,4 @@ gulp.task('build', function(cb) {
  * Default development task
  */
 
-gulp.task('default', ['sass:lint', 'sass', 'js', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
+gulp.task('default', ['sass:lint', 'js:lint', 'sass', 'js', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
