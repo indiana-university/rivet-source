@@ -86,7 +86,7 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 
 - 4 spaces for indentation
 - Prefer dashes over camelCasing in class names.
-- Uderscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- Underscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 - **Do not use ID selectors**
 - When using multiple selectors in a rule declaration, give each selector its own line.
 - Put a space before the opening brace { in rule declarations
