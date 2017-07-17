@@ -105,6 +105,7 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 .no, .nope, .not_good {
     // ...
 }
+
 #lol-no {
   // ...
 }
@@ -138,7 +139,7 @@ Make use comments as often as you can. It will help other developers understand 
 ```css
 
 /**
-   * This is a really nice comment that helps other people.
+ * This is a really nice comment that helps other people.
  */
 
 ```
