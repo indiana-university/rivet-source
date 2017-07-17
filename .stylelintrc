@@ -1,4 +1,5 @@
 {
+    "defaultSeverity": "warning",
     "rules": {
         "block-closing-brace-newline-after": "always",
         "block-opening-brace-newline-after": "always",
