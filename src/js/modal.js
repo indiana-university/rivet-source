@@ -34,7 +34,7 @@
 function Modal(modalName, isDialog) {
     this.modalEl = document.querySelector('#' + modalName);
     if (!this.modalEl) {
-        console.error("Could not find modal element #" + modalName);
+        console.error('Could not find modal element #' + modalName);
         return;
     }
 
@@ -50,7 +50,7 @@ function Modal(modalName, isDialog) {
     this.lastFocusableEl = this.focusableEls[this.focusableEls.length - 1];
 
     this.addEventListeners(
-        "[data-trigger-modal='" + modalName + "']",
+        '[data-trigger-modal="' + modalName + '"]',
         '#' + modalName + ' .close-modal');
 
     this.close(); // Reset
@@ -147,7 +147,6 @@ Modal.prototype._handleKeyDown = function(e) {
         default:
             break;
     }
-
 
 };
 
