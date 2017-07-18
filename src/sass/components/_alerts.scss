@@ -3,7 +3,7 @@
 .alert {
     background-color: $color-alert-gray-light;
     border-left: $xxs solid $color-alert-gray;
-    padding: $sm $sm $sm $sm;
+    padding: $sm;
     position: relative;
 
     &__title {
@@ -97,7 +97,7 @@
     &__message {
         margin: 0;
         padding: $sm;
-        line-height: 1;
+        line-height: 1.2;
         font-weight: 700;
         font-size: .875rem;
     }
