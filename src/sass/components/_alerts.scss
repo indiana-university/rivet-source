@@ -56,6 +56,7 @@
 .alert--info {
     background-color: $color-alert-blue-light;
     border-left-color: $color-alert-blue;
+    color: $color-alert-blue-text;
 }
 
 
@@ -64,6 +65,7 @@
 .alert--success {
     background-color: $color-alert-green-light;
     border-left-color: $color-alert-green;
+    color: $color-alert-green-text;
 }
 
 
@@ -72,6 +74,7 @@
 .alert--message {
     background-color: $color-alert-yellow-light;
     border-left-color: $color-alert-yellow;
+    color: $color-alert-yellow-text;
 }
 
 
@@ -80,6 +83,7 @@
 .alert--error {
     background-color: $color-alert-orange-light;
     border-left-color: $color-alert-orange;
+    color: $color-alert-orange-text;
 }
 
 
@@ -88,6 +92,7 @@
 .alert-inline {
     background-color: $color-alert-orange-light;
     border-left: $xxs solid $color-alert-orange;
+    color: $color-alert-orange-text;
 
     &__message {
         margin: 0;
