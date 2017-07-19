@@ -26,23 +26,49 @@ The modal component is made up of the following elements:
 - `.modal__controls` — An optional footer element that holds modal controls, like "Save" and "Cancel"
 - `.modal__close` — An optional close button at the top of the modal
 
-### Instantiating the modal
+### Initializing the modal
 
-To use the modal component you'll need to do a few things. First, add the markup to your page. Then, you'll need to instantiate your modal with JavaScript.
+To use the modal component you'll need to do a few things.
 
-```javascript
-var myModal = new Modal('my-modal-id');
-```
-
-`my-modal-id` should correspond to the `id` attribute on the the `.modal` container and the `data-modal` attribute on a `<button>` element that triggers the modal.
-
+First, add the markup to your document.
 ```html
-<button class="button" data-trigger-modal="my-modal-id">Open the modal</button>
+<button class="button" data-modal-trigger="my-modal-id">Open the modal</button>
 
 <div class="modal" id="my-modal-id">
     modal markup here...
+
+    <button class="button button--plain modal__close" data-modal-close="close">
+        button markup here...
+    </button>
 </div>
 ```
+
+In the code above, `my-modal-id` should correspond to the `id` attribute on the the `.modal` container and the `data-modal-trigger` attribute on a `<button>` element that triggers the modal.
+
+The `data-modal-close="close"` attribute is used as a hook to close the modal. You can add the `data-modal-close` attribute to other buttons in the modal like a "**Cancel**" button if you need to allow users other options for closing the modal.
+
+Next, you'll need to **initialize the modal** with JavaScript.
+
+```javascript
+Modal.init();
+```
+
+Once you've initialized the modal by calling `Modal.init()` you can add more modals to your page as needed using the markup with unique `data-modal-trigger` and corresponding `id` attributes.
+
+### Additional modal methods
+The `Modal` component also exposes a couple of handy methods if you need to programmatically open or close your modal.
+
+```javascript
+var modalToclose = document.querySelector('#modal-example');
+
+// Will open the `#modal-example` modal
+Modal.close(modalToClose);
+
+// Will open the `#modal-example` modal
+Modal.open(modalToClose);
+```
+
+
 
 ### Required elements
 
