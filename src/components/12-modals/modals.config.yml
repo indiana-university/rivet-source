@@ -23,12 +23,12 @@ variants:
 
         ## Implementation notes
 
-        You can make a normal modal into a dialog by passing the `Modal()` function a second parameter of `true` when you instantiate it. For example:
+        You can make a normal modal into a dialog by adding a `data-modal-dialog="true"` data attribute to the `.modal` element.
 
-        ```javascript
-        var myDialog = new Modal('my-dialog-id', true);
+        ```html
+        <div class="modal" id="my-modal-id" data-modal-dialog="true">
+            modal markup here...
+        </div>
         ```
 
-        Given these options a modal with the id of `my-dialog-id` would not allow the user to click outside of the dialog to close it.
-
-        **WIP, to be continued...**
+        In the example above the modal would function as a dialog and would not allow the user to click outside of the dialog to close it.
