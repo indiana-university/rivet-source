@@ -1,172 +1,210 @@
-/**
- * I found this script here on this blog post:
- * https://bitsofco.de/accessible-modal-modal/
- *
- * It's really well done. We could use it as a starting point for sure.
- * We need to figure out a more sane way to use mutliple modals on one page.
- * Preferable with a nice DOM api using data attributes to specify target
- * modals with unique IDs, etc.
- */
+var Modal = (function() {
 
-/**
- * 1. Pass the Modal() a name (ex: 'modal-alpha')
- * 2. Add the name as an id attribute on the .modal element
- * 3. Add a data-trigger-modal attribute to the element that triggers the modal
- *      with a value of the modal name
- *
- * The modal takes a second Boolean value (isDialog). If you want to use the modal
- * as a modal dialog pass it a value of true. This will make the modal fucntion
- * as a dialog meaning that clicking outside of the modal on the background
- * will not close the modal.
- *
- */
-
-
-/**
- * @param {string} modalName - The id of the modal and the matching
- * data attribute for the button trigger.
- * @param {bool} isDialog - If set to true the modal will be treated as
- * a dialog and clicking outside of the modal will not close it. isDialog
- * is optional. If left out it will be assumed to be false and the modal
- * will function as a normal modal (clicking outside closes it).
- */
-
-function Modal(modalName, isDialog) {
-    this.modalEl = document.querySelector('#' + modalName);
-    if (!this.modalEl) {
-        console.error('Could not find modal element #' + modalName);
-        return;
-    }
-
-    this.isDialog = isDialog || false;
-    this.overlayEl = document.querySelector('.modal#' + modalName);
-    this.innerEl = document.querySelector('.modal__inner');
-    this.focusedElBeforeOpen;
-
-    var focusableEls = this.modalEl.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
-    this.focusableEls = Array.prototype.slice.call(focusableEls);
-
-    this.firstFocusableEl = this.focusableEls[0];
-    this.lastFocusableEl = this.focusableEls[this.focusableEls.length - 1];
-
-    this.addEventListeners(
-        '[data-trigger-modal="' + modalName + '"]',
-        '#' + modalName + ' .close-modal');
-
-    this.close(); // Reset
-}
-
-
-Modal.prototype.open = function() {
-
-    var Modal = this;
-
-    /** Add a modal-open class so we can set the overflow to hidden making
-     * only the modal content scrollable and not the body.
-     */
-    document.body.classList.add('modal-open');
-
-    this.modalEl.removeAttribute('aria-hidden');
-    this.overlayEl.removeAttribute('aria-hidden');
-
-    this.focusedElBeforeOpen = document.activeElement;
-
-    this.modalEl.addEventListener('keydown', function(e) {
-        Modal._handleKeyDown(e);
-    });
 
     /**
-     * Checks to see if the isDialog variable is set. If it is the user
-     * can click on the background to close, otherwise the event listener
-     * isn't added and clicking on the background won't close the modal.
+     * Set up
      */
-    if (this.isDialog === !true) {
-        this.overlayEl.addEventListener('click', function() {
-            Modal.close();
+
+    var modals = document.querySelectorAll('.modal');
+    var modalTriggers = document.querySelectorAll('[data-trigger-modal]');
+    var allFocusableEls = ('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+
+    /**
+     * We need these to pass around values that multiple
+     * 'Modal' methods will need access to.
+     */
+
+    var isDialog;
+    var focusedElBeforeOpen;
+    var focusableEls;
+    var firstFocusableEl;
+    var lastFocusableEl;
+
+
+    /**
+     * Kick everything off here.
+     */
+    var init = function() {
+
+        // Check to see if any modals exist on the page.
+        if(modals.length != 0 && modalTriggers.length != 0) {
+            _bindUiActions();
+        } else {
+            // If not don't run everything else.
+            return;
+        }
+    }
+
+
+    var _bindUiActions = function() {
+
+        modalTriggers.forEach(function(el) {
+
+            el.addEventListener('click', function() {
+
+                // Set up
+                var modalID = el.getAttribute('data-trigger-modal');
+                var modalEl = document.querySelector('#' + modalID);
+                var modalElInner = modalEl.querySelector('.modal__inner');
+
+
+                // Get all the close triggers for the current modal
+                var modalCloseButtons = modalEl.querySelectorAll('[data-modal-close]');
+
+                modalCloseButtons.forEach(function(el) {
+                    el.addEventListener('click', function() {
+                        closeModal(modalEl);
+                    });
+                });
+
+
+                // Stops clicking on the actual modal stuff from bubbling up.
+                modalElInner.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+
+
+                // Get anything that's focusable
+                focusableEls = modalEl.querySelectorAll(allFocusableEls);
+
+                // Make focusableEls an Arry so we can do Array stuff with it.
+                focusableEls = Array.prototype.slice.call(focusableEls);
+
+                /**
+                 * Find the first and last focusable element in the array and
+                 * store them in variable where other methods can find them.
+                 */
+                firstFocusableEl = focusableEls[0];
+                lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+
+                // Open the modal
+                openModal(modalEl);
+
+
+                // Listen for tab or escape keys and handle events.
+                modalEl.addEventListener('keydown', function(e) {
+                    _handleKeyDown(modalEl, e);
+                });
+            });
         });
+
     }
 
-    this.innerEl.addEventListener('click', function(e) {
-        e.stopPropagation();
-    })
+    /**
+     * @param {object} modalToOpen - The current HTML modal element to open.
+     */
+    var openModal = function(modalToOpen) {
 
-    this.modalEl.focus();
-};
+        // Is the modal a modal dialog i.e. clicking background doesn't close?
+        isDialog = modalToOpen.getAttribute('data-modal-dialog');
 
-Modal.prototype.close = function() {
+        /**
+         * Add a class to the body that we use as a hook to allow
+         * the modal to scroll.
+         */
+        document.body.classList.add('modal-open');
 
-    // Rove the 'modal-open' class by removing the class attribute all together
-    document.body.removeAttribute('class');
-    this.modalEl.setAttribute('aria-hidden', true);
-    this.overlayEl.setAttribute('aria-hidden', true);
+        /**
+         * Store a reference to modal trigger that was clicked so that
+         * we can return focus to it later.
+         */
+        focusedElBeforeOpen = document.activeElement;
 
-    if (this.focusedElBeforeOpen) {
-        this.focusedElBeforeOpen.focus();
-    }
-};
+        // Remove aria-hidden attr to show the modal.
+        modalToOpen.removeAttribute('aria-hidden');
 
-
-Modal.prototype._handleKeyDown = function(e) {
-
-    var Modal = this;
-    var KEY_TAB = 9;
-    var KEY_ESC = 27;
-
-    function handleBackwardTab() {
-        if (document.activeElement === Modal.firstFocusableEl) {
-            e.preventDefault();
-            Modal.lastFocusableEl.focus();
+        /**
+         * If the modal isn't a modal dialog allow user to click
+         * the background to close.
+         */
+        if(!isDialog) {
+            // Hide the modal if use clicks on background.
+            modalToOpen.addEventListener('click', function() {
+                closeModal(this);
+            });
         }
+
+        // Add focus to the modal that just opened.
+        modalToOpen.focus();
+
     }
 
-    function handleForwardTab() {
-        if (document.activeElement === Modal.lastFocusableEl) {
-            e.preventDefault();
-            Modal.firstFocusableEl.focus();
-        }
-    }
+    /**
+     * @param {object} modalToHandle - The current HTML modal element to open.
+     * @param {object} e - The event object
+     */
+    var _handleKeyDown = function(modalToHandle, e) {
 
-    switch (e.keyCode) {
-        case KEY_TAB:
-            if (Modal.focusableEls.length === 1) {
+        var KEY_TAB = 9;
+        var KEY_ESC = 27;
+
+        function handleBackwardTab() {
+            if (document.activeElement === firstFocusableEl) {
                 e.preventDefault();
+                lastFocusableEl.focus();
+            }
+        }
+
+        function handleForwardTab() {
+            if (document.activeElement === lastFocusableEl) {
+                e.preventDefault();
+                firstFocusableEl.focus();
+            }
+
+        }
+
+
+        switch (e.keyCode) {
+
+            case KEY_TAB:
+                if (focusableEls.length === 1) {
+                    e.preventDefault();
+                    break;
+                }
+                if (e.shiftKey) {
+                    handleBackwardTab();
+                } else {
+                    handleForwardTab();
+                }
                 break;
-            }
-            if (e.shiftKey) {
-                handleBackwardTab();
-            } else {
-                handleForwardTab();
-            }
-            break;
-        case KEY_ESC:
-            if (Modal.isDialog === !true) {
-                Modal.close();
+
+            case KEY_ESC:
+                if(!isDialog) {
+                    closeModal(modalToHandle);
+                }
                 break;
-            }
 
-        default:
-            break;
+            default:
+                break;
+        }
+
     }
 
-};
+    /**
+     * @param {object} modalToClose - The HTML modal element to close.
+     */
+    var closeModal = function(modalToClose) {
 
+        document.body.removeAttribute('class');
+        modalToClose.setAttribute('aria-hidden', 'true');
 
-Modal.prototype.addEventListeners = function(openModalSel, closeModalSel) {
+        /**
+         * Return focus to the modal trigger that originally
+         * opened the modal.
+         */
+        if(focusedElBeforeOpen) {
+            focusedElBeforeOpen.focus();
+        }
 
-    var Modal = this;
-
-    var openModalEls = document.querySelectorAll(openModalSel);
-    for (var i = 0; i < openModalEls.length; i++) {
-        openModalEls[i].addEventListener('click', function() {
-            Modal.open();
-        });
     }
 
-    var closeModalEls = document.querySelectorAll(closeModalSel);
-    for (var i = 0; i < closeModalEls.length; i++) {
-        closeModalEls[i].addEventListener('click', function() {
-            Modal.close();
-        });
+
+    return {
+        init: init,
+        open: openModal,
+        close: closeModal
     }
 
-};
+
+})();
