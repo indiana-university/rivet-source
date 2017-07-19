@@ -6,7 +6,7 @@ var Modal = (function() {
      */
 
     var modals = document.querySelectorAll('.modal');
-    var modalTriggers = document.querySelectorAll('[data-trigger-modal]');
+    var modalTriggers = document.querySelectorAll('[data-modal-trigger]');
     var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
     /**
@@ -43,7 +43,7 @@ var Modal = (function() {
             el.addEventListener('click', function() {
 
                 // Set up
-                var modalID = el.getAttribute('data-trigger-modal');
+                var modalID = el.getAttribute('data-modal-trigger');
                 var modalEl = document.querySelector('#' + modalID);
                 var modalElInner = modalEl.querySelector('.modal__inner');
 
