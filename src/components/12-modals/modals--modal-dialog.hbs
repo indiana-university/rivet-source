@@ -8,9 +8,9 @@
      id="modal-dialog"
      role="dialog"
      aria-labelledby="modal-dialog-title"
-     aria-describedby="modal-dialog-description"
      aria-hidden="true"
-     tabindex=-1>
+     tabindex=-1
+     data-modal-dialog="true">
     <div class="modal__inner">
         <header class="modal__header">
             <h1 class="modal__title" id="modal-dialog-title">Modal Dialog</h1>
@@ -24,7 +24,7 @@
         </div>
         <footer class="modal__controls">
             <button class="m-right-sm close-modal">Yes</button>
-            <button class="button button--secondary close-modal">No, thanks</button>
+            <button class="button button--secondary" data-modal-close="close">No, thanks</button>
         </footer>
     </div>
 </div>
@@ -35,7 +35,8 @@
      aria-labelledby="modal-title-confirmation"
      aria-describedby="modal-description-confirmation"
      aria-hidden="true"
-     tabindex=-1>
+     tabindex=-1
+     data-modal-dialog="true">
     <div class="modal__inner">
         <header class="modal__header">
             <h1 class="modal__title v-hide" id="modal-title-confirmation">Delete item</h1>
@@ -45,7 +46,7 @@
         </div>
         <footer class="modal__controls">
             <button class="button button--danger m-right-sm">Delete my progress</button>
-            <button class="button button--secondary close-modal">Cancel</button>
+            <button class="button button--secondary" data-modal-close="close">Cancel</button>
         </footer>
     </div>
 </div>
@@ -53,6 +54,5 @@
 <script src="{{ path '/js/modal.js' }}"></script>
 
 <script>
-    var dialog = new Modal('modal-dialog', true);
-    var confirmation = new Modal('modal-confirmation', true);
+    Modal.init();
 </script>
