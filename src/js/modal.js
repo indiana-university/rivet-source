@@ -7,7 +7,7 @@ var Modal = (function() {
 
     var modals = document.querySelectorAll('.modal');
     var modalTriggers = document.querySelectorAll('[data-trigger-modal]');
-    var allFocusableEls = ('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+    var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
     /**
      * We need these to pass around values that multiple
