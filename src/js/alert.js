@@ -1,23 +1,27 @@
 var Alert = (function() {
 
-    var config = {
-        dismissButton: document.querySelectorAll('.alert__dismiss')
-    }
+    /**
+     * Set up locally-scoped variables
+     */
+    var dismissButton = document.querySelectorAll('.alert__dismiss');
 
     var init = function() {
-        bindUiActions();
+        _bindUiActions(dismissButton);
     }
 
-    var bindUiActions = function() {
-        for (var i = 0; i < config.dismissButton.length; i++) {
-            config.dismissButton[i].addEventListener('click', function() {
+    /**
+     * @param {object} els - HTML elements to bind the actions to.
+     */
+    var _bindUiActions = function(els) {
+        for (var i = 0; i < els.length; i++) {
+            els[i].addEventListener('click', function() {
                 dismissAlert(this);
             });
         }
     }
 
     /**
-     * @param {string} context - the element that was clicked to
+     * @param {object} context - the HTML element that was clicked to
      * to dimiss the alert
      */
     var dismissAlert = function(context) {
@@ -25,6 +29,7 @@ var Alert = (function() {
         elToDismiss.parentNode.removeChild(elToDismiss);
     }
 
+    // Expose public methods
     return {
         init: init,
         dismiss: dismissAlert
