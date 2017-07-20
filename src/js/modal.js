@@ -5,7 +5,6 @@
 
 var Modal = (function() {
 
-
     /**
      * Set up
      */
@@ -30,7 +29,6 @@ var Modal = (function() {
      * Kick everything off here.
      */
     var init = function() {
-
         // Check to see if any modals exist on the page.
         if(modals.length != 0 && modalTriggers.length != 0) {
             _bindUiActions();
@@ -42,7 +40,6 @@ var Modal = (function() {
 
 
     var _bindUiActions = function() {
-
         modalTriggers.forEach(function(el) {
 
             el.addEventListener('click', function() {
@@ -93,14 +90,12 @@ var Modal = (function() {
                 });
             });
         });
-
     }
 
     /**
      * @param {object} modalToOpen - The current HTML modal element to open.
      */
     var openModal = function(modalToOpen) {
-
         // Is the modal a modal dialog i.e. clicking background doesn't close?
         isDialog = modalToOpen.getAttribute('data-modal-dialog');
 
@@ -140,7 +135,6 @@ var Modal = (function() {
      * @param {object} e - The event object
      */
     var _handleKeyDown = function(modalToHandle, e) {
-
         var KEY_TAB = 9;
         var KEY_ESC = 27;
 
@@ -161,7 +155,6 @@ var Modal = (function() {
 
 
         switch (e.keyCode) {
-
             case KEY_TAB:
                 if (focusableEls.length === 1) {
                     e.preventDefault();
@@ -183,14 +176,12 @@ var Modal = (function() {
             default:
                 break;
         }
-
     }
 
     /**
      * @param {object} modalToClose - The HTML modal element to close.
      */
     var closeModal = function(modalToClose) {
-
         document.body.removeAttribute('class');
         modalToClose.setAttribute('aria-hidden', 'true');
 
@@ -201,7 +192,6 @@ var Modal = (function() {
         if(focusedElBeforeOpen) {
             focusedElBeforeOpen.focus();
         }
-
     }
 
 
