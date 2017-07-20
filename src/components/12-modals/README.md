@@ -59,9 +59,9 @@ Once you've initialized the modal by calling `Modal.init()` you can add more mod
 The `Modal` component also exposes a couple of handy methods if you need to programmatically open or close your modal.
 
 ```javascript
-var modalToclose = document.querySelector('#modal-example');
+var modalToClose = document.querySelector('#modal-example');
 
-// Will open the `#modal-example` modal
+// Will close the `#modal-example` modal
 Modal.close(modalToClose);
 
 // Will open the `#modal-example` modal
