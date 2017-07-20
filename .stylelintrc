@@ -5,6 +5,7 @@
         "block-opening-brace-newline-after": "always",
         "block-closing-brace-newline-before": "always",
         "block-opening-brace-space-before": "always",
+        "color-hex-case": "lower",
         "selector-list-comma-newline-after": "always",
         "indentation": 4,
         "number-leading-zero": never,

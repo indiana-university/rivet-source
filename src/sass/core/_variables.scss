@@ -51,10 +51,10 @@ $color-black: #333333;
 
 // Brand Colors
 
-$color-cream: #EDEBEB;
+$color-cream: #edebeb;
 $color-crimson: #990000;
 $color-midnight: #006298;
-$color-dark-midnight: #01426A;
+$color-dark-midnight: #01426a;
 
 
 
@@ -103,16 +103,23 @@ $color-link-visited: $color-dark-midnight;
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
 
-$color-alert-gray: #A7A9AB;
+// Alert text colors generated via this handy tool:
+// https://codepen.io/basham/pen/OpNybO
+
+$color-alert-gray: #a7a9ab;
 $color-alert-gray-light: #eeeeee;
 $color-alert-green: #009933;
-$color-alert-green-light: #DDF4EA;
-$color-alert-blue: #49AFC7;
-$color-alert-blue-light: #E9F6FC;
-$color-alert-yellow: #F5BB17;
-$color-alert-yellow-light: #FDF7E7;
-$color-alert-orange: #F25B19;
-$color-alert-orange-light: #FDEEE8;
+$color-alert-green-text: #185120;
+$color-alert-green-light: #ddf4ea;
+$color-alert-blue: #49afc7;
+$color-alert-blue-text: #284c55;
+$color-alert-blue-light: #e9f6fc;
+$color-alert-yellow: #f5bb17;
+$color-alert-yellow-text: #584416;
+$color-alert-yellow-light: #fdf7e7;
+$color-alert-orange: #f25b19;
+$color-alert-orange-text: #773215;
+$color-alert-orange-light: #fdeee8;
 
 
 
