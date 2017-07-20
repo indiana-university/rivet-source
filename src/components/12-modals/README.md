@@ -53,15 +53,15 @@ Next, you'll need to **initialize the modal** with JavaScript.
 Modal.init();
 ```
 
-Once you've initialized the modal by calling `Modal.init()` you can add more modals to your page as needed using the markup with unique `data-modal-trigger` and corresponding `id` attributes.
+Multiple modals can be placed on the same page, as long as each has a unique `id` and coresponding `data-modal-trigger` element. Calling `Modal.init()` will wire up the event listeners for all modals on the page.
 
 ### Additional modal methods
 The `Modal` component also exposes a couple of handy methods if you need to programmatically open or close your modal.
 
 ```javascript
-var modalToclose = document.querySelector('#modal-example');
+var modalToClose = document.querySelector('#modal-example');
 
-// Will open the `#modal-example` modal
+// Will close the `#modal-example` modal
 Modal.close(modalToClose);
 
 // Will open the `#modal-example` modal
