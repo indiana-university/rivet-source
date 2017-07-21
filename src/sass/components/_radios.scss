@@ -1,0 +1,68 @@
+input[type="radio"] {
+    position: absolute;
+    left: -1em;
+    opacity: 0;
+}
+
+input[type="radio"] + label {
+    font-size: 1rem;
+    font-weight: 400;
+    /**
+    * Visually adjust due to the bigger hit area for radio buttons.
+    */
+    margin-left: .2rem;
+
+    &:before {
+        box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
+        content: " ";
+        line-height: 1;
+        vertical-align: middle;
+        display: inline-block;
+        /**
+        * Optically center vertically with label
+        */
+        margin-top: -.25rem;
+        margin-right: 1rem;
+        width: .8rem;
+        height: .8rem;
+        border-radius: 100%;
+        background-color: $color-white;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+input[type="radio"]:checked + label {
+    &:before {
+        background-color: $color-action;
+        box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
+    }
+}
+
+input[type="radio"]:checked:focus + label:before {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 2px 6px #95adcb;
+}
+
+input[type="radio"]:focus + label:before {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
+}
+
+input[type="radio"]:focus + label:before {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
+}
+
+input[type="radio"]:disabled + label:before {
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
+    background-color: #dddddd;
+}
+
+input[type="radio"]:disabled + label:before {
+    background-color: #dddddd;
+}
+
+input[type="radio"]:disabled + label {
+    cursor: not-allowed;
+    color: #999999;
+}
