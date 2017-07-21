@@ -18,3 +18,24 @@ For instance, you might define a limited type scale for you app of:
 - `1.8125rem` (29px) for **main headings**
 - `1.25rem` (20px) for **subheadings**
 - `1rem` (16px) for **interface copy**
+
+### Responsive type scale
+
+Each type scale helper class comes with a set of BEM-style modifiers that allow you adjust font-size at different screen sizes. Here's an example.
+
+```html
+
+<h1 class="ts-20 ts-32--md-up">Profile page</h1>
+<p class="ts-14">The profile page is where you can select your personal settings.</p>
+
+```
+
+Given the markup above, the `h1` would have a font size of 1.25rem/20px on all screens small and larger, and 2.25rem/36px on medium screens(740px wide) and larger.
+
+The responsive type scale CSS classes use the following conventions:
+
+- `--sm-up` - screens **480–740px** wide
+- `--md-up` - screens **740–1080px** wide
+- `--lg-up` - screens **1080–1260px** wide
+- `--xl-up` - screens **1260–1400px** wide
+- `--xxl-up` - screens **1400px** and wider.
