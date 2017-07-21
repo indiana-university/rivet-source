@@ -33,7 +33,7 @@
 
         @each $ts-pixels, $ts-rems in $type-sizes {
 
-            .ts-#{$ts-pixels}-#{$bp-name}-up {
+            .ts-#{$ts-pixels}--#{$bp-name}-up {
                 font-size: $ts-rems !important;
             }
 
