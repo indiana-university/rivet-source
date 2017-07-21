@@ -33,13 +33,11 @@ With these spacing classes applied, it would have 16px/1rem of bottom padding at
 
 All spacing utilities described above have the follow responsive modifiers available to them:
 
-- `--sm-up` = applied to screens 320px wide and larger
-- `--md-up` = applied to screens 480px wide and larger
-- `--lg-up` = applied to screens 940px wide and larger
-- `--xl-up` = applied to screens 1260px wide and larger
-- `--xxl-up` = applied to screens 1400px wide and larger
-
-
+- `--sm-up` - screens **480–740px** and wider
+- `--md-up` - screens **740–1080px** and wider
+- `--lg-up` - screens **1080–1260px** and wider
+- `--xl-up` - screens **1260–1400px** and wider
+- `--xxl-up` - screens **1400px** and wider
 
 ### All spacing
 Using the size conventions above you could apply the class `.p-all-xl` to add an Extra large amount (40px/2.5rem) to both the top and bottom of an element.
