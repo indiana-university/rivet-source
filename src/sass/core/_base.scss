@@ -41,3 +41,12 @@ hr {
     border-top: 1px solid #eee;
     color: white;
 }
+
+code {
+    font-family: monospace;
+    background-color: #eeeeee;
+    display: inline-block;
+    padding: .125rem .25rem;
+    color: $color-midnight;
+    border-radius: $radius-small;
+}
