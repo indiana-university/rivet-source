@@ -199,9 +199,10 @@ input[type="checkbox"] + label {
         content: " ";
         border-radius: 2px;
         margin-right: 1rem;
-        width: .8rem;
-        height: .8rem;
-        box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
+        width: 1rem;
+        height: 1rem;
+        // box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
+        box-shadow: 0 0 0 2px #dddddd;
         /**
         * This helps visually center the label with the pseudo
         * element checkbox.
@@ -215,11 +216,15 @@ input[type="checkbox"] + label {
     }
 }
 
+input[type="checkbox"]:focus + label:before {
+    box-shadow: 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
+}
+
 input[type="checkbox"]:checked + label {
     &:before {
         color: $color-white;
         background-color: $color-action;
-        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
+        box-shadow: 0 0 0 2px $color-action;
         background-image: url("../img/checkbox-input-check.png");
         background-image: url("../img/checkbox-input-check.svg");
         background-position: 50% 50%;
@@ -234,7 +239,7 @@ input[type="checkbox"]:checked + label {
 }
 
 input[type="checkbox"]:checked:focus + label:before {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 2px 6px #95adcb;
+    box-shadow: 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
 }
 
 input[type="checkbox"]:disabled + label:before {
@@ -244,8 +249,4 @@ input[type="checkbox"]:disabled + label:before {
 input[type="checkbox"]:disabled + label {
     cursor: not-allowed;
     color: #999999;
-}
-
-input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
 }
