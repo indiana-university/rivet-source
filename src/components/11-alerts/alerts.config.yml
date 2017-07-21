@@ -1,4 +1,5 @@
 title: Alerts & errors
+status: "alpha"
 variants:
     - name: "default"
       label: "Page-level alerts"
