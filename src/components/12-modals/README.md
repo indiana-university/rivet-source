@@ -26,6 +26,24 @@ The modal component is made up of the following elements:
 - `.modal__controls` — An optional footer element that holds modal controls, like "Save" and "Cancel"
 - `.modal__close` — An optional close button at the top of the modal
 
+### Required elements
+
+The only elements required in order for the modal to work are the `.modal`, `.modal__inner`, and `.modal__body`, but it is advisable to use the `.modal__header` element to help describe what the modal is use for. Likewise, the `.modal__controls` element provides an easy way to add additional actions to the modal like "Save" and "Close".
+
+### Modal controls
+
+The `.modal__controls` element provides a space to add additional controls like buttons. It is advisable to **stick to one or two buttons** action buttons in a modal. The primary action should **always appear as the left-most button** in the group with secondary actions, like "Cancel" appearing after.
+
+## Accessibility notes
+
+- When a modal is opened the modal itself receives focus, so that screen readers begin at the top of the modal content.
+- When the modal is closed the focus should be returned to the button/trigger that was used to open the modal so that keyboard only users and those using assistive technologies do not lose their place in the document.
+- A modal should trap focus inside of itself so that when a keyboard-only user navigates from the last focusable element in the modal it returns back to the first focusable element.
+
+### Dialog vs. modal
+
+We use the generic term "Modal" to mean any smaller window that is displayed on top of the main application, but there are some subtle differences between a modal and a dialog. [**See the modal dialog example**](/components/detail/modals--modal-dialog) for more detailed documentation on how to implement a modal dialog.
+
 ### Initializing the modal
 
 To use the modal component you'll need to do a few things.
@@ -67,19 +85,3 @@ Modal.close(modalToClose);
 // Will open the `#modal-example` modal
 Modal.open(modalToClose);
 ```
-
-
-
-### Required elements
-
-The only elements required in order for the modal to work are the `.modal`, `.modal__inner`, and `.modal__body`, but it is advisable to use the `.modal__header` element to help describe what the modal is use for. Likewise, the `.modal__controls` element provides an easy way to add additional actions to the modal like "Save" and "Close".
-
-## Accessibility notes
-
-- When a modal is opened the modal itself receives focus, so that screen readers begin at the top of the modal content.
-- When the modal is closed the focus should be returned to the button/trigger that was used to open the modal so that keyboard only users and those using assistive technologies do not lose their place in the document.
-- A modal should trap focus inside of itself so that when a keyboard-only user navigates from the last focusable element in the modal it returns back to the first focusable element.
-
-### Dialog vs. modal
-
-We use the generic term "Modal" to mean any smaller window that is displayed on top of the main application, but there are some subtle differences between a modal and a dialog. [**See the modal dialog example**](/components/detail/modals--modal-dialog) for more detailed documentation on how to implement a modal dialog.
