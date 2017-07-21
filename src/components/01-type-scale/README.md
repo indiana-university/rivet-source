@@ -34,8 +34,8 @@ Given the markup above, the `h1` would have a font size of 1.25rem/20px on all s
 
 The responsive type scale CSS classes use the following conventions:
 
-- `--sm-up` - screens **480–740px** wide
-- `--md-up` - screens **740–1080px** wide
-- `--lg-up` - screens **1080–1260px** wide
-- `--xl-up` - screens **1260–1400px** wide
-- `--xxl-up` - screens **1400px** and wider.
+- `--sm-up` - screens **480–740px** and wider
+- `--md-up` - screens **740–1080px** and wider
+- `--lg-up` - screens **1080–1260px** and wider
+- `--xl-up` - screens **1260–1400px** and wider
+- `--xxl-up` - screens **1400px** and wider
