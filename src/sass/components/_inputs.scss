@@ -98,11 +98,10 @@ legend {
 }
 
 select {
-    background-image: url("../img/select-arrow.png");
-    background-image: url("../img/select-arrow.svg");
-    background-size: 11px 6px;
-    background-position: right -.5rem center;
-    background-origin: content-box;
+    background-image: url("../img/rvt-caret-down@2x.png");
+    background-image: url("../img/rvt-caret-down.svg");
+    background-position: right 1rem center;
+    background-size: 14px 8px;
     background-repeat: no-repeat;
     padding-right: $md;
     padding-left: $xs;
