@@ -1,7 +1,7 @@
 preview: "@preview-no-padding"
 variants:
     - name: "default"
-      label: "Header shell"
+      label: "Header base"
     - name: "id-menu"
       label: "Header w/ user ID (simple log out)"
     - name: "main-nav"
