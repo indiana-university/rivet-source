@@ -1,0 +1,58 @@
+
+<header class="rvt-header">
+    <div class="rvt-header__trident">
+        <svg width="50" height="58" viewBox="0 0 50 58" role="img" aria-labelledby="iu-logo">
+            <title id="iu-logo">Indiana University</title>
+            <filter id="dropShadow">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="0"/>
+                <feOffset dx="0" dy="1"/>
+                <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+            <polygon fill="#ffffff" filter="url(#dropShadow)" points="10,15 10,18 12,18 12,36 16,40 22,40 22,44 20,44 20,48 30,48 30,44 28,44 28,40 34,40 38,36 38,18 40,18 40,15 30,15 30,18 32,18 32,34 28,34 28,13 30,13 30,10 20,10 20,13 22,13 22,34 18,34 18,18 20,18 20,15 "/>
+        </svg>
+    </div>
+    <h1 class="rvt-header__title">
+        <a href="#0">Application Title</a>
+    </h1>
+    <div class="rvt-header__controls">
+        <div class="rvt-header-id">
+            <div href="#0" class="rvt-header-id__profile"  data-button="dropdown" aria-role="button">
+                <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+                <span class="rvt-header-id__user">rswanson</span>
+            </div>
+            <a href="#0" class="rvt-header-id__log-out">
+                Log out
+            </a>
+        </div>
+        <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-trigger="desktop">
+            <svg class="rvt-drawer-button-open" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                <g>
+                    <line x1="24.5" y1="25.38" x2="45.5" y2="25.38" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+                    <line x1="24.5" y1="35" x2="45.5" y2="35" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+                    <line x1="24.5" y1="44.62" x2="45.5" y2="44.62" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+                </g>
+            </svg>
+            <svg class="rvt-drawer-button-close" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                <line x1="27.58" y1="27.58" x2="42.42" y2="42.42" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+                <line x1="42.42" y1="27.58" x2="27.58" y2="42.42" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+            </svg>
+        </button>
+    </div>
+    <div class="rvt-drawer" aria-hidden="true" id="desktop">
+        <div class="rvt-header-id rvt-header-id--drawer">
+            <div href="#0" class="rvt-header-id__profile"  data-button="dropdown" aria-role="button">
+                <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+                <span class="rvt-header-id__user">rswanson</span>
+            </div>
+            <a href="#0" class="rvt-header-id__log-out">
+                Log out
+            </a>
+        </div>
+    </div>
+</header>
+
+<script src="{{ path '/js/drawer.js' }}"></script>
+<script src="{{ path '/js/dropdown.js' }}"></script>
