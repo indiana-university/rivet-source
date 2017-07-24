@@ -1,35 +1,44 @@
 /**
  * This code is a wreck of a prototype. TODO: Need to create a new component for this
  */
-var menuTrigger = document.querySelector('[data-drawer-trigger]');
-var drawerId = menuTrigger.getAttribute('data-drawer-trigger');
-var drawer = document.getElementById(drawerId);
 
-menuTrigger.addEventListener('click', function() {
-    var toggledState = drawer.getAttribute('aria-hidden') === 'true' || false;
-    drawer.setAttribute('aria-hidden', !toggledState);
-    // Toggle button open class
-    this.classList.toggle('is-open');
-});
+var Drawer = (function() {
+    /**
+     * Set everything up
+     */
+    var drawerTrigger = document.querySelector('[data-drawer-trigger]');
+    var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-trigger]');
+    var drawerId = drawerTrigger.getAttribute('data-drawer-trigger');
+    var drawerEl = document.querySelector('#' + drawerId);
 
-// Subnav stuff
-var subnavTriggers = document.querySelectorAll('[data-subnav-trigger]');
+    var init = function() {
+        _bindUiActions();
+    }
 
-for(var i = 0; i < subnavTriggers.length; i++) {
-    subnavTriggers[i].addEventListener('click', function() {
-        var subnavID = this.getAttribute('data-subnav-trigger');
-        var subnavEl = document.querySelector('#' + subnavID);
+    var _bindUiActions = function() {
+        drawerTrigger.addEventListener('click', function() {
+            toggleHiddenState(drawerEl);
+            // Toggle button open class
+            this.classList.toggle('is-open');
+        });
 
-        toggleHiddenState(subnavEl);
-    });
-}
+        for(var i = 0; i < drawerSubnavTriggers.length; i++) {
+            drawerSubnavTriggers[i].addEventListener('click', function() {
+                var subnavID = this.getAttribute('data-subnav-trigger');
+                var subnavEl = document.querySelector('#' + subnavID);
+                // Toggle the aria-hidden attribute of the target subnav
+                toggleHiddenState(subnavEl);
+            });
+        }
+    }
+    
+    var toggleHiddenState = function(itemToToggle) {
+        var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
+        itemToToggle.setAttribute('aria-hidden', !itemState);
+    }
 
-/**
- * Using this same function in a few different places.
- * IDEA: Should we start a "Utils" component and move stuff like this
- * that we are using in multiple components into their own file?
- */
-var toggleHiddenState = function(itemToToggle) {
-    var menuState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
-    itemToToggle.setAttribute('aria-hidden', !menuState);
-}
+    return {
+        init: init,
+        toggle: toggleHiddenState
+    }
+})();
