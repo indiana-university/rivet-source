@@ -16,7 +16,7 @@ variants:
       preview: "@preview-no-padding"
       notes: |
         # Header with gray background (white stage)
-      label: "Header w/ gray background"
+      label: "Header w/ gray background (white stage)"
     - name: "desktop-drawer"
       preview: "@preview-no-padding"
       label: "Header w/ desktop drawer"
