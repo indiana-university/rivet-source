@@ -46,7 +46,7 @@ We are using [Fractal](http://fractal.build/) to build and document components f
 		text-decoration: none;
 		vertical-align: middle;
 		margin-top: 2rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.create-button:hover {
