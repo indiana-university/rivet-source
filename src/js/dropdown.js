@@ -120,5 +120,3 @@ var Dropdown = (function() {
     }
 
 })();
-
-Dropdown.init();
