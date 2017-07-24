@@ -1,7 +1,3 @@
-/**
- * This code is a wreck of a prototype. TODO: Need to create a new component for this
- */
-
 var Drawer = (function() {
     /**
      * Set everything up
@@ -31,7 +27,7 @@ var Drawer = (function() {
             });
         }
     }
-    
+
     var toggleHiddenState = function(itemToToggle) {
         var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
         itemToToggle.setAttribute('aria-hidden', !itemState);
