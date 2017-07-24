@@ -60,7 +60,7 @@
             </div>
         </div>
         <!-- Drawer close button - shows on small screens -->
-        <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-trigger="desktop">
+        <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-trigger="mobile-drawer">
             <svg class="rvt-drawer-button-open" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
                 <g>
                     <line x1="24.5" y1="25.38" x2="45.5" y2="25.38" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
@@ -82,7 +82,7 @@
         is probably the best way to handle that kind of flexibility.
         We'll just need to be clear about it in the documentation.
     -->
-    <div class="rvt-drawer" aria-hidden="true" id="desktop">
+    <div class="rvt-drawer" aria-hidden="true" id="mobile-drawer">
         <div class="rvt-header-id rvt-header-id--drawer">
             <div href="#0" class="rvt-header-id__profile" aria-role="button">
                 <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
@@ -120,3 +120,8 @@
 
 <script src="{{ path '/js/drawer.js' }}"></script>
 <script src="{{ path '/js/dropdown.js' }}"></script>
+
+<script>
+    Drawer.init();
+    Dropdown.init();
+</script>
