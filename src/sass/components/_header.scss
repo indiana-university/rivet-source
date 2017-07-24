@@ -1,0 +1,284 @@
+.rvt-header {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+.rvt-header--gray {
+    background-color: #f7f7f7;
+}
+
+.rvt-header__trident {
+    min-width: 60px;
+    flex-basis: 60px;
+    height: 70px;
+    background-color: #990000;
+    margin-right: 1rem;
+
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.rvt-header__title {
+    font-size: 1.25rem;
+
+    a {
+        color: #333;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/**
+ * When id menu is present the title needs a little more space.
+ */
+
+@include mq(510px) {
+    .rvt-header__title {
+        font-size: 1.5rem;
+    }
+}
+
+.rvt-header__controls {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.rvt-drawer-button {
+    background-color: transparent;
+    border: none;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    border-radius: 0;
+    border-left: 1px solid #ddd;
+    vertical-align: middle;
+
+    &:hover {
+        background-color: #ddd;
+        border-color: #ddd;
+    }
+
+    &.is-open {
+        background-color: #eee;
+    }
+}
+
+@include mq(960px) {
+    .rvt-drawer-button {
+        display: none;
+    }
+}
+
+
+.rvt-drawer-button-close {
+    display: none;
+}
+
+.rvt-drawer-button.is-open {
+    > .rvt-drawer-button-close {
+        display: block;
+    }
+
+    > .rvt-drawer-button-open {
+        display: none;
+    }
+}
+
+.rvt-header__main-nav {
+    display: none;
+    margin-right: 1rem;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        display: inline-block;
+        margin-right: 1rem;
+        line-height: 1.5;
+
+        &:last-child {
+            margin-right: 1.5rem;
+        }
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: #333;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+
+.rvt-drawer[aria-hidden="true"] {
+    display: none;
+}
+
+@include mq(960px) {
+    .rvt-drawer {
+        display: none;
+    }
+}
+
+.rvt-drawer {
+    position: absolute;
+    right: 0;
+    top: 71px;
+    background-color: #fafafa;
+    width: 75%;
+    max-width: 400px;
+    height: 100%;
+    border-left: 1px solid #ddd;
+
+    &__nav {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul li ul {
+            background-color: #eee;
+        }
+
+        ul li ul[aria-hidden="true"] {
+            display: none;
+        }
+
+        ul li ul li:first-child {
+            border-top: 1px solid #ddd;
+        }
+
+        ul li ul li:last-child {
+            border-bottom: none;
+        }
+
+        ul li a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            padding: .5rem 1rem;
+            position: relative;
+        }
+
+        ul li.has-children > a:after {
+            position: absolute;
+            top: 1.25rem;
+            right: 1rem;
+            content: " ";
+            display: inline-block;
+            width: 14px;
+            height: 8px;
+            vertical-align: middle;
+            background-image: url("../img/rvt-caret-down@2x.png");
+            background-image: url("../img/rvt-caret-down.svg");
+            background-position: right center;
+            background-size: 14px 8px;
+            background-repeat: no-repeat;
+        }
+
+        ul li ul li a {
+            padding: .5rem 1rem;
+        }
+    }
+}
+
+
+@media screen and (min-width: 960px) {
+    .rvt-header__main-nav {
+        display: block;
+    }
+
+    .hide-on-desktop {
+        display: none;
+    }
+}
+
+
+.rvt-header-id {
+    display: none;
+    align-items: center;
+
+    &__profile {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #333;
+        border-right: 1px solid #bbb;
+        padding-right: 1rem;
+    }
+
+    &__profile--has-dropdown {
+        border-right: none;
+        margin-right: 1rem;
+    }
+
+    &__log-out {
+        text-decoration: none;
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+    }
+
+    &__avatar {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #333;
+        border-radius: 50%;
+        margin-right: .5rem;
+
+        /**
+         * First and last initial stuff
+         */
+        vertical-align: middle;
+        text-align: center;
+        padding-top: .35rem;
+        font-size: .75rem;
+        font-weight: 700;
+        color: #fafafa;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    &--drawer {
+        display: flex;
+        width: 100%;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid #ddd;
+        background-color: #fff;
+    }
+}
+
+@include mq(960px) {
+    .rvt-header-id {
+        display: flex;
+    }
+}
+
+@include mq(960px) {
+    .rvt-header-id--drawer {
+        display: none;
+    }
+}
