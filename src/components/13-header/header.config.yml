@@ -4,11 +4,21 @@ variants:
       label: "Header base"
     - name: "id-menu"
       label: "Header w/ user ID (simple log out)"
+      notes: |
+        # Identity Menu
+        The inclusion of avatar+username, only avatar, and only username are all appropriate choices. When your application has multiple user functions consider including the dropdown carat, and when there is only one user function consider replacing the carat with a mahogany bar followed by the single function. (example:  username | logout). On mobile this item collapses into the side menu above all other options.
     - name: "main-nav"
       label: "Header w/ main navigation (ID dropdown)"
+      notes: |
+        # Main navigation
+        These lists work best for priority tasks and internal navigation. Consider including no more than five items in this list. These items can optionally also include nested structural navigation as a Rivet standard styled dropdown on desktop. On mobile these items collapse into the side menu, below the identity row and above the side menu options.
     - name: "gray-background"
       preview: "@preview-no-padding"
+      notes: |
+        # Header with gray background (white stage)
       label: "Header w/ gray background"
     - name: "desktop-drawer"
       preview: "@preview-no-padding"
       label: "Header w/ desktop drawer"
+      notes: |
+        # Desktop drawer
