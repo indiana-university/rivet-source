@@ -1,4 +1,4 @@
-preview: "@preview-no-padding"
+preview: "@preview-gray-stage"
 variants:
     - name: "default"
       label: "Header base"
@@ -6,3 +6,9 @@ variants:
       label: "Header w/ user ID (simple log out)"
     - name: "main-nav"
       label: "Header w/ main navigation (ID dropdown)"
+    - name: "gray-background"
+      preview: "@preview-no-padding"
+      label: "Header w/ gray background"
+    - name: "desktop-drawer"
+      preview: "@preview-no-padding"
+      label: "Header w/ desktop drawer"

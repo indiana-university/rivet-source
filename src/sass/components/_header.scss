@@ -73,9 +73,17 @@
     }
 }
 
-@include mq(960px) {
+.rvt-drawer-button--persistent {
+    display: block;
+}
+
+@include mq(1040px) {
     .rvt-drawer-button {
         display: none;
+    }
+
+    .rvt-drawer-button--persistent {
+        display: block;
     }
 }
 
@@ -127,12 +135,6 @@
 
 .rvt-drawer[aria-hidden="true"] {
     display: none;
-}
-
-@include mq(960px) {
-    .rvt-drawer {
-        display: none;
-    }
 }
 
 .rvt-drawer {
@@ -203,7 +205,7 @@
 }
 
 
-@media screen and (min-width: 960px) {
+@include mq(1040px) {
     .rvt-header__main-nav {
         display: block;
     }
@@ -269,13 +271,13 @@
     }
 }
 
-@include mq(960px) {
+@include mq(1040px) {
     .rvt-header-id {
         display: flex;
     }
 }
 
-@include mq(960px) {
+@include mq(1040px) {
     .rvt-header-id--drawer {
         display: none;
     }
