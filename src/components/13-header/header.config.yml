@@ -1,0 +1,8 @@
+preview: "@preview-no-padding"
+variants:
+    - name: "default"
+      label: "Header shell"
+    - name: "id-menu"
+      label: "Header w/ user ID (simple log out)"
+    - name: "main-nav"
+      label: "Header w/ main navigation (ID dropdown)"
