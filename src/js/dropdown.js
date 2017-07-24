@@ -113,7 +113,7 @@ var Dropdown = (function() {
      * closeAllMenus function if needed.
      */
 
-     return {
+    return {
         init: init,
         closeAll: closeAllMenus,
         toggleMenu: toggleMenuState
