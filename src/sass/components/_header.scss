@@ -95,7 +95,7 @@
 
 .rvt-header__main-nav {
     display: none;
-    margin-right: 1rem;
+    margin-right: 3rem;
 
     ul {
         list-style: none;
@@ -105,8 +105,12 @@
 
     ul li {
         display: inline-block;
-        margin-right: 1.5rem;
+        margin-right: 2rem;
         line-height: 1.5;
+    }
+
+    ul li:last-child {
+        margin-right: 0;
     }
 
     ul li a {
