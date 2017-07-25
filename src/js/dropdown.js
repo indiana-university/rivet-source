@@ -38,7 +38,7 @@ var Dropdown = (function() {
             btnTriggers[i].addEventListener('click', function(e) {
                 // Stop the event from bubling up.
                 e.stopPropagation();
-
+                e.preventDefault();
                 var dropdownTrigger = this;
                 var dropdownID = dropdownTrigger.getAttribute('data-dropdown-trigger');
                 var dropdownEl = document.querySelector('#' + dropdownID);
