@@ -13,6 +13,9 @@ var Drawer = (function() {
 
     var _bindUiActions = function() {
         drawerTrigger.addEventListener('click', function() {
+            // Togle aria-exapnded state of the button
+            toggleBtnState(this);
+            // Toggle the aria-hidden state of the drawer
             toggleHiddenState(drawerEl);
             // Toggle button open class
             this.classList.toggle('is-open');
@@ -22,10 +25,17 @@ var Drawer = (function() {
             drawerSubnavTriggers[i].addEventListener('click', function() {
                 var subnavID = this.getAttribute('data-subnav-trigger');
                 var subnavEl = document.querySelector('#' + subnavID);
+                // Toggle the aria-expanded state of the button
+                toggleBtnState(this);
                 // Toggle the aria-hidden attribute of the target subnav
                 toggleHiddenState(subnavEl);
             });
         }
+    }
+
+    var toggleBtnState = function(buttonEl) {
+        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true' || false;
+        buttonEl.setAttribute('aria-expanded', !isExpanded);
     }
 
     var toggleHiddenState = function(itemToToggle) {
@@ -34,7 +44,6 @@ var Drawer = (function() {
     }
 
     return {
-        init: init,
-        toggle: toggleHiddenState
+        init: init
     }
 })();
