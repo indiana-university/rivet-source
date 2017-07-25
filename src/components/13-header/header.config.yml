@@ -6,12 +6,64 @@ variants:
       label: "Header w/ user ID (simple log out)"
       notes: |
         # Identity Menu
-        The inclusion of avatar+username, only avatar, and only username are all appropriate choices. When your application has multiple user functions consider including the dropdown carat, and when there is only one user function consider replacing the carat with a mahogany bar followed by the single function. (example:  username | logout). On mobile this item collapses into the side menu above all other options.
+        The inclusion of an avatar and username, or only username are both appropriate choices. When your application has multiple user functions consider including the dropdown menu. When there is only one user function consider replacing the carat with a bar followed by the single function. (example:  username | Log out). On mobile this item collapses into the side menu above all other options.
     - name: "main-nav"
       label: "Header w/ main navigation (ID dropdown)"
       notes: |
         # Main navigation
+
         These lists work best for priority tasks and internal navigation. Consider including no more than five items in this list. These items can optionally also include nested structural navigation as a Rivet standard styled dropdown on desktop. On mobile these items collapse into the side menu, below the identity row and above the side menu options.
+
+        ## Implementation notes
+
+        The main navigation extension (`.rvt-header__main-nav`) will always need to be used with the drawer (`.rvt-drawer`) component. To allow for maximum flexibility, the markup in `.rvt-header__main-nav` needs to be duplicated inside of the `.rvt-drawer__nav` inside of the drawer. Starting at medium screen sizes (1080px–740px) and smaller the main nav extension is hidden using `display: none;` and the the `.rvt-drawer__nav` (with duplicate navigation) is shown using `display: block;`.
+
+        ### Main navigation with dropdowns
+
+        To create a nested navigation structure you can use Rivet's [standard dropdown menus](This will link to a stand-alone dropdown component). Dropdown menus can be nested inside of any of the main navigation `li` elements and implemented using the appropriate data attributes on the dropdown.
+
+        ```html
+        <nav class="rvt-header__main-nav">
+             <ul>
+                <li><a href="#0">Nav one</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-1" aria-role="button" aria-haspopup="true" aria-expanded="false">
+                            Nav two
+                        </a>
+                        <div class="dropdown__menu" id="dropdown-1" aria-hidden="true">
+                            <a href="#0">Subnav One</a>
+                            <a href="#0">Subnav Two</a>
+                            <a href="#0">Subnav Three</a>
+                        </div>
+                    </div>
+                </li>
+                ... More navigation
+            </ul>
+        </nav>
+        ```
+
+        ### Identity menu dropdown
+        When your application has multiple user-specific functions (e.g. "Account settings") you can wrap the contents of the `.rvt-header-id` extension in a standard Rivet dropdown component. Note that you'll need to add a `--has-dropdown` modifier class to the `.rvt-header-id__profile` element to remove the default styling.
+
+        ```html
+         <!-- ID menu w/ dropdown -->
+         <div class="rvt-header-id">
+             <div class="dropdown">
+                 <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown dropdown__trigger" data-dropdown-trigger="id-dropdown" aria-role="button" aria-haspopup="true" aria-expanded="false">
+                     <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+                     <span class="rvt-header-id__user">rswanson</span>
+                 </a>
+                 <div class="dropdown__menu dropdown__menu--right" id="id-dropdown" aria-hidden="true">
+                     <a href="#">Account settings</a>
+                     <a href="#">Admin task one</a>
+                     <a href="#">Admin task two</a>
+                     <a href="">Log out</a>
+                 </div>
+             </div>
+         </div>
+        ```
+
     - name: "gray-background"
       preview: "@preview-no-padding"
       notes: |
