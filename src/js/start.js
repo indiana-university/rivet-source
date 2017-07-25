@@ -1,3 +1,4 @@
+/* eslint-disable */
 (function() {
     /**
      * Kick off all components
@@ -7,3 +8,4 @@
     Dropdown.init();
     Modal.init();
 })();
+/* eslint-enable */
