@@ -32,9 +32,6 @@ var Modal = (function() {
         // Check to see if any modals exist on the page.
         if(modals.length != 0 && modalTriggers.length != 0) {
             _bindUiActions();
-        } else {
-            // If not don't run everything else.
-            return;
         }
     }
 

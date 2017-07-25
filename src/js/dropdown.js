@@ -19,11 +19,9 @@ var Dropdown = (function() {
      * on the page then kicks off all the event listeners.
      */
     var init = function() {
+        // Check to make sure there are doropdown menus in the DOM.
         if(btnTriggers.length != 0 && menus.length != 0) {
             bindUiActions();
-        } else {
-            // console.warn("Sorry, couldn't find any dropdowns.");
-            return;
         }
     }
 

@@ -4,11 +4,15 @@ var Drawer = (function() {
      */
     var drawerTrigger = document.querySelector('[data-drawer-trigger]');
     var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-trigger]');
-    var drawerId = drawerTrigger.getAttribute('data-drawer-trigger');
+    var drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-trigger') : null;
     var drawerEl = document.querySelector('#' + drawerId);
 
     var init = function() {
-        _bindUiActions();
+        // Check to make sure the drawer is present in the DOM
+        if(drawerTrigger) {
+            _bindUiActions();
+        }
+
     }
 
     var _bindUiActions = function() {
