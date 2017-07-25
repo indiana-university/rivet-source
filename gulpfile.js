@@ -9,6 +9,7 @@ const scss = require("postcss-scss");
 const autoprefixer = require('autoprefixer');
 const runSequence = require('run-sequence');
 const eslint = require('gulp-eslint');
+const concat = require('gulp-concat');
 
 /**
  * Require the fractal config file so that it can be reference with gulp
@@ -125,10 +126,10 @@ gulp.task('images:watch', function() {
  * JavaScript
  */
 
-gulp.task('js', function() {
-    return gulp.src('src/js/**/*.js')
-        .pipe(gulp.dest('dist/js/'));
-});
+// gulp.task('js', function() {
+//     return gulp.src('src/js/**/*.js')
+//         .pipe(gulp.dest('dist/js/'));
+// });
 
 gulp.task('js:lint', function() {
     return gulp.src(['src/js/**/*.js', '!node_modules/**'])
@@ -136,12 +137,19 @@ gulp.task('js:lint', function() {
         .pipe(eslint.format());
 });
 
+gulp.task('js:concat', function() {
+    return gulp.src([
+        'src/js/alert.js', 'src/js/drawer.js', 'src/js/dropdown.js', 'src/js/modal.js', 'src/js/start.js'])
+        .pipe(concat('rivet.js'))
+        .pipe(gulp.dest('./dist/js'));
+});
+
 /**
  * Watch scripts for changes and move to the "dist" folder
  */
 
 gulp.task('js:watch', function() {
-    gulp.watch('src/js/**/*.js', ['js:lint', 'js']);
+    gulp.watch('src/js/**/*.js', ['js:lint', 'js:concat']);
 });
 
 /**
@@ -149,11 +157,11 @@ gulp.task('js:watch', function() {
  */
 
 gulp.task('build', function(cb) {
-    runSequence('sass', 'images', 'js', 'fractal:build', 'prefix', cb);
+    runSequence('sass', 'images', 'js:concat', 'fractal:build', 'prefix', cb);
 });
 
 /**
  * Default development task
  */
 
-gulp.task('default', ['sass:lint', 'js:lint', 'sass', 'js', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
+gulp.task('default', ['sass:lint', 'js:lint', 'sass', 'js:concat', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
