@@ -3,10 +3,13 @@ var Alert = (function() {
     /**
      * Set up locally-scoped variables
      */
-    var dismissButton = document.querySelectorAll('.alert__dismiss');
+    var dismissButtons = document.querySelectorAll('.alert__dismiss');
 
     var init = function() {
-        _bindUiActions(dismissButton);
+        // Check to make sure there are dismissable alerts in the DOM.
+        if(dismissButtons.length != 0) {
+            _bindUiActions(dismissButtons);
+        }
     }
 
     /**
