@@ -19,9 +19,9 @@
                 <li><a href="#0">Nav one</a></li>
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-1" aria-role="button">
-                            Nav two
-                        </a>
+                        <!-- These dropdown triggers should be buttons since
+                             they are interactive -->
+                        <a href="#0" data-dropdown-trigger="dropdown-1" aria-role="button" aria-haspopup="true" aria-expanded="false">Nav two</a>
                         <div class="dropdown__menu" id="dropdown-1" aria-hidden="true">
                             <a href="#0">Subnav One</a>
                             <a href="#0">Subnav Two</a>
@@ -32,9 +32,7 @@
                 <li><a href="#0">Nav three</a></li>
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-2" aria-role="button">
-                            Nav four
-                        </a>
+                        <a href="#0" data-dropdown-trigger="dropdown-2" aria-role="button" aria-haspopup="true" aria-expanded="false">Nav four</a>
                         <div class="dropdown__menu" id="dropdown-2" aria-hidden="true">
                             <a href="#0">Subnav One</a>
                             <a href="#0">Subnav Two</a>
@@ -47,7 +45,7 @@
         <!-- ID menu w/ dropdown -->
         <div class="rvt-header-id">
             <div class="dropdown">
-                <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown" data-dropdown-trigger="id-dropdown" aria-role="button">
+                <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown" data-dropdown-trigger="id-dropdown" aria-role="button" aria-haspopup="true" aria-expanded="false">
                     <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                     <span class="rvt-header-id__user">rswanson</span>
                 </a>
@@ -98,7 +96,7 @@
             <ul class="hide-on-desktop">
                 <li><a href="#0">Main nav one</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-1">Main nav two</a>
+                    <a href="#0" data-subnav-trigger="subnav-1" aria-haspopup="true" aria-expanded="false">Main nav two</a>
                     <ul id="subnav-1" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
@@ -107,7 +105,7 @@
                 </li>
                 <li><a href="#0">Main nav three</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-2">Main nav four</a>
+                    <a href="#0" data-subnav-trigger="subnav-2" aria-haspopup="true" aria-expanded="false">Main nav four</a>
                     <ul id="subnav-2" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
@@ -118,7 +116,7 @@
             <ul>
                 <li><a href="#0">Drawer item one</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="drawer-item-1">Drawer item two</a>
+                    <a href="#0" data-subnav-trigger="drawer-item-1" aria-haspopup="true" aria-expanded="false">Drawer item two</a>
                     <ul id="drawer-item-1" aria-hidden="true">
                         <li><a href="#0">Drawer subnav one</a></li>
                         <li><a href="#0">Drawer subnav two</a></li>
@@ -127,7 +125,7 @@
                 </li>
                 <li><a href="#0">Drawer item three</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="drawer-item-2">Drawer item four</a>
+                    <a href="#0" data-subnav-trigger="drawer-item-2" aria-haspopup="true" aria-expanded="false">Drawer item four</a>
                     <ul id="drawer-item-2" aria-hidden="true">
                         <li><a href="#0">Drawer subnav one</a></li>
                         <li><a href="#0">Drawer subnav two</a></li>
