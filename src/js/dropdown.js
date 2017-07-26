@@ -56,7 +56,7 @@ var Dropdown = (function() {
          * Stop click on dropdown menus from bubling up
          */
 
-        for (var m = 0; m < menus.length; m ++) {
+        for (var i = 0; i < menus.length; i ++) {
             menus[i].addEventListener('click', function(e) {
                 e.stopPropagation();
             });
@@ -96,10 +96,12 @@ var Dropdown = (function() {
 
     var closeAllMenus = function(menuToLeaveOpen) {
         for(var i = 0; i < menus.length; i ++) {
-            menus[i].setAttribute(hidden, 'true');
-            var triggerElData = menus[i].getAttribute('id');
-            var triggerEl = document.querySelector('[data-dropdown-trigger="' + triggerElData + '"]');
-            triggerEl.setAttribute(expanded, 'false');
+            if(menuToLeaveOpen != menus[i]) {
+                menus[i].setAttribute(hidden, 'true');
+                var triggerElData = menus[i].getAttribute('id');
+                var triggerEl = document.querySelector('[data-dropdown-trigger="' + triggerElData + '"]');
+                triggerEl.setAttribute(expanded, 'false');
+            }
         }
     }
 
