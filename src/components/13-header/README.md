@@ -6,5 +6,4 @@ The base header can be extended to fit the navigation needs of your application 
 
 - [Identity menu extension](header--id-menu.html)
 - [Main navigation extension](./header--main-nav.html)
-- [Header with a gray background](./header--gray-background.html)
 - [Drawer component](./header--desktop-drawer.html) for additional navigation and tasks
