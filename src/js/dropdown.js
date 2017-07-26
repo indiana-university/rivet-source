@@ -56,11 +56,11 @@ var Dropdown = (function() {
          * Stop click on dropdown menus from bubling up
          */
 
-        menus.forEach(function(el) {
-            el.addEventListener('click', function(e) {
+        for (var m = 0; m < menus.length; m ++) {
+            menus[i].addEventListener('click', function(e) {
                 e.stopPropagation();
             });
-        });
+        }
 
         /**
          * Listen for clicks outside of the dropdown button and close all
@@ -95,15 +95,15 @@ var Dropdown = (function() {
      */
 
     var closeAllMenus = function(menuToLeaveOpen) {
-        menus.forEach(function(el) {
-            if(menuToLeaveOpen != el) {
-                el.setAttribute(hidden, 'true');
-                var triggerElData = el.getAttribute('id');
-                var triggerEl = document.querySelector('[data-dropdown-trigger="' + triggerElData + '"]');
-                triggerEl.setAttribute(expanded, 'false');
-            }
-        });
+        for(var i = 0; i < menus.length; i ++) {
+            menus[i].setAttribute(hidden, 'true');
+            var triggerElData = menus[i].getAttribute('id');
+            var triggerEl = document.querySelector('[data-dropdown-trigger="' + triggerElData + '"]');
+            triggerEl.setAttribute(expanded, 'false');
+        }
     }
+
+
 
     /**
      * This return statement exposes the functions that need to be availble
