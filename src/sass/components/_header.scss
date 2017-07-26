@@ -2,13 +2,13 @@
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eaeaea;
     width: 100%;
 }
 
 .rvt-header--gray {
     background-color: #f7f7f7;
-    border-bottom: none;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .rvt-header__trident {
@@ -52,11 +52,6 @@
     display: flex;
     margin-left: auto;
     align-items: center;
-}
-
-
-.rvt-header--gray .rvt-drawer-button {
-    border-left: none;
 }
 
 .rvt-drawer-button {
