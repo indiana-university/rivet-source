@@ -1,4 +1,4 @@
-preview: "@preview-gray-stage"
+preview: "@preview-no-padding"
 variants:
     - name: "default"
       label: "Header base"
@@ -65,12 +65,10 @@ variants:
         ```
 
     - name: "gray-background"
-      preview: "@preview-no-padding"
       notes: |
-        # Header with gray background (white stage)
-      label: "Header w/ gray background (white stage)"
+        # Header with gray background
+      label: "Header w/ gray background"
     - name: "desktop-drawer"
-      preview: "@preview-no-padding"
       label: "Header w/ desktop drawer"
       notes: |
         # Desktop drawer
