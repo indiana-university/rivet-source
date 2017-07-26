@@ -1,5 +1,5 @@
 ---
-title: UITS Design System (UITSDS)
+title: Rivet
 ---
 Our goal is to make it easier for teams to design and develop great experiences for users across all UITS applications.
 
@@ -21,7 +21,7 @@ Done is better than perfect. Iteration is only half the battle. Testing with use
 
 What you are looking at is the authoring environment for our design system. This is where we'll be putting our components through their paces—designing, developing, testing, and eventually distributing them as a package for designers and developers to use in their projects.
 
-We are using [Fractal](http://fractal.build/) to build and document components for the UITS Design System. Fractal is a component library generator written in Node.js.
+We are using [Fractal](http://fractal.build/) to build and document components for Rivet. Fractal is a component library generator written in Node.js.
 
 - [More about Fractal](http://fractal.build/guide)
 - [Fractal Installation guide](http://fractal.build/guide/installation) (Node.js required)
