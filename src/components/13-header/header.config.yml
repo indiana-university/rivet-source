@@ -64,10 +64,11 @@ variants:
          </div>
         ```
 
-    - name: "gray-background"
+    - name: "light-background"
+      preview: "@preview-gray-stage"
       notes: |
-        # Header with gray background
-      label: "Header w/ gray background"
+        # Header with light background
+      label: "Header w/ light background"
     - name: "desktop-drawer"
       label: "Header w/ desktop drawer"
       notes: |

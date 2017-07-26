@@ -3,11 +3,12 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid #eaeaea;
+    background-color: #f7f7f7;
     width: 100%;
 }
 
-.rvt-header--gray {
-    background-color: #f7f7f7;
+.rvt-header--light {
+    background-color: $color-background;
     border-bottom: 1px solid #eaeaea;
 }
 
@@ -61,16 +62,16 @@
     height: 70px;
     padding: 0;
     border-radius: 0;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid #dddddd;
     vertical-align: middle;
 
     &:hover {
-        background-color: #ddd;
-        border-color: #ddd;
+        background-color: #dddddd;
+        border-color: #dddddd;
     }
 
     &.is-open {
-        background-color: #eee;
+        background-color: #eeeeee;
     }
 }
 
