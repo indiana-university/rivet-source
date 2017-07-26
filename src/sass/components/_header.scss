@@ -8,6 +8,7 @@
 
 .rvt-header--gray {
     background-color: #f7f7f7;
+    border-bottom: none;
 }
 
 .rvt-header__trident {
@@ -51,6 +52,11 @@
     display: flex;
     margin-left: auto;
     align-items: center;
+}
+
+
+.rvt-header--gray .rvt-drawer-button {
+    border-left: none;
 }
 
 .rvt-drawer-button {
