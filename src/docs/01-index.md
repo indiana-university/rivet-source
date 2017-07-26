@@ -1,5 +1,5 @@
 ---
-title: Rivet
+title: Rivet Design System
 ---
 Our goal is to make it easier for teams to design and develop great experiences for users across all UITS applications.
 

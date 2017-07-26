@@ -45,7 +45,7 @@ fractal.web.theme(myCustomizedTheme);
 /**
  * Give your project a title.
  */
-fractal.set('project.title', 'UITS Design System');
+fractal.set('project.title', 'Rivet');
 
 /**
  * Tell Fractal where to look for components.
