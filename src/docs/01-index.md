@@ -3,6 +3,8 @@ title: Rivet Design System
 ---
 Our goal is to make it easier for teams to design and develop great experiences for users across all UITS applications.
 
+<a href="https://uxo.iu.edu/status/" class="create-button">Track our progress</a>
+
 ## Principles
 
 **Be clear.**
@@ -25,3 +27,31 @@ We are using [Fractal](http://fractal.build/) to build and document components f
 
 - [More about Fractal](http://fractal.build/guide)
 - [Fractal Installation guide](http://fractal.build/guide/installation) (Node.js required)
+
+
+<style scoped>
+
+	.create-button {
+		background-color: #006298;
+		border-style: solid;
+		border: 2px solid #006298;
+		border-radius: 4px;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: bold;
+		line-height: 1;
+		text-decoration: none;
+		padding: .625rem 1rem;
+		text-decoration: none;
+		vertical-align: middle;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.create-button:hover {
+		color: #ffffff;
+		background-color: #00456a;
+	}
+
+</style>
