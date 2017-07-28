@@ -11,6 +11,8 @@ var Modal = (function() {
 
     var modals = document.querySelectorAll('.modal');
     var modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+    // Make modalTriggers an array
+    modalTriggers = Array.prototype.slice.call(modalTriggers);
     var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
     /**
