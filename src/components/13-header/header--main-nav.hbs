@@ -1,4 +1,4 @@
-<header class="rvt-header">
+<header class="rvt-header" role="banner">
     <!-- Trident -->
     <div class="rvt-header__trident">
         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="70" viewBox="0 0 60 70" aria-labelledby="iu-logo">
@@ -14,7 +14,7 @@
     <!-- Wrapper for header interactive elements -->
     <div class="rvt-header__controls">
         <!-- Main inline nav element -->
-        <nav class="rvt-header__main-nav">
+        <nav class="rvt-header__main-nav" role="navigation">
              <ul>
                 <li><a href="#0">Nav one</a></li>
                 <li>
@@ -85,16 +85,26 @@
     -->
     <div class="rvt-drawer" aria-hidden="true" id="mobile-drawer">
         <div class="rvt-header-id rvt-header-id--drawer">
-            <div href="#0" class="rvt-header-id__profile" aria-role="button">
+            <div class="rvt-header-id__profile rvt-header-id__profile--drawer" aria-role="button">
                 <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                 <span class="rvt-header-id__user">rswanson</span>
+                <a href="#0" class="rvt-header-id__log-out">
+                    Log out
+                </a>
             </div>
-            <a href="#0" class="rvt-header-id__log-out">
-                Log out
-            </a>
+            <span class="rvt-drawer__subhead rvt-drawer__subhead--first">Admin settings</span>
+            <div class="rvt-drawer__nav rvt-drawer__nav--accent">
+                <ul>
+                    <li><a href="#">Account settings</a></li>
+                    <li><a href="#">Admin task one</a></li>
+                    <li><a href="#">Admin task two</a></li>
+                    <li><a href="">Log out</a></li>
+                </ul>
+            </div>
         </div>
         <!-- Drawer nav -->
-        <nav class="rvt-drawer__nav">
+        <span class="rvt-drawer__subhead">Main navigation</span>
+        <nav class="rvt-drawer__nav" role="navigation">
             <ul>
                 <li><a href="#0">Nav one</a></li>
                 <li class="has-children">
