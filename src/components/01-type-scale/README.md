@@ -11,7 +11,7 @@ Benton Sans is an official IU font and is available for free to all IU schools, 
 Font weight can be used to emphasize different parts of your interface and help enforce visual hierarchy. [Design System] uses Benton Sans Regular and Benton Sans Bold font weights.
 
 ## Implementation notes
-Try to keep the number of different font sizes you use in your application to a minimum. The size of fonts depends on the design of you application, but picking a handful of font sizes and sticking to them makes it easier to maintain consistency throught the interface.
+Try to keep the number of different font sizes you use in your application to a minimum. The size of fonts depends on the design of you application, but picking a handful of font sizes and sticking to them makes it easier to maintain consistency throughout the interface.
 
 For instance, you might define a limited type scale for you app of:
 
