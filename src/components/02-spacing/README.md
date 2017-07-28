@@ -15,11 +15,11 @@ The CSS classes for the spacing system use the following conventions:
 - `xl` = Extra large (40px/2.5rem)
 - `xxl` = Extra extra large (48px/3rem)
 
-So a the class `.m-top-sm` would add 16px/1rem of margin on all screen sizes to the top of the element it was applied to.
+So the class `.m-top-sm` would add 16px/1rem of margin on all screen sizes to the top of the element it was applied to.
 
 ### Responsive spacing
 
-Each spacing utility class also comes with a set of modifiers that allow you to adjust spacing a different screen sizes. Take the following `div`
+Each spacing utility class also comes with a set of modifiers that allow you to adjust spacing at different screen sizes. Take the following `div`
 
 ```html
 <div class="p-bottom-sm p-bottom-lg--md-up">
@@ -31,7 +31,7 @@ With these spacing classes applied, it would have 16px/1rem of bottom padding at
 
 ### Spacing modifiers
 
-All spacing utilities described above have the follow responsive modifiers available to them:
+All spacing utilities described above have the following responsive modifiers available to them:
 
 - `--sm-up` - screens **480–740px** and wider
 - `--md-up` - screens **740–1080px** and wider
