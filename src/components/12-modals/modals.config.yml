@@ -14,7 +14,7 @@ variants:
 
         ### When to use
 
-        - Confirmation dialogs used to verify the action a user selected, especially when that action will result in the loss of data. For example, ‘All files in this folder will be deleted. Do you want to continue?’
+        - Confirmation dialogs are used to verify the action a user selected, especially when that action will result in the loss of data. For example, ‘All files in this folder will be deleted. Do you want to continue?’
         - Provide the user with clarifying information before they continue with a task or action. For example, "A 10% fee will be charged to your account. Do you want to continue?"
 
         ### When to consider something else
