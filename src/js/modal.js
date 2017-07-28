@@ -51,7 +51,8 @@ var Modal = (function() {
 
                 // Get all the close triggers for the current modal
                 var modalCloseButtons = modalEl.querySelectorAll('[data-modal-close]');
-
+                modalCloseButtons = Array.prototype.slice.call(modalCloseButtons);
+                
                 modalCloseButtons.forEach(function(el) {
                     el.addEventListener('click', function() {
                         closeModal(modalEl);
