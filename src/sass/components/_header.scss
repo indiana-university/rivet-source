@@ -150,7 +150,7 @@
     border-left: 1px solid #ddd;
 
     &__subhead {
-        color: #767676;
+        color: $color-black--700;
         @extend .text-uppercase;
         font-size: $ts-14;
         padding: $xs $sm;
