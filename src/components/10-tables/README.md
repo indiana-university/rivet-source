@@ -1,10 +1,12 @@
 # Tables
 Tables are used to display tabular data in rows and columns.
 
-## When to use
+## Usability notes
+
+### When to use
 Tables are great for displaying tabular data including statistical information.
 
-## When to consider something else
+### When to consider something else
 When the content you are displaying has only two dimensions, for instance a list of terms and definitions, consider using a [definition list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl).
 
 ## Accessibility
