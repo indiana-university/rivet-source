@@ -1,4 +1,11 @@
-// Plain list mixin
+ul,
+ol {
+    /**
+     * Zero out margins so we can use more uniform rem-based utility
+     * classes for spacing.
+     */
+    margin: 0;
+}
 
 ul li,
 ol li {
