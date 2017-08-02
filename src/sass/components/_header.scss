@@ -143,7 +143,7 @@
     position: absolute;
     right: 0;
     top: 71px;
-    background-color: $color-background;
+    background-color: #f7f7f7;
     width: 85%;
     max-width: 400px;
     height: 100%;
@@ -167,8 +167,9 @@
     &__nav {
         ul {
             list-style: none;
-            margin: 0;
+            margin: $md 0;
             padding: 0;
+            background-color: $color-background;
         }
 
         ul li {
@@ -176,7 +177,8 @@
         }
 
         ul li ul {
-            background-color: #fafafa;
+            background-color: $color-black--100;
+            margin: 0;
         }
 
         ul li ul[aria-hidden="true"] {
@@ -299,6 +301,7 @@
         display: flex;
         border-right: none;
         padding: $md $sm;
+        background-color: $color-background;
     }
 
     &__profile--drawer &__user {
