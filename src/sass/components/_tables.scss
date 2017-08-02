@@ -43,3 +43,14 @@ tr td {
         background-color: $color-black--100;
     }
 }
+
+.table-plain {
+    thead {
+        background-color: transparent;
+        border-bottom: none;
+    }
+
+    tr {
+        border-bottom: none;
+    }
+}
