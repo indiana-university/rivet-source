@@ -103,13 +103,16 @@ $color-link-visited: $color-dark-midnight;
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
 
+// Some of these alert colors have been slightly altered to meet WCAG 2.0
+// Standards for sufficient contrast ration against white.
+
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
 
 $color-alert-gray: #a7a9ab;
 $color-alert-gray-light: #eeeeee;
-$color-alert-green: #009933;
-$color-alert-green-text: #185120;
+$color-alert-green: #008a28;
+$color-alert-green-text: #16521d;
 $color-alert-green-light: #ddf4ea;
 $color-alert-blue: #49afc7;
 $color-alert-blue-text: #284c55;
@@ -117,8 +120,8 @@ $color-alert-blue-light: #e9f6fc;
 $color-alert-yellow: #f5bb17;
 $color-alert-yellow-text: #584416;
 $color-alert-yellow-light: #fdf7e7;
-$color-alert-orange: #f25b19;
-$color-alert-orange-text: #773215;
+$color-alert-orange: #df3603;
+$color-alert-orange-text: #82270d;
 $color-alert-orange-light: #fdeee8;
 
 
