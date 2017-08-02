@@ -64,12 +64,7 @@ variants:
          </div>
         ```
 
-    - name: "light-background"
-      preview: "@preview-gray-stage"
-      notes: |
-        # Header with light background
-      label: "Header w/ light background"
-    - name: "desktop-drawer"
-      label: "Header w/ desktop drawer"
+    - name: "persistent-drawer"
+      label: "Header w/ persistent desktop drawer"
       notes: |
         # Desktop drawer
