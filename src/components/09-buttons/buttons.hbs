@@ -1,67 +1,87 @@
-<h2 class="ts-14 text-uppercase m-bottom-xs">Primary button</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button">Default</button>
-    <button class="button-hover">Hover</button>
-    <button class="button-active">Active</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Secondary button</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button button--secondary">Default</button>
-    <button class="button button--secondary button--secondary-hover">Hover</button>
-    <button class="button button--secondary button--secondary-active">Active</button>
-</div>
-
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Success button</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button button--success">Default</button>
-    <button class="button button--success button--success-hover">Hover</button>
-    <button class="button button--success button--success-active">Active</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Secondary success button</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button button--success-secondary">Default</button>
-    <button class="button button--success-secondary button--success-secondary-hover">Hover</button>
-    <button class="button button--success-secondary button--success-secondary-active">Active</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Danger button</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button button--danger">Default</button>
-    <button class="button button--danger button--danger-hover">Hover</button>
-    <button class="button button--danger button--danger-active">Active</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Secondary danger button</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button button--danger-secondary">Default</button>
-    <button class="button button--danger-secondary button--danger-secondary-hover">Hover</button>
-    <button class="button button--danger-secondary button--danger-secondary-active">Active</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-top-lg m-bottom-xs">Plain buttons</h2>
-<div class="button-group m-bottom-lg">
-     <button class="button button--plain">Default</button>
-     <button class="button-hover button--plain-hover">Hover</button>
-     <button class="button-active button--plain-active">Active</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Focus state</h2>
-<div class="button-group m-bottom-lg">
-    <button class="button-focus">Focus</button>
-    <button class="button button--secondary button-focus">Focus</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-bottom-xs">Disabled state</h2>
-<div class="m-vertical-sm button-group m-bottom-lg">
-    <button disabled>Disabled</button>
-</div>
-
-<h2 class="ts-14 text-uppercase m-top-lg m-bottom-xs">Small buttons</h2>
-<div class="m-vertical-sm button-group">
-    <button class="button button--small">Small button</button>
-    <button class="button button--small button--secondary">Small button</button>
-    <button class="button button--small" disabled>Small button</button>
-</div>
+<table class="table-plain">
+    <caption class="sr-only">Button examples table</caption>
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Default</th>
+            <th scope="col">Hover</th>
+            <th scope="col">Focus</th>
+            <th scope="col">Active</th>
+            <th scope="col">Disabled</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Primary</th>
+            <td><button class="button">Button</button></td>
+            <td><button class="button-hover">Button</button></td>
+            <td><button class="button-focus">Button</button></td>
+            <td><button class="button-active">Button</button></td>
+            <td><button class="button-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Secondary</th>
+            <td><button class="button button--secondary">Button</button></td>
+            <td><button class="button button--secondary button--secondary-hover">Button</button></td>
+            <td><button class="button--secondary button--secondary-focus">Button</button></td>
+            <td><button class="button--secondary button--secondary-active">Button</button></td>
+            <td><button class="button--secondary button--secondary-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Success</th>
+            <td><button class="button button--success">Button</button></td>
+            <td><button class="button button--success button--success-hover">Button</button></td>
+            <td><button class="button--success button--success-focus">Button</button></td>
+            <td><button class="button--success button--success-active">Button</button></td>
+            <td><button class="button--success button--success-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Success secondary</th>
+            <td><button class="button button--success-secondary">Button</button></td>
+            <td><button class="button button--success-secondary button--success-secondary-hover">Button</button></td>
+            <td><button class="button--success-secondary button--success-secondary-focus">Button</button></td>
+            <td><button class="button--success-secondary button--success-secondary-active">Button</button></td>
+            <td><button class="button--success-secondary button--success-secondary-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Danger</th>
+            <td><button class="button button--danger">Button</button></td>
+            <td><button class="button button--danger button--danger-hover">Button</button></td>
+            <td><button class="button--danger button--danger-focus">Button</button></td>
+            <td><button class="button--danger button--danger-active">Button</button></td>
+            <td><button class="button--danger button--danger-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Danger secondary</th>
+            <td><button class="button button--danger-secondary">Button</button></td>
+            <td><button class="button button--danger-secondary button--danger-secondary-hover">Button</button></td>
+            <td><button class="button--danger-secondary button--danger-secondary-focus">Button</button></td>
+            <td><button class="button--danger-secondary button--danger-secondary-active">Button</button></td>
+            <td><button class="button--danger-secondary button--danger-secondary-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Plain button</th>
+            <td><button class="button button--plain">Button</button></td>
+            <td><button class="button button--plain button--plain-hover">Button</button></td>
+            <td><button class="button--plain button--plain-focus">Button</button></td>
+            <td><button class="button--plain button--plain-active">Button</button></td>
+            <td><button class="button--plain button--plain-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Small button</th>
+            <td><button class="button button--small">Button</button></td>
+            <td><button class="button button--small button--small-hover">Button</button></td>
+            <td><button class="button--small button--small-focus">Button</button></td>
+            <td><button class="button--small button--small-active">Button</button></td>
+            <td><button class="button--small button--small-active" disabled>Button</button></td>
+        </tr>
+        <tr>
+            <th scope="row">Small secondary button</th>
+            <td><button class="button button--secondary button--small">Button</button></td>
+            <td><button class="button button--secondary button--small button--small-hover">Button</button></td>
+            <td><button class="button--small button--secondary button--small-focus">Button</button></td>
+            <td><button class="button--small button--secondary button--small-active">Button</button></td>
+            <td><button class="button--small button--secondary button--small-active" disabled>Button</button></td>
+        </tr>
+    </tbody>
+</table>

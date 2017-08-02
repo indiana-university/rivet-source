@@ -1,3 +1,8 @@
+%button-focus {
+    outline: none;
+    box-shadow: 0 0 1px 3px $color-midnight--300;
+}
+
 button,
 .button {
     background-color: $color-midnight;
@@ -21,8 +26,7 @@ button,
 
     &:focus,
     &-focus {
-        outline: none;
-        box-shadow: 0 0 1px 3px $color-midnight--300;
+        @extend %button-focus;
     }
 
     &:hover,
@@ -51,6 +55,11 @@ button,
     background-color: transparent;
     color: $color-midnight;
 
+    &:focus,
+    &-focus {
+        @extend %button-focus;
+    }
+
     &:hover,
     &-hover {
         background-color: mix($color-midnight, white, 20%);
@@ -67,6 +76,11 @@ button,
 .button--success {
     background-color: $color-alert-green;
     border-color: $color-alert-green;
+
+    &:focus,
+    &-focus {
+        @extend %button-focus;
+    }
 
     &:hover,
     &-hover {
@@ -87,6 +101,11 @@ button,
     border-color: $color-alert-green;
     color: $color-alert-green;
 
+    &:focus,
+    &-focus {
+        @extend %button-focus;
+    }
+
     &:hover,
     &-hover {
         background-color: mix($color-alert-green, white, 15%);
@@ -104,6 +123,11 @@ button,
 .button--danger {
     background-color: $color-alert-orange;
     border-color: $color-alert-orange;
+
+    &:focus,
+    &-focus {
+        @extend %button-focus;
+    }
 
     &:hover,
     &-hover {
@@ -124,6 +148,11 @@ button,
     border-color: $color-alert-orange;
     color: $color-alert-orange;
 
+    &:focus,
+    &-focus {
+        @extend %button-focus;
+    }
+
     &:hover,
     &-hover {
         background-color: mix($color-alert-orange, white, 15%);
@@ -142,12 +171,33 @@ button,
 .button--small {
     padding: .35rem .65rem;
     font-size: $ts-14;
+
+    &-focus {
+        @extend %button-focus;
+    }
+
+    &-hover {
+        background-color: mix($color-midnight, white, 20%);
+        border-color: rgba($color-midnight, 0);
+        color: $color-midnight;
+    }
+
+    &-active {
+        background-color: mix($color-midnight, white, 35%);
+        border-color: rgba($color-midnight, 0);
+        color: $color-action;
+    }
 }
 
 .button--plain {
     border-color: transparent;
     background-color: transparent;
     color: $color-action;
+
+    &:focus,
+    &-focus {
+        @extend %button-focus;
+    }
 
     &:hover,
     &-hover {
