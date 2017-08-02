@@ -149,21 +149,6 @@
     height: 100%;
     border-left: 1px solid #ddd;
 
-    &__subhead {
-        color: $color-black--700;
-        @extend .text-uppercase;
-        font-size: $ts-14;
-        padding: $xs $sm;
-        display: block;
-        background-color: #fafafa;
-        border-bottom: 1px solid #dddddd;
-    }
-
-    &__subhead--first {
-        border-top: 1px solid #dddddd;
-        border-bottom: none;
-    }
-
     &__nav {
         ul {
             list-style: none;
