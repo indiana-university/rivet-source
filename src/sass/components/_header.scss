@@ -152,7 +152,7 @@
     &__nav {
         ul {
             list-style: none;
-            margin: $md 0;
+            margin-bottom: $md;
             padding: 0;
             background-color: $color-background;
         }
@@ -182,14 +182,14 @@
             display: block;
             text-decoration: none;
             color: #333;
-            padding: .5rem 1rem;
+            padding: $sm;
             position: relative;
         }
 
         ul li.has-children > a:after {
             position: absolute;
-            top: 1.25rem;
-            right: 1rem;
+            top: 1.75rem;
+            right: 1.5rem;
             content: " ";
             display: inline-block;
             width: 14px;
@@ -285,13 +285,17 @@
     &__profile--drawer {
         display: flex;
         border-right: none;
-        padding: $md $sm;
+        padding: $xxs $sm;
         background-color: $color-background;
     }
 
     &__profile--drawer &__user {
         border-right: 1px solid #dddddd;
         padding-right: $sm;
+    }
+
+    &__profile--drawer &__user--has-dropdown {
+        border-right: none;
     }
 }
 
