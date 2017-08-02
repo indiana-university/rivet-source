@@ -69,7 +69,7 @@ gulp.task('fractal:build', function(){
 gulp.task('sass', function() {
  return gulp.src('src/sass/**/*.scss')
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest('static/css/'));
 });
 
 /**
@@ -104,17 +104,17 @@ gulp.task('prefix', function() {
 /**
  * Images
  * TODO: Maybe add optimization step in to this images task for svg? Also
- * need to add a step to delete images from "dist" when they are deleted
+ * need to add a step to delete images from "static" when they are deleted
  * from "src".
  */
 
 gulp.task('images', function() {
     return gulp.src('src/img/**/*')
-        .pipe(gulp.dest('dist/img/'));
+        .pipe(gulp.dest('static/img/'));
 });
 
 /**
- * Watch images for changes and move to the "dist" folder
+ * Watch images for changes and move to the "static" folder
  */
 
 gulp.task('images:watch', function() {
@@ -126,11 +126,6 @@ gulp.task('images:watch', function() {
  * JavaScript
  */
 
-// gulp.task('js', function() {
-//     return gulp.src('src/js/**/*.js')
-//         .pipe(gulp.dest('dist/js/'));
-// });
-
 gulp.task('js:lint', function() {
     return gulp.src(['src/js/**/*.js', '!node_modules/**'])
         .pipe(eslint())
@@ -141,11 +136,11 @@ gulp.task('js:concat', function() {
     return gulp.src([
         'src/js/alert.js', 'src/js/drawer.js', 'src/js/dropdown.js', 'src/js/modal.js', 'src/js/start.js'])
         .pipe(concat('rivet.js'))
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('./static/js'));
 });
 
 /**
- * Watch scripts for changes and move to the "dist" folder
+ * Watch scripts for changes and move to the "static" folder
  */
 
 gulp.task('js:watch', function() {
@@ -164,4 +159,4 @@ gulp.task('build', function(cb) {
  * Default development task
  */
 
-gulp.task('default', ['sass:lint', 'js:lint', 'sass', 'js:concat', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
+gulp.task('default', ['sass:lint', 'js:lint', 'sass', 'images', 'js:concat', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
