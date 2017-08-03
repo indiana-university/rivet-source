@@ -19,3 +19,5 @@ gulp.task('build', function(cb) {
  */
 
 gulp.task('dev:serve', ['sass:lint', 'js:lint', 'sass', 'images', 'js:concat', 'fractal:start', 'sass:watch', 'images:watch', 'js:watch']);
+
+gulp.task('default', ['dev:serve']);
