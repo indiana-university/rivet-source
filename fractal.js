@@ -94,7 +94,7 @@ fractal.docs.set('path', path.join(__dirname, 'src/docs'));
 /**
  * Tell the Fractal web preview plugin where to look for static assets.
  */
-fractal.web.set('static.path', path.join(__dirname, 'dist'));
+fractal.web.set('static.path', path.join(__dirname, 'static'));
 
 /**
  * Set a destination for Fractal to build out the stat UI for the components.
