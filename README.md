@@ -41,7 +41,7 @@ Next you'll need to install it's dependencies via NPM:
 npm install
 ```
 
-After you've install the dependencies run `gulp dev:serve`. The navigate to [http://localhost:3000/](http://localhost:3000/) and you should see the Design System Welcome screen.
+After you've installed the dependencies, run `gulp dev:serve`. Then, navigate to [http://localhost:3000/](http://localhost:3000/) and you should see the Design System Welcome screen.
 
 The default gulp task will watch all component templates (.hbs) and Sass (.scss) files and recompile and update on each change.
 
