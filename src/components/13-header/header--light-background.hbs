@@ -1,4 +1,4 @@
-<header class="rvt-header rvt-header--light">
+<header class="rvt-header rvt-header--light" role="banner">
     <!-- Trident -->
     <div class="rvt-header__trident">
         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="70" viewBox="0 0 60 70" aria-labelledby="iu-logo">
@@ -84,21 +84,24 @@
         We'll just need to be clear about it in the documentation.
     -->
     <div class="rvt-drawer" aria-hidden="true" id="mobile-drawer">
-        <div class="rvt-header-id rvt-header-id--drawer">
-            <div href="#0" class="rvt-header-id__profile" aria-role="button">
-                <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
-                <span class="rvt-header-id__user">rswanson</span>
-            </div>
-            <a href="#0" class="rvt-header-id__log-out">
-                Log out
-            </a>
-        </div>
         <!-- Drawer nav -->
         <nav class="rvt-drawer__nav">
             <ul>
+                <li class="has-children">
+                    <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--drawer" data-subnav-trigger="subnav-id" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+                        <span class="rvt-header-id__user rvt-header-id__user--has-dropdown">rswanson</span>
+                    </a>
+                    <ul id="subnav-id" aria-hidden="true">
+                        <li><a href="#">Account settings</a></li>
+                        <li><a href="#">Admin task one</a></li>
+                        <li><a href="#">Admin task two</a></li>
+                        <li><a href="">Log out</a></li>
+                    </ul>
+                </li>
                 <li><a href="#0">Nav one</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-1" aria-role="button" aria-haspopup="true" aria-expanded="false">Nav two</a>
+                    <a href="#0" data-subnav-trigger="subnav-1" role="button" aria-haspopup="true" aria-expanded="false">Nav two</a>
                     <ul id="subnav-1" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
@@ -107,7 +110,7 @@
                 </li>
                 <li><a href="#0">Nav three</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-2" aria-role="button" aria-haspopup="true" aria-expanded="false">Nav four</a>
+                    <a href="#0" data-subnav-trigger="subnav-2" role="button" aria-haspopup="true" aria-expanded="false">Nav four</a>
                     <ul id="subnav-2" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
