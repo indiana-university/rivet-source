@@ -16,6 +16,12 @@ Modals are helpful when you need to create a focused space for a user to complet
 - When you need to display an error message consider using an [**alert**](link-to-alerts) on the page in which the error occurred.
 - When you need to display large amounts of information for multiple tasks consider using a dedicated page instead.
 
+## Microcopy notes
+
+Follow [UX Planet’s recommendations for modal text](https://uxplanet.org/best-practices-for-modals-overlays-dialog-windows-c00c66cddd8c):
+- The button that launches the modal should clearly describe the action (“Submit feedback”)
+- Use the launch button text as the modal title. This reminds the user what to do, within the context of the overall page.
+
 ## Implementation notes
 
 The modal component is made up of the following elements:
