@@ -68,3 +68,12 @@ variants:
       label: "Header w/ persistent desktop drawer"
       notes: |
         # Desktop drawer
+    - name: "light-background"
+      label: "Header w/ light background"
+      preview: "@preview-gray-stage"
+      notes: |
+        # Light background variant
+
+        For applications that use a light gray background/stage, the header can also be used with the modifier class `.rvt-header--light`. This will give the header a white background color to help provide contrast against the stage.
+
+        If you choose to use a light gray background for your app we recommend a gray no darker than `#f7f7f7`.
