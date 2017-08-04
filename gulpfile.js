@@ -38,6 +38,9 @@ gulp.task('default', ['dev:serve']);
 
 gulp.task('build:dist', function(done) {
     runSequence(
+        'sass',
+        'js:concat',
+        'images',
         'css:release',
         'js:release',
         'sass:release',
