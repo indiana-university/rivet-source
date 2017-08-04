@@ -23,3 +23,8 @@ Pagel-level alerts are used to display brief important messages to users. They a
 - It's important to note that the `Alert.init()` function has to be called after the alert element in loaded in the DOM. If you are dynamically adding new alerts in the DOM you will need to call the `Alert.init()` function each time a new alert is added.
 - Avoid using error messages that automatically disappear. If a user doesn’t have time to read the error message they may not know how to correct the problem once it has been automatically removed.
 - Write helpful alert messages. For errors, Include a brief description of the problem and how to fix it. Check out the Voice and tone/microcopy section for more information.
+
+## Microcopy
+- Alert titles should be clear and concise. “Success!” rather than “Application was submitted successfully!"
+- Alert messages should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user. “The user ID and password you entered do not match” is more clear than “Unauthorized”.
+- Alert messages should offer next steps where appropriate.
