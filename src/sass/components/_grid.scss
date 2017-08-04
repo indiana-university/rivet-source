@@ -1,0 +1,228 @@
+// These Sass maps are used for all the basic grid set up.
+
+// Grid columns map
+$grid-columns: (
+    "1": 8.333,
+    "2": 16.6667,
+    "3": 25,
+    "4": 33.3333,
+    "5": 41.6667,
+    "6": 50,
+    "7": 58.3333,
+    "8": 66.6667,
+    "9": 75,
+    "10": 83.3333,
+    "11": 91.6667,
+    "12": 100
+);
+
+// Grid sizes map.
+//
+// These are the max-widths of the grid. Feel free to add more
+// sizes/key: value pairs that can then be used on the .grid container
+// like, .grid .grid--yournewsize.
+
+$grid-widths: (
+    "freshman": 640px,
+    "sophomore": 1024px,
+    "junior": 1140px,
+    "senior": 1380px
+);
+
+@function bp($key) {
+    @return map-get($breakpoints, $key);
+}
+
+// Global grid gutter. Set this to half of what you want the final gutter to be.
+$gutter: .75rem;
+
+[class^="rvt-grid__item"] {
+    span {
+        display: block;
+        background-color: #006298;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        margin-bottom: $gutter*2;
+    }
+
+}
+
+// Starting on some mixins to build grid classes and to make
+// available for those who want to use the Sass source
+// source files in their app.
+
+@mixin container($width: 100%) {
+    max-width: $width;
+    padding-right: $gutter*2;
+    padding-left: $gutter*2;
+}
+
+
+@mixin grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($gutter / -1);
+    margin-left: ($gutter / -1);
+}
+
+
+
+.rvt-container {
+    @include container();
+}
+
+.rvt-container--center {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+@each $key, $value in $grid-widths {
+    .rvt-container--#{$key} {
+        max-width: $value;
+    }
+}
+
+.rvt-container--collapse {
+    padding: 0;
+}
+
+/**
+ * The main grid container. It's width is fluid by default.
+ */
+
+.rvt-grid {
+    @include grid;
+
+    &__item {
+        max-width: 100%;
+        flex-basis: 0;
+        flex-grow: 1;
+        padding: 0 $gutter;
+        position: relative;
+    }
+
+    &__item--last {
+        margin-left: auto;
+    }
+
+    [class^="uits-grid__item"] {
+        /**
+        * This keeps the grid from collapsing when items inside are too
+        * big for their parent .rvt-grid__item.
+        */
+        min-width: 0;
+    }
+}
+
+/**
+ * This modifier will right align grid__item(s) that add up to less
+ * than 12 columns in total.
+ */
+
+.rvt-grid--right {
+    justify-content: flex-end;
+}
+
+%auto-grid-props {
+    width: 100%;
+    position: relative;
+    padding: 0 $gutter;
+}
+
+@each $bp-name, $bp-size in $breakpoints {
+    .rvt-grid__item-#{$bp-name} {
+        @extend %auto-grid-props;
+    }
+}
+
+
+@each $bp-name, $bp-size in $breakpoints {
+
+    @include mq($bp-size) {
+        .rvt-grid__item-#{$bp-name} {
+            max-width: 100%;
+            flex-basis: 0;
+            flex-grow: 1;
+            padding: 0 $gutter;
+        }
+
+    }
+
+}
+
+/**
+ * Build the base grid item classes. These will make
+ * grid items span the same number of columns at ALL
+ * screen sizes.
+ */
+
+@each $columns, $width in $grid-columns {
+    .rvt-grid__item-#{$columns} {
+        flex-basis: $width * 1%;
+        max-width: $width * 1%;
+        width: 100%;
+        position: relative;
+        padding: 0 $gutter;
+    }
+
+}
+
+/**
+ * We need to extend these properties on to all of the responsive grid
+ * classes on mobile first so we'll define them here in a silent class
+ * and let Sass build the comma-separated list of selectors
+ */
+
+%item-properties {
+    width: 100%;
+    position: relative;
+    padding: 0 $gutter;
+}
+
+/**
+ * Now loop through all the breakpoints.
+ */
+/* stylelint-disable */
+@each $bp-name, $bp-size in $breakpoints {
+
+    @each $columns, $width in $grid-columns {
+        .rvt-grid__item-#{$columns}-#{$bp-name}-up {
+            @extend %item-properties;
+        }
+
+    }
+
+}
+
+@each $bp-name, $bp-size in $breakpoints {
+
+    @if $bp-name == "sm" {
+
+        @each $columns, $width in $grid-columns {
+            .rvt-grid__item-#{$columns}-sm-up {
+                flex-basis: $width * 1%;
+                max-width: $width * 1%;
+                width: 100%;
+                position: relative;
+                padding: 0 $gutter;
+            }
+        }
+
+    } @else {
+
+        @include mq($bp-size) {
+
+            @each $columns, $width in $grid-columns {
+                .rvt-grid__item-#{$columns}-#{$bp-name}-up {
+                    flex-basis: $width * 1%;
+                    max-width: $width * 1%;
+                }
+
+            }
+
+        }
+
+    }
+}
+/* stylelint-enable */
