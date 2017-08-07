@@ -12,7 +12,16 @@ variants:
 
         ## Accessibility
 
-        Alert lists can be particularly useful for summarizing multiple errors on a page, and providing links to the invalid fields. These summaries are particularly helpful for non-sighted users, who will not recieve the visual cue provided by multiple [inline alerts](./alerts--inline-errors) appearing on the page when a form is submitted.
+        Alert lists can be particularly useful for summarizing multiple errors on a page, and providing links to the invalid fields. These summaries are especially helpful for non-sighted users, who will not receive the visual cue provided by multiple [inline alerts](./alerts--inline-errors) appearing on the page when a form is submitted.
+
+        ## Microcopy notes
+
+        - Alert title should be clear and concise
+        - Where appropriate, alert title should be a link to the position on the page where the invalid element can be found.
+        - Alert message should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user.
+        - Alert message should offer next steps where appropriate.
+
+        See the [Microcopy section](/docs/microcopy/) for additional information.
 
 
     - name: "inline-errors"
@@ -30,11 +39,20 @@ variants:
         ## Implementation
 
         - Write helpful validation alert messages that explain the requirements for the form field(s).
-        - Show inline validation messages after the user submits the form. For longer form highlight each field with a validation error and summarize the errors at the top of the form using a page-level alert.
+        - Show inline validation messages after the user submits the form. For a longer form, highlight each field with a validation error and summarize the errors at the top of the form using a [page-level alert](./alerts--default).
 
         ## Accessibility
 
-        * a `role="alert"` attribute should be applied to the `<div class="alert-inline">`, and it should be given a **unique `id` attribute**
-        * an invalid form element or other interactive component should be given an `aria-invalid="true"` attribute, and an `aria-describbedby="alert-id"` attribute which references the above **unique `id` attribute**
-        * these attributes can be placed on a wrapping `<div role="radiogroup">` or similar element in the case of grouped elements such as radio inputs
-        * if multiple inline alerts are presented at once, a summary of the errors should be presented in a [page-level alert](./alerts--default) or an [alert list](./alerts--alert-lists)
+        - a `role="alert"` attribute should be applied to the `<div class="alert-inline">`, and it should be given a **unique `id` attribute**
+        - an invalid form element or other interactive component should be given an `aria-invalid="true"` attribute, and an `aria-describedby="alert-id"` attribute which references the above **unique `id` attribute**
+        - these attributes can be placed on a wrapping `<div role="radiogroup">` or similar element in the case of grouped elements such as radio inputs
+        - if multiple inline alerts are presented at once, a summary of the errors should be presented in a [page-level alert](./alerts--default) or an [alert list](./alerts--alert-lists)
+
+        ## Microcopy notes
+
+        - Alert title is not necessary
+        - Alert message should be clear and concise.
+        - Alert message should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user.
+        - Alert message should offer next steps where appropriate.
+
+        See the [Microcopy section](/docs/microcopy/) for additional information.
