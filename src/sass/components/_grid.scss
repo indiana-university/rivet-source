@@ -71,6 +71,10 @@ $gutter: .75rem;
     @include container();
 }
 
+/**
+ * Contianer variants
+ */
+
 .rvt-container--center {
     margin-right: auto !important;
     margin-left: auto !important;
@@ -90,15 +94,22 @@ $gutter: .75rem;
  * The main grid container. It's width is fluid by default.
  */
 
+// TODO: refactor the other grid__item-* classes into mixins for those
+// that want ot use the Sass source in their app.
+
+@mixin grid-item {
+    max-width: 100%;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 0 $gutter;
+    position: relative;
+}
+
 .rvt-grid {
     @include grid;
 
     &__item {
-        max-width: 100%;
-        flex-basis: 0;
-        flex-grow: 1;
-        padding: 0 $gutter;
-        position: relative;
+        @include grid-item;
     }
 
     &__item--last {
@@ -155,21 +166,6 @@ $gutter: .75rem;
  * screen sizes.
  */
 
-%always-grid-rules {
-    width: 100%;
-    position: relative;
-    padding: 0 $gutter;
-}
-
-@each $columns, $width in $grid-columns {
-    .rvt-grid__item-#{$columns} {
-        flex-basis: $width * 1%;
-        max-width: $width * 1%;
-        @extend %always-grid-rules;
-    }
-
-}
-
 /**
  * We need to extend these properties on to all of the responsive grid
  * classes on mobile first so we'll define them here in a silent class
@@ -180,6 +176,15 @@ $gutter: .75rem;
     position: relative;
     padding: 0 $gutter;
     width: 100%;
+}
+
+@each $columns, $width in $grid-columns {
+    .rvt-grid__item-#{$columns} {
+        flex-basis: $width * 1%;
+        max-width: $width * 1%;
+        @extend %item-properties;
+    }
+
 }
 
 /**
