@@ -143,7 +143,6 @@ $gutter: .75rem;
             max-width: 100%;
             flex-basis: 0;
             flex-grow: 1;
-            padding: 0 $gutter;
         }
 
     }
@@ -156,13 +155,17 @@ $gutter: .75rem;
  * screen sizes.
  */
 
+%always-grid-rules {
+    width: 100%;
+    position: relative;
+    padding: 0 $gutter;
+}
+
 @each $columns, $width in $grid-columns {
     .rvt-grid__item-#{$columns} {
         flex-basis: $width * 1%;
         max-width: $width * 1%;
-        width: 100%;
-        position: relative;
-        padding: 0 $gutter;
+        @extend %always-grid-rules;
     }
 
 }
@@ -174,9 +177,9 @@ $gutter: .75rem;
  */
 
 %item-properties {
-    width: 100%;
     position: relative;
     padding: 0 $gutter;
+    width: 100%;
 }
 
 /**
@@ -202,9 +205,6 @@ $gutter: .75rem;
             .rvt-grid__item-#{$columns}-sm-up {
                 flex-basis: $width * 1%;
                 max-width: $width * 1%;
-                width: 100%;
-                position: relative;
-                padding: 0 $gutter;
             }
         }
 
