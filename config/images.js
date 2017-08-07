@@ -19,3 +19,8 @@ gulp.task('images', function() {
 gulp.task('images:watch', function() {
     gulp.watch('src/img/**/*', ['images']);
 });
+
+gulp.task('images:release', function() {
+    return gulp.src('src/img/**/*')
+        .pipe(gulp.dest('dist/img'));
+});
