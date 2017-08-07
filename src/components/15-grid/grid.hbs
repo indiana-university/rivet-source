@@ -2,22 +2,24 @@
     <h1 class="ts-32 p-top-sm">Grid</h1>
     <p class="ts-20">A 12 column responsive grid with support for automatic columns that makes it easy to lay out your application.</p>
 
-    <h2 class="ts-29 m-bottom-sm">About the grid</h2>
+    <h2 class="ts-29 m-bottom-sm m-top-xxl">About the grid</h2>
     <p>The Rivet grid is a mobile-first grid system based on <a href="https://www.w3.org/TR/css-flexbox-1/">flexbox</a>. It is based on five screen sizes and uses CSS classes to specify how many columns the grid should have at each of these screen sizes.</p>
 
-    <h2 class="ts-29 m-bottom-sm">The container</h2>
+    <h2 class="ts-29 m-bottom-sm m-top-xxl">The container</h2>
     <p>The <code>.rvt-container</code> is the basic layout unit in Rivet. A basic <code>.rvt-container</code> element is fluid by default. It will take up the full width of the view port with a default of <code>1.5rem</code> of padding on the left and right sides.</p>
     <p>The conainer is meant to be a generic wrapper to add enough padding to the content of you application so that it doesn't bump up against the side of the viewport. The container can be used as is without any other grid items inside, but it is required to wrap all other grid elements.</p>
 </div>
 
 <div class="rvt-container">
     <div class="rvt-grid">
-        <div class="rvt-grid__item"><span>An empty container</span></div>
+        <div class="rvt-grid__item">
+            <span><code>.rvt-grid__item</code></span>
+        </div>
     </div>
 </div>
 
 
-<div class="rvt-container">
+<div class="rvt-container m-top-md">
     <h3 class="ts-23 m-bottom-sm">Container sizes</h3>
     <p>If you need to constrain the <code>.rvt-container</code> to a fixed size there are four modifier classes that will set a <code>max-width</code> on the container.</p>
     <p>They are:</p>
@@ -50,7 +52,7 @@
     </div>
 </div>
 
-<div class="rvt-container">
+<div class="rvt-container m-top-md">
     <h3 class="ts-23 m-bottom-sm">Centering a container</h3>
     <p class="m-bottom-lg">To center a container that you have given a max-width using the modifier classes above, you can add the modifier class <code>.rvt-container--center</code>.</p>
 </div>
@@ -58,12 +60,12 @@
 <div class="rvt-container rvt-container--freshman rvt-container--center">
     <div class="rvt-grid">
         <div class="rvt-grid__item">
-            <span>A centered container</span>
+            <span><code>.rvt-container--center</code></span>
         </div>
     </div>
 </div>
 
-<div class="rvt-container">
+<div class="rvt-container m-top-xxl">
     <h2 class="ts-29 m-bottom-sm">Automatic columns</h2>
     <p class="m-bottom-lg">The rivet grid uses the power of flexbox to evenly distribute children marked up with the CSS class <code> .rvt-grid__item </code> evenly inside of a parent <code> .rvt-grid </code> container. So a <code>.rvt-grid</code> parent with four <code>.rvt-grid__item</code>s create four columns with equal widths. See the example below.</p>
 </div>
@@ -71,22 +73,22 @@
 <div class="rvt-container">
     <div class="rvt-grid">
         <div class="rvt-grid__item">
-            <span>Item</span>
+            <span><code>.rvt-grid__item</code></span>
         </div>
         <div class="rvt-grid__item">
-            <span>Item</span>
+            <span><code>.rvt-grid__item</code></span>
         </div>
         <div class="rvt-grid__item">
-            <span>Item</span>
+            <span><code>.rvt-grid__item</code></span>
         </div>
         <div class="rvt-grid__item">
-            <span>Item</span>
+            <span><code>.rvt-grid__item</code></span>
         </div>
     </div>
 </div>
 
 
-<div class="rvt-container">
+<div class="rvt-container m-top-md">
     <h3 class="ts-23 m-bottom-sm">Responsive automatic columns</h3>
     <p class="m-bottom-lg">Automatic columns will be distributed equally a all screen sizes by default. You can use additional responsive auto grid CSS class to specify the screen size at which you would like your grid to become an auto grid.</p>
     <p class="m-bottom-lg">In the example below, we've used the <code>-lg</code> suffix on the <code>.rvt-grid__item</code> CSS class. This will make a grid that starts out collapsed into a single column on all screens up to large screens (1080px wide), at which point it will become an auto grid and each <code>.rvt-grid__item-lg</code> will become an evenly distributed column.</p>
@@ -96,24 +98,24 @@
 <div class="rvt-container">
     <div class="rvt-grid">
         <div class="rvt-grid__item-lg">
-            <span>Large auto grid</span>
+            <span><code>.rvt-grid__item-lg</code></span>
         </div>
         <div class="rvt-grid__item-lg">
-            <span>Large auto grid</span>
+            <span><code>.rvt-grid__item-lg</code></span>
         </div>
         <div class="rvt-grid__item-lg">
-            <span>Large auto grid</span>
+            <span><code>.rvt-grid__item-lg</code></span>
         </div>
         <div class="rvt-grid__item-lg">
-            <span>Large auto grid</span>
+            <span><code>.rvt-grid__item-lg</code></span>
         </div>
         <div class="rvt-grid__item-lg">
-            <span>Large auto grid</span>
+            <span><code>.rvt-grid__item-lg</code></span>
         </div>
     </div>
 </div>
 
-<div class="rvt-container">
+<div class="rvt-container m-top-xxl">
     <h2 class="ts-29 m-bottom-sm">Setting column widths</h2>
     <p class="m-bottom-lg">You can set a specific number of columns you want grid items to span by adding the number of columns to the responsive grid classes. For example, adding the class <code>.rvt-grid__item-6-md-up</code> would make a grid item span six columns at medium screens (740px) and larger.</p>
     <p>When you explicitly set column widths, remember that the total number of columns should always equal 12 columns.</p>
@@ -151,8 +153,8 @@
 
 
 
-<div class="rvt-container">
-    <h2 class="ts-23 m-bottom-sm">Mixing specified columns with auto columns</h2>
+<div class="rvt-container m-top-md">
+    <h2 class="ts-23 m-bottom-sm">Mixing column widths with auto columns</h2>
     <p>It's also possible to mix and match specified columns with <code>.rvt-grid__item</code> auto columns. The grid items with specified columns will span the specified amount of columns and any auto grid items will fill the remaining space.</p>
     <p class="m-bottom-lg">It's important to note that the auto grid items will stack at whichever grid breakpoint you specify on the non-auto grid item(s). In the example below we are using <code>.rvt-grid__item-6-md-up</code> to set a width of six columns on medium screens and larger, so the auto grid items will inherit the same behavior.</p>
 </div>
@@ -167,6 +169,52 @@
         </div>
         <div class="rvt-grid__item">
             <span><code>.rvt-grid__item</code></span>
+        </div>
+    </div>
+</div>
+
+<div class="rvt-container m-top-md">
+    <h2 class="ts-29 m-bottom-sm">Push and pull</h2>
+    <p>When you need to change the visual order of the grid items you can use <code>.rvt-grid__item-push-*</code> and <code>.rvt-grid__item-pull-*</code> modifiers.</p>
+</div>
+
+<div class="rvt-container">
+    <div class="rvt-grid">
+        <div class="rvt-grid__item-4-md-up rvt-grid__item-push-8-md">
+            <span>I'm first in the source order</span>
+        </div>
+        <div class="rvt-grid__item-8-md-up rvt-grid__item-pull-4-md">
+            <span>I'm second in the source order</span>
+        </div>
+    </div>
+</div>
+
+<div class="rvt-container m-top-md">
+    <h2 class="ts-29 m-bottom-sm">Nesting</h2>
+    <p>You can nest new <code>.rvt-grid</code>s inside of <code>.rvt-grid__item-*</code>s if you need more control over your layout. </p>
+</div>
+
+<div class="rvt-container">
+    <div class="rvt-grid">
+        <div class="rvt-grid__item">
+            <div style="background-color: #dce3ee; padding: .75rem;" >
+            Level one
+            <div class="rvt-grid">
+                <div class="rvt-grid__item">
+                    <div style="background-color: #006298; color: #fff;">
+                        Level Two
+                    </div>
+                </div>
+                <div class="rvt-grid__item">
+                    <div style="background-color: #006298; color: #fff;">Level Two</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="rvt-grid__item">
+            <div style="background-color: #dce3ee; padding: .75rem;" >
+                Level one
+            </div>
         </div>
     </div>
 </div>
