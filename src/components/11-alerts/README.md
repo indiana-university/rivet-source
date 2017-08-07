@@ -25,16 +25,16 @@ Pagel-level alerts are used to display brief important messages to users. They a
 - Write helpful alert messages. For errors, Include a brief description of the problem and how to fix it. Check out the Voice and tone/microcopy section for more information.
 
 ## Microcopy notes
-- Alert titles should be clear and concise. “Success!” rather than “Application was submitted successfully!"
-- Alert messages should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user. “The user ID and password you entered do not match” is more clear than “Unauthorized”.
-- Alert messages should offer next steps where appropriate.
+- Alert title should be clear and concise. “Success!” rather than “Application was submitted successfully!"
+- Alert message should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user. “The user ID and password you entered do not match” is more clear than “Unauthorized”.
+- Alert message should offer next steps where appropriate.
 
 Good example:
 
 **Scheduled System Maintenance**  
 This system will be unavailable on August 1st due to scheduled system maintenance. Please check back on August 2nd.
 
-- Clear title, explains that maintenance was scheduled and expected
+- Clear title; explains that maintenance was scheduled and expected
 - Informs the user of the length of the outage
 - Lets the user know when the system is expected to be available
 
@@ -43,7 +43,7 @@ Bad example:
 **System is Down**  
 The system is currently unavailable.
 
-- Doesn't indicate the the maintenance was scheduled and expected
+- Doesn't indicate that maintenance was scheduled and expected
 - Doesn't inform the user how long the system will be unavailable
 - Doesn't let the user know when the system is expected to be available again
 

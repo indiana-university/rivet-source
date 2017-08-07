@@ -16,10 +16,10 @@ variants:
 
         ## Microcopy notes
 
-        - Alert titles should be clear and concise
+        - Alert title should be clear and concise
         - Where appropriate, alert title should be a link to the position on the page where the invalid element can be found.
-        - Alert messages should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user.
-        - Alert messgaes should offer next steps where appropriate.
+        - Alert message should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user.
+        - Alert message should offer next steps where appropriate.
 
         See the [Microcopy section](/docs/microcopy/) for additional information.
 
