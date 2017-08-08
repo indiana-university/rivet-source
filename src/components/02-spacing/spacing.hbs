@@ -8,18 +8,20 @@
     <table>
         <caption class="sr-only">Rivet spacing utilities</caption>
         <thead>
-            <th>Size</th>
-            <th>Pixel value</th>
+            <th>CSS suffix</th>
+            <th>rem</th>
+            <th>px</th>
             <th>Example</th>
         </thead>
         <tbody>
             {{# each spacings }}
             <tr>
-                <td>{{ title }}</td>
+                <td><code>{{ abbr }}</code></td>
+                <td>{{ rem }}</td>
                 <td>{{ pixels }}px</td>
                 <td>
-                    <div class="sp-example p-all-{{ abbr }}">
-                        <p class="sp-example-inner m-all-remove p-all-xs">{{ abbr }}</p>
+                    <div class="sp-example p-all{{ abbr }}">
+                        <p class="sp-example-inner m-all-remove p-all-xs">{{ name }}</p>
                     </div>
                 </td>
             </tr>

@@ -1,24 +1,31 @@
 status: "alpha"
 context:
     spacings:
-        -   title: Extra extra small
+        -   abbr: -xxs
+            rem: .25rem
             pixels: 4
-            abbr: xxs
-        -   title: Extra small
+            name: Extra extra small
+        -   abbr: -xs
+            rem: .5rem
             pixels: 8
-            abbr: xs
-        -   title: Small
+            name: Extra small
+        -   abbr: -sm
+            rem: 1rem
             pixels: 16
-            abbr: sm
-        -   title: Medium
+            name: Small
+        -   abbr: -md
+            rem: 1.5rem
             pixels: 24
-            abbr: md
-        -   title: Large
+            name: Medium
+        -   abbr: -lg
+            rem: 2rem
             pixels: 32
-            abbr: lg
-        -   title: Extra large
+            name: Large
+        -   abbr: -xl
+            rem: 2.5rem
             pixels: 40
-            abbr: xl
-        -   title: Extra extra large
+            name: Extra large
+        -   abbr: -xxl
+            rem: 3rem
             pixels: 48
-            abbr: xxl
+            name: Extra extra large
