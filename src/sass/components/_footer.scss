@@ -1,13 +1,13 @@
 .rvt-footer {
     align-items: center;
-    font-size: .75rem;
-    padding: .5rem 1.5rem;
-    background-color: #f7f7f7;
+    font-size: ts(12);
+    padding: $xs $md;
+    background-color: $color-background-subtle;
     border-top: 1px solid #eaeaea;
     width: 100%;
 
     a {
-        color: #990000;
+        color: $color-crimson;
         text-decoration: none;
 
         &:hover {
@@ -21,7 +21,7 @@
     }
 
     &__trident {
-        margin-right: 1rem;
+        margin-right: $sm;
     }
 
     &__aux-links {
@@ -37,8 +37,8 @@
 
         &:after {
             content: "|";
-            color: #999;
-            margin: 0 .25rem;
+            color: $color-black--500;
+            margin: 0 $xs;
         }
 
         &:last-child:after {

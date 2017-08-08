@@ -17,6 +17,19 @@ ol li {
     line-height: 2;
 }
 
+dl dt {
+    font-weight: 700;
+    margin-top: $sm;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+dl dd {
+    margin-left: 0;
+}
+
 @mixin plain-list {
     list-style: none;
     padding: 0;
