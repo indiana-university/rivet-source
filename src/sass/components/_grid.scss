@@ -29,23 +29,8 @@ $grid-widths: (
     "senior": 1380px
 );
 
-@function bp($key) {
-    @return map-get($breakpoints, $key);
-}
-
 // Global grid gutter. Set this to half of what you want the final gutter to be.
-$gutter: .75rem;
-
-[class^="rvt-grid__item"] {
-    span {
-        display: block;
-        background-color: #006298;
-        color: white;
-        padding: .5rem;
-        text-align: center;
-        margin-bottom: $gutter*2;
-    }
-}
+$gutter: $md / 2;
 
 // Starting on some mixins to build grid classes and to make
 // available for those who want to use the Sass source
@@ -116,7 +101,7 @@ $gutter: .75rem;
         margin-left: auto;
     }
 
-    [class^="uits-grid__item"] {
+    [class^="rvt-grid__item"] {
         /**
         * This keeps the grid from collapsing when items inside are too
         * big for their parent .rvt-grid__item.
@@ -190,6 +175,7 @@ $gutter: .75rem;
 /**
  * Now loop through all the breakpoints.
  */
+ 
 /* stylelint-disable */
 @each $bp-name, $bp-size in $breakpoints {
 
