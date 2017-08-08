@@ -47,6 +47,7 @@ $ts-52: map-get($type-sizes, 52);
 // Base colors
 
 $color-white: #ffffff;
+$color-subtle-gray: #f7f7f7;
 $color-black: #333333;
 
 // Brand Colors
@@ -93,6 +94,7 @@ $color-midnight--900: #121c28;
 
 $color-text: $color-black;
 $color-background: $color-white;
+$color-background-subtle: $color-subtle-gray;
 $color-action: $color-midnight;
 $color-link: $color-midnight;
 $color-link-visited: $color-dark-midnight;
