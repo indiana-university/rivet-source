@@ -103,22 +103,37 @@
     }
 }
 
-
-
-
-.input-error > input,
-.input-error > input:focus {
-    box-shadow: 0 0 0 2px $color-alert-orange;
-    border-color: $color-alert-orange;
-}
-
 .input-error > {
-    input,
-    input:focus,
+    input[type="color"],
+    input[type="color"]:focus,
+    input[type="date"],
+    input[type="date"]:focus,
+    input[type="datetime"],
+    input[type="datetime"]:focus,
+    input[type="datetime-local"],
+    input[type="datetime-local"]:focus,
+    input[type="email"],
+    input[type="email"]:focus,
+    input[type="month"],
+    input[type="month"]:focus,
+    input[type="number"],
+    input[type="number"]:focus,
+    input[type="password"],
+    input[type="password"]:focus,
+    input[type="search"],
+    input[type="search"]:focus,
+    input[type="tel"],
+    input[type="tel"]:focus,
+    input[type="text"],
+    input[type="text"]:focus,
+    input[type="time"],
+    input[type="time"]:focus,
+    input[type="url"],
+    input[type="url"]:focus,
+    input[type="week"],
+    input[type="week"]:focus,
     textarea,
-    textarea:focus,
-    select,
-    select:focus {
+    select {
         box-shadow: 0 0 0 2px $color-alert-orange;
         border-color: $color-alert-orange;
     }
