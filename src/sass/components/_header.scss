@@ -149,6 +149,7 @@
     height: 100%;
     border-left: 1px solid $color-black--200;
     padding: $sm;
+    z-index: 1;
 
     &__nav {
         ul {
