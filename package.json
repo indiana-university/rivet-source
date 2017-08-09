@@ -1,6 +1,11 @@
 {
-  "name": "uitsds",
-  "version": "0.1.0",
+  "name": "Rivet",
+  "description": "UITS design system",
+  "version": "1.0.0-alpha",
+  "repository": {
+      "type": "git",
+      "url": "https://github.iu.edu/UITS/rivet-source.git"
+  },
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",
@@ -9,6 +14,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^4.0.0",
+    "gulp-header": "^1.8.9",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
