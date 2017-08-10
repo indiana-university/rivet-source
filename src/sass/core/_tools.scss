@@ -4,7 +4,11 @@
 // parts of the codebase. Nothing in this file should generate CSS
 // on it's own only return CSS properties or values.
 
+// Gets breakpoints out of the $breakpoints map
 
+@function bp($key) {
+    @return map-get($breakpoints, $key);
+}
 
 
 // This little function makes it easier to get values out
@@ -12,20 +16,6 @@
 
 @function ts($key) {
     @return map-get($type-sizes, $key);
-}
-
-
-// This type scale mixin allows you to easily use values from the
-// define type-sizes map above if you don't want to use the utility
-// classes in your markup.
-
-// @example
-//     .my-element {
-//         @include ts-size(18);
-//     }
-
-@mixin ts-size($ts-value) {
-    font-size: ts($ts-value);
 }
 
 
@@ -46,11 +36,9 @@
 //     }
 
 @mixin mq($size) {
-
     @media screen and (min-width: $size) {
         @content
     }
-
 }
 
 /* stylelint-enable */

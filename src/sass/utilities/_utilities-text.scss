@@ -9,9 +9,21 @@
 }
 
 .text-bold {
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
 .text-regular {
-    font-weight: 400;
+    font-weight: 400 !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
 }

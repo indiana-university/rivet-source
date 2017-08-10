@@ -34,3 +34,9 @@ gulp.task('sass:lint', function() {
 gulp.task('sass:watch', function() {
     gulp.watch('src/sass/**/*.scss', ['sass', 'sass:lint']);
 });
+
+// Move sass source files to "dist" folder for release.
+gulp.task('sass:release', function() {
+    return gulp.src('src/sass/**/*.scss')
+        .pipe(gulp.dest('dist/sass'));
+});

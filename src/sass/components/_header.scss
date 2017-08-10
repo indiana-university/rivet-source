@@ -1,9 +1,9 @@
 .rvt-header {
-    background-color: #ffffff;
+    background-color: $color-background;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #eaeaea;
-    background-color: #f7f7f7;
+    background-color: $color-background-subtle;
     width: 100%;
 }
 
@@ -16,8 +16,8 @@
     min-width: 60px;
     flex-basis: 60px;
     height: 70px;
-    background-color: #990000;
-    margin-right: 1rem;
+    background-color: $color-crimson;
+    margin-right: $sm;
 
 
     svg {
@@ -27,10 +27,10 @@
 }
 
 .rvt-header__title {
-    font-size: 1.25rem;
+    font-size: ts(20);
 
     a {
-        color: #333;
+        color: $color-text;
         text-decoration: none;
 
         &:hover {
@@ -45,7 +45,7 @@
 
 @include mq(510px) {
     .rvt-header__title {
-        font-size: 1.5rem;
+        font-size: ts(23);
     }
 }
 
@@ -62,16 +62,16 @@
     height: 70px;
     padding: 0;
     border-radius: 0;
-    border-left: 1px solid #dddddd;
+    border-left: 1px solid $color-black--200;
     vertical-align: middle;
 
     &:hover {
-        background-color: #dddddd;
-        border-color: #dddddd;
+        background-color: $color-black--200;
+        border-color: $color-black--200;
     }
 
     &.is-open {
-        background-color: #eeeeee;
+        background-color: $color-black--100;
     }
 }
 
@@ -105,7 +105,7 @@
 
 .rvt-header__main-nav {
     display: none;
-    margin-right: 3rem;
+    margin-right: $xxl;
 
     ul {
         list-style: none;
@@ -115,7 +115,7 @@
 
     ul li {
         display: inline-block;
-        margin-right: 2rem;
+        margin-right: $lg;
         line-height: 1.5;
     }
 
@@ -125,7 +125,7 @@
 
     ul li a {
         text-decoration: none;
-        color: #333;
+        color: $color-text;
 
         &:hover {
             text-decoration: underline;
@@ -147,8 +147,9 @@
     width: 85%;
     max-width: 400px;
     height: 100%;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid $color-black--200;
     padding: $sm;
+    z-index: 1;
 
     &__nav {
         ul {
@@ -179,15 +180,15 @@
         ul li a {
             display: block;
             text-decoration: none;
-            color: #333;
+            color: $color-text;
             padding: $sm;
             position: relative;
         }
 
         ul li.has-children > a:after {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: $md;
+            right: $md;
             content: " ";
             display: inline-block;
             width: 14px;
@@ -211,7 +212,7 @@
     }
 
     &__nav--accent {
-        border-top: 1px solid #dddddd;
+        border-top: 1px solid $color-black--200;
     }
 }
 
@@ -235,31 +236,31 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        color: #333;
+        color: $color-text;
         border-right: 1px solid #bbb;
         padding-right: $sm;
     }
 
     &__profile--has-dropdown {
         border-right: none;
-        margin-right: 1rem;
+        margin-right: $sm;
     }
 
     &__log-out {
         text-decoration: none;
-        margin-right: 2rem;
+        margin-right: $lg;
         display: flex;
         align-items: center;
-        margin-left: 1rem;
+        margin-left: $sm;
     }
 
     &__avatar {
         display: inline-block;
         width: 30px;
         height: 30px;
-        background-color: #333;
+        background-color: $color-text;
         border-radius: 50%;
-        margin-right: .5rem;
+        margin-right: $xs;
 
         /**
          * First and last initial stuff
@@ -269,7 +270,7 @@
         padding-top: .35rem;
         font-size: .75rem;
         font-weight: 700;
-        color: #fafafa;
+        color: $color-background-subtle;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -287,7 +288,7 @@
     }
 
     &__profile--drawer &__user {
-        border-right: 1px solid #dddddd;
+        border-right: 1px solid $color-black--200;
         padding-right: $sm;
     }
 

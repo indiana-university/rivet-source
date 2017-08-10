@@ -6,6 +6,7 @@ Lists are used to group and organize collections of content.
 
 - Use unordered lists `<ul>` when your collection has no specific order.
 - Use ordered lists `<ol>` when you want to display content in some specific order like ranking, or a series of steps in a process.
+- Use definition lists to display groups of terms with descriptions like a glossary or other metadata. 
 
 ## Microcopy notes
 Follow the [IT Communications Office’s style guide](https://uits.iu.edu/itco/style-basics) here:

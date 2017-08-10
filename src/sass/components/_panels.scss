@@ -1,0 +1,10 @@
+.rvt-panel {
+    box-shadow: 0 2px 0 $color-black--200;
+    border-radius: 4px;
+    padding: $md;
+    background-color: $color-background-subtle;
+
+    &--light {
+        background-color: $color-background;
+    }
+}
