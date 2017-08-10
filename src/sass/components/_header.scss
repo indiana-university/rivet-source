@@ -1,3 +1,14 @@
+.rvt-skip-link {
+    position: fixed;
+    top: -6rem;
+    padding: $xs;
+
+    &:focus {
+        top: 0;
+        background-color: $color-background;
+    }
+}
+
 .rvt-header {
     background-color: $color-background;
     display: flex;

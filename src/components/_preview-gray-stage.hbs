@@ -7,17 +7,15 @@
     <title>Preview Layout</title>
 </head>
 <body>
-    <main>
-        <div class="display-wrapper">
-            {{{ yield }}}
+    <div class="display-wrapper">
+        {{{ yield }}}
 
-            <style scoped>
-                body {
-                    background-color: #f7f7f7;
-                }
-            </style>
-        </div>
-    </main>
+        <style scoped>
+            body {
+                background-color: #f7f7f7;
+            }
+        </style>
+    </div>
     <script src="{{ path '/js/rivet.js' }}"></script>
 </body>
 </html>

@@ -77,3 +77,8 @@ variants:
         For applications that use a light gray background/stage, the header can also be used with the modifier class `.rvt-header--light`. This will give the header a white background color to help provide contrast against the stage.
 
         If you choose to use a light gray background for your app we recommend a gray no darker than `#f7f7f7`.
+    - name: "skip-link"
+      label: "Header skip link example"
+      notes: |
+        # Skip navigation link
+        Users that browse website using a keyboard only need a fast way to skip to the main content of an application without having to tab through each navigation item. **All versions** of the Rivet header should include a skip link that is only visible when in focus. The skip link should be the first focusable element in the DOM and link via an `id` attribute to the `<main>` element of you application.

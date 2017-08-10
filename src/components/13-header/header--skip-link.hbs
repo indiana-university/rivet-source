@@ -4,8 +4,9 @@
     <div class="rvt-header__trident">
         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="70" viewBox="0 0 60 70" aria-labelledby="iu-logo">
             <title id="iu-logo">Indiana University</title>
-            <rect width="60" height="70" fill="#900"/>
-            <polygon points="35.96 18.44 35.96 21.84 38.52 21.84 38.52 40.51 33.41 40.51 33.41 15.9 35.96 15.9 35.96 12.5 24.04 12.5 24.04 15.9 26.58 15.9 26.58 40.51 21.48 40.51 21.48 21.84 24.04 21.84 24.04 18.44 12.09 18.44 12.09 21.84 14.65 21.84 14.65 43.79 18.72 48.15 26.58 48.15 26.58 53.26 24.04 53.26 24.04 57.5 35.96 57.5 35.96 53.26 33.41 53.26 33.41 48.15 40.93 48.15 45.33 43.79 45.33 21.84 47.91 21.84 47.91 18.44 35.96 18.44" fill="#fff"/>
+            <rect width="60" height="70" fill="#900" />
+            <polygon points="35.96 18.44 35.96 21.84 38.52 21.84 38.52 40.51 33.41 40.51 33.41 15.9 35.96 15.9 35.96 12.5 24.04 12.5 24.04 15.9 26.58 15.9 26.58 40.51 21.48 40.51 21.48 21.84 24.04 21.84 24.04 18.44 12.09 18.44 12.09 21.84 14.65 21.84 14.65 43.79 18.72 48.15 26.58 48.15 26.58 53.26 24.04 53.26 24.04 57.5 35.96 57.5 35.96 53.26 33.41 53.26 33.41 48.15 40.93 48.15 45.33 43.79 45.33 21.84 47.91 21.84 47.91 18.44 35.96 18.44"
+                fill="#fff" />
         </svg>
     </div>
     <!-- App title -->
@@ -16,7 +17,7 @@
     <div class="rvt-header__controls">
         <!-- Main inline nav element -->
         <nav class="rvt-header__main-nav" role="navigation">
-             <ul>
+            <ul>
                 <li><a href="#0">Nav one</a></li>
                 <li>
                     <div class="dropdown">
@@ -48,7 +49,8 @@
         <!-- ID menu w/ dropdown -->
         <div class="rvt-header-id">
             <div class="dropdown">
-                <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown dropdown__trigger" data-dropdown-trigger="id-dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown dropdown__trigger" data-dropdown-trigger="id-dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="false">
                     <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                     <span class="rvt-header-id__user">rswanson</span>
                 </a>
@@ -89,7 +91,8 @@
         <nav class="rvt-drawer__nav" role="navigation">
             <ul>
                 <li class="has-children">
-                    <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--drawer" data-subnav-trigger="subnav-id" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--drawer" data-subnav-trigger="subnav-id" role="button"
+                        aria-haspopup="true" aria-expanded="false">
                         <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                         <span class="rvt-header-id__user rvt-header-id__user--has-dropdown">rswanson</span>
                     </a>
@@ -122,3 +125,53 @@
         </nav>
     </div>
 </header>
+
+<!-- Skip link demo only -->
+<main id="main-content" role="main">
+    <!-- Main application content... -->
+    <div class="ts-46 text-bold">
+        <img src="https://www.fillmurray.com/g/400/400" alt="">
+    </div>
+    <style scoped>
+        main {
+            height: 600px;
+            transition: all .3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            opacity: 0;
+        }
+
+        main:target img {
+            opacity: 1;
+        }
+
+        main:target {
+            animation-name: skip-animation;
+            animation-duration: 1s;
+        }
+
+        main > div {
+            color: #fff;
+        }
+
+        @keyframes skip-animation {
+            0% {
+                background-color: #fff;
+            }
+
+            50% {
+                background-color: #990000;
+            }
+
+            100% {
+                background-color: #fff;
+            }
+        }
+    </style>
+</main>
