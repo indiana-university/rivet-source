@@ -33,3 +33,15 @@
     position: static;
     width: auto;
 }
+
+.display-block {
+    display: block !important;
+}
+
+.display-inline {
+    display: inline-block !important;
+}
+
+.display-flex {
+    display: flex !important;
+}
