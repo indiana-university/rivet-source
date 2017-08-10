@@ -3,6 +3,8 @@ const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
 const runSequence = require('run-sequence');
 const header = require('gulp-header');
+const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
 const package = require('../package.json');
 
 gulp.task('css:dist', function() {
@@ -29,6 +31,18 @@ gulp.task('css:minify', function() {
         .pipe(gulp.dest('dist/css/'));
 });
 
+gulp.task('css:prefix-fractal', function() {
+    return gulp.src('_build/css/*.css')
+        .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+        .pipe(gulp.dest('_build/css/'));
+});
+
+gulp.task('css:prefix-release', function() {
+    return gulp.src('dist/css/rivet.css')
+        .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+        .pipe(gulp.dest('dist/css/'));
+});
+
 gulp.task('css:release', function(done) {
-    runSequence('css:dist', 'css:header', 'css:minify', done);
+    runSequence('css:dist', 'css:prefix-release', 'css:header', 'css:minify', done);
 });
