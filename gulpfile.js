@@ -12,7 +12,7 @@ requireDir('./config');
  */
 
 gulp.task('build', function(cb) {
-    runSequence('sass', 'images', 'js:concat', 'fractal:build', 'prefix', cb);
+    runSequence('sass', 'images', 'js:concat', 'fractal:build', 'css:prefix-fractal', cb);
 });
 
 /**
