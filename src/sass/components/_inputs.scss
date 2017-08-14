@@ -115,6 +115,11 @@ select {
     appearance: none;
 }
 
+select[multiple] {
+    height: $xxl * 2;
+    background-image: none;
+}
+
 select::-ms-expand {
     display: none;
 }
