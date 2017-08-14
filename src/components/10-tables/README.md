@@ -4,10 +4,11 @@ Tables are used to display tabular data in rows and columns.
 ## Usability notes
 
 ### When to use
-Tables are great for displaying tabular data including statistical information.
+If you’re wrangling a lot of data, tables can help you visualize that content. They’re much easier to scan than long paragraphs cluttered with numbers or dates.
 
 ### When to consider something else
-When the content you are displaying has only two dimensions, for instance a list of terms and definitions, consider using a [definition list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl).
+- Consider using a [definition list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) when your data only has two dimensions.
+- Don’t use tables to structure web pages
 
 ## Microcopy notes
 - Keep labels short. For best scannability, use just two to three words.
