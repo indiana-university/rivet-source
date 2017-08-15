@@ -37,10 +37,13 @@ var Drawer = (function() {
             });
         }
         
-        drawerExtraClose.addEventListener('click', function() {
-            toggleHiddenState(drawerEl);
-            drawerTrigger.classList.toggle('is-open');
-        });
+        // Make sure the extra close button is present in the DOM
+        if (drawerExtraClose) {
+            drawerExtraClose.addEventListener('click', function () {
+                toggleHiddenState(drawerEl);
+                drawerTrigger.classList.toggle('is-open');
+            });
+        }
     }
 
     var toggleBtnState = function(buttonEl) {
