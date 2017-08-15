@@ -1,3 +1,4 @@
+status: "alpha"
 preview: "@preview-no-padding"
 variants:
     - name: "default"
