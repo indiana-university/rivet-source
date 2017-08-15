@@ -225,6 +225,19 @@
     &__nav--accent {
         border-top: 1px solid $color-black--200;
     }
+
+    &__bottom-close {
+        height: 1px;
+        margin-bottom: -1px;
+        overflow: hidden;
+        display: block;
+
+        &:focus {
+            height: auto;
+            margin-bottom: 0;
+            overflow: visible;
+        }
+    }
 }
 
 

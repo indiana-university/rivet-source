@@ -6,6 +6,7 @@ var Drawer = (function() {
     var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-trigger]');
     var drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-trigger') : null;
     var drawerEl = document.querySelector('#' + drawerId);
+    var drawerExtraClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
 
     var init = function() {
         // Check to make sure the drawer is present in the DOM
@@ -35,6 +36,11 @@ var Drawer = (function() {
                 toggleHiddenState(subnavEl);
             });
         }
+        
+        drawerExtraClose.addEventListener('click', function() {
+            toggleHiddenState(drawerEl);
+            drawerTrigger.classList.toggle('is-open');
+        });
     }
 
     var toggleBtnState = function(buttonEl) {
