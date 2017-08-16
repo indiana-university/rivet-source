@@ -12,6 +12,7 @@ With smaller amounts of data consider displaying the whole dataset in one page t
 ## Accessibility
 The pagination component is wrapped in a `nav` element so that it is announced to assistive technologies. Use an `aria-label` attribute to describe the purpose of your pagination. This will help assistive technologies distinguish between navigation sections on pages that use more than one `<nav>` element.
 
+### Accessible dynamic pagination
 This [article on a11ymatters.com](http://www.a11ymatters.com/pattern/pagination/) has some really good tips on implementing dynamic `aria-label`(s) on pagination items based on how many pages are returned.
 
 ## Implementation

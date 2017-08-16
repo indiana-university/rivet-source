@@ -42,7 +42,9 @@
             padding: .25rem 1rem;
 
             &:hover {
-                background-color: #eee;
+                background-color: $color-action;
+                color: $color-background;
+                text-decoration: none;
             }
         }
     }

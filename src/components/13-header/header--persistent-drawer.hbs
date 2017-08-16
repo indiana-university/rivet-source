@@ -20,7 +20,7 @@
                 <li><a href="#0">Nav one</a></li>
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-1" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-1" aria-haspopup="true" aria-expanded="false">
                             Nav two
                         </a>
                         <div class="dropdown__menu" id="dropdown-1" aria-hidden="true">
@@ -33,7 +33,7 @@
                 <li><a href="#0">Nav three</a></li>
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-2" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-2" aria-haspopup="true" aria-expanded="false">
                             Nav four
                         </a>
                         <div class="dropdown__menu" id="dropdown-2" aria-hidden="true">
@@ -48,7 +48,7 @@
         <!-- ID menu w/ dropdown -->
         <div class="rvt-header-id">
             <div class="dropdown">
-                <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown dropdown__trigger" data-dropdown-trigger="id-dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown dropdown__trigger" data-dropdown-trigger="id-dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                     <span class="rvt-header-id__user">rswanson</span>
                 </a>
@@ -62,17 +62,18 @@
         </div>
         <!-- Drawer close button used with "persistent" modifier so that it
              shows at all screens sizes -->
-        <button class="rvt-drawer-button rvt-drawer-button--persistent" data-drawer-trigger="mobile-drawer" aria-haspopup="true" aria-expanded="false">
+        <button class="rvt-drawer-button rvt-drawer-button--persistent" aria-haspopup="true" aria-expanded="false" data-drawer-trigger="mobile-drawer">
             <span class="sr-only">Menu</span>
-            <svg class="rvt-drawer-button-open" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+            <svg class="rvt-drawer-button-open" aria-labelledby="open-icon" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                <title id="open-icon">Open</title>
                 <g>
                     <line x1="24.5" y1="25.38" x2="45.5" y2="25.38" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
                     <line x1="24.5" y1="35" x2="45.5" y2="35" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
                     <line x1="24.5" y1="44.62" x2="45.5" y2="44.62" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
                 </g>
             </svg>
-
-            <svg class="rvt-drawer-button-close" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+            <svg class="rvt-drawer-button-close" aria-labelledby="close-icon" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                <title id="close-icon">Close</title>
                 <line x1="27.58" y1="27.58" x2="42.42" y2="42.42" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
                 <line x1="42.42" y1="27.58" x2="27.58" y2="42.42" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
             </svg>
@@ -90,7 +91,7 @@
         <nav class="rvt-drawer__nav" role="navigation">
             <ul class="hide-on-desktop">
                 <li class="has-children">
-                    <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--drawer" data-subnav-trigger="subnav-id" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--drawer" data-subnav-trigger="subnav-id" aria-haspopup="true" aria-expanded="false">
                         <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                         <span class="rvt-header-id__user rvt-header-id__user--has-dropdown">rswanson</span>
                     </a>
@@ -103,7 +104,7 @@
                 </li>
                 <li><a href="#0">Nav one</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-1" role="button" aria-haspopup="true" aria-expanded="false">Nav two</a>
+                    <a href="#0" data-subnav-trigger="subnav-1" aria-haspopup="true" aria-expanded="false">Nav two</a>
                     <ul id="subnav-1" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
@@ -112,7 +113,7 @@
                 </li>
                 <li><a href="#0">Nav three</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-2" role="button" aria-haspopup="true" aria-expanded="false">Nav four</a>
+                    <a href="#0" data-subnav-trigger="subnav-2" aria-haspopup="true" aria-expanded="false">Nav four</a>
                     <ul id="subnav-2" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
@@ -124,7 +125,7 @@
             <ul>
                 <li><a href="#0">Drawer only nav one</a></li>
                 <li class="has-children">
-                    <a href="#0" data-subnav-trigger="subnav-drawer-only" role="button" aria-haspopup="true" aria-expanded="false">Drawer only nav two</a>
+                    <a href="#0" data-subnav-trigger="subnav-drawer-only" aria-haspopup="true" aria-expanded="false">Drawer only nav two</a>
                     <ul id="subnav-drawer-only" aria-hidden="true">
                         <li><a href="#0">Subnav one</a></li>
                         <li><a href="#0">Subnav two</a></li>
@@ -133,9 +134,10 @@
                 </li>
                 <li><a href="#0">Drawer only nav three</a></li>
                 <li>
-                    <a href="#0" data-subnav-trigger="subnav-2" role="button" aria-haspopup="true" aria-expanded="false">Drawer only nav four</a>
+                    <a href="#0" data-subnav-trigger="subnav-2" aria-haspopup="true" aria-expanded="false">Drawer only nav four</a>
                 </li>
             </ul>
         </nav>
+        <a href="#0" class="rvt-drawer__bottom-close">Close nav</a>
     </div>
 </header>
