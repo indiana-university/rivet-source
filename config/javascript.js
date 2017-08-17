@@ -9,7 +9,7 @@ const header = require('gulp-header');
 const package = require('../package.json');
 
 gulp.task('js:lint', function() {
-    return gulp.src(['src/js/**/*.js', '!node_modules/**'])
+    return gulp.src(['src/js/**/*.js', '!node_modules/**', '!src/js/vendor.js'])
         .pipe(eslint())
         .pipe(eslint.format());
 });
@@ -26,12 +26,17 @@ gulp.task('js:concat', function() {
         .pipe(gulp.dest('./static/js'));
 });
 
+gulp.task('js:vendor', function() {
+    return gulp.src('src/js/vendor.js')
+        .pipe(gulp.dest('./static/js'));
+})
+
 /**
  * Watch scripts for changes and move to the "static" folder
  */
 
 gulp.task('js:watch', function() {
-    gulp.watch('src/js/**/*.js', ['js:lint', 'js:concat']);
+    gulp.watch('src/js/**/*.js', ['js:lint', 'js:concat', 'js:vendor']);
 });
 
 gulp.task('js:dist', function() {
