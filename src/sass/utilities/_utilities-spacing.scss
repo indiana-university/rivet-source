@@ -87,11 +87,11 @@ $spacing-sizes: (
                 // If the direction is "null", add margin to all directions.
                 @if $direction == null {
 
-                    .m-all#{$size}--#{$bp-name}-up {
+                    .m-all#{$size}-#{$bp-name}-up {
                         margin: $value !important;
                     }
 
-                    .p-all#{$size}--#{$bp-name}-up {
+                    .p-all#{$size}-#{$bp-name}-up {
                         padding: $value !important;
                     }
 
@@ -99,11 +99,11 @@ $spacing-sizes: (
                     } @else {
 
 
-                    .m#{$direction}#{$size}--#{$bp-name}-up {
+                    .m#{$direction}#{$size}-#{$bp-name}-up {
                         margin#{$direction}: $value !important;
                     }
 
-                    .p#{$direction}#{$size}--#{$bp-name}-up {
+                    .p#{$direction}#{$size}-#{$bp-name}-up {
                         padding#{$direction}: $value !important;
                     }
 
