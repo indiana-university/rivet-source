@@ -7,6 +7,9 @@ Use breadcrumbs when your application has multiple levels in the navigation heir
 ## When to consider something else
 Avoid using the breadcrumb nav when your application only has one level of navigation.
 
+## Implementation notes
+The default breadcrumb is minimally-styled with CSS-generated content (/) used as separators. There is also a `.rvt-breadcrumbs--call-out` modifier class adds a small amount of padding and a light gray background for instance when you need to draw more attention to the breadcrumb.
+
 ## Accessibility
 The breadcrumb component is wrapped in a `nav` element so that it is announced to assistive technologies. It is also a good idea to add `aria-label` attributes to the `nav` element and current page `li` that describes the navigation.
 
