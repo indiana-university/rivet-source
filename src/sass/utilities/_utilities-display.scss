@@ -38,10 +38,18 @@
     display: block !important;
 }
 
-.display-inline {
+.display-inline-block {
     display: inline-block !important;
+}
+
+.display-inline {
+    display: inline !important;
 }
 
 .display-flex {
     display: flex !important;
+}
+
+.display-none {
+    display: none !important;
 }
