@@ -1,24 +1,26 @@
 <div class="wrapper">
-
-    <ul class="sp-example-key plain-list m-top-remove m-btm-xl">
-        <li class="m-right-xs">Element</li>
+    <ul class="sp-example-key inline-list m-bottom-md">
+        <li class="m-right-sm">Element</li>
         <li>Space</li>
     </ul>
 
     <table>
+        <caption class="sr-only">Rivet spacing utilities</caption>
         <thead>
-            <th>Size</th>
-            <th>Pixel value</th>
+            <th>CSS suffix</th>
+            <th>rem</th>
+            <th>px</th>
             <th>Example</th>
         </thead>
         <tbody>
             {{# each spacings }}
             <tr>
-                <td>{{ title }}</td>
+                <td><code>{{ abbr }}</code></td>
+                <td>{{ rem }}</td>
                 <td>{{ pixels }}px</td>
                 <td>
-                    <div class="sp-example p-all-{{ abbr }}">
-                        <p class="sp-example-inner m-all-remove p-all-xs">{{ abbr }}</p>
+                    <div class="sp-example p-all{{ abbr }}">
+                        <p class="sp-example-inner m-all-remove p-all-xs">{{ name }}</p>
                     </div>
                 </td>
             </tr>
@@ -31,6 +33,10 @@
         /**
          * This is for demo purposes only
          */
+        .sp-example-key {
+            font-size: 0;
+        }
+
         .sp-example-key li {
             font-size: .875rem;
             display: inline-block;
@@ -43,13 +49,13 @@
         }
 
         .sp-example-key li:last-child {
-            background-color: #b8c8dc;
+            background-color: #c9d7eb;
             color: #006298;
         }
 
 
         .sp-example {
-            background-color: #b8c8dc;
+            background-color: #c9d7eb;
         }
 
         .sp-example-inner {

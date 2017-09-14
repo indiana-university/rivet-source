@@ -1,0 +1,44 @@
+/* stylelint-disable */
+
+// These are some helpful mixins and functions that are used in other
+// parts of the codebase. Nothing in this file should generate CSS
+// on it's own only return CSS properties or values.
+
+// Gets breakpoints out of the $breakpoints map
+
+@function bp($key) {
+    @return map-get($breakpoints, $key);
+}
+
+
+// This little function makes it easier to get values out
+// of the type-sizes map. see "core/_varibales.scss".
+
+@function ts($key) {
+    @return map-get($type-sizes, $key);
+}
+
+
+// @param {number (with unit)}
+
+// @example
+//     @include mq(480px) {
+//         .my-element {
+//             color: red;
+//         }
+//     }
+
+// @example
+//     @media screen and (min-width: 480px) {
+//         .my-element {
+//             color: red;
+//         }
+//     }
+
+@mixin mq($size) {
+    @media screen and (min-width: $size) {
+        @content
+    }
+}
+
+/* stylelint-enable */

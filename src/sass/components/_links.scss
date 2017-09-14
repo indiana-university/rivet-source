@@ -6,6 +6,11 @@ a,
         color: $color-dark-midnight;
     }
 
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 1px 3px $color-midnight--300;
+    }
+
     a:visited {
         /**
          * TODO: Come up with a better color for the :visited state.

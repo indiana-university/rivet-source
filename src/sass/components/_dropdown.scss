@@ -1,0 +1,76 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    button,
+    .button,
+    a.button {
+        display: flex;
+    }
+
+    .button__text {
+        margin-right: .5rem;
+    }
+
+    &__menu[aria-hidden="true"] {
+        display: none;
+    }
+
+    &__menu {
+        position: absolute;
+        margin-top: .5rem;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: .25rem;
+        width: 12.5rem;
+        padding-top: .5rem;
+        z-index: 999;
+
+        /**
+         * Align the dropdown menu to the right edge of the button.
+         */
+
+        &--right {
+            right: 1rem;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: .5rem;
+            color: #333;
+            padding: .25rem 1rem;
+
+            &:hover {
+                background-color: $color-action;
+                color: $color-background;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.dropdown__trigger {
+    &:after {
+        background-image: url("../img/rvt-caret-down@2x.png");
+        background-image: url("../img/rvt-caret-down.svg");
+        background-position: center center;
+        background-size: 14px 8px;
+        background-repeat: no-repeat;
+        content: "";
+        display: inline-block;
+        margin-left: .5rem;
+        width: 14px;
+        height: 8px;
+        vertical-align: middle;
+    }
+}
+
+/**
+ * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
+ * How can one of them be refactored to fix this?
+ */
+
+ul li .dropdown__menu a:hover {
+    text-decoration: none;
+}

@@ -41,12 +41,21 @@ Next you'll need to install it's dependencies via NPM:
 npm install
 ```
 
-After you've install the dependencies run `gulp` or `npm start`. The navigate to [http://localhost:3000/](http://localhost:3000/) and you should see the Design System Welcome screen.
+After you've installed the dependencies, run `gulp dev:serve`. Then, navigate to [http://localhost:3000/](http://localhost:3000/) and you should see the Design System Welcome screen.
 
 The default gulp task will watch all component templates (.hbs) and Sass (.scss) files and recompile and update on each change.
 
 Read more about configuring components on the [Fractal webiste](http://fractal.build/guide/components).
 
+## Deployment
+To make it easier to share work in progress, commits to this repo are deployed automatically [using Webhooks](https://github.iu.edu/UITS/uitsds/settings/hooks) to [https://uitsdsgn.webtest.iu.edu/BRANCH-NAME](https://uitsdsgn.webtest.iu.edu/uitsds), where `BRANCH-NAME` is the name of the branch you are committing to. Commits to the `master` and `develop` branches will deploy to the default https://uitsdsgn.webtest.iu.edu/uitsds directory. Directories on webtest are deleted when their corresponding branch is deleted on github.
+
+### Deployment process
+The deployment process uses [Webhooks](https://github.iu.edu/UITS/uitsds/settings/hooks) to trigger a php script on the webtest server. The repo is checked out and built, and then the `_build` directory is copied to a subdirectory of wwws reflecting the name of the branch. Deployment takes about a minute to pull, build, and copy. If you encounter issues with deployment, you can check the recent deliveries of the Webhooks, where you can redeliver a Webhook payload to fire the script again:
+
+`push` webhook: https://github.iu.edu/UITS/uitsds/settings/hooks/1053
+
+`delete` webhook: https://github.iu.edu/UITS/uitsds/settings/hooks/1066
 
 ## Submitting a pull request
 Work in progress...
@@ -77,7 +86,7 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 
 - 4 spaces for indentation
 - Prefer dashes over camelCasing in class names.
-- Uderscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- Underscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 - **Do not use ID selectors**
 - When using multiple selectors in a rule declaration, give each selector its own line.
 - Put a space before the opening brace { in rule declarations
@@ -90,12 +99,13 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 **Not good**
 
 ```css
-.selector-one{
+.selector-one {
     border-radius:50%;
     border:2px solid white; }
 .no, .nope, .not_good {
     // ...
 }
+
 #lol-no {
   // ...
 }
@@ -129,7 +139,7 @@ Make use comments as often as you can. It will help other developers understand 
 ```css
 
 /**
-   * This is a really nice comment that helps other people.
+ * This is a really nice comment that helps other people.
  */
 
 ```

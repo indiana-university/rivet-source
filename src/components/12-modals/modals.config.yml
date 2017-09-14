@@ -1,0 +1,42 @@
+title: Modals
+status: "alpha"
+variants:
+    - name: default
+      label: "Modal"
+    - name: "modal-dialog"
+      label: "Modal dialog"
+      notes: |
+        # Modal dialog
+
+        A modal dialog is similar to a regular modal except that **it requires the user to interact with it** before continuing any interaction with the main application. The user must select from the available actions in the dialog—they cannot disregard and simply close the window.
+
+        ## Usability notes
+
+        ### When to use
+
+        - Confirmation dialogs are used to verify the action a user selected, especially when that action will result in the loss of data. For example, ‘All files in this folder will be deleted. Do you want to continue?’
+        - Provide the user with clarifying information before they continue with a task or action. For example, "A 10% fee will be charged to your account. Do you want to continue?"
+
+        ### When to consider something else
+
+        - Do not use to second guess the users’ choice of actions when no destruction or loss of data will occur.
+        - When you need to create a focused space for users to complete a small subtask, use a regular modal instead.
+
+        ## Microcopy notes
+
+        Follow [UX Planet’s recommendations for dialogs](https://uxplanet.org/5-essential-ux-rules-for-dialog-design-4de258c22116):
+
+          - Use the title to clearly describe the action (“Delete draft?”), and follow with a brief explanation (“You can’t recover deleted documents.”).
+          - The button that completes the action should state the actual action (“Delete” instead of “Yes”).
+
+        ## Implementation notes
+
+        You can make a normal modal into a dialog by adding a `data-modal-dialog="true"` data attribute to the `.modal` element.
+
+        ```html
+        <div class="modal" id="my-modal-id" data-modal-dialog="true">
+            modal markup here...
+        </div>
+        ```
+
+        In the example above the modal would function as a dialog and would not allow the user to click outside of the dialog to close it.

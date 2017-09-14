@@ -16,8 +16,6 @@ The first step in contributing to the design system is to submit your suggestion
 - any other document, links, research you would like to include
 
 ### Review process
-Work in progress...
-
 After the Github issue is created and the submission has enough information and supporting materials (i.e. issue template is completely filled out) someone from the team will mark the issue as **proposed**. Otherwise, someone from the team will ask the submitter for further information/documentation and mark the issue as **needs more info**.
 
 #### Review criteria
@@ -44,7 +42,6 @@ Once the new component is tested and meets all requirements it will move to _Rea
 This bit probably needs fleshed out a bit more...
 
 ## Submitting a Github issue
-
 To help us understand the kind of contribution you want to make we ask that you first submit a Github issue on github.iu.edu. Here are a few guidelines to follow when creating a new issue:
 
 1. Go to the UITS Design system repository on [github.iu.edu](https://github.iu.edu/UITS/uitsds/issues).
@@ -58,21 +55,12 @@ To help us understand the kind of contribution you want to make we ask that you 
 If you need more info, this [Knowledge Base article](https://kb.iu.edu/d/bagk) explains IU's Github Enterprise service in a little more detail and has some handy links to Git and GitHub documentation.
 
 ## Submitting a pull request
-Work in progress...
-
-This should be pretty standard Github branching stuff. We have a larger discussion about whether or not to follow specific workflow models like [Gitflow](https://danielkummer.github.io/git-flow-cheatsheet/) once we get into doing actual releases, etc...
-
-### Pull request basics
-
-- Fork repo, or ask to be added as a member? I dunno...
-- Branches that are never deleted:
-	- `develop`
-	- `master`
-- **Always create new feature branch** off of `develop` with the prefix `feature-` e.g. `feature-modal` then follow this process:
-	1. Work, work, work, commit, commit, commit
-	2. Push new feature branch to your fork and create pull request against `origin/develop` describing your work
-	3. Team will review, ask for any necessary changes
-	4. Once changes have been maid and tested, feature branch gets merged into `develop`
+1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to https://github.iu.edu/UITS/rivet-source.git.
+2. Create a new feature branch off of `develop` (the default branch) with the prefix `feature-` e.g. `feature-modal`
+3. Commit your changes. Be sure to keep your commits narrow in scope and avoid committing changes not related to your feature.
+4. Locally merge any upstream changes into your feature branch: `git pull upstream develop`
+5. Push your feature branch to your fork: `git push origin feature-**your feature**`
+6. [Open a pull request](https://help.github.com/articles/about-pull-requests/) with a title and clear description of your feature branch against `develop`
 
 ## Coding style
 A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/README.md), because it's really good :100:
@@ -83,10 +71,9 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 - Use valid HTML5 markup
 
 ### CSS & Sass
-
 - 4 spaces for indentation
 - Prefer dashes over camelCasing in class names.
-- Uderscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- Underscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 - **Do not use ID selectors**
 - When using multiple selectors in a rule declaration, give each selector its own line.
 - Put a space before the opening brace { in rule declarations
@@ -105,6 +92,7 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 .no, .nope, .not_good {
     // ...
 }
+
 #lol-no {
   // ...
 }
@@ -138,7 +126,7 @@ Make use comments as often as you can. It will help other developers understand 
 ```css
 
 /**
-   * This is a really nice comment that helps other people.
+ * This is a really nice comment that helps other people.
  */
 
 ```

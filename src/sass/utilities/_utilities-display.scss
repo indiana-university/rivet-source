@@ -1,8 +1,10 @@
 /* Hide only visually, but have it available for
  * screenreaders: h5bp.com/v
  */
+
 .visuallyhidden,
-.v-hide {
+.v-hide,
+.sr-only {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -17,14 +19,37 @@
  * to be focusable when navigated to via the
  * keyboard: h5bp.com/p
  */
+
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus,
 .v-hide.focusable:active,
-.v-hide.focusable:focus  {
+.v-hide.focusable:focus,
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
     overflow: visible;
     position: static;
     width: auto;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.display-inline-block {
+    display: inline-block !important;
+}
+
+.display-inline {
+    display: inline !important;
+}
+
+.display-flex {
+    display: flex !important;
+}
+
+.display-none {
+    display: none !important;
 }

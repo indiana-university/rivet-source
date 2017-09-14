@@ -14,7 +14,7 @@ Each component will go through phases in it's lifecycle. Below is a breakdown of
         </tr>
         <tr>
             <td>Alpha</td>
-            <td>Use with caution. This component will change.</td>
+            <td>Use with caution. This component will change. Read more about ALPHA <a href="https://docs.google.com/document/d/1tpmFr8X8FqfZVmKGLR7u_0tbwfiYfBoiHHvv7eeCA7g/edit#heading=h.9g5rkj97omim">status in this doc</a>.</td>
             <td><label class="Status-label" style="background-color: #F5BB17; border-color: #F5BB17;">ALPHA</label></td>
         </tr>
         <tr>
