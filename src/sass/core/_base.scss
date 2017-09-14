@@ -4,8 +4,6 @@ html {
 
 html * {
     box-sizing: border-box;
-    // -moz-osx-font-smoothing: grayscale;
-    //  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -38,6 +36,15 @@ strong {
 }
 
 hr {
-     border-top: 1px solid #eee;
-     color: white;
+    border-top: 1px solid #eee;
+    color: white;
+}
+
+code {
+    font-family: monospace;
+    background-color: #eeeeee;
+    display: inline-block;
+    padding: .125rem .25rem;
+    color: $color-midnight;
+    border-radius: $radius-small;
 }

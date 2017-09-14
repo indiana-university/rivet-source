@@ -1,30 +1,64 @@
+
+// Base font family
 $font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif";
 
-// Type Sizes
-$ts-12: .75rem;
-$ts-14: .875rem;
-$ts-16: 1rem;
+
+
+
+// Main type sizes map. This is used to generate all of the .ts-
+// utilitiy classes in "components/_type-scale.scss"
+
+// $key = pixel size, $value = relational units
+$type-sizes: (
+    12: .75rem,
+    14: .875rem,
+    16: 1rem,
+    18: 1.125rem,
+    20: 1.25rem,
+    23: 1.4375rem,
+    26: 1.625rem,
+    29: 1.8125rem,
+    32: 2rem,
+    36: 2.25rem,
+    41: 2.5625rem,
+    46: 2.875rem,
+    52: 3.25rem,
+);
+
+// Type Size variables
+$ts-12: map-get($type-sizes, 12);
+$ts-14: map-get($type-sizes, 14);
+$ts-16: map-get($type-sizes, 16);
 $ts-base: $ts-16;
-$ts-18: 1.125rem;
-$ts-20: 1.25rem;
-$ts-23: 1.4375rem;
-$ts-26: 1.625rem;
-$ts-29: 1.8125rem;
-$ts-32: 2rem;
-$ts-36: 2.25rem;
-$ts-41: 2.5625rem;
-$ts-46: 2.875rem;
-$ts-52: 3.25rem;
+$ts-18: map-get($type-sizes, 18);
+$ts-20: map-get($type-sizes, 20);
+$ts-23: map-get($type-sizes, 23);
+$ts-26: map-get($type-sizes, 26);
+$ts-29: map-get($type-sizes, 29);
+$ts-32: map-get($type-sizes, 32);
+$ts-36: map-get($type-sizes, 36);
+$ts-41: map-get($type-sizes, 41);
+$ts-46: map-get($type-sizes, 46);
+$ts-52: map-get($type-sizes, 52);
+
+
+
 
 // Base colors
+
 $color-white: #ffffff;
+$color-subtle-gray: #f7f7f7;
 $color-black: #333333;
 
 // Brand Colors
-$color-cream: #EDEBEB;
+
+$color-cream: #edebeb;
 $color-crimson: #990000;
 $color-midnight: #006298;
-$color-dark-midnight: #01426A;
+$color-dark-midnight: #01426a;
+
+
+
 
 // Black tints
 
@@ -38,7 +72,11 @@ $color-black--700: #666666;
 $color-black--800: #555555;
 $color-black--900: #444444;
 
+
+
+
 // Midnight Variations
+
 $color-midnight--100: #dce3ee;
 $color-midnight--200: #b8c8dc;
 $color-midnight--300: #95adcb;
@@ -49,29 +87,51 @@ $color-midnight--700: #134a71;
 $color-midnight--800: #16324b;
 $color-midnight--900: #121c28;
 
+
+
+
 // Colors by purpose
+
 $color-text: $color-black;
 $color-background: $color-white;
+$color-background-subtle: $color-subtle-gray;
 $color-action: $color-midnight;
 $color-link: $color-midnight;
 $color-link-visited: $color-dark-midnight;
 
+
+
+
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
 
-$color-alert-gray: #A7A9AB;
+// Some of these alert colors have been slightly altered to meet WCAG 2.0
+// Standards for sufficient contrast ration against white.
+
+// Alert text colors generated via this handy tool:
+// https://codepen.io/basham/pen/OpNybO
+
+$color-alert-gray: #a7a9ab;
 $color-alert-gray-light: #eeeeee;
-$color-alert-green: #009933;
-$color-alert-green-light: #DDF4EA;
-$color-alert-blue: #49AFC7;
-$color-alert-blue-light: #E9F6FC;
-$color-alert-yellow: #F5BB17;
-$color-alert-yellow-light: #FDF7E7;
-$color-alert-orange: #F25B19;
-$color-alert-orange-light: #FDEEE8;
+$color-alert-green: #008a28;
+$color-alert-green-text: #16521d;
+$color-alert-green-light: #ddf4ea;
+$color-alert-blue: #49afc7;
+$color-alert-blue-text: #284c55;
+$color-alert-blue-light: #e9f6fc;
+$color-alert-yellow: #f5bb17;
+$color-alert-yellow-text: #584416;
+$color-alert-yellow-light: #fdf7e7;
+$color-alert-orange: #df3603;
+$color-alert-orange-text: #82270d;
+$color-alert-orange-light: #fdeee8;
+
+
+
 
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
+
 $color-map: (
     "cream": $color-cream,
     "crimson": $color-crimson,
@@ -85,15 +145,32 @@ $color-map: (
 );
 
 
-$spacing-unit: .5;
 
-$xxs: $spacing-unit/2;
-$xs: $spacing-unit;
-$sm: $spacing-unit * 2;
-$md: $spacing-unit * 3;
-$lg: $spacing-unit * 4;
-$xl: $spacing-unit * 5;
-$xxl: $spacing-unit * 8;
+
+// Global spacing units
+
+$spacing-unit: .5rem;        // 8px
+
+$xxs: $spacing-unit/2;       // 4px
+$xs: $spacing-unit;          // 8px
+$sm: $spacing-unit * 2;      // 16px Base
+$md: $spacing-unit * 3;      // 24px
+$lg: $spacing-unit * 4;      // 32px
+$xl: $spacing-unit * 5;      // 40px
+$xxl: $spacing-unit * 8;     // 64px
+
+
+
+// Global breakpoints
+
+$breakpoints: (
+    sm: 480px,
+    md: 740px,
+    lg: 1080px,
+    xl: 1260px,
+    xxl: 1400px
+);
+
 
 
 

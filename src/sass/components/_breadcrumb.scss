@@ -1,0 +1,50 @@
+.rvt-breadcrumbs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+        margin-right: $xs;
+        font-size: $ts-14;
+        line-height: 1;
+
+        &:after {
+            content: "/";
+            padding-left: $xs;
+            color: #bbb;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    li:last-child {
+        color: $color-black--600;
+
+        &:after {
+            content: "";
+        }
+    }
+
+    &--call-out {
+        background-color: $color-black--100;
+        padding: $sm;
+        border-radius: $radius-small;
+
+        li:last-child {
+            color: $color-black--700;
+        }
+    }
+}
+
+@include mq(bp(md)) {
+    .rvt-breadcrumbs li {
+        font-size: $ts-base;
+    }
+}

@@ -1,14 +1,30 @@
 {
-  "name": "uitsds",
-  "version": "0.1.0",
-  "scripts": {
-    "start": "gulp sass && gulp",
-    "build": "gulp build"
+  "name": "Rivet",
+  "description": "UITS design system",
+  "version": "0.2.0",
+  "repository": {
+      "type": "git",
+      "url": "https://github.iu.edu/UITS/rivet-source.git"
   },
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",
+    "autoprefixer": "^7.1.2",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^4.0.0",
+    "gulp-header": "^1.8.9",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "postcss": "^6.0.8",
+    "postcss-reporter": "^4.0.0",
+    "postcss-scss": "^1.0.2",
+    "pump": "^1.0.2",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.0.0",
+    "stylelint": "^7.13.0"
   }
 }

@@ -1,0 +1,327 @@
+.rvt-skip-link {
+    position: fixed;
+    top: -6rem;
+    padding: $xs;
+
+    &:focus {
+        top: 0;
+        background-color: $color-background;
+    }
+}
+
+.rvt-header {
+    background-color: $color-background;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    background-color: $color-background-subtle;
+    width: 100%;
+}
+
+.rvt-header--light {
+    background-color: $color-background;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.rvt-header__trident {
+    min-width: 60px;
+    flex-basis: 60px;
+    height: 70px;
+    background-color: $color-crimson;
+    margin-right: $sm;
+}
+
+.rvt-header__title {
+    font-size: ts(20);
+
+    a {
+        color: $color-text;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/**
+ * When id menu is present the title needs a little more space.
+ */
+
+@include mq(510px) {
+    .rvt-header__title {
+        font-size: ts(23);
+    }
+}
+
+.rvt-header__controls {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.rvt-drawer-button {
+    background-color: transparent;
+    border: none;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    border-radius: 0;
+    border-left: 1px solid $color-black--200;
+    vertical-align: middle;
+
+    &:hover {
+        background-color: $color-black--200;
+        border-color: $color-black--200;
+    }
+
+    &.is-open {
+        background-color: $color-black--100;
+    }
+}
+
+.rvt-drawer-button--persistent {
+    display: block;
+}
+
+@include mq(1040px) {
+    .rvt-drawer-button {
+        display: none;
+    }
+
+    .rvt-drawer-button--persistent {
+        display: block;
+    }
+}
+
+.rvt-drawer-button-close {
+    display: none;
+}
+
+.rvt-drawer-button.is-open {
+    > .rvt-drawer-button-close {
+        display: block;
+    }
+
+    > .rvt-drawer-button-open {
+        display: none;
+    }
+}
+
+.rvt-header__main-nav {
+    display: none;
+    margin-right: $xxl;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        display: inline-block;
+        margin-right: $lg;
+        line-height: 1.5;
+    }
+
+    ul li:last-child {
+        margin-right: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-text;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+.rvt-drawer[aria-hidden="true"] {
+    display: none;
+}
+
+.rvt-drawer {
+    position: absolute;
+    right: 0;
+    top: 71px;
+    background-color: $color-black--100;
+    width: 85%;
+    max-width: 400px;
+    height: 100%;
+    border-left: 1px solid $color-black--200;
+    padding: $sm;
+    z-index: 1;
+
+    &__nav {
+        ul {
+            list-style: none;
+            margin-bottom: $md;
+            padding: 0;
+            background-color: $color-background;
+        }
+
+        ul li {
+            border-bottom: 2px solid $color-black--100;
+            line-height: 1.5;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        ul li ul {
+            background-color: $color-black--200;
+            margin: 0;
+        }
+
+        ul li ul[aria-hidden="true"] {
+            display: none;
+        }
+
+        ul li a {
+            display: block;
+            text-decoration: none;
+            color: $color-text;
+            padding: $sm;
+            position: relative;
+        }
+
+        ul li.has-children > a:after {
+            position: absolute;
+            top: $md;
+            right: $md;
+            content: " ";
+            display: inline-block;
+            width: 14px;
+            height: 8px;
+            vertical-align: middle;
+            background-image: url("../img/rvt-caret-down@2x.png");
+            background-image: url("../img/rvt-caret-down.svg");
+            background-position: right center;
+            background-size: 14px 8px;
+            background-repeat: no-repeat;
+        }
+
+        ul li.has-children > a[aria-expanded="true"]:after {
+            background-image: url("../img/rvt-caret-up@2x.png");
+            background-image: url("../img/rvt-caret-up.svg");
+        }
+
+        ul li ul li a {
+            padding: $sm;
+        }
+    }
+
+    &__nav--accent {
+        border-top: 1px solid $color-black--200;
+    }
+
+    &__bottom-close {
+        height: 1px;
+        margin-bottom: -1px;
+        overflow: hidden;
+        display: block;
+
+        &:focus {
+            height: auto;
+            margin-bottom: 0;
+            overflow: visible;
+        }
+    }
+}
+
+
+@include mq(1040px) {
+    .rvt-header__main-nav {
+        display: block;
+    }
+
+    .hide-on-desktop {
+        display: none;
+    }
+}
+
+
+.rvt-header-id {
+    display: none;
+    align-items: center;
+
+    &__profile {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $color-text;
+        border-right: 1px solid #bbb;
+        padding-right: $sm;
+    }
+
+    &__profile--has-dropdown {
+        border-right: none;
+        margin-right: $sm;
+    }
+
+    &__log-out {
+        text-decoration: none;
+        margin-right: $lg;
+        display: flex;
+        align-items: center;
+        margin-left: $sm;
+    }
+
+    &__avatar {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: $color-text;
+        border-radius: 50%;
+        margin-right: $xs;
+
+        /**
+         * First and last initial stuff
+         */
+        vertical-align: middle;
+        text-align: center;
+        padding-top: .35rem;
+        font-size: .75rem;
+        font-weight: 700;
+        color: $color-background-subtle;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    &--drawer {
+        display: block;
+        width: 100%;
+    }
+
+    &__profile--drawer {
+        display: flex;
+        border-right: none;
+        padding: $xxs $sm;
+        background-color: $color-background;
+    }
+
+    &__profile--drawer &__user {
+        border-right: 1px solid $color-black--200;
+        padding-right: $sm;
+    }
+
+    &__profile--drawer > &__user--has-dropdown {
+        border-right: none;
+    }
+}
+
+@include mq(1040px) {
+    .rvt-header-id {
+        display: flex;
+    }
+}
+
+@include mq(1040px) {
+    .rvt-header-id--drawer {
+        display: none;
+    }
+}

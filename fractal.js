@@ -34,7 +34,11 @@ const myCustomizedTheme = mandelbrot({
      * Show Docs before Components
      * http://fractal.build/guide/web/default-theme#nav
      */
-    nav: ["docs", "components"]
+    nav: ["docs", "components"],
+    scripts: [
+        'default',
+        '/js/vendor.js'
+    ]
 });
 
 /**
@@ -45,7 +49,7 @@ fractal.web.theme(myCustomizedTheme);
 /**
  * Give your project a title.
  */
-fractal.set('project.title', 'UITS Design System');
+fractal.set('project.title', 'Rivet');
 
 /**
  * Tell Fractal where to look for components.
@@ -94,7 +98,7 @@ fractal.docs.set('path', path.join(__dirname, 'src/docs'));
 /**
  * Tell the Fractal web preview plugin where to look for static assets.
  */
-fractal.web.set('static.path', path.join(__dirname, 'dist'));
+fractal.web.set('static.path', path.join(__dirname, 'static'));
 
 /**
  * Set a destination for Fractal to build out the stat UI for the components.

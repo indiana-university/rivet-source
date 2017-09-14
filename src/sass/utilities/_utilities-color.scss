@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 @each $key, $value in $color-map {
 
     .color-#{$key} {
@@ -16,7 +18,7 @@
         color: $color-background;
 
         a {
-            color: rgba($color-background, .8);
+            color: rgba($color-background, .9);
         }
 
         a:hover {
@@ -24,3 +26,5 @@
         }
     }
 }
+
+/* stylelint-enable */

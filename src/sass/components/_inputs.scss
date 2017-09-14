@@ -21,7 +21,7 @@ select {
     border: 1px solid #ccc;
     background-color: #fefefe;
     padding: .5em;
-    height: $spacing-unit * 5 + rem;
+    height: $spacing-unit * 5;
 
     /**
      * TODO: Should we add a max-width to form inputs? It seems desirable
@@ -30,7 +30,7 @@ select {
 }
 
 textarea {
-    height: $spacing-unit * 15 + rem;
+    height: $spacing-unit * 15;
 }
 
 input[type="color"]:disabled,
@@ -74,153 +74,52 @@ select:focus {
     /**
      * Should we just leave this default?
      */
-     box-shadow: 0 0 0 2px $color-action;
-     border-color: $color-midnight;
-     outline: none;
+    box-shadow: 0 0 1px 3px $color-midnight--300;
+    border-color: $color-midnight--300;
+    outline: none;
 }
 
 label {
     display: inline-block;
-    @include ts-14;
+    font-size: $ts-14;
     font-weight: 700;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 legend {
-    @include ts-18;
-    font-weight: 700;
-    margin-bottom: $md + rem;
+    margin: 0;
+    font-weight: 400;
+    display: block;
 }
 
 select {
-    background-image: url("../img/select-arrow.png");
-    background-image: url("../img/select-arrow.svg");
-    background-size: 11px 6px;
-    background-position: right -.5rem center;
-    background-origin: content-box;
+    background-image: url("../img/rvt-caret-down@2x.png");
+    background-image: url("../img/rvt-caret-down.svg");
+    background-position: right 1rem center;
+    background-size: 14px 8px;
     background-repeat: no-repeat;
-    padding-right: $md + rem;
-    padding-left: $xs + rem;
+    padding-right: $md;
+    padding-left: $xs;
 
     /**
      * Prefixes get rid of browser default select element styles.
      */
     -webkit-appearance: none;
-      -moz-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
 
-/**
- * Custom radios and checkboxes
- */
-
- input[type="radio"],
- input[type="checkbox"] {
-     position: absolute;
-     left: -1em;
-     opacity: 0;
- }
-
- input[type="radio"] + label {
-     font-size: 1rem;
-     /**
-      * Visually adjust due to the bigger hit area for radio buttons.
-      */
-     margin-left: .2rem;
-
-     &:before {
-         box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
-         content: " ";
-         line-height: 1;
-         vertical-align: middle;
-         display: inline-block;
-         /**
-          * Optically center vertically with label
-          */
-         margin-top: -.25rem;
-         margin-right: 1rem;
-         width: .8rem;
-         height: .8rem;
-         border-radius: 100%;
-         background-color: $color-white;
-     }
- }
-
-input[type="radio"]:checked + label {
-    &:before {
-        background-color: $color-action;
-        box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
-    }
+select[multiple] {
+    height: $xxl * 2;
+    background-image: none;
 }
 
-input[type="radio"]:focus + label:before {
-    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
-}
-
-input[type="radio"]:focus + label:before {
-    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px $color-action;
-}
-
-input[type="radio"]:disabled + label:before {
-    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
-    background-color: #dddddd;
-}
-
-input[type="radio"]:disabled + label:before {
-    background-color: #dddddd;
-}
-
-input[type="radio"]:disabled + label {
-    cursor: not-allowed;
-    color: #999999;
-}
-
-input[type="checkbox"] + label {
-    font-size: 1rem;
-    margin-left: .4rem;
-
-    &:before {
-    display: inline-block;
-    content: " ";
-    border-radius: 2px;
-    margin-right: 1rem;
-    width: .8rem;
-    height: .8rem;
-    box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #dddddd;
-    /**
-    * This helps visually center the label with the pseudo
-    * element checkbox.
-    */
-    vertical-align: middle;
-    margin-top: -.1rem;
-    }
-}
-
-input[type="checkbox"]:checked + label {
-
-    &:before {
-        color: $color-white;
-        background-color: $color-action;
-        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
-        background-image: url("../img/checkbox-input-check.svg");
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        /**
-        * Adding this is kind of a hack. May need to rework the actual
-        * SVG icon.
-        */
-        background-size: 90%;
-    }
-
-}
-
-input[type="checkbox"]:disabled + label:before {
-    background-color: #dddddd;
-}
-
-input[type="checkbox"]:disabled + label {
-    cursor: not-allowed;
-    color: #999999;
-}
-
-input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $color-action;
+select::-ms-expand {
+    display: none;
 }

@@ -1,4 +1,11 @@
-// Plain list mixin
+ul,
+ol {
+    /**
+     * Zero out margins so we can use more uniform rem-based utility
+     * classes for spacing.
+     */
+    margin: 0;
+}
 
 ul li,
 ol li {
@@ -8,6 +15,19 @@ ol li {
      * radio and checkbox inputs.
      */
     line-height: 2;
+}
+
+dl dt {
+    font-weight: 700;
+    margin-top: $sm;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+dl dd {
+    margin-left: 0;
 }
 
 @mixin plain-list {
@@ -20,14 +40,23 @@ ol li {
 }
 
 @mixin inline-list {
+    /**
+     * This is a hack that remove extras space between elements that are
+     * set to display inline-block.
+     */
+    font-size: 0;
+
     @include plain-list;
-     & li {
-         display: inline-block;
-         /**
-          * So we can absolutely position stuff inside list items.
-          */
-         position: relative;
-     }
+
+    & li {
+        display: inline-block;
+        line-height: 1;
+        font-size: 1rem;
+        /**
+        * So we can absolutely position stuff inside list items.
+        */
+        position: relative;
+    }
 }
 
 .plain-list {

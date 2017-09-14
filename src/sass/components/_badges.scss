@@ -1,0 +1,55 @@
+.rvt-badge {
+    display: inline-block;
+    color: $color-background;
+    background-color: $color-midnight;
+    padding: $xxs/2 $xs;
+    border-radius: $radius-small;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -osx-font-smoothing: grayscale;
+    letter-spacing: .02rem;
+    /**
+     * We set the type size to a percent here so that if the bade is used
+     * inside another element that uses a "ts-*" type scale utility,
+     * the badge will inherit that size.
+     */
+    font-size: 80%;
+}
+
+a.rvt-badge {
+    text-decoration: none;
+
+    &:hover {
+        color: $color-background;
+        background-color: $color-midnight--700;
+    }
+
+    &--success:hover {
+        background-color: $color-alert-green-text;
+    }
+
+    &--warning:hover {
+        background-color: $color-alert-yellow-text;
+    }
+
+    &--error:hover {
+        background-color: $color-alert-orange-text;
+    }
+}
+
+.rvt-badge--info {
+    background-color: $color-alert-blue;
+}
+
+.rvt-badge--success {
+    background-color: $color-alert-green;
+}
+
+.rvt-badge--warning {
+    background-color: $color-alert-yellow;
+    color: #000000;
+}
+
+.rvt-badge--error {
+    background-color: $color-alert-orange;
+}
