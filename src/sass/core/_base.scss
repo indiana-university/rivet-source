@@ -37,7 +37,9 @@ strong {
 
 hr {
     border-top: 1px solid #eee;
-    color: white;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
 }
 
 code {
