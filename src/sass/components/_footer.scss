@@ -42,7 +42,7 @@
         }
 
         &:last-child:after {
-            content: "";
+            content: none;
         }
     }
 }
