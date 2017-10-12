@@ -55,10 +55,9 @@ var Dropdown = (function() {
         /**
          * Stop click on dropdown menus from bubling up
          */
-
         for (var i = 0; i < menus.length; i ++) {
             menus[i].addEventListener('click', function(e) {
-                e.stopPropagation();
+                e.clickWithinMenu = true;
             });
         }
 
@@ -67,8 +66,10 @@ var Dropdown = (function() {
          * opend dropdown menus.
          */
 
-        document.addEventListener('click', function() {
-            closeAllMenus();
+        document.addEventListener('click', function(e) {
+            if(!e.clickWithinMenu) {
+                closeAllMenus();
+            }
         });
     }
 
