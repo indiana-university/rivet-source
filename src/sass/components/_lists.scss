@@ -59,10 +59,12 @@ dl dd {
     }
 }
 
-.plain-list {
+.plain-list,
+.rvt-plain-list {
     @include plain-list;
 }
 
-.inline-list {
+.inline-list,
+.rvt-inline-list {
     @include inline-list;
 }
