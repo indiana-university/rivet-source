@@ -5,11 +5,13 @@
  * It's removed when the modal is closed making the body scrollable again.
  */
 
-.modal-open {
+.modal-open,
+.rvt-modal-open {
     overflow: hidden;
 }
 
-.modal {
+.modal,
+.rvt-modal {
     z-index: 2;
     position: absolute;
     top: 0;
@@ -83,10 +85,12 @@
     }
 }
 
-.modal[aria-hidden="true"] {
+.modal[aria-hidden="true"],
+.rvt-modal[aria-hidden="true"] {
     display: none;
 }
 
-.modal:not([aria-hidden="true"]) {
+.modal:not([aria-hidden="true"]),
+.rvt-modal:not([aria-hidden="true"]) {
     display: block;
 }

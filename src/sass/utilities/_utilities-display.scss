@@ -4,7 +4,8 @@
 
 .visuallyhidden,
 .v-hide,
-.sr-only {
+.sr-only,
+.rvt-sr-only {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -25,7 +26,9 @@
 .v-hide.focusable:active,
 .v-hide.focusable:focus,
 .sr-only.focusable:active,
-.sr-only.focusable:focus {
+.sr-only.focusable:focus,
+.rvt-sr-only.focusable:active,
+.rvt-sr-only.focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
@@ -34,22 +37,27 @@
     width: auto;
 }
 
-.display-block {
+.display-block,
+.rvt-display-block {
     display: block !important;
 }
 
-.display-inline-block {
+.display-inline-block,
+.rvt-display-inline-block {
     display: inline-block !important;
 }
 
-.display-inline {
+.display-inline,
+.rvt-display-inline {
     display: inline !important;
 }
 
-.display-flex {
+.display-flex,
+.rvt-display-flex {
     display: flex !important;
 }
 
-.display-none {
+.display-none,
+.rvt-display-none {
     display: none !important;
 }

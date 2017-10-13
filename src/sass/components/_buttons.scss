@@ -4,7 +4,8 @@
 }
 
 button,
-.button {
+.button,
+.rvt-button {
     background-color: $color-midnight;
     border-style: solid;
     border: 2px solid $color-midnight;
@@ -51,7 +52,8 @@ button,
     }
 }
 
-.button--secondary {
+.button--secondary,
+.rvt-button--secondary {
     background-color: transparent;
     color: $color-midnight;
 
@@ -73,7 +75,8 @@ button,
     }
 }
 
-.button--success {
+.button--success,
+.rvt-button--success {
     background-color: $color-alert-green;
     border-color: $color-alert-green;
 
@@ -96,7 +99,8 @@ button,
     }
 }
 
-.button--success-secondary {
+.button--success-secondary,
+.rvt-button--success-secondary {
     background-color: transparent;
     border-color: $color-alert-green;
     color: $color-alert-green;
@@ -120,7 +124,8 @@ button,
     }
 }
 
-.button--danger {
+.button--danger,
+.rvt-button--danger {
     background-color: $color-alert-orange;
     border-color: $color-alert-orange;
 
@@ -143,7 +148,8 @@ button,
     }
 }
 
-.button--danger-secondary {
+.button--danger-secondary,
+.rvt-button--danger-secondary {
     background-color: transparent;
     border-color: $color-alert-orange;
     color: $color-alert-orange;
@@ -168,7 +174,8 @@ button,
 }
 
 
-.button--small {
+.button--small,
+.rvt-button--small {
     padding: .35rem .65rem;
     font-size: $ts-14;
 
@@ -189,7 +196,8 @@ button,
     }
 }
 
-.button--plain {
+.button--plain,
+.rvt-button--plain {
     border-color: transparent;
     background-color: transparent;
     color: $color-action;
@@ -219,7 +227,8 @@ button,
  * the default primary button right now.
  */
 
-.button--loading {
+.button--loading,
+.rvt-button--loading {
     padding-right: 2.5rem;
     cursor: not-allowed;
 
@@ -237,7 +246,8 @@ button,
     }
 }
 
-.button-group {
+.button-group,
+.rvt-button-group {
     display: flex;
 
     > *:not(:last-child) {
@@ -249,6 +259,7 @@ button,
  * Right align buttons.
  */
 
-.button-group--right {
+.button-group--right,
+.rvt-button-group--right {
     justify-content: flex-end;
 }

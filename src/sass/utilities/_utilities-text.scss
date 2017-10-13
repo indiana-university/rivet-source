@@ -1,5 +1,6 @@
 
-.text-uppercase {
+.text-uppercase,
+.rvt-text-uppercase {
     text-transform: uppercase;
     /**
      * All uppercase text is harder for humans to read. A little extra
@@ -8,22 +9,27 @@
     letter-spacing: .04rem;
 }
 
-.text-bold {
+.text-bold,
+.rvt-text-bold {
     font-weight: 700 !important;
 }
 
-.text-regular {
+.text-regular,
+.rvt-text-regular {
     font-weight: 400 !important;
 }
 
-.text-left {
+.text-left,
+.rvt-text-left {
     text-align: left !important;
 }
 
-.text-right {
+.text-right,
+.rvt-text-right {
     text-align: right !important;
 }
 
-.text-center {
+.text-center,
+.rvt-text-center {
     text-align: center !important;
 }

@@ -45,22 +45,26 @@ $spacing-sizes: (
         // If the direction is "null", add margin to all directions.
         @if $direction == null {
 
-            .m-all#{$size} {
+            .m-all#{$size},
+            .rvt-m-all#{$size} {
                 margin: $value !important;
             }
 
-            .p-all#{$size} {
+            .p-all#{$size},
+            .rvt-p-all#{$size} {
                 padding: $value !important;
             }
 
         // Otherwise create individual direction utilities.
         } @else {
 
-            .m#{$direction}#{$size} {
+            .m#{$direction}#{$size},
+            .rvt-m#{$direction}#{$size} {
                 margin#{$direction}: $value !important;
             }
 
-            .p#{$direction}#{$size} {
+            .p#{$direction}#{$size},
+            .rvt-p#{$direction}#{$size} {
                 padding#{$direction}: $value !important;
             }
 
@@ -87,11 +91,13 @@ $spacing-sizes: (
                 // If the direction is "null", add margin to all directions.
                 @if $direction == null {
 
-                    .m-all#{$size}-#{$bp-name}-up {
+                    .m-all#{$size}-#{$bp-name}-up,
+                    .rvt-m-all#{$size}-#{$bp-name}-up {
                         margin: $value !important;
                     }
 
-                    .p-all#{$size}-#{$bp-name}-up {
+                    .p-all#{$size}-#{$bp-name}-up,
+                    .rvt-p-all#{$size}-#{$bp-name}-up {
                         padding: $value !important;
                     }
 
@@ -99,11 +105,13 @@ $spacing-sizes: (
                     } @else {
 
 
-                    .m#{$direction}#{$size}-#{$bp-name}-up {
+                    .m#{$direction}#{$size}-#{$bp-name}-up,
+                    .rvt-m#{$direction}#{$size}-#{$bp-name}-up {
                         margin#{$direction}: $value !important;
                     }
 
-                    .p#{$direction}#{$size}-#{$bp-name}-up {
+                    .p#{$direction}#{$size}-#{$bp-name}-up,
+                    .rvt-p#{$direction}#{$size}-#{$bp-name}-up {
                         padding#{$direction}: $value !important;
                     }
 
@@ -127,21 +135,25 @@ $spacing-sizes: (
 
     @if $direction == null {
 
-        .m-all-remove {
+        .m-all-remove,
+        .rvt-m-all-remove {
             margin: 0 !important;
         }
 
-        .p-all-remove {
+        .p-all-remove,
+        .rvt-p-all-remove {
             padding: 0 !important;
         }
 
     } @else {
 
-        .m#{$direction}-remove {
+        .m#{$direction}-remove,
+        .rvt-m#{$direction}-remove {
             margin#{$direction}: 0 !important;
         }
 
-        .p#{$direction}-remove {
+        .p#{$direction}-remove,
+        .rvt-p#{$direction}-remove {
             padding#{$direction}: 0 !important;
         }
 
