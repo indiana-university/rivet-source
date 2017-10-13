@@ -3,7 +3,13 @@ var Alert = (function() {
     /**
      * Set up locally-scoped variables
      */
-    var dismissButtons = document.querySelectorAll('.alert__dismiss');
+
+    /**
+     * Adding both prefixed ".rvt-" and old ".alert"  versions of the
+     * selectors here. Let's eventually look at deprecating the
+     * old un-prefixed version.
+     */
+    var dismissButtons = document.querySelectorAll('.rvt-alert__dismiss, .alert__dismiss');
 
     var init = function() {
         // Check to make sure there are dismissable alerts in the DOM.
