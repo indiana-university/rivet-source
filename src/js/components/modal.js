@@ -9,11 +9,11 @@ var Modal = (function() {
      * Set up
      */
 
-     /**
-      * Adding both prefixed ".rvt-" and old ".modal"  versions of the
-      * selectors here. Let's eventually look at deprecating the
-      * old un-prefixed version.
-      */
+    /**
+     * Adding both prefixed ".rvt-" and old ".modal"  versions of the
+     * selectors here. Let's eventually look at deprecating the
+     * old un-prefixed version.
+    */
     var modals = document.querySelectorAll('.rvt-modal, .modal');
     var modalTriggers = document.querySelectorAll('[data-modal-trigger]');
     // Make modalTriggers an array
