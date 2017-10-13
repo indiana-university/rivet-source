@@ -36,9 +36,7 @@ var Dropdown = (function() {
          */
         for( var i = 0; i < btnTriggers.length; i++) {
             btnTriggers[i].addEventListener('click', function(e) {
-                // Stop the event from bubling up.
-                e.stopPropagation();
-                e.preventDefault();
+                e.clickWithinMenu = true                
                 var dropdownTrigger = this;
                 var dropdownID = dropdownTrigger.getAttribute('data-dropdown-trigger');
                 var dropdownEl = document.querySelector('#' + dropdownID);
@@ -55,10 +53,9 @@ var Dropdown = (function() {
         /**
          * Stop click on dropdown menus from bubling up
          */
-
         for (var i = 0; i < menus.length; i ++) {
             menus[i].addEventListener('click', function(e) {
-                e.stopPropagation();
+                e.clickWithinMenu = true;
             });
         }
 
@@ -67,8 +64,10 @@ var Dropdown = (function() {
          * opend dropdown menus.
          */
 
-        document.addEventListener('click', function() {
-            closeAllMenus();
+        document.addEventListener('click', function(e) {
+            if(!e.clickWithinMenu) {
+                closeAllMenus();
+            }
         });
     }
 
