@@ -9,7 +9,12 @@ var Modal = (function() {
      * Set up
      */
 
-    var modals = document.querySelectorAll('.modal');
+     /**
+      * Adding both prefixed ".rvt-" and old ".modal"  versions of the
+      * selectors here. Let's eventually look at deprecating the
+      * old un-prefixed version.
+      */
+    var modals = document.querySelectorAll('.rvt-modal, .modal');
     var modalTriggers = document.querySelectorAll('[data-modal-trigger]');
     // Make modalTriggers an array
     modalTriggers = Array.prototype.slice.call(modalTriggers);
@@ -46,13 +51,13 @@ var Modal = (function() {
                 // Set up
                 var modalID = el.getAttribute('data-modal-trigger');
                 var modalEl = document.querySelector('#' + modalID);
-                var modalElInner = modalEl.querySelector('.modal__inner');
+                var modalElInner = modalEl.querySelector('.rvt-modal__inner, .modal__inner');
 
 
                 // Get all the close triggers for the current modal
                 var modalCloseButtons = modalEl.querySelectorAll('[data-modal-close]');
                 modalCloseButtons = Array.prototype.slice.call(modalCloseButtons);
-                
+
                 modalCloseButtons.forEach(function(el) {
                     el.addEventListener('click', function() {
                         closeModal(modalEl);
@@ -103,7 +108,7 @@ var Modal = (function() {
          * Add a class to the body that we use as a hook to allow
          * the modal to scroll.
          */
-        document.body.classList.add('modal-open');
+        document.body.classList.add('rvt-modal-open');
 
         /**
          * Store a reference to modal trigger that was clicked so that
