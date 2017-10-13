@@ -3,18 +3,21 @@
 }
 
 @each $bp-name, $bp-size in $breakpoints {
-    .hide-#{$bp-name}-down {
+    .hide-#{$bp-name}-down,
+    .rvt-hide-#{$bp-name}-down {
         @extend %start-hidden;
     }
 
     @include mq($bp-size) {
-        .hide-#{$bp-name}-down {
+        .hide-#{$bp-name}-down,
+        .rvt-hide-#{$bp-name}-down {
             display: block;
         }
     }
 
     @include mq($bp-size) {
-        .hide-#{$bp-name}-up {
+        .hide-#{$bp-name}-up,
+        .rvt-hide-#{$bp-name}-up {
             display: none;
         }
     }
