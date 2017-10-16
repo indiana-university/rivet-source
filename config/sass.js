@@ -8,6 +8,9 @@ const postcss = require('gulp-postcss');
 const reporter = require('postcss-reporter');
 const stylelint = require('stylelint');
 const scss = require("postcss-scss");
+const header = require('gulp-header');
+const runSequence = require('run-sequence');
+const package = require('../package.json');
 
 gulp.task('sass', function() {
  return gulp.src('src/sass/**/*.scss')
@@ -35,8 +38,23 @@ gulp.task('sass:watch', function() {
     gulp.watch('src/sass/**/*.scss', ['sass', 'sass:lint']);
 });
 
-// Move sass source files to "dist" folder for release.
-gulp.task('sass:release', function() {
+// Copy all .scss files to dist folder.
+gulp.task('sass:release-copy', function() {
     return gulp.src('src/sass/**/*.scss')
         .pipe(gulp.dest('dist/sass'));
+});
+
+// Create the string for the verion number banner.
+var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
+
+// Add version number header to all .scss files.
+gulp.task('sass:header', function() {
+    return gulp.src(['dist/sass/**/*.scss', '!dist/sass/libs/*'])
+        .pipe(header(banner, { package : package }))
+        .pipe(gulp.dest('dist/sass/'));
+});
+
+// Move sass source files to "dist" folder for release.
+gulp.task('sass:release', function(done) {
+    runSequence('sass:release-copy', 'sass:header', done);
 });
