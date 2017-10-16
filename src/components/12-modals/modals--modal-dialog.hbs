@@ -1,35 +1,35 @@
 
-<div class="button-group">
-    <button class="button" data-modal-trigger="modal-dialog-example">Open modal dialog</button>
-    <button class="button" data-modal-trigger="modal-confirmation">Confirmation modal dialog</button>
+<div class="rvt-button-group">
+    <button class="rvt-button" data-modal-trigger="modal-dialog-example">Open modal dialog</button>
+    <button class="rvt-button" data-modal-trigger="modal-confirmation">Confirmation modal dialog</button>
 </div>
 
-<div class="modal"
+<div class="rvt-modal"
      id="modal-dialog-example"
      role="dialog"
      aria-labelledby="modal-dialog-title"
      aria-hidden="true"
      tabindex=-1
      data-modal-dialog="true">
-    <div class="modal__inner">
-        <header class="modal__header">
-            <h1 class="modal__title" id="modal-dialog-title">Modal Dialog</h1>
+    <div class="rvt-modal__inner">
+        <header class="rvt-modal__header">
+            <h1 class="rvt-modal__title" id="modal-dialog-title">Modal Dialog</h1>
         </header>
-        <div class="modal__body">
+        <div class="rvt-modal__body">
             <p>A modal dialog:</p>
             <ul>
                 <li>Is not dismissable i.e. doesn't have an (X) button</li>
                 <li>Requires user input before they continue their work</li>
             </ul>
         </div>
-        <div class="modal__controls">
-            <button class="m-right-sm close-modal">Yes</button>
-            <button class="button button--secondary" data-modal-close="close">No, thanks</button>
+        <div class="rvt-modal__controls">
+            <button class="rvt-button m-right-sm close-modal">Yes</button>
+            <button class="rvt-button rvt-button--secondary" data-modal-close="close">No, thanks</button>
         </div>
     </div>
 </div>
 
-<div class="modal modal--small modal--confirmation"
+<div class="rvt-modal rvt-modal--small rvt-modal--confirmation"
      id="modal-confirmation"
      role="dialog"
      aria-labelledby="modal-title-confirmation"
@@ -37,16 +37,16 @@
      aria-hidden="true"
      tabindex=-1
      data-modal-dialog="true">
-    <div class="modal__inner">
-        <header class="modal__header">
-            <h1 class="modal__title v-hide" id="modal-title-confirmation">Delete item</h1>
+    <div class="rvt-modal__inner">
+        <header class="rvt-modal__header">
+            <h1 class="rvt-modal__title v-hide" id="modal-title-confirmation">Delete item</h1>
         </header>
-        <div class="modal__body">
+        <div class="rvt-modal__body">
             <p class="m-top-remove m-bottom-xl" id="modal-description-confirmation">Are you sure you want to <strong>delete your progress</strong>? This modal is a dialog and can not be dismissed by clicking outside of the modal on the background.</p>
         </div>
-        <div class="modal__controls">
-            <button class="button button--danger m-right-sm">Delete my progress</button>
-            <button class="button button--secondary" data-modal-close="close">Cancel</button>
+        <div class="rvt-modal__controls">
+            <button class="rvt-button rvt-button--danger m-right-sm">Delete my progress</button>
+            <button class="rvt-button rvt-button--secondary" data-modal-close="close">Cancel</button>
         </div>
     </div>
 </div>

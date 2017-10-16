@@ -3,15 +3,16 @@
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
 
     li {
         margin-right: $xs;
         font-size: $ts-14;
         line-height: 1;
 
-        &:after {
+        &:before {
             content: "/";
-            padding-left: $xs;
+            padding-right: $xs;
             color: #bbb;
         }
 
@@ -24,12 +25,16 @@
         }
     }
 
-    li:last-child {
+    li:first-child {
         color: $color-black--600;
 
-        &:after {
-            content: "";
+        &:before {
+            content: none;
         }
+    }
+
+    li:last-child {
+        color: $color-black--700;
     }
 
     &--call-out {

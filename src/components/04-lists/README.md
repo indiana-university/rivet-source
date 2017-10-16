@@ -16,7 +16,7 @@ Follow the [IT Communications Office’s style guide](https://uits.iu.edu/itco/s
 
 ## Implementation notes
 
-You can use the helper class `.uitsds-plain-list` or the mixin `@plain-list` to remove list formatting for display purposes.
+You can use the helper class `.rvt-plain-list` or the mixin `@plain-list` to remove list formatting for display purposes.
 
 ## Resources
 - [W3C Docs](https://www.w3.org/TR/WCAG20-TECHS/H48.html) about all the lists.

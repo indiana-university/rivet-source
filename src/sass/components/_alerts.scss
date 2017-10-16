@@ -1,6 +1,7 @@
 
 
-.alert {
+.alert,
+.rvt-alert {
     background-color: $color-alert-gray-light;
     border-left: $xxs solid $color-alert-gray;
     padding: $sm;
@@ -53,7 +54,8 @@
 
 
 
-.alert--info {
+.alert--info,
+.rvt-alert--info {
     background-color: $color-alert-blue-light;
     border-left-color: $color-alert-blue;
     color: $color-alert-blue-text;
@@ -62,7 +64,8 @@
 
 
 
-.alert--success {
+.alert--success,
+.rvt-alert--success {
     background-color: $color-alert-green-light;
     border-left-color: $color-alert-green;
     color: $color-alert-green-text;
@@ -71,7 +74,8 @@
 
 
 
-.alert--message {
+.alert--message,
+.rvt-alert--message {
     background-color: $color-alert-yellow-light;
     border-left-color: $color-alert-yellow;
     color: $color-alert-yellow-text;
@@ -80,7 +84,8 @@
 
 
 
-.alert--error {
+.alert--error,
+.rvt-alert--error {
     background-color: $color-alert-orange-light;
     border-left-color: $color-alert-orange;
     color: $color-alert-orange-text;
@@ -89,7 +94,8 @@
 
 
 
-.alert-inline {
+.alert-inline,
+.rvt-alert-inline {
     background-color: $color-alert-orange-light;
     border-left: $xxs solid $color-alert-orange;
     color: $color-alert-orange-text;
@@ -103,7 +109,8 @@
     }
 }
 
-.input-error > {
+.input-error,
+.rvt-input-error > {
     input[type="color"],
     input[type="color"]:focus,
     input[type="date"],
@@ -140,7 +147,8 @@
 }
 
 
-.alert-list {
+.alert-list,
+.rvt-alert-list {
     list-style: none;
     margin: 0;
     padding: 0;

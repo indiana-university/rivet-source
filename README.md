@@ -31,7 +31,7 @@ If you don't have Node and NPM installed, go to the Node.js website for instruct
 To get started working locally on your computer first clone or download this repo.
 
 ```sh
-git clone https://github.iu.edu/UITS/uitsds.git
+git clone https://github.iu.edu/UITS/rivet-source.git
 cd uitsds
 ```
 
@@ -58,21 +58,12 @@ The deployment process uses [Webhooks](https://github.iu.edu/UITS/uitsds/setting
 `delete` webhook: https://github.iu.edu/UITS/uitsds/settings/hooks/1066
 
 ## Submitting a pull request
-Work in progress...
-
-This should be pretty standard Github branching stuff. We have a larger discussion about whether or not to follow specific workflow models like [Gitflow](https://danielkummer.github.io/git-flow-cheatsheet/) once we get into doing actual releases, etc...
-
-### Pull request basics
-
-- Fork repo, or ask to be added as a member? I dunno...
-- Branches that are never deleted:
-	- `develop`
-	- `master`
-- **Always create new feature branch** off of `develop` with the prefix `feature-` e.g. `feature-modal` then follow this process:
-	1. Work, work, work, commit, commit, commit
-	2. Push new feature branch to your fork and create pull request against `origin/develop` describing your work
-	3. Team will review, ask for any necessary changes
-	4. Once changes have been maid and tested, feature branch gets merged into `develop`
+1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to https://github.iu.edu/UITS/rivet-source.git.
+2. Create a new feature branch off of `develop` (the default branch) with the prefix `feature-` e.g. `feature-modal`
+3. Commit your changes. Be sure to keep your commits narrow in scope and avoid committing changes not related to your feature.
+4. Locally merge any upstream changes into your feature branch: `git pull upstream develop`
+5. Push your feature branch to your fork: `git push origin feature-**your feature**`
+6. [Open a pull request](https://help.github.com/articles/about-pull-requests/) with a title and clear description of your feature branch against `develop`
 
 ## Coding style
 A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/README.md), because it's really good :100:
