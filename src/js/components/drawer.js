@@ -27,7 +27,10 @@ var Drawer = (function() {
         });
 
         for(var i = 0; i < drawerSubnavTriggers.length; i++) {
-            drawerSubnavTriggers[i].addEventListener('click', function() {
+            drawerSubnavTriggers[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 var subnavID = this.getAttribute('data-subnav-trigger');
                 var subnavEl = document.querySelector('#' + subnavID);
                 // Toggle the aria-expanded state of the button
@@ -36,7 +39,7 @@ var Drawer = (function() {
                 toggleHiddenState(subnavEl);
             });
         }
-        
+
         // Make sure the extra close button is present in the DOM
         if (drawerBottomClose) {
             drawerBottomClose.addEventListener('click', function () {

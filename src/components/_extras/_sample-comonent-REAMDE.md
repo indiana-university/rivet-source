@@ -1,6 +1,5 @@
 <!--
     Delete after copying and pasting!
-
     Use this as a starting point for documenting each new component.
 -->
 # Component title

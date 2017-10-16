@@ -8,7 +8,8 @@
 
 @each $ts-pixels, $ts-rems in $type-sizes {
 
-    .ts-#{$ts-pixels} {
+    .ts-#{$ts-pixels},
+    .rvt-ts-#{$ts-pixels} {
         font-size: $ts-rems !important;
     }
 
@@ -33,7 +34,8 @@
 
         @each $ts-pixels, $ts-rems in $type-sizes {
 
-            .ts-#{$ts-pixels}-#{$bp-name}-up {
+            .ts-#{$ts-pixels}-#{$bp-name}-up,
+            .rvt-ts-#{$ts-pixels}-#{$bp-name}-up {
                 font-size: $ts-rems !important;
             }
 

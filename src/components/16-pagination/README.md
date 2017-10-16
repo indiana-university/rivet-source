@@ -16,7 +16,7 @@ The pagination component is wrapped in a `nav` element so that it is announced t
 This [article on a11ymatters.com](http://www.a11ymatters.com/pattern/pagination/) has some really good tips on implementing dynamic `aria-label`(s) on pagination items based on how many pages are returned.
 
 ## Implementation
-When using the `.is-disabled` classes to create pagination links that appear to be disabled, add a `tabindex="-1"` attribute to the `<a>` tag so that it takes removed the disable link from the tab order. It's also advisable to use JavaScript to disable the link's default functionality with the `.preventDefault()` method.
+When using the `.is-disabled` classes to create pagination links that appear to be disabled, add a `tabindex="-1"` attribute to the `<a>` tag so that it removes the disable link from the tab order. It's also advisable to use JavaScript to disable the link's default functionality with the `.preventDefault()` method.
 
 ### Positioning
 The pagination component is left-aligned by default, but you can easily center or right-align it using the `rvt-pagination--center` or `rvt-pagination--right` modifier classes.

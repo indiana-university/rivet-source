@@ -34,7 +34,8 @@ tr td {
     padding: $sm;
 }
 
-.table-stripes {
+.table-stripes,
+.rvt-table-stripes {
     tr {
         border-bottom: none;
     }
@@ -44,7 +45,8 @@ tr td {
     }
 }
 
-.table-plain {
+.table-plain,
+.rvt-table-plain {
     thead {
         background-color: transparent;
         border-bottom: none;
