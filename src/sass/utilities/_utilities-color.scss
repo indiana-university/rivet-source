@@ -2,7 +2,8 @@
 
 @each $key, $value in $color-map {
 
-    .color-#{$key} {
+    .color-#{$key},
+    .rvt-color-#{$key} {
         color: #{$value};
     }
 
@@ -13,7 +14,8 @@
 //     background-color: #006298;
 // }
 @each $key, $value in $color-map {
-    .bg-#{$key} {
+    .bg-#{$key},
+    .rvt-bg-#{$key} {
         background-color: #{$value};
         color: $color-background;
 
