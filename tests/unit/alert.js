@@ -1,6 +1,10 @@
-const Alert = require("../../src/js/components/alert");
 const assert = require('assert');
 const fs = require('fs');
+var vm = require('vm');
+var path = 'static/js/rivet.js';
+
+var code = fs.readFileSync(path);
+vm.runInThisContext(code);
 
 const TEMPLATE = fs.readFileSync(__dirname + '/alert.html');
 
@@ -13,14 +17,12 @@ describe('alert behavior', function () {
     let root;
     let button;
     let buttons;
-    let content;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Alert.init();
 
         root = body.querySelector('.rvt-alert');
-
         buttons = root.querySelectorAll('.rvt-alert__dismiss');
         button = buttons[ 0 ];
     });
@@ -34,11 +36,9 @@ describe('alert behavior', function () {
 
     describe('alert.dismiss()', function () {
         it('Removes the alert from the DOM when dismissed', function() {
-
             assert.equal(document.querySelector('.rvt-alert'), root)
             Alert.dismiss(root);
             assert.equal(document.querySelector('.rvt-alert'), null)
-
         });
     });
 });

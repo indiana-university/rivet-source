@@ -120,4 +120,3 @@ var Dropdown = (function() {
 
 })();
 
-module.exports = Dropdown;

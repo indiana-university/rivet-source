@@ -209,4 +209,3 @@ var Modal = (function() {
 
 })();
 
-module.exports = Modal;

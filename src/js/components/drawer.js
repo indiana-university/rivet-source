@@ -64,4 +64,3 @@ var Drawer = (function() {
     }
 })();
 
-module.exports = Drawer;
