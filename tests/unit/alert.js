@@ -6,15 +6,15 @@ var path = 'static/js/rivet.js';
 var code = fs.readFileSync(path);
 vm.runInThisContext(code);
 
-const TEMPLATE = fs.readFileSync(__dirname + '/alert.html');
+const TEMPLATE = fs.readFileSync('src/components/11-alerts/alerts.hbs');
 
 // `aria` prefixed attributes
 const LABELLEDBY = 'aria-labelledby';
 
-describe('alert behavior', function () {
+describe('Alert component behavior', function () {
     const body = document.body;
 
-    let root;
+    let component;
     let button;
     let buttons;
 
@@ -22,22 +22,22 @@ describe('alert behavior', function () {
         body.innerHTML = TEMPLATE;
         Alert.init();
 
-        root = body.querySelector('.rvt-alert');
-        buttons = root.querySelectorAll('.rvt-alert__dismiss');
+        component = body.querySelector('.rvt-alert');
+        buttons = component.querySelectorAll('.rvt-alert__dismiss');
         button = buttons[ 0 ];
     });
 
     describe('DOM state', function () {
         it('Has an "aria-labelledby" attribute', function () {
-            assert(root.getAttribute(LABELLEDBY));
+            assert(component.getAttribute(LABELLEDBY));
         });
     });
 
 
-    describe('alert.dismiss()', function () {
+    describe('Alert.dismiss()', function () {
         it('Removes the alert from the DOM when dismissed', function() {
-            assert.equal(document.querySelector('.rvt-alert'), root)
-            Alert.dismiss(root);
+            assert.equal(document.querySelector('.rvt-alert'), component)
+            Alert.dismiss(component);
             assert.equal(document.querySelector('.rvt-alert'), null)
         });
     });
