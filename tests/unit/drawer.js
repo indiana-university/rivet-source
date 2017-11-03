@@ -38,12 +38,12 @@ describe('Drawer component behavior', function () {
         });
     });
 
-    describe('button.click()', function () {
+    describe('Drawer.toggle()', function () {
 
         it('Clicking button to open drawer', function() {
-            button.click()
-            //assert.equal(button.getAttribute(EXPANDED), 'true')
-            //assert.equal(component.getAttribute(HIDDEN), 'false')
+            Drawer.toggle(button, component);
+            assert.equal(button.getAttribute(EXPANDED), 'true')
+            assert.equal(component.getAttribute(HIDDEN), 'false')
         });
     });
 });

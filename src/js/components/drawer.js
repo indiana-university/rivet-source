@@ -16,14 +16,18 @@ var Drawer = (function() {
 
     }
 
+    var toggle = function(trigger, target) {
+        // Togle aria-exapnded state of the button
+        toggleBtnState(trigger);
+        // Toggle the aria-hidden state of the drawer
+        toggleHiddenState(target);
+        // Toggle button open class
+        trigger.classList.toggle('is-open');
+    }
+
     var _bindUiActions = function() {
         drawerTrigger.addEventListener('click', function() {
-            // Togle aria-exapnded state of the button
-            toggleBtnState(this);
-            // Toggle the aria-hidden state of the drawer
-            toggleHiddenState(drawerEl);
-            // Toggle button open class
-            this.classList.toggle('is-open');
+            toggle(this, drawerEl)
         });
 
         for(var i = 0; i < drawerSubnavTriggers.length; i++) {
@@ -60,7 +64,8 @@ var Drawer = (function() {
     }
 
     return {
-        init: init
+        init: init,
+        toggle: toggle
     }
 })();
 
