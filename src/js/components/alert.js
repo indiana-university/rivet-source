@@ -45,3 +45,5 @@ var Alert = (function() {
     }
 
 })();
+
+module.exports = Alert;

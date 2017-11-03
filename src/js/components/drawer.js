@@ -63,3 +63,5 @@ var Drawer = (function() {
         init: init
     }
 })();
+
+module.exports = Drawer;
