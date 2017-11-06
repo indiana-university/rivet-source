@@ -108,7 +108,9 @@ var Modal = (function() {
          * Add a class to the body that we use as a hook to allow
          * the modal to scroll.
          */
-        document.body.classList.add('rvt-modal-open');
+        if(document.body) {
+            document.body.classList.add('rvt-modal-open');
+        }
 
         /**
          * Store a reference to modal trigger that was clicked so that
@@ -187,7 +189,9 @@ var Modal = (function() {
      * @param {object} modalToClose - The HTML modal element to close.
      */
     var closeModal = function(modalToClose) {
-        document.body.removeAttribute('class');
+        if(document.body) {
+            document.body.removeAttribute('class');
+        }
         modalToClose.setAttribute('aria-hidden', 'true');
 
         /**

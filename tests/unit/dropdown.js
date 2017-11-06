@@ -38,9 +38,9 @@ describe('Dropdown component behavior', function () {
         });
     });
 
-    describe('Dropdown.toggleMenu()', function () {
+    describe('Dropdown.toggle()', function () {
 
-        it('Clicking button to open dropdown', function() {
+        it('Clicking link to open dropdown', function() {
             Dropdown.toggle(link, component);
             assert.equal(link.getAttribute(EXPANDED), 'true')
             assert.equal(component.getAttribute(HIDDEN), 'false')
