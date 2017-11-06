@@ -15,11 +15,17 @@ module.exports = {
             .waitForElementVisible('#dropdown-1', 1000);
 
         // make sure the aria-expanded and aria-hidden attributes are being set
-        browser.expect.element("[data-dropdown-trigger='dropdown-1']").to.have.attribute('aria-expanded').equals('true')
-        browser.expect.element("#dropdown-1").to.have.attribute('aria-hidden').equals('false')
+        browser.expect.element("[data-dropdown-trigger='dropdown-1']")
+            .to.have.attribute('aria-expanded')
+            .equals('true')
+
+
+        browser.expect.element("#dropdown-1")
+            .to.have.attribute('aria-hidden')
+            .equals('false')
+
 
         browser
-
             // click the link to close the dropdown
             .click("[data-dropdown-trigger='dropdown-1']", function(response) {
                 console.log("Clicked link to close the dropdown")

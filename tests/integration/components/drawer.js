@@ -15,8 +15,13 @@ module.exports = {
             .waitForElementVisible('.rvt-drawer', 1000);
 
         // check for aria attributes
-        browser.expect.element("[data-drawer-trigger='mobile-drawer']").to.have.attribute('aria-expanded').equals('true')
-        browser.expect.element(".rvt-drawer").to.have.attribute('aria-hidden').equals('false')
+        browser.expect.element("[data-drawer-trigger='mobile-drawer']")
+            .to.have.attribute('aria-expanded')
+            .equals('true')
+
+        browser.expect.element(".rvt-drawer")
+            .to.have.attribute('aria-hidden')
+            .equals('false')
 
         browser
 
