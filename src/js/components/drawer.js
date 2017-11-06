@@ -23,7 +23,7 @@ var Drawer = (function() {
             event.stopPropagation();
         }
 
-        // Togle aria-exapnded state of the button
+        // Toggle aria-expanded state of the button
         toggleBtnState(trigger);
 
         // Toggle the aria-hidden state of the drawer
