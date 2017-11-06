@@ -25,6 +25,22 @@ var Dropdown = (function() {
         }
     }
 
+    var toggle = function(trigger, target, event) {
+
+        if(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.clickWithinMenu = true
+
+        }
+
+        // Close all of the menus except for this one
+        closeAllMenus(target);
+        // Toggle the aria-expanded state of the button that was clicked.
+        toggleBtnState(trigger);
+        // Toggle the aria-hidden state of the corresponding dropdown.
+        toggleMenuState(target);
+    }
 
     /**
      * The bindUiActions function applys the event listeners and passes in
@@ -36,22 +52,16 @@ var Dropdown = (function() {
          */
         for( var i = 0; i < btnTriggers.length; i++) {
             btnTriggers[i].addEventListener('click', function(e) {
-                e.clickWithinMenu = true                
                 var dropdownTrigger = this;
                 var dropdownID = dropdownTrigger.getAttribute('data-dropdown-trigger');
                 var dropdownEl = document.querySelector('#' + dropdownID);
 
-                // Close all of the menus except for this one
-                closeAllMenus(dropdownEl);
-                // Toggle the aria-expanded state of the button that was clicked.
-                toggleBtnState(dropdownTrigger);
-                // Toggle the aria-hidden state of the corresponding dropdown.
-                toggleMenuState(dropdownEl);
+                toggle(dropdownTrigger, dropdownEl, e)
             });
         }
 
         /**
-         * Stop click on dropdown menus from bubling up
+         * Stop click on dropdown menus from bubbling up
          */
         for (var i = 0; i < menus.length; i ++) {
             menus[i].addEventListener('click', function(e) {
@@ -61,7 +71,7 @@ var Dropdown = (function() {
 
         /**
          * Listen for clicks outside of the dropdown button and close all
-         * opend dropdown menus.
+         * opened dropdown menus.
          */
 
         document.addEventListener('click', function(e) {
@@ -115,7 +125,9 @@ var Dropdown = (function() {
     return {
         init: init,
         closeAll: closeAllMenus,
-        toggleMenu: toggleMenuState
+        toggleMenu: toggleMenuState,
+        toggle: toggle
     }
 
 })();
+

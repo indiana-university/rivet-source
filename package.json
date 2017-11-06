@@ -3,8 +3,11 @@
   "description": "UITS design system",
   "version": "0.3.1",
   "repository": {
-      "type": "git",
-      "url": "https://github.iu.edu/UITS/rivet-source.git"
+    "type": "git",
+    "url": "https://github.iu.edu/UITS/rivet-source.git"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha tests/unit --require jsdom-global/register; node_modules/nightwatch/bin/nightwatch -c ./tests/integration/nightwatch.json"
   },
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
@@ -15,10 +18,16 @@
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^4.0.0",
     "gulp-header": "^1.8.9",
+    "gulp-mocha": "^4.3.1",
+    "gulp-nightwatch": "^0.3.2",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
+    "jsdom": "^11.3.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^4.0.1",
+    "nightwatch": "^0.9.16",
     "postcss": "^6.0.8",
     "postcss-reporter": "^4.0.0",
     "postcss-scss": "^1.0.2",
