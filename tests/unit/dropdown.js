@@ -17,15 +17,13 @@ describe('Dropdown component behavior', function () {
 
     let component;
     let link;
-    let links;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Dropdown.init();
 
         component = body.querySelector('.dropdown__menu');
-        links = body.querySelectorAll('.dropdown__trigger');
-        link = links[ 0 ];
+        link = body.querySelector('.dropdown__trigger');
     });
 
     describe('DOM state', function () {

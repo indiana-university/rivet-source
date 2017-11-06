@@ -17,15 +17,13 @@ describe('Modal component behavior', function () {
 
     let component;
     let button;
-    let buttons;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Modal.init();
 
         component = body.querySelector('.rvt-modal');
-        buttons = body.querySelectorAll('.rvt-button');
-        button = buttons[ 0 ];
+        button = body.querySelector('.rvt-button');
     });
 
     describe('DOM state', function () {

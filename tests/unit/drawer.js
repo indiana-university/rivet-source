@@ -17,15 +17,13 @@ describe('Drawer component behavior', function () {
 
     let component;
     let button;
-    let buttons;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Drawer.init();
 
         component = body.querySelector('.rvt-drawer');
-        buttons = body.querySelectorAll('.rvt-drawer-button');
-        button = buttons[ 0 ];
+        button = body.querySelector('.rvt-drawer-button');
     });
 
     describe('DOM state', function () {

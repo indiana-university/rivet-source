@@ -16,15 +16,13 @@ describe('Alert component behavior', function () {
 
     let component;
     let button;
-    let buttons;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Alert.init();
 
         component = body.querySelector('.rvt-alert');
-        buttons = component.querySelectorAll('.rvt-alert__dismiss');
-        button = buttons[ 0 ];
+        button = component.querySelector('.rvt-alert__dismiss');
     });
 
     describe('DOM state', function () {
