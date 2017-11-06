@@ -1,7 +1,7 @@
 const assert = require('assert');
 const fs = require('fs');
 var vm = require('vm');
-var path = 'static/js/rivet.js';
+var path = 'dist/js/rivet.min.js';
 
 var code = fs.readFileSync(path);
 vm.runInThisContext(code);
