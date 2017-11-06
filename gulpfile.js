@@ -59,3 +59,7 @@ gulp.task('build:dist', function(done) {
         done
     );
 });
+
+/**
+ * Testing tasks
+ */
