@@ -56,7 +56,7 @@ gulp.task('build:dist', function(done) {
         'sass:release',
         'images:release',
         'build:example',
-        'test',
+        'test:unit',
         done
     );
 });

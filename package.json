@@ -7,6 +7,7 @@
     "url": "https://github.iu.edu/UITS/rivet-source.git"
   },
   "scripts": {
+    "build": "gulp build:dist",
     "test": "node_modules/mocha/bin/mocha tests/unit --require jsdom-global/register; node_modules/nightwatch/bin/nightwatch -c ./tests/integration/nightwatch.json"
   },
   "dependencies": {
