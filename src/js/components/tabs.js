@@ -32,7 +32,6 @@ var Tabs = (function() {
         up: 38,
         right: 39,
         down: 40,
-        delete: 46,
         enter: 13,
         space: 32
     }
@@ -88,19 +87,19 @@ var Tabs = (function() {
             case keys.end:
                 event.preventDefault();
                 // Activate last tab
-                focusLastTab();
+                focusLastTab(tabsetIndex);
                 break;
             case keys.home:
                 event.preventDefault();
                 // Activate first tab
-                focusFirstTab();
+                focusFirstTab(tabsetIndex);
                 break;
 
             // Up and down are in keydown
             // because we need to prevent page scroll >:)
             case keys.up:
             case keys.down:
-                determineOrientation(event);
+                determineOrientation(event, tabsetIndex);
                 break;
         }
     }
@@ -113,9 +112,6 @@ var Tabs = (function() {
             case keys.left:
             case keys.right:
                 determineOrientation(event, tabsetIndex);
-                break;
-            case keys.delete:
-                determineDeletable(event, tabsetIndex);
                 break;
             case keys.enter:
             case keys.space:
@@ -217,57 +213,7 @@ var Tabs = (function() {
 
     // Make a guess
     function focusLastTab (tabsetIndex) {
-        tabs[tabsetIndex][tabs[0].length - 1].focus();
-    }
-
-    // Detect if a tab is deletable
-    function determineDeletable (event) {
-        var target = event.target;
-
-        if (target.getAttribute('data-deletable') !== null) {
-            // Delete target tab
-            deleteTab(event, target);
-
-            // Update arrays related to tabs widget
-            generateArrays();
-
-            // Activate the closest tab to the one that was just deleted
-            if (target.index - 1 < 0) {
-                activateTab(tabs[0]);
-            }
-            else {
-                activateTab(tabs[target.index - 1]);
-            }
-        }
-    }
-
-    // Deletes a tab and its panel
-    function deleteTab (event) {
-        var target = event.target;
-        var panel = document.getElementById(target.getAttribute('aria-controls'));
-
-        target.parentElement.removeChild(target);
-        panel.parentElement.removeChild(panel);
-    }
-
-    // Determine whether there should be a delay
-    // when user navigates with the arrow keys
-    function determineDelay () {
-        var hasDelay = tablist.hasAttribute('data-delay');
-        var delay = 0;
-
-        if (hasDelay) {
-            var delayValue = tablist.getAttribute('data-delay');
-            if (delayValue) {
-                delay = delayValue;
-            }
-            else {
-                // If no value is specified, default to 300ms
-                delay = 300;
-            }
-        }
-
-        return delay;
+        tabs[tabsetIndex][tabs[tabsetIndex].length - 1].focus();
     }
 
     // Expose public methods
