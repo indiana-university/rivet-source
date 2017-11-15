@@ -2,6 +2,7 @@ var Tabs = (function() {
 
     /**
      * Set up locally-scoped variables
+     * Aria requirements https://www.w3.org/TR/wai-aria-practices/#tabpanel
      */
 
     /**
@@ -24,7 +25,7 @@ var Tabs = (function() {
         space: 32
     };
 
-    // Add or substract depending on key pressed
+    // Add or subtract depending on key pressed
     var direction = {
         37: -1,
         38: -1,
@@ -33,15 +34,17 @@ var Tabs = (function() {
     };
 
     var init = function() {
+
         // Check to make sure there are any tab sets in the DOM.
         if(tabSets.length != 0) {
 
             // Loop through the tab sets and initialize each one
-            for (var i = 0; i < tabSets.length; i++) {
+            for (var tabsetIndex = 0; tabsetIndex < tabSets.length; tabsetIndex++) {
 
-                tabs[i] = tabSets[i].querySelectorAll('[role="tab"]')
-                panels[i] = tabSets[i].querySelectorAll('[role="tabpanel"]')
-                _bindUiActions(tabs[i], i);
+                tabs[tabsetIndex] = tabSets[tabsetIndex].querySelectorAll('[role="tab"]')
+                panels[tabsetIndex] = tabSets[tabsetIndex].querySelectorAll('[role="tabpanel"]')
+
+                _bindUiActions(tabs[tabsetIndex], tabsetIndex);
 
             }
 
@@ -56,8 +59,8 @@ var Tabs = (function() {
         for (var i = 0; i < tabs.length; i++) {
 
             tabs[i].addEventListener('click', function(event) { clickEventListener(event, tabsetIndex) });
-            tabs[i].addEventListener('keydown', keydownEventListener);
-            tabs[i].addEventListener('keyup', keyupEventListener);
+            tabs[i].addEventListener('keydown', function(event) { keydownEventListener(event, tabsetIndex) });
+            tabs[i].addEventListener('keyup', function(event) { keyupEventListener(event, tabsetIndex) });
 
             // Build an array with all tabs (<button>s) in it
             tabs[i].index = i;
@@ -72,7 +75,7 @@ var Tabs = (function() {
     };
 
     // Handle keydown on tabs
-    function keydownEventListener (event) {
+    function keydownEventListener (event, tabsetIndex) {
         var key = event.keyCode;
 
         switch (key) {
@@ -97,7 +100,7 @@ var Tabs = (function() {
     };
 
     // Handle keyup on tabs
-    function keyupEventListener (event) {
+    function keyupEventListener (event, tabsetIndex) {
         var key = event.keyCode;
 
         switch (key) {
@@ -115,7 +118,7 @@ var Tabs = (function() {
         };
     };
 
-    // When a tablistâ€™s aria-orientation is set to vertical,
+    // When a tablists aria-orientation is set to vertical,
     // only up and down arrow should function.
     // In all other cases only left and right arrow function.
     function determineOrientation (event) {
@@ -190,19 +193,20 @@ var Tabs = (function() {
 
     // Deactivate all tabs and tab panels
     function deactivateTabs (tabsetIndex) {
+
         for (var t = 0; t < tabs[tabsetIndex].length; t++) {
             tabs[tabsetIndex][t].setAttribute('tabindex', '-1');
             tabs[tabsetIndex][t].setAttribute('aria-selected', 'false');
         };
 
-        for (var p = 0; p < panels.length; p++) {
+        for (var p = 0; p < panels[tabsetIndex].length; p++) {
             panels[tabsetIndex][p].setAttribute('hidden', 'hidden');
         };
     };
 
     // Make a guess
     function focusFirstTab () {
-        tabs[0].focus();
+        tabs[0][0].focus();
     };
 
     // Make a guess
