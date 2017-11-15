@@ -20,6 +20,7 @@ gulp.task('js:concat', function() {
         'src/js/components/drawer.js',
         'src/js/components/dropdown.js',
         'src/js/components/modal.js',
+        'src/js/components/tabs.js',
         'src/js/index.js'
     ])
         .pipe(concat('rivet.js'))

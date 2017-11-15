@@ -7,5 +7,6 @@
     Drawer.init();
     Dropdown.init();
     Modal.init();
+    Tabs.init()
 })();
 /* eslint-enable */
