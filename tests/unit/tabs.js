@@ -6,7 +6,7 @@ var path = 'dist/js/rivet.min.js';
 var code = fs.readFileSync(path);
 vm.runInThisContext(code);
 
-const TEMPLATE = fs.readFileSync('src/components/20-tabs/tabs--multiple.hbs');
+const TEMPLATE = fs.readFileSync('src/components/20-tabs/tabs.hbs');
 
 // `aria` prefixed attributes
 const SELECTED = 'aria-selected';
@@ -35,26 +35,4 @@ describe('Tabs component behavior', function () {
         });
     });
 
-    describe('Tabs.activateTab()', function () {
-
-        it('Clicking the second tab in the first tabset', function() {
-
-            // TODO:
-            // there's a problem with document.querySelectorAll since we aren't
-            // loading the document
-            // from karma unit tests.
-
-            //Tabs.activateTab(tabs[1], 0);
-            //assert.equal(panels[0].getAttribute(HIDDEN), "hidden");
-            //assert.equal(panels[1].getAttribute(HIDDEN), null);
-
-        });
-
-        it('Clicking the third tab in the second tabset', function() {
-            //Tabs.activateTab(tabs[2], 1);
-
-            //assert.equal(panels[1].getAttribute(HIDDEN), "hidden");
-            //assert.equal(panels[5].getAttribute(HIDDEN), null);
-        });
-    });
 });
