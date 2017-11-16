@@ -36,7 +36,14 @@
         }
 
         &:disabled {
-            border-bottom: none;
+            background-color: transparent;
+            color: $color-black--400;
+        }
+
+        &:disabled:hover {
+            background-color: transparent;
+            color: $color-black--400;
+            border-bottom-color: transparent;
         }
     }
 
