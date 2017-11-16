@@ -13,21 +13,24 @@
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
 
+
         &[aria-selected="true"],
         &[aria-selected="true"]:hover {
-            box-shadow: 0 4px 0 $color-action;
+            border-bottom: 4px solid $color-action;
+            margin-bottom: -4px;
             position: relative;
             z-index: 2;
+        }
+
+        &[aria-selected="true"]:focus {
+
         }
 
         &:hover {
             color: #333;
             background-color: transparent;
-            box-shadow: 0 4px 0 $color-black--500;
-        }
-
-        &:focus {
-            outline: none;
+            border-bottom: 4px solid $color-black--500;
+            margin-bottom: -4px;
         }
 
         &:last-child {
@@ -48,7 +51,6 @@
         margin-top: 1px;
 
         &:focus {
-            // outline: none;
             box-shadow: 0 0 1px 3px #95adcb;
         }
     }
@@ -65,7 +67,7 @@
 
     .rvt-tabs__tablist {
         min-width: 16rem;
-        flex-grow: 1;
+        flex-grow: 0;
         flex-direction: column;
     }
 
@@ -74,18 +76,26 @@
         text-align: left;
         padding: $sm;
         border-radius: 0;
-        box-shadow: 0 2px 0 $color-black--100;
+        margin-bottom: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
 
         &:hover {
-            box-shadow: 0 4px 0 $color-black--500;
+            background-color: $color-black--100;
+            border-bottom: none;
+            margin-bottom: 4px;
+            border-right: 4px solid $color-black--500;
         }
 
-        &[aria-selected="true"],
-        &[aria-selected="true"]:hover {
-            box-shadow: 4px 0 0 $color-action;
+        &[aria-selected="true"] {
             background-color: $color-black--100;
-            position: relative;
-            z-index: 2;
+            border-right: 4px solid $color-action;
+            border-bottom: none;
+        }
+
+        &[aria-selected="true"]:hover {
+            border-bottom: none;
+            // margin-bottom: -2px;
         }
     }
 
