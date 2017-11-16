@@ -27,6 +27,10 @@
             margin-bottom: -$xxs;
         }
 
+        &:active {
+            background-color: $color-black--100;
+        }
+
         &:last-child {
             margin-right: 0;
         }
