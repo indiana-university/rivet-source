@@ -218,7 +218,8 @@ var Tabs = (function() {
 
     // Expose public methods
     return {
-        init: init
+        init: init,
+        activateTab: activateTab
     }
 
 })();
