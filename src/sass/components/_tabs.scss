@@ -84,7 +84,7 @@
 
         &[aria-selected="true"],
         &[aria-selected="true"]:hover {
-            box-shadow: 0 4px 0 $color-action;
+            box-shadow: 4px 0 0 $color-action;
             background-color: $color-black--100;
             position: relative;
             z-index: 2;
