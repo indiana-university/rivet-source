@@ -72,8 +72,6 @@
  */
 
 .rvt-tabs--vertical {
-    display: flex;
-    justify-content: space-between;
 
     .rvt-tabs__tablist {
         min-width: 16rem;
@@ -87,8 +85,6 @@
         padding: $sm;
         border-radius: 0;
         margin-bottom: $xxs;
-        // border-top-left-radius: $xxs;
-        // border-bottom-left-radius: $xxs;
 
         &:hover {
             background-color: $color-black--100;
@@ -111,7 +107,20 @@
     .rvt-tabs__panel {
         flex-grow: 1;
         border-top: none;
-        padding-left: $xl;
+        margin-top: 1rem;
+    }
+}
+
+@include mq(bp(md)) {
+    .rvt-tabs--vertical {
+        display: flex;
+        justify-content: space-between;
+
+        .rvt-tabs__panel {
+            flex-grow: 1;
+            padding-left: $xl;
+            margin-top: 0;
+        }
     }
 }
 
