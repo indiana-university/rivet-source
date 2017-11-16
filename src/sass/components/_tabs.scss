@@ -6,31 +6,25 @@
     &__tab {
         background-color: transparent;
         border: none;
-        color: #333;
+        color: $color-text;
         font-weight: 400;
         z-index: 2;
         position: relative;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
 
-
         &[aria-selected="true"],
         &[aria-selected="true"]:hover {
-            border-bottom: 4px solid $color-action;
-            margin-bottom: -4px;
+            border-bottom: $xxs solid $color-action;
+            margin-bottom: -$xxs;
             position: relative;
-            z-index: 2;
-        }
-
-        &[aria-selected="true"]:focus {
-
         }
 
         &:hover {
-            color: #333;
+            color: $color-text;
             background-color: transparent;
-            border-bottom: 4px solid $color-black--500;
-            margin-bottom: -4px;
+            border-bottom: $xxs solid $color-black--500;
+            margin-bottom: -$xxs;
         }
 
         &:last-child {
@@ -43,15 +37,20 @@
     }
 
     &__panel {
-        border-top: 2px solid #ddd;
-        background-color: #fff;
+        border-top: 2px solid $color-black--200;
+        background-color: $color-background;
         border-top-left-radius: 0;
         z-index: 1;
         position: relative;
+        /**
+         * This margin helps optically align the panel with the border
+         * styles and or active state on the tabs above.
+         */
         margin-top: 1px;
 
         &:focus {
-            box-shadow: 0 0 1px 3px #95adcb;
+            outline: none;
+            box-shadow: 0 0 1px 3px $color-midnight--300;
         }
     }
 }
@@ -76,26 +75,25 @@
         text-align: left;
         padding: $sm;
         border-radius: 0;
-        margin-bottom: 4px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
+        margin-bottom: $xxs;
+        border-top-left-radius: $xxs;
+        border-bottom-left-radius: $xxs;
 
         &:hover {
             background-color: $color-black--100;
             border-bottom: none;
-            margin-bottom: 4px;
-            border-right: 4px solid $color-black--500;
+            margin-bottom: $xxs;
+            border-right: $xxs solid $color-black--500;
         }
 
         &[aria-selected="true"] {
             background-color: $color-black--100;
-            border-right: 4px solid $color-action;
+            border-right: $xxs solid $color-action;
             border-bottom: none;
         }
 
         &[aria-selected="true"]:hover {
             border-bottom: none;
-            // margin-bottom: -2px;
         }
     }
 
