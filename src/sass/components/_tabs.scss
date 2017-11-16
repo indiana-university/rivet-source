@@ -12,7 +12,6 @@
         position: relative;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
-        margin-right: .5rem;
 
         &[aria-selected="true"],
         &[aria-selected="true"]:hover {
@@ -29,7 +28,6 @@
 
         &:focus {
             outline: none;
-
         }
 
         &:last-child {
@@ -50,7 +48,7 @@
         margin-top: 1px;
 
         &:focus {
-            outline: none;
+            // outline: none;
             box-shadow: 0 0 1px 3px #95adcb;
         }
     }
