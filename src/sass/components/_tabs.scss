@@ -1,0 +1,109 @@
+.rvt-tabs {
+    &__tablist {
+        display: flex;
+    }
+
+    &__tab {
+        background-color: transparent;
+        border: none;
+        color: #333;
+        font-weight: 400;
+        z-index: 2;
+        position: relative;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-right: .5rem;
+
+        &[aria-selected="true"],
+        &[aria-selected="true"]:hover {
+            box-shadow: 0 4px 0 $color-action;
+            position: relative;
+            z-index: 2;
+        }
+
+        &:hover {
+            color: #333;
+            background-color: transparent;
+            box-shadow: 0 4px 0 $color-black--500;
+        }
+
+        &:focus {
+            outline: none;
+
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:disabled {
+            border-bottom: none;
+        }
+    }
+
+    &__panel {
+        border-top: 2px solid #ddd;
+        background-color: #fff;
+        border-top-left-radius: 0;
+        z-index: 1;
+        position: relative;
+        margin-top: 1px;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 1px 3px #95adcb;
+        }
+    }
+}
+
+
+/**
+ * Vertical tabs
+ */
+
+.rvt-tabs--vertical {
+    display: flex;
+    justify-content: space-between;
+
+    .rvt-tabs__tablist {
+        min-width: 16rem;
+        flex-grow: 1;
+        flex-direction: column;
+    }
+
+    .rvt-tabs__tab {
+        width: 100%;
+        text-align: left;
+        padding: $sm;
+        border-radius: 0;
+        box-shadow: 0 2px 0 $color-black--100;
+
+        &:hover {
+            box-shadow: 0 4px 0 $color-black--500;
+        }
+
+        &[aria-selected="true"],
+        &[aria-selected="true"]:hover {
+            box-shadow: 0 4px 0 $color-action;
+            background-color: $color-black--100;
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    .rvt-tabs__panel {
+        flex-grow: 1;
+        border-top: none;
+        padding-left: $xl;
+    }
+}
+
+/**
+ * Fitted tabs
+ */
+
+.rvt-tabs--fitted {
+    .rvt-tabs__tab {
+        flex-grow: 1;
+    }
+}
