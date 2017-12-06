@@ -1,23 +1,11 @@
 
 <div class="rvt-container m-top-xl">
-    <h1 class="rvt-ts-32 rvt-text-bold rvt-m-bottom-xl">Rivet file uploader</h1>
+    <span class="rvt-display-block rvt-ts-26 rvt-m-bottom-xl" id="single-file-example">Rivet file uploader</span>
 
-    <!--
-        Markup for the file uploader
-
-        Each .rvt-uploader on the page needs to have a unique id for the file input.
-        This this id needs to match the "dtat-upload" attribute on the .rvt-uploader wrapper,
-        the for attribute on the file input, and the data-file-preview attribute on the
-        .rvt-uploader__preview div.
-
-        Any of the Rivet button versions/classes can be used on the label element
-        to make the file uploader look like a Rivet button. See the docs for available
-        button variations:
-
-        https://rivet.uits.iu.edu/components/forms/buttons/
-    -->
     <div class="rvt-uploader" data-upload="my-file-input">
-        <input type="file" id="my-file-input">
+        <input type="file"
+               id="my-file-input"
+               aria-describedby="single-file-example">
         <label for="my-file-input" class="rvt-button rvt-button--secondary">
             <span>Upload a file</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -29,14 +17,17 @@
         </div>
     </div>
 
-    <!-- The uploader also works with the "multiple" attribute on the file input.
-         The .rvt-uploader__preview container will show the number of files
-         attached to the input if multiples are uploaded.
-    -->
-    <h2 class="rvt-m-bottom-md rvt-m-top-xxl rvt-ts-20">Upload multiple files</h2>
-
-    <div class="rvt-uploader" data-upload="my-file-input-two">
-        <input type="file" id="my-file-input-two" multiple>
+    <span class="rvt-display-block rvt-m-bottom-md rvt-m-top-xxl rvt-ts-20"
+          id="multiple-file-example">
+          Upload multiple files
+    </span>
+    <div class="rvt-uploader"
+         data-upload="my-file-input-two"
+         aria-labelledby="multiple-example">
+        <input type="file"
+               id="my-file-input-two"
+               aria-describedby="multiple-file-example"
+               multiple>
         <label for="my-file-input-two" class="rvt-button">
             <span>Upload a files</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -45,38 +36,6 @@
         </label>
         <div class="rvt-uploader__preview" data-file-preview="my-file-input-two">
             No files selected
-        </div>
-    </div>
-
-    <hr class="rvt-m-top-xl rvt-m-bottom-xl">
-</div>
-<div class="rvt-container rvt-m-bottom-xxl">
-    <h2 class="rvt-ts-26 rvt-text-bold m-bottom-md">Example form</h2>
-    <div class="rvt-grid">
-        <div class="rvt-grid__item-8-md-up rvt-grid__item-6-lg-up">
-            <form action="">
-                <label for="name">Name</label>
-                <input type="text" id="name">
-                <label for="message" class="m-top-md">Message</label>
-                <textarea name="message" id="message" class="rvt-m-bottom-md"></textarea>
-                <fieldset>
-                    <legend class="rvt-m-bottom-sm">Upload your file. Accepted file types are .doc, .docx, .txt, .md.</legend>
-                    <div class="rvt-uploader" data-upload="my-file-input-three">
-                        <input type="file" id="my-file-input-three">
-                        <label for="my-file-input-three" class="rvt-button rvt-button--secondary rvt-button--small">
-                            <span>Upload a file</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                <path fill="currentColor" d="M10.41,1H3.5A1.3,1.3,0,0,0,2.2,2.3V13.7A1.3,1.3,0,0,0,3.5,15h9a1.3,1.3,0,0,0,1.3-1.3V4.39ZM11.8,5.21V6H9.25V3h.34ZM4.2,13V3h3V6.75A1.25,1.25,0,0,0,8.5,8h3.3v5Z"/>
-                            </svg>
-                        </label>
-                        <div class="rvt-uploader__preview" data-file-preview="my-file-input-three">No files selected</div>
-                    </div>
-                </fieldset>
-                <div class="m-top-lg rvt-button-group rvt-button-group--right">
-                    <button type="submit" class="rvt-button">Submit</button>
-                    <button class="rvt-button rvt-button--plain">Cancel</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>
