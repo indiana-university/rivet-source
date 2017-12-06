@@ -1,4 +1,4 @@
-var Uploader = (function() {
+var FileInput = (function() {
     /**
      * Sets up some text we'll need to reuse throughout.
      */

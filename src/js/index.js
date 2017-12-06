@@ -8,6 +8,6 @@
     Dropdown.init();
     Modal.init();
     Tabs.init()
-    Uploader.init()
+    FileInput.init()
 })();
 /* eslint-enable */
