@@ -18,9 +18,8 @@ select {
     display: block;
     width: 100%;
     border-radius: 3px;
-    border: 1px solid #ccc;
-    background-color: #fefefe;
-    padding: .5em;
+    border: 1px solid $color-black--300;
+    padding: $xs;
     height: $spacing-unit * 5;
 
     /**

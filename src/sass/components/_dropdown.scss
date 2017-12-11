@@ -9,7 +9,7 @@
     }
 
     .button__text {
-        margin-right: .5rem;
+        margin-right: $xs;
     }
 
     &__menu[aria-hidden="true"] {
@@ -18,12 +18,12 @@
 
     &__menu {
         position: absolute;
-        margin-top: .5rem;
+        margin-top: $xs;
         background-color: #fff;
         border: 1px solid #ddd;
-        border-radius: .25rem;
+        border-radius: $xxs;
         width: 12.5rem;
-        padding-top: .5rem;
+        padding-top: $xs;
         z-index: 999;
 
         /**
@@ -31,15 +31,15 @@
          */
 
         &--right {
-            right: 1rem;
+            right: $sm;
         }
 
         a {
             display: block;
             text-decoration: none;
-            margin-bottom: .5rem;
+            margin-bottom: $xs;
             color: #333;
-            padding: .25rem 1rem;
+            padding: $xxs $sm;
 
             &:hover {
                 background-color: $color-action;
@@ -55,13 +55,13 @@
         background-image: url("../img/rvt-caret-down@2x.png");
         background-image: url("../img/rvt-caret-down.svg");
         background-position: center center;
-        background-size: 14px 8px;
+        background-size: $sm*.875 $xs;
         background-repeat: no-repeat;
         content: "";
         display: inline-block;
-        margin-left: .5rem;
-        width: 14px;
-        height: 8px;
+        margin-left: $xs;
+        width: $sm*.874;
+        height: $xs;
         vertical-align: middle;
     }
 }

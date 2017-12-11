@@ -62,7 +62,9 @@ $color-dark-midnight: #01426a;
 
 // Black tints
 
+$color-black--50: #fafafa;
 $color-black--100: #eeeeee;
+$color-black--150: #eaeaea;
 $color-black--200: #dddddd;
 $color-black--300: #cccccc;
 $color-black--400: #aaaaaa;
@@ -71,6 +73,9 @@ $color-black--600: #777777;
 $color-black--700: #666666;
 $color-black--800: #555555;
 $color-black--900: #444444;
+
+// Use this when you need a default (darkest) black.
+$color-black--rich: #000000;
 
 
 

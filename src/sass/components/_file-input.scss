@@ -11,7 +11,7 @@
     }
 
     input[type="file"] + label {
-        font-size: 1em;
+        font-size: $ts-base;
         margin-top: 0;
         font-weight: 700;
         cursor: pointer;
@@ -20,7 +20,7 @@
         display: flex;
 
         span {
-            margin-right: .5rem;
+            margin-right: $xs;
         }
     }
 
@@ -30,12 +30,12 @@
     }
 
     &__preview {
-        margin-left: 1rem;
+        margin-left: $sm;
 
         span {
             font-weight: 700;
             line-height: 1.5;
-            margin-right: 1rem;
+            margin-right: $sm;
             display: inline-block;
         }
     }

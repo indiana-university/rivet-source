@@ -9,7 +9,7 @@
 
     &__title {
         font-weight: 700;
-        font-size: 1.125rem;
+        font-size: $ts-18;
         /**
          * We'll put bottom margin on the title here so that the .alert can
          * be used with the __message only and still get the propper padding
@@ -27,7 +27,7 @@
     &__message {
         margin-top: 0;
         margin-bottom: 0;
-        font-size: .875rem;
+        font-size: $ts-14;
         padding-right: $md;
     }
 
@@ -36,8 +36,8 @@
         background-color: transparent;
         border: none;
         border-radius: 0;
-        border-radius: 3px;
-        color: #333;
+        border-radius: $xxs;
+        color: $color-black;
         padding: 0;
         position: absolute;
         top: $sm;
@@ -105,7 +105,7 @@
         padding: $sm;
         line-height: 1.2;
         font-weight: 700;
-        font-size: .875rem;
+        font-size: $ts-14;
     }
 }
 
@@ -141,7 +141,7 @@
     input[type="week"]:focus,
     textarea,
     select {
-        box-shadow: 0 0 0 2px $color-alert-orange;
+        box-shadow: 0 0 0 $xxs/2 $color-alert-orange;
         border-color: $color-alert-orange;
     }
 }

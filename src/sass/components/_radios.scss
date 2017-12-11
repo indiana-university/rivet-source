@@ -37,7 +37,7 @@ input[type="radio"] + label {
 input[type="radio"]:checked + label {
     &:before {
         background-color: $color-action;
-        box-shadow: inset 0 0 0 3px #ffffff, 0 0 0 2px $color-action;
+        box-shadow: inset 0 0 0 3px $color-background, 0 0 0 2px $color-action;
     }
 }
 
@@ -46,7 +46,7 @@ input[type="radio"]:focus + label:before {
 }
 
 input[type="radio"]:checked:focus + label:before {
-    box-shadow: inset 0 0 0 3px #ffffff, 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
+    box-shadow: inset 0 0 0 3px $color-background, 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
 }
 
 input[type="radio"]:disabled + label:before {

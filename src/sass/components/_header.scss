@@ -13,14 +13,14 @@
     background-color: $color-background;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid $color-black--150;
     background-color: $color-background-subtle;
     width: 100%;
 }
 
 .rvt-header--light {
     background-color: $color-background;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid $color-black--150;
 }
 
 .rvt-header__trident {
