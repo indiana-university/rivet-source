@@ -179,5 +179,6 @@ $breakpoints: (
 
 
 
-// Radius
+// TODO: This should be depricated moving forward. All instances where it
+// was used have been replaced with the $xxs (4px) global variable.
 $radius-small: 3px;
