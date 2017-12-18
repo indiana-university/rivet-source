@@ -100,6 +100,7 @@ select {
     background-color: $color-background;
     background-image: url("../img/rvt-caret-down@2x.png");
     background-image: url("../img/rvt-caret-down.svg");
+    background-position: right $sm center;
     background-size: $sm $xs;
     background-repeat: no-repeat;
     padding-right: $xl;
