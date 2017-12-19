@@ -24,7 +24,7 @@
         border-radius: $xxs;
         width: 12.5rem;
         padding-top: $xs;
-        z-index: 999;
+        z-index: map-get($z-index, lv-1000);
 
         /**
          * Align the dropdown menu to the right edge of the button.

@@ -8,7 +8,7 @@
         border: none;
         color: $color-text;
         font-weight: 400;
-        z-index: 2;
+        z-index: map-get($z-index, lv-200);
         position: relative;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
@@ -51,7 +51,7 @@
         border-top: 2px solid $color-black--200;
         background-color: $color-background;
         border-top-left-radius: 0;
-        z-index: 1;
+        z-index: map-get($z-index, lv-100);
         position: relative;
         /**
          * This margin helps optically align the panel with the border

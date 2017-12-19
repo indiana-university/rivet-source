@@ -12,7 +12,7 @@
 
 .modal,
 .rvt-modal {
-    z-index: 2;
+    z-index: map-get($z-index, lv-1000);
     position: absolute;
     top: 0;
     left: 0;
