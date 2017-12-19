@@ -177,8 +177,22 @@ $breakpoints: (
 );
 
 
-
-
 // TODO: This should be depricated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
 $radius-small: 3px;
+
+
+// z-index map
+$z-index: (
+    lv-0: 0,
+    lv-100: 100,
+    lv-200: 200,
+    lv-300: 300,
+    lv-400: 400,
+    lv-500: 500,
+    lv-600: 600,
+    lv-700: 700,
+    lv-800: 800,
+    lv-900: 900,
+    lv-1000: 1000
+);
