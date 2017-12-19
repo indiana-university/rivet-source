@@ -183,6 +183,11 @@ $radius-small: 3px;
 
 
 // z-index map
+// Starts and 0 and works up to 1000. Leaving some space between intervals
+// here so that we can add fine tune adjustments when/if needed
+// but, hopefully not.
+//
+// E.g. lv-250: 250.
 $z-index: (
     lv-0: 0,
     lv-100: 100,
