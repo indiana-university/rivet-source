@@ -31,7 +31,7 @@
             margin-left: -2px;
             min-width: $lg;
             display: inline-block;
-            z-index: map-get($z-index, lv-100);
+            z-index: map-get($z-index, z-100);
             position: relative;
         }
 
@@ -73,7 +73,7 @@
         /**
          * z-index hides the border overlap
          */
-        z-index: map-get($z-index, lv-200);
+        z-index: map-get($z-index, z-200);
     }
 
     /**
