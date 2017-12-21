@@ -1,4 +1,5 @@
-.dropdown {
+.dropdown,
+.rvt-dropdown {
     position: relative;
     display: inline-block;
 
@@ -50,7 +51,8 @@
     }
 }
 
-.dropdown__trigger {
+.dropdown__trigger,
+.rvt-dropdown__trigger {
     &:after {
         background-image: url("../img/rvt-caret-down@2x.png");
         background-image: url("../img/rvt-caret-down.svg");
@@ -71,6 +73,7 @@
  * How can one of them be refactored to fix this?
  */
 
-ul li .dropdown__menu a:hover {
+ul li .dropdown__menu a:hover,
+ul li .rvt-dropdown__menu a:hover {
     text-decoration: none;
 }
