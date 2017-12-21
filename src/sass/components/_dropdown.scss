@@ -53,18 +53,11 @@
 
 .dropdown__trigger,
 .rvt-dropdown__trigger {
-    &:after {
-        background-image: url("../img/rvt-caret-down@2x.png");
-        background-image: url("../img/rvt-caret-down.svg");
-        background-position: center center;
-        background-size: $sm*.875 $xs;
-        background-repeat: no-repeat;
-        content: "";
-        display: inline-block;
-        margin-left: $xs;
-        width: $sm*.874;
-        height: $xs;
-        vertical-align: middle;
+    display: flex;
+    align-items: center;
+
+    &-text {
+        margin-right: $xs;
     }
 }
 
