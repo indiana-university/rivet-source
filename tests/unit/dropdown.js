@@ -22,8 +22,8 @@ describe('Dropdown component behavior', function () {
         body.innerHTML = TEMPLATE;
         Dropdown.init();
 
-        component = body.querySelector('.dropdown__menu');
-        link = body.querySelector('.dropdown__trigger');
+        component = body.querySelector('.rvt-dropdown__menu');
+        link = body.querySelector('.rvt-dropdown__trigger');
     });
 
     describe('DOM state', function () {
