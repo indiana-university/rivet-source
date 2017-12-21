@@ -28,11 +28,11 @@ variants:
              <ul>
                 <li><a href="#0">Nav one</a></li>
                 <li>
-                    <div class="dropdown">
-                        <a class="dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-example" aria-haspopup="true" aria-expanded="false">
+                    <div class="rvt-dropdown">
+                        <a class="rvt-dropdown__trigger" href="#0" data-dropdown-trigger="dropdown-example" aria-haspopup="true" aria-expanded="false">
                             Nav two
                         </a>
-                        <div class="dropdown__menu" id="dropdown-example" aria-hidden="true">
+                        <div class="rvt-dropdown__menu" id="dropdown-example" aria-hidden="true">
                             <a href="#0">Subnav One</a>
                             <a href="#0">Subnav Two</a>
                             <a href="#0">Subnav Three</a>
@@ -50,12 +50,12 @@ variants:
         ```html
          <!-- ID menu w/ dropdown -->
          <div class="rvt-header-id">
-             <div class="dropdown">
+             <div class="rvt-dropdown">
                  <a href="#0" class="rvt-header-id__profile rvt-header-id__profile--has-dropdown dropdown__trigger" data-dropdown-trigger="id-dropdown-example" aria-haspopup="true" aria-expanded="false">
                      <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
                      <span class="rvt-header-id__user">rswanson</span>
                  </a>
-                 <div class="dropdown__menu dropdown__menu--right" id="id-dropdown-example" aria-hidden="true">
+                 <div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="id-dropdown-example" aria-hidden="true">
                      <a href="#">Account settings</a>
                      <a href="#">Admin task one</a>
                      <a href="#">Admin task two</a>
