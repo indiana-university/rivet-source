@@ -9,7 +9,7 @@ var Dropdown = (function() {
      * from the DOM
      */
     var btnTriggers = document.querySelectorAll('[data-dropdown-trigger]');
-    var menus = document.querySelectorAll('.dropdown__menu');
+    var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
     var expanded = 'aria-expanded';
     var hidden = 'aria-hidden';
 
