@@ -21,7 +21,7 @@ variants:
 
         ### Main navigation with dropdowns
 
-        To create a nested navigation structure you can use Rivet's [standard dropdown menus](This will link to a stand-alone dropdown component). Dropdown menus can be nested inside of any of the main navigation `li` elements and implemented using the appropriate data attributes on the dropdown.
+        To create a nested navigation structure you can use Rivet's standard dropdown menus. Dropdown menus can be nested inside of any of the main navigation `li` elements and implemented using the appropriate data attributes on the dropdown.
 
         ```html
         <nav class="rvt-header__main-nav">
