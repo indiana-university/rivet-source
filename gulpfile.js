@@ -26,7 +26,6 @@ gulp.task('dev:serve', [
     'js:concat',
     'fractal:start',
     'sass:watch',
-    'images:watch',
     'js:watch'
 ]);
 
