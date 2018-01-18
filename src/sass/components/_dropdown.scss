@@ -63,6 +63,10 @@
         height: 1rem;
         vertical-align: middle;
     }
+
+    &[aria-expanded="true"]:after {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0LDEyYTEsMSwwLDAsMS0uNzYtLjM1TDgsNS41NCwyLjc2LDExLjY1YTEsMSwwLDEsMS0xLjUyLTEuM0w2LjQ4LDQuMjNhMi4wNiwyLjA2LDAsMCwxLDMsMGw1LjI0LDYuMTFBMSwxLDAsMCwxLDE0LDEyWiIvPgo8L3N2Zz4=");
+    }
 }
 
 /**
