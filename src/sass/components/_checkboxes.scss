@@ -57,6 +57,6 @@ input[type="checkbox"]:disabled + label:before {
 }
 
 input[type="checkbox"]:disabled + label {
-    color: $color-black--600;
+    color: $color-black--700;
     cursor: default;
 }
