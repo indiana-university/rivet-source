@@ -118,6 +118,7 @@ select {
 select[multiple] {
     height: $xxl * 2;
     background-image: none;
+    padding-right: $xs;
 }
 
 select::-ms-expand {
