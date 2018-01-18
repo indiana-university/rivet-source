@@ -39,15 +39,9 @@ input[type="checkbox"]:checked + label {
         color: $color-white;
         background-color: $color-action;
         box-shadow: 0 0 0 2px $color-action;
-        background-image: url("../img/checkbox-input-check.png");
-        background-image: url("../img/checkbox-input-check.svg");
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=");
         background-position: 50% 50%;
         background-repeat: no-repeat;
-        /**
-        * Adding this is kind of a hack. May need to rework the actual
-        * SVG icon.
-        */
-        background-size: 85%;
     }
 
 }
