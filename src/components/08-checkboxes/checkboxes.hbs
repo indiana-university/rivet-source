@@ -1,5 +1,5 @@
 <form>
-    <fieldset class="m-bottom-xl">
+    <fieldset class="rvt-m-bottom-xl">
         <legend class="ts-14 text-uppercase m-bottom-sm">Checkboxes inline</legend>
         <ul class="rvt-inline-list">
             <li>
@@ -12,7 +12,7 @@
             </li>
         </ul>
     </fieldset>
-    <fieldset>
+    <fieldset class="rvt-m-bottom-xl">
         <legend class="ts-14 text-uppercase m-bottom-sm">Checkbox list</legend>
         <ul class="rvt-plain-list">
             <li>
@@ -33,4 +33,39 @@
             </li>
         </ul>
     </fieldset>
+    <fieldset>
+        <legend class="ts-14 text-uppercase m-bottom-sm">Indeterminate state</legend>
+        <ul class="rvt-plain-list">
+            <li>
+                <input type="checkbox" name="checkbox-demo" id="checkbox-indeterminate">
+                <label for="checkbox-indeterminate">Parent option one</label>
+                <ul class="rvt-plain-list rvt-p-left-lg">
+                    <li>
+                        <input type="checkbox" name="checkbox-demo" id="checkbox-6-1" checked>
+                        <label for="checkbox-6-1">Child option one</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="checkbox-demo" id="checkbox-6-2">
+                        <label for="checkbox-6-2">Child option two</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <input type="checkbox" name="checkbox-demo" id="checkbox-7">
+                <label for="checkbox-7">Parent option two</label>
+            </li>
+            <li>
+                <input type="checkbox" name="checkbox-demo" id="checkbox-8">
+                <label for="checkbox-8">Parent option three</label>
+            </li>
+        </ul>
+    </fieldset>
 </form>
+
+<script>
+    /**
+     * Setting indeterminate state for demo purposes here.
+     */
+    var indCheck = document.querySelector('#checkbox-indeterminate');
+    indCheck.indeterminate = true;
+</script>

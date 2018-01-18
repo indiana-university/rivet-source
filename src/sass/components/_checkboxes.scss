@@ -1,6 +1,6 @@
 input[type="checkbox"] {
     position: absolute;
-    left: -1em;
+    left: -$sm;
     opacity: 0;
 }
 
@@ -14,8 +14,8 @@ input[type="checkbox"] + label {
         content: " ";
         border-radius: 2px;
         margin-right: .75rem;
-        width: 1rem;
-        height: 1rem;
+        width: $sm;
+        height: $sm;
         box-shadow: 0 0 0 2px $color-black--300;
         /**
         * This helps visually center the label with the pseudo
@@ -59,4 +59,19 @@ input[type="checkbox"]:disabled + label:before {
 input[type="checkbox"]:disabled + label {
     color: $color-black--700;
     cursor: default;
+}
+
+/**
+ * Indeterminate state
+ */
+
+input[type="checkbox"]:indeterminate + label:before {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=");
+    background-color: $color-action;
+    box-shadow: 0 0 0 2px $color-action;
+}
+
+input[type="checkbox"]:indeterminate:disabled + label:before {
+    background-color: $color-black--200;
+    box-shadow: 0 0 0 2px $color-black--300;
 }
