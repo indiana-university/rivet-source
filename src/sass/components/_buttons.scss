@@ -222,30 +222,6 @@ button,
     }
 }
 
-/**
- * NOTE: Starting to work on loading buttons. This will only work for
- * the default primary button right now.
- */
-
-.button--loading,
-.rvt-button--loading {
-    padding-right: 2.5rem;
-    cursor: not-allowed;
-
-    &:after {
-        content: " ";
-        margin-left: $xl;
-        width: 25px;
-        height: 25px;
-        display: inline-block;
-        position: absolute;
-        top: 6px;
-        background-image: url('../img/button-loader.gif');
-        background-size: 25px 25px;
-        background-repeat: no-repeat;
-    }
-}
-
 .button-group,
 .rvt-button-group {
     display: flex;

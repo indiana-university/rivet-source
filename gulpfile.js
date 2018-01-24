@@ -12,7 +12,7 @@ requireDir('./config');
  */
 
 gulp.task('build', function(cb) {
-    runSequence('sass', 'images', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
+    runSequence('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
 });
 
 /**
@@ -23,11 +23,9 @@ gulp.task('dev:serve', [
     'sass:lint',
     'js:lint',
     'sass',
-    'images',
     'js:concat',
     'fractal:start',
     'sass:watch',
-    'images:watch',
     'js:watch'
 ]);
 
@@ -50,11 +48,9 @@ gulp.task('build:dist', function(done) {
     runSequence(
         'sass',
         'js:concat',
-        'images',
         'css:release',
         'js:release',
         'sass:release',
-        'images:release',
         'build:example',
         'test:unit',
         done
