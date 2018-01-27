@@ -34,20 +34,27 @@ input[type="radio"] + label {
     }
 }
 
+/* stylelint-disable */
 input[type="radio"]:checked + label {
     &:before {
         background-color: $color-action;
-        box-shadow: inset 0 0 0 3px $color-background, 0 0 0 2px $color-action;
+        box-shadow: inset 0 0 0 2px $color-background,
+                          0 0 0 2px $color-action;
     }
 }
 
 input[type="radio"]:focus + label:before {
-    box-shadow: 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
+    box-shadow: 0 0 0 2px $color-black--300,
+                0 0 0 4px $color-background,
+                0 0 0 6px $color-midnight;
 }
 
 input[type="radio"]:checked:focus + label:before {
-    box-shadow: inset 0 0 0 3px $color-background, 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
+    box-shadow: inset 0 0 0 2px $color-background,
+                      0 0 0 2px $color-action,
+                      0 0 0 5px $color-midnight--500;
 }
+/* stylelint-enable */
 
 input[type="radio"]:disabled + label:before {
     background-color: $color-black--200;
