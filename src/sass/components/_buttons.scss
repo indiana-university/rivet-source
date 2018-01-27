@@ -29,37 +29,30 @@
     align-items: center;
 
     box-shadow: 0 .1875rem 0 $color-midnight--300;
-    /**
-     * In order to keep the button text aligned vertically we need to
-     * compensate with the padding-top that equals the height of
-     * the box shadow.
-     */
-    padding-top: .1875rem;
     // End new
 
     &:focus,
-    &-focus {
+    &--focus {
         @extend %button-focus;
     }
 
     &:hover,
-    &-hover {
+    &--hover {
         background-color: mix($color-midnight, black, 70%);
         border-color: mix($color-midnight, black, 70%);
         color: $color-background;
     }
 
     &:active,
-    &-active {
+    &--active {
         background-color: mix($color-midnight, black, 50%);
         border-color: mix($color-midnight, black, 50%);
-
-        box-shadow: 0 .1875rem 0 mix($color-midnight, black, 50%);
+        box-shadow: none;
         /**
          * Slight interaction affordance here that looks like the button
          * is being pressed.
          */
-        padding-top: .25rem;
+        padding-top: .125rem;
     }
 
     &:disabled,
