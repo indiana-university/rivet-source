@@ -18,9 +18,10 @@ select {
     display: block;
     width: 100%;
     border-radius: $xxs;
-    border: 1px solid $color-black--300;
+    border: $xxs/2 solid $color-black--300;
     padding: $xs;
-    height: $spacing-unit * 5;
+    height: $xl;
+    line-height: 1;
 
     /**
      * TODO: Should we add a max-width to form inputs? It seems desirable
@@ -70,11 +71,8 @@ input[type="week"]:focus,
 input:not([type]):focus,
 textarea:focus,
 select:focus {
-    /**
-     * Should we just leave this default?
-     */
-    box-shadow: 0 0 1px 3px $color-midnight--300;
-    border-color: $color-midnight--300;
+    box-shadow: 0 0 0px 3px $color-action;
+    border-color: $color-action;
     outline: none;
 }
 
