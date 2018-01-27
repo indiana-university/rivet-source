@@ -1,6 +1,7 @@
 .rvt-badge {
     background-color: $color-black--300;
-    border-radius: $xxs;
+    border: 2px solid $color-black--300;
+    border-radius: 999px;
     color: $color-text;
     display: inline-block;
     /**
@@ -12,7 +13,7 @@
     font-weight: 700;
     letter-spacing: .02rem;
     line-height: 1.5;
-    padding: $xxs/2 $xs;
+    padding: $xxs/8 $xs;
     -webkit-font-smoothing: antialiased;
     -osx-font-smoothing: grayscale;
 }
