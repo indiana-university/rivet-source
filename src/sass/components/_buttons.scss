@@ -53,6 +53,13 @@ button,
     &-active {
         background-color: mix($color-midnight, black, 50%);
         border-color: mix($color-midnight, black, 50%);
+
+        box-shadow: 0 .1875rem 0 mix($color-midnight, black, 50%);
+        /**
+         * Slight interaction affordance here that looks like the button
+         * is being pressed.
+         */
+        padding-top: .25rem;
     }
 
     &:disabled,
