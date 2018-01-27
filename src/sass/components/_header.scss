@@ -71,6 +71,11 @@
     border-left: 1px solid $color-black--200;
     vertical-align: middle;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-black;
+
     &:hover {
         background-color: $color-black--200;
         border-color: $color-black--200;
@@ -116,7 +121,7 @@
 }
 
 .rvt-drawer-button--persistent {
-    display: block;
+    display: flex;
 }
 
 @include mq(1040px) {
@@ -125,7 +130,7 @@
     }
 
     .rvt-drawer-button--persistent {
-        display: block;
+        display: flex;
     }
 }
 
@@ -135,7 +140,7 @@
 
 .rvt-drawer-button.is-open {
     > .rvt-drawer-button-close {
-        display: block;
+        display: flex;
     }
 
     > .rvt-drawer-button-open {
