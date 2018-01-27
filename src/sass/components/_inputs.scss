@@ -71,8 +71,11 @@ input[type="week"]:focus,
 input:not([type]):focus,
 textarea:focus,
 select:focus {
-    box-shadow: 0 0 0px 3px $color-action;
-    border-color: $color-action;
+    outline: none;
+    /* stylelint-disable */
+    box-shadow: 0 0 0 $xxs/2 $color-background,
+                0 0 0 $xxs*1.25 $color-action;
+    /* stylelint-enable */
     outline: none;
 }
 
