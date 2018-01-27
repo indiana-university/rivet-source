@@ -1,6 +1,7 @@
 %button-focus {
     outline: none;
-    box-shadow: 0 0 .0625rem .1875rem $color-midnight--300;
+    box-shadow: 0 0 0 $xxs/2 $color-background,
+                0 0 0 $xxs $color-action;
 }
 
 button,
