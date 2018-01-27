@@ -16,6 +16,10 @@
     padding: $xxs/8 $xs;
     -webkit-font-smoothing: antialiased;
     -osx-font-smoothing: grayscale;
+
+    &--secondary {
+        background-color: transparent;
+    }
 }
 
 a.rvt-badge {
@@ -24,50 +28,82 @@ a.rvt-badge {
     &:hover {
         color: $color-text;
         background-color: $color-black--400;
+        border-color: $color-black--400;
     }
 
-    &--action:hover {
+    &--action:hover,
+    &--action-secondary:hover {
         background-color: $color-midnight--700;
+        border-color: $color-midnight--700;
         color: $color-background;
     }
 
-    &--success:hover {
+    &--success:hover,
+    &--success-secondary:hover {
         background-color: $color-alert-green-text;
+        border-color: $color-alert-green-text;
         color: $color-background;
     }
 
-    &--warning:hover {
+    &--warning:hover,
+    &--warning-secondary:hover {
         background-color: $color-alert-yellow-text;
+        border-color: $color-alert-yellow-text;
         color: $color-background;
     }
 
-    &--error:hover {
+    &--error:hover,
+    &--error-secondary:hover {
         background-color: $color-alert-orange-text;
+        border-color: $color-alert-orange-text;
         color: $color-background;
     }
 }
 
 .rvt-badge--action {
     background-color: $color-action;
+    border-color: $color-action;
     color: $color-background;
-}
 
-.rvt-badge--info {
-    background-color: $color-alert-blue;
-    color: $color-background;
+    &-secondary {
+        background-color: transparent;
+        border-color: $color-action;
+        color: $color-action;
+    }
 }
 
 .rvt-badge--success {
     background-color: $color-alert-green;
+    border-color: $color-alert-green;
     color: $color-background;
+
+    &-secondary {
+        background-color: transparent;
+        border-color: $color-alert-green;
+        color: $color-alert-green;
+    }
 }
 
 .rvt-badge--warning {
     background-color: $color-alert-yellow;
+    border-color: $color-alert-yellow;
     color: $color-black--rich;
+
+    &-secondary {
+        background-color: transparent;
+        border-color: $color-alert-yellow;
+        color: $color-black--rich;
+    }
 }
 
 .rvt-badge--error {
     background-color: $color-alert-orange;
+    border-color: $color-alert-orange;
     color: $color-background;
+
+    &-secondary {
+        background-color: transparent;
+        border-color: $color-alert-orange;
+        color: $color-alert-orange;
+    }
 }
