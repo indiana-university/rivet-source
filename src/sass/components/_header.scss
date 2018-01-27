@@ -62,6 +62,7 @@
 
 .rvt-drawer-button {
     background-color: transparent;
+    box-shadow: none;
     border: none;
     width: 71px;
     height: 70px;
@@ -73,10 +74,44 @@
     &:hover {
         background-color: $color-black--200;
         border-color: $color-black--200;
+        color: $color-black;
+    }
+
+    &:active {
+        padding-top: 0;
+    }
+
+    &:active:hover {
+        background-color: mix($color-midnight, black, 50%);
+    }
+
+    &:focus {
+        background-color: $color-action;
+        box-shadow: none;
+        color: $color-background;
     }
 
     &.is-open {
         background-color: $color-black--100;
+
+        &:hover {
+            color: $color-text;
+        }
+
+        &:active:hover {
+            padding-top: 0;
+            background-color: mix($color-midnight, black, 50%);
+        }
+
+        &:focus {
+            background-color: $color-action;
+            box-shadow: none;
+            color: $color-background;
+        }
+
+        &:focus:hover {
+            color: $color-background;
+        }
     }
 }
 
