@@ -18,13 +18,24 @@ button,
     line-height: 1;
     text-decoration: none;
     position: relative;
-    /**
-     * This padding sets the button-height to be the same as the text
-     * input height.
-     */
-    padding: $sm*.625 $sm;
     text-decoration: none;
     vertical-align: middle;
+
+    // New
+    height: $xl - .1875rem;
+    padding-right: $sm;
+    padding-left: $sm;
+    display: flex;
+    align-items: center;
+
+    box-shadow: 0 .1875rem 0 $color-midnight--300;
+    /**
+     * In order to keep the button text aligned vertically we need to
+     * compensate with the padding-top that equals the height of
+     * the box shadow.
+     */
+    padding-top: .1875rem;
+    // End new
 
     &:focus,
     &-focus {
@@ -49,6 +60,7 @@ button,
         background-color: $color-black--100;
         color: $color-black--700;
         border-color: $color-black--400;
+        box-shadow: 0 .1875rem 0 $color-black--200;
         cursor: not-allowed;
     }
 }
@@ -80,6 +92,7 @@ button,
 .rvt-button--success {
     background-color: $color-alert-green;
     border-color: $color-alert-green;
+    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-background, 50%);
 
     &:focus,
     &-focus {
@@ -104,6 +117,7 @@ button,
 .rvt-button--success-secondary {
     background-color: transparent;
     border-color: $color-alert-green;
+    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-background, 50%);
     color: $color-alert-green;
 
     &:focus,
@@ -129,6 +143,7 @@ button,
 .rvt-button--danger {
     background-color: $color-alert-orange;
     border-color: $color-alert-orange;
+    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-background, 50%);
 
     &:focus,
     &-focus {
@@ -153,6 +168,7 @@ button,
 .rvt-button--danger-secondary {
     background-color: transparent;
     border-color: $color-alert-orange;
+    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-background, 50%);
     color: $color-alert-orange;
 
     &:focus,
@@ -177,8 +193,12 @@ button,
 
 .button--small,
 .rvt-button--small {
-    padding: $sm*.35 $sm*.65;
-    font-size: $ts-14;
+    //New
+    height: $md;
+    line-height: 1;
+    vertical-align: bottom;
+    padding-right: $xs;
+    padding-left: $xs;
 
     &-focus {
         @extend %button-focus;
@@ -201,6 +221,7 @@ button,
 .rvt-button--plain {
     border-color: transparent;
     background-color: transparent;
+    box-shadow: none;
     color: $color-action;
 
     &:focus,
@@ -220,6 +241,12 @@ button,
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
         color: $color-action;
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        box-shadow: none;
+        border-color: $color-black--100;
     }
 }
 
