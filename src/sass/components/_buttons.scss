@@ -1,8 +1,10 @@
+/* stylelint-disable */
 %button-focus {
     outline: none;
     box-shadow: 0 0 0 $xxs/2 $color-background,
                 0 0 0 $xxs $color-action;
 }
+/* stylelint-enable */
 
 button,
 .button,
