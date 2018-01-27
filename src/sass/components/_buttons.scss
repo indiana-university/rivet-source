@@ -15,19 +15,17 @@
     border-radius: $xxs;
     color: $color-background;
     cursor: pointer;
-    display: inline-block;
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
     position: relative;
     text-decoration: none;
-    vertical-align: middle;
 
     // New
     height: $xl - .1875rem;
     padding-right: $sm;
     padding-left: $sm;
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     box-shadow: 0 .1875rem 0 $color-midnight--300;
