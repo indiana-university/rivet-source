@@ -27,7 +27,6 @@
     padding-left: $sm;
     display: inline-flex;
     align-items: center;
-
     box-shadow: 0 .1875rem 0 $color-midnight--300;
     // End new
 
@@ -85,6 +84,7 @@
     &:active,
     &-active {
         background-color: mix($color-midnight, white, 35%);
+        box-shadow: none;
     }
 }
 
@@ -110,6 +110,7 @@
     &-active {
         background-color: mix($color-alert-green, black, 50%);
         border-color: mix($color-alert-green, black, 50%);
+        box-shadow: none;
     }
 }
 
@@ -136,6 +137,7 @@
     &-active {
         background-color: mix($color-alert-green, white, 30%);
         border-color: $color-alert-green;
+        box-shadow: none;
     }
 }
 
@@ -161,6 +163,7 @@
     &-active {
         background-color: mix($color-alert-orange, black, 50%);
         border-color: mix($color-alert-orange, black, 50%);
+        box-shadow: none;
     }
 }
 
@@ -187,6 +190,7 @@
     &-active {
         background-color: mix($color-alert-orange, white, 30%);
         border-color: $color-alert-orange;
+        box-shadow: none;
     }
 }
 
