@@ -162,6 +162,11 @@
         display: inline-block;
         margin-right: $lg;
         line-height: 1.5;
+        /**
+         * This gets rid of the margin from default lists so that nav
+         * items are vertically centered.
+         */
+        margin-top: 0;
     }
 
     ul li:last-child {
