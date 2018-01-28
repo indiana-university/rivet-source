@@ -9,8 +9,10 @@ ol {
 
 ul li,
 ol li {
-    &:not(:first-child) {
-        margin-top: $xs;
+    margin-top: $xs;
+
+    &:first-child {
+        margin-top: 0;
     }
 }
 
