@@ -23,6 +23,7 @@
 
     // New
     height: $xl - .1875rem;
+    padding-top: $xxs/2;
     padding-right: $sm;
     padding-left: $sm;
     display: inline-flex;
@@ -46,12 +47,9 @@
     &--active {
         background-color: mix($color-midnight, black, 50%);
         border-color: mix($color-midnight, black, 50%);
-        box-shadow: none;
-        /**
-         * Slight interaction affordance here that looks like the button
-         * is being pressed.
-         */
-        padding-top: .125rem;
+        box-shadow: 0 .1875rem 0 mix($color-midnight, black, 50%);
+
+        padding-top: $xxs;
     }
 
     &:disabled,
@@ -64,11 +62,36 @@
     }
 }
 
+/**
+ * Removes box-shadow from secondary button variants and reset height.
+ */
+
+.button--secondary,
+.rvt-button--secondary,
+.button--success-secondary,
+.rvt-button--success-secondary,
+.button--danger-secondary,
+.rvt-button--danger-secondary,
+.button--plain,
+.rvt-button--plain {
+    box-shadow: none;
+    height: $xl;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:active {
+        /**
+         * Slightly small here on the active state for secondary button
+         * variants because there is no box-shadow.
+         */
+        padding-top: $xxs * .5;
+    }
+}
+
 .button--secondary,
 .rvt-button--secondary {
     background-color: transparent;
     color: $color-midnight;
-    box-shadow: 0 .1875rem 0 $color-midnight--900;
 
     &:focus,
     &-focus {
@@ -112,7 +135,7 @@
     &-active {
         background-color: mix($color-alert-green, black, 50%);
         border-color: mix($color-alert-green, black, 50%);
-        box-shadow: none;
+        box-shadow: 0 .1875rem 0 mix($color-alert-green, black, 50%);
     }
 }
 
@@ -122,6 +145,8 @@
     border-color: $color-alert-green;
     box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 20%);
     color: $color-alert-green;
+    box-shadow: none;
+    height: $xl;
 
     &:focus,
     &-focus {
@@ -158,6 +183,7 @@
     &-hover {
         background-color: mix($color-alert-orange, black, 70%);
         border-color: mix($color-alert-orange, black, 70%);
+        box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-black, 30%);
         color: $color-background;
     }
 
@@ -165,7 +191,7 @@
     &-active {
         background-color: mix($color-alert-orange, black, 50%);
         border-color: mix($color-alert-orange, black, 50%);
-        box-shadow: none;
+        box-shadow: 0 .1875rem 0 mix($color-alert-orange, black, 50%);
     }
 }
 
@@ -173,8 +199,9 @@
 .rvt-button--danger-secondary {
     background-color: transparent;
     border-color: $color-alert-orange;
-    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-black, 50%);
+    box-shadow: none;
     color: $color-alert-orange;
+    height: $xl;
 
     &:focus,
     &-focus {
@@ -216,10 +243,13 @@
         color: $color-midnight;
     }
 
-    &-active {
+    &-active,
+    :active {
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
         color: $color-action;
+
+        padding-top: 0;
     }
 }
 
