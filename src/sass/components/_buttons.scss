@@ -143,10 +143,7 @@
 .rvt-button--success-secondary {
     background-color: transparent;
     border-color: $color-alert-green;
-    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 20%);
     color: $color-alert-green;
-    box-shadow: none;
-    height: $xl;
 
     &:focus,
     &-focus {
@@ -199,9 +196,7 @@
 .rvt-button--danger-secondary {
     background-color: transparent;
     border-color: $color-alert-orange;
-    box-shadow: none;
     color: $color-alert-orange;
-    height: $xl;
 
     &:focus,
     &-focus {
