@@ -27,7 +27,7 @@
     padding-left: $sm;
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 .1875rem 0 $color-midnight--800;
+    box-shadow: 0 .1875rem 0 $color-midnight--900;
     // End new
 
     &:focus,
@@ -68,6 +68,7 @@
 .rvt-button--secondary {
     background-color: transparent;
     color: $color-midnight;
+    box-shadow: 0 .1875rem 0 $color-midnight--900;
 
     &:focus,
     &-focus {
@@ -119,7 +120,7 @@
 .rvt-button--success-secondary {
     background-color: transparent;
     border-color: $color-alert-green;
-    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 50%);
+    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 20%);
     color: $color-alert-green;
 
     &:focus,
