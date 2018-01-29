@@ -2,7 +2,7 @@
 %button-focus {
     outline: none;
     box-shadow: 0 0 0 $xxs/2 $color-background,
-                0 0 0 $xxs*1.25 $color-action !important;
+                0 0 0 $xxs*1.15 $color-action !important;
 }
 /* stylelint-enable */
 
@@ -103,6 +103,7 @@
     &-hover {
         background-color: mix($color-alert-green, black, 70%);
         border-color: mix($color-alert-green, black, 70%);
+        box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 20%);
         color: $color-background;
     }
 
