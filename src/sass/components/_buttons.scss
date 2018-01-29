@@ -27,7 +27,7 @@
     padding-left: $sm;
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 .1875rem 0 $color-midnight--300;
+    box-shadow: 0 .1875rem 0 $color-midnight--800;
     // End new
 
     &:focus,
@@ -92,7 +92,7 @@
 .rvt-button--success {
     background-color: $color-alert-green;
     border-color: $color-alert-green;
-    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-background, 50%);
+    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 50%);
 
     &:focus,
     &-focus {
@@ -118,7 +118,7 @@
 .rvt-button--success-secondary {
     background-color: transparent;
     border-color: $color-alert-green;
-    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-background, 50%);
+    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 50%);
     color: $color-alert-green;
 
     &:focus,
@@ -145,7 +145,7 @@
 .rvt-button--danger {
     background-color: $color-alert-orange;
     border-color: $color-alert-orange;
-    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-background, 50%);
+    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-black, 50%);
 
     &:focus,
     &-focus {
@@ -171,7 +171,7 @@
 .rvt-button--danger-secondary {
     background-color: transparent;
     border-color: $color-alert-orange;
-    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-background, 50%);
+    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-black, 50%);
     color: $color-alert-orange;
 
     &:focus,
