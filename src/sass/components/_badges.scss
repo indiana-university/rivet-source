@@ -13,7 +13,11 @@
     font-weight: 700;
     letter-spacing: .02rem;
     line-height: 1.5;
-    padding: $xxs/8 $xs;
+    /**
+     * Use ems here so that padding stays proportional if parent
+     * element font size changes.
+     */
+    padding: .03125em .5em;
     -webkit-font-smoothing: antialiased;
     -osx-font-smoothing: grayscale;
 
