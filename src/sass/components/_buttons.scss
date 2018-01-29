@@ -48,8 +48,6 @@
         background-color: mix($color-midnight, black, 50%);
         border-color: mix($color-midnight, black, 50%);
         box-shadow: 0 .1875rem 0 mix($color-midnight, black, 50%);
-
-        padding-top: $xxs;
     }
 
     &:disabled,
@@ -78,14 +76,6 @@
     height: $xl;
     padding-top: 0;
     padding-bottom: 0;
-
-    &:active {
-        /**
-         * Slightly small here on the active state for secondary button
-         * variants because there is no box-shadow.
-         */
-        padding-top: $xxs * .5;
-    }
 }
 
 .button--secondary,
