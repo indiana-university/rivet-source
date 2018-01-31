@@ -16,7 +16,7 @@ input[type="checkbox"] + label {
         margin-right: .75rem;
         width: $sm;
         height: $sm;
-        box-shadow: 0 0 0 2px $color-black--300;
+        box-shadow: 0 0 0 2px $color-black--700;
         /**
         * This helps visually center the label with the pseudo
         * element checkbox.
@@ -44,7 +44,7 @@ input[type="checkbox"]:checked + label {
 
 /* stylelint-disable */
 input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 0 $xxs/2 $color-black--300,
+    box-shadow: 0 0 0 $xxs/2 $color-black--700,
                 0 0 0 4px $color-background,
                 0 0 0 6px $color-midnight;
 }

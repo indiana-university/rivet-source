@@ -13,7 +13,7 @@ input[type="radio"] + label {
     margin-left: .2rem;
 
     &:before {
-        box-shadow: 0 0 0 2px $color-black--300;
+        box-shadow: 0 0 0 2px $color-black--700;
         content: " ";
         line-height: 1;
         vertical-align: middle;
@@ -44,7 +44,7 @@ input[type="radio"]:checked + label {
 }
 
 input[type="radio"]:focus + label:before {
-    box-shadow: 0 0 0 2px $color-black--300,
+    box-shadow: 0 0 0 2px $color-black--700,
                 0 0 0 4px $color-background,
                 0 0 0 6px $color-midnight;
 }
