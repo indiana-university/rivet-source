@@ -16,7 +16,7 @@ input[type="checkbox"] + label {
         margin-right: .75rem;
         width: $sm;
         height: $sm;
-        box-shadow: 0 0 0 2px $color-black--700;
+        box-shadow: 0 0 0 1px $color-black--700;
         /**
         * This helps visually center the label with the pseudo
         * element checkbox.
@@ -34,7 +34,7 @@ input[type="checkbox"]:checked + label {
     &:before {
         color: $color-white;
         background-color: $color-action;
-        box-shadow: 0 0 0 2px $color-action;
+        box-shadow: 0 0 0 1px $color-action;
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=");
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -44,22 +44,22 @@ input[type="checkbox"]:checked + label {
 
 /* stylelint-disable */
 input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 0 $xxs/2 $color-black--700,
-                0 0 0 4px $color-background,
-                0 0 0 6px $color-midnight;
+    box-shadow: 0 0 0 1px $color-black--700,
+                0 0 0 3px $color-background,
+                0 0 0 5px $color-midnight;
 }
 
 input[type="checkbox"]:checked:focus + label:before,
 input[type="checkbox"]:indeterminate:focus + label:before {
-    box-shadow: 0 0 0 $xxs/2 $color-action,
-                0 0 0 4px $color-background,
-                0 0 0 6px $color-midnight--500;
+    box-shadow: 0 0 0 1px $color-action,
+                0 0 0 3px $color-background,
+                0 0 0 5px $color-midnight--500;
 }
 /* stylelint-enable */
 
 input[type="checkbox"]:disabled + label:before {
     background-color: $color-black--200;
-    box-shadow: 0 0 0 $xxs/2 $color-black--300;
+    box-shadow: 0 0 0 1px $color-black--300;
 }
 
 input[type="checkbox"]:disabled + label {
@@ -74,10 +74,10 @@ input[type="checkbox"]:disabled + label {
 input[type="checkbox"]:indeterminate + label:before {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=");
     background-color: $color-action;
-    box-shadow: 0 0 0 2px $color-action;
+    box-shadow: 0 0 0 1px $color-action;
 }
 
 input[type="checkbox"]:indeterminate:disabled + label:before {
     background-color: $color-black--200;
-    box-shadow: 0 0 0 2px $color-black--300;
+    box-shadow: 0 0 0 1px $color-black--300;
 }
