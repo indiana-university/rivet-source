@@ -10,7 +10,6 @@
 .button,
 .rvt-button {
     background-color: $color-midnight;
-    border-style: solid;
     border: $xxs/2 solid $color-midnight;
     border-radius: $xxs;
     color: $color-background;
@@ -22,13 +21,11 @@
     text-decoration: none;
 
     // New
-    height: $xl - .1875rem;
-    padding-top: $xxs/2;
+    height: $xl;
     padding-right: $sm;
     padding-left: $sm;
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 .1875rem 0 $color-midnight--900;
     // End new
 
     &:focus,
@@ -47,7 +44,6 @@
     &--active {
         background-color: mix($color-midnight, black, 50%);
         border-color: mix($color-midnight, black, 50%);
-        box-shadow: 0 .1875rem 0 mix($color-midnight, black, 50%);
     }
 
     &:disabled,
@@ -55,27 +51,8 @@
         background-color: $color-black--100;
         color: $color-black--700;
         border-color: $color-black--400;
-        box-shadow: 0 .1875rem 0 $color-black--200;
         cursor: not-allowed;
     }
-}
-
-/**
- * Removes box-shadow from secondary button variants and reset height.
- */
-
-.button--secondary,
-.rvt-button--secondary,
-.button--success-secondary,
-.rvt-button--success-secondary,
-.button--danger-secondary,
-.rvt-button--danger-secondary,
-.button--plain,
-.rvt-button--plain {
-    box-shadow: none;
-    height: $xl;
-    padding-top: 0;
-    padding-bottom: 0;
 }
 
 .button--secondary,
@@ -98,7 +75,6 @@
     &:active,
     &-active {
         background-color: mix($color-midnight, white, 35%);
-        box-shadow: none;
     }
 }
 
@@ -106,7 +82,6 @@
 .rvt-button--success {
     background-color: $color-alert-green;
     border-color: $color-alert-green;
-    box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 50%);
 
     &:focus,
     &-focus {
@@ -117,7 +92,6 @@
     &-hover {
         background-color: mix($color-alert-green, black, 70%);
         border-color: mix($color-alert-green, black, 70%);
-        box-shadow: 0 .1875rem 0 mix($color-alert-green, $color-black, 20%);
         color: $color-background;
     }
 
@@ -125,7 +99,6 @@
     &-active {
         background-color: mix($color-alert-green, black, 50%);
         border-color: mix($color-alert-green, black, 50%);
-        box-shadow: 0 .1875rem 0 mix($color-alert-green, black, 50%);
     }
 }
 
@@ -151,7 +124,6 @@
     &-active {
         background-color: mix($color-alert-green, white, 30%);
         border-color: $color-alert-green;
-        box-shadow: none;
     }
 }
 
@@ -159,7 +131,6 @@
 .rvt-button--danger {
     background-color: $color-alert-orange;
     border-color: $color-alert-orange;
-    box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-black, 50%);
 
     &:focus,
     &-focus {
@@ -170,7 +141,6 @@
     &-hover {
         background-color: mix($color-alert-orange, black, 70%);
         border-color: mix($color-alert-orange, black, 70%);
-        box-shadow: 0 .1875rem 0 mix($color-alert-orange, $color-black, 30%);
         color: $color-background;
     }
 
@@ -178,7 +148,6 @@
     &-active {
         background-color: mix($color-alert-orange, black, 50%);
         border-color: mix($color-alert-orange, black, 50%);
-        box-shadow: 0 .1875rem 0 mix($color-alert-orange, black, 50%);
     }
 }
 
@@ -204,14 +173,12 @@
     &-active {
         background-color: mix($color-alert-orange, white, 30%);
         border-color: $color-alert-orange;
-        box-shadow: none;
     }
 }
 
 
 .button--small,
 .rvt-button--small {
-    //New
     height: $md;
     line-height: 1;
     vertical-align: bottom;
@@ -233,7 +200,6 @@
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
         color: $color-action;
-
         padding-top: 0;
     }
 }
@@ -242,7 +208,6 @@
 .rvt-button--plain {
     border-color: transparent;
     background-color: transparent;
-    box-shadow: none;
     color: $color-action;
 
     &:focus,
@@ -266,7 +231,6 @@
 
     &:disabled,
     &:disabled:hover {
-        box-shadow: none;
         border-color: $color-black--100;
     }
 }
