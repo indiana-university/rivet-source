@@ -35,10 +35,15 @@
     }
 
     &__close {
+        /**
+         * Makes a couple of adjustments based on new button styles.
+         */
         position: absolute;
+        right: $sm;
         top: $sm;
-        right: $xs;
-        padding: $xs;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        line-height: 1;
     }
 
     &__header {
