@@ -10,10 +10,6 @@ ol {
 ul li,
 ol li {
     margin-top: $xs;
-
-    &:first-child {
-        margin-top: 0;
-    }
 }
 
 dl dt {
