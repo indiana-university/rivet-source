@@ -62,6 +62,10 @@ a.rvt-badge {
         border-color: $color-alert-orange-text;
         color: $color-background;
     }
+
+    &:focus {
+        border-radius: 999px;
+    }
 }
 
 .rvt-badge--action {
