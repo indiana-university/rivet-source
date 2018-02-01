@@ -156,10 +156,10 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
     }
 
     ul li {
-        display: inline-block;
         margin-right: $lg;
         line-height: 1.5;
         /**
@@ -167,6 +167,10 @@
          * items are vertically centered.
          */
         margin-top: 0;
+        /**
+         * This fixes some display issues in IE.
+         */
+        display: flex;
     }
 
     ul li:last-child {

@@ -36,9 +36,12 @@ select {
     line-height: 1;
 
     /**
-     * TODO: Should we add a max-width to form inputs? It seems desirable
-     * in a lot of situations.
+     * Prefixes get rid of browser default select element styles.
      */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
 
 textarea {
