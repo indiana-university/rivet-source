@@ -9,7 +9,8 @@
   "scripts": {
     "build": "gulp build:dist && gulp fractal:build",
     "test": "node_modules/mocha/bin/mocha tests/unit --require jsdom-global/register; node_modules/nightwatch/bin/nightwatch -c ./tests/integration/nightwatch.json",
-    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\""
+    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
+    "testing-screenshots": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/golden.js\" --exit"
   },
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
