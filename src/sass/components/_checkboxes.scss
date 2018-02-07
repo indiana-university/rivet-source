@@ -6,7 +6,10 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label {
     font-size: $sm;
-    margin-left: .4rem;
+    /**
+     * Helps visualy align checkbox lists
+     */
+    margin-left: .2rem;
     font-weight: 400;
 
     &:before {
