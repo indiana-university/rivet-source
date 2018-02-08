@@ -47,6 +47,7 @@ dl dd {
         display: inline-block;
         line-height: 1;
         font-size: 1rem;
+        margin-right: $sm;
         /**
         * So we can absolutely position stuff inside list items.
         */
