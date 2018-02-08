@@ -28,6 +28,8 @@
     align-items: center;
     // End new
 
+    transition: box-shadow .2s ease;
+
     &:focus,
     &--focus {
         @extend %button-focus;

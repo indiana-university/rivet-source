@@ -19,6 +19,7 @@ input[type="checkbox"] + label {
         margin-right: .75rem;
         width: $sm;
         height: $sm;
+        transition: all .2s ease;
         /**
          * There are some magic numbers here that help improve rendering
          * of box-shadows in Firefox and IE. Making them just a smidge
