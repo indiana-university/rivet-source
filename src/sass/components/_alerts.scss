@@ -1,5 +1,3 @@
-
-
 .alert,
 .rvt-alert {
     background-color: $color-alert-gray-light;
@@ -23,14 +21,12 @@
         padding-right: $md;
     }
 
-
     &__message {
         margin-top: 0;
         margin-bottom: 0;
         font-size: $ts-14;
         padding-right: $md;
     }
-
 
     &__dismiss {
         background-color: transparent;
@@ -51,8 +47,9 @@
     }
 }
 
-
-
+/**
+ * Alert modifiers
+ */
 
 .alert--info,
 .rvt-alert--info {
@@ -61,18 +58,12 @@
     color: $color-alert-blue-text;
 }
 
-
-
-
 .alert--success,
 .rvt-alert--success {
     background-color: $color-alert-green-light;
     border-left-color: $color-alert-green;
     color: $color-alert-green-text;
 }
-
-
-
 
 .alert--message,
 .rvt-alert--message {
@@ -81,9 +72,6 @@
     color: $color-alert-yellow-text;
 }
 
-
-
-
 .alert--error,
 .rvt-alert--error {
     background-color: $color-alert-orange-light;
@@ -91,8 +79,42 @@
     color: $color-alert-orange-text;
 }
 
+/**
+ * Alert lists
+ */
+
+.alert-list,
+.rvt-alert-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        line-height: 1.5;
+    }
+
+    &__item:not(first-child) {
+        margin-top: $xs;
+    }
+}
 
 
+/**
+ * DEPRECATED
+ *
+ * This was the original version of inline form validation errors. We've
+ * Redesigned inline form validation errors/messages to be more flexible
+ * and consistent. Please use .rvt-inline-alert(s) going forward.
+ *
+ * See the following for more info:
+ *
+ * - /src/components/05-text-inputs/text-inputs.hbs
+ * - /src/components/06-select-input/select-input.hbs
+ * - /src/components/07-radio-inputs/radio-inputs.hbs
+ * - /src/components/08-checkboxes/checkboxes.hbs
+ * - /src/sass/components/_validation.scss
+ *
+ */
 
 .alert-inline,
 .rvt-alert-inline {
@@ -143,21 +165,5 @@
     select {
         box-shadow: 0 0 0 $xxs/2 $color-alert-orange;
         border-color: $color-alert-orange;
-    }
-}
-
-
-.alert-list,
-.rvt-alert-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    &__item {
-        line-height: 1.5;
-    }
-
-    &__item:not(first-child) {
-        margin-top: $xs;
     }
 }
