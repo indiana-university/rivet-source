@@ -1,4 +1,4 @@
-# Text inputs and textarea
+# Text inputs
 
 Text inputs are the basic building blocks forms. They allow users to enter various types of data into web-based forms.
 
