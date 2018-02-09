@@ -1,37 +1,69 @@
-<form>
-    <fieldset class="rvt-m-bottom-xl">
-        <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio inputs inline</legend>
-        <ul class="rvt-inline-list">
-            <li>
-                <input type="radio" name="radio-demo" id="radio-1" >
-                <label for="radio-1">Option one</label>
-            </li>
-            <li>
-                <input type="radio" name="radio-demo" id="radio-2" >
-                <label for="radio-2">Option two</label>
-            </li>
-        </ul>
-    </fieldset>
-    <fieldset>
-        <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio list</legend>
-        <ul class="rvt-plain-list">
-            <li>
-                <input type="radio" name="radio-demo-2" id="radio-3">
-                <label for="radio-3" >Option one</label>
-            </li>
-            <li>
-                <input type="radio" name="radio-demo-2" id="radio-4">
-                <label for="radio-4">Option two</label>
-            </li>
-            <li>
-                <input type="radio" name="radio-demo-2" id="radio-4-disabled" disabled>
-                <label for="radio-4-disabled">Option three disabled</label>
-            </li>
-            <li>
-                <input type="radio" name="radio-demo-2" id="radio-5" disabled checked>
-                <label for="radio-5">Option four checked and disabled</label>
-            </li>
-        </ul>
-    </fieldset>
-
-</form>
+<div class="rvt-container rvt-container--freshman">
+    <form>
+        <fieldset class="rvt-m-bottom-xl">
+            <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio inputs inline</legend>
+            <ul class="rvt-inline-list">
+                <li>
+                    <input type="radio" name="radio-demo" id="radio-1" >
+                    <label for="radio-1">Option one</label>
+                </li>
+                <li>
+                    <input type="radio" name="radio-demo" id="radio-2" >
+                    <label for="radio-2">Option two</label>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio list</legend>
+            <ul class="rvt-plain-list">
+                <li>
+                    <input type="radio"
+                           name="radio-demo-2"
+                           id="radio-3"
+                           aria-invalid="true"
+                           aria-describedby="radio-list-message">
+                    <label for="radio-3" >Option one</label>
+                </li>
+                <li>
+                    <input type="radio"
+                           name="radio-demo-2"
+                           id="radio-4"
+                           aria-invalid="true"
+                           aria-describedby="radio-list-message">
+                    <label for="radio-4">Option two</label>
+                </li>
+                <li>
+                    <input type="radio"
+                           name="radio-demo-2"
+                           id="radio-4-disabled"
+                           aria-invalid="true"
+                           aria-describedby="radio-list-message"
+                           disabled>
+                    <label for="radio-4-disabled">Option three disabled</label>
+                </li>
+                <li>
+                    <input type="radio"
+                           name="radio-demo-2"
+                           id="radio-5"
+                           aria-invalid="true"
+                           aria-describedby="radio-list-message">
+                    <label for="radio-5">Option four checked and disabled</label>
+                </li>
+            </ul>
+            <div class="rvt-inline-alert rvt-inline-alert--standalone rvt-inline-alert--is-invalid">
+                <span class="rvt-inline-alert__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <g fill="currentColor">
+                            <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                            <path d="M10.83,5.17a1,1,0,0,0-1.41,0L8,6.59,6.59,5.17A1,1,0,0,0,5.17,6.59L6.59,8,5.17,9.41a1,1,0,1,0,1.41,1.41L8,9.41l1.41,1.41a1,1,0,0,0,1.41-1.41L9.41,8l1.41-1.41A1,1,0,0,0,10.83,5.17Z"
+                            />
+                        </g>
+                    </svg>
+                </span>
+                <span class="rvt-inline-alert__message" role="alert" id="radio-list-message">
+                    This field is required to continue.
+                </span>
+            </div>
+        </fieldset>
+    </form>
+</div>

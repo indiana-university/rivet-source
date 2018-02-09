@@ -94,4 +94,49 @@ textarea.rvt-has-info {
     &--has-info {
         color: $color-alert-blue;
     }
+
+    /**
+     * This standalone modifier should be used with groups of form inputs
+     * like radios and checkboxes.
+     */
+
+    &--standalone {
+        padding: $xs;
+
+        &.rvt-inline-alert--is-invalid {
+            border-left: $xxs solid $color-alert-orange;
+            background-color: $color-alert-orange-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-orange-text;
+            }
+        }
+
+        &.rvt-inline-alert--is-valid {
+            border-left: $xxs solid $color-alert-green;
+            background-color: $color-alert-green-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-green-text;
+            }
+        }
+
+        &.rvt-inline-alert--has-warning {
+            border-left: $xxs solid $color-alert-yellow;
+            background-color: $color-alert-yellow-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-yellow-text;
+            }
+        }
+
+        &.rvt-inline-alert--has-info {
+            border-left: $xxs solid $color-alert-blue;
+            background-color: $color-alert-blue-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-blue-text;
+            }
+        }
+    }
 }
