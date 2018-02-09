@@ -1,0 +1,186 @@
+<form>
+    <div class="rvt-container">
+        <div class="rvt-grid">
+            <div class="rvt-grid__item-6-lg-up">
+
+                <fieldset>
+                    <legend class="rvt-ts-23 rvt-m-bottom-sm">
+                        <strong>Text-inputs</strong> default
+                    </legend>
+                    <label for="demo-1">Text Input</label>
+                    <input type="text" id="demo-1" class="rvt-m-bottom-md">
+
+                    <label for="demo-2">Text Input (disabled)</label>
+                    <input type="text" id="demo-2" disabled>
+                </fieldset>
+
+                <fieldset class="rvt-m-top-xl">
+                    <legend class="rvt-ts-23 rvt-m-bottom-sm">Text input
+                        <strong>validation states</strong>
+                    </legend>
+
+                    <label for="rvt-success-state">First name</label>
+                    <input type="text" id="rvt-success-state" class="rvt-is-valid" aria-describedby="first-name-message">
+                    <div class="rvt-inline-alert rvt-inline-alert--is-valid">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <title>Check circle icon</title>
+                                <g fill="currentColor">
+                                    <path d="M10.2,5.4,7.1,9.53,5.67,8.25a1,1,0,1,0-1.34,1.5l2.05,1.82a1.29,1.29,0,0,0,.83.32h.12a1.23,1.23,0,0,0,.88-.49L11.8,6.6a1,1,0,1,0-1.6-1.2Z"/>
+                                    <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" role="alert" id="first-name-message">
+                            <strong>Frist name</strong> is valid!
+                        </span>
+                    </div>
+
+                    <label for="rvt-warning-state" class="rvt-m-top-md">Password</label>
+                    <input type="password" id="rvt-warning-state" class="rvt-has-warning" aria-described-by="password-message">
+                    <div class="rvt-inline-alert rvt-inline-alert--has-warning">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path d="M11,9H5A1,1,0,0,1,5,7h6a1,1,0,0,1,0,2Z" />
+                                    <path d="M8,16a8,8,0,1,1,8-8A8,8,0,0,1,8,16ZM8,2a6,6,0,1,0,6,6A6,6,0,0,0,8,2Z" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" role="alert" id="password-message">
+                            Your <strong>Password</strong> is weak.
+                        </span>
+                    </div>
+
+                    <label for="rvt-error-state" class="rvt-m-top-md">Username</label>
+                    <input type="password" id="rvt-error-state" class="rvt-is-invalid" aria-described-by="username-message" aria-invalid="true">
+                    <div class="rvt-inline-alert rvt-inline-alert--is-invalid">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                                    <path d="M10.83,5.17a1,1,0,0,0-1.41,0L8,6.59,6.59,5.17A1,1,0,0,0,5.17,6.59L6.59,8,5.17,9.41a1,1,0,1,0,1.41,1.41L8,9.41l1.41,1.41a1,1,0,0,0,1.41-1.41L9.41,8l1.41-1.41A1,1,0,0,0,10.83,5.17Z"
+                                    />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" role="alert" id="username-message">
+                            The <strong>Username</strong> you entered is taken.
+                        </span>
+                    </div>
+
+                    <label for="error-state" class="rvt-m-top-md">Description</label>
+                    <input type="text" id="error-state" class="rvt-has-info" aria-described-by="description-message">
+                    <div class="rvt-inline-alert rvt-inline-alert--has-info">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path d="M8,16a8,8,0,1,1,8-8A8,8,0,0,1,8,16ZM8,2a6,6,0,1,0,6,6A6,6,0,0,0,8,2Z" />
+                                    <path d="M8,12a1,1,0,0,1-1-1V8A1,1,0,0,1,9,8v3A1,1,0,0,1,8,12Z" />
+                                    <circle cx="8" cy="5" r="1" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" role="alert" id="description-message">
+                            The
+                            <strong>Description</strong> tells users more about this stuff.
+                        </span>
+                    </div>
+
+                </fieldset>
+
+                <fieldset class="rvt-m-top-xl">
+                    <legend class="rvt-ts-23 rvt-m-bottom-sm">
+                        <strong>Textarea</strong> default
+                    </legend>
+
+                    <label for="demo-3">Textarea</label>
+                    <textarea id="demo-3" class="m-bottom-md"></textarea>
+
+                    <label for="demo-4">Textarea (disabled)</label>
+                    <textarea id="demo-4" class="m-bottom-md" disabled></textarea>
+                </fieldset>
+
+                <fieldset class="rvt-m-top-xl">
+                    <legend class="rvt-ts-23 rvt-m-bottom-sm">
+                        Textarea <strong>validation states</strong>
+                    </legend>
+
+                    <label for="textarea-success-state">Essay</label>
+                    <textarea type="text" id="textarea-success-state" class="rvt-is-valid" aria-describedby="essay-message"></textarea>
+                    <div class="rvt-inline-alert rvt-inline-alert--is-valid">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <title>Check circle icon</title>
+                                <g fill="currentColor">
+                                    <path d="M10.2,5.4,7.1,9.53,5.67,8.25a1,1,0,1,0-1.34,1.5l2.05,1.82a1.29,1.29,0,0,0,.83.32h.12a1.23,1.23,0,0,0,.88-.49L11.8,6.6a1,1,0,1,0-1.6-1.2Z"
+                                    />
+                                    <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" id="#essay-message">
+                            Your <strong>Essay</strong> is valid!
+                        </span>
+                    </div>
+
+                    <label for="textarea-warning-state" class="rvt-m-top-md">Response</label>
+                    <textarea type="text" id="textarea-warning-state" class="rvt-has-warning" aria-describedby="response-message"></textarea>
+                    <div class="rvt-inline-alert rvt-inline-alert--has-warning">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path d="M11,9H5A1,1,0,0,1,5,7h6a1,1,0,0,1,0,2Z" />
+                                    <path d="M8,16a8,8,0,1,1,8-8A8,8,0,0,1,8,16ZM8,2a6,6,0,1,0,6,6A6,6,0,0,0,8,2Z" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" id="#response-message">
+                            Your <strong>Response</strong> has some mispellings!
+                        </span>
+                    </div>
+
+                    <label for="textarea-error-state" class="rvt-m-top-md">Description</label>
+                    <textarea type="text" id="textarea-error-state" class="rvt-is-invalid" aria-describedby="description-message" aria-invalid="true"></textarea>
+                    <div class="rvt-inline-alert rvt-inline-alert--is-invalid">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                                    <path d="M10.83,5.17a1,1,0,0,0-1.41,0L8,6.59,6.59,5.17A1,1,0,0,0,5.17,6.59L6.59,8,5.17,9.41a1,1,0,1,0,1.41,1.41L8,9.41l1.41,1.41a1,1,0,0,0,1.41-1.41L9.41,8l1.41-1.41A1,1,0,0,0,10.83,5.17Z"
+                                    />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" id="#description-message">
+                            Your <strong>Description</strong> has special characters that need replaced.
+                        </span>
+                    </div>
+
+                    <label for="textarea-info-state" class="rvt-m-top-md">Message</label>
+                    <textarea type="text" id="textarea-info-state" class="rvt-has-info" aria-describedby="message-message"></textarea>
+                    <div class="rvt-inline-alert rvt-inline-alert--has-info">
+                        <span class="rvt-inline-alert__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path d="M8,16a8,8,0,1,1,8-8A8,8,0,0,1,8,16ZM8,2a6,6,0,1,0,6,6A6,6,0,0,0,8,2Z" />
+                                    <path d="M8,12a1,1,0,0,1-1-1V8A1,1,0,0,1,9,8v3A1,1,0,0,1,8,12Z" />
+                                    <circle cx="8" cy="5" r="1" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="rvt-inline-alert__message" id="#message-message">
+                            Add a <strong>Message</strong> to give users more information.
+                        </span>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</form>
