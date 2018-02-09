@@ -1,0 +1,97 @@
+.rvt-is-valid,
+input.rvt-is-valid,
+select.rvt-is-valid,
+textarea.rvt-is-valid {
+    border-color: $color-alert-green;
+    box-shadow: 0 0 0 .125rem $color-alert-green;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-green;
+        /* stylelint-enable */
+    }
+}
+
+.rvt-has-warning,
+input.rvt-has-warning,
+select.rvt-has-warning,
+textarea.rvt-has-warning {
+    border-color: $color-alert-yellow;
+    box-shadow: 0 0 0 .125rem $color-alert-yellow;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-yellow;
+        /* stylelint-enable */
+    }
+}
+
+.rvt-is-invalid,
+input.rvt-is-invalid,
+select.rvt-is-invalid,
+textarea.rvt-is-invalid {
+    border-color: $color-alert-orange;
+    box-shadow: 0 0 0 .125rem $color-alert-orange;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-orange;
+        /* stylelint-enable */
+    }
+}
+
+.rvt-has-info,
+input.rvt-has-info,
+select.rvt-has-info,
+textarea.rvt-has-info {
+    border-color: $color-alert-blue;
+    box-shadow: 0 0 0 .125rem $color-alert-blue;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 0.125rem $color-background,
+                    0 0 0 0.2875rem $color-alert-blue;
+        /* stylelint-enable */
+    }
+}
+
+.rvt-inline-alert {
+    margin-top: $xs;
+    font-size: $ts-14;
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        width: $sm;
+        height: $sm;
+    }
+
+    &__message {
+        margin-left: $xs;
+        color: $color-black--700;
+        line-height: 1;
+    }
+
+    &--is-valid {
+        color: $color-alert-green;
+    }
+
+    &--has-warning {
+        color: $color-alert-yellow;
+    }
+
+    &--is-invalid {
+        color: $color-alert-orange;
+    }
+
+    &--has-info {
+        color: $color-alert-blue;
+    }
+}
