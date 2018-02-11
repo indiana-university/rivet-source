@@ -1,39 +1,25 @@
-.rvt-is-valid,
-input.rvt-is-valid,
-select.rvt-is-valid,
-textarea.rvt-is-valid {
-    border-color: $color-alert-green;
-    box-shadow: 0 0 0 .125rem $color-alert-green;
-
-    &:focus {
-        border-color: $color-black--700;
-        /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-green;
-        /* stylelint-enable */
+@mixin all-inputs($class) {
+    input[type="date"]#{$class},
+    input[type="datetime"]#{$class},
+    input[type="datetime-local"]#{$class},
+    input[type="email"]#{$class},
+    input[type="month"]#{$class},
+    input[type="number"]#{$class},
+    input[type="password"]#{$class},
+    input[type="search"]#{$class},
+    input[type="tel"]#{$class},
+    input[type="text"]#{$class},
+    input[type="time"]#{$class},
+    input[type="url"]#{$class},
+    input[type="week"]#{$class},
+    textarea#{$class},
+    select#{$class} {
+        @content;
     }
 }
 
-.rvt-has-warning,
-input.rvt-has-warning,
-select.rvt-has-warning,
-textarea.rvt-has-warning {
-    border-color: $color-alert-yellow;
-    box-shadow: 0 0 0 .125rem $color-alert-yellow;
-
-    &:focus {
-        border-color: $color-black--700;
-        /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-yellow;
-        /* stylelint-enable */
-    }
-}
-
-.rvt-is-invalid,
-input.rvt-is-invalid,
-select.rvt-is-invalid,
-textarea.rvt-is-invalid {
+@include all-inputs('.rvt-is-invalid') {
+    transition: box-shadow .2s ease;
     border-color: $color-alert-orange;
     box-shadow: 0 0 0 .125rem $color-alert-orange;
 
@@ -46,21 +32,48 @@ textarea.rvt-is-invalid {
     }
 }
 
-.rvt-has-info,
-input.rvt-has-info,
-select.rvt-has-info,
-textarea.rvt-has-info {
+@include all-inputs('.rvt-is-valid') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-green;
+    box-shadow: 0 0 0 .125rem $color-alert-green;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-green;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-has-warning') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-yellow;
+    box-shadow: 0 0 0 .125rem $color-alert-yellow;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-yellow;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-has-info') {
+    transition: box-shadow .2s ease;
     border-color: $color-alert-blue;
     box-shadow: 0 0 0 .125rem $color-alert-blue;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 0.125rem $color-background,
-                    0 0 0 0.2875rem $color-alert-blue;
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-blue;
         /* stylelint-enable */
     }
 }
+
 
 .rvt-inline-alert {
     margin-top: $xs;
