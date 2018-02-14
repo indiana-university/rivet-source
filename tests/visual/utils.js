@@ -11,7 +11,7 @@ const componentNames = [
     "spacing",
     "links",
     "lists",
-    "text-inputs-and-textarea",
+    "text-inputs",
     "select-input",
     "radio-inputs",
     "checkboxes",
