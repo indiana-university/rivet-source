@@ -1,3 +1,4 @@
+
 .rvt-tabs {
     &__tablist {
         display: flex;
@@ -5,66 +6,73 @@
 
     &__tab {
         background-color: transparent;
-        border: none;
-        color: $color-text;
-        font-weight: 400;
-        z-index: map-get($z-index, z-200);
+        padding: $xs $md;
+        border-top-right-radius: $xxs;
+        border-top-left-radius: $xxs;
+        border: 1px solid transparent;
+        margin-right: $xs;
+        transition: box-shadow .2s ease;
+        color: $color-black--700;
         position: relative;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
 
-        &[aria-selected="true"],
-        &[aria-selected="true"]:hover {
-            border-bottom: $xxs solid $color-action;
-            margin-bottom: -$xxs;
-            position: relative;
+        &:focus {
+            background-color: $color-action;
+            outline: none;
+            color: $color-background;
         }
 
         &:hover {
-            color: $color-text;
-            background-color: transparent;
-            border-bottom: $xxs solid $color-black--500;
-            margin-bottom: -$xxs;
+            border-color: $color-black--200 $color-black--200 $color-background;
+            box-shadow: inset 0 3px 0 0 $color-black--700;
+            outline: none;
         }
 
-        &:active {
-            background-color: $color-black--100;
+        &:focus:hover {
+            box-shadow: none;
         }
 
-        &:last-child {
-            margin-right: 0;
+        &:first-child:before {
+            content: " ";
+            width: 1px;
+            height: 1px;
+            display: block;
+            background-color: $color-black--200;
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
         }
+    }
 
-        &:disabled {
-            background-color: transparent;
-            color: $color-black--400;
-        }
+    &__tab[aria-selected="true"] {
+        border-color: $color-black--200 $color-black--200 $color-background;
+        box-shadow: 0 -3px 0 0 $color-action;
+        color: $color-text;
 
-        &:disabled:hover {
-            background-color: transparent;
-            color: $color-black--400;
-            border-bottom-color: transparent;
+        &:focus {
+            color: $color-background;
         }
     }
 
     &__panel {
-        border-top: 2px solid $color-black--200;
-        background-color: $color-background;
-        border-top-left-radius: 0;
-        z-index: map-get($z-index, z-100);
-        position: relative;
-        /**
-         * This margin helps optically align the panel with the border
-         * styles and or active state on the tabs above.
-         */
-        margin-top: 1px;
+        border: 1px solid $color-black--200;
+        border-top-right-radius: $xxs;
+        border-bottom-right-radius: $xxs;
+        border-bottom-left-radius: $xxs;
+        margin-top: -1px;
+        padding: $md;
+        transition: box-shadow .2s ease;
 
         &:focus {
+            box-shadow: inset 0 0 0 3px $color-action;
             outline: none;
-            box-shadow: 0 0 1px 3px $color-midnight--300;
         }
     }
 }
+
+
+
+
+
 
 
 /**
