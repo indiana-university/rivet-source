@@ -18,6 +18,7 @@
         text-align: left;
         transition: box-shadow .2s ease;
         width: 100%;
+        z-index: map-get($z-index, z-100);
 
         &:last-child {
             border-bottom: 1px solid $color-black--200;
@@ -45,6 +46,7 @@
             0 0 0 $xxs $color-action;
             /* stylelint-enable */
             outline: none;
+            z-index: map-get($z-index, z-1000);
         }
     }
 
