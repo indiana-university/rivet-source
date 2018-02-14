@@ -1,16 +1,10 @@
 
 .rvt-tabs {
-    &__tablist {
-        display: flex;
-    }
-
     &__tab {
         background-color: $color-black--100;
-        border-top-right-radius: $xxs;
-        border-top-left-radius: $xxs;
         border: 1px solid $color-black--200;
         color: $color-black--700;
-        font-size: $ts-14;
+
         // Make this the same height as regular buttons
         height: $xl;
         line-height: 1;
@@ -18,6 +12,16 @@
         padding: $xs $md;
         position: relative;
         transition: box-shadow .2s ease;
+
+        // Mobile
+        display: block;
+        width: 100%;
+        border-radius: 0;
+
+        &:first-child {
+            border-top-right-radius: $xxs;
+            border-top-left-radius: $xxs;
+        }
 
         &:last-child {
             margin-right: 0;
@@ -55,7 +59,7 @@
         transition: box-shadow .2s ease;
 
         &:focus {
-            box-shadow: inset 0 0 0 3px $color-action;
+            box-shadow: inset 0 0 0 $xxs/2 $color-action;
             outline: none;
         }
     }
@@ -64,72 +68,58 @@
 @include mq(bp(md)) {
     .rvt-tabs {
         &__tab {
-            font-size: $ts-16;
+            width: auto;
+            display: inline-block;
+            border-top-right-radius: $xxs;
+            border-top-left-radius: $xxs;
+        }
+
+        &__tablist {
+            display: flex;
         }
     }
 }
-
-
-
-
 
 
 
 /**
  * Vertical tabs
  */
-
-.rvt-tabs--vertical {
-    .rvt-tabs__tablist {
-        min-width: 16rem;
-        flex-grow: 0;
-        flex-direction: column;
-    }
-
-    .rvt-tabs__tab {
-        width: 100%;
-        text-align: left;
-        padding: $sm;
-        border-radius: 0;
-        margin-bottom: $xxs;
-
-        &:hover {
-            background-color: $color-black--100;
-            border-bottom: none;
-            margin-bottom: $xxs;
-            border-right: $xxs solid $color-black--500;
-        }
-
-        &[aria-selected="true"] {
-            background-color: $color-black--100;
-            border-right: $xxs solid $color-action;
-            border-bottom: none;
-        }
-
-        &[aria-selected="true"]:hover {
-            border-bottom: none;
-        }
-    }
-
-    .rvt-tabs__panel {
-        flex-grow: 1;
-        border-top: none;
-        margin-top: 1rem;
-    }
-}
-
 @include mq(bp(md)) {
     .rvt-tabs--vertical {
+        border: 1px solid $color-black--200;
+        border-radius: $xxs;
         display: flex;
         justify-content: space-between;
 
+        .rvt-tabs__tablist {
+            min-width: 250px;
+            flex-basis: 250px;
+            display: block;
+            flex-grow: 0;
+            border-right: 1px solid $color-black--200;
+        }
+
+        .rvt-tabs__tab {
+            width: 100%;
+            border-right: none;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid $color-black--200;
+            height: $xl;
+
+            &[aria-selected="true"]:first-child {
+                border-top-left-radius: $xxs;
+            }
+        }
+
         .rvt-tabs__panel {
             flex-grow: 1;
-            padding-left: $lg;
-            margin-top: 0;
+            border: none;
         }
     }
 }
+
 
 /**
  * Fitted tabs
