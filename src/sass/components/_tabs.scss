@@ -3,8 +3,9 @@
     &__tab {
         background-color: $color-black--100;
         border: 1px solid $color-black--200;
+        border-radius: 0;
         color: $color-black--700;
-
+        display: block;
         // Make this the same height as regular buttons
         height: $xl;
         line-height: 1;
@@ -12,11 +13,8 @@
         padding: $xs $md;
         position: relative;
         transition: box-shadow .2s ease;
-
-        // Mobile
-        display: block;
         width: 100%;
-        border-radius: 0;
+
 
         &:first-child {
             border-top-right-radius: $xxs;
@@ -68,10 +66,10 @@
 @include mq(bp(md)) {
     .rvt-tabs {
         &__tab {
-            width: auto;
-            display: inline-block;
             border-top-right-radius: $xxs;
             border-top-left-radius: $xxs;
+            display: inline-block;
+            width: auto;
         }
 
         &__tablist {
@@ -93,20 +91,22 @@
         justify-content: space-between;
 
         .rvt-tabs__tablist {
-            min-width: 250px;
-            flex-basis: 250px;
-            display: block;
-            flex-grow: 0;
             border-right: 1px solid $color-black--200;
+            display: block;
+            flex-basis: 250px;
+            flex-grow: 0;
+            min-width: 250px;
         }
 
         .rvt-tabs__tab {
-            width: 100%;
             border-right: none;
             border-radius: 0;
-            border: none;
+            border-top: none;
+            border-right: none;
             border-bottom: 1px solid $color-black--200;
+            border-left: none;
             height: $xl;
+            width: 100%;
 
             &[aria-selected="true"]:first-child {
                 border-top-left-radius: $xxs;
@@ -114,8 +114,8 @@
         }
 
         .rvt-tabs__panel {
-            flex-grow: 1;
             border: none;
+            flex-grow: 1;
         }
     }
 }
