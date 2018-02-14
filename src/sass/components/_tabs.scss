@@ -2,7 +2,10 @@
 .rvt-tabs {
     &__tab {
         background-color: $color-black--100;
-        border: 1px solid $color-black--200;
+        border-top: 1px solid $color-black--200;
+        border-right: 1px solid $color-black--200;
+        border-left: 1px solid $color-black--200;
+        border-bottom: none;
         border-radius: 0;
         color: $color-black--700;
         display: block;
@@ -12,9 +15,13 @@
         margin-right: $xs;
         padding: $xs $md;
         position: relative;
+        text-align: left;
         transition: box-shadow .2s ease;
         width: 100%;
 
+        &:last-child {
+            border-bottom: 1px solid $color-black--200;
+        }
 
         &:first-child {
             border-top-right-radius: $xxs;
@@ -69,7 +76,9 @@
             border-top-right-radius: $xxs;
             border-top-left-radius: $xxs;
             display: inline-block;
+            text-align: center;
             width: auto;
+            border-bottom: 1px solid $color-black--200;
         }
 
         &__tablist {
