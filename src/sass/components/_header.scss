@@ -24,15 +24,42 @@
 }
 
 .rvt-header__trident {
-    min-width: 60px;
-    flex-basis: 60px;
-    height: 70px;
+    min-width: 41px;
+    flex-basis: 41px;
+    height: 47px;
     background-color: $color-crimson;
-    margin-right: $sm;
+    margin-right: $xs;
+
+    &-large {
+        display: none;
+    }
+}
+
+@include mq(bp(lg)) {
+    .rvt-header__trident {
+        min-width: 60px;
+        flex-basis: 60px;
+        height: 70px;
+        margin-right: $sm;
+
+        &-large {
+            display: block;
+        }
+
+        &-small {
+            display: none;
+        }
+    }
+
+    .rvt-header__trident-logo {
+        width: 60px;
+        height: 70px;
+    }
 }
 
 .rvt-header__title {
-    font-size: ts(20);
+    font-size: $ts-18;
+    line-height: 1;
 
     a {
         color: $color-text;
@@ -48,7 +75,7 @@
  * When id menu is present the title needs a little more space.
  */
 
-@include mq(510px) {
+@include mq(bp(lg)) {
     .rvt-header__title {
         font-size: ts(23);
     }
@@ -64,8 +91,8 @@
     background-color: transparent;
     box-shadow: none;
     border: none;
-    width: 71px;
-    height: 70px;
+    width: 49px;
+    height: 47px;
     padding: 0;
     border-radius: 0;
     border-left: 1px solid $color-black--200;
@@ -120,11 +147,14 @@
     }
 }
 
-.rvt-drawer-button--persistent {
-    display: flex;
+@include mq(bp(lg)) {
+    .rvt-drawer-button {
+        height: 70px;
+        width: 71px;
+    }
 }
 
-@include mq(1040px) {
+@include mq(bp(lg)) {
     .rvt-drawer-button {
         display: none;
     }
@@ -134,8 +164,26 @@
     }
 }
 
+.rvt-drawer-button--persistent {
+    display: flex;
+}
+
 .rvt-drawer-button-close {
     display: none;
+}
+
+.rvt-drawer-button-open,
+.rvt-drawer-button-close {
+    width: 16px;
+    height: 16px;
+}
+
+@media screen and (min-width: 1080px) {
+    .rvt-drawer-button-open,
+    .rvt-drawer-button-close {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .rvt-drawer-button.is-open {
@@ -195,7 +243,7 @@
 .rvt-drawer {
     position: absolute;
     right: 0;
-    top: 71px;
+    top: 47px;
     background-color: $color-black--100;
     width: 85%;
     max-width: 400px;
@@ -215,6 +263,7 @@
         ul li {
             border-bottom: 2px solid $color-black--100;
             line-height: 1.5;
+            margin-top: 0;
         }
 
         ul li:last-child {
@@ -270,21 +319,37 @@
     }
 
     &__bottom-close {
+        background-color: transparent;
+        border: none;
+        color: $color-link;
+        padding: 0;
         height: 1px;
-        margin-bottom: -1px;
+        width: 1px;
+        margin-top: -1px;
         overflow: hidden;
-        display: block;
 
         &:focus {
+            outline: none;
+            /* stylelint-disable */
+            box-shadow: 0 0 0 $xxs/2 $color-black--100,
+                        0 0 0 $xxs*1.15 $color-action;
+            /* stylelint-enable */
+            display: block;
+            width: auto;
             height: auto;
-            margin-bottom: 0;
-            overflow: visible;
+            margin-top: 0;
+            border-radius: $xxs;
+            padding: .35rem .65rem;
         }
     }
 }
 
 
-@include mq(1040px) {
+@include mq(bp(lg)) {
+    .rvt-drawer {
+        top: 70px;
+    }
+
     .rvt-header__main-nav {
         display: block;
     }
@@ -364,13 +429,13 @@
     }
 }
 
-@include mq(1040px) {
+@include mq(bp(lg)) {
     .rvt-header-id {
         display: flex;
     }
 }
 
-@include mq(1040px) {
+@include mq(bp(lg)) {
     .rvt-header-id--drawer {
         display: none;
     }
