@@ -178,7 +178,7 @@
     height: 16px;
 }
 
-@media screen and (min-width: 1080px) {
+@include mq(bp(lg)) {
     .rvt-drawer-button-open,
     .rvt-drawer-button-close {
         width: 24px;
