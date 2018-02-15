@@ -2,9 +2,9 @@
 .rvt-tabs {
     &__tab {
         background-color: $color-background-subtle;
-        border-top: 1px solid $color-black--200;
-        border-right: 1px solid $color-black--200;
-        border-left: 1px solid $color-black--200;
+        border-top: 1px solid $color-black--300;
+        border-right: 1px solid $color-black--300;
+        border-left: 1px solid $color-black--300;
         border-bottom: none;
         border-radius: 0;
         color: $color-black--700;
@@ -24,7 +24,7 @@
         z-index: map-get($z-index, z-100);
 
         &:last-child {
-            border-bottom: 1px solid $color-black--200;
+            border-bottom: 1px solid $color-black--300;
         }
 
         &:first-child {
@@ -60,7 +60,7 @@
     }
 
     &__panel {
-        border: 1px solid $color-black--200;
+        border: 1px solid $color-black--300;
         border-top-right-radius: $xxs;
         border-bottom-right-radius: $xxs;
         border-bottom-left-radius: $xxs;
@@ -84,7 +84,7 @@
             height: $xl;
             text-align: center;
             width: auto;
-            border-bottom: 1px solid $color-black--200;
+            border-bottom: 1px solid $color-black--300;
         }
 
         &__tablist {
@@ -100,13 +100,13 @@
  */
 @include mq(bp(md)) {
     .rvt-tabs--vertical {
-        border: 1px solid $color-black--200;
+        border: 1px solid $color-black--300;
         border-radius: $xxs;
         display: flex;
         justify-content: space-between;
 
         .rvt-tabs__tablist {
-            border-right: 1px solid $color-black--200;
+            border-right: 1px solid $color-black--300;
             display: block;
             flex-basis: 250px;
             flex-grow: 0;
@@ -118,7 +118,7 @@
             border-radius: 0;
             border-top: none;
             border-right: none;
-            border-bottom: 1px solid $color-black--200;
+            border-bottom: 1px solid $color-black--300;
             border-left: none;
             height: $xl;
             width: 100%;
