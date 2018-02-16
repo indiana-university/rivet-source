@@ -327,19 +327,24 @@
         width: 1px;
         margin-top: -1px;
         overflow: hidden;
+        font-weight: 700;
 
         &:focus {
             outline: none;
             /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-black--100,
-                        0 0 0 $xxs*1.15 $color-action;
+            box-shadow: 0 0 0 .125rem $color-action;
             /* stylelint-enable */
             display: block;
             width: auto;
-            height: auto;
-            margin-top: 0;
+            margin-top: $xs;
+            width: 100%;
             border-radius: $xxs;
-            padding: .35rem .65rem;
+
+            height: $xl;
+            line-height: 1;
+            vertical-align: bottom;
+            padding-right: $xs;
+            padding-left: $xs;
         }
     }
 }
