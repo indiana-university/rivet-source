@@ -16,6 +16,7 @@ gulp.task('js:lint', function() {
 
 gulp.task('js:concat', function() {
     return gulp.src([
+        'src/js/polyfills/closest.js',
         'src/js/components/alert.js',
         'src/js/components/drawer.js',
         'src/js/components/dropdown.js',
