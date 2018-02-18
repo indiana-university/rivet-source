@@ -278,15 +278,26 @@
             display: none;
         }
 
-        ul li a {
+        ul li a,
+        ul li button {
             display: block;
             text-decoration: none;
             color: $color-text;
             padding: $sm;
             position: relative;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: $color-background;
+
+            &:focus {
+                @extend %button-focus;
+                z-index: map-get($z-index, z-1000)
+            }
         }
 
-        ul li.has-children > a:after {
+        ul li.has-children > a:after,
+        ul li.has-children > button:after {
             position: absolute;
             top: $md;
             right: $md;
@@ -310,6 +321,7 @@
 
         ul li ul li a {
             padding: $sm;
+            background-color: $color-black--200;
         }
     }
 
