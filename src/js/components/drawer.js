@@ -46,9 +46,8 @@ var Drawer = (function() {
 
         // Make sure the extra close button is present in the DOM
         if (drawerBottomClose) {
-            drawerBottomClose.addEventListener('click', function () {
-                toggleHiddenState(drawerEl);
-                drawerTrigger.classList.toggle('is-open');
+            drawerBottomClose.addEventListener('click', function (e) {
+                toggle(drawerTrigger, drawerEl, e);
             });
         }
     }
