@@ -42,6 +42,24 @@ module.exports = {
             // make sure the drawer is not showing
             .waitForElementNotVisible('.rvt-drawer', 1000)
 
+    },
+
+    'Test ESC close' : function(browser) {
+        browser
+            .click('[data-drawer-trigger="mobile-drawer"]')
+            .waitForElementVisible('.rvt-drawer', 1000)
+            .sendKeys('body', browser.Keys.ESCAPE, function() {
+                console.log('Clicked the escape key.');
+            })
+            .waitForElementNotVisible('.rvt-drawer', 1000)
+    },
+
+    'Test clicking outside of the drawer to close': function(browser) {
+        browser
+            .click('[data-drawer-trigger="mobile-drawer"]')
+            .waitForElementVisible('.rvt-drawer', 1000)
+            .click('body')
+            .waitForElementNotVisible('.rvt-drawer', 1000)
             .end();
     }
 };
