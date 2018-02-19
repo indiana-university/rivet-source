@@ -342,15 +342,12 @@
 
         &:focus {
             outline: none;
-            /* stylelint-disable */
             box-shadow: 0 0 0 .125rem $color-action;
-            /* stylelint-enable */
             display: block;
             width: auto;
             margin-top: $xs;
             width: 100%;
             border-radius: $xxs;
-
             height: $xl;
             line-height: 1;
             vertical-align: bottom;
@@ -443,6 +440,17 @@
     &__profile--drawer > &__user--has-dropdown {
         border-right: none;
     }
+}
+
+/**
+ * NOTE: Need to be pretty specific here to overide default drawer
+ * button trigger styles applied to "ul li a" above. This sets
+ * an explicit height to match the other links insde the drawer.
+ */
+
+button.rvt-header-id__profile.rvt-header-id__profile--drawer {
+    height: 3.5rem;
+    padding: $xs $sm;
 }
 
 @include mq(bp(lg)) {
