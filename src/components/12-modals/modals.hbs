@@ -3,6 +3,11 @@
     <button class="rvt-button" data-modal-trigger="modal-with-form">Open modal with form</button>
 </div>
 
+<form id="modal-test-form">
+    <input type="text">
+    <button type="submit">Send test</button>
+</form>
+
 <div class="rvt-modal"
      id="modal-example"
      role="dialog"
@@ -28,7 +33,6 @@
         </button>
     </div>
 </div>
-
 
 <div class="rvt-modal"
      id="modal-with-form"
@@ -62,3 +66,13 @@
         </button>
     </div>
 </div>
+
+<script>
+    const testForm = document.querySelector('#modal-test-form');
+    const exampleModal = document.querySelector('#modal-example');
+
+    testForm.addEventListener('submit', e => {
+        e.preventDefault();
+        Modal.open(exampleModal);
+    });
+</script>
