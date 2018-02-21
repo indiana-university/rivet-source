@@ -34,6 +34,7 @@
         border-radius: 0;
         border-radius: $xxs;
         color: $color-black;
+        line-height: 1;
         padding: 0;
         position: absolute;
         top: $sm;
@@ -43,6 +44,11 @@
 
         &:hover {
             background-color: rgba(0, 0, 0, .15);
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 $xxs/2 $color-action !important;
         }
     }
 }
