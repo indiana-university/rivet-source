@@ -1,23 +1,28 @@
 var Alert = (function() {
-
     var init = function() {
         _bindUiActions();
     }
 
     var _bindUiActions = function() {
         document.addEventListener('click', function(e) {
-            dismissAlert(e);
+            _handleClick(e);
         });
     }
 
-    var dismissAlert = function(e) {
-        var dismissButton = e.target.closest('.rvt-alert__dismiss');
+    var _handleClick = function(event) {
+        var dismissButton = event.target.closest('.rvt-alert__dismiss');
+
         // If the target wasn't the dismiss button bail.
         if (!dismissButton) return;
+
         // Get the parent node of the dsimiss button i.e. the alert container
-        var elToDismiss = dismissButton.parentNode;
-        // Go up one level to the parent of the alert and then remove the alert
-        elToDismiss.parentNode.removeChild(elToDismiss);
+        var alertThatWasClicked = dismissButton.parentNode;
+
+        dismissAlert(alertThatWasClicked);
+    }
+
+    var dismissAlert = function(alert) {
+        alert.parentNode.removeChild(alert);
     }
 
     // Expose public methods
@@ -25,5 +30,4 @@ var Alert = (function() {
         init: init,
         dismiss: dismissAlert
     }
-
 })();
