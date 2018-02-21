@@ -155,7 +155,6 @@ var Modal = (function () {
                 e.preventDefault();
                 firstFocusableEl.focus();
             }
-
         }
 
         switch (e.keyCode) {
@@ -189,6 +188,7 @@ var Modal = (function () {
         if (document.body) {
             document.body.removeAttribute('class');
         }
+
         modalToClose.setAttribute('aria-hidden', 'true');
 
         /**
