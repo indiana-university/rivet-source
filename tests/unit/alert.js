@@ -30,21 +30,4 @@ describe('Alert component behavior', function () {
             assert(component.getAttribute(LABELLEDBY));
         });
     });
-
-    /**
-     * Since we switech to an event delegation approach this unit test
-     * doesn't really make sense. The Alert.dismiss() method
-     * now only needs to accept an event, which you can't really unit test.
-     * The integration test is still passing though.
-     */
-
-    /*
-    describe('Alert.dismiss()', function () {
-        it('Removes the alert from the DOM when dismissed', function() {
-            assert.equal(document.querySelector('.rvt-alert'), component)
-            Alert.dismiss();
-            assert.equal(document.querySelector('.rvt-alert'), null)
-        });
-    });
-    */
 });
