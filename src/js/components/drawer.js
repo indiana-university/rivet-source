@@ -16,6 +16,22 @@ var Drawer = (function() {
 
     }
 
+    var toggleBtnState = function (buttonEl) {
+        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true' || false;
+        buttonEl.setAttribute('aria-expanded', !isExpanded);
+    }
+
+    var toggleHiddenState = function (itemToToggle) {
+        var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
+        itemToToggle.setAttribute('aria-hidden', !itemState);
+    }
+
+    var resetDrawer = function (drawerEl, drawerTrigger) {
+        drawerEl.setAttribute('aria-hidden', 'true');
+        drawerTrigger.setAttribute('aria-expanded', 'false');
+        drawerTrigger.classList.remove('is-open');
+    }
+
     var toggle = function(trigger, target, event) {
 
         if(event) {
@@ -46,21 +62,23 @@ var Drawer = (function() {
 
         // Make sure the extra close button is present in the DOM
         if (drawerBottomClose) {
-            drawerBottomClose.addEventListener('click', function () {
-                toggleHiddenState(drawerEl);
-                drawerTrigger.classList.toggle('is-open');
+            drawerBottomClose.addEventListener('click', function (e) {
+                toggle(drawerTrigger, drawerEl, e);
             });
         }
-    }
 
-    var toggleBtnState = function(buttonEl) {
-        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true' || false;
-        buttonEl.setAttribute('aria-expanded', !isExpanded);
-    }
+        // Close the drawer if the user presses the ESC key
+        document.addEventListener('keyup', function(e) {
+            if(e.keyCode == 27 && drawerEl.getAttribute('aria-hidden') != 'true') {
+                toggle(drawerTrigger, drawerEl, e);
+            }
+        });
 
-    var toggleHiddenState = function(itemToToggle) {
-        var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
-        itemToToggle.setAttribute('aria-hidden', !itemState);
+        document.addEventListener('click', function(e) {
+            if(e.target != drawerEl && !drawerEl.contains(e.target)) {
+                resetDrawer(drawerEl, drawerTrigger);
+            }
+        });
     }
 
     return {

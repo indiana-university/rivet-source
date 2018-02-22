@@ -13,6 +13,27 @@
         margin-right: $xs;
     }
 
+    &__trigger {
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 $xxs/2 $color-action;
+        }
+
+        &-text {
+            margin-right: $xs;
+        }
+
+        &[aria-expanded="true"] > svg {
+            transform: rotate(180deg);
+        }
+    }
+
     &__menu[aria-hidden="true"] {
         display: none;
     }
@@ -51,19 +72,7 @@
     }
 }
 
-.dropdown__trigger,
-.rvt-dropdown__trigger {
-    display: flex;
-    align-items: center;
 
-    &-text {
-        margin-right: $xs;
-    }
-
-    &[aria-expanded="true"] > svg {
-        transform: rotate(180deg);
-    }
-}
 
 /**
  * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
