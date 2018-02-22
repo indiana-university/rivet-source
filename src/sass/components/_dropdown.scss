@@ -44,7 +44,7 @@
         background-color: #fff;
         border: 1px solid #ddd;
         border-radius: $xxs;
-        width: 12.5rem;
+        min-width: 12.5rem;
         padding-top: $xs;
         z-index: map-get($z-index, z-1000);
 
@@ -56,17 +56,27 @@
             right: $sm;
         }
 
-        a {
+        a,
+        button {
             display: block;
             text-decoration: none;
             margin-bottom: $xs;
             color: #333;
             padding: $xxs $sm;
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
 
             &:hover {
                 background-color: $color-action;
                 color: $color-background;
                 text-decoration: none;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 $xxs/2 $color-action;
             }
         }
     }
