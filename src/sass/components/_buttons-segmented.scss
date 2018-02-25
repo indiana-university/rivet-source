@@ -1,0 +1,47 @@
+.rvt-button-segmented {
+    display: inline-flex;
+
+    &--fitted {
+        display: flex;
+        width: 100%;
+
+        .rvt-button {
+            flex-grow: 1;
+            justify-content: center;
+        }
+    }
+
+    .rvt-button {
+        position: relative;
+
+        &:focus {
+            z-index: 1000;
+        }
+    }
+
+    a.rvt-buton {
+        text-align: center;
+    }
+
+    .rvt-button:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .rvt-button:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left: -2px;
+    }
+
+    .rvt-button:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        margin-left: -2px;
+    }
+
+    .rvt-button[aria-expanded="true"] {
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+}
