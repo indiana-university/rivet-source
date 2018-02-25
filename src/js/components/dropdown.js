@@ -3,8 +3,6 @@
  */
 
 var Dropdown = (function() {
-
-
     var expanded = 'aria-expanded';
     var hidden = 'aria-hidden';
     var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
@@ -63,6 +61,7 @@ var Dropdown = (function() {
                     var dropdown = findDropdown(this);
 
                     if (event.keyCode == keys.down) {
+                        event.preventDefault();
                         dropdown.firstFocusable.focus();
                     }
 
@@ -131,6 +130,7 @@ var Dropdown = (function() {
                 menu.toggle.focus();
                 break;
             case keys.down:
+                event.preventDefault();
                 var currentIndex;
 
                 for (var i = 0; i < menu.focusables.length; i++) {
@@ -154,6 +154,7 @@ var Dropdown = (function() {
                 next.focus();
                 break;
             case keys.up:
+                event.preventDefault();
                 var currentIndex;
 
                 for (var i = 0; i < menu.focusables.length; i++) {
