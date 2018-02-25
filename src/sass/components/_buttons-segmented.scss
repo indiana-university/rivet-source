@@ -38,10 +38,4 @@
         border-radius: 0;
         margin-left: -2px;
     }
-
-    .rvt-button[aria-expanded="true"] {
-        svg {
-            transform: rotate(180deg);
-        }
-    }
 }
