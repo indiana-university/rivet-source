@@ -83,6 +83,17 @@
                 box-shadow: inset 0 0 0 $xxs/2 $color-action;
             }
         }
+
+        button:disabled {
+            color: $color-black--800;
+            background-color: $color-black--100;
+        }
+    }
+
+    &__menu-heading {
+        padding: $sm $sm $xxs;
+        font-weight: 700;
+        font-size: $ts-14;
     }
 
     &__menu-divider {
