@@ -7,7 +7,7 @@ module.exports = {
             .waitForElementNotVisible('.rvt-drawer', 1000)
 
             // click the button to open the drawer
-            .click("[data-drawer-trigger='mobile-drawer']", function(response) {
+            .click("[data-drawer-toggle='mobile-drawer']", function(response) {
                 console.log(response.state === 'success' ? "Clicked button to open drawer" : "Couldn't click button to open drawer")
             })
 
@@ -15,7 +15,7 @@ module.exports = {
             .waitForElementVisible('.rvt-drawer', 1000);
 
         // check for aria attributes
-        browser.expect.element("[data-drawer-trigger='mobile-drawer']")
+        browser.expect.element("[data-drawer-toggle='mobile-drawer']")
             .to.have.attribute('aria-expanded')
             .equals('true')
 
@@ -26,7 +26,7 @@ module.exports = {
         browser
 
             // open subnav dropdown
-            .click('[data-subnav-trigger="subnav-drawer-only"]', function () {
+            .click('[data-subnav-toggle="subnav-drawer-only"]', function () {
                 console.log("Clicked sub-nav with dropdown")
             })
 
@@ -35,7 +35,7 @@ module.exports = {
             .waitForElementVisible('#subnav-drawer-only', 1000)
 
             // close the drawer
-            .click("[data-drawer-trigger='mobile-drawer']", function() {
+            .click("[data-drawer-toggle='mobile-drawer']", function() {
                 console.log("Clicked the drawer button toggle to hide it")
             })
 
@@ -46,7 +46,7 @@ module.exports = {
 
     'Test ESC close' : function(browser) {
         browser
-            .click('[data-drawer-trigger="mobile-drawer"]')
+            .click('[data-drawer-toggle="mobile-drawer"]')
             .waitForElementVisible('.rvt-drawer', 1000)
             .sendKeys('body', browser.Keys.ESCAPE, function() {
                 console.log('Clicked the escape key.');
@@ -56,7 +56,7 @@ module.exports = {
 
     'Test clicking outside of the drawer to close': function(browser) {
         browser
-            .click('[data-drawer-trigger="mobile-drawer"]')
+            .click('[data-drawer-toggle="mobile-drawer"]')
             .waitForElementVisible('.rvt-drawer', 1000)
             .click('body')
             .waitForElementNotVisible('.rvt-drawer', 1000)

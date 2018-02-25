@@ -1,18 +1,46 @@
 <div class="rvt-button-group">
     <div class="rvt-dropdown">
-        <button class="rvt-button" data-dropdown-trigger="dropdown-1" aria-haspopup="true" aria-expanded="false">Dropdown toggle</button>
-        <div class="dropdown__menu" id="dropdown-1" aria-hidden="true">
+        <button class="rvt-button"
+                data-dropdown-toggle="dropdown-1"
+                aria-haspopup="true"
+                aria-expanded="false">
+            <span>Primary</span>
+            <svg class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <title>Dropdown icon</title>
+                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+            </svg>
+        </button>
+        <div class="rvt-dropdown__menu" id="dropdown-1" aria-hidden="true">
             <a href="#0">Add item</a>
             <a href="#0">Reorder items</a>
             <a href="#0">Manage categories</a>
         </div>
     </div>
     <div class="rvt-dropdown">
-        <button class="rvt-button rvt-button--secondary" data-dropdown-trigger="dropdown-2" aria-haspopup="true" aria-expanded="false">Dropdown toggle too</button>
-        <div class="dropdown__menu" id="dropdown-2" aria-hidden="true">
-            <a href="#0">Add item</a>
-            <a href="#0">Reorder items</a>
-            <a href="#0">Manage categories</a>
+        <button class="rvt-button rvt-button--secondary"
+                data-dropdown-toggle="dropdown-2"
+                aria-haspopup="true"
+                aria-expanded="false">
+            Secondary
+        </button>
+        <div class="rvt-dropdown__menu" id="dropdown-2" aria-hidden="true">
+            <button>Button one</button>
+            <button>Button two</button>
+            <button>Button three</button>
+            <div class="rvt-dropdown__menu-divider"></div>
+            <button>Button four</button>
+        </div>
+    </div>
+    <div class="rvt-dropdown">
+        <button class="rvt-button rvt-button--secondary" data-dropdown-toggle="dropdown-2" aria-haspopup="true" aria-expanded="false">
+            Secondary
+        </button>
+        <div class="rvt-dropdown__menu" id="dropdown-2" aria-hidden="true">
+            <button>Button one</button>
+            <button>Button two</button>
+            <button>Button three</button>
+            <div class="rvt-dropdown__menu-divider"></div>
+            <button>Button four</button>
         </div>
     </div>
 </div>

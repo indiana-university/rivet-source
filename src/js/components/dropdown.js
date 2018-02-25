@@ -26,7 +26,7 @@ var Dropdown = (function() {
          * This is the initial set up that caches selectors and properties
          * from the DOM
          */
-        var btnToggles = document.querySelectorAll('[data-dropdown-trigger]');
+        var btnToggles = document.querySelectorAll('[data-dropdown-toggle]');
         var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
 
         // Check to make sure there are doropdown menus in the DOM.
@@ -86,7 +86,7 @@ var Dropdown = (function() {
                      * the toggle button based on the current menu.
                      */
                     var menuId = this.getAttribute('id');
-                    var menuToggle = document.querySelector('[data-dropdown-trigger="' + menuId + '"]');
+                    var menuToggle = document.querySelector('[data-dropdown-toggle="' + menuId + '"]');
 
                     /**
                      * Then we can give the reverse engineered toggle
@@ -202,7 +202,7 @@ var Dropdown = (function() {
         var menu = {};
 
         menu.toggle = el;
-        menu.id = el.getAttribute('data-dropdown-trigger');
+        menu.id = el.getAttribute('data-dropdown-toggle');
         menu.menu = document.querySelector('#' + menu.id);
 
         // Find all focusable elements in the dropdown
@@ -254,7 +254,7 @@ var Dropdown = (function() {
             if(menuToLeaveOpen != menus[i]) {
                 menus[i].setAttribute(hidden, 'true');
                 var triggerElData = menus[i].getAttribute('id');
-                var triggerEl = document.querySelector('[data-dropdown-trigger="' + triggerElData + '"]');
+                var triggerEl = document.querySelector('[data-dropdown-toggle="' + triggerElData + '"]');
                 triggerEl.setAttribute(expanded, 'false');
             }
         }
