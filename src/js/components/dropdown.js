@@ -185,6 +185,8 @@ var Dropdown = (function() {
                      */
                     toggle(menu.toggle, menu.menu, null, menus);
                 }
+            default:
+                break;
         }
     }
 
