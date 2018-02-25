@@ -1,3 +1,5 @@
+<h1 class="rvt-ts-32 rvt-text-bold rvt-m-bottom-xxl">Dropdowns</h1>
+<h2 class="rvt-ts-23 rvt-m-bottom-lg">Primary</h2>
 <div class="rvt-button-group">
     <div class="rvt-dropdown">
         <button class="rvt-button"
@@ -14,16 +16,37 @@
             <a href="#0">Add item</a>
             <a href="#0">Reorder items</a>
             <a href="#0">Manage categories</a>
+            <div class="rvt-dropdown__menu-heading">Personal settings</div>
+            <div class="rvt-dropdown__menu-divider"></div>
+            <a href="#">Profile settings</a>
+            <a href="#">Logout</a>
         </div>
     </div>
     <div class="rvt-dropdown">
-        <button class="rvt-button rvt-button--secondary"
-                data-dropdown-toggle="dropdown-2"
-                aria-haspopup="true"
-                aria-expanded="false">
-            Secondary
+        <button class="rvt-button rvt-button--success" data-dropdown-toggle="dropdown-success" aria-haspopup="true" aria-expanded="false">
+            <span>Success</span>
+            <svg class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <title>Dropdown icon</title>
+                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+            </svg>
         </button>
-        <div class="rvt-dropdown__menu" id="dropdown-2" aria-hidden="true">
+        <div class="rvt-dropdown__menu" id="dropdown-success" aria-hidden="true">
+            <button>Button one</button>
+            <button disabled>Button two</button>
+            <button>Button three</button>
+            <div class="rvt-dropdown__menu-divider"></div>
+            <button>Button four</button>
+        </div>
+    </div>
+    <div class="rvt-dropdown">
+        <button class="rvt-button rvt-button--danger" data-dropdown-toggle="dropdown-danger" aria-haspopup="true" aria-expanded="false">
+            <span>Danger</span>
+            <svg class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <title>Dropdown icon</title>
+                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+            </svg>
+        </button>
+        <div class="rvt-dropdown__menu" id="dropdown-danger" aria-hidden="true">
             <button>Button one</button>
             <button>Button two</button>
             <button>Button three</button>
@@ -32,10 +55,14 @@
         </div>
     </div>
     <div class="rvt-dropdown">
-        <button class="rvt-button rvt-button--secondary" data-dropdown-toggle="dropdown-2" aria-haspopup="true" aria-expanded="false">
-            Secondary
+        <button class="rvt-button rvt-button--plain" data-dropdown-toggle="dropdown-plain" aria-haspopup="true" aria-expanded="false">
+            <span>Plain</span>
+            <svg class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <title>Dropdown icon</title>
+                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+            </svg>
         </button>
-        <div class="rvt-dropdown__menu" id="dropdown-2" aria-hidden="true">
+        <div class="rvt-dropdown__menu" id="dropdown-plain" aria-hidden="true">
             <button>Button one</button>
             <button>Button two</button>
             <button>Button three</button>
