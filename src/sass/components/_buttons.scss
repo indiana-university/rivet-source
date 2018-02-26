@@ -77,6 +77,7 @@
     &:active,
     &-active {
         background-color: mix($color-midnight, white, 35%);
+        color: mix($color-midnight, black, 85%);
     }
 }
 
@@ -119,13 +120,14 @@
     &-hover {
         background-color: mix($color-alert-green, white, 15%);
         border-color: $color-alert-green;
-        color: $color-alert-green;
+        color: mix($color-alert-green, black, 85%);
     }
 
     &:active,
     &-active {
         background-color: mix($color-alert-green, white, 30%);
         border-color: $color-alert-green;
+        color: mix($color-alert-green, black, 75%);
     }
 }
 
@@ -168,13 +170,14 @@
     &-hover {
         background-color: mix($color-alert-orange, white, 15%);
         border-color: $color-alert-orange;
-        color: $color-alert-orange;
+        color: mix($color-alert-orange, black, 85%);
     }
 
     &:active,
     &-active {
         background-color: mix($color-alert-orange, white, 30%);
         border-color: $color-alert-orange;
+        color: mix($color-alert-orange, black, 75%);
     }
 }
 
@@ -228,7 +231,7 @@
     &-active {
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
-        color: $color-action;
+        color: mix($color-action, black, 85%);
     }
 
     &:disabled,
