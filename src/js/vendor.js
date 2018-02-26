@@ -1,5 +1,5 @@
 /* add google analytics if this is on production */
-var prodUrl = 'https://uitsdsgn.webtest.iu.edu/feature-intercom/';
+var prodUrl = 'https://rivetdev.uits.iu.edu';
 if(document.location.href.search(prodUrl)!==-1) {
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
