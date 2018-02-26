@@ -181,7 +181,8 @@ var Dropdown = (function() {
                      * default behavior of the tab key moving focus
                      * to whatever is the next focusable thing
                      * in the DOM. QUESTION: Do we need to preventDefault on this
-                     * toggle function?
+                     * toggle function if we are encouraging folks to use
+                     * HTML button elements (not links) toggle stuff?
                      */
                     toggle(menu.toggle, menu.menu, null, menus);
                 }
