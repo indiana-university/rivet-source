@@ -28,15 +28,15 @@ var Dropdown = (function() {
         var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
 
         // Check to make sure there are doropdown menus in the DOM.
-        if(btnToggles.length > 0) {
+        if (btnToggles.length > 0) {
             /**
              * Main toggle action
              */
             for (var i = 0; i < btnToggles.length; i++) {
-                btnToggles[i].addEventListener('click', function (e) {
+                btnToggles[i].addEventListener('click', function (event) {
                     var dropdown = findDropdown(this);
 
-                    toggle(dropdown.toggle, dropdown.menu, e, menus);
+                    toggle(dropdown.toggle, dropdown.menu, event, menus);
                 });
 
                 /**
@@ -102,8 +102,8 @@ var Dropdown = (function() {
              * Listen for clicks outside of the dropdown button and close all
              * opened dropdown menus.
              */
-            document.addEventListener('click', function (e) {
-                if (!e.clickWithinMenu) {
+            document.addEventListener('click', function (event) {
+                if (!event.clickWithinMenu) {
                     closeAllMenus(undefined, menus);
                 }
             });
