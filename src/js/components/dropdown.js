@@ -232,6 +232,22 @@ var Dropdown = (function() {
     }
 
     /**
+     *
+     * @param {String} id
+     * The value of the dropdown toggle data-dropdown-toggle attribute and
+     * matching id of the dropdown men it controls.
+     *
+     * This is a helper function that we expose as part of the public API.
+     */
+
+    var toggleById = function(id) {
+        var toggleButton = document.querySelector('[data-dropdown-toggle="' + id + '"]');
+        var toggleMenu = document.getElementById(id);
+
+        toggle(toggleButton, toggleMenu);
+    }
+
+    /**
      * Closes any open dropdown menus and sets the corresponding trigger's
      * aria-exapnded state back to "false"
      */
@@ -257,7 +273,7 @@ var Dropdown = (function() {
     return {
         init: init,
         closeAll: closeAllMenus,
-        toggle: toggle
+        toggle: toggleById
     }
 })();
 
