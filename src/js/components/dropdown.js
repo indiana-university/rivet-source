@@ -3,10 +3,6 @@
  */
 
 var Dropdown = (function() {
-    var expanded = 'aria-expanded';
-    var hidden = 'aria-hidden';
-    var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
-
     // For easy reference
     var keys = {
         up: 38,
@@ -15,6 +11,10 @@ var Dropdown = (function() {
         escape: 27
     };
 
+    var expanded = 'aria-expanded';
+    var hidden = 'aria-hidden';
+    var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+
     /**
      * The init checks to make sure that there are any dropdown buttons
      * on the page then kicks off all the event listeners.
@@ -22,7 +22,7 @@ var Dropdown = (function() {
     var init = function() {
         /**
          * This is the initial set up that caches selectors and properties
-         * from the DOM
+         * from the DOM.
          */
         var btnToggles = document.querySelectorAll('[data-dropdown-toggle]');
         var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
@@ -191,8 +191,6 @@ var Dropdown = (function() {
         }
     }
 
-
-
     /**
      *
      * @param {HTMLElement} el
@@ -275,6 +273,5 @@ var Dropdown = (function() {
         closeAll: closeAllMenus,
         toggle: toggle
     }
-
 })();
 
