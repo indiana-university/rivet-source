@@ -25,7 +25,6 @@ var Dropdown = (function() {
          * from the DOM.
          */
         var btnToggles = document.querySelectorAll('[data-dropdown-toggle]');
-        var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
 
         // Check to make sure there are doropdown menus in the DOM.
         if (btnToggles.length > 0) {
@@ -36,7 +35,7 @@ var Dropdown = (function() {
                 btnToggles[i].addEventListener('click', function (event) {
                     var dropdown = findDropdown(this);
 
-                    toggle(dropdown.toggle, dropdown.menu, event, menus);
+                    toggle(dropdown.toggle, dropdown.menu, event);
                 });
 
                 /**
@@ -49,7 +48,7 @@ var Dropdown = (function() {
 
                     if(event.keyCode == keys.down) {
                         event.preventDefault();
-                        toggle(dropdown.toggle, dropdown.menu, event, menus);
+                        toggle(dropdown.toggle, dropdown.menu, event);
                     }
                 });
 
@@ -66,37 +65,26 @@ var Dropdown = (function() {
                     }
 
                     if (event.keyCode == keys.escape && dropdown.menu.getAttribute('aria-hidden') == 'false') {
-                        toggle(dropdown.toggle, dropdown.menu, event, menus);
+                        toggle(dropdown.toggle, dropdown.menu, event);
                     }
                 });
             }
 
-            for (var i = 0; i < menus.length; i++) {
+            btnToggles = Array.prototype.slice.call(btnToggles);
+            btnToggles.forEach(function(btn) {
+                var menu = findDropdown(btn);
                 /**
                  * Stop click on dropdown menus from bubbling up
                  */
-                menus[i].addEventListener('click', function (event) {
+                menu.menu.addEventListener('click', function (event) {
                     event.clickWithinMenu = true;
                 });
 
-                menus[i].addEventListener('keydown', function (event) {
-                    /**
-                     * Need to do some reverse engineering here to find
-                     * the toggle button based on the current menu.
-                     */
-                    var menuId = this.getAttribute('id');
-                    var menuToggle = document.querySelector('[data-dropdown-toggle="' + menuId + '"]');
-
-                    /**
-                     * Then we can give the reverse engineered toggle
-                     * to our findDropdown function we're using.
-                     */
-                    var dropdown = findDropdown(menuToggle);
-
+                menu.menu.addEventListener('keydown', function (event) {
                     // Handle all the different keyboard interactions.
-                    _handleKeydown(dropdown, event, menus);
+                    _handleKeydown(menu, event);
                 });
-            }
+            });
 
             /**
              * Listen for clicks outside of the dropdown button and close all
@@ -104,7 +92,7 @@ var Dropdown = (function() {
              */
             document.addEventListener('click', function (event) {
                 if (!event.clickWithinMenu) {
-                    closeAllMenus(undefined, menus);
+                    closeAllMenus(undefined);
                 }
             });
         }
@@ -117,14 +105,11 @@ var Dropdown = (function() {
      * instance of a dropdown menu. See findDropdown() for more info.
      * @param {Object} event
      * The event object
-     * @param {Object} menus
-     * All the dropdown menus in the DOM. See the init() function
-     * for more info.
      */
-    var _handleKeydown = function (menu, event, menus) {
+    var _handleKeydown = function (menu, event) {
         switch (event.keyCode) {
             case keys.escape:
-                toggle(menu.toggle, menu.menu, event, menus);
+                toggle(menu.toggle, menu.menu, event);
 
                 // Retrun focus to the current toggle button
                 menu.toggle.focus();
@@ -184,7 +169,7 @@ var Dropdown = (function() {
                      * toggle function if we are encouraging folks to use
                      * HTML button elements (not links) toggle stuff?
                      */
-                    toggle(menu.toggle, menu.menu, null, menus);
+                    toggle(menu.toggle, menu.menu, null);
                 }
             default:
                 break;
@@ -219,7 +204,7 @@ var Dropdown = (function() {
         return menu;
     }
 
-    var toggle = function(trigger, target, event, menus) {
+    var toggle = function(trigger, target, event) {
         if(event) {
             event.preventDefault();
             event.stopPropagation();
@@ -227,7 +212,7 @@ var Dropdown = (function() {
         }
 
         // Close all of the menus except for this one
-        closeAllMenus(target, menus);
+        closeAllMenus(target);
         // Toggle the aria-expanded state of the button that was clicked.
         toggleBtnState(trigger);
         // Toggle the aria-hidden state of the corresponding dropdown.
@@ -251,7 +236,8 @@ var Dropdown = (function() {
      * aria-exapnded state back to "false"
      */
 
-    var closeAllMenus = function(menuToLeaveOpen, menus) {
+    var closeAllMenus = function(menuToLeaveOpen) {
+        var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
         for(var i = 0; i < menus.length; i ++) {
             if(menuToLeaveOpen != menus[i]) {
                 menus[i].setAttribute(hidden, 'true');
