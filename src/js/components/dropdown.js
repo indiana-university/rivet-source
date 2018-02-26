@@ -173,7 +173,7 @@ var Dropdown = (function() {
                 previous.focus();
                 break;
             case keys.tab:
-                if (document.activeElement == menu.lastFocusable) {
+                if (document.activeElement == menu.lastFocusable && !event.shiftKey) {
                     /**
                      * NOTE:
                      * Don't pass the event to the toggle function
