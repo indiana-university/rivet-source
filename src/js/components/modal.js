@@ -159,10 +159,6 @@ var Modal = (function () {
 
         switch (e.keyCode) {
             case KEY_TAB:
-                if (focusableEls.length === 1) {
-                    e.preventDefault();
-                    break;
-                }
                 if (e.shiftKey) {
                     handleBackwardTab();
                 } else {
