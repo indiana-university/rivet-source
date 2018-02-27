@@ -3,12 +3,6 @@
     position: relative;
     display: inline-block;
 
-    button,
-    .button,
-    a.button {
-        display: flex;
-    }
-
     .button__text {
         margin-right: $xs;
     }
