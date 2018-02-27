@@ -23,6 +23,10 @@
             box-shadow: 0 0 0 $xxs/2 $color-action;
         }
 
+        &:hover {
+            text-decoration: underline;
+        }
+
         &-text {
             margin-right: $xs;
         }
