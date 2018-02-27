@@ -3,17 +3,15 @@
     position: relative;
     display: inline-block;
 
-    button,
-    .button,
-    a.button {
-        display: flex;
-    }
-
     .button__text {
         margin-right: $xs;
     }
 
-    &__trigger {
+    /**
+     * This is only used to style the header dropdowns.
+     */
+
+    &__toggle {
         display: flex;
         align-items: center;
         border: none;
@@ -23,6 +21,10 @@
         &:focus {
             outline: none;
             box-shadow: 0 0 0 $xxs/2 $color-action;
+        }
+
+        &:hover {
+            text-decoration: underline;
         }
 
         &-text {
@@ -46,6 +48,7 @@
         border-radius: $xxs;
         min-width: 12.5rem;
         padding-top: $xs;
+        padding-bottom: $xs;
         z-index: map-get($z-index, z-1000);
 
         /**
@@ -53,16 +56,19 @@
          */
 
         &--right {
-            right: $sm;
+            right: 0;
         }
 
         a,
         button {
             display: block;
             text-decoration: none;
-            margin-bottom: $xs;
-            color: #333;
-            padding: $xxs $sm;
+            color: $color-text;
+            /**
+             * This padding-top and bottom value is a magic number. Sorry,
+             * it just looks better. :)
+             */
+            padding: .375rem $sm;
             background-color: transparent;
             border: none;
             width: 100%;
@@ -76,20 +82,26 @@
 
             &:focus {
                 outline: none;
-                box-shadow: 0 0 0 $xxs/2 $color-action;
+                box-shadow: inset 0 0 0 $xxs/2 $color-action;
             }
         }
+
+        button:disabled {
+            color: $color-black--800;
+            background-color: $color-black--100;
+        }
     }
-}
 
+    &__menu-heading {
+        color: $color-black--700;
+        padding: $sm $sm $xxs;
+        font-weight: 700;
+        font-size: $ts-14;
+    }
 
-
-/**
- * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
- * How can one of them be refactored to fix this?
- */
-
-ul li .dropdown__menu a:hover,
-ul li .rvt-dropdown__menu a:hover {
-    text-decoration: none;
+    &__menu-divider {
+        border-top: 1px solid $color-black--200;
+        margin-top: $xs;
+        margin-bottom: $xs;
+    }
 }

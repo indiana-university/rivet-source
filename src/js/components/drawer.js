@@ -2,9 +2,9 @@ var Drawer = (function() {
     /**
      * Set everything up
      */
-    var drawerTrigger = document.querySelector('[data-drawer-trigger]');
-    var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-trigger]');
-    var drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-trigger') : null;
+    var drawerTrigger = document.querySelector('[data-drawer-toggle]');
+    var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-toggle]');
+    var drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-toggle') : null;
     var drawerEl = document.querySelector('#' + drawerId);
     var drawerBottomClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
 
@@ -56,7 +56,7 @@ var Drawer = (function() {
 
         for(var i = 0; i < drawerSubnavTriggers.length; i++) {
             drawerSubnavTriggers[i].addEventListener('click', function(e) {
-                toggle(this, document.querySelector('#' + this.getAttribute('data-subnav-trigger')), e)
+                toggle(this, document.querySelector('#' + this.getAttribute('data-subnav-toggle')), e)
             });
         }
 

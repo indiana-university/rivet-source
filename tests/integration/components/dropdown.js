@@ -7,7 +7,7 @@ module.exports = {
             .waitForElementNotVisible('#dropdown-1', 1000)
 
             // click the button to open the dropdown
-            .click("[data-dropdown-trigger='dropdown-1']", function(response) {
+            .click("[data-dropdown-toggle='dropdown-1']", function(response) {
                 console.log(response.state === 'success' ? "Clicked link to open dropdown" : "Couldn't click link to open dropdown")
             })
 
@@ -15,7 +15,7 @@ module.exports = {
             .waitForElementVisible('#dropdown-1', 1000);
 
         // make sure the aria-expanded and aria-hidden attributes are being set
-        browser.expect.element("[data-dropdown-trigger='dropdown-1']")
+        browser.expect.element("[data-dropdown-toggle='dropdown-1']")
             .to.have.attribute('aria-expanded')
             .equals('true')
 
@@ -27,7 +27,7 @@ module.exports = {
 
         browser
             // click the link to close the dropdown
-            .click("[data-dropdown-trigger='dropdown-1']", function(response) {
+            .click("[data-dropdown-toggle='dropdown-1']", function(response) {
                 console.log("Clicked link to close the dropdown")
             })
 
@@ -35,7 +35,7 @@ module.exports = {
             .waitForElementNotVisible('#dropdown-1', 1000)
 
             // open the dropdown by pressing enter
-            .sendKeys("[data-dropdown-trigger='dropdown-1']", browser.Keys.ENTER, function() {
+            .sendKeys("[data-dropdown-toggle='dropdown-1']", browser.Keys.ENTER, function() {
                 console.log("Pressed enter to open the dropdown")
             })
 

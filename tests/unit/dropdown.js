@@ -23,7 +23,7 @@ describe('Dropdown component behavior', function () {
         Dropdown.init();
 
         component = body.querySelector('.rvt-dropdown__menu');
-        link = body.querySelector('.rvt-dropdown__trigger');
+        link = body.querySelector('.rvt-dropdown__toggle');
     });
 
     describe('DOM state', function () {
