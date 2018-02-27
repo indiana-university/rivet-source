@@ -65,7 +65,11 @@
         button {
             display: block;
             text-decoration: none;
-            color: #333;
+            color: $color-text;
+            /**
+             * This padding-top and bottom value is a magic number. Sorry,
+             * it just looks better. :)
+             */
             padding: .375rem $sm;
             background-color: transparent;
             border: none;
@@ -91,13 +95,14 @@
     }
 
     &__menu-heading {
+        color: $color-black--700;
         padding: $sm $sm $xxs;
         font-weight: 700;
         font-size: $ts-14;
     }
 
     &__menu-divider {
-        border-top: 1px solid #ddd;
+        border-top: 1px solid $color-black--200;
         margin-top: $xs;
         margin-bottom: $xs;
     }
