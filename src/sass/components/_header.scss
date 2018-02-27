@@ -220,6 +220,16 @@
         display: flex;
     }
 
+    /**
+     * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
+     * How can one of them be refactored to fix this?
+     */
+
+    ul li .dropdown__menu a:hover,
+    ul li .rvt-dropdown__menu a:hover {
+        text-decoration: none;
+    }
+
     ul li:last-child {
         margin-right: 0;
     }
