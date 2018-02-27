@@ -17,6 +17,7 @@ describe('Dropdown component behavior', function () {
 
     let component;
     let link;
+    let dropdownId;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
@@ -24,6 +25,7 @@ describe('Dropdown component behavior', function () {
 
         component = body.querySelector('.rvt-dropdown__menu');
         link = body.querySelector('.rvt-dropdown__toggle');
+        dropdownId = component.getAttribute('id');
     });
 
     describe('DOM state', function () {
@@ -39,7 +41,7 @@ describe('Dropdown component behavior', function () {
     describe('Dropdown.toggle()', function () {
 
         it('Clicking link to open dropdown', function() {
-            Dropdown.toggle(link, component);
+            Dropdown.toggle(dropdownId);
             assert.equal(link.getAttribute(EXPANDED), 'true')
             assert.equal(component.getAttribute(HIDDEN), 'false')
         });
