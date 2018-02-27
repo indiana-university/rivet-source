@@ -107,15 +107,3 @@
         margin-bottom: $xs;
     }
 }
-
-
-
-/**
- * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
- * How can one of them be refactored to fix this?
- */
-
-ul li .dropdown__menu a:hover,
-ul li .rvt-dropdown__menu a:hover {
-    text-decoration: none;
-}
