@@ -60,31 +60,3 @@
         </button>
     </div>
 </div>
-
-<div class="rvt-ts-20 rvt-m-top-xl">Press the <strong>down arrow key</strong> to programatically open a modal example using the Modal.open() method.</div>
-<!-- TEST Code delete before releasing -->
-<div class="rvt-modal" id="modal-exceeded" role="dialog" aria-labelledby="modal-dialog-title" aria-hidden="true" tabindex=-1>
-    <div class="rvt-modal__inner">
-        <header class="rvt-modal__header">
-            <h1 class="rvt-modal__title" id="modal-dialog-title">Too Many Credits Selected</h1>
-        </header>
-        <div class="rvt-modal__body">
-            The maximum number of ACP credits you may sign up for is
-            <#> credits. Please go back to the classes page and adjust your selections.
-        </div>
-        <div class="rvt-modal__controls">
-            <button class="rvt-button rvt-button--secondary" data-modal-close="close" id="modal-exceeded-close">Back</button>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    var exceedModal = document.querySelector('#modal-exceeded');
-
-    document.addEventListener('keyup', function (e) {
-        if(e.keyCode == 40) {
-            Modal.open(exceedModal);
-        }
-    })
-</script>
