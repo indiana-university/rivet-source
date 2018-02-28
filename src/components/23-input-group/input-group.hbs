@@ -1,13 +1,84 @@
-<label for="search">Search</label>
+<label for="search" class="rvt-sr-only">Search</label>
 <div class="rvt-input-group">
     <input class="rvt-input-group__input" type="text" id="search">
     <div class="rvt-input-group__append">
-        <button class="rvt-button">Search</button>
+        <button class="rvt-button">Search docs</button>
     </div>
 </div>
-<div class="rvt-input-group rvt-m-top-lg">
+
+<label for="filter" class="rvt-sr-only">Filter options</label>
+<div class="rvt-input-group rvt-m-top-xl">
     <div class="rvt-input-group__prepend">
-        <button class="rvt-button">Filter</button>
+        <button class="rvt-button">Filter options</button>
     </div>
     <input class="rvt-input-group__input" type="text" id="filter">
+</div>
+
+<label for="segmented-append" class="rvt-sr-only">Add new</label>
+<div class="rvt-input-group rvt-m-top-xl">
+    <input class="rvt-input-group__input" type="text" id="segmented-append">
+    <div class="rvt-input-group__append">
+        <div class="rvt-dropdown">
+            <div class="rvt-button-segmented" role="group" aria-label="Dropdown group">
+                <button class="rvt-button">Primary action</button>
+                <button class="rvt-button rvt-p-right-xs rvt-p-left-xs" data-dropdown-toggle="segmented-example">
+                    <span class="rvt-sr-only">Toggle options menu</span>
+                    <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="rvt-dropdown__menu rvt-dropdown__menu--right" aria-hidden="true" id="segmented-example">
+                <button>Button one</button>
+                <button>Button two</button>
+                <button>Button three</button>
+                <a href="#">Link one</a>
+                <a href="#">Link two</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<label for="segmented-prepend" class="rvt-sr-only">Add new</label>
+<div class="rvt-input-group rvt-m-top-xl">
+    <div class="rvt-input-group__prepend">
+        <div class="rvt-dropdown">
+            <div class="rvt-button-segmented" role="group" aria-label="Dropdown group">
+                <button class="rvt-button rvt-button--secondary rvt-p-right-xs rvt-p-left-xs" data-dropdown-toggle="segmented-prepend-example">
+                    <span class="rvt-sr-only">Toggle options menu</span>
+                    <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+                    </svg>
+                </button>
+                <button class="rvt-button rvt-button--secondary">Primary action</button>
+            </div>
+            <div class="rvt-dropdown__menu" aria-hidden="true" id="segmented-prepend-example">
+                <button>Button one</button>
+                <button>Button two</button>
+                <button>Button three</button>
+                <a href="#">Link one</a>
+                <a href="#">Link two</a>
+            </div>
+        </div>
+    </div>
+    <input class="rvt-input-group__input" type="text" id="segmented-prepend">
+</div>
+
+<label for="text-append-example" class="rvt-m-top-xl">Email address</label>
+<div class="rvt-input-group">
+    <input class="rvt-input-group__input" type="text" id="text-append-example">
+    <div class="rvt-input-group__append">
+        <div class="rvt-input-group__text">@iu.edu</div>
+    </div>
+</div>
+
+<label for="text-prepend-example" class="rvt-m-top-xl">Website</label>
+<div class="rvt-input-group">
+    <div class="rvt-input-group__prepend">
+        <div class="rvt-input-group__text">https</div>
+    </div>
+    <!-- <input class="rvt-input-group__input" type="text" id="text-prepend-example"> -->
+    <select class="rvt-input-group__input" name="" id="">
+        <option value="">-Choose-</option>
+    </select>
 </div>
