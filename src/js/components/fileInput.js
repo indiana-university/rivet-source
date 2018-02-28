@@ -8,12 +8,16 @@ var FileInput = (function() {
      * This kicks off our Uploader only if there
      * are any in the document.
      */
-    var init = function() {
+    var init = function(context) {
+        if (context === undefined) {
+            context = document;
+        }    
+
         /**
          * This gets all of the the uploaders in the document
          * so we can work with them in our _bindUiActions function.
          */
-        var uploaders = document.querySelectorAll('[data-upload]');
+        var uploaders = context.querySelectorAll('[data-upload]');
 
         if(uploaders.length > 0) {
             _bindUiActions(uploaders);
