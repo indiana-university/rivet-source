@@ -1,19 +1,25 @@
 var Drawer = (function() {
-    /**
-     * Set everything up
-     */
-    var drawerTrigger = document.querySelector('[data-drawer-toggle]');
-    var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-toggle]');
-    var drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-toggle') : null;
-    var drawerEl = document.querySelector('#' + drawerId);
-    var drawerBottomClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
+    var drawerTrigger = null;
+    var drawerSubnavTriggers = null;
+    var drawerId = null;
+    var drawerEl = null;
+    var drawerBottomClose = null;
 
-    var init = function() {
+    var init = function(context) {
+        if (context === undefined) {
+            context = document;
+        }
+
+        drawerTrigger = context.querySelector('[data-drawer-toggle]');
+        drawerSubnavTriggers = context.querySelectorAll('[data-subnav-toggle]');
+        drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-toggle') : null;
+        drawerEl = context.querySelector('#' + drawerId);
+        drawerBottomClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
+
         // Check to make sure the drawer is present in the DOM
         if(drawerTrigger) {
             _bindUiActions();
         }
-
     }
 
     var toggleBtnState = function (buttonEl) {
@@ -33,7 +39,6 @@ var Drawer = (function() {
     }
 
     var toggle = function(trigger, target, event) {
-
         if(event) {
             event.preventDefault();
             event.stopPropagation();

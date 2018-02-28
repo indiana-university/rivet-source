@@ -8,13 +8,11 @@ var Tabs = (function() {
     /**
      * Get all the tab sets on the page
      */
-    var tabSets = document.querySelectorAll('.rvt-tabs');
+    var tabSets = null;
 
     var tablist = []
     var tabs = []
     var panels = []
-
-    generateArrays();
 
     function generateArrays () {
         for (var tabsetIndex = 0; tabsetIndex < tabSets.length; tabsetIndex++) {
@@ -44,7 +42,13 @@ var Tabs = (function() {
         40: 1
     }
 
-    var init = function() {
+    var init = function(context) {
+        if (context === undefined) {
+            context = document;
+        }
+
+        tabSets = context.querySelectorAll('.rvt-tabs')
+        generateArrays();
 
         // Check to make sure there are any tab sets in the DOM.
         if(tabSets.length != 0) {
