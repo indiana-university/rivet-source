@@ -19,12 +19,16 @@ var Dropdown = (function() {
      * The init checks to make sure that there are any dropdown buttons
      * on the page then kicks off all the event listeners.
      */
-    var init = function() {
+    var init = function(context) {
+        if (context === undefined) {
+            context = document;
+        }    
+
         /**
          * This is the initial set up that caches selectors and properties
          * from the DOM.
          */
-        var btnToggles = document.querySelectorAll('[data-dropdown-toggle]');
+        var btnToggles = context.querySelectorAll('[data-dropdown-toggle]');
 
         // Check to make sure there are doropdown menus in the DOM.
         if (btnToggles.length > 0) {
