@@ -1,9 +1,5 @@
 var Alert = (function() {
-    var init = function(context) {
-        if (context === undefined) {
-            context = document;
-        }
-
+    var init = function() {
         _bindUiActions();
     }
 
