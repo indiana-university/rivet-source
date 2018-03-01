@@ -29,6 +29,8 @@
     height: 47px;
     background-color: $color-crimson;
     margin-right: $xs;
+    background-color: inherit;
+    color: inherit;
 
     &-large {
         display: none;
