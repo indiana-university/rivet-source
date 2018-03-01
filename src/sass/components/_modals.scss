@@ -35,15 +35,33 @@
     }
 
     &__close {
-        /**
-         * Makes a couple of adjustments based on new button styles.
-         */
+        background-color: transparent;
+        border: none;
+        border-radius: $xxs;
         position: absolute;
         right: $sm;
-        top: $sm;
-        padding-left: .5rem;
-        padding-right: .5rem;
-        line-height: 1;
+        top: 1.1rem;
+        padding: $xs;
+        height: auto;
+        /**
+         * Helps vertically center icon on hover.
+         */
+        line-height: .5;
+        display: inline-block;
+        color: $color-text;
+
+        &:hover {
+            background-color: $color-action;
+            color: $color-background;
+        }
+
+        &:focus {
+            outline: none;
+            /* stylelint-disable */
+            box-shadow: 0 0 0 $xxs/2 $color-background,
+                        0 0 0 $xxs*1.15 $color-action;
+            /* stylelint-enable */
+        }
     }
 
     &__header {
@@ -56,7 +74,7 @@
     }
 
     &__title {
-        font-size: 1.25rem;
+        font-size: $ts-20;
         font-weight: 700;
         line-height: 1;
     }
@@ -66,7 +84,7 @@
     }
 
     &__body {
-        padding: $md;
+        padding: $sm;
     }
 
     &__controls {
