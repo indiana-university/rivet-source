@@ -27,8 +27,9 @@
     min-width: 41px;
     flex-basis: 41px;
     height: 47px;
-    background-color: $color-crimson;
     margin-right: $xs;
+    background-color: inherit;
+    color: inherit;
 
     &-large {
         display: none;
