@@ -38,7 +38,7 @@ async function takeScreenshots(page, route, filePrefix, dest) {
     let fileName = filePrefix + "/" + (route ? route : "index");
 
     // Start the browser, go to that page, and take a screenshot.
-    await page.goto(`http://127.0.0.1:3000/components/preview/${route}.html`);
+    await page.goto(`http://127.0.0.1:3000/components/preview/${route}`);
     await page.screenshot({ path: `${dest}/${fileName}.png` });
 }
 
