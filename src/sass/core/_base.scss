@@ -50,3 +50,9 @@ code {
     color: $color-midnight;
     border-radius: $xxs;
 }
+
+abbr,
+abbr[title] {
+    border: none;
+    text-decoration: none;
+}
