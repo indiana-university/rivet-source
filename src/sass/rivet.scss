@@ -10,16 +10,20 @@
 @import "utilities/utilities-display";
 @import "utilities/utilities-text";
 @import "utilities/utilities-visibility";
+@import "utilities/utilities-z-index";
 
 @import "components/alerts";
 @import "components/badges";
 @import "components/breadcrumb";
 @import "components/buttons";
+@import "components/buttons-segmented";
 @import "components/checkboxes";
 @import "components/dropdown";
+@import "components/file-input";
 @import "components/footer";
 @import "components/grid";
 @import "components/header";
+@import "components/input-group";
 @import "components/inputs";
 @import "components/links";
 @import "components/lists";
@@ -28,4 +32,6 @@
 @import "components/panels";
 @import "components/radios";
 @import "components/tables";
+@import "components/tabs";
 @import "components/type-scale";
+@import "components/validation";

@@ -17,16 +17,31 @@ textarea,
 select {
     display: block;
     width: 100%;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    background-color: #fefefe;
-    padding: .5em;
-    height: $spacing-unit * 5;
+    border-radius: $xxs;
+    /**
+     * Making the decision here to stay with 1px border on form element,
+     * but increasing the color contrast to meet WCAG requirements.
+     *
+     * See the WCAG requirement explanation here:
+     * https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)#SC_Text
+     *
+     * Also, refer to Github issue for new WCAG 2.0 requirements for
+     * non-text interactive element:
+     *
+     * https://github.com/w3c/wcag21/issues/10
+     */
+    border: 1px solid $color-black--700;
+    padding: $xs;
+    height: $xl;
+    line-height: 1;
 
     /**
-     * TODO: Should we add a max-width to form inputs? It seems desirable
-     * in a lot of situations.
+     * Prefixes get rid of browser default select element styles.
      */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
 
 textarea {
@@ -71,18 +86,20 @@ input[type="week"]:focus,
 input:not([type]):focus,
 textarea:focus,
 select:focus {
-    /**
-     * Should we just leave this default?
-     */
-    box-shadow: 0 0 1px 3px $color-midnight--300;
-    border-color: $color-midnight--300;
     outline: none;
+    /* stylelint-disable */
+    box-shadow: 0 0 0 $xxs/2 $color-background,
+                0 0 0 $xxs*1.15 $color-action;
+    /* stylelint-enable */
+    transition: box-shadow .2s ease;
 }
 
 label {
     display: inline-block;
     font-size: $ts-14;
+    line-height: 1;
     font-weight: 700;
+    margin-bottom: $xs;
 }
 
 fieldset {

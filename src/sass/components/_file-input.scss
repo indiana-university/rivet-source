@@ -1,0 +1,47 @@
+.rvt-file {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input[type="file"] {
+        width: .1px;
+        height: .1px;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    input[type="file"] + label {
+        font-size: $ts-base;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 700;
+        cursor: pointer;
+        flex-grow: 0;
+        width: inherit;
+        display: flex;
+
+        span {
+            margin-right: $xs;
+        }
+    }
+
+    input[type="file"]:focus + label {
+        outline: none;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 $xxs/2 $color-background,
+                    0 0 0 $xxs*1.15 $color-action !important;
+        /* stylelint-enable */
+    }
+
+    &__preview {
+        margin-left: $sm;
+
+        span {
+            font-weight: 700;
+            line-height: 1.5;
+            margin-right: $sm;
+            display: inline-block;
+        }
+    }
+
+}

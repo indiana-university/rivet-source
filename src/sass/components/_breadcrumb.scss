@@ -6,6 +6,7 @@
     flex-wrap: wrap;
 
     li {
+        margin-top: 0;
         margin-right: $xs;
         font-size: $ts-14;
         line-height: 1;
@@ -40,7 +41,7 @@
     &--call-out {
         background-color: $color-black--100;
         padding: $sm;
-        border-radius: $radius-small;
+        border-radius: $xxs;
 
         li:last-child {
             color: $color-black--700;

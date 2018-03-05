@@ -16,10 +16,13 @@ gulp.task('js:lint', function() {
 
 gulp.task('js:concat', function() {
     return gulp.src([
+        'src/js/polyfills/closest.js',
         'src/js/components/alert.js',
         'src/js/components/drawer.js',
         'src/js/components/dropdown.js',
         'src/js/components/modal.js',
+        'src/js/components/tabs.js',
+        'src/js/components/fileInput.js',
         'src/js/index.js'
     ])
         .pipe(concat('rivet.js'))

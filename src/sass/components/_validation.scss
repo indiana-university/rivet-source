@@ -1,0 +1,135 @@
+@include all-inputs('.rvt-is-invalid') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-orange;
+    box-shadow: 0 0 0 .125rem $color-alert-orange;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-orange;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-is-valid') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-green;
+    box-shadow: 0 0 0 .125rem $color-alert-green;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-green;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-has-warning') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-yellow;
+    box-shadow: 0 0 0 .125rem $color-alert-yellow;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-yellow;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-has-info') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-blue;
+    box-shadow: 0 0 0 .125rem $color-alert-blue;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-blue;
+        /* stylelint-enable */
+    }
+}
+
+
+.rvt-inline-alert {
+    margin-top: $xs;
+    font-size: $ts-14;
+    display: flex;
+    align-items: center;
+
+    &__icon {
+        width: $sm;
+        height: $sm;
+    }
+
+    &__message {
+        margin-left: $xs;
+        color: $color-black--700;
+        line-height: 1;
+    }
+
+    &--is-valid {
+        color: $color-alert-green;
+    }
+
+    &--has-warning {
+        color: $color-alert-yellow;
+    }
+
+    &--is-invalid {
+        color: $color-alert-orange;
+    }
+
+    &--has-info {
+        color: $color-alert-blue;
+    }
+
+    /**
+     * This standalone modifier should be used with groups of form inputs
+     * like radios and checkboxes.
+     */
+
+    &--standalone {
+        padding: $xs;
+
+        &.rvt-inline-alert--is-invalid {
+            border-left: $xxs solid $color-alert-orange;
+            background-color: $color-alert-orange-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-orange-text;
+            }
+        }
+
+        &.rvt-inline-alert--is-valid {
+            border-left: $xxs solid $color-alert-green;
+            background-color: $color-alert-green-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-green-text;
+            }
+        }
+
+        &.rvt-inline-alert--has-warning {
+            border-left: $xxs solid $color-alert-yellow;
+            background-color: $color-alert-yellow-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-yellow-text;
+            }
+        }
+
+        &.rvt-inline-alert--has-info {
+            border-left: $xxs solid $color-alert-blue;
+            background-color: $color-alert-blue-light;
+
+            .rvt-inline-alert__message {
+                color: $color-alert-blue-text;
+            }
+        }
+    }
+}

@@ -1,65 +1,94 @@
 var Drawer = (function() {
-    /**
-     * Set everything up
-     */
-    var drawerTrigger = document.querySelector('[data-drawer-trigger]');
-    var drawerSubnavTriggers = document.querySelectorAll('[data-subnav-trigger]');
-    var drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-trigger') : null;
-    var drawerEl = document.querySelector('#' + drawerId);
-    var drawerBottomClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
+    var drawerTrigger = null;
+    var drawerSubnavTriggers = null;
+    var drawerId = null;
+    var drawerEl = null;
+    var drawerBottomClose = null;
 
-    var init = function() {
+    var init = function(context) {
+        if (context === undefined) {
+            context = document;
+        }
+
+        drawerTrigger = context.querySelector('[data-drawer-toggle]');
+        drawerSubnavTriggers = context.querySelectorAll('[data-subnav-toggle]');
+        drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-toggle') : null;
+        drawerEl = context.querySelector('#' + drawerId);
+        drawerBottomClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
+
         // Check to make sure the drawer is present in the DOM
         if(drawerTrigger) {
             _bindUiActions();
         }
+    }
 
+    var toggleBtnState = function (buttonEl) {
+        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true' || false;
+        buttonEl.setAttribute('aria-expanded', !isExpanded);
+    }
+
+    var toggleHiddenState = function (itemToToggle) {
+        var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
+        itemToToggle.setAttribute('aria-hidden', !itemState);
+    }
+
+    var resetDrawer = function (drawerEl, drawerTrigger) {
+        drawerEl.setAttribute('aria-hidden', 'true');
+        drawerTrigger.setAttribute('aria-expanded', 'false');
+        drawerTrigger.classList.remove('is-open');
+    }
+
+    var toggle = function(trigger, target, event) {
+        if(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        // Toggle aria-expanded state of the button
+        toggleBtnState(trigger);
+
+        // Toggle the aria-hidden state of the drawer
+        toggleHiddenState(target);
+
+        // Toggle button open class
+        trigger.classList.toggle('is-open');
     }
 
     var _bindUiActions = function() {
-        drawerTrigger.addEventListener('click', function() {
-            // Togle aria-exapnded state of the button
-            toggleBtnState(this);
-            // Toggle the aria-hidden state of the drawer
-            toggleHiddenState(drawerEl);
-            // Toggle button open class
-            this.classList.toggle('is-open');
+        drawerTrigger.addEventListener('click', function(e) {
+            toggle(this, drawerEl, e)
         });
 
         for(var i = 0; i < drawerSubnavTriggers.length; i++) {
             drawerSubnavTriggers[i].addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                var subnavID = this.getAttribute('data-subnav-trigger');
-                var subnavEl = document.querySelector('#' + subnavID);
-                // Toggle the aria-expanded state of the button
-                toggleBtnState(this);
-                // Toggle the aria-hidden attribute of the target subnav
-                toggleHiddenState(subnavEl);
+                toggle(this, document.querySelector('#' + this.getAttribute('data-subnav-toggle')), e)
             });
         }
 
         // Make sure the extra close button is present in the DOM
         if (drawerBottomClose) {
-            drawerBottomClose.addEventListener('click', function () {
-                toggleHiddenState(drawerEl);
-                drawerTrigger.classList.toggle('is-open');
+            drawerBottomClose.addEventListener('click', function (e) {
+                toggle(drawerTrigger, drawerEl, e);
             });
         }
-    }
 
-    var toggleBtnState = function(buttonEl) {
-        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true' || false;
-        buttonEl.setAttribute('aria-expanded', !isExpanded);
-    }
+        // Close the drawer if the user presses the ESC key
+        document.addEventListener('keyup', function(e) {
+            if(e.keyCode == 27 && drawerEl.getAttribute('aria-hidden') != 'true') {
+                toggle(drawerTrigger, drawerEl, e);
+            }
+        });
 
-    var toggleHiddenState = function(itemToToggle) {
-        var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
-        itemToToggle.setAttribute('aria-hidden', !itemState);
+        document.addEventListener('click', function(e) {
+            if(e.target != drawerEl && !drawerEl.contains(e.target)) {
+                resetDrawer(drawerEl, drawerTrigger);
+            }
+        });
     }
 
     return {
-        init: init
+        init: init,
+        toggle: toggle
     }
 })();
+

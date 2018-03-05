@@ -36,7 +36,7 @@ strong {
 }
 
 hr {
-    border-top: 1px solid #eee;
+    border-top: 1px solid $color-black--100;
     border-right: none;
     border-bottom: none;
     border-left: none;
@@ -44,9 +44,9 @@ hr {
 
 code {
     font-family: monospace;
-    background-color: #eeeeee;
+    background-color: $color-black--100;
     display: inline-block;
     padding: .125rem .25rem;
     color: $color-midnight;
-    border-radius: $radius-small;
+    border-radius: $xxs;
 }

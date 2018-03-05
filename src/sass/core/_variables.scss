@@ -62,7 +62,9 @@ $color-dark-midnight: #01426a;
 
 // Black tints
 
+$color-black--50: #fafafa;
 $color-black--100: #eeeeee;
+$color-black--150: #eaeaea;
 $color-black--200: #dddddd;
 $color-black--300: #cccccc;
 $color-black--400: #aaaaaa;
@@ -71,6 +73,9 @@ $color-black--600: #777777;
 $color-black--700: #666666;
 $color-black--800: #555555;
 $color-black--900: #444444;
+
+// Use this when you need a default (darkest) black.
+$color-black--rich: #000000;
 
 
 
@@ -172,7 +177,27 @@ $breakpoints: (
 );
 
 
-
-
-// Radius
+// TODO: This should be depricated moving forward. All instances where it
+// was used have been replaced with the $xxs (4px) global variable.
 $radius-small: 3px;
+
+
+// z-index map
+// Starts and 0 and works up to 1000. Leaving some space between intervals
+// here so that we can add fine tune adjustments when/if needed
+// but, hopefully not.
+//
+// E.g. z-250: 250.
+$z-index: (
+    z-0: 0,
+    z-100: 100,
+    z-200: 200,
+    z-300: 300,
+    z-400: 400,
+    z-500: 500,
+    z-600: 600,
+    z-700: 700,
+    z-800: 800,
+    z-900: 900,
+    z-1000: 1000
+);

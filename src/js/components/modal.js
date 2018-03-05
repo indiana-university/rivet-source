@@ -8,16 +8,9 @@ var Modal = (function () {
      * Set up
      */
 
-    /**
-     * Adding both prefixed ".rvt-" and old ".modal"  versions of the
-     * selectors here. Let's eventually look at deprecating the
-     * old un-prefixed version.
-    */
-    var modals = document.querySelectorAll('.rvt-modal, .modal');
-    var modalTriggers = document.querySelectorAll('[data-modal-trigger]');
-
-    // Make modalTriggers an array
-    modalTriggers = Array.prototype.slice.call(modalTriggers);
+    
+    var modals = null;
+    var modalTriggers = null;
     var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
     /**
@@ -34,7 +27,21 @@ var Modal = (function () {
     /**
      * Kick everything off here.
      */
-    var init = function () {
+    var init = function (context) {
+        if (context === undefined) {
+            context = document;
+        }
+
+        /**
+         * Adding both prefixed ".rvt-" and old ".modal"  versions of the
+         * selectors here. Let's eventually look at deprecating the
+         * old un-prefixed version.
+        */
+        modals = document.querySelectorAll('.rvt-modal, .modal');
+        modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+        // Make modalTriggers an array
+        modalTriggers = Array.prototype.slice.call(modalTriggers);
+
         // Check to see if any modals exist on the page.
         if (modals.length != 0 && modalTriggers.length != 0) {
             _bindUiActions();
@@ -202,3 +209,4 @@ var Modal = (function () {
         close: closeModal
     }
 })();
+

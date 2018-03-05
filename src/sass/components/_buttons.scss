@@ -1,44 +1,49 @@
+/* stylelint-disable */
 %button-focus {
     outline: none;
-    box-shadow: 0 0 1px 3px $color-midnight--300;
+    box-shadow: 0 0 0 $xxs/2 $color-background,
+                0 0 0 $xxs*1.15 $color-action !important;
 }
+/* stylelint-enable */
 
-button,
+
 .button,
 .rvt-button {
     background-color: $color-midnight;
-    border-style: solid;
-    border: 2px solid $color-midnight;
+    border: $xxs/2 solid $color-midnight;
     border-radius: $xxs;
-    color: #fff;
+    color: $color-background;
     cursor: pointer;
-    display: inline-block;
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
     position: relative;
-    /**
-     * This padding sets the button-height to be the same as the text
-     * input height.
-     */
-    padding: .625rem 1rem;
     text-decoration: none;
-    vertical-align: middle;
+
+    // New
+    height: $xl;
+    padding-right: $sm*.75;
+    padding-left: $sm*.75;
+    display: inline-flex;
+    align-items: center;
+    // End new
+
+    transition: box-shadow .2s ease;
 
     &:focus,
-    &-focus {
+    &--focus {
         @extend %button-focus;
     }
 
     &:hover,
-    &-hover {
+    &--hover {
         background-color: mix($color-midnight, black, 70%);
         border-color: mix($color-midnight, black, 70%);
         color: $color-background;
     }
 
     &:active,
-    &-active {
+    &--active {
         background-color: mix($color-midnight, black, 50%);
         border-color: mix($color-midnight, black, 50%);
     }
@@ -72,6 +77,7 @@ button,
     &:active,
     &-active {
         background-color: mix($color-midnight, white, 35%);
+        color: mix($color-midnight, black, 85%);
     }
 }
 
@@ -89,7 +95,7 @@ button,
     &-hover {
         background-color: mix($color-alert-green, black, 70%);
         border-color: mix($color-alert-green, black, 70%);
-        color: #fff;
+        color: $color-background;
     }
 
     &:active,
@@ -114,13 +120,14 @@ button,
     &-hover {
         background-color: mix($color-alert-green, white, 15%);
         border-color: $color-alert-green;
-        color: $color-alert-green;
+        color: mix($color-alert-green, black, 85%);
     }
 
     &:active,
     &-active {
         background-color: mix($color-alert-green, white, 30%);
         border-color: $color-alert-green;
+        color: mix($color-alert-green, black, 75%);
     }
 }
 
@@ -138,7 +145,7 @@ button,
     &-hover {
         background-color: mix($color-alert-orange, black, 70%);
         border-color: mix($color-alert-orange, black, 70%);
-        color: #fff;
+        color: $color-background;
     }
 
     &:active,
@@ -163,21 +170,25 @@ button,
     &-hover {
         background-color: mix($color-alert-orange, white, 15%);
         border-color: $color-alert-orange;
-        color: $color-alert-orange;
+        color: mix($color-alert-orange, black, 85%);
     }
 
     &:active,
     &-active {
         background-color: mix($color-alert-orange, white, 30%);
         border-color: $color-alert-orange;
+        color: mix($color-alert-orange, black, 75%);
     }
 }
 
 
 .button--small,
 .rvt-button--small {
-    padding: .35rem .65rem;
-    font-size: $ts-14;
+    height: $md;
+    line-height: 1;
+    vertical-align: bottom;
+    padding-right: $xs;
+    padding-left: $xs;
 
     &-focus {
         @extend %button-focus;
@@ -189,10 +200,12 @@ button,
         color: $color-midnight;
     }
 
-    &-active {
+    &-active,
+    :active {
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
         color: $color-action;
+        padding-top: 0;
     }
 }
 
@@ -218,7 +231,12 @@ button,
     &-active {
         background-color: mix($color-midnight, white, 35%);
         border-color: rgba($color-midnight, 0);
-        color: $color-action;
+        color: mix($color-action, black, 85%);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        border-color: $color-black--100;
     }
 }
 

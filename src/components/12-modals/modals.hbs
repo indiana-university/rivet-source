@@ -21,8 +21,8 @@
         </div>
         <button class="rvt-button rvt-button--plain rvt-modal__close" data-modal-close="close">
             <span class="v-hide">Close</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path d="M10,8l5.63-5.63a1.39,1.39,0,0,0-2-2L8,6,2.37.41a1.39,1.39,0,0,0-2,2L6,8,.41,13.63a1.39,1.39,0,1,0,2,2L8,10l5.63,5.63a1.39,1.39,0,0,0,2-2Z" style="fill: #333"/>
+            <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"/>
             </svg>
         </button>
     </div>
@@ -46,16 +46,38 @@
                 </div>
                 <label for="description">Description</label>
                 <textarea id="description"></textarea>
+
+                <fieldset class="rvt-m-top-xl">
+                    <legend class="rvt-ts-20 rvt-text-bold">Category</legend>
+                    <ul class="rvt-plain-list">
+                        <li>
+                            <input type="checkbox" name="checkbox-demo" id="checkbox-3">
+                            <label for="checkbox-3" class="m-right-sm">Option one</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox-demo" id="checkbox-4">
+                            <label for="checkbox-4">Option two</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox-demo" id="checkbox-4-disable" disabled>
+                            <label for="checkbox-4-disable">Option three disabled</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox-demo" id="checkbox-5" disabled checked>
+                            <label for="checkbox-5">Option four checked and disabled</label>
+                        </li>
+                    </ul>
+                </fieldset>
             </div>
             <div class="rvt-modal__controls">
                 <button class="rvt-button m-right-sm close-modal">OK</button>
                 <button class="rvt-button rvt-button--secondary" data-modal-close="close">Cancel</button>
             </div>
         </form>
-        <button class="rvt-button rvt-button--plain rvt-modal__close" data-modal-close="close">
-            <span class="v-hide">Close</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path d="M10,8l5.63-5.63a1.39,1.39,0,0,0-2-2L8,6,2.37.41a1.39,1.39,0,0,0-2,2L6,8,.41,13.63a1.39,1.39,0,1,0,2,2L8,10l5.63,5.63a1.39,1.39,0,0,0,2-2Z" style="fill: #333"/>
+        <button class="rvt-modal__close" data-modal-close="close">
+            <span class="rvt-sr-only">Close</span>
+            <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"/>
             </svg>
         </button>
     </div>

@@ -52,6 +52,20 @@ gulp.task('build:dist', function(done) {
         'js:release',
         'sass:release',
         'build:example',
+        'test:unit',
         done
     );
 });
+
+/**
+ * Testing tasks
+ */
+gulp.task('test:all', function(done) {
+    runSequence(
+        'test:unit',
+        'test:integration',
+        done
+    );
+});
+
+gulp.task('test', ['test:all']);

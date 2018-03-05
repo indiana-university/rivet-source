@@ -5,18 +5,30 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label {
-    font-size: 1rem;
-    margin-left: .4rem;
+    font-size: $sm;
+    /**
+     * Helps visualy align checkbox lists
+     */
+    margin-left: .2rem;
     font-weight: 400;
 
     &:before {
         display: inline-block;
         content: " ";
-        border-radius: 2px;
+        border-radius: .125rem;
         margin-right: .75rem;
         width: $sm;
         height: $sm;
-        box-shadow: 0 0 0 2px $color-black--300;
+        transition: all .2s ease;
+        /**
+         * There are some magic numbers here that help improve rendering
+         * of box-shadows in Firefox and IE. Making them just a smidge
+         * wider (.08rem instead of .0625rem/1px) than one pixel compensates
+         * for some weird aliasing that is happening. As a bonus it seem to
+         *  make radios and checkboxes look optically closer the 1px border
+         * used on other inputs like text inputs, textareas, and selects.
+         */
+        box-shadow: 0 0 0 .08rem $color-black--700;
         /**
         * This helps visually center the label with the pseudo
         * element checkbox.
@@ -30,15 +42,11 @@ input[type="checkbox"] + label {
     }
 }
 
-input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
-}
-
 input[type="checkbox"]:checked + label {
     &:before {
         color: $color-white;
         background-color: $color-action;
-        box-shadow: 0 0 0 2px $color-action;
+        box-shadow: 0 0 0 .08rem $color-action;
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=");
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -46,14 +54,24 @@ input[type="checkbox"]:checked + label {
 
 }
 
-input[type="checkbox"]:checked:focus + label:before {
-    box-shadow: 0 0 0 2px $color-action, 0 0 1px 5px $color-midnight--300;
+/* stylelint-disable */
+input[type="checkbox"]:focus + label:before {
+    box-shadow: 0 0 0 .08rem $color-black--700,
+                0 0 0 .1875rem $color-background,
+                0 0 0 .3125rem $color-midnight;
 }
+
+input[type="checkbox"]:checked:focus + label:before,
+input[type="checkbox"]:indeterminate:focus + label:before {
+    box-shadow: 0 0 0 .08rem $color-action,
+                0 0 0 .1875rem $color-background,
+                0 0 0 .3125rem $color-midnight--500;
+}
+/* stylelint-enable */
 
 input[type="checkbox"]:disabled + label:before {
     background-color: $color-black--200;
-    box-shadow: 0 0 0 2px $color-black--300;
-
+    box-shadow: 0 0 0 .08rem $color-black--300;
 }
 
 input[type="checkbox"]:disabled + label {
@@ -68,10 +86,10 @@ input[type="checkbox"]:disabled + label {
 input[type="checkbox"]:indeterminate + label:before {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=");
     background-color: $color-action;
-    box-shadow: 0 0 0 2px $color-action;
+    box-shadow: 0 0 0 .08rem $color-action;
 }
 
 input[type="checkbox"]:indeterminate:disabled + label:before {
     background-color: $color-black--200;
-    box-shadow: 0 0 0 2px $color-black--300;
+    box-shadow: 0 0 0 .08rem $color-black--300;
 }

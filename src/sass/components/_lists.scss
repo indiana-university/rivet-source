@@ -9,12 +9,7 @@ ol {
 
 ul li,
 ol li {
-    /**
-     * Making the line-height a little taller here makes list items easier
-     * to scan. It also helps when you want to make plain lists of
-     * radio and checkbox inputs.
-     */
-    line-height: 2;
+    margin-top: $xs;
 }
 
 dl dt {
@@ -52,6 +47,8 @@ dl dd {
         display: inline-block;
         line-height: 1;
         font-size: 1rem;
+        margin-right: $sm;
+        margin-bottom: $xs;
         /**
         * So we can absolutely position stuff inside list items.
         */

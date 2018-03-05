@@ -12,13 +12,13 @@
 
 .modal,
 .rvt-modal {
-    z-index: 2;
+    z-index: map-get($z-index, z-1000);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba($color-text, .85);
     overflow-y: scroll;
     padding-bottom: 5rem;
 
@@ -27,23 +27,46 @@
         top: 5rem;
         max-width: 600px;
         width: 90%;
-        background-color: white;
+        background-color: $color-background;
         margin: 0 auto;
         margin-bottom: 5rem;
-        border-radius: $radius-small;
+        border-radius: $xxs;
         overflow: hidden;
     }
 
     &__close {
+        background-color: transparent;
+        border: none;
+        border-radius: $xxs;
         position: absolute;
-        top: $sm;
-        right: $xs;
+        right: $sm;
+        top: 1.1rem;
         padding: $xs;
+        height: auto;
+        /**
+         * Helps vertically center icon on hover.
+         */
+        line-height: .5;
+        display: inline-block;
+        color: $color-text;
+
+        &:hover {
+            background-color: $color-action;
+            color: $color-background;
+        }
+
+        &:focus {
+            outline: none;
+            /* stylelint-disable */
+            box-shadow: 0 0 0 $xxs/2 $color-background,
+                        0 0 0 $xxs*1.15 $color-action;
+            /* stylelint-enable */
+        }
     }
 
     &__header {
         padding: $md $sm;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid $color-black--100;
     }
 
     &--confirmation &__header {
@@ -51,7 +74,7 @@
     }
 
     &__title {
-        font-size: 1.25rem;
+        font-size: $ts-20;
         font-weight: 700;
         line-height: 1;
     }
@@ -61,14 +84,14 @@
     }
 
     &__body {
-        padding: $md;
+        padding: $sm;
     }
 
     &__controls {
         padding: $sm;
         display: flex;
-        border-top: 1px solid #eee;
-        background-color: #fafafa;
+        border-top: 1px solid $color-black--100;
+        background-color: $color-background-subtle;
         justify-content: flex-end;
     }
 

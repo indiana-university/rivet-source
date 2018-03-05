@@ -33,3 +33,11 @@
 .rvt-text-center {
     text-align: center !important;
 }
+
+/**
+ * Sets shorter line-height for headings and title.
+ */
+
+.rvt-lh-title {
+    line-height: 1.1;
+}

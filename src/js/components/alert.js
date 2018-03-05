@@ -1,41 +1,28 @@
 var Alert = (function() {
-
-    /**
-     * Set up locally-scoped variables
-     */
-
-    /**
-     * Adding both prefixed ".rvt-" and old ".alert"  versions of the
-     * selectors here. Let's eventually look at deprecating the
-     * old un-prefixed version.
-     */
-    var dismissButtons = document.querySelectorAll('.rvt-alert__dismiss, .alert__dismiss');
-
     var init = function() {
-        // Check to make sure there are dismissable alerts in the DOM.
-        if(dismissButtons.length != 0) {
-            _bindUiActions(dismissButtons);
-        }
+        _bindUiActions();
     }
 
-    /**
-     * @param {object} els - HTML elements to bind the actions to.
-     */
-    var _bindUiActions = function(els) {
-        for (var i = 0; i < els.length; i++) {
-            els[i].addEventListener('click', function() {
-                dismissAlert(this);
-            });
-        }
+    var _bindUiActions = function() {
+        document.addEventListener('click', function(e) {
+            _handleClick(e);
+        });
     }
 
-    /**
-     * @param {object} context - the HTML element that was clicked to
-     * to dimiss the alert
-     */
-    var dismissAlert = function(context) {
-        var elToDismiss = context.parentNode;
-        elToDismiss.parentNode.removeChild(elToDismiss);
+    var _handleClick = function(event) {
+        var dismissButton = event.target.closest('.rvt-alert__dismiss');
+
+        // If the target wasn't the dismiss button bail.
+        if (!dismissButton) return;
+
+        // Get the parent node of the dsimiss button i.e. the alert container
+        var alertThatWasClicked = dismissButton.parentNode;
+
+        dismissAlert(alertThatWasClicked);
+    }
+
+    var dismissAlert = function(alert) {
+        alert.parentNode.removeChild(alert);
     }
 
     // Expose public methods
@@ -43,5 +30,4 @@ var Alert = (function() {
         init: init,
         dismiss: dismissAlert
     }
-
 })();
