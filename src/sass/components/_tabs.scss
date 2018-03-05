@@ -61,7 +61,6 @@
 
     &__panel {
         border: 1px solid $color-black--300;
-        border-top-right-radius: $xxs;
         border-bottom-right-radius: $xxs;
         border-bottom-left-radius: $xxs;
         margin-top: -1px;
@@ -89,6 +88,10 @@
 
         &__tablist {
             display: flex;
+        }
+
+        &__panel {
+            border-top-right-radius: $xxs;
         }
     }
 }
