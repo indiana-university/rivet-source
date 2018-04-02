@@ -92,7 +92,32 @@
         display: flex;
         border-top: 1px solid $color-black--100;
         background-color: $color-background-subtle;
-        justify-content: flex-end;
+        flex-wrap: wrap;
+
+        .rvt-button {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            margin-bottom: $sm;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @include mq(bp(sm)) {
+            justify-content: flex-end;
+
+            .rvt-button {
+                width: auto;
+                margin-right: $sm;
+                margin-bottom: 0;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 
     &--small &__inner {
