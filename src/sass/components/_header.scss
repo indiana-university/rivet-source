@@ -221,6 +221,10 @@
         display: flex;
     }
 
+    ul li.rvt-is-selected {
+        box-shadow: 0 2px 0 $color-text;
+    }
+
     /**
      * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
      * How can one of them be refactored to fix this?
