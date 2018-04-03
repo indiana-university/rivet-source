@@ -210,6 +210,7 @@
     ul li {
         margin-right: $lg;
         line-height: 1.5;
+        padding: 1.25rem 0;
         /**
          * This gets rid of the margin from default lists so that nav
          * items are vertically centered.
@@ -219,10 +220,11 @@
          * This fixes some display issues in IE.
          */
         display: flex;
+        height: 100%;
     }
 
     ul li.rvt-is-selected {
-        box-shadow: 0 .125rem 0 $color-text;
+        box-shadow: 0 $xxs 0 $color-action;
     }
 
     /**
@@ -337,6 +339,15 @@
         ul li ul li a {
             padding: $sm;
             background-color: $color-black--200;
+        }
+
+        /**
+         * These are the selected states for the drawer nav.
+         */
+
+        ul li.rvt-is-selected a,
+        ul li ul li.rvt-is-selected a {
+            box-shadow: inset $xxs 0 0 $color-action;
         }
     }
 
