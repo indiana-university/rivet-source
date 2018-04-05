@@ -223,7 +223,9 @@
         height: 100%;
     }
 
-    ul li.rvt-is-selected {
+    ul li.rvt-is-selected,
+    [aria-current="true"],
+    [aria-current="page"] {
         box-shadow: 0 $xxs 0 $color-action;
     }
 
@@ -342,11 +344,14 @@
         }
 
         /**
-         * These are the selected states for the drawer nav.
+         * These are the selected states for the drawer nav including
+         * the subnavs.
          */
 
         ul li.rvt-is-selected a,
-        ul li ul li.rvt-is-selected a {
+        ul li ul li.rvt-is-selected a,
+        ul li[aria-current="page"] a,
+        ul li ul li[aria-current="true"] a {
             box-shadow: inset $xxs 0 0 $color-action;
         }
     }
