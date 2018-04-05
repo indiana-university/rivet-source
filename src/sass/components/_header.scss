@@ -211,7 +211,6 @@
     ul li {
         margin-right: $lg;
         line-height: 1.5;
-        padding: 1.25rem 0;
         /**
          * This gets rid of the margin from default lists so that nav
          * items are vertically centered.
@@ -224,8 +223,13 @@
         height: 100%;
     }
 
-    ul li.rvt-is-selected {
+    ul li a[aria-current="true"],
+    ul li a[aria-current="page"] {
         box-shadow: 0 $xxs 0 $color-action;
+
+        &:focus {
+            box-shadow: 0 0 0 $xxs/2 $color-action;
+        }
     }
 
     /**
@@ -346,8 +350,10 @@
          * These are the selected states for the drawer nav.
          */
 
-        ul li.rvt-is-selected a,
-        ul li ul li.rvt-is-selected a {
+        ul li a[aria-current="true"],
+        ul li ul li a[aria-current="true"],
+        ul li a[aria-current="page"],
+        ul li ul li a[aria-current="page"] {
             box-shadow: inset $xxs 0 0 $color-action;
         }
     }
