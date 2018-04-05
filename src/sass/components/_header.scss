@@ -116,6 +116,7 @@
 
     &:active:hover {
         background-color: mix($color-midnight, black, 50%);
+        color: $color-background;
     }
 
     &:focus {
