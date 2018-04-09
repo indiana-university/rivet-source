@@ -240,7 +240,7 @@
          * or making additional breaking changes.
          */
 
-        &:after {
+        &::after {
             content: " ";
             position: absolute;
             background-color: $color-action;
@@ -337,8 +337,8 @@
             }
         }
 
-        ul li.has-children > a:after,
-        ul li.has-children > button:after {
+        ul li.has-children > a::after,
+        ul li.has-children > button::after {
             position: absolute;
             top: $md;
             right: $md;
@@ -356,7 +356,7 @@
             margin-top: -$xxs;
         }
 
-        ul li.has-children > a[aria-expanded="true"]:after {
+        ul li.has-children > a[aria-expanded="true"]::after {
             background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0LDEyYTEsMSwwLDAsMS0uNzYtLjM1TDgsNS41NCwyLjc2LDExLjY1YTEsMSwwLDEsMS0xLjUyLTEuM0w2LjQ4LDQuMjNhMi4wNiwyLjA2LDAsMCwxLDMsMGw1LjI0LDYuMTFBMSwxLDAsMCwxLDE0LDEyWiIvPgo8L3N2Zz4=");
         }
 
