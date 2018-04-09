@@ -223,9 +223,9 @@
         height: 100%;
     }
 
-    ul li a[aria-current="true"],
-    ul li a[aria-current="page"] {
-        box-shadow: 0 $xxs 0 $color-action;
+    ul li a[aria-current],
+    ul li a[aria-current] {
+        position: relative;
 
         &:focus {
             box-shadow: 0 0 0 $xxs/2 $color-action;
