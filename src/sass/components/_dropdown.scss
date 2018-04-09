@@ -86,8 +86,11 @@
             }
 
             &.rvt-is-selected {
-                font-weight: 700;
-                border-left: $xxs solid $color-action;
+                box-shadow: inset $xxs 0 0 $color-action;
+
+                &:focus {
+                    box-shadow: inset $xxs 0 0 $color-action, inset 0 0 0 $xxs/2 $color-action;
+                }
             }
         }
 
