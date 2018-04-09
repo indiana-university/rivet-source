@@ -370,6 +370,7 @@
          */
 
         ul li a[aria-current],
+        ul li button[aria-current],
         ul li ul li a[aria-current] {
             box-shadow: inset $xxs 0 0 $color-action;
         }
