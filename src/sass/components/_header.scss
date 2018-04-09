@@ -232,8 +232,8 @@
         }
 
         /**
-         * NOTE: Using some pseudo content here in place of box-shaddow.
-         * Using box shaddow would require adding padding to the main nav
+         * NOTE: Using some pseudo content here in place of box-shadow.
+         * Using box-shadow would require adding padding to the main nav
          * links to space out the current state/underline that sits along
          * the bottom edge of the header. Using the absolutely positioned
          * :after content let's us do this without changing any markup
