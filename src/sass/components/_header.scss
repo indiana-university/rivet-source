@@ -369,10 +369,8 @@
          * These are the selected states for the drawer nav.
          */
 
-        ul li a[aria-current="true"],
-        ul li ul li a[aria-current="true"],
-        ul li a[aria-current="page"],
-        ul li ul li a[aria-current="page"] {
+        ul li a[aria-current],
+        ul li ul li a[aria-current] {
             box-shadow: inset $xxs 0 0 $color-action;
         }
     }
