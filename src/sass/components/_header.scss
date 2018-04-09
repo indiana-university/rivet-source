@@ -224,7 +224,7 @@
     }
 
     ul li a[aria-current],
-    ul li a[aria-current] {
+    ul li button[aria-current] {
         position: relative;
 
         &:focus {
