@@ -345,7 +345,8 @@
             margin: 0;
         }
 
-        ul li ul[aria-hidden="true"] {
+        ul li ul[aria-hidden="true"],
+        ul li div[aria-hidden="true"] {
             display: none;
         }
 
