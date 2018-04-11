@@ -120,6 +120,10 @@
         padding: $sm $sm $xxs;
         font-weight: 700;
         font-size: $ts-14;
+
+        &:first-child {
+            padding-top: 0;
+        }
     }
 
     &__menu-divider,
