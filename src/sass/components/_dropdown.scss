@@ -128,4 +128,10 @@
         margin-top: $xs;
         margin-bottom: $xs;
     }
+
+    [role="group"] {
+        border-top: 1px solid $color-black--200;
+        margin-top: $xs;
+        padding-top: $xs;
+    }
 }

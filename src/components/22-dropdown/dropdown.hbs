@@ -14,27 +14,14 @@
             aria-hidden="true"
             role="menu"
         >
-            <ul>
-                <li>
-                    <a href="#">Item one</a>
-                </li>
-                <li>
-                    <a href="#">Item two</a>
-                </li>
-                <li>
-                    <a href="#" aria-current="page">Item three</a>
-                </li>
-                <li>
-                    <a href="#">Item four</a>
-                </li>
-                <li>
-                    <div class="rvt-dropdown__menu-separator" role="separator"></div>
-                    <a href="#">Related item three</a>
-                </li>
-                <li>
-                    <a href="#">Related item four</a>
-                </li>
-            </ul>
+            <a href="#">Item one</a>
+            <a href="#">Item two</a>
+            <a href="#" aria-current="page">Item three</a>
+            <a href="#">Item four</a>
+            <div role="group" aria-label="Related">
+                <a href="#">Related item three</a>
+                <a href="#">Related item four</a>
+            </div>
         </div>
     </div>
 
@@ -59,8 +46,7 @@
             <button role="menuitemradio">Notify all</button>
             <button role="menuitemradio" aria-checked="true">Notify admins</button>
             <button role="menuitemradio">Notify contributors</button>
-            <div class="rvt-dropdown__menu-heading">Personal settings</div>
-            <div class="rvt-dropdown__menu-separator" role="separator"></div>
+            <div class="rvt-dropdown__menu-heading" aria-hidden="true">Personal settings</div>
             <div role="group" aria-label="Personal settings">
                 <button role="menu-item">Profile settings</button>
                 <button role="menu-item">Logout</button>
@@ -89,7 +75,6 @@
             <button role="menuitem">Button one</button>
             <button role="menuitem">Button two</button>
             <button role="menuitem">Button three</button>
-            <div class="rvt-dropdown__menu-separator" role="separator"></div>
             <button role="menuitem">Button four</button>
         </div>
     </div>
