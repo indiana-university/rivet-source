@@ -261,6 +261,36 @@
         text-decoration: none;
     }
 
+    /**
+     * This fixes styles for nested dropdowns inside of the main
+     * nav <li>s.
+     *
+     * Combating some under-specific selectors here. Maybe should think
+     * about shying away from using the super generic:
+     * .rvt-header__main-nav ul li selectors above. Could posibly
+     * add more explicit classes to the ul and li E.g:
+     *
+     * ul.rvt-header__main-nav-list > li.rvt-header__main-nav-item
+     */
+
+    ul li {
+        ul {
+            display: block;
+
+            li {
+                margin-right: 0;
+
+                a[aria-current]::after {
+                    /**
+                     * Gets rid of the pseudo element styles applied to
+                     * aria-current in the main nav.
+                     */
+                    content: none;
+                }
+            }
+        }
+    }
+
     ul li:last-child {
         margin-right: 0;
     }
@@ -315,7 +345,8 @@
             margin: 0;
         }
 
-        ul li ul[aria-hidden="true"] {
+        ul li ul[aria-hidden="true"],
+        ul li div[aria-hidden="true"] {
             display: none;
         }
 
