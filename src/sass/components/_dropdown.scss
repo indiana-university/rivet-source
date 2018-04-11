@@ -133,5 +133,11 @@
         border-top: 1px solid $color-black--200;
         margin-top: $xs;
         padding-top: $xs;
+
+        &:first-child {
+            border-top: none;
+            margin-top: 0;
+            padding: 0;
+        }
     }
 }
