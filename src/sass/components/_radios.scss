@@ -4,7 +4,8 @@ input[type="radio"] {
     opacity: 0;
 }
 
-input[type="radio"] + label {
+input[type="radio"] + label,
+.rvt-radio-wrapper input[type="radio"] ~ label {
     font-size: 1rem;
     font-weight: 400;
     /**
@@ -44,7 +45,8 @@ input[type="radio"] + label {
 }
 
 /* stylelint-disable */
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + label,
+.rvt-radio-wrapper input[type="radio"] ~ label {
     &:before {
         background-color: $color-action;
         box-shadow: inset 0 0 0 .125rem $color-background,
@@ -52,7 +54,8 @@ input[type="radio"]:checked + label {
     }
 }
 
-input[type="radio"]:focus + label:before {
+input[type="radio"]:focus + label:before,
+.rvt-radio-wrapper input[type="radio"]:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-black--700,
                 0 0 0 .1875rem $color-background,
                 0 0 0 .3125rem $color-midnight;
@@ -63,29 +66,34 @@ input[type="radio"]:focus + label:before {
  * if we follow the checkbox checked:focus state it there are too many
  * rings and it sort of looks like a bullseye.
  */
-input[type="radio"]:checked:focus + label:before {
+input[type="radio"]:checked:focus + label:before,
+.rvt-radio-wrapper input[type="radio"]:checked:focus ~ label:before {
     box-shadow: inset 0 0 0 .125rem $color-background,
                       0 0 0 .125rem $color-action,
                       0 0 0 .3125rem $color-midnight--500;
 }
 /* stylelint-enable */
 
-input[type="radio"]:disabled + label:before {
+input[type="radio"]:disabled + label:before,
+.rvt-radio-wrapper input[type="radio"]:disabled ~ label:before {
     background-color: $color-black--200;
     box-shadow: 0 0 0 .08rem $color-black--300;
 }
 
-input[type="radio"]:disabled + label:before {
+input[type="radio"]:disabled + label:before,
+.rvt-radio-wrapper input[type="radio"]:disabled ~ label:before {
     background-color: $color-black--200;
 }
 
-input[type="radio"]:checked:disabled + label:before {
+input[type="radio"]:checked:disabled + label:before,
+.rvt-radio-wrapper input[type="radio"]:checked:disabled ~ label:before {
     background-color: $color-black--300;
     box-shadow: inset 0 0 0 .125rem $color-black--200, 0 0 0 .08rem $color-black--300;
 }
 
 
-input[type="radio"]:disabled + label {
+input[type="radio"]:disabled + label,
+.rvt-radio-wrapper input[type="radio"]:disabled ~ label {
     cursor: default;
     color: $color-black--600;
 }
