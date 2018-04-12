@@ -9,11 +9,6 @@
         border-radius: 0;
         color: $color-black--700;
         display: block;
-        /**
-         * Make the tabs (buttons) a little taller on mobile for a larger
-         * hit area.
-         */
-        height: $xl * 1.1;
         line-height: 1;
         margin-right: $xs;
         padding: $xs $md;
@@ -80,7 +75,6 @@
             border-top-right-radius: $xxs;
             border-top-left-radius: $xxs;
             display: inline-block;
-            height: $xl;
             text-align: center;
             width: auto;
             border-bottom: 1px solid $color-black--300;
@@ -123,7 +117,6 @@
             border-right: none;
             border-bottom: 1px solid $color-black--300;
             border-left: none;
-            height: $xl;
             width: 100%;
 
             &[aria-selected="true"]:first-child {
