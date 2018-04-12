@@ -274,6 +274,10 @@
      * ul.rvt-header__main-nav-list > li.rvt-header__main-nav-item
      */
 
+    ul li .rvt-dropdown__menu a::after {
+        content: none;
+    }
+
     ul li {
         ul {
             display: block;
