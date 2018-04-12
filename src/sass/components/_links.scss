@@ -7,8 +7,8 @@ a,
     }
 
     &:focus {
-        outline: none;
-        box-shadow: 0 0 0 $xxs/2 $color-action;
+        outline: $xxs/2 solid $color-action;
+        outline-offset: $xxs/2;
     }
 
     a:visited {
