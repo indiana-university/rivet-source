@@ -228,7 +228,8 @@
         position: relative;
 
         &:focus {
-            box-shadow: 0 0 0 $xxs/2 $color-action;
+            outline: $xxs/2 solid $color-action;
+            outline-offset: $xxs/2;
         }
 
         /**
@@ -404,6 +405,14 @@
         ul li button[aria-current],
         ul li ul li a[aria-current] {
             box-shadow: inset $xxs 0 0 $color-action;
+
+            &:focus {
+                /* stylelint-disable */
+                box-shadow: inset $xxs 0 0 $color-action,
+                            0 0 0 $xxs/2 $color-background,
+                            0 0 0 $xxs $color-action;
+                /* stylelint-enable */
+            }
         }
     }
 
