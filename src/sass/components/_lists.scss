@@ -28,10 +28,6 @@ dl dd {
 @mixin plain-list {
     list-style: none;
     padding: 0;
-    /**
-     * So we can absolutely position stuff inside list items.
-     */
-    position: relative;
 }
 
 @mixin inline-list {
@@ -49,10 +45,6 @@ dl dd {
         font-size: 1rem;
         margin-right: $sm;
         margin-bottom: $xs;
-        /**
-        * So we can absolutely position stuff inside list items.
-        */
-        position: relative;
     }
 }
 
