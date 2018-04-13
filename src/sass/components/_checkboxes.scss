@@ -4,7 +4,8 @@ input[type="checkbox"] {
     opacity: 0;
 }
 
-input[type="checkbox"] + label {
+input[type="checkbox"] + label,
+.rvt-checkbox-wrapper input[type="checkbox"] ~ label {
     font-size: $sm;
     /**
      * Helps visualy align checkbox lists
@@ -42,7 +43,8 @@ input[type="checkbox"] + label {
     }
 }
 
-input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label,
+.rvt-checkbox-wrapper input[type="checkbox"]:checked ~ label {
     &:before {
         color: $color-white;
         background-color: $color-action;
@@ -55,26 +57,31 @@ input[type="checkbox"]:checked + label {
 }
 
 /* stylelint-disable */
-input[type="checkbox"]:focus + label:before {
+input[type="checkbox"]:focus + label:before,
+.rvt-checkbox-wrapper input[type="checkbox"]:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-black--700,
                 0 0 0 .1875rem $color-background,
                 0 0 0 .3125rem $color-midnight;
 }
 
 input[type="checkbox"]:checked:focus + label:before,
-input[type="checkbox"]:indeterminate:focus + label:before {
+input[type="checkbox"]:indeterminate:focus + label:before,
+.rvt-checkbox-wrapper input[type="checkbox"]:checked:focus ~ label:before,
+.rvt-checkbox-wrapper input[type="checkbox"]:indeterminate:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-action,
                 0 0 0 .1875rem $color-background,
                 0 0 0 .3125rem $color-midnight--500;
 }
 /* stylelint-enable */
 
-input[type="checkbox"]:disabled + label:before {
+input[type="checkbox"]:disabled + label:before,
+.rvt-checkbox-wrapper input[type="checkbox"]:disabled ~ label:before {
     background-color: $color-black--200;
     box-shadow: 0 0 0 .08rem $color-black--300;
 }
 
-input[type="checkbox"]:disabled + label {
+input[type="checkbox"]:disabled + label,
+.rvt-checkbox-wrapper input[type="checkbox"]:disabled ~ label {
     color: $color-black--700;
     cursor: default;
 }
@@ -83,13 +90,15 @@ input[type="checkbox"]:disabled + label {
  * Indeterminate state
  */
 
-input[type="checkbox"]:indeterminate + label:before {
+input[type="checkbox"]:indeterminate + label:before,
+.rvt-checkbox-wrapper input[type="checkbox"]:indeterminate ~ label:before {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=");
     background-color: $color-action;
     box-shadow: 0 0 0 .08rem $color-action;
 }
 
-input[type="checkbox"]:indeterminate:disabled + label:before {
+input[type="checkbox"]:indeterminate:disabled + label:before,
+.rvt-checkbox-wrapper input[type="checkbox"]:indeterminate:disabled ~ label:before {
     background-color: $color-black--200;
     box-shadow: 0 0 0 .08rem $color-black--300;
 }
