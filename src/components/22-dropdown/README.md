@@ -10,7 +10,7 @@ Although similar to a native HTML `<select>` element, the dropdown component sho
 ## Accessibility notes
 The dropdown uses JavaScript to fully implement WAI-ARIA authoring standards for keyboard navigation within the menu. Dropdowns should be toggled using an HTML `<button>` element. The dropdown toggle needs an `aria-haspopup` attribute with a value of `true` and a `aria-expanded` attribute set initially to `false`. The `aria-haspopup` indicates to assistive technologies(AT) that the button controls a menu that will be activated. The `aria-expanded` attribute will be used to indicate to assistive technology whether or not the menu is currently open. Lastly, the dropdown menu needs an `aria-hidden` attribute initially set to `true`. This will hide (visually and from AT) until the menu is toggled via JavaScript.
 
-### A not about buttons
+### A note about buttons
 While it is possible to use any element as a toggle for the dropdown menu, you should *always* use an HTML `<button>` element. The button element was made for triggering the addition of new content within the current context or preforming in-page actions and it's appearance is completely styleable using CSS (so dropdown toggles do not always need to look like the default Rivet button). Buttons are the best and most accessible choice for toggling the dopdown menu.
 
 ## Implementation notes

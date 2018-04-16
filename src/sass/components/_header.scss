@@ -116,6 +116,7 @@
 
     &:active:hover {
         background-color: mix($color-midnight, black, 50%);
+        color: $color-background;
     }
 
     &:focus {
@@ -219,6 +220,36 @@
          * This fixes some display issues in IE.
          */
         display: flex;
+        height: 100%;
+    }
+
+    ul li a[aria-current],
+    ul li button[aria-current] {
+        position: relative;
+
+        &:focus {
+            outline: $xxs/2 solid $color-action;
+            outline-offset: $xxs/2;
+        }
+
+        /**
+         * NOTE: Using some pseudo content here in place of box-shadow.
+         * Using box-shadow would require adding padding to the main nav
+         * links to space out the current state/underline that sits along
+         * the bottom edge of the header. Using the absolutely positioned
+         * :after content let's us do this without changing any markup
+         * or making additional breaking changes.
+         */
+
+        &::after {
+            content: " ";
+            position: absolute;
+            background-color: $color-action;
+            height: $xxs;
+            width: 100%;
+            top: 2.75rem;
+            left: 0;
+        }
     }
 
     /**
@@ -229,6 +260,40 @@
     ul li .dropdown__menu a:hover,
     ul li .rvt-dropdown__menu a:hover {
         text-decoration: none;
+    }
+
+    /**
+     * This fixes styles for nested dropdowns inside of the main
+     * nav <li>s.
+     *
+     * Combating some under-specific selectors here. Maybe should think
+     * about shying away from using the super generic:
+     * .rvt-header__main-nav ul li selectors above. Could posibly
+     * add more explicit classes to the ul and li E.g:
+     *
+     * ul.rvt-header__main-nav-list > li.rvt-header__main-nav-item
+     */
+
+    ul li .rvt-dropdown__menu a::after {
+        content: none;
+    }
+
+    ul li {
+        ul {
+            display: block;
+
+            li {
+                margin-right: 0;
+
+                a[aria-current]::after {
+                    /**
+                     * Gets rid of the pseudo element styles applied to
+                     * aria-current in the main nav.
+                     */
+                    content: none;
+                }
+            }
+        }
     }
 
     ul li:last-child {
@@ -285,7 +350,8 @@
             margin: 0;
         }
 
-        ul li ul[aria-hidden="true"] {
+        ul li ul[aria-hidden="true"],
+        ul li div[aria-hidden="true"] {
             display: none;
         }
 
@@ -307,8 +373,8 @@
             }
         }
 
-        ul li.has-children > a:after,
-        ul li.has-children > button:after {
+        ul li.has-children > a::after,
+        ul li.has-children > button::after {
             position: absolute;
             top: $md;
             right: $md;
@@ -326,13 +392,31 @@
             margin-top: -$xxs;
         }
 
-        ul li.has-children > a[aria-expanded="true"]:after {
+        ul li.has-children > a[aria-expanded="true"]::after {
             background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0LDEyYTEsMSwwLDAsMS0uNzYtLjM1TDgsNS41NCwyLjc2LDExLjY1YTEsMSwwLDEsMS0xLjUyLTEuM0w2LjQ4LDQuMjNhMi4wNiwyLjA2LDAsMCwxLDMsMGw1LjI0LDYuMTFBMSwxLDAsMCwxLDE0LDEyWiIvPgo8L3N2Zz4=");
         }
 
         ul li ul li a {
             padding: $sm;
             background-color: $color-black--200;
+        }
+
+        /**
+         * These are the selected states for the drawer nav.
+         */
+
+        ul li a[aria-current],
+        ul li button[aria-current],
+        ul li ul li a[aria-current] {
+            box-shadow: inset $xxs 0 0 $color-action;
+
+            &:focus {
+                /* stylelint-disable */
+                box-shadow: inset $xxs 0 0 $color-action,
+                            0 0 0 $xxs/2 $color-background,
+                            0 0 0 $xxs $color-action;
+                /* stylelint-enable */
+            }
         }
     }
 
@@ -361,7 +445,6 @@
             border-radius: $xxs;
             height: $xl;
             line-height: 1;
-            vertical-align: bottom;
             padding-right: $xs;
             padding-left: $xs;
         }

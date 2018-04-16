@@ -23,6 +23,3 @@ The pagination component is left-aligned by default, but you can easily center o
 
 ### Small pagination
 Add the CSS modifier class `.rvt-pagination--small` if you need to display the pagination component at a smaller size.
-
-### HOT TIP!
-The default pagination component is set to the **same height as Rivet's textual inputs and default buttons**. The `--small` modifier will make the pagination display at the same height as the [Rivet's small buttons](./buttons).

@@ -48,7 +48,7 @@
                 </span>
             </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="rvt-m-bottom-xl">
             <legend class="ts-14 text-uppercase m-bottom-sm">Indeterminate state</legend>
             <ul class="rvt-plain-list">
                 <li>
@@ -72,6 +72,22 @@
                 <li>
                     <input type="checkbox" name="checkbox-demo" id="checkbox-8">
                     <label for="checkbox-8">Parent option three</label>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend class="rvt-ts-23 rvt-text-bold">Alternate markup (visually identical)</legend>
+            <p>This example includes a hidden input in the markup, as some frameworks require. It requires that the input and label be wrapped in a <code>.rvt-checkbox-wrapper</code>.</p>
+            <ul class="rvt-inline-list">
+                <li class="rvt-checkbox-wrapper">
+                    <input type="checkbox" name="checkbox-demo" id="checkbox-9" >
+                    <input type="hidden">
+                    <label for="checkbox-9">Option one</label>
+                </li>
+                <li class="rvt-checkbox-wrapper">
+                    <input type="checkbox" name="checkbox-demo" id="checkbox-10" >
+                    <input type="hidden">
+                    <label for="checkbox-10">Option two</label>
                 </li>
             </ul>
         </fieldset>

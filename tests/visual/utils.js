@@ -27,7 +27,9 @@ const componentNames = [
     "badges",
     "panel",
     "tabs--default",
-    "file-input"
+    "file-input",
+    "dropdown",
+    "input-group"
 ];
 
 // - page is a reference to the Puppeteer page.

@@ -2,7 +2,7 @@
 %button-focus {
     outline: none;
     box-shadow: 0 0 0 $xxs/2 $color-background,
-                0 0 0 $xxs*1.15 $color-action !important;
+                0 0 0 $xxs $color-action;
 }
 /* stylelint-enable */
 
@@ -185,7 +185,7 @@
 .button--small,
 .rvt-button--small {
     height: $md;
-    line-height: 1;
+    line-height: 1.1;
     vertical-align: bottom;
     padding-right: $xs;
     padding-left: $xs;
