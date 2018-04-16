@@ -76,6 +76,7 @@ var Drawer = (function() {
         document.addEventListener('keyup', function(e) {
             if(e.keyCode == 27 && drawerEl.getAttribute('aria-hidden') != 'true') {
                 toggle(drawerTrigger, drawerEl, e);
+                drawerTrigger.focus();
             }
         });
 
