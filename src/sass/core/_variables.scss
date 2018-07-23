@@ -62,7 +62,7 @@ $color-dark-midnight: #01426a;
 
 // Black tints
 
-$color-black--50: #fafafa;
+$color-black--050: #fafafa;
 $color-black--100: #eeeeee;
 $color-black--150: #eaeaea;
 $color-black--200: #dddddd;
@@ -81,7 +81,7 @@ $color-black--rich: #000000;
 
 
 // Midnight Variations
-
+$color-midnight--050: #edf1f6;
 $color-midnight--100: #dce3ee;
 $color-midnight--200: #b8c8dc;
 $color-midnight--300: #95adcb;
@@ -121,9 +121,9 @@ $color-alert-gray-light: #eeeeee;
 $color-alert-green: #008a28;
 $color-alert-green-text: #16521d;
 $color-alert-green-light: #ddf4ea;
-$color-alert-blue: #49afc7;
-$color-alert-blue-text: #284c55;
-$color-alert-blue-light: #e9f6fc;
+$color-alert-blue: $color-action;
+$color-alert-blue-text: $color-midnight--700;
+$color-alert-blue-light: $color-midnight--050;
 $color-alert-yellow: #f5bb17;
 $color-alert-yellow-text: #584416;
 $color-alert-yellow-light: #fdf7e7;
