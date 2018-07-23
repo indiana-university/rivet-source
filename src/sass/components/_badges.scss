@@ -36,7 +36,9 @@ a.rvt-badge {
     }
 
     &--action:hover,
-    &--action-secondary:hover {
+    &--action-secondary:hover,
+    &--info:hover,
+    &--info-secondary:hover {
         background-color: $color-midnight--700;
         border-color: $color-midnight--700;
         color: $color-background;
@@ -57,7 +59,9 @@ a.rvt-badge {
     }
 
     &--error:hover,
-    &--error-secondary:hover {
+    &--error-secondary:hover,
+    &--danger:hover,
+    &--danger-secondary:hover {
         background-color: $color-alert-orange-text;
         border-color: $color-alert-orange-text;
         color: $color-background;
@@ -68,7 +72,8 @@ a.rvt-badge {
     }
 }
 
-.rvt-badge--action {
+.rvt-badge--action,
+.rvt-badge--info {
     background-color: $color-action;
     border-color: $color-action;
     color: $color-background;
@@ -104,7 +109,8 @@ a.rvt-badge {
     }
 }
 
-.rvt-badge--error {
+.rvt-badge--error,
+.rvt-badge--danger {
     background-color: $color-alert-orange;
     border-color: $color-alert-orange;
     color: $color-background;
