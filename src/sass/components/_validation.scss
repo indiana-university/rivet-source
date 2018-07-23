@@ -1,3 +1,68 @@
+@include all-inputs('.rvt-validation-info') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-blue;
+    box-shadow: 0 0 0 .125rem $color-alert-blue;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-blue;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-validation-warning') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-yellow;
+    box-shadow: 0 0 0 .125rem $color-alert-yellow;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-yellow;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-validation-danger') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-orange;
+    box-shadow: 0 0 0 .125rem $color-alert-orange;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-orange;
+        /* stylelint-enable */
+    }
+}
+
+@include all-inputs('.rvt-validation-success') {
+    transition: box-shadow .2s ease;
+    border-color: $color-alert-green;
+    box-shadow: 0 0 0 .125rem $color-alert-green;
+
+    &:focus {
+        border-color: $color-black--700;
+        /* stylelint-disable */
+        box-shadow: 0 0 0 .125rem $color-background,
+                    0 0 0 .2875rem $color-alert-green;
+        /* stylelint-enable */
+    }
+}
+
+/**
+ * DEPRECATED
+ *
+ * These should be deprecated as a result of standardizing the way
+ * we refer to different alert colors across all components. There is some
+ * acceptable duplication here for simplicity's sake until we can actually
+ * remove this stuff from the code base.
+ */
+
 @include all-inputs('.rvt-is-invalid') {
     transition: box-shadow .2s ease;
     border-color: $color-alert-orange;
@@ -11,6 +76,7 @@
         /* stylelint-enable */
     }
 }
+
 
 @include all-inputs('.rvt-is-valid') {
     transition: box-shadow .2s ease;
@@ -54,6 +120,15 @@
     }
 }
 
+/**
+ * End deprecated input validation
+ */
+
+/**
+ * Inline alerts:
+ * These inline alerts are handy for displaying validation messages
+ * alongside groups of form inputs like radio buttons and checkboxes
+ */
 
 .rvt-inline-alert {
     margin-top: $xs;
@@ -72,19 +147,23 @@
         line-height: 1;
     }
 
-    &--is-valid {
+    &--is-valid,
+    &--success {
         color: $color-alert-green;
     }
 
-    &--has-warning {
+    &--has-warning,
+    &--warning {
         color: $color-alert-yellow;
     }
 
-    &--is-invalid {
+    &--is-invalid,
+    &--danger {
         color: $color-alert-orange;
     }
 
-    &--has-info {
+    &--has-info,
+    &--info {
         color: $color-alert-blue;
     }
 
@@ -96,7 +175,8 @@
     &--standalone {
         padding: $xs;
 
-        &.rvt-inline-alert--is-invalid {
+        &.rvt-inline-alert--is-invalid,
+        &.rvt-inline-alert--danger {
             border-left: $xxs solid $color-alert-orange;
             background-color: $color-alert-orange-light;
 
@@ -105,7 +185,7 @@
             }
         }
 
-        &.rvt-inline-alert--is-valid {
+        &.rvt-inline-alert--success {
             border-left: $xxs solid $color-alert-green;
             background-color: $color-alert-green-light;
 
@@ -114,7 +194,7 @@
             }
         }
 
-        &.rvt-inline-alert--has-warning {
+        &.rvt-inline-alert--warning {
             border-left: $xxs solid $color-alert-yellow;
             background-color: $color-alert-yellow-light;
 
@@ -123,7 +203,8 @@
             }
         }
 
-        &.rvt-inline-alert--has-info {
+        &.rvt-inline-alert--has-info,
+        &.rvt-inline-alert--info {
             border-left: $xxs solid $color-alert-blue;
             background-color: $color-alert-blue-light;
 
