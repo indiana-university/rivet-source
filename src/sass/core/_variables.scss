@@ -61,47 +61,47 @@ $color-dark-midnight: #01426a !default;
 
 // Black tints
 
-$color-black--050: #fafafa;
-$color-black--100: #eeeeee;
-$color-black--150: #eaeaea;
-$color-black--200: #dddddd;
-$color-black--300: #cccccc;
-$color-black--400: #aaaaaa;
-$color-black--500: #999999;
-$color-black--600: #777777;
-$color-black--700: #666666;
-$color-black--800: #555555;
-$color-black--900: #444444;
+$color-black--050: #fafafa !default;
+$color-black--100: #eeeeee !default;
+$color-black--150: #eaeaea !default;
+$color-black--200: #dddddd !default;
+$color-black--300: #cccccc !default;
+$color-black--400: #aaaaaa !default;
+$color-black--500: #999999 !default;
+$color-black--600: #777777 !default;
+$color-black--700: #666666 !default;
+$color-black--800: #555555 !default;
+$color-black--900: #444444 !default;
 
 // Use this when you need a default (darkest) black.
-$color-black--rich: #000000;
+$color-black--rich: #000000 !default;
 
 
 
 
 // Midnight Variations
-$color-midnight--050: #edf1f6;
-$color-midnight--100: #dce3ee;
-$color-midnight--200: #b8c8dc;
-$color-midnight--300: #95adcb;
-$color-midnight--400: #7194ba;
-$color-midnight--500: #497ba9;
-$color-midnight--600: #076399;
-$color-midnight--700: #134a71;
-$color-midnight--800: #16324b;
-$color-midnight--900: #121c28;
+$color-midnight--050: #edf1f6 !default;
+$color-midnight--100: #dce3ee !default;
+$color-midnight--200: #b8c8dc !default;
+$color-midnight--300: #95adcb !default;
+$color-midnight--400: #7194ba !default;
+$color-midnight--500: #497ba9 !default;
+$color-midnight--600: #076399 !default;
+$color-midnight--700: #134a71 !default;
+$color-midnight--800: #16324b !default;
+$color-midnight--900: #121c28 !default;
 
 
 
 
 // Colors by purpose
 
-$color-text: $color-black;
-$color-background: $color-white;
-$color-background-subtle: $color-subtle-gray;
-$color-action: $color-midnight;
-$color-link: $color-midnight;
-$color-link-visited: $color-dark-midnight;
+$color-text: $color-black !default;
+$color-background: $color-white !default;
+$color-background-subtle: $color-subtle-gray !default;
+$color-action: $color-midnight !default;
+$color-link: $color-midnight !default;
+$color-link-visited: $color-dark-midnight !default;
 
 
 
@@ -115,20 +115,20 @@ $color-link-visited: $color-dark-midnight;
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
 
-$color-alert-gray: #a7a9ab;
-$color-alert-gray-light: #eeeeee;
-$color-alert-green: #008a28;
-$color-alert-green-text: #16521d;
-$color-alert-green-light: #ddf4ea;
-$color-alert-blue: $color-action;
-$color-alert-blue-text: $color-midnight--700;
-$color-alert-blue-light: $color-midnight--050;
-$color-alert-yellow: #f5bb17;
-$color-alert-yellow-text: #584416;
-$color-alert-yellow-light: #fdf7e7;
-$color-alert-orange: #df3603;
-$color-alert-orange-text: #82270d;
-$color-alert-orange-light: #fdeee8;
+$color-alert-gray: #a7a9ab !default;
+$color-alert-gray-light: #eeeeee !default;
+$color-alert-green: #008a28 !default;
+$color-alert-green-text: #16521d !default;
+$color-alert-green-light: #ddf4ea !default;
+$color-alert-blue: $color-action !default;
+$color-alert-blue-text: $color-midnight--700 !default;
+$color-alert-blue-light: $color-midnight--050 !default;
+$color-alert-yellow: #f5bb17 !default;
+$color-alert-yellow-text: #584416 !default;
+$color-alert-yellow-light: #fdf7e7 !default;
+$color-alert-orange: #df3603 !default;
+$color-alert-orange-text: #82270d !default;
+$color-alert-orange-light: #fdeee8 !default;
 
 
 
@@ -146,22 +146,22 @@ $color-map: (
     "blue": $color-alert-blue,
     "yellow": $color-alert-yellow,
     "orange": $color-alert-orange
-);
+) !default;
 
 
 
 
 // Global spacing units
 
-$spacing-unit: .5rem;        // 8px
+$spacing-unit: .5rem !default;        // 8px
 
-$xxs: $spacing-unit/2;       // 4px
-$xs: $spacing-unit;          // 8px
-$sm: $spacing-unit * 2;      // 16px Base
-$md: $spacing-unit * 3;      // 24px
-$lg: $spacing-unit * 4;      // 32px
-$xl: $spacing-unit * 5;      // 40px
-$xxl: $spacing-unit * 8;     // 64px
+$xxs: $spacing-unit/2 !default;       // 4px
+$xs: $spacing-unit !default;          // 8px
+$sm: $spacing-unit * 2 !default;      // 16px Base
+$md: $spacing-unit * 3 !default;      // 24px
+$lg: $spacing-unit * 4 !default;      // 32px
+$xl: $spacing-unit * 5 !default;      // 40px
+$xxl: $spacing-unit * 8 !default;     // 64px
 
 
 
@@ -173,12 +173,12 @@ $breakpoints: (
     lg: 1080px,
     xl: 1260px,
     xxl: 1400px
-);
+) !default;
 
 
 // TODO: This should be depricated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
-$radius-small: 3px;
+$radius-small: 3px !default;
 
 
 // z-index map
@@ -199,4 +199,4 @@ $z-index: (
     z-800: 800,
     z-900: 900,
     z-1000: 1000
-);
+) !default;
