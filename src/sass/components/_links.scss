@@ -27,3 +27,13 @@ a,
         color: $color-background;
     }
 }
+
+.rvt-link--bold,
+.rvt-link-bold {
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
