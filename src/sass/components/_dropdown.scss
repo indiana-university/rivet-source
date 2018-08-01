@@ -7,6 +7,12 @@
         margin-right: $xs;
     }
 
+    button {
+        &[aria-expanded="true"] > svg {
+            transform: rotate(180deg);
+        }
+    }
+
     /**
      * This is only used to style the header dropdowns.
      */
@@ -36,7 +42,7 @@
         }
     }
 
-    &__menu[aria-hidden="true"] {
+    &__menu[hidden] {
         display: none;
     }
 
