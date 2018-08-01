@@ -175,6 +175,11 @@ $breakpoints: (
     xxl: 1400px
 ) !default;
 
+$breakpoint-sm: map-get($breakpoints, 'sm');
+$breakpoint-md: map-get($breakpoints, 'md');
+$breakpoint-lg: map-get($breakpoints, 'lg');
+$breakpoint-xl: map-get($breakpoints, 'xl');
+$breakpoint-xxl: map-get($breakpoints, 'xxl');
 
 // TODO: This should be depricated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
