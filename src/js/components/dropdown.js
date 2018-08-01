@@ -1,283 +1,304 @@
-/**
- * Same here. This is a start, but needs more work.
- */
-
 var Dropdown = (function() {
-    // For easy reference
-    var keys = {
-        up: 38,
-        down: 40,
-        tab: 9,
-        escape: 27
-    };
+  /**
+   * Global references
+   */
 
-    var expanded = 'aria-expanded';
-    var hidden = 'aria-hidden';
-    var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+  // Keeps track of the currently active toggle. Helps with focus management
+  var activeToggle;
 
-    /**
-     * The init checks to make sure that there are any dropdown buttons
-     * on the page then kicks off all the event listeners.
-     */
-    var init = function(context) {
-        if (context === undefined) {
-            context = document;
-        }    
+  /**
+   * Global constants
+   */
+
+  // For easy reference
+  var KEYS = {
+    up: 38,
+    down: 40,
+    tab: 9,
+    escape: 27
+  };
+
+  // Anything that is focusable
+  var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+
+  var MENU_SELECTOR = '.rvt-dropdown__menu';
+
+  var TOGGLE_ATTR = 'data-dropdown-toggle';
+
+  /**
+   *
+   * @param {Function} callback
+   * An optional callback function that gets executed after the
+   * the closeAllMenus method is executed.
+   */
+  function closeAllMenus(callback) {
+    var allDrops = Array.prototype.slice.call(
+      document.querySelectorAll('[' + TOGGLE_ATTR + ']')
+    );
+
+    allDrops.forEach(function (item) {
+      item.setAttribute('aria-expanded', 'false');
+
+      var menuId = item.getAttribute(TOGGLE_ATTR);
+
+      var menu = document.getElementById(menuId);
+
+      menu.setAttribute('hidden', true);
+    });
+
+    if (callback && typeof callback === 'function') {
+      callback();
+    }
+  }
+
+  /**
+   * @param {String} id
+   * A unique string used for the dropdown toggle element's
+   * data-dropdown-toggle attribute and the corresponding menu's
+   * "id" attribute.
+   * @param {Function} callback
+   * An optional callback function that gets emmitted after the
+   * menu is opened.
+   */
+  function openMenu(id, callback) {
+    // Start off by closing any open menus
+    closeAllMenus();
+
+    var toggleSelector = '[data-dropdown-toggle="' + id + '"]';
+
+    var toggle = document.querySelector(toggleSelector);
+
+    // If the menu was opened by clicking an associated toggle
+    if (toggle && toggle !== null) {
+      toggle.setAttribute('aria-expanded', 'true');
+
+      activeToggle = toggle;
+    }
+
+    // Get the menu to be opened by id
+    var menu = document.getElementById(id);
+
+    // Remove the 'hidden' attribute to show the menu
+    menu.removeAttribute('hidden');
+
+    // Emmit a custom event that can be used as a hook for other actions
+    fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
+
+    // Execute supplied callback function if it exists
+    if (callback && typeof callback === 'function') {
+      callback();
+    }
+  }
+
+  /**
+   * @param {String} id
+   * A unique string associate with the dropdown's
+   * "data-dropdown-toggle" and "id" attributes.
+   * @param {Function} callback
+   * An optional callback function that is
+   * executed after the closeMenu method is called.
+   */
+  function closeMenu(id, callback) {
+    var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
+
+    if (toggle && toggle !== undefined) {
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    var menu = document.getElementById(id);
+
+    menu.setAttribute('hidden', 'true');
+
+    // Emmit a custom event that can be used as a hook for other actions
+    fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownClose');
+
+    // Execute supplied callback function if it exists
+    if (callback && typeof callback === 'function') {
+      callback();
+    }
+  }
+
+  function _setUpMenu(menu) {
+    var menuObject = {};
+
+    // Create a real Array of all the focusable elements in the menu
+    var menuFocusbles = Array.prototype.slice.call(
+      menu.querySelectorAll(ALL_FOCUSABLE_ELS)
+    );
+
+    // Create a property to hold an array of all focusables
+    menuObject.all = menuFocusbles;
+
+    // Create a property with a reference to the first focusable
+    menuObject.first = menuFocusbles[0];
+
+    // Create a property with a reference to the last focusable
+    menuObject.last = menuFocusbles[menuFocusbles.length - 1];
+
+    return menuObject;
+  }
+
+  /**
+   * Event handlers
+   */
+
+  function _handleClick(event) {
+    var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
+
+    if (!toggle || toggle.getAttribute('aria-expanded') === 'true') {
+      closeAllMenus();
+
+      return;
+    }
+
+    // Close any other open menu
+    closeAllMenus();
+
+    var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
+
+    openMenu(dropdownId);
+  }
+
+  function _handleKeydown(event) {
+    switch (event.keyCode) {
+      // Handle down key
+      case KEYS.down:
+        var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
 
         /**
-         * This is the initial set up that caches selectors and properties
-         * from the DOM.
+         * If you were focused on the dropdown toggle
          */
-        var btnToggles = context.querySelectorAll('[data-dropdown-toggle]');
+        if (toggle && toggle !== null) {
+          var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
 
-        // Check to make sure there are doropdown menus in the DOM.
-        if (btnToggles.length > 0) {
-            /**
-             * Main toggle action
-             */
-            for (var i = 0; i < btnToggles.length; i++) {
-                btnToggles[i].addEventListener('click', function (event) {
-                    var dropdown = findDropdown(this);
+          var menu = document.getElementById(dropdownId);
 
-                    toggle(dropdown.toggle, dropdown.menu, event);
-                });
+          // If your focused on the toggle button and the menu is open.
+          if (toggle.getAttribute('aria-expanded') === 'true') {
+            var currentMenu = _setUpMenu(menu);
 
-                /**
-                 * The first time a user is focused on a dropdown toggle
-                 * and presses the down key we want the dropdown to open,
-                 * but not focus the first element in the menu.
-                 */
-                btnToggles[i].addEventListener('keyup', function(event) {
-                    var dropdown = findDropdown(this);
+            currentMenu.first.focus();
+          }
 
-                    if(event.keyCode == keys.down) {
-                        event.preventDefault();
-                        toggle(dropdown.toggle, dropdown.menu, event);
-                    }
-                });
+          openMenu(dropdownId);
+        }
 
-                /**
-                 * Then an additional press of the down key should focus the
-                 * first focusable element in the menu.
-                 */
-                btnToggles[i].addEventListener('keydown', function (event) {
-                    var dropdown = findDropdown(this);
+        /**
+         * Handle down arrow key when inside the open menu.
+         */
+        if (event.target.closest(MENU_SELECTOR) !== null) {
+          var theMenu = event.target.closest(MENU_SELECTOR);
 
-                    if (event.keyCode == keys.down) {
-                        event.preventDefault();
-                        dropdown.firstFocusable.focus();
-                    }
+          var currentMenu = _setUpMenu(theMenu);
 
-                    if (event.keyCode == keys.escape && dropdown.menu.getAttribute('aria-hidden') == 'false') {
-                        toggle(dropdown.toggle, dropdown.menu, event);
-                    }
-                });
+          var currentIndex;
+
+          /**
+           * This keeps track of which button/focusable is focused in the open menu
+           */
+          for (var i = 0; i < currentMenu.all.length; i++) {
+            if (event.target == currentMenu.all[i]) {
+              currentIndex = i;
             }
+          }
 
-            btnToggles = Array.prototype.slice.call(btnToggles);
-            btnToggles.forEach(function(btn) {
-                var menu = findDropdown(btn);
-                /**
-                 * Stop click on dropdown menus from bubbling up
-                 */
-                menu.menu.addEventListener('click', function (event) {
-                    event.clickWithinMenu = true;
-                });
+          var nextItem = currentMenu.all[currentIndex + 1];
 
-                menu.menu.addEventListener('keydown', function (event) {
-                    // Handle all the different keyboard interactions.
-                    _handleKeydown(menu, event);
-                });
-            });
+          if (!nextItem) {
+            currentMenu.first.focus();
+            return;
+          }
 
-            /**
-             * Listen for clicks outside of the dropdown button and close all
-             * opened dropdown menus.
-             */
-            document.addEventListener('click', function (event) {
-                if (!event.clickWithinMenu) {
-                    closeAllMenus(undefined);
-                }
-            });
-        }
-    }
-
-    /**
-     *
-     * @param {Object} menu
-     * An object containing all the refernces we need to work with an
-     * instance of a dropdown menu. See findDropdown() for more info.
-     * @param {Object} event
-     * The event object
-     */
-    var _handleKeydown = function (menu, event) {
-        switch (event.keyCode) {
-            case keys.escape:
-                toggle(menu.toggle, menu.menu, event);
-
-                // Retrun focus to the current toggle button
-                menu.toggle.focus();
-                break;
-            case keys.down:
-                event.preventDefault();
-                var currentIndex;
-
-                for (var i = 0; i < menu.focusables.length; i++) {
-                    if (event.target == menu.focusables[i]) {
-                        currentIndex = i;
-                    }
-                }
-                // Store a reference to the next button or link
-                var next = menu.focusables[currentIndex + 1];
-
-                /**
-                 * If it's the last button or link return focus to
-                 * the first focusable element.
-                 */
-                if (!next) {
-                    menu.firstFocusable.focus();
-                    return;
-                }
-
-                // Otherwise focus the next element.
-                next.focus();
-                break;
-            case keys.up:
-                event.preventDefault();
-                var currentIndex;
-
-                for (var i = 0; i < menu.focusables.length; i++) {
-                    if (event.target == menu.focusables[i]) {
-                        currentIndex = i;
-                    }
-                }
-
-                var previous = menu.focusables[currentIndex - 1];
-
-                if(!previous) {
-                    menu.lastFocusable.focus();
-                    return;
-                }
-
-                previous.focus();
-                break;
-            case keys.tab:
-                if (document.activeElement == menu.lastFocusable && !event.shiftKey) {
-                    /**
-                     * NOTE:
-                     * Don't pass the event to the toggle function
-                     * here because we don't want to prevent the
-                     * default behavior of the tab key moving focus
-                     * to whatever is the next focusable thing
-                     * in the DOM. QUESTION: Do we need to preventDefault on this
-                     * toggle function if we are encouraging folks to use
-                     * HTML button elements (not links) toggle stuff?
-                     */
-                    toggle(menu.toggle, menu.menu, null);
-                }
-            default:
-                break;
-        }
-    }
-
-    /**
-     *
-     * @param {HTMLElement} el
-     * Accepts dropdown toggle and returns an object containing
-     * references to the menu it controls, and id, the toggle itself,
-     * all focusable elements inside the menu, and the first and
-     * last focusable elements.
-     *
-     */
-    var findDropdown = function (el) {
-        var menu = {};
-
-        menu.toggle = el;
-        menu.id = el.getAttribute('data-dropdown-toggle');
-        menu.menu = document.querySelector('#' + menu.id);
-
-        // Find all focusable elements in the dropdown
-        menu.focusables = menu.menu.querySelectorAll(allFocusableEls);
-
-        // Find first focusable element
-        menu.firstFocusable = menu.focusables[0];
-
-        // Find last focusable element
-        menu.lastFocusable = menu.focusables[menu.focusables.length - 1];
-
-        return menu;
-    }
-
-    var toggle = function(trigger, target, event) {
-        if(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            event.clickWithinMenu = true
+          nextItem.focus();
         }
 
-        // Close all of the menus except for this one
-        closeAllMenus(target);
-        // Toggle the aria-expanded state of the button that was clicked.
-        toggleBtnState(trigger);
-        // Toggle the aria-hidden state of the corresponding dropdown.
-        toggleMenuState(target);
-    }
+        break;
 
-    // Toggles the aria-expanded state of the target button
-    var toggleBtnState = function(buttonEl) {
-        var isExpanded = buttonEl.getAttribute(expanded) === 'true' || false;
-        buttonEl.setAttribute(expanded, !isExpanded);
-    }
+      case KEYS.up:
+        /**
+         * TODO: This needs to be refactored into something reusable - lots of
+         * repetition here.
+         */
 
-    // Toggles the aria-hidden state of the dropdown menu
-    var toggleMenuState = function(dropdownMenuEl) {
-        var menuState = dropdownMenuEl.getAttribute(hidden) === 'true' || false;
-        dropdownMenuEl.setAttribute(hidden, !menuState);
-    }
+        // Handle up arrow key when inside the open menu.
+        if (event.target.closest(MENU_SELECTOR) !== null) {
 
-    /**
-     *
-     * @param {String} id
-     * The value of the dropdown toggle data-dropdown-toggle attribute and
-     * matching id of the dropdown men it controls.
-     *
-     * This is a helper function that we expose as part of the public API.
-     */
+          var theMenu = event.target.closest(MENU_SELECTOR);
 
-    var toggleById = function(id) {
-        var toggleButton = document.querySelector('[data-dropdown-toggle="' + id + '"]');
-        var toggleMenu = document.getElementById(id);
+          var currentMenu = _setUpMenu(theMenu);
 
-        toggle(toggleButton, toggleMenu);
-    }
+          var currentIndex;
 
-    /**
-     * Closes any open dropdown menus and sets the corresponding trigger's
-     * aria-exapnded state back to "false"
-     */
-
-    var closeAllMenus = function(menuToLeaveOpen) {
-        var menus = document.querySelectorAll('.rvt-dropdown__menu, .dropdown__menu');
-        for(var i = 0; i < menus.length; i ++) {
-            if(menuToLeaveOpen != menus[i]) {
-                menus[i].setAttribute(hidden, 'true');
-                var triggerElData = menus[i].getAttribute('id');
-                var triggerEl = document.querySelector('[data-dropdown-toggle="' + triggerElData + '"]');
-                triggerEl.setAttribute(expanded, 'false');
+          // This keeps track of which button/focusable is focused in the open menu
+          for (var i = 0; i < currentMenu.all.length; i++) {
+            if (event.target == currentMenu.all[i]) {
+              currentIndex = i;
             }
+          }
+
+          var previousItem = currentMenu.all[currentIndex - 1];
+
+          if (!previousItem && currentMenu.last !== undefined) {
+            currentMenu.last.focus();
+            return;
+          }
+
+          previousItem.focus();
         }
-    }
 
+        break;
+
+      case KEYS.escape:
+        closeAllMenus();
+
+        if (activeToggle && activeToggle !== null || undefined) {
+          activeToggle.focus();
+        }
+
+        break;
+
+      case KEYS.tab:
+        // Handle tab key when inside the open menu.
+        if (event.target.closest(MENU_SELECTOR) !== null || undefined) {
+          var theMenu = event.target.closest(MENU_SELECTOR);
+
+          var currentMenu = _setUpMenu(theMenu);
+
+          var currentIndex;
+
+          // This keeps track of which button/focusable is focused in the open menu
+          for (var i = 0; i < currentMenu.all.length; i++) {
+            if (event.target == currentMenu.all[i]) {
+              currentIndex = i;
+            }
+          }
+
+          // Close the dropdown when the user tabs out of the menu.
+          if (document.activeElement == currentMenu.last && !event.shiftKey) {
+            closeAllMenus();
+            return;
+          }
+        }
+
+        break;
+    }
+  }
+
+  function init() {
     /**
-     * This return statement exposes the functions that need to be availble
-     * to initialize the everything and provide programatic access to the
-     * closeAllMenus function if needed.
+     * Attach all event listerns to the document
      */
+    document.addEventListener('click', _handleClick, false);
+    document.addEventListener('keydown', _handleKeydown, false);
+  }
 
-    return {
-        init: init,
-        closeAll: closeAllMenus,
-        toggle: toggleById
-    }
+  /**
+   * Return public APIs
+   */
+  return {
+    open: openMenu,
+    close: closeMenu,
+    closeAll: closeAllMenus,
+    init: init
+  };
 })();
-
