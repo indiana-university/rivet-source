@@ -38,12 +38,19 @@ describe('Dropdown component behavior', function () {
         });
     });
 
-    describe('Dropdown.toggle()', function () {
-
-        it('Clicking link to open dropdown', function() {
-            Dropdown.toggle(dropdownId);
+    describe('Dropdown.open()', function () {
+        it('Toggle should have an aria-expanded attribute with a value of "true", and menu should have an aria-hidden with a value of "false"', function() {
+            Dropdown.open(dropdownId);
             assert.equal(link.getAttribute(EXPANDED), 'true')
             assert.equal(component.getAttribute(HIDDEN), 'false')
+        });
+    });
+
+    describe('Dropdown.close()', function () {
+        it('Toggle should have an aria-expanded attribute with a value of "false", and menu should have an aria-hidden with a value of "true"', function () {
+            Dropdown.close(dropdownId);
+            assert.equal(link.getAttribute(EXPANDED), 'false')
+            assert.equal(component.getAttribute(HIDDEN), 'true')
         });
     });
 });
