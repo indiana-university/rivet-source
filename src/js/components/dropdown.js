@@ -43,7 +43,7 @@ var Dropdown = (function() {
 
       var menu = document.getElementById(menuId);
 
-      menu.setAttribute('hidden', true);
+      menu.setAttribute('aria-hidden', 'true');
     });
 
     if (callback && typeof callback === 'function') {
@@ -79,7 +79,7 @@ var Dropdown = (function() {
     var menu = document.getElementById(id);
 
     // Remove the 'hidden' attribute to show the menu
-    menu.removeAttribute('hidden');
+    menu.setAttribute('aria-hidden', 'false');
 
     // Emmit a custom event that can be used as a hook for other actions
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
@@ -107,7 +107,7 @@ var Dropdown = (function() {
 
     var menu = document.getElementById(id);
 
-    menu.setAttribute('hidden', 'true');
+    menu.setAttribute('aria-hidden', 'true');
 
     // Emmit a custom event that can be used as a hook for other actions
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownClose');
