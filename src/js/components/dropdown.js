@@ -269,23 +269,31 @@ var Dropdown = (function() {
     }
   }
 
-  function init() {
-    // Destroy any currently initialized dropdowns
-    destroy();
-
-    /**
-     * Attach all event listerns to the document
-     */
-    document.addEventListener('click', _handleClick, false);
-    document.addEventListener('keydown', _handleKeydown, false);
-  }
-
-  function destroy() {
+  function destroy(context) {
+    // Optional element to bind the event listeners to
+    if (context === undefined) {
+      context = document;
+    }
     /**
      * Clean up event listeners
      */
-    document.removeEventListener('click', _handleClick, false);
-    document.removeEventListener('keydown', _handleKeydown, false);
+    context.removeEventListener('click', _handleClick, false);
+    context.removeEventListener('keydown', _handleKeydown, false);
+  }
+
+  function init(context) {
+    // Destroy any currently initialized dropdowns
+    destroy(context);
+
+    // Optional element to bind the event listeners to
+    if (context === undefined) {
+      context = document;
+    }
+    /**
+     * Attach all event listerns to the document
+     */
+    context.addEventListener('click', _handleClick, false);
+    context.addEventListener('keydown', _handleKeydown, false);
   }
 
   /**
