@@ -40,7 +40,7 @@ gulp.task('js:vendor', function() {
  */
 
 gulp.task('js:watch', function() {
-    gulp.watch('src/js/**/*.js', ['js:lint', 'js:concat', 'js:vendor']);
+    gulp.watch('src/js/**/*.js', ['js:concat', 'js:vendor']);
 });
 
 gulp.task('js:dist', function() {
