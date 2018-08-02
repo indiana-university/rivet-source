@@ -5,6 +5,7 @@ var Dropdown = (function() {
 
   // Keeps track of the currently active toggle. Helps with focus management
   var activeToggle;
+  var activeMenu;
 
   /**
    * Global constants
@@ -24,32 +25,6 @@ var Dropdown = (function() {
   var MENU_SELECTOR = '.rvt-dropdown__menu';
 
   var TOGGLE_ATTR = 'data-dropdown-toggle';
-
-  /**
-   *
-   * @param {Function} callback
-   * An optional callback function that gets executed after the
-   * the closeAllMenus method is executed.
-   */
-  function closeAllMenus(callback) {
-    var allDrops = Array.prototype.slice.call(
-      document.querySelectorAll('[' + TOGGLE_ATTR + ']')
-    );
-
-    allDrops.forEach(function (item) {
-      item.setAttribute('aria-expanded', 'false');
-
-      var menuId = item.getAttribute(TOGGLE_ATTR);
-
-      var menu = document.getElementById(menuId);
-
-      menu.setAttribute('aria-hidden', 'true');
-    });
-
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
-  }
 
   /**
    * @param {String} id
@@ -206,6 +181,7 @@ var Dropdown = (function() {
 
           if (!nextItem) {
             currentMenu.first.focus();
+
             return;
           }
 
@@ -248,9 +224,12 @@ var Dropdown = (function() {
         break;
 
       case KEYS.escape:
-        closeAllMenus();
+        // If there's an open menu, close it.
+        if (activeMenu) {
+          closeMenu(activeMenu);
+        }
 
-        if (activeToggle && activeToggle !== null || undefined) {
+        if (activeToggle && activeToggle !== null) {
           activeToggle.focus();
         }
 
@@ -274,7 +253,7 @@ var Dropdown = (function() {
 
           // Close the dropdown when the user tabs out of the menu.
           if (document.activeElement == currentMenu.last && !event.shiftKey) {
-            closeAllMenus();
+            closeMenu(activeMenu);
 
             return;
           }
@@ -309,7 +288,6 @@ var Dropdown = (function() {
   return {
     open: openMenu,
     close: closeMenu,
-    closeAll: closeAllMenus,
     init: init,
     destroy: destroy
   };
