@@ -36,8 +36,13 @@ var Dropdown = (function() {
    * menu is opened.
    */
   function openMenu(id, callback) {
-    // Start off by closing any open menus
-    closeAllMenus();
+    // If there's an open menu, close it.
+    if (activeMenu) {
+      closeMenu(activeMenu);
+    }
+
+    // Set the current active menu the menu we're about to open
+    activeMenu = id;
 
     var toggleSelector = '[data-dropdown-toggle="' + id + '"]';
 
@@ -121,13 +126,14 @@ var Dropdown = (function() {
     var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
 
     if (!toggle || toggle.getAttribute('aria-expanded') === 'true') {
-      closeAllMenus();
+      // No menu has been opened yet and the event target was not a toggle, so bail.
+      if (!activeMenu) return;
+
+      // Otherwise close the currently open menu
+      closeMenu(activeMenu);
 
       return;
     }
-
-    // Close any other open menu
-    closeAllMenus();
 
     var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
 
