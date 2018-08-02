@@ -222,7 +222,6 @@ var Dropdown = (function() {
 
         // Handle up arrow key when inside the open menu.
         if (event.target.closest(MENU_SELECTOR) !== null) {
-
           var theMenu = event.target.closest(MENU_SELECTOR);
 
           var currentMenu = _setUpMenu(theMenu);
@@ -276,6 +275,7 @@ var Dropdown = (function() {
           // Close the dropdown when the user tabs out of the menu.
           if (document.activeElement == currentMenu.last && !event.shiftKey) {
             closeAllMenus();
+
             return;
           }
         }
@@ -285,11 +285,22 @@ var Dropdown = (function() {
   }
 
   function init() {
+    // Destroy any currently initialized dropdowns
+    destroy();
+
     /**
      * Attach all event listerns to the document
      */
     document.addEventListener('click', _handleClick, false);
     document.addEventListener('keydown', _handleKeydown, false);
+  }
+
+  function destroy() {
+    /**
+     * Clean up event listeners
+     */
+    document.removeEventListener('click', _handleClick, false);
+    document.removeEventListener('keydown', _handleKeydown, false);
   }
 
   /**
@@ -299,6 +310,7 @@ var Dropdown = (function() {
     open: openMenu,
     close: closeMenu,
     closeAll: closeAllMenus,
-    init: init
+    init: init,
+    destroy: destroy
   };
 })();
