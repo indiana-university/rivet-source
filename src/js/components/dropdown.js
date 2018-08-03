@@ -36,6 +36,9 @@ var Dropdown = (function() {
    * menu is opened.
    */
   function openMenu(id, callback) {
+    if (!id) {
+      throw new Error("You must provide a unique id for the menu you're trying to open.");
+    }
     // If there's an open menu, close it.
     if (activeMenu) {
       closeMenu(activeMenu);
@@ -44,7 +47,7 @@ var Dropdown = (function() {
     // Set the current active menu the menu we're about to open
     activeMenu = id;
 
-    var toggleSelector = '[data-dropdown-toggle="' + id + '"]';
+    var toggleSelector = '[' + TOGGLE_ATTR + '="' + id + '"]';
 
     var toggle = document.querySelector(toggleSelector);
 
@@ -57,6 +60,10 @@ var Dropdown = (function() {
 
     // Get the menu to be opened by id
     var menu = document.getElementById(id);
+
+    if (!menu) {
+      throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
+    }
 
     // Remove the 'hidden' attribute to show the menu
     menu.setAttribute('aria-hidden', 'false');
@@ -79,6 +86,9 @@ var Dropdown = (function() {
    * executed after the closeMenu method is called.
    */
   function closeMenu(id, callback) {
+    if (!id) {
+      throw new Error("You must provide a unique id for the menu you're trying to close.");
+    }
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
     if (toggle && toggle !== undefined) {
@@ -98,6 +108,12 @@ var Dropdown = (function() {
     }
   }
 
+  /**
+   * @param {HTMLElement} menu
+   * An HTMLElement that contains the dropdown menu options. This function
+   * returns an object that holds a reference to all focusable element
+   * in the menu, the first focusable, and the last focusable element
+   */
   function _setUpMenu(menu) {
     var menuObject = {};
 
@@ -122,6 +138,13 @@ var Dropdown = (function() {
    * Event handlers
    */
 
+  /**
+   * @param {Event} event
+   * This is function is used to handle all click events on the document.
+   * It accepts the Event object, checks the target to see if it is a
+   * dropdown toggle. If so, it opens the menu otherwise it closes any
+   * open/active dropdown.
+   */
   function _handleClick(event) {
     var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
 
@@ -140,6 +163,13 @@ var Dropdown = (function() {
     openMenu(dropdownId);
   }
 
+  /**
+   *
+   * @param {Event} event
+   * This functions handles all keydown events on the document. It accepts
+   * the event object, determines which keys were pressed and preforms the
+   * appropriate actions. Used to handle keyboard navigation.
+   */
   function _handleKeydown(event) {
     switch (event.keyCode) {
       // Handle down key
@@ -269,6 +299,14 @@ var Dropdown = (function() {
     }
   }
 
+  /**
+   *
+   * @param {HTMLElement} context
+   * An optional DOM element. This only needs to be passed in if a DOM element
+   * was passed to the init() fucntion. If so, the element passed in must
+   * be the same element that was passed in at initialization so that
+   * the event listers can be properly removed.
+   */
   function destroy(context) {
     // Optional element to bind the event listeners to
     if (context === undefined) {
@@ -281,6 +319,13 @@ var Dropdown = (function() {
     context.removeEventListener('keydown', _handleKeydown, false);
   }
 
+  /**
+   *
+   * @param {HTMLElement} context
+   * An optional DOM element that the dropdown can be initialized on. All
+   * event listeners will be attached to this element. Usually best to just
+   * leave it to deafault to the document.
+   */
   function init(context) {
     // Destroy any currently initialized dropdowns
     destroy(context);
