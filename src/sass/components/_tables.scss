@@ -34,10 +34,6 @@ tr td {
 
 .table-stripes,
 .rvt-table-stripes {
-    tr {
-        border-bottom: none;
-    }
-
     tr:nth-child(even) {
         background-color: $color-subtle-gray;
     }
