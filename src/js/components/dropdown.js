@@ -118,18 +118,18 @@ var Dropdown = (function() {
     var menuObject = {};
 
     // Create a real Array of all the focusable elements in the menu
-    var menuFocusbles = Array.prototype.slice.call(
+    var menuFocusables = Array.prototype.slice.call(
       menu.querySelectorAll(ALL_FOCUSABLE_ELS)
     );
 
     // Create a property to hold an array of all focusables
-    menuObject.all = menuFocusbles;
+    menuObject.all = menuFocusables;
 
     // Create a property with a reference to the first focusable
-    menuObject.first = menuFocusbles[0];
+    menuObject.first = menuFocusables[0];
 
     // Create a property with a reference to the last focusable
-    menuObject.last = menuFocusbles[menuFocusbles.length - 1];
+    menuObject.last = menuFocusables[menuFocusbles.length - 1];
 
     return menuObject;
   }
