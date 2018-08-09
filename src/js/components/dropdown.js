@@ -376,6 +376,7 @@ var Dropdown = (function() {
     open: openMenu,
     close: closeMenu,
     init: init,
-    destroy: destroy
+    destroy: destroy,
+    toggle: toggle
   };
 })();
