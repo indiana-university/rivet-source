@@ -15,42 +15,42 @@ const HIDDEN   = 'aria-hidden';
 describe('Dropdown component behavior', function () {
     const body = document.body;
 
-    let component;
-    let link;
+    let menu;
+    let button;
     let dropdownId;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Dropdown.init();
 
-        component = body.querySelector('.rvt-dropdown__menu');
-        link = body.querySelector('.rvt-dropdown__toggle');
-        dropdownId = component.getAttribute('id');
+        menu = body.querySelector('.rvt-dropdown__menu');
+        button = body.querySelector('.rvt-dropdown__toggle');
+        dropdownId = menu.getAttribute('id');
     });
 
     describe('DOM state', function () {
         it('Has an "aria-expanded" attribute', function () {
-            assert.equal(link.getAttribute(EXPANDED), 'false');
+            assert.equal(button.getAttribute(EXPANDED), 'false');
         });
 
         it('Has an "aria-hidden" attribute', function () {
-            assert.equal(component.getAttribute(HIDDEN), 'true');
+            assert.equal(menu.getAttribute(HIDDEN), 'true');
         });
     });
 
     describe('Dropdown.open()', function () {
         it('Toggle should have an aria-expanded attribute with a value of "true", and menu should have an aria-hidden with a value of "false"', function() {
             Dropdown.open(dropdownId);
-            assert.equal(link.getAttribute(EXPANDED), 'true')
-            assert.equal(component.getAttribute(HIDDEN), 'false')
+            assert.equal(button.getAttribute(EXPANDED), 'true')
+            assert.equal(menu.getAttribute(HIDDEN), 'false')
         });
     });
 
     describe('Dropdown.close()', function () {
         it('Toggle should have an aria-expanded attribute with a value of "false", and menu should have an aria-hidden with a value of "true"', function () {
             Dropdown.close(dropdownId);
-            assert.equal(link.getAttribute(EXPANDED), 'false')
-            assert.equal(component.getAttribute(HIDDEN), 'true')
+            assert.equal(button.getAttribute(EXPANDED), 'false')
+            assert.equal(menu.getAttribute(HIDDEN), 'true')
         });
     });
 
@@ -70,22 +70,22 @@ describe('Dropdown component behavior', function () {
              * running the .toggle() method for the first time.
              */
 
-            assert.equal(link.getAttribute(EXPANDED), 'true')
-            assert.equal(component.getAttribute(HIDDEN), 'false')
+            assert.equal(button.getAttribute(EXPANDED), 'true')
+            assert.equal(menu.getAttribute(HIDDEN), 'false')
         });
 
         it('Should toggle the Dropdown closed', function() {
             /**
              * Mock the state of the Dropdown being open.
              */
-            link.setAttribute(EXPANDED, 'true');
-            component.setAttribute(HIDDEN, 'false');
+            button.setAttribute(EXPANDED, 'true');
+            menu.setAttribute(HIDDEN, 'false');
 
             Dropdown.toggle(dropdownId);
 
             // Dropdown should be closed.
-            assert.equal(link.getAttribute(EXPANDED), 'false')
-            assert.equal(component.getAttribute(HIDDEN), 'true')
+            assert.equal(button.getAttribute(EXPANDED), 'false')
+            assert.equal(menu.getAttribute(HIDDEN), 'true')
         })
     });
 });
