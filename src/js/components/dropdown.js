@@ -1,4 +1,6 @@
 var Dropdown = (function() {
+  'use strict';
+
   /**
    * Global references
    */
