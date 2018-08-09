@@ -109,6 +109,34 @@ var Dropdown = (function() {
   }
 
   /**
+   * A helper function that toggles a dropdown to the opposite of it's
+   * current state (opened or closed). The .toggle() method was part
+   * of the original API, so we're keeping it here for backwards
+   * compatibility.
+   *
+   * @param {String} id - A unique string associate with the dropdown's
+   * "data-dropdown-toggle" and "id" attributes.
+   * @param {Function} callback - An optional callback that get's executed
+   * after the dropdown is either opened or closed.
+   */
+  function toggle(id, callback) {
+    if (!id) {
+      throw new Error("You must provide a unique id for the menu you're trying to toggle.");
+    }
+
+    var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
+
+    // Check the state of the dropdown toggle button
+    var isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
+
+    /**
+     * If the button is expanded/the menu is open run the close method,
+     * otherwise open the menu.
+     */
+    isExpanded ? closeMenu(id, callback) : openMenu(id, callback);
+  }
+
+  /**
    * @param {HTMLElement} menu
    * An HTMLElement that contains the dropdown menu options. This function
    * returns an object that holds a reference to all focusable element
