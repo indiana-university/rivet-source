@@ -27,13 +27,11 @@ var Dropdown = (function() {
   var TOGGLE_ATTR = 'data-dropdown-toggle';
 
   /**
-   * @param {String} id
-   * A unique string used for the dropdown toggle element's
-   * data-dropdown-toggle attribute and the corresponding menu's
+   * @param {String} id - A unique string used for the dropdown toggle
+   * element's data-dropdown-toggle attribute and the corresponding menu's
    * "id" attribute.
-   * @param {Function} callback
-   * An optional callback function that gets emmitted after the
-   * menu is opened.
+   * @param {Function} callback - An optional callback function that gets
+   * emmitted after the menu is opened.
    */
   function openMenu(id, callback) {
     if (!id) {
@@ -78,11 +76,9 @@ var Dropdown = (function() {
   }
 
   /**
-   * @param {String} id
-   * A unique string associate with the dropdown's
+   * @param {String} id - A unique string associate with the dropdown's
    * "data-dropdown-toggle" and "id" attributes.
-   * @param {Function} callback
-   * An optional callback function that is
+   * @param {Function} callback - An optional callback function that is
    * executed after the closeMenu method is called.
    */
   function closeMenu(id, callback) {
@@ -137,10 +133,10 @@ var Dropdown = (function() {
   }
 
   /**
-   * @param {HTMLElement} menu
-   * An HTMLElement that contains the dropdown menu options. This function
-   * returns an object that holds a reference to all focusable element
-   * in the menu, the first focusable, and the last focusable element
+   * @param {HTMLElement} menu - An HTMLElement that contains the dropdown
+   * menu options. This function returns an object that holds a reference
+   * to all focusable element in the menu, the first focusable, and the
+   * last focusable element
    */
   function _setUpMenu(menu) {
     var menuObject = {};
@@ -167,11 +163,10 @@ var Dropdown = (function() {
    */
 
   /**
-   * @param {Event} event
-   * This is function is used to handle all click events on the document.
-   * It accepts the Event object, checks the target to see if it is a
-   * dropdown toggle. If so, it opens the menu otherwise it closes any
-   * open/active dropdown.
+   * @param {Event} event - This is function is used to handle all click
+   * events on the document. It accepts the Event object, checks the target
+   * to see if it is a dropdown toggle. If so, it opens the menu otherwise
+   * it closes any open/active dropdown.
    */
   function _handleClick(event) {
     var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
@@ -193,10 +188,10 @@ var Dropdown = (function() {
 
   /**
    *
-   * @param {Event} event
-   * This functions handles all keydown events on the document. It accepts
-   * the event object, determines which keys were pressed and preforms the
-   * appropriate actions. Used to handle keyboard navigation.
+   * @param {Event} event - This functions handles all keydown events on
+   * the document. It accepts the event object, determines which keys were
+   * pressed and preforms the appropriate actions. Used to handle
+   * keyboard navigation.
    */
   function _handleKeydown(event) {
     switch (event.keyCode) {
@@ -329,11 +324,11 @@ var Dropdown = (function() {
 
   /**
    *
-   * @param {HTMLElement} context
-   * An optional DOM element. This only needs to be passed in if a DOM element
-   * was passed to the init() fucntion. If so, the element passed in must
-   * be the same element that was passed in at initialization so that
-   * the event listers can be properly removed.
+   * @param {HTMLElement} context - An optional DOM element. This only
+   * needs to be passed in if a DOM element was passed to the init()
+   * function. If so, the element passed in must be the same element
+   * that was passed in at initialization so that the event listers can
+   * be properly removed.
    */
   function destroy(context) {
     // Optional element to bind the event listeners to
@@ -349,10 +344,10 @@ var Dropdown = (function() {
 
   /**
    *
-   * @param {HTMLElement} context
-   * An optional DOM element that the dropdown can be initialized on. All
-   * event listeners will be attached to this element. Usually best to just
-   * leave it to deafault to the document.
+   * @param {HTMLElement} context - An optional DOM element that the
+   * dropdown can be initialized on. All event listeners will be attached
+   * to this element. Usually best to just leave it to default
+   * to the document.
    */
   function init(context) {
     // Destroy any currently initialized dropdowns
