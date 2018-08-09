@@ -129,7 +129,7 @@ var Dropdown = (function() {
     menuObject.first = menuFocusables[0];
 
     // Create a property with a reference to the last focusable
-    menuObject.last = menuFocusables[menuFocusbles.length - 1];
+    menuObject.last = menuFocusables[menuFocusables.length - 1];
 
     return menuObject;
   }
