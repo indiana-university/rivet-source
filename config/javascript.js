@@ -17,6 +17,8 @@ gulp.task('js:lint', function() {
 gulp.task('js:concat', function() {
     return gulp.src([
         'src/js/polyfills/closest.js',
+        'src/js/polyfills/CustomEvent.js',
+        'src/js/utilities/fireCustomEvent.js',
         'src/js/components/alert.js',
         'src/js/components/drawer.js',
         'src/js/components/dropdown.js',
@@ -39,7 +41,7 @@ gulp.task('js:vendor', function() {
  */
 
 gulp.task('js:watch', function() {
-    gulp.watch('src/js/**/*.js', ['js:lint', 'js:concat', 'js:vendor']);
+    gulp.watch('src/js/**/*.js', ['js:concat', 'js:vendor']);
 });
 
 gulp.task('js:dist', function() {
