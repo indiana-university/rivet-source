@@ -55,16 +55,37 @@ describe('Dropdown component behavior', function () {
     });
 
     describe('Dropdown.toggle()', function () {
-        it('Dropdown should be toggled to the opposite of its current state', function () {
+        it('Should toggle the Dropdown open', function () {
+            /**
+             * The stubs were using to test the DOM here will always
+             * have aria-expanded on the toggle button set to "false
+             * and, and aria-hidden set to "true" to start out so we
+             * can safely assume a "closed" state here.
+             */
+
             Dropdown.toggle(dropdownId);
+
+            /**
+             * And then assert that the menu should be "open" after
+             * running the .toggle() method for the first time.
+             */
 
             assert.equal(link.getAttribute(EXPANDED), 'true')
             assert.equal(component.getAttribute(HIDDEN), 'false')
+        });
+
+        it('Should toggle the Dropdown closed', function() {
+            /**
+             * Mock the state of the Dropdown being open.
+             */
+            link.setAttribute(EXPANDED, 'true');
+            component.setAttribute(HIDDEN, 'false');
 
             Dropdown.toggle(dropdownId);
 
+            // Dropdown should be closed.
             assert.equal(link.getAttribute(EXPANDED), 'false')
             assert.equal(component.getAttribute(HIDDEN), 'true')
-        });
+        })
     });
 });
