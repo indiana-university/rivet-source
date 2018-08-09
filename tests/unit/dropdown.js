@@ -53,4 +53,16 @@ describe('Dropdown component behavior', function () {
             assert.equal(component.getAttribute(HIDDEN), 'true')
         });
     });
+
+    describe('Dropdown.toggle()', function () {
+        it('Dropdown should be toggled to the opposite of its current state', function () {
+            var startToggleState = link.getAttribute(EXPANDED);
+            var startMenuState = link.getAttribute(HIDDEN);
+
+            Dropdown.toggle(dropdownId);
+
+            assert.equal(link.getAttribute(EXPANDED), 'true')
+            assert.equal(component.getAttribute(HIDDEN), 'false')
+        });
+    });
 });
