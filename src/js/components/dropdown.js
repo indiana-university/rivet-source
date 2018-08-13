@@ -352,13 +352,14 @@ var Dropdown = (function() {
    * to the document.
    */
   function init(context) {
-    // Destroy any currently initialized dropdowns
-    destroy(context);
-
     // Optional element to bind the event listeners to
     if (context === undefined) {
       context = document;
     }
+
+    // Destroy any currently initialized dropdowns
+    destroy(context);
+
     /**
      * Attach all event listerns to the document
      */
