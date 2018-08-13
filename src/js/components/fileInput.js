@@ -12,9 +12,9 @@ var FileInput = (function() {
    * @return {String} str  The sanitized string
    */
   function sanitizeHTML(str) {
-      var temp = document.createElement('div');
-      temp.textContent = str;
-      return temp.innerHTML;
+    var temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
   };
 
   /**
