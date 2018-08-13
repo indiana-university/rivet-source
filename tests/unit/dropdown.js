@@ -15,35 +15,77 @@ const HIDDEN   = 'aria-hidden';
 describe('Dropdown component behavior', function () {
     const body = document.body;
 
-    let component;
-    let link;
+    let menu;
+    let button;
     let dropdownId;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Dropdown.init();
 
-        component = body.querySelector('.rvt-dropdown__menu');
-        link = body.querySelector('.rvt-dropdown__toggle');
-        dropdownId = component.getAttribute('id');
+        menu = body.querySelector('.rvt-dropdown__menu');
+        button = body.querySelector('.rvt-dropdown__toggle');
+        dropdownId = menu.getAttribute('id');
     });
 
     describe('DOM state', function () {
         it('Has an "aria-expanded" attribute', function () {
-            assert.equal(link.getAttribute(EXPANDED), 'false');
+            assert.equal(button.getAttribute(EXPANDED), 'false');
         });
 
         it('Has an "aria-hidden" attribute', function () {
-            assert.equal(component.getAttribute(HIDDEN), 'true');
+            assert.equal(menu.getAttribute(HIDDEN), 'true');
+        });
+    });
+
+    describe('Dropdown.open()', function () {
+        it('Toggle should have an aria-expanded attribute with a value of "true", and menu should have an aria-hidden with a value of "false"', function() {
+            Dropdown.open(dropdownId);
+            assert.equal(button.getAttribute(EXPANDED), 'true')
+            assert.equal(menu.getAttribute(HIDDEN), 'false')
+        });
+    });
+
+    describe('Dropdown.close()', function () {
+        it('Toggle should have an aria-expanded attribute with a value of "false", and menu should have an aria-hidden with a value of "true"', function () {
+            Dropdown.close(dropdownId);
+            assert.equal(button.getAttribute(EXPANDED), 'false')
+            assert.equal(menu.getAttribute(HIDDEN), 'true')
         });
     });
 
     describe('Dropdown.toggle()', function () {
+        it('Should toggle the Dropdown open', function () {
+            /**
+             * The stubs were using to test the DOM here will always
+             * have aria-expanded on the toggle button set to "false
+             * and, and aria-hidden set to "true" to start out so we
+             * can safely assume a "closed" state here.
+             */
 
-        it('Clicking link to open dropdown', function() {
             Dropdown.toggle(dropdownId);
-            assert.equal(link.getAttribute(EXPANDED), 'true')
-            assert.equal(component.getAttribute(HIDDEN), 'false')
+
+            /**
+             * And then assert that the menu should be "open" after
+             * running the .toggle() method for the first time.
+             */
+
+            assert.equal(button.getAttribute(EXPANDED), 'true')
+            assert.equal(menu.getAttribute(HIDDEN), 'false')
         });
+
+        it('Should toggle the Dropdown closed', function() {
+            /**
+             * Mock the state of the Dropdown being open.
+             */
+            button.setAttribute(EXPANDED, 'true');
+            menu.setAttribute(HIDDEN, 'false');
+
+            Dropdown.toggle(dropdownId);
+
+            // Dropdown should be closed.
+            assert.equal(button.getAttribute(EXPANDED), 'false')
+            assert.equal(menu.getAttribute(HIDDEN), 'true')
+        })
     });
 });

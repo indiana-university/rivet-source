@@ -21,7 +21,6 @@ gulp.task('build', function(cb) {
 
 gulp.task('dev:serve', [
     'sass:lint',
-    'js:lint',
     'sass',
     'js:concat',
     'fractal:start',
