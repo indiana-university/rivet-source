@@ -9,7 +9,7 @@ table {
 
 thead {
     border-bottom: 1px solid $color-black--200;
-    background-color: $color-black--100;
+    background-color: $color-subtle-gray;
 
     th,
     tr th {
@@ -34,12 +34,8 @@ tr td {
 
 .table-stripes,
 .rvt-table-stripes {
-    tr {
-        border-bottom: none;
-    }
-
     tr:nth-child(even) {
-        background-color: $color-black--100;
+        background-color: $color-subtle-gray;
     }
 }
 
@@ -52,5 +48,28 @@ tr td {
 
     tr {
         border-bottom: none;
+    }
+}
+
+.rvt-table-compact {
+    line-height: 1.2;
+
+    tr th,
+    tr td {
+        padding: .5rem;
+    }
+}
+
+.rvt-table-cells {
+    border-top: 1px solid #ddd;
+
+    tr td,
+    tr th {
+        border-right: 1px solid #ddd;
+    }
+
+    tr td:first-child,
+    tr th:first-child {
+        border-left: 1px solid #ddd;
     }
 }
