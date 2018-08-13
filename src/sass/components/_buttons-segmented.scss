@@ -44,36 +44,36 @@
      * segmented button.
      */
 
-     .dropdown:first-child > .rvt-button:only-of-type,
-     .rvt-dropdown:first-child > .rvt-button:only-of-type {
-         border-top-right-radius: 0;
-         border-bottom-right-radius: 0;
-         margin-left: -2px;
-     }
+    .dropdown:first-child > .rvt-button:only-of-type,
+    .rvt-dropdown:first-child > .rvt-button:only-of-type {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-left: -2px;
+    }
+
+    .dropdown:first-child > .rvt-button:first-of-type,
+    .rvt-dropdown:first-child > .rvt-button:first-of-type {
+        border-top-left-radius: $xxs;
+        border-bottom-left-radius: $xxs;
+    }
+
+    .dropdown:last-child > .rvt-button:only-of-type,
+    .rvt-dropdown:last-child > .rvt-button:only-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left: -2px;
+    }
+
+    .dropdown:last-child > .rvt-button:last-of-type,
+    .rvt-dropdown:last-child > .rvt-button:last-of-type {
+        border-top-right-radius: $xxs;
+        border-bottom-right-radius: $xxs;
+    }
  
-     .dropdown:first-child > .rvt-button:first-of-type,
-     .rvt-dropdown:first-child > .rvt-button:first-of-type {
-         border-top-left-radius: $xxs;
-         border-bottom-left-radius: $xxs;
-     }
- 
-     .dropdown:last-child > .rvt-button:only-of-type,
-     .rvt-dropdown:last-child > .rvt-button:only-of-type {
-         border-top-left-radius: 0;
-         border-bottom-left-radius: 0;
-         margin-left: -2px;
-     }
- 
-     .dropdown:last-child > .rvt-button:last-of-type,
-     .rvt-dropdown:last-child > .rvt-button:last-of-type {
-         border-top-right-radius: $xxs;
-         border-bottom-right-radius: $xxs;
-     }
- 
-     .dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
-     .rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
-         border-radius: 0;
-         margin-left: -2px;
-     }
+    .dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
+    .rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
+        border-radius: 0;
+        margin-left: -2px;
+    }
 
 }
