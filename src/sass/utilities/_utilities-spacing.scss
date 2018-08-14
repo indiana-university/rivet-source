@@ -55,6 +55,26 @@ $spacing-sizes: (
                 padding: $value !important;
             }
 
+            .rvt-m-tb#{$size} {
+                margin-bottom: $value !important;
+                margin-top: $value !important;
+            }
+
+            .rvt-m-lr#{$size} {
+                margin-left: $value !important;
+                margin-right: $value !important;
+            }
+
+            .rvt-p-tb#{$size} {
+                padding-bottom: $value !important;
+                padding-top: $value !important;
+            }
+
+            .rvt-p-lr#{$size} {
+                padding-left: $value !important;
+                padding-right: $value !important;
+            }
+
         // Otherwise create individual direction utilities.
         } @else {
 
