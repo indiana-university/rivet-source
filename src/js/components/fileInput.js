@@ -124,6 +124,7 @@ var FileInput = (function() {
       context = document;
     }
 
+    // Destroy any currently initialized file inputs
     destroy(context);
 
     context.addEventListener('change', _handleChange, false);
