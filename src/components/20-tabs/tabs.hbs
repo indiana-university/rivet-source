@@ -3,14 +3,14 @@
         <button class="rvt-tabs__tab"
                 role="tab"
                 aria-selected="true"
-                aria-controls="tab-1"
+                data-tab="tab-1"
                 id="t-one">
             Tab one
         </button>
         <button class="rvt-tabs__tab"
                 role="tab"
                 aria-selected="false"
-                aria-controls="tab-2"
+                data-tab="tab-2"
                 id="t-two"
                 tabindex="-1">
             Tab two
@@ -18,7 +18,7 @@
         <button class="rvt-tabs__tab"
                 role="tab"
                 aria-selected="false"
-                aria-controls="tab-3"
+                data-tab="tab-3"
                 id="t-three"
                 tabindex="-1">
             Tab three
@@ -33,13 +33,13 @@
             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
-    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-2" aria-labelledby="t-two" hidden="">
+    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-2" aria-labelledby="t-two" hidden>
         <span class="rvt-ts-23 rvt-text-bold">Panel 2</span>
         <p>
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
-    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-3" aria-labelledby="t-three" hidden="">
+    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-3" aria-labelledby="t-three" hidden>
         <span class="rvt-ts-23 rvt-text-bold">A grid inside a tab panel</span>
         <div class="rvt-grid">
             <div class="rvt-grid__item-4-md-up">
