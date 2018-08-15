@@ -150,19 +150,27 @@ var Tabs = (function() {
 
     switch (event.keyCode) {
       case KEYS.right || KEYS.down:
-        !tabs[nextTab] ? tabs[0].focus() : tabs[nextTab].focus();
+        !tabs[nextTab] ?
+          tabs[0].focus() :
+          tabs[nextTab].focus();
 
         break;
       case KEYS.down:
-        !tabs[nextTab] ? tabs[0].focus() : tabs[nextTab].focus();
+        !tabs[nextTab] ?
+          tabs[0].focus() :
+          tabs[nextTab].focus();
 
         break;
       case KEYS.left:
-        !tabs[prevTab] ? tabs[tabs.length - 1].focus() : tabs[prevTab].focus();
+        !tabs[prevTab] ?
+          tabs[tabs.length - 1].focus() :
+          tabs[prevTab].focus();
 
         break;
       case KEYS.up:
-        !tabs[prevTab] ? tabs[tabs.length - 1].focus() : tabs[prevTab].focus();
+        !tabs[prevTab] ?
+        tabs[tabs.length - 1].focus() :
+        tabs[prevTab].focus();
 
         break;
       case KEYS.end:
@@ -177,12 +185,18 @@ var Tabs = (function() {
     }
   }
 
+  /**
+   * @param {HTMLElement} context
+   */
   function destroy(context) {
     if (context === undefined) {
       context = document;
     }
   }
 
+  /**
+   * @param {HTMLElement} context
+   */
   function init(context) {
     if (context === undefined) {
       context = document;
