@@ -257,3 +257,13 @@
 .rvt-button-group--right {
     justify-content: flex-end;
 }
+
+/**
+ * Full-width buttons.
+ */
+
+.rvt-button--full-width {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
