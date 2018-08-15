@@ -1,93 +1,140 @@
 var FileInput = (function() {
-    /**
-     * Sets up some text we'll need to reuse throughout.
-     */
-    var defaultText = 'No files selected';
+  'use strict';
+
+  /**
+   * Sets up some text we'll need to reuse throughout.
+   */
+  var DEFAULT_TEXT = 'No file selected';
+  var UPLOAD_ATTR = 'data-upload';
+
+  /*!
+   * Sanitize and encode all HTML in a user-submitted string
+   * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+   * @param  {String} str  The user-submitted string
+   * @return {String} str  The sanitized string
+   */
+  function sanitizeHTML(str) {
+    var temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
+  }
+
+  /**
+   *
+   * @param {HTMLInputElement} input - HTML file input
+   * @return {HTMLSpanElement} - A span containing the a description
+   * of the number of files attached to file input
+   */
+  function _buildMultipleFiles(input) {
+    var fileCount = document.createElement('span');
+    fileCount.textContent = input.files.length + ' files selected';
+    return fileCount;
+  }
+
+  /**
+   *
+   * @param {HTMLInputElement} input - HTML file input
+   * @return {HTMLSpanElement} - A span containing the file name that was
+   * attached to the file input
+   */
+  function _buildSingleFile(input) {
+    // Create <span> element to display our file name
+    var singleFileItem = document.createElement('span');
 
     /**
-     * This kicks off our Uploader only if there
-     * are any in the document.
+     * Sanitize use input here just incase someone would make the
+     * name of their file a malicious script.
      */
-    var init = function(context) {
-        if (context === undefined) {
-            context = document;
-        }    
+    var singleFileName = sanitizeHTML(input.files[0].name);
 
-        /**
-         * This gets all of the the uploaders in the document
-         * so we can work with them in our _bindUiActions function.
-         */
-        var uploaders = context.querySelectorAll('[data-upload]');
+    // Add the file name as the text content
+    singleFileItem.textContent = singleFileName;
 
-        if(uploaders.length > 0) {
-            _bindUiActions(uploaders);
-        }
+    // Returns our built <span> element.
+    return singleFileItem;
+  }
+
+  /**
+   *
+   * @param {Event} event - Handles the main 'change' event emitted when
+   * file(s) are attached to the file input
+   */
+  function _handleChange(event) {
+    // Store a reference to the file input wrapper (data-upload) element
+    var uploadElement = event.target.closest('[' + UPLOAD_ATTR + ']');
+
+    // If the change event was on the file input, bail.
+    if (!uploadElement) return;
+
+    // The unique id of the file input, wrapper, and preview elements
+    var uploadId = uploadElement.getAttribute(UPLOAD_ATTR);
+
+    // The actual input element
+    var uploadInput = document.getElementById(uploadId);
+
+    // The preview element where we'll inject file count, etc.
+    var uploadPreview = uploadElement.querySelector('[data-file-preview]');
+
+    // Check to make sure that at least one file was attached
+    if (uploadInput.files.length > 0) {
+      // Set remove the preview element placeholder text
+      uploadPreview.innerHTML = '';
+
+      /**
+       * If there is more than one file attached, build up a span
+       * that shows the file count to insert into the preview element,
+       * otherwise show the file name that was uploaded.
+       */
+      uploadInput.files.length > 1 ?
+        uploadPreview.appendChild(_buildMultipleFiles(uploadInput)) :
+        uploadPreview.appendChild(_buildSingleFile(uploadInput));
+
+      // Fire a custom event as a hook for other scripts
+      fireCustomEvent(uploadElement, UPLOAD_ATTR, 'fileAttached');
+    } else {
+      /**
+       * If no files were attached set the placeholder text back
+       * to the default
+       */
+      uploadPreview.innerHTML = DEFAULT_TEXT;
+    }
+  }
+
+  /**
+   * @param {HTMLElement} context - An optional DOM element. This only
+   * needs to be passed in if a DOM element was passed to the init()
+   * function. If so, the element passed in must be the same element
+   * that was passed in at initialization so that the event listers can
+   * be properly removed.
+   */
+  function destroy(context) {
+    if (context === undefined) {
+      context = document;
     }
 
-    var _bindUiActions = function (uploaderEls) {
-        for(var i = 0; i < uploaderEls.length; i++) {
-            // Add the change listener to the file input
-            uploaderEls[i].addEventListener('change', function() {
+    context.removeEventListener('change', _handleChange, false);
+  }
 
-                // Set up
-                var uploaderContainer = this;
-                var uploaderId = this.getAttribute('data-upload');
-                var uploaderInput = this.querySelector('#' + uploaderId);
-                var uploadList = this.querySelector('[data-file-preview]');
-
-                // If there were and files added add update the uploadList element
-                if (uploaderInput.files.length > 0) {
-                    // Clear the placeholder text so we can insert our file names.
-                    uploadList.innerHTML = '';
-
-                    // Check if there are multiple or single files.
-                    if (uploaderInput.files.length > 1) {
-                        uploadList.appendChild(
-                            buildMultipleFiles(uploaderInput)
-                        );
-                    }
-                    else {
-                        uploadList.appendChild(
-                            buildSingleFile(uploaderInput)
-                        );
-                    }
-                }
-                else {
-                    uploadList.innerHTML = defaultText;
-                }
-            });
-        }
+  /**
+   * @param {HTMLElement} context - An optional DOM element that the
+   * file input can be initialized on. All event listeners will be attached
+   * to this element. Usually best to just leave it to default
+   * to the document.
+   */
+  function init(context) {
+    if (context === undefined) {
+      context = document;
     }
 
-    /**
-     * Builds a preview for multiple files
-     */
-    var buildMultipleFiles = function (htmlFileInput) {
-        var fileCount = document.createElement('span');
-        fileCount.textContent = htmlFileInput.files.length + ' files selected';
-        return fileCount;
-    }
+    // Destroy any currently initialized file inputs
+    destroy(context);
 
-    /**
-     * Builds a single span with file name to insert into the DOM
-     */
-    var buildSingleFile = function(htmlFileInput) {
-        // Create <span> element to display our file name
-        var singleFileItem = document.createElement('span');
+    context.addEventListener('change', _handleChange, false);
+  }
 
-        // Add the file name as the text content
-        singleFileItem.textContent = htmlFileInput.files[0].name;
-
-        // Returns our built <span> element.
-        return singleFileItem;
-    }
-
-    // Expose the init function
-    return {
-        init: init
-    }
-
+  // Expose public API here
+  return {
+    init: init,
+    destroy: destroy
+  };
 })();
-
-
-
