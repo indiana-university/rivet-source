@@ -54,7 +54,8 @@ var Tabs = (function() {
     if (!activeTab) {
       console.warn(
         'There were no tabs found with the id of ' + id + '.' + '\n' +
-        'Please see the Rivet tabs documentation for more info: ' + docsURL
+        'Please see the Rivet Tabs JavaScript API documentation for more info: ' + '\n'
+        + componentUrl
       );
 
       return;
