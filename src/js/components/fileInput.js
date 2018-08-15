@@ -1,5 +1,6 @@
 var FileInput = (function() {
   'use strict';
+
   /**
    * Sets up some text we'll need to reuse throughout.
    */
