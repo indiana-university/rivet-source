@@ -193,6 +193,7 @@ var Tabs = (function() {
         break;
       case KEYS.home:
         tabs[0].focus();
+
         break;
       default:
         return;
