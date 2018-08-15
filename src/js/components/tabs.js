@@ -44,7 +44,7 @@ var Tabs = (function() {
    *
    * @param {String} id
    */
-  function activateTab(id) {
+  function activateTab(id, callback) {
     var activeTabSelector =
       '[data-tab="' + id + '"], [aria-controls="' + id + '"]';
 
@@ -98,6 +98,21 @@ var Tabs = (function() {
         item.removeAttribute('hidden') :
         item.setAttribute('hidden', 'hidden');
     });
+
+    /**
+     * NOTE: For backward compatibility, we're excepting either the
+     * 'data-tab' or 'aria-controls' attributes.
+     */
+    var eventAttribute =
+      activeTab.hasAttribute('data-tab') ? 'data-tab' : 'aria-controls';
+
+    // Fire the custom 'tabActivated' event
+    fireCustomEvent(activeTab, eventAttribute, 'tabActivated');
+
+    // Execute callback if it exists
+    if (callback && typeof callback === 'function') {
+      callback();
+    }
   }
 
   function _handleClick(event) {
