@@ -33,3 +33,11 @@
         No files selected
     </div>
 </div>
+
+<script>
+    document.addEventListener('fileAttached', function(event) {
+        if (event.detail.name() == 'my-file-input-two') {
+            alert('File was attached! 💌');
+        }
+    });
+</script>
