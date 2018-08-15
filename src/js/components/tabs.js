@@ -17,9 +17,11 @@ var Tabs = (function() {
 
   var LEGACY_SELECTORS = '[data-tab], [aria-controls]';
 
-  // Converts a nodeList to an array
-  function nodeListToArray(nodeList) {
-    return Array.prototype.slice.call(nodeList);
+  /**
+   * @param {nodes} nodeList - Accepts a nodeList and returns an array.
+   */
+  function nodeListToArray(nodes) {
+    return Array.prototype.slice.call(nodes);
   }
 
   /**
