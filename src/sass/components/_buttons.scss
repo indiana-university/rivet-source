@@ -262,7 +262,8 @@
  * Full-width buttons.
  */
 
- .rvt-button--full-width {
-    display: block;
+.rvt-button--full-width {
+    display: flex;
+    justify-content: center;
     width: 100%;
- }
+}
