@@ -55,6 +55,26 @@ $spacing-sizes: (
                 padding: $value !important;
             }
 
+            .rvt-m-tb#{$size} {
+                margin-bottom: $value !important;
+                margin-top: $value !important;
+            }
+
+            .rvt-m-lr#{$size} {
+                margin-left: $value !important;
+                margin-right: $value !important;
+            }
+
+            .rvt-p-tb#{$size} {
+                padding-bottom: $value !important;
+                padding-top: $value !important;
+            }
+
+            .rvt-p-lr#{$size} {
+                padding-left: $value !important;
+                padding-right: $value !important;
+            }
+
         // Otherwise create individual direction utilities.
         } @else {
 
@@ -99,6 +119,26 @@ $spacing-sizes: (
                     .p-all#{$size}-#{$bp-name}-up,
                     .rvt-p-all#{$size}-#{$bp-name}-up {
                         padding: $value !important;
+                    }
+
+                    .rvt-m-tb#{$size}-#{$bp-name}-up {
+                        margin-bottom: $value !important;
+                        margin-top: $value !important;
+                    }
+
+                    .rvt-m-lr#{$size}-#{$bp-name}-up {
+                        margin-left: $value !important;
+                        margin-right: $value !important;
+                    }
+
+                    .rvt-p-tb#{$size}-#{$bp-name}-up {
+                        padding-bottom: $value !important;
+                        padding-top: $value !important;
+                    }
+
+                    .rvt-p-lr#{$size}-#{$bp-name}-up {
+                        padding-left: $value !important;
+                        padding-right: $value !important;
                     }
 
                     // Otherwise create individual direction utilities.
