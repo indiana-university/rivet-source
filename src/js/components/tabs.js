@@ -1,7 +1,9 @@
 var Tabs = (function() {
   // Documentation URL:
-  var docsURL =
-    'https://rivet.uits.iu.edu/components/page-content/tabs/#javascript-api';
+  var docsBaseUrl = 'https://rivet.uits.iu.edu';
+
+  var componentUrl =
+    docsBaseUrl + '/components/page-content/tabs/#javascript-api';
 
   // Keycodes for easy reference
   var KEYS = {
