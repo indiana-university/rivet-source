@@ -1,7 +1,8 @@
 var Tabs = (function() {
-  // Documentation URL:
+  // Documentation base URL:
   var docsBaseUrl = 'https://rivet.uits.iu.edu';
 
+  // component URL
   var componentUrl =
     docsBaseUrl + '/components/page-content/tabs/#javascript-api';
 
@@ -47,6 +48,11 @@ var Tabs = (function() {
    * @param {String} id
    */
   function activateTab(id, callback) {
+    /**
+     * NOTE: Adding "aria-controls" to this list for backwards
+     * compatibility. Should eventually deprecate the use of or
+     * "aria-controls" in favor of the data attributes added here.
+     */
     var activeTabSelector =
       '[data-tab="' + id + '"], [aria-controls="' + id + '"]';
 
@@ -54,6 +60,12 @@ var Tabs = (function() {
       document.querySelector(activeTabSelector);
 
     if (!activeTab) {
+      /**
+       * In recent rewrites of the some of the other JS components I've
+       * been throwing Error Objects for things like missing parameters.
+       * Wondering if it might makes sense to just provide a console
+       * warning with links to the docs for these API methods?
+       */
       console.warn(
         'There were no tabs found with the id of ' + id + '.' + '\n' +
         'Please see the Rivet Tabs JavaScript API documentation for more info: ' + '\n'
