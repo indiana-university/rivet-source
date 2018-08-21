@@ -3,210 +3,236 @@
  * https://bitsofco.de/accessible-modal-modal/
  */
 
-var Modal = (function () {
-    /**
-     * Set up
-     */
+var Modal = (function() {
+  'use strict';
 
-    
-    var modals = null;
-    var modalTriggers = null;
-    var allFocusableEls = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+  var KEYS = {
+    tab: 9,
+    escape: 27
+  };
 
-    /**
-     * We need these to pass around values that multiple
-     * 'Modal' methods will need access to.
-     */
+  // Selectors
+  var TRIGGER_SELECTOR = '[data-modal-trigger]';
+  var TRIGGER_ATTR = 'data-modal-trigger';
+  var CLOSE_ATTR = 'data-modal-close';
+  var CLOSE_SELECTOR = '[data-modal-close]';
+  var MODAL_SELECTOR = '.rvt-modal, .modal';
 
-    var isDialog;
-    var focusedElBeforeOpen;
-    var focusableEls;
-    var firstFocusableEl;
-    var lastFocusableEl;
+  // Anything that is focusable
+  var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
-    /**
-     * Kick everything off here.
-     */
-    var init = function (context) {
-        if (context === undefined) {
-            context = document;
-        }
+  var activeTrigger;
+  var activeModal;
 
-        /**
-         * Adding both prefixed ".rvt-" and old ".modal"  versions of the
-         * selectors here. Let's eventually look at deprecating the
-         * old un-prefixed version.
-        */
-        modals = document.querySelectorAll('.rvt-modal, .modal');
-        modalTriggers = document.querySelectorAll('[data-modal-trigger]');
-        // Make modalTriggers an array
-        modalTriggers = Array.prototype.slice.call(modalTriggers);
+  function _createModalObject(id) {
+    var modal = {};
 
-        // Check to see if any modals exist on the page.
-        if (modals.length != 0 && modalTriggers.length != 0) {
-            _bindUiActions();
-        }
+    modal.trigger = document.querySelector('[' + TRIGGER_ATTR + '="' + id + '"]');
+
+    modal.body = document.getElementById(id);
+
+    return modal;
+  }
+
+  function open(id, callback) {
+    if (!id) {
+      throw new Error("You must provide a unique id for the modal you're trying to open.");
     }
 
-    var _bindUiActions = function () {
-        modalTriggers.forEach(function (el) {
-            el.addEventListener('click', function () {
-                // Set up
-                var modalID = el.getAttribute('data-modal-trigger');
-                var modalEl = document.querySelector('#' + modalID);
+    var modal = _createModalObject(id);
 
-                // Open the modal
-                openModal(modalEl);
-            });
-        });
+    activeModal = modal.body;
+
+    activeTrigger = modal.trigger;
+
+    modal.body.setAttribute('aria-hidden', 'false');
+
+    document.body.classList.add('rvt-modal-open');
+
+    fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalOpen');
+
+    if (callback && typeof callback === 'function') {
+      callback();
+    }
+  }
+
+  function close(id, callback) {
+    if (!id) {
+      throw new Error("You must provide a unique id for the modal you're trying to close.");
     }
 
+    var modal = _createModalObject(id);
+
+    modal.body.setAttribute('aria-hidden', 'true');
+
+    document.body.classList.remove('rvt-modal-open');
+
+    fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalClose');
+
+    if (callback && typeof callback === 'function') {
+        callback();
+    }
+  }
+
+  function focusTrigger(id) {
+    var trigger =
+      document.querySelector('[data-modal-trigger="' + id + '"');
+
+    trigger.focus();
+  }
+
+  function focusModal(id) {
+    var modal =
+      document.getElementById(id);
+
+    activeModal = modal;
+
+    modal.focus();
+  }
+
+  function _handleClick(event) {
     /**
-     * @param {object} currentModal - The current HTML modal element to open.
+     * Stores a boolean in the event object, so we can check to see
+     * if we should prevent the event from bubbling up when the user
+     * clicks inside of the inner modal element.
      */
-    var openModal = function (currentModal) {
-        // Is the modal a modal dialog i.e. clicking background doesn't close?
-        isDialog = currentModal.getAttribute('data-modal-dialog');
+    event.target.closest('.rvt-modal__inner, .modal__inner') !== null ?
+      event.clickedInModal = true:
+      event.clickedInModal = false;
 
-        // Store a reference to the inner modal container
-        var modalElInner = currentModal.querySelector('.rvt-modal__inner, .modal__inner');
-
-        /**
-         * Get all the close triggers for the current modal. This includes
-         * the default close (x) button, but could be other triggers
-         * like a cancel button, etc.
-         */
-        var modalCloseButtons = currentModal.querySelectorAll('[data-modal-close]');
-
-        // Convert nodelist to an array
-        modalCloseButtons = Array.prototype.slice.call(modalCloseButtons);
-
-        modalCloseButtons.forEach(function (el) {
-            el.addEventListener('click', function () {
-                closeModal(currentModal);
-            });
-        });
-
-        // Get anything that's focusable
-        focusableEls = currentModal.querySelectorAll(allFocusableEls);
-
-        // Make focusableEls an Arry so we can do Array stuff with it.
-        focusableEls = Array.prototype.slice.call(focusableEls);
-
-        /**
-         * Find the first and last focusable element in the array and
-         * store them in variable where other methods can find them.
-         */
-        firstFocusableEl = focusableEls[0];
-        lastFocusableEl = focusableEls[focusableEls.length - 1];
-
-        /**
-         * Add a class to the body that we use as a hook to allow
-         * the modal to scroll.
-         */
-        if (document.body) {
-            document.body.classList.add('rvt-modal-open');
-        }
-
-        /**
-         * Store a reference to modal trigger that was clicked so that
-         * we can return focus to it later.
-         */
-        focusedElBeforeOpen = document.activeElement;
-
-        // Remove aria-hidden attr to show the modal.
-        currentModal.removeAttribute('aria-hidden');
-
-        /**
-         * If the modal isn't a modal dialog allow user to click
-         * the background to close.
-         */
-        if (!isDialog) {
-            // Hide the modal if use clicks on background.
-            currentModal.addEventListener('click', function () {
-                closeModal(this);
-            });
-        }
-
-        // Stops clicking on the actual modal stuff from bubbling up.
-        modalElInner.addEventListener('click', function (e) {
-            e.stopPropagation();
-        });
-
-        // Listen for tab or escape keys and handle events.
-        currentModal.addEventListener('keydown', function (e) {
-            _handleKeyDown(currentModal, e);
-        });
-
-        // Add focus to the modal that just opened.
-        currentModal.focus();
+    if (event.clickedInModal) {
+      event.stopPropagation();
     }
 
     /**
-     * @param {object} modalToHandle - The current HTML modal element to open.
-     * @param {object} e - The event object
+     * Stores a reference to the event target if it is any of the following:
+     * A  Modal trigger, a modal close button, or the modal background.
      */
-    var _handleKeyDown = function (modalToHandle, e) {
-        var KEY_TAB = 9;
-        var KEY_ESC = 27;
+    var matchingSelectors =
+      TRIGGER_SELECTOR + ', ' + CLOSE_SELECTOR + ', ' + MODAL_SELECTOR;
 
-        function handleBackwardTab() {
-            if (document.activeElement === firstFocusableEl) {
-                e.preventDefault();
-                lastFocusableEl.focus();
-            }
-        }
+    var trigger =
+      event.target.closest(matchingSelectors);
 
-        function handleForwardTab() {
-            if (document.activeElement === lastFocusableEl) {
-                e.preventDefault();
-                firstFocusableEl.focus();
-            }
-        }
-
-        switch (e.keyCode) {
-            case KEY_TAB:
-                if (e.shiftKey) {
-                    handleBackwardTab();
-                } else {
-                    handleForwardTab();
-                }
-                break;
-
-            case KEY_ESC:
-                if (!isDialog) {
-                    closeModal(modalToHandle);
-                }
-                break;
-
-            default:
-                break;
-        }
+    if (!trigger) {
+      return;
     }
 
-    /**
-     * @param {object} modalToClose - The HTML modal element to close.
-     */
-    var closeModal = function (modalToClose) {
-        if (document.body) {
-            document.body.removeAttribute('class');
-        }
+    // Sets the id based on whatever the matching target was.
+    var id = trigger.getAttribute(TRIGGER_ATTR) ||
+      trigger.getAttribute(CLOSE_ATTR) ||
+      trigger.id;
 
-        modalToClose.setAttribute('aria-hidden', 'true');
+    switch (trigger !== null || undefined) {
+      case trigger.hasAttribute(TRIGGER_ATTR):
+        open(id);
+
+        activeModal.focus();
+
+        break;
+      case trigger.hasAttribute(CLOSE_ATTR):
+        event.preventDefault();
+
+        close(id);
+
+        activeTrigger.focus();
+
+        break;
+      case trigger.id === id && !event.clickedInModal:
+        // If the modal is a dialog bail
+        if (trigger.hasAttribute('data-modal-dialog')) return;
+
+        close(id);
+
+        activeTrigger.focus();
+      default:
+        return;
+    }
+  }
+
+  function _handBackwardTab(first, last, event) {
+    if (document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    }
+  }
+
+  function _handleForwardTab(first, last, event) {
+    if (document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function _handleKeydown(event) {
+    // Do not continue if key stroke is anything other than Escape or Tab
+    var currentModal = event.target.closest(MODAL_SELECTOR);
+
+    if (!currentModal) return;
+
+    switch (event.keyCode) {
+      case KEYS.tab:
 
         /**
-         * Return focus to the modal trigger that originally
-         * opened the modal.
+         * Get all focusable elements in the modal and convert the
+         * resulting nodeList to an Array.
          */
-        if (focusedElBeforeOpen) {
-            focusedElBeforeOpen.focus();
+        var focusables =
+          Array
+            .prototype
+            .slice
+            .call(currentModal.querySelectorAll(ALL_FOCUSABLE_ELS));
+
+        var firstFocusable = focusables[0];
+
+        var lastFocusable = focusables[focusables.length - 1];
+
+        if (event.shiftKey) {
+          _handBackwardTab(firstFocusable, lastFocusable, event);
+        } else {
+          _handleForwardTab(firstFocusable, lastFocusable, event);
         }
+
+        break;
+      case KEYS.escape:
+        close(activeModal.id);
+
+        activeTrigger.focus();
+
+        break;
+      default:
+        break;
+    }
+  }
+
+  function destroy(context) {
+    // Optional element to bind the event listeners to
+    if (context === undefined) {
+      context = document;
     }
 
-    return {
-        init: init,
-        open: openModal,
-        close: closeModal
+    context.removeEventListener('click', _handleClick, false);
+    context.removeEventListener('keydown', _handleKeydown, false);
+  }
+
+  function init(context) {
+    // Optional element to bind the event listeners to
+    if (context === undefined) {
+      context = document;
     }
+
+    destroy(context);
+
+    context.addEventListener('click', _handleClick, false);
+    context.addEventListener('keydown', _handleKeydown, false);
+  }
+
+  return {
+    init: init,
+    destroy: destroy,
+    open: open,
+    close: close,
+    focusTrigger: focusTrigger,
+    focusModal: focusModal
+  }
 })();
-
