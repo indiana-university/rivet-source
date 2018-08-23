@@ -1,8 +1,3 @@
-/**
- * A lot of this is largely based on the great work in this article:
- * https://bitsofco.de/accessible-modal-modal/
- */
-
 var Modal = (function() {
   'use strict';
 
