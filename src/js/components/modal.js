@@ -106,7 +106,7 @@ var Modal = (function() {
 
     /**
      * Stores a reference to the event target if it is any of the following:
-     * A  Modal trigger, a modal close button, or the modal background.
+     * A  Modal trigger button, a modal close button, or the modal background.
      */
     var matchingSelectors =
       TRIGGER_SELECTOR + ', ' + CLOSE_SELECTOR + ', ' + MODAL_SELECTOR;
@@ -187,11 +187,9 @@ var Modal = (function() {
 
         var lastFocusable = focusables[focusables.length - 1];
 
-        if (event.shiftKey) {
-          _handBackwardTab(firstFocusable, lastFocusable, event);
-        } else {
+        event.shiftKey ?
+          _handBackwardTab(firstFocusable, lastFocusable, event) :
           _handleForwardTab(firstFocusable, lastFocusable, event);
-        }
 
         break;
       case KEYS.escape:
