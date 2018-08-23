@@ -195,6 +195,9 @@ var Modal = (function() {
 
         break;
       case KEYS.escape:
+        // If it's a modal dialog, bail
+        if (activeModal.hasAttribute('data-modal-dialog')) return;
+
         close(activeModal.id);
 
         activeTrigger.focus();
