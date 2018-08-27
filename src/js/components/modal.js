@@ -14,7 +14,7 @@ var Modal = (function() {
   var MODAL_SELECTOR = '.rvt-modal, .modal';
 
   // Anything that is focusable
-  var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+  var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
 
   var activeTrigger;
   var activeModal;
@@ -22,7 +22,8 @@ var Modal = (function() {
   function _createModalObject(id) {
     var modal = {};
 
-    modal.trigger = document.querySelector('[' + TRIGGER_ATTR + '="' + id + '"]');
+    modal.trigger =
+      document.querySelector('[' + TRIGGER_ATTR + '="' + id + '"]');
 
     modal.body = document.getElementById(id);
 
@@ -30,11 +31,11 @@ var Modal = (function() {
   }
 
   function open(id, callback) {
-    if (!id) {
-      throw new Error("You must provide a unique id for the modal you're trying to open.");
-    }
-
     var modal = _createModalObject(id);
+
+    if (!modal.body) {
+        throw new Error("Could not find a modal with the id of " + id + " to open.");
+    }
 
     activeModal = modal.body;
 
@@ -52,11 +53,11 @@ var Modal = (function() {
   }
 
   function close(id, callback) {
-    if (!id) {
-      throw new Error("You must provide a unique id for the modal you're trying to close.");
-    }
-
     var modal = _createModalObject(id);
+
+    if (!modal.body) {
+      throw new Error("Could not find a modal with the id of " + id + ' to close.');
+    }
 
     modal.body.setAttribute('aria-hidden', 'true');
 
@@ -73,12 +74,22 @@ var Modal = (function() {
     var trigger =
       document.querySelector('[data-modal-trigger="' + id + '"');
 
+    if (!trigger) {
+      throw new Error('Could not find a modal trigger with the id of ' + id);
+    }
+
+    activeTrigger = trigger;
+
     trigger.focus();
   }
 
   function focusModal(id) {
     var modal =
       document.getElementById(id);
+
+    if (!modal) {
+      throw new Error('Could not find a modal with the id of ' + id);
+    }
 
     activeModal = modal;
 

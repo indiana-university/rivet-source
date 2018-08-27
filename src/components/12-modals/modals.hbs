@@ -1,32 +1,7 @@
 <div class="rvt-button-group">
     <button class="rvt-button" data-modal-trigger="modal-example">Open modal example</button>
     <button class="rvt-button" data-modal-trigger="modal-with-form">Open modal with form</button>
-    <button class="rvt-button" data-modal-trigger="another-test">test</button>
 </div>
-
-
-<div class="rvt-modal" id="another-test" role="dialog" aria-labelledby="modal-example-title" aria-hidden="true" tabindex="-1">
-    <div class="rvt-modal__inner">
-        <header class="rvt-modal__header">
-            <h1 class="rvt-modal__title" id="modal-example-title">Modal title</h1>
-        </header>
-        <div class="rvt-modal__body">
-            <p>Another test</p>
-        </div>
-        <div class="rvt-modal__controls">
-            <button class="rvt-button" role="button">I want to continue</button>
-            <button class="rvt-button rvt-button--secondary" data-modal-close="another-test" role="button">No, please cancel</button>
-        </div>
-        <button class="rvt-button rvt-button--plain rvt-modal__close" data-modal-close="another-test" role="button">
-            <span class="v-hide">Close</span>
-            <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
-                />
-            </svg>
-        </button>
-    </div>
-</div>
-
 
 <div class="rvt-modal"
      id="modal-example"
@@ -59,12 +34,12 @@
      role="dialog"
      aria-labelledby="modal-form-title"
      aria-hidden="true"
-     tabindex=-1>
+     tabindex="-1">
      <div class="rvt-modal__inner">
         <header class="rvt-modal__header">
             <h1 class="rvt-modal__title" id="modal-form-title">Modal title</h1>
         </header>
-        <form>
+        <form id="test-form">
             <div class="rvt-modal__body">
                 <div class="m-bottom-sm">
                     <label for="the-title">Title</label>
@@ -110,26 +85,28 @@
 </div>
 
 <script>
-    /* document.addEventListener('keyup', function(event) {
-        if (event.keyCode === 27) {
-            Modal.close('modal-example', () => {
-                Modal.focusTrigger('modal-example');
-            });
-        }
-    }); */
+    const newAlert = `
+        <div class="rvt-alert rvt-alert--error rvt-m-bottom-sm" role="alert" aria-labelledby="error-alert-title" tabindex="-1">
+            <h1 class="rvt-alert__title" id="error-alert-title">Incorrect User ID or Password</h1>
+            <p class="rvt-alert__message">The user ID and password you entered do not match. Please check your entries and try again.</p>
+        </div>
+    `;
 
-    /*
-    document.addEventListener('DOMContentLoaded', function() {
-        var id = 'another-test';
+    const formTest = document.getElementById('test-form');
 
-        setTimeout(function() {
-            Modal.open(id);
-            Modal.focusModal(id);
-        }, 1000);
+    formTest.addEventListener('submit', event => {
+        event.preventDefault();
 
-        setTimeout(function() {
-            Modal.close(id);
-            Modal.focusTrigger(id);
-        }, 3000)
-    }); */
+        let newStuff = document.createElement('div');
+
+        newStuff.innerHTML = newAlert;
+
+        let modalBody = formTest.querySelector('.rvt-modal__body');
+
+        let modalBodyFirst = modalBody.firstChild;
+
+        modalBody.insertBefore(newStuff, modalBodyFirst);
+
+        newStuff.focus();
+    })
 </script>
