@@ -81,7 +81,7 @@ var Modal = (function() {
     var modal = _createModalObject(id);
 
     if (!modal.body) {
-      throw new Error("Could not find a modal with the id of " + id + ' to close.');
+      throw new Error('Could not find a modal with the id of ' + id + ' to close.');
     }
 
     modal.body.setAttribute('aria-hidden', 'true');
