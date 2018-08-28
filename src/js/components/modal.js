@@ -13,9 +13,18 @@ var Modal = (function() {
   var CLOSE_SELECTOR = '[data-modal-close]';
   var MODAL_SELECTOR = '.rvt-modal, .modal';
 
-  // Anything that is focusable
+  // Anything that is focus-able
   var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
 
+  /**
+   * These variables are used to keep track of currently active/open modals.
+   * They are available in the root scope of the Modal closure so that
+   * all of the Modal's methods have access to them.
+   *
+   * TODO: This probably isn't the best solutions as it makes most of the
+   * Modal methods impure. I would be interested in how we might get rid
+   * of the need for these global (to the Modal) variables.
+   */
   var activeTrigger;
   var activeModal;
 
@@ -90,7 +99,7 @@ var Modal = (function() {
    * Focuses the currently active modal trigger if it exists. This is a
    * Helper function that can be used in the callback of the close() method
    * to move focus back to corresponding trigger if needed.
-   * @param {Sring} id - A unique string that is used for the modal
+   * @param {String} id - A unique string that is used for the modal
    * trigger's data-modal-trigger attribute.
    */
   function focusTrigger(id) {
@@ -236,7 +245,7 @@ var Modal = (function() {
       case KEYS.tab:
 
         /**
-         * Get all focusable elements in the modal and convert the
+         * Get all focus-able elements in the modal and convert the
          * resulting nodeList to an Array.
          */
         var focusables =
