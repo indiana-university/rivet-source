@@ -17,13 +17,17 @@ describe('Modal component behavior', function () {
 
     let component;
     let button;
+    let id;
 
     beforeEach(function () {
         body.innerHTML = TEMPLATE;
         Modal.init();
 
         component = body.querySelector('.rvt-modal');
+
         button = body.querySelector('.rvt-button');
+
+        id = component.id;
     });
 
     describe('DOM state', function () {
@@ -36,16 +40,17 @@ describe('Modal component behavior', function () {
         });
     });
 
-    describe('Modal.open() and Modal.close()', function () {
-
-        it('Clicking button to open modal', function() {
-            Modal.open(component);
-            assert.equal(component.getAttribute(HIDDEN), null)
-        });
-
-        it('Clicking cancel button to close modal', function() {
-            Modal.close(component);
-            assert.equal(component.getAttribute(HIDDEN), 'true')
+    describe('Modal.open()', function () {
+        it('Should open the modal with the id given as the first argument', function() {
+            Modal.open(id);
+            assert.equal(component.getAttribute(HIDDEN), 'false');
         });
     });
+
+    describe('Modal.close()', () => {
+        it('Should close the modal with the id given as the first argument', () => {
+            Modal.close(id);
+            assert.equal(component.getAttribute(HIDDEN), 'true');
+        });
+    })
 });

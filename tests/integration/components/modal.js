@@ -15,7 +15,7 @@ module.exports = {
             .waitForElementVisible('#modal-example', 1000)
 
             // click cancel
-            .click("button[data-modal-close='close']", function(response) {
+            .click("button[data-modal-close='modal-example']", function(response) {
                 console.log(response.state === 'success' ? "Clicked button to close modal" : "Couldn't click button to close modal")
             })
 
