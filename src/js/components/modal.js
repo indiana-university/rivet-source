@@ -19,6 +19,10 @@ var Modal = (function() {
   var activeTrigger;
   var activeModal;
 
+  /**
+   * @param {String} id - A unique string used for a modal's id and/or
+   * data-modal-trigger attribute.
+   */
   function _createModalObject(id) {
     var modal = {};
 
@@ -30,6 +34,12 @@ var Modal = (function() {
     return modal;
   }
 
+  /**
+   * Opens the modal
+   * @param {String} id - A unique string used for the modal's id attribute
+   * @param {Function} callback - A function that is executed after modal
+   * is opened.
+   */
   function open(id, callback) {
     var modal = _createModalObject(id);
 
@@ -43,6 +53,7 @@ var Modal = (function() {
 
     modal.body.setAttribute('aria-hidden', 'false');
 
+    // Sets a class on the body to handle overflow and scroll.
     document.body.classList.add('rvt-modal-open');
 
     fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalOpen');
@@ -52,6 +63,11 @@ var Modal = (function() {
     }
   }
 
+  /**
+   * Closes the modal
+   * @param {String} id - A unique string used for the modal's id attribute
+   * @param {Function} callback - A function that is executed after modal is closed.
+   */
   function close(id, callback) {
     var modal = _createModalObject(id);
 
@@ -70,6 +86,13 @@ var Modal = (function() {
     }
   }
 
+  /**
+   * Focuses the currently active modal trigger if it exists. This is a
+   * Helper function that can be used in the callback of the close() method
+   * to move focus back to corresponding trigger if needed.
+   * @param {Sring} id - A unique string that is used for the modal
+   * trigger's data-modal-trigger attribute.
+   */
   function focusTrigger(id) {
     var trigger =
       document.querySelector('[data-modal-trigger="' + id + '"');
@@ -83,6 +106,13 @@ var Modal = (function() {
     trigger.focus();
   }
 
+  /**
+   * Focuses the currently open modal if it exists. Can be used
+   * to programmatically focus a modal after opening. For instance, in the
+   * callback for Modal.open().
+   * @param {String} id - A unique string that used for the modal's id
+   * attribute.
+   */
   function focusModal(id) {
     var modal =
       document.getElementById(id);
@@ -96,6 +126,10 @@ var Modal = (function() {
     modal.focus();
   }
 
+  /**
+   * Handles all click interactions for modals.
+   * @param {Event} event - The event object.
+   */
   function _handleClick(event) {
     /**
      * Stores a boolean in the event object, so we can check to see
@@ -156,6 +190,15 @@ var Modal = (function() {
     }
   }
 
+  /**
+   * A helper function that handles focus trapping for forward (default)
+   * tab key press.
+   * @param {HTMLElement} first - first focus-able HTMLElement in an array
+   * of all focus-able elements.
+   * @param {HTMLElement} last - last focus-able HTMLElement in an array
+   * of focus-able elements
+   * @param {Event} event - The event object
+   */
   function _handBackwardTab(first, last, event) {
     if (document.activeElement === first) {
       event.preventDefault();
@@ -163,6 +206,15 @@ var Modal = (function() {
     }
   }
 
+  /**
+   * A helper function that handles focus trapping for backward (with the
+   * shift key) tab key press.
+   * @param {HTMLElement} first - first focus-able HTMLElement in an array
+   * of all focus-able elements.
+   * @param {HTMLElement} last - last focus-able HTMLElement in an array
+   * of focus-able elements
+   * @param {Event} event - The event object
+   */
   function _handleForwardTab(first, last, event) {
     if (document.activeElement === last) {
       event.preventDefault();
@@ -170,6 +222,10 @@ var Modal = (function() {
     }
   }
 
+  /**
+   * Handles all keyboard interaction required for the modal.
+   * @param {Event} event - The event object
+   */
   function _handleKeydown(event) {
     // Do not continue if key stroke is anything other than Escape or Tab
     var currentModal = event.target.closest(MODAL_SELECTOR);
@@ -212,28 +268,48 @@ var Modal = (function() {
     }
   }
 
+  /**
+   * Destroys any initialized Modals
+   * @param {HTMLElement} context - An optional DOM element. This only
+   * needs to be passed in if a DOM element was passed to the init()
+   * function. If so, the element passed in must be the same element
+   * that was passed in at initialization so that the event listers can
+   * be properly removed.
+   */
   function destroy(context) {
     // Optional element to bind the event listeners to
     if (context === undefined) {
       context = document;
     }
 
+    // Cleans up event listeners
     context.removeEventListener('click', _handleClick, false);
     context.removeEventListener('keydown', _handleKeydown, false);
   }
 
+  /**
+   * Initializes the modal plugin
+   * @param {HTMLElement} context - An DOM element initialize the modal
+   * on. Although it is possible to only initialize the modal on a specific
+   * element for instance, <div id="my-div">Modals only work here</div>,
+   * We recommend initializing the modal without passing the context argument
+   * and letting all event listeners get attached to the document instead.
+   */
   function init(context) {
     // Optional element to bind the event listeners to
     if (context === undefined) {
       context = document;
     }
 
+    // Destroy any initialized modals
     destroy(context);
 
+    // Set up event listeners
     context.addEventListener('click', _handleClick, false);
     context.addEventListener('keydown', _handleKeydown, false);
   }
 
+  // Returns public APIs
   return {
     init: init,
     destroy: destroy,
