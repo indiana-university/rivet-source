@@ -207,6 +207,9 @@ var Tabs = (function() {
     if (context === undefined) {
       context = document;
     }
+
+    context.removeEventListener('click', _handleClick, false);
+    context.removeEventListener('keydown', _handleKeydown, false);
   }
 
   /**
