@@ -3,33 +3,41 @@
 $font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
 
 
-
-
 // Main type sizes map. This is used to generate all of the .ts-
 // utilitiy classes in "components/_type-scale.scss"
 
 // $key = pixel size, $value = relational units
+
 $type-sizes: (
     12: .75rem,
+    xxs: .75rem,
     14: .875rem,
+    xs: .875rem,
     16: 1rem,
+    base: 1rem,
     18: 1.125rem,
     20: 1.25rem,
+    sm: 1.25rem,
     23: 1.4375rem,
     26: 1.625rem,
+    md: 1.625rem,
     29: 1.8125rem,
     32: 2rem,
+    lg: 2rem,
     36: 2.25rem,
     41: 2.5625rem,
+    xl: 2.5625rem,
     46: 2.875rem,
     52: 3.25rem,
+    xxl: 3.25rem,
 ) !default;
 
+
 // Type Size variables
+
 $ts-12: map-get($type-sizes, 12) !default;
 $ts-14: map-get($type-sizes, 14) !default;
 $ts-16: map-get($type-sizes, 16) !default;
-$ts-base: $ts-16 !default;
 $ts-18: map-get($type-sizes, 18) !default;
 $ts-20: map-get($type-sizes, 20) !default;
 $ts-23: map-get($type-sizes, 23) !default;
@@ -42,6 +50,17 @@ $ts-46: map-get($type-sizes, 46) !default;
 $ts-52: map-get($type-sizes, 52) !default;
 
 
+// Type scale aliases
+
+$ts-xxs: $ts-12 !default;
+$ts-xs: $ts-14 !default;
+$ts-base: $ts-16 !default;
+$ts-sm: $ts-20 !default;
+$ts-md: $ts-26 !default;
+$ts-lg: $ts-32 !default;
+$ts-xl: $ts-41 !default;
+$ts-xxl: $ts-52 !default;
+
 
 // Base colors
 
@@ -49,14 +68,13 @@ $color-white: #ffffff !default;
 $color-subtle-gray: #f7f7f7 !default;
 $color-black: #333333 !default;
 
+
 // Brand Colors
 
 $color-cream: #edebeb !default;
 $color-crimson: #990000 !default;
 $color-midnight: #006298 !default;
 $color-dark-midnight: #01426a !default;
-
-
 
 
 // Black tints
@@ -73,10 +91,9 @@ $color-black--700: #666666 !default;
 $color-black--800: #555555 !default;
 $color-black--900: #444444 !default;
 
+
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
-
-
 
 
 // Midnight Variations
@@ -92,8 +109,6 @@ $color-midnight--800: #16324b !default;
 $color-midnight--900: #121c28 !default;
 
 
-
-
 // Colors by purpose
 
 $color-text: $color-black !default;
@@ -102,8 +117,6 @@ $color-background-subtle: $color-subtle-gray !default;
 $color-action: $color-midnight !default;
 $color-link: $color-midnight !default;
 $color-link-visited: $color-dark-midnight !default;
-
-
 
 
 // Alert colors
@@ -131,8 +144,6 @@ $color-alert-orange-text: #82270d !default;
 $color-alert-orange-light: #fdeee8 !default;
 
 
-
-
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
 
@@ -149,8 +160,6 @@ $color-map: (
 ) !default;
 
 
-
-
 // Global spacing units
 
 $spacing-unit: .5rem !default;        // 8px
@@ -162,7 +171,6 @@ $md: $spacing-unit * 3 !default;      // 24px
 $lg: $spacing-unit * 4 !default;      // 32px
 $xl: $spacing-unit * 5 !default;      // 40px
 $xxl: $spacing-unit * 8 !default;     // 64px
-
 
 
 // Global breakpoints
@@ -180,6 +188,7 @@ $breakpoint-md: map-get($breakpoints, 'md');
 $breakpoint-lg: map-get($breakpoints, 'lg');
 $breakpoint-xl: map-get($breakpoints, 'xl');
 $breakpoint-xxl: map-get($breakpoints, 'xxl');
+
 
 // TODO: This should be depricated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
