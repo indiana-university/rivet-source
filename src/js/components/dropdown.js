@@ -222,8 +222,8 @@ var Dropdown = (function() {
         /**
          * Handle down arrow key when inside the open menu.
          */
-        if (event.target.closest(MENU_SELECTOR) !== null) {
-          var theMenu = event.target.closest(MENU_SELECTOR);
+        if (event.target.closest('#' + activeMenu) !== null) {
+          var theMenu = event.target.closest('#' + activeMenu);
 
           var currentMenu = _setUpMenu(theMenu);
 
@@ -258,8 +258,8 @@ var Dropdown = (function() {
          */
 
         // Handle up arrow key when inside the open menu.
-        if (event.target.closest(MENU_SELECTOR) !== null) {
-          var theMenu = event.target.closest(MENU_SELECTOR);
+        if (event.target.closest('#' + activeMenu) !== null) {
+          var theMenu = event.target.closest('#' + activeMenu);
 
           var currentMenu = _setUpMenu(theMenu);
 
@@ -298,8 +298,8 @@ var Dropdown = (function() {
 
       case KEYS.tab:
         // Handle tab key when inside the open menu.
-        if (event.target.closest(MENU_SELECTOR) !== null || undefined) {
-          var theMenu = event.target.closest(MENU_SELECTOR);
+        if (event.target.closest('#' + activeMenu) !== null || undefined) {
+          var theMenu = event.target.closest('#' + activeMenu);
 
           var currentMenu = _setUpMenu(theMenu);
 
