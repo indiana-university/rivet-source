@@ -88,4 +88,20 @@ describe('Dropdown component behavior', function () {
             assert.equal(menu.getAttribute(HIDDEN), 'true')
         })
     });
+
+    describe('Dropdown.closeAll()', function() {
+        it('Should close any dropdown that is currently open', function() {
+            // Open the dropdown so we can test closing it with closeAll()
+            Dropdown.open(dropdownId);
+
+            assert.equal(button.getAttribute(EXPANDED), 'true');
+            assert.equal(menu.getAttribute(HIDDEN), 'false');
+
+            Dropdown.closeAll();
+
+            // Menu should be hidden and button should NOT be expanded
+            assert.equal(button.getAttribute(EXPANDED), 'false');
+            assert.equal(menu.getAttribute(HIDDEN), 'true');
+        });
+    });
 });
