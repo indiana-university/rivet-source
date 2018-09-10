@@ -53,6 +53,17 @@ describe('Modal component behavior', function () {
             assert.equal(modal.getAttribute(HIDDEN), 'false');
         });
 
+        it('Should open the modal when passed a DOM node', function() {
+            // Make sure the modal is closed
+            Modal.close(id);
+
+            // Open the modal passing it a the actual modal DOM element
+            Modal.open(modal);
+
+            // Modal should be open
+            assert.equal(modal.getAttribute(HIDDEN), 'false');
+        });
+
         it('Should execute a callback function after the modal is opened', function() {
             let myValue = 1;
 
@@ -71,6 +82,17 @@ describe('Modal component behavior', function () {
     describe('Modal.close()', function() {
         it('Should close the modal with the id given as the first argument', function() {
             Modal.close(id);
+            assert.equal(modal.getAttribute(HIDDEN), 'true');
+        });
+
+        it('Should open the modal when passed a DOM node', function () {
+            // Make sure the modal is open
+            Modal.open(id);
+
+            // Open the modal passing it a the actual modal DOM element
+            Modal.close(modal);
+
+            // Modal should be closed
             assert.equal(modal.getAttribute(HIDDEN), 'true');
         });
 
