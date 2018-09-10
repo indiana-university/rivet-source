@@ -50,6 +50,19 @@ var Modal = (function() {
    * is opened.
    */
   function open(id, callback) {
+    /**
+     * DEPRECATED: This is to add backwards compatibility for the older API
+     * where you needed to pass in the modal Object/HTMLElement. This should
+     * be deprecated in the next major version.
+     */
+    if (typeof id === 'object' && id.nodeType === 1) {
+      id = id.getAttribute('id');
+
+      if (!id) {
+        throw new Error('Please proved an id attribute for the modal you want to open.');
+      }
+    }
+
     var modal = _createModalObject(id);
 
     if (!modal.body) {
@@ -78,6 +91,19 @@ var Modal = (function() {
    * @param {Function} callback - A function that is executed after modal is closed.
    */
   function close(id, callback) {
+    /**
+     * DEPRECATED: This is to add backwards compatibility for the older API
+     * where you needed to pass in the modal Object/HTMLElement. This should
+     * be deprecated in the next major version.
+     */
+    if (typeof id === 'object' && id.nodeType === 1) {
+        id = id.getAttribute('id');
+
+        if (!id) {
+          throw new Error('Please proved an id attribute for the modal you want to close.');
+        }
+    }
+
     var modal = _createModalObject(id);
 
     if (!modal.body) {
