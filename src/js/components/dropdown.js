@@ -107,6 +107,33 @@ var Dropdown = (function() {
   }
 
   /**
+   * DEPRECATED: This adds backward compatibility for the closeAll() method
+   * in before and including 1.0.0. This should be marked as deprecated
+   * moving forward and removed in the next major version.
+   */
+  function closeAll() {
+    // Find all the dropdown toggles and convert them to an array
+    var allDropdownToggles =
+      Array.prototype.slice.call(
+        document.querySelectorAll('[' + TOGGLE_ATTR + ']')
+      );
+
+    // Find all the dropdown menus and convert them to an array
+    var allDropdownMenus =
+      Array.prototype.slice.call(
+        document.querySelectorAll(MENU_SELECTOR)
+      );
+
+    allDropdownToggles.forEach(function(toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    allDropdownMenus.forEach(function (menu) {
+      menu.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  /**
    * A helper function that toggles a dropdown to the opposite of it's
    * current state (opened or closed). The .toggle() method was part
    * of the original API, so we're keeping it here for backwards
@@ -373,6 +400,7 @@ var Dropdown = (function() {
   return {
     open: openMenu,
     close: closeMenu,
+    closeAll: closeAll,
     init: init,
     destroy: destroy,
     toggle: toggle
