@@ -1,95 +1,214 @@
 var Drawer = (function() {
-    var drawerTrigger = null;
-    var drawerSubnavTriggers = null;
-    var drawerId = null;
-    var drawerEl = null;
-    var drawerBottomClose = null;
+  'use strict';
 
-    var init = function(context) {
-        if (context === undefined) {
-            context = document;
-        }
+  var KEYS = {
+    up: 38,
+    down: 40,
+    tab: 9,
+    escape: 27
+  };
 
-        drawerTrigger = context.querySelector('[data-drawer-toggle]');
-        drawerSubnavTriggers = context.querySelectorAll('[data-subnav-toggle]');
-        drawerId = drawerTrigger ? drawerTrigger.getAttribute('data-drawer-toggle') : null;
-        drawerEl = context.querySelector('#' + drawerId);
-        drawerBottomClose = drawerEl ? drawerEl.querySelector('.rvt-drawer__bottom-close') : null;
+  var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+  var TOGGLE_ATTRIBUTE = 'data-drawer-toggle';
+  var TOGGLE_SELECTOR = '[' + TOGGLE_ATTRIBUTE + ']';
 
-        // Check to make sure the drawer is present in the DOM
-        if(drawerTrigger) {
-            _bindUiActions();
-        }
+  var activeDrawer;
+  var activeToggle;
+
+  function _createDrawerObject(id) {
+    var drawer = {};
+
+    drawer.toggle =
+      document.querySelector('[' + TOGGLE_ATTRIBUTE + '="' + id + '"]');
+
+    drawer.menu = document.getElementById(id);
+
+    var drawerFocusables = Array.prototype.slice.call(drawer.menu.querySelectorAll(ALL_FOCUSABLE_ELS));
+
+    drawer.focusables = drawerFocusables;
+
+    drawer.firstFocusable = drawerFocusables[0];
+
+    drawer.lastFocusable = drawerFocusables[drawerFocusables.length - 1];
+
+    return drawer;
+  }
+
+  function open(id, callback) {
+    var drawer = _createDrawerObject(id);
+
+    activeDrawer = id;
+
+    activeToggle = drawer.toggle;
+
+    drawer.toggle.setAttribute('aria-expanded', 'true');
+
+    drawer.menu.setAttribute('aria-hidden', 'false');
+
+    if (callback && typeof callback === 'function') {
+      callback();
+    }
+  }
+
+  function close(id, callback) {
+    var drawerButton = document.querySelector('[data-drawer-toggle="' + id + '"]');
+
+    var drawer = document.getElementById(id);
+
+    drawerButton.setAttribute('aria-expanded', 'false');
+
+    drawer.setAttribute('aria-hidden', 'true');
+
+    if (callback && typeof callback === 'function') {
+        callback();
+    }
+  }
+
+  function toggleSubnav(event) {
+    var subnav = event.target.closest('[data-subnav-toggle]');
+
+    var subnavMenu =
+      document.getElementById(subnav.getAttribute('data-subnav-toggle'));
+
+    var isExpanded =
+      subnav.getAttribute('aria-expanded') === 'true' || false;
+
+    subnav.setAttribute('aria-expanded', !isExpanded);
+
+    subnavMenu.setAttribute('aria-hidden', isExpanded);
+  }
+
+  function _handleClick(event) {
+    event.target.closest('.rvt-drawer') !== null ?
+      event.clickedInDrawer = true :
+      event.clickedInDrawer = false;
+
+    if (event.clickedInDrawer) {
+      event.stopPropagation();
+
+      // toggle subnav
+      if (event.target.closest('[data-subnav-toggle]')) {
+        toggleSubnav(event);
+      }
+
+      /**
+       * If the target was the bottom close button that is only visible
+       * when focused, close the drawer.
+       */
+      var bottomCloseButton =
+        event.target.closest('[data-close-drawer], rvt-drawer__bottom-close');
+
+      if (bottomCloseButton !== null) {
+        close(activeDrawer);
+
+        activeToggle.focus();
+      }
+
+      return;
     }
 
-    var toggleBtnState = function (buttonEl) {
-        var isExpanded = buttonEl.getAttribute('aria-expanded') === 'true' || false;
-        buttonEl.setAttribute('aria-expanded', !isExpanded);
+    var drawerToggle = event.target.closest(TOGGLE_SELECTOR);
+
+    if (!drawerToggle || drawerToggle.getAttribute('aria-expanded') === 'true') {
+      if (!activeDrawer) return;
+
+      close(activeDrawer);
+
+      return;
     }
 
-    var toggleHiddenState = function (itemToToggle) {
-        var itemState = itemToToggle.getAttribute('aria-hidden') === 'true' || false;
-        itemToToggle.setAttribute('aria-hidden', !itemState);
-    }
+    open(drawerToggle.getAttribute(TOGGLE_ATTRIBUTE));
+  }
 
-    var resetDrawer = function (drawerEl, drawerTrigger) {
-        drawerEl.setAttribute('aria-hidden', 'true');
-        drawerTrigger.setAttribute('aria-expanded', 'false');
-        drawerTrigger.classList.remove('is-open');
-    }
+  function _handleKeydown(event) {
+    // Handle keyboard stuff
+    switch (event.keyCode) {
+      case KEYS.down:
+        // Stop the page from shimmying when using down key
+        event.preventDefault();
 
-    var toggle = function(trigger, target, event) {
-        if(event) {
-            event.preventDefault();
-            event.stopPropagation();
+        // Check to see if the target was the drawer toggle.
+        var toggle = event.target.closest(TOGGLE_SELECTOR);
+
+        // If it was the toggle, do toggle stuff
+        if (toggle && toggle !== null) {
+          var id = toggle.getAttribute(TOGGLE_ATTRIBUTE);
+
+          var drawer = _createDrawerObject(id);
+
+          /**
+           * If the drawer is already open/expanded focus the first
+           * focus-able element in the drawer, otherwise open it.
+           */
+          drawer.toggle.getAttribute('aria-expanded') === 'true' ?
+            drawer.firstFocusable.focus() :
+            open(id);
+
+            return;
         }
 
-        // Toggle aria-expanded state of the button
-        toggleBtnState(trigger);
+        /**
+         * Handle the down key press when the drawer is open and a
+         * focus-able element inside has focus.
+         */
+        if (event.target.closest('#' + activeDrawer)) {
+          // Each time we create a new drawer object to work with.
+          var drawer = _createDrawerObject(activeDrawer);
 
-        // Toggle the aria-hidden state of the drawer
-        toggleHiddenState(target);
+          // Keep track of the index of the currently focused element
+          var currentIndex;
 
-        // Toggle button open class
-        trigger.classList.toggle('is-open');
-    }
-
-    var _bindUiActions = function() {
-        drawerTrigger.addEventListener('click', function(e) {
-            toggle(this, drawerEl, e)
-        });
-
-        for(var i = 0; i < drawerSubnavTriggers.length; i++) {
-            drawerSubnavTriggers[i].addEventListener('click', function(e) {
-                toggle(this, document.querySelector('#' + this.getAttribute('data-subnav-toggle')), e)
-            });
-        }
-
-        // Make sure the extra close button is present in the DOM
-        if (drawerBottomClose) {
-            drawerBottomClose.addEventListener('click', function (e) {
-                toggle(drawerTrigger, drawerEl, e);
-            });
-        }
-
-        // Close the drawer if the user presses the ESC key
-        document.addEventListener('keyup', function(e) {
-            if(e.keyCode == 27 && drawerEl.getAttribute('aria-hidden') != 'true') {
-                toggle(drawerTrigger, drawerEl, e);
-                drawerTrigger.focus();
+          /**
+           * This keeps track of which button/focusable is focused
+           * in the open drawer.
+           */
+          for (var i = 0; i < drawer.focusables.length; i++) {
+            if (event.target === drawer.focusables[i]) {
+              currentIndex = i;
             }
-        });
+          }
 
-        document.addEventListener('click', function(e) {
-            if(e.target != drawerEl && !drawerEl.contains(e.target)) {
-                resetDrawer(drawerEl, drawerTrigger);
-            }
-        });
+          var nextItem = drawer.focusables[currentIndex + 1];
+
+          // If it's the last focus-able move back to the first.
+          if (!nextItem) {
+            drawer.firstFocusable.focus();
+
+            return;
+          }
+
+          nextItem.focus();
+        }
+    }
+  }
+
+  function destroy(context) {
+    if (context === undefined) {
+        context = document;
     }
 
-    return {
-        init: init,
-        toggle: toggle
+    document.removeEventListener('click', _handleClick, false);
+    document.removeEventListener('keydown', _handleKeydown, false);
+  }
+
+  function init(context) {
+    // Optional element to bind the event listeners to
+    if (context === undefined) {
+      context = document;
     }
+
+    // Destroy any currently initialized drawers
+    destroy(context);
+
+    document.addEventListener('click', _handleClick, false);
+    document.addEventListener('keydown', _handleKeydown, false);
+  }
+
+  return {
+    init: init,
+    destroy: destroy,
+    open: open,
+    close: close
+  }
 })();
 
