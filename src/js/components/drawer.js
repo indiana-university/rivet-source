@@ -133,7 +133,7 @@ var Drawer = (function() {
        * when focused, close the drawer.
        */
       var bottomCloseButton =
-        event.target.closest('[data-close-drawer], rvt-drawer__bottom-close');
+        event.target.closest('[data-close-drawer], .rvt-drawer__bottom-close');
 
       if (bottomCloseButton !== null) {
         close(activeDrawer);
