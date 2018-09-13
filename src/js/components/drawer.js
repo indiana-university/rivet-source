@@ -45,6 +45,9 @@ var Drawer = (function() {
 
     drawer.menu.setAttribute('aria-hidden', 'false');
 
+    // Emmit a custom event that can be used as a hook for other actions
+    fireCustomEvent(activeToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
+
     if (callback && typeof callback === 'function') {
       callback();
     }
@@ -58,6 +61,9 @@ var Drawer = (function() {
     drawerButton.setAttribute('aria-expanded', 'false');
 
     drawer.setAttribute('aria-hidden', 'true');
+
+    // Emmit a custom event that can be used as a hook for other actions
+    fireCustomEvent(drawerButton, TOGGLE_ATTRIBUTE, 'drawerClose');
 
     if (callback && typeof callback === 'function') {
         callback();
@@ -144,7 +150,7 @@ var Drawer = (function() {
             drawer.firstFocusable.focus() :
             open(id);
 
-            return;
+          return;
         }
 
         /**
@@ -158,20 +164,29 @@ var Drawer = (function() {
           // Keep track of the index of the currently focused element
           var currentIndex;
 
+          // Filter out any focus-able that is not visible
+          var currentlyVisible = drawer.focusables.filter(function(item) {
+            return item.clientHeight > 0;
+          });
+
+          // Add currently visible focus-able elements to the drawer object
+          drawer.visibleFocusables = currentlyVisible;
+
           /**
            * This keeps track of which button/focusable is focused
            * in the open drawer.
            */
-          for (var i = 0; i < drawer.focusables.length; i++) {
-            if (event.target === drawer.focusables[i]) {
+          for (var i = 0; i < drawer.visibleFocusables.length; i++) {
+            if (event.target === drawer.visibleFocusables[i]) {
               currentIndex = i;
             }
           }
 
-          var nextItem = drawer.focusables[currentIndex + 1];
+          var nextItem = drawer.visibleFocusables[currentIndex + 1];
 
           // If it's the last focus-able move back to the first.
           if (!nextItem) {
+            // Always return focus to the first element
             drawer.firstFocusable.focus();
 
             return;
@@ -179,6 +194,68 @@ var Drawer = (function() {
 
           nextItem.focus();
         }
+
+        break;
+      case KEYS.up:
+        /**
+         * Same as down handler, but in reverse. TODO: find a way to
+         * refactor the up and down handler to something that determine
+         * orientation and then use a generic function to handle
+         * the keydown.
+         */
+        if (event.target.closest('#' + activeDrawer)) {
+          // Each time we create a new drawer object to work with.
+          var drawer = _createDrawerObject(activeDrawer);
+
+          // Keep track of the index of the currently focused element
+          var currentIndex;
+
+          // Filter out any focus-able that is not visible
+          var currentlyVisible = drawer.focusables.filter(function (item) {
+            return item.clientHeight > 0;
+          });
+
+          // Add currently visible focus-able elements to the drawer object
+          drawer.visibleFocusables = currentlyVisible;
+
+          /**
+           * This keeps track of which button/focusable is focused
+           * in the open drawer.
+           */
+          for (var i = 0; i < drawer.visibleFocusables.length; i++) {
+            if (event.target === drawer.visibleFocusables[i]) {
+              currentIndex = i;
+            }
+          }
+
+          var previousItem = drawer.visibleFocusables[currentIndex - 1];
+
+          // If it's the last focus-able move back to the first.
+          if (!previousItem) {
+            // Always return focus to the first element
+            drawer.lastFocusable.focus();
+
+            return;
+          }
+
+          previousItem.focus();
+        }
+
+        break;
+      case KEYS.escape:
+        // Handle escape key
+        if (activeDrawer) {
+          close(activeDrawer);
+        }
+
+        if (activeToggle && activeToggle !== null) {
+          activeToggle.focus();
+        }
+
+      break;
+
+      default:
+      break;
     }
   }
 
