@@ -12,9 +12,20 @@ var Drawer = (function() {
   var TOGGLE_ATTRIBUTE = 'data-drawer-toggle';
   var TOGGLE_SELECTOR = '[' + TOGGLE_ATTRIBUTE + ']';
 
+  /**
+   * These variables keep track of whether the drawer is open/close.
+   * They are used to help manage focus based on keyboard interaction.
+   */
   var activeDrawer;
   var activeToggle;
 
+  /**
+   * @returns {Object} - An object containing references
+   * to all focus-able elements, the first and last focus-able
+   * elements in the drawer.
+   * @param {String} id - The unique id of the drawer that you
+   * are interacting with.
+   */
   function _createDrawerObject(id) {
     var drawer = {};
 
@@ -34,6 +45,12 @@ var Drawer = (function() {
     return drawer;
   }
 
+  /**
+   *
+   * @param {String} id - The unique id of the drawer to open
+   * @param {Function} callback - An optional callback function that is
+   * executed after the drawer is opened
+   */
   function open(id, callback) {
     var drawer = _createDrawerObject(id);
 
@@ -45,7 +62,7 @@ var Drawer = (function() {
 
     drawer.menu.setAttribute('aria-hidden', 'false');
 
-    // Emmit a custom event that can be used as a hook for other actions
+    // Emit a custom event that can be used as a hook for other actions
     fireCustomEvent(activeToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
 
     if (callback && typeof callback === 'function') {
@@ -53,6 +70,12 @@ var Drawer = (function() {
     }
   }
 
+  /**
+   *
+   * @param {String} id - The unique id of the drawer to close
+   * @param {Function} callback - An optional callback function that
+   * is executed after the drawer is closed.
+   */
   function close(id, callback) {
     var drawerButton = document.querySelector('[data-drawer-toggle="' + id + '"]');
 
@@ -62,7 +85,7 @@ var Drawer = (function() {
 
     drawer.setAttribute('aria-hidden', 'true');
 
-    // Emmit a custom event that can be used as a hook for other actions
+    // Emit a custom event that can be used as a hook for other actions
     fireCustomEvent(drawerButton, TOGGLE_ATTRIBUTE, 'drawerClose');
 
     if (callback && typeof callback === 'function') {
@@ -83,6 +106,11 @@ var Drawer = (function() {
     subnavMenu.setAttribute('aria-hidden', isExpanded);
   }
 
+  /**
+   * The main click event handler that gets attached to the document
+   *
+   * @param {Event} event
+   */
   function _handleClick(event) {
     event.target.closest('.rvt-drawer') !== null ?
       event.clickedInDrawer = true :
@@ -129,6 +157,11 @@ var Drawer = (function() {
     open(drawerToggle.getAttribute(TOGGLE_ATTRIBUTE));
   }
 
+  /**
+   * The main keydown event lister that gets attached to the document
+   * to handle all keyboard interaction.
+   * @param {Event} event
+   */
   function _handleKeydown(event) {
     // Handle keyboard stuff
     switch (event.keyCode) {
@@ -262,6 +295,15 @@ var Drawer = (function() {
     }
   }
 
+  /**
+   * Cleans up any currently initialized Drawers
+   *
+   * @param {HTMLElement} context - An optional DOM element. This only
+   * needs to be passed in if a DOM element was passed to the init()
+   * function. If so, the element passed in must be the same element
+   * that was passed in at initialization so that the event listers can
+   * be properly removed.
+   */
   function destroy(context) {
     if (context === undefined) {
         context = document;
@@ -271,6 +313,14 @@ var Drawer = (function() {
     document.removeEventListener('keydown', _handleKeydown, false);
   }
 
+  /**
+   * Kicks of the Drawer component and sets up all event listeners
+   *
+   * @param {HTMLElement} context - An optional DOM element that the
+   * drawer can be initialized on. All event listeners will be attached
+   * to this element. Usually best to just leave it to default
+   * to the document.
+   */
   function init(context) {
     // Optional element to bind the event listeners to
     if (context === undefined) {
