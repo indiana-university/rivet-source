@@ -70,11 +70,10 @@ var Drawer = (function() {
     }
   }
 
-  function toggleSubnav(event) {
-    var subnav = event.target.closest('[data-subnav-toggle]');
+  function _toggleSubnav(id) {
+    var subnav = document.querySelector('[data-subnav-toggle="' + id + '"]');
 
-    var subnavMenu =
-      document.getElementById(subnav.getAttribute('data-subnav-toggle'));
+    var subnavMenu = document.getElementById(id);
 
     var isExpanded =
       subnav.getAttribute('aria-expanded') === 'true' || false;
@@ -94,7 +93,11 @@ var Drawer = (function() {
 
       // toggle subnav
       if (event.target.closest('[data-subnav-toggle]')) {
-        toggleSubnav(event);
+        var toggle = event.target.closest('[data-subnav-toggle]');
+
+        var id = toggle.getAttribute('data-subnav-toggle');
+
+        _toggleSubnav(id);
       }
 
       /**
