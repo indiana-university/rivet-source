@@ -200,12 +200,24 @@ var Dropdown = (function() {
   function _handleClick(event) {
     var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
 
+    var menu = event.target.closest('#' + activeMenu);
+
+    // Use this boolean on the event object in place of stopPropagation()
+    if (menu && menu !== null) {
+      event.clickedWithinMenu = true;
+    }
+
     if (!toggle || toggle.getAttribute('aria-expanded') === 'true') {
       // No menu has been opened yet and the event target was not a toggle, so bail.
       if (!activeMenu) return;
 
-      // Otherwise close the currently open menu
-      closeMenu(activeMenu);
+      /**
+       * Otherwise close the currently open menu unless the click
+       * happened inside of it.
+       */
+      if (!event.clickedWithinMenu) {
+        closeMenu(activeMenu);
+      }
 
       return;
     }
@@ -320,6 +332,13 @@ var Dropdown = (function() {
         if (activeToggle && activeToggle !== null) {
           activeToggle.focus();
         }
+
+        /**
+         * Resets the state variables so as not to interfere with other
+         * Escape key handlers/interactions
+         */
+        activeMenu = null;
+        activeToggle = null;
 
         break;
 

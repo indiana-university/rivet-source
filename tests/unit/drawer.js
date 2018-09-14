@@ -13,35 +13,46 @@ const EXPANDED = 'aria-expanded';
 const HIDDEN   = 'aria-hidden';
 
 describe('Drawer component behavior', function () {
-    const body = document.body;
+  const body = document.body;
 
-    let component;
-    let button;
+  let component;
+  let button;
 
-    beforeEach(function () {
-        body.innerHTML = TEMPLATE;
-        Drawer.init();
+  beforeEach(function () {
+    body.innerHTML = TEMPLATE;
+    Drawer.init();
 
-        component = body.querySelector('.rvt-drawer');
-        button = body.querySelector('.rvt-drawer-button');
+    component = body.querySelector('.rvt-drawer');
+    button = body.querySelector('.rvt-drawer-button');
+    id = button.getAttribute('data-drawer-toggle');
+  });
+
+  describe('DOM state', function () {
+    it('Has an "aria-expanded" attribute', function () {
+      assert(button.getAttribute(EXPANDED));
     });
 
-    describe('DOM state', function () {
-        it('Has an "aria-expanded" attribute', function () {
-            assert(button.getAttribute(EXPANDED));
-        });
-
-        it('Has an "aria-hidden" attribute', function () {
-            assert(component.getAttribute(HIDDEN));
-        });
+    it('Has an "aria-hidden" attribute', function () {
+      assert(component.getAttribute(HIDDEN));
     });
+  });
 
-    describe('Drawer.toggle()', function () {
-
-        it('Clicking button to open drawer', function() {
-            Drawer.toggle(button, component);
-            assert.equal(button.getAttribute(EXPANDED), 'true')
-            assert.equal(component.getAttribute(HIDDEN), 'false')
-        });
+  describe('Drawer.open() method', function () {
+    it('Drawer toggle should have aria-expanded="true" and drawer element should have aria-hidden="false"', function() {
+      Drawer.open(id);
+      assert.equal(button.getAttribute(EXPANDED), 'true');
+      assert.equal(component.getAttribute(HIDDEN), 'false');
     });
+  });
+
+  describe('Drawer.close() method', function () {
+    it('Drawer toggle should have aria-expanded="false" and drawer element should have aria-hidden="true"', function () {
+      Drawer.open(id);
+
+      Drawer.close(id);
+
+      assert.equal(button.getAttribute(EXPANDED), 'false');
+      assert.equal(component.getAttribute(HIDDEN), 'true');
+    });
+  });
 });
