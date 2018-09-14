@@ -321,6 +321,13 @@ var Dropdown = (function() {
           activeToggle.focus();
         }
 
+        /**
+         * Resets the state variables so as not to interfere with other
+         * Escape key handlers/interactions
+         */
+        activeMenu = null;
+        activeToggle = null;
+
         break;
 
       case KEYS.tab:
