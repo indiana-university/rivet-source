@@ -5,3 +5,5 @@ dist
 static
 .idea
 .vscode
+cypress/videos
+cypress/screenshots
