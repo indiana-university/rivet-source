@@ -52,12 +52,19 @@ var Drawer = (function() {
    * executed after the drawer is opened
    */
   function open(id, callback) {
+    /**
+     * Set up drawer object so store all the values we need to work with
+     * when managing focus (e.g. all focus-able elements, first, last, etc.)
+     */
     var drawer = _createDrawerObject(id);
 
+    // Keep track of the open drawer
     activeDrawer = id;
 
+    // Keep track of the active toggle so we can focus later
     activeToggle = drawer.toggle;
 
+    // Open the drawer
     drawer.toggle.setAttribute('aria-expanded', 'true');
 
     drawer.menu.setAttribute('aria-hidden', 'false');
@@ -93,6 +100,10 @@ var Drawer = (function() {
     }
   }
 
+  /**
+   * Toggles drawer subnavs
+   * @param {String} id - the unique id of the drawer subnav/tree toggle
+   */
   function _toggleSubnav(id) {
     var subnav = document.querySelector('[data-subnav-toggle="' + id + '"]');
 
