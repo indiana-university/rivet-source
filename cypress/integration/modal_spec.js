@@ -1,0 +1,69 @@
+const MODAL_TOGGLE = '[data-modal-trigger="modal-example"]';
+const MODAL = '#modal-example';
+const MODAL_CLOSE = '[data-modal-close="modal-example"]:first'
+const DEV_SERVER = 'http://localhost:3000';
+const DOWN = 40
+const UP = 38
+const ENTER = 13
+const ESC = 27
+
+describe('Rivet modal interactions', function() {
+    it('Visits the modal page', function() {
+        cy.visit(DEV_SERVER + '/components/preview/modals--default')
+    })
+
+    it('Should see a modal button', function() {
+        cy.get(MODAL_TOGGLE)
+            .should('have.attr', 'data-modal-trigger', 'modal-example')
+    })
+
+    it('Should not see a modal', function() {
+        cy.get(MODAL)
+            .should('not.be.visible')
+    })
+
+    it('Should be able to open the modal', function() {
+        cy.get(MODAL_TOGGLE)
+            .click()
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'false')
+            .and('have.attr', 'tabindex', '-1')
+            .and('be.visible')
+    })
+
+
+    it('Should be able to close the modal', function() {
+        cy.get(MODAL_CLOSE)
+            .click()
+
+        cy.get(MODAL)
+            .and('not.be.visible')
+    })
+
+    it('Should be able to close modal with esc key', function() {
+
+        cy.get(MODAL_TOGGLE)
+            .click()
+
+        cy.get('body')
+            .trigger('keydown', {keyCode: ESC, which: ESC})
+
+        cy.get(MODAL)
+            .should('not.be.visible')
+
+    })
+
+    it('Should be able to click outside modal to close', function() {
+
+        cy.get(MODAL_TOGGLE)
+            .click()
+
+        cy.get('body')
+            .click()
+
+        cy.get(MODAL)
+            .should('not.be.visible')
+    })
+
+})
