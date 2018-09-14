@@ -18,23 +18,25 @@ describe('Rivet Drawer', function() {
     })
 
     it('Should be able to use arrow keys', function() {
-        cy.get('#mobile-drawer')
-            .type('{downarrow}', {force: true})
+        cy.focused()
+            .trigger('keydown', {keyCode: 40, which: 40})
 
         cy.focused()
             .should('have.attr', 'aria-expanded', 'false')
             .click()
 
         cy.focused()
-            .type('{downarrow}', {force: true})
+            .trigger('keydown', {keyCode: 13, which: 13})
+            .trigger('keydown', {keyCode: 40, which: 40})
 
         cy.focused()
             .should('have.text', 'Account settings')
     })
 
     it('Should be able to use esc key', function() {
-        cy.get('#mobile-drawer')
-            .type('{esc}', {force: true})
+        cy.focused()
+            .trigger('keyup', {keyCode: 27, which: 27})
+
 
         cy.get('.rvt-drawer-button')
             .click()
