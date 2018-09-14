@@ -64,13 +64,13 @@ var Drawer = (function() {
     // Keep track of the active toggle so we can focus later
     activeToggle = drawer.toggle;
 
+    // Emit a custom event that can be used as a hook for other actions
+    fireCustomEvent(activeToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
+
     // Open the drawer
     drawer.toggle.setAttribute('aria-expanded', 'true');
 
     drawer.menu.setAttribute('aria-hidden', 'false');
-
-    // Emit a custom event that can be used as a hook for other actions
-    fireCustomEvent(activeToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
 
     if (callback && typeof callback === 'function') {
       callback();
@@ -98,6 +98,17 @@ var Drawer = (function() {
     if (callback && typeof callback === 'function') {
         callback();
     }
+  }
+
+  function onOpen(id, callback) {
+    document.addEventListener('drawerOpen', function (event) {
+
+      if (event.detail.name() === id) {
+        if (callback && typeof callback === 'function') {
+          callback();
+        }
+      }
+    });
   }
 
   /**
@@ -349,6 +360,7 @@ var Drawer = (function() {
     init: init,
     destroy: destroy,
     open: open,
-    close: close
+    close: close,
+    onOpen: onOpen
   }
 })();
