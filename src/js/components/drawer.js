@@ -299,6 +299,13 @@ var Drawer = (function() {
           activeToggle.focus();
         }
 
+        /**
+         * Resets the state variables so as not to interfere with other
+         * Escape key handlers/interactions
+         */
+        activeDrawer = null;
+        activeDrawerToggle = null;
+
       break;
 
       default:
