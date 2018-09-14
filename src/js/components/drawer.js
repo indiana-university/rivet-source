@@ -17,7 +17,7 @@ var Drawer = (function() {
    * They are used to help manage focus based on keyboard interaction.
    */
   var activeDrawer;
-  var activeToggle;
+  var activeDrawerToggle;
 
   /**
    * @returns {Object} - An object containing references
@@ -62,15 +62,16 @@ var Drawer = (function() {
     activeDrawer = id;
 
     // Keep track of the active toggle so we can focus later
-    activeToggle = drawer.toggle;
+    activeDrawerToggle = drawer.toggle;
 
-    // Emit a custom event that can be used as a hook for other actions
-    fireCustomEvent(activeToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
 
     // Open the drawer
     drawer.toggle.setAttribute('aria-expanded', 'true');
 
     drawer.menu.setAttribute('aria-hidden', 'false');
+
+    // Emit a custom event that can be used as a hook for other actions
+    fireCustomEvent(activeDrawerToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
 
     if (callback && typeof callback === 'function') {
       callback();
@@ -127,9 +128,11 @@ var Drawer = (function() {
       event.clickedInDrawer = true :
       event.clickedInDrawer = false;
 
+    /**
+     * If the click happened inside the drawer handle subnavs, etc.
+     * Using this in place of stopPropagation()
+     */
     if (event.clickedInDrawer) {
-      event.stopPropagation();
-
       // toggle subnav
       if (event.target.closest('[data-subnav-toggle]')) {
         var toggle = event.target.closest('[data-subnav-toggle]');
@@ -149,7 +152,7 @@ var Drawer = (function() {
       if (bottomCloseButton !== null) {
         close(activeDrawer);
 
-        activeToggle.focus();
+        activeDrawerToggle.focus();
       }
 
       return;
@@ -295,8 +298,8 @@ var Drawer = (function() {
           close(activeDrawer);
         }
 
-        if (activeToggle && activeToggle !== null) {
-          activeToggle.focus();
+        if (activeDrawerToggle && activeDrawerToggle !== null) {
+          activeDrawerToggle.focus();
         }
 
         /**
@@ -356,7 +359,6 @@ var Drawer = (function() {
     init: init,
     destroy: destroy,
     open: open,
-    close: close,
-    onOpen: onOpen
+    close: close
   }
 })();
