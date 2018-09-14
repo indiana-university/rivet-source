@@ -100,17 +100,6 @@ var Drawer = (function() {
     }
   }
 
-  function onOpen(id, callback) {
-    document.addEventListener('drawerOpen', function (event) {
-
-      if (event.detail.name() === id) {
-        if (callback && typeof callback === 'function') {
-          callback();
-        }
-      }
-    });
-  }
-
   /**
    * Toggles drawer subnavs
    * @param {String} id - the unique id of the drawer subnav/tree toggle
