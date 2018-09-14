@@ -2,6 +2,10 @@ const DRAWER_TOGGLE = '[data-drawer-toggle="mobile-drawer"]';
 const DRAWER_MENU = '#mobile-drawer';
 const DRAWER_CLOSE = '.rvt-drawer__bottom-close'
 const DEV_SERVER = 'http://localhost:3000';
+const DOWN = 40
+const UP = 38
+const ENTER = 13
+const ESC = 27
 
 describe('Rivet drawer interactions', function() {
     it('Visits the drawer page', function() {
@@ -30,15 +34,15 @@ describe('Rivet drawer interactions', function() {
 
     it('Should be able to use arrow keys', function() {
         cy.focused()
-            .trigger('keydown', {keyCode: 40, which: 40})
+            .trigger('keydown', {keyCode: DOWN, which: DOWN})
 
         cy.focused()
             .should('have.attr', 'aria-expanded', 'false')
             .click()
 
         cy.focused()
-            .trigger('keydown', {keyCode: 13, which: 13})
-            .trigger('keydown', {keyCode: 40, which: 40})
+            .trigger('keydown', {keyCode: ENTER, which: ENTER})
+            .trigger('keydown', {keyCode: DOWN, which: DOWN})
 
         cy.focused()
             .should('have.text', 'Account settings')
@@ -46,7 +50,7 @@ describe('Rivet drawer interactions', function() {
 
     it('Should be able to use esc key', function() {
         cy.focused()
-            .trigger('keyup', {keyCode: 27, which: 27})
+            .trigger('keyup', {keyCode: ESC, which: ESC})
 
 
         cy.get(DRAWER_TOGGLE)
@@ -62,11 +66,10 @@ describe('Rivet drawer interactions', function() {
         cy.get(DRAWER_TOGGLE)
             .click()
 
-        // down arrow -> up arrow -> click
         cy.focused()
-            .trigger('keydown', {keyCode: 40, which: 40})
+            .trigger('keydown', {keyCode: DOWN, which: DOWN})
         cy.focused()
-            .trigger('keydown', {keyCode: 38, which: 38})
+            .trigger('keydown', {keyCode: UP, which: UP})
         cy.focused()
             .click()
 
