@@ -56,11 +56,6 @@ describe('Rivet dropdown interactions', function() {
         cy.focused()
             .should('have.text', 'Related item four')
 
-        cy.focused()
-            .click()
-
-        cy.get(DROPDOWN_MENU)
-            .should('not.be.visible')
     })
 
     it('Should be able to close with esc key', function() {
@@ -73,4 +68,46 @@ describe('Rivet dropdown interactions', function() {
         cy.get(DROPDOWN_MENU)
             .should('not.be.visible')
     })
+
+    it('Should be able to close with .close() method', function() {
+        cy.window().then(win => {
+            win.Dropdown.close('dropdown-navigation');
+        });
+
+        cy.get(DROPDOWN_TOGGLE)
+            .should('have.attr', 'aria-expanded', 'false');
+
+        cy.get(DROPDOWN_MENU)
+            .should('have.attr', 'aria-hidden', 'true')
+            .and('not.be.visible');
+    })
+
+
+
+    it('Should be able to open with .open() method', function() {
+        cy.window().then(win => {
+            win.Dropdown.open('dropdown-navigation');
+        });
+
+        cy.get(DROPDOWN_TOGGLE)
+            .should('have.attr', 'aria-expanded', 'true');
+
+        cy.get(DROPDOWN_MENU)
+            .should('have.attr', 'aria-hidden', 'false')
+            .and('be.visible');
+    })
+
+    it('Should be able to close with .closeAll() method', function() {
+        cy.window().then(win => {
+            win.Dropdown.closeAll();
+        });
+
+        cy.get(DROPDOWN_TOGGLE)
+            .should('have.attr', 'aria-expanded', 'false');
+
+        cy.get(DROPDOWN_MENU)
+            .should('have.attr', 'aria-hidden', 'true')
+            .and('not.be.visible');
+    })
+
 })
