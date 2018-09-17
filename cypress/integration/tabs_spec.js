@@ -78,4 +78,26 @@ describe('Rivet tabs interactions', function() {
         cy.focused()
             .should('contain', 'Tab four')
     })
+
+
+    it('Should be able to switch tabs with .activateTab() method', function() {
+        cy.window().then(win => {
+            win.Tabs.activateTab('tab-2');
+        });
+
+        cy.get(TAB_TWO_TOGGLE)
+            .click()
+            .should('have.attr', 'aria-selected', 'true')
+
+        cy.get(TAB_ONE_TOGGLE)
+            .should('have.attr', 'aria-selected', 'false')
+
+        cy.get(TAB_TWO_CONTENT)
+            .should('be.visible')
+
+        cy.get(TAB_ONE_CONTENT)
+            .should('not.be.visible')
+            .and('have.attr', 'hidden')
+
+    })
 })
