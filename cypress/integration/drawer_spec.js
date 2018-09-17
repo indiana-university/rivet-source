@@ -77,4 +77,29 @@ describe('Rivet drawer interactions', function() {
             .should('have.attr', 'aria-hidden', 'true')
             .and('not.be.visible')
     })
+
+    it('Should be able to open with .open() method', function() {
+        cy.window().then(win => {
+            win.Drawer.open('mobile-drawer');
+        });
+
+        cy.get(DRAWER_MENU)
+            .should('have.attr', 'aria-hidden', 'false')
+
+        cy.get(DRAWER_TOGGLE)
+            .should('have.attr', 'aria-expanded', 'true')
+    })
+
+    it('Should be able to close with .close() method', function() {
+        cy.window().then(win => {
+            win.Drawer.close('mobile-drawer');
+        });
+
+        cy.get(DRAWER_MENU)
+            .should('have.attr', 'aria-hidden', 'true')
+
+        cy.get(DRAWER_TOGGLE)
+            .should('have.attr', 'aria-expanded', 'false')
+
+    })
 })
