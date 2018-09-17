@@ -9,7 +9,8 @@
   "scripts": {
     "start": "gulp dev:serve",
     "build": "gulp build:dist && gulp fractal:build",
-    "test": "npm run cypress:test",
+    "test": "npm run cypress:test && npm run visual-test",
+    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
     "cypress:test": "npx cypress run"
   },
   "dependencies": {
@@ -25,7 +26,6 @@
     "gulp-eslint": "^4.0.0",
     "gulp-header": "^1.8.9",
     "gulp-mocha": "^4.3.1",
-    "gulp-nightwatch": "^0.3.2",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
@@ -33,7 +33,6 @@
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^4.0.1",
-    "nightwatch": "^0.9.16",
     "node-sass": "^4.7.2",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",

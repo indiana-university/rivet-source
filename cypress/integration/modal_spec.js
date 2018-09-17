@@ -20,6 +20,7 @@ describe('Rivet modal interactions', function() {
     it('Should not see a modal', function() {
         cy.get(MODAL)
             .should('not.be.visible')
+            .and('have.attr', 'aria-hidden', 'true')
     })
 
     it('Should be able to open the modal', function() {
@@ -84,5 +85,51 @@ describe('Rivet modal interactions', function() {
         cy.get(MODAL)
             .should('have.attr', 'aria-hidden', 'true');
 
+    })
+
+    it('Should be able to open with .open() method with DOM element', function() {
+        cy.window().then(win => {
+            var modal = win.document.querySelector('.rvt-modal')
+            win.Modal.open(modal);
+        });
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'false');
+    })
+
+    it('Should execute a callback function after the modal is opened', function() {
+        var myValue = 1;
+
+        function sum(value) {
+            myValue += value;
+        }
+
+        cy.window().then(win => {
+            var modal = win.document.querySelector('.rvt-modal')
+            win.Modal.open('modal-example', sum(2));
+            assert.equal(typeof sum, 'function')
+            assert.equal(myValue, 3)
+        });
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'false');
+    })
+
+    it('Should execute a callback function after the modal is closed', function() {
+        var myValue = 2;
+
+        function sum(value) {
+            myValue += value;
+        }
+
+        cy.window().then(win => {
+            var modal = win.document.querySelector('.rvt-modal')
+            win.Modal.close('modal-example', sum(2));
+            assert.equal(typeof sum, 'function')
+            assert.equal(myValue, 4)
+        });
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'true');
     })
 })

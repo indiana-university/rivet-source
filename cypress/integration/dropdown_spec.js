@@ -16,6 +16,7 @@ describe('Rivet dropdown interactions', function() {
             .should('have.attr', 'aria-expanded', 'false')
 
         cy.get(DROPDOWN_MENU)
+            .should('have.attr', 'aria-hidden', 'true')
             .and('not.be.visible')
     })
 
@@ -108,6 +109,21 @@ describe('Rivet dropdown interactions', function() {
         cy.get(DROPDOWN_MENU)
             .should('have.attr', 'aria-hidden', 'true')
             .and('not.be.visible');
+    })
+
+
+
+    it('Should be able to toggle with .toggle() method', function() {
+        cy.window().then(win => {
+            win.Dropdown.toggle('dropdown-navigation');
+        });
+
+        cy.get(DROPDOWN_TOGGLE)
+            .should('have.attr', 'aria-expanded', 'true');
+
+        cy.get(DROPDOWN_MENU)
+            .should('have.attr', 'aria-hidden', 'false')
+            .and('be.visible');
     })
 
 })
