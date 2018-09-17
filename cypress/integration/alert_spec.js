@@ -20,4 +20,14 @@ describe('Rivet alert interactions', function() {
         cy.get(ALERT_INFO)
             .should('not.be.visible')
     })
+
+
+    it('Should be able to dismiss with .dismiss() method', function() {
+        cy.window().then(win => {
+            win.Alert.dismiss('information-alert-title');
+        });
+
+        cy.get(ALERT_INFO)
+            .should('not.exist');
+    })
 })
