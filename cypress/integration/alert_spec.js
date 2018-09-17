@@ -11,6 +11,9 @@ describe('Rivet alert interactions', function() {
         cy.get(ALERT_INFO)
             .should('have.attr', 'aria-labelledby', 'information-alert-title')
             .and('be.visible')
+
+        cy.get(ALERT_CLOSE)
+            .should('be.visible')
     })
 
     it('Should be able to close the alert', function() {
@@ -24,7 +27,7 @@ describe('Rivet alert interactions', function() {
 
     it('Should be able to dismiss with .dismiss() method', function() {
         cy.window().then(win => {
-            win.Alert.dismiss('information-alert-title');
+            win.Alert.dismiss('warning-alert-title');
         });
 
         cy.get(ALERT_INFO)

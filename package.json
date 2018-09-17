@@ -9,9 +9,7 @@
   "scripts": {
     "start": "gulp dev:serve",
     "build": "gulp build:dist && gulp fractal:build",
-    "test": "node_modules/mocha/bin/mocha tests/unit --require jsdom-global/register; node_modules/nightwatch/bin/nightwatch -c ./tests/integration/nightwatch.json",
-    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
-    "testing-screenshots": "npm run visual-test",
+    "test": "npm run cypress:test",
     "cypress:test": "npx cypress run"
   },
   "dependencies": {
