@@ -66,4 +66,23 @@ describe('Rivet modal interactions', function() {
             .should('not.be.visible')
     })
 
+
+    it('Should be able to open with .open() method', function() {
+        cy.window().then(win => {
+            win.Modal.open('modal-example');
+        });
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'false');
+    })
+
+    it('Should be able to close with .close() method', function() {
+        cy.window().then(win => {
+            win.Modal.close('modal-example');
+        });
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'true');
+
+    })
 })
