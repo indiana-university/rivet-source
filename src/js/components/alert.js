@@ -64,7 +64,7 @@ var Alert = (function() {
 
         /**
          * DEPRECATED: This is to add backwards compatibility for the older API
-         * where you needed to pass in the modal Object/HTMLElement. This should
+         * where you needed to pass in the alert Object/HTMLElement. This should
          * be deprecated in the next major version.
          */
         if (typeof id === 'object' && id.nodeType === 1) {
