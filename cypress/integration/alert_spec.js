@@ -33,4 +33,14 @@ describe('Rivet alert interactions', function() {
         cy.get(ALERT_INFO)
             .should('not.exist');
     })
+
+    it('Should be able to dismiss with .dismiss() method with DOM element', function() {
+        cy.window().then(win => {
+            var alert = win.document.querySelector('[aria-labelledby="success-alert-title"]')
+            win.Alert.dismiss(alert);
+        });
+
+        cy.get(ALERT_INFO)
+            .should('not.exist');
+    })
 })

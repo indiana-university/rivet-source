@@ -60,8 +60,6 @@ var Alert = (function() {
      * is closed.
      */
     function dismissAlert(id, callback) {
-
-
         /**
          * DEPRECATED: This is to add backwards compatibility for the older API
          * where you needed to pass in the alert Object/HTMLElement. This should
@@ -82,7 +80,7 @@ var Alert = (function() {
             }
         }
 
-        var alert = document.querySelector('div[aria-labelledby="' + id + '"]')
+        var alert = document.querySelector('[aria-labelledby="' + id + '"]')
 
         if(!alert) {
             alert = document.getElementById(id)
