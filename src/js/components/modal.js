@@ -195,8 +195,8 @@ var Modal = (function() {
 
     // Sets the id based on whatever the matching target was.
     var id = trigger.getAttribute(TRIGGER_ATTR) ||
-      trigger.getAttribute(CLOSE_ATTR) ||
-      trigger.id;
+      (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ? trigger.getAttribute(CLOSE_ATTR) : false) ||
+      event.target.closest(MODAL_SELECTOR);
 
     switch (trigger !== null || undefined) {
       case trigger.hasAttribute(TRIGGER_ATTR):
@@ -213,7 +213,7 @@ var Modal = (function() {
         activeTrigger.focus();
 
         break;
-      case trigger.id === id && !event.clickedInModal:
+      case trigger.id === id.id && !event.clickedInModal:
         // If the modal is a dialog bail
         if (trigger.hasAttribute('data-modal-dialog')) return;
 

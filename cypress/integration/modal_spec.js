@@ -132,4 +132,15 @@ describe('Rivet modal interactions', function() {
         cy.get(MODAL)
             .should('have.attr', 'aria-hidden', 'true');
     })
+
+    it('Should be able to close with data-trigger-close="close"', function() {
+        cy.get(MODAL_TOGGLE)
+            .click()
+
+        cy.get('#modal-close')
+            .click()
+
+        cy.get(MODAL)
+            .should('have.attr', 'aria-hidden', 'true');
+    })
 })
