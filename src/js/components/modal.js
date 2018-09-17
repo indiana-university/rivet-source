@@ -213,7 +213,7 @@ var Modal = (function() {
         activeTrigger.focus();
 
         break;
-      case trigger.id === id.id && !event.clickedInModal:
+      case trigger === id && !event.clickedInModal:
         // If the modal is a dialog bail
         if (trigger.hasAttribute('data-modal-dialog')) return;
 
