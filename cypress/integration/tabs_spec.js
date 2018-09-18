@@ -11,93 +11,93 @@ const ENTER = 13
 const ESC = 27
 
 
-describe('Rivet tabs interactions', function() {
-    it('Visits the tabs page', function() {
-        cy.visit(DEV_SERVER + '/components/preview/tabs--default')
-    })
+describe('Rivet tabs interactions', function () {
+  it('Visits the tabs page', function () {
+    cy.visit(DEV_SERVER + '/components/preview/tabs--default')
+  })
 
-    it('Should see the tabs with first tab selected', function() {
-        cy.get(TAB_ONE_TOGGLE)
-            .should('have.attr', 'aria-selected', 'true')
-        cy.get(TAB_TWO_TOGGLE)
-            .should('have.attr', 'aria-selected', 'false')
+  it('Should see the tabs with first tab selected', function () {
+    cy.get(TAB_ONE_TOGGLE)
+      .should('have.attr', 'aria-selected', 'true')
+    cy.get(TAB_TWO_TOGGLE)
+      .should('have.attr', 'aria-selected', 'false')
 
-        cy.get(TAB_ONE_CONTENT)
-            .and('be.visible')
+    cy.get(TAB_ONE_CONTENT)
+      .and('be.visible')
 
-        cy.get(TAB_TWO_CONTENT)
-            .should('have.attr', 'hidden')
-            .and('not.be.visible')
-    })
+    cy.get(TAB_TWO_CONTENT)
+      .should('have.attr', 'hidden')
+      .and('not.be.visible')
+  })
 
-    it('Should be able to select the second tab', function() {
-        cy.get(TAB_TWO_TOGGLE)
-            .click()
-            .should('have.attr', 'aria-selected', 'true')
+  it('Should be able to select the second tab', function () {
+    cy.get(TAB_TWO_TOGGLE)
+      .click()
+      .should('have.attr', 'aria-selected', 'true')
 
-        cy.get(TAB_ONE_TOGGLE)
-            .should('have.attr', 'aria-selected', 'false')
+    cy.get(TAB_ONE_TOGGLE)
+      .should('have.attr', 'aria-selected', 'false')
 
-        cy.get(TAB_TWO_CONTENT)
-            .should('be.visible')
+    cy.get(TAB_TWO_CONTENT)
+      .should('be.visible')
 
-        cy.get(TAB_ONE_CONTENT)
-            .should('not.be.visible')
-            .and('have.attr', 'hidden')
-    })
+    cy.get(TAB_ONE_CONTENT)
+      .should('not.be.visible')
+      .and('have.attr', 'hidden')
+  })
 
-    it('Should be able to go back with left arrow', function() {
-        cy.focused()
-            .trigger('keydown', {keyCode: LEFT, which: LEFT})
+  it('Should be able to go back with left arrow', function () {
+    cy.focused()
+      .trigger('keydown', {keyCode: LEFT, which: LEFT})
 
-        cy.focused()
-            .should('contain', 'Tab one')
-    })
+    cy.focused()
+      .should('contain', 'Tab one')
+  })
 
-    it('Should be able to activate tab', function() {
-        cy.focused()
-            .click()
+  it('Should be able to activate tab', function () {
+    cy.focused()
+      .click()
 
-        cy.get(TAB_ONE_TOGGLE)
-            .should('have.attr', 'aria-selected', 'true')
-        cy.get(TAB_TWO_TOGGLE)
-            .should('have.attr', 'aria-selected', 'false')
+    cy.get(TAB_ONE_TOGGLE)
+      .should('have.attr', 'aria-selected', 'true')
+    cy.get(TAB_TWO_TOGGLE)
+      .should('have.attr', 'aria-selected', 'false')
 
-        cy.get(TAB_ONE_CONTENT)
-            .and('be.visible')
+    cy.get(TAB_ONE_CONTENT)
+      .and('be.visible')
 
-        cy.get(TAB_TWO_CONTENT)
-            .should('have.attr', 'hidden')
-            .and('not.be.visible')
-    })
+    cy.get(TAB_TWO_CONTENT)
+      .should('have.attr', 'hidden')
+      .and('not.be.visible')
+  })
 
-    it('Should be able to loop around going left', function() {
-        cy.focused()
-            .trigger('keydown', {keyCode: LEFT, which: LEFT})
+  it('Should be able to loop around going left', function () {
+    cy.focused()
+      .trigger('keydown', {keyCode: LEFT, which: LEFT})
 
-        cy.focused()
-            .should('contain', 'Tab four')
-    })
+    cy.focused()
+      .should('contain', 'Tab four')
+  })
 
 
-    it('Should be able to switch tabs with .activateTab() method', function() {
-        cy.window().then(win => {
-            win.Tabs.activateTab('tab-2');
-        });
+  it('Should be able to switch tabs with .activateTab() method', function () {
+    cy.window().then(win => {
+      win.Tabs.activateTab('tab-2');
+    });
 
-        cy.get(TAB_TWO_TOGGLE)
-            .click()
-            .should('have.attr', 'aria-selected', 'true')
+    cy.get(TAB_TWO_TOGGLE)
+      .click()
+      .should('have.attr', 'aria-selected', 'true')
 
-        cy.get(TAB_ONE_TOGGLE)
-            .should('have.attr', 'aria-selected', 'false')
+    cy.get(TAB_ONE_TOGGLE)
+      .should('have.attr', 'aria-selected', 'false')
 
-        cy.get(TAB_TWO_CONTENT)
-            .should('be.visible')
+    cy.get(TAB_TWO_CONTENT)
+      .should('be.visible')
 
-        cy.get(TAB_ONE_CONTENT)
-            .should('not.be.visible')
-            .and('have.attr', 'hidden')
+    cy.get(TAB_ONE_CONTENT)
+      .should('not.be.visible')
+      .and('have.attr', 'hidden')
 
-    })
+  })
 })

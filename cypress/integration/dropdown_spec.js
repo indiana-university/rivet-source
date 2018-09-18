@@ -6,124 +6,122 @@ const UP = 38
 const ENTER = 13
 const ESC = 27
 
-describe('Rivet dropdown interactions', function() {
-    it('Visits the dropdown page', function() {
-        cy.visit(DEV_SERVER + '/components/preview/dropdown')
-    })
+describe('Rivet dropdown interactions', function () {
+  it('Visits the dropdown page', function () {
+    cy.visit(DEV_SERVER + '/components/preview/dropdown')
+  })
 
-    it('Should see the dropdown toggle', function() {
-        cy.get(DROPDOWN_TOGGLE)
-            .should('have.attr', 'aria-expanded', 'false')
+  it('Should see the dropdown toggle', function () {
+    cy.get(DROPDOWN_TOGGLE)
+      .should('have.attr', 'aria-expanded', 'false')
 
-        cy.get(DROPDOWN_MENU)
-            .should('have.attr', 'aria-hidden', 'true')
-            .and('not.be.visible')
-    })
+    cy.get(DROPDOWN_MENU)
+      .should('have.attr', 'aria-hidden', 'true')
+      .and('not.be.visible')
+  })
 
-    it('Should be able to open the dropdown', function() {
-        cy.get(DROPDOWN_TOGGLE)
-            .click()
-            .should('have.attr', 'aria-expanded', 'true')
+  it('Should be able to open the dropdown', function () {
+    cy.get(DROPDOWN_TOGGLE)
+      .click()
+      .should('have.attr', 'aria-expanded', 'true')
 
-        cy.get(DROPDOWN_MENU)
-            .should('be.visible')
-            .and('have.attr', 'aria-hidden', 'false')
-    })
+    cy.get(DROPDOWN_MENU)
+      .should('be.visible')
+      .and('have.attr', 'aria-hidden', 'false')
+  })
 
-    it('Should be able to close the dropdown', function() {
-        cy.get(DROPDOWN_TOGGLE)
-            .click()
-            .should('have.attr', 'aria-expanded', 'false')
+  it('Should be able to close the dropdown', function () {
+    cy.get(DROPDOWN_TOGGLE)
+      .click()
+      .should('have.attr', 'aria-expanded', 'false')
 
-        cy.get(DROPDOWN_MENU)
-            .should('not.be.visible')
-            .and('have.attr', 'aria-hidden', 'true')
+    cy.get(DROPDOWN_MENU)
+      .should('not.be.visible')
+      .and('have.attr', 'aria-hidden', 'true')
 
-    })
+  })
 
-    it('Should be able to open the dropdown with keys', function() {
-        cy.get(DROPDOWN_TOGGLE)
-            .click()
+  it('Should be able to open the dropdown with keys', function () {
+    cy.get(DROPDOWN_TOGGLE)
+      .click()
 
-        cy.focused()
-            .trigger('keydown', {keyCode: DOWN, which: DOWN})
+    cy.focused()
+      .trigger('keydown', {keyCode: DOWN, which: DOWN})
 
-        cy.focused()
-            .should('have.text', 'Item one')
+    cy.focused()
+      .should('have.text', 'Item one')
 
-        cy.focused()
-            .trigger('keydown', {keyCode: UP, which: UP})
+    cy.focused()
+      .trigger('keydown', {keyCode: UP, which: UP})
 
-        cy.focused()
-            .should('have.text', 'Related item four')
+    cy.focused()
+      .should('have.text', 'Related item four')
 
-    })
+  })
 
-    it('Should be able to close with esc key', function() {
-        cy.get(DROPDOWN_TOGGLE)
-            .click()
+  it('Should be able to close with esc key', function () {
+    cy.get(DROPDOWN_TOGGLE)
+      .click()
 
-        cy.focused()
-            .trigger('keydown', {keyCode: ESC, which: ESC})
+    cy.focused()
+      .trigger('keydown', {keyCode: ESC, which: ESC})
 
-        cy.get(DROPDOWN_MENU)
-            .should('not.be.visible')
-    })
+    cy.get(DROPDOWN_MENU)
+      .should('not.be.visible')
+  })
 
-    it('Should be able to close with .close() method', function() {
-        cy.window().then(win => {
-            win.Dropdown.close('dropdown-navigation');
-        });
+  it('Should be able to close with .close() method', function () {
+    cy.window().then(win => {
+      win.Dropdown.close('dropdown-navigation');
+    });
 
-        cy.get(DROPDOWN_TOGGLE)
-            .should('have.attr', 'aria-expanded', 'false');
+    cy.get(DROPDOWN_TOGGLE)
+      .should('have.attr', 'aria-expanded', 'false');
 
-        cy.get(DROPDOWN_MENU)
-            .should('have.attr', 'aria-hidden', 'true')
-            .and('not.be.visible');
-    })
-
-
-
-    it('Should be able to open with .open() method', function() {
-        cy.window().then(win => {
-            win.Dropdown.open('dropdown-navigation');
-        });
-
-        cy.get(DROPDOWN_TOGGLE)
-            .should('have.attr', 'aria-expanded', 'true');
-
-        cy.get(DROPDOWN_MENU)
-            .should('have.attr', 'aria-hidden', 'false')
-            .and('be.visible');
-    })
-
-    it('Should be able to close with .closeAll() method', function() {
-        cy.window().then(win => {
-            win.Dropdown.closeAll();
-        });
-
-        cy.get(DROPDOWN_TOGGLE)
-            .should('have.attr', 'aria-expanded', 'false');
-
-        cy.get(DROPDOWN_MENU)
-            .should('have.attr', 'aria-hidden', 'true')
-            .and('not.be.visible');
-    })
+    cy.get(DROPDOWN_MENU)
+      .should('have.attr', 'aria-hidden', 'true')
+      .and('not.be.visible');
+  })
 
 
+  it('Should be able to open with .open() method', function () {
+    cy.window().then(win => {
+      win.Dropdown.open('dropdown-navigation');
+    });
 
-    it('Should be able to toggle with .toggle() method', function() {
-        cy.window().then(win => {
-            win.Dropdown.toggle('dropdown-navigation');
-        });
+    cy.get(DROPDOWN_TOGGLE)
+      .should('have.attr', 'aria-expanded', 'true');
 
-        cy.get(DROPDOWN_TOGGLE)
-            .should('have.attr', 'aria-expanded', 'true');
+    cy.get(DROPDOWN_MENU)
+      .should('have.attr', 'aria-hidden', 'false')
+      .and('be.visible');
+  })
 
-        cy.get(DROPDOWN_MENU)
-            .should('have.attr', 'aria-hidden', 'false')
-            .and('be.visible');
-    })
+  it('Should be able to close with .closeAll() method', function () {
+    cy.window().then(win => {
+      win.Dropdown.closeAll();
+    });
+
+    cy.get(DROPDOWN_TOGGLE)
+      .should('have.attr', 'aria-expanded', 'false');
+
+    cy.get(DROPDOWN_MENU)
+      .should('have.attr', 'aria-hidden', 'true')
+      .and('not.be.visible');
+  })
+
+
+  it('Should be able to toggle with .toggle() method', function () {
+    cy.window().then(win => {
+      win.Dropdown.toggle('dropdown-navigation');
+    });
+
+    cy.get(DROPDOWN_TOGGLE)
+      .should('have.attr', 'aria-expanded', 'true');
+
+    cy.get(DROPDOWN_MENU)
+      .should('have.attr', 'aria-hidden', 'false')
+      .and('be.visible');
+  })
 
 })

@@ -7,140 +7,140 @@ const UP = 38
 const ENTER = 13
 const ESC = 27
 
-describe('Rivet modal interactions', function() {
-    it('Visits the modal page', function() {
-        cy.visit(DEV_SERVER + '/components/preview/modals--default')
-    })
+describe('Rivet modal interactions', function () {
+  it('Visits the modal page', function () {
+    cy.visit(DEV_SERVER + '/components/preview/modals--default')
+  })
 
-    it('Should see a modal button', function() {
-        cy.get(MODAL_TOGGLE)
-            .should('have.attr', 'data-modal-trigger', 'modal-example')
-    })
+  it('Should see a modal button', function () {
+    cy.get(MODAL_TOGGLE)
+      .should('have.attr', 'data-modal-trigger', 'modal-example')
+  })
 
-    it('Should not see a modal', function() {
-        cy.get(MODAL)
-            .should('not.be.visible')
-            .and('have.attr', 'aria-hidden', 'true')
-    })
+  it('Should not see a modal', function () {
+    cy.get(MODAL)
+      .should('not.be.visible')
+      .and('have.attr', 'aria-hidden', 'true')
+  })
 
-    it('Should be able to open the modal', function() {
-        cy.get(MODAL_TOGGLE)
-            .click()
+  it('Should be able to open the modal', function () {
+    cy.get(MODAL_TOGGLE)
+      .click()
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'false')
-            .and('have.attr', 'tabindex', '-1')
-            .and('be.visible')
-    })
-
-
-    it('Should be able to close the modal', function() {
-        cy.get(MODAL_CLOSE)
-            .click()
-
-        cy.get(MODAL)
-            .and('not.be.visible')
-    })
-
-    it('Should be able to close modal with esc key', function() {
-
-        cy.get(MODAL_TOGGLE)
-            .click()
-
-        cy.get('body')
-            .trigger('keydown', {keyCode: ESC, which: ESC})
-
-        cy.get(MODAL)
-            .should('not.be.visible')
-
-    })
-
-    it('Should be able to click outside modal to close', function() {
-
-        cy.get(MODAL_TOGGLE)
-            .click()
-
-        cy.get('body')
-            .click()
-
-        cy.get(MODAL)
-            .should('not.be.visible')
-    })
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'false')
+      .and('have.attr', 'tabindex', '-1')
+      .and('be.visible')
+  })
 
 
-    it('Should be able to open with .open() method', function() {
-        cy.window().then(win => {
-            win.Modal.open('modal-example');
-        });
+  it('Should be able to close the modal', function () {
+    cy.get(MODAL_CLOSE)
+      .click()
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'false');
-    })
+    cy.get(MODAL)
+      .and('not.be.visible')
+  })
 
-    it('Should be able to close with .close() method', function() {
-        cy.window().then(win => {
-            win.Modal.close('modal-example');
-        });
+  it('Should be able to close modal with esc key', function () {
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'true');
+    cy.get(MODAL_TOGGLE)
+      .click()
 
-    })
+    cy.get('body')
+      .trigger('keydown', {keyCode: ESC, which: ESC})
 
-    it('Should be able to open with .open() method with DOM element', function() {
-        cy.window().then(win => {
-            var modal = win.document.querySelector('.rvt-modal')
-            win.Modal.open(modal);
-        });
+    cy.get(MODAL)
+      .should('not.be.visible')
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'false');
-    })
+  })
 
-    it('Should execute a callback function after the modal is opened', function() {
-        var myValue = 1;
+  it('Should be able to click outside modal to close', function () {
 
-        function sum(value) {
-            myValue += value;
-        }
+    cy.get(MODAL_TOGGLE)
+      .click()
 
-        cy.window().then(win => {
-            var modal = win.document.querySelector('.rvt-modal')
-            win.Modal.open('modal-example', sum(2));
-            assert.equal(typeof sum, 'function')
-            assert.equal(myValue, 3)
-        });
+    cy.get('body')
+      .click()
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'false');
-    })
+    cy.get(MODAL)
+      .should('not.be.visible')
+  })
 
-    it('Should execute a callback function after the modal is closed', function() {
-        var myValue = 2;
 
-        function sum(value) {
-            myValue += value;
-        }
+  it('Should be able to open with .open() method', function () {
+    cy.window().then(win => {
+      win.Modal.open('modal-example');
+    });
 
-        cy.window().then(win => {
-            var modal = win.document.querySelector('.rvt-modal')
-            win.Modal.close('modal-example', sum(2));
-            assert.equal(typeof sum, 'function')
-            assert.equal(myValue, 4)
-        });
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'false');
+  })
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'true');
-    })
+  it('Should be able to close with .close() method', function () {
+    cy.window().then(win => {
+      win.Modal.close('modal-example');
+    });
 
-    it('Should be able to close with data-trigger-close="close"', function() {
-        cy.get(MODAL_TOGGLE)
-            .click()
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'true');
 
-        cy.get('[data-modal-close="close"]')
-            .click()
+  })
 
-        cy.get(MODAL)
-            .should('have.attr', 'aria-hidden', 'true');
-    })
+  it('Should be able to open with .open() method with DOM element', function () {
+    cy.window().then(win => {
+      var modal = win.document.querySelector('.rvt-modal')
+      win.Modal.open(modal);
+    });
+
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'false');
+  })
+
+  it('Should execute a callback function after the modal is opened', function () {
+    var myValue = 1;
+
+    function sum(value) {
+      myValue += value;
+    }
+
+    cy.window().then(win => {
+      var modal = win.document.querySelector('.rvt-modal')
+      win.Modal.open('modal-example', sum(2));
+      assert.equal(typeof sum, 'function')
+      assert.equal(myValue, 3)
+    });
+
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'false');
+  })
+
+  it('Should execute a callback function after the modal is closed', function () {
+    var myValue = 2;
+
+    function sum(value) {
+      myValue += value;
+    }
+
+    cy.window().then(win => {
+      var modal = win.document.querySelector('.rvt-modal')
+      win.Modal.close('modal-example', sum(2));
+      assert.equal(typeof sum, 'function')
+      assert.equal(myValue, 4)
+    });
+
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'true');
+  })
+
+  it('Should be able to close with data-trigger-close="close"', function () {
+    cy.get(MODAL_TOGGLE)
+      .click()
+
+    cy.get('[data-modal-close="close"]')
+      .click()
+
+    cy.get(MODAL)
+      .should('have.attr', 'aria-hidden', 'true');
+  })
 })
