@@ -137,7 +137,7 @@ describe('Rivet modal interactions', function() {
         cy.get(MODAL_TOGGLE)
             .click()
 
-        cy.get('#modal-close')
+        cy.get('[data-modal-close="close"]')
             .click()
 
         cy.get(MODAL)
