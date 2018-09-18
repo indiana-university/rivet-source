@@ -192,7 +192,7 @@ var Drawer = (function() {
   }
 
   /**
-   * The main keydown event lister that gets attached to the document
+   * The main keydown event listeners that gets attached to the document
    * to handle all keyboard interaction.
    * @param {Event} event
    */
@@ -342,7 +342,7 @@ var Drawer = (function() {
    * @param {HTMLElement} context - An optional DOM element. This only
    * needs to be passed in if a DOM element was passed to the init()
    * function. If so, the element passed in must be the same element
-   * that was passed in at initialization so that the event listers can
+   * that was passed in at initialization so that the event listeners can
    * be properly removed.
    */
   function destroy(context) {
@@ -355,7 +355,7 @@ var Drawer = (function() {
   }
 
   /**
-   * Kicks of the Drawer component and sets up all event listeners
+   * Kicks off the Drawer component and sets up all event listeners
    *
    * @param {HTMLElement} context - An optional DOM element that the
    * drawer can be initialized on. All event listeners will be attached

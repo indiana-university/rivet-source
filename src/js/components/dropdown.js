@@ -375,7 +375,7 @@ var Dropdown = (function() {
    * @param {HTMLElement} context - An optional DOM element. This only
    * needs to be passed in if a DOM element was passed to the init()
    * function. If so, the element passed in must be the same element
-   * that was passed in at initialization so that the event listers can
+   * that was passed in at initialization so that the event listeners can
    * be properly removed.
    */
   function destroy(context) {

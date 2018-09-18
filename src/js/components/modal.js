@@ -195,8 +195,8 @@ var Modal = (function() {
 
     // Sets the id based on whatever the matching target was.
     var id = trigger.getAttribute(TRIGGER_ATTR) ||
-      trigger.getAttribute(CLOSE_ATTR) ||
-      trigger.id;
+      (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ? trigger.getAttribute(CLOSE_ATTR) : false) ||
+      event.target.closest(MODAL_SELECTOR);
 
     switch (trigger !== null || undefined) {
       case trigger.hasAttribute(TRIGGER_ATTR):
@@ -213,7 +213,7 @@ var Modal = (function() {
         activeTrigger.focus();
 
         break;
-      case trigger.id === id && !event.clickedInModal:
+      case trigger === id && !event.clickedInModal:
         // If the modal is a dialog bail
         if (trigger.hasAttribute('data-modal-dialog')) return;
 
@@ -308,7 +308,7 @@ var Modal = (function() {
    * @param {HTMLElement} context - An optional DOM element. This only
    * needs to be passed in if a DOM element was passed to the init()
    * function. If so, the element passed in must be the same element
-   * that was passed in at initialization so that the event listers can
+   * that was passed in at initialization so that the event listeners can
    * be properly removed.
    */
   function destroy(context) {
