@@ -7,3 +7,7 @@ static
 .vscode
 cypress/videos
 cypress/screenshots
+/css
+/sass
+/js
+/index.html

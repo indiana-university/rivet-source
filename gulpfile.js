@@ -37,10 +37,7 @@ gulp.task('default', ['dev:serve']);
 gulp.task('build:example', function() {
     gulp.src('./src/components/_extras/_index-example.html')
         .pipe(rename('index.html'))
-        .pipe(gulp.dest('dist'));
-    gulp.src('./src/components/_extras/_README-PACKAGE.md')
-        .pipe(rename('README.md'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('.'));
 });
 
 gulp.task('build:dist', function(done) {
