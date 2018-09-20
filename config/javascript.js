@@ -46,28 +46,28 @@ gulp.task('js:watch', function() {
 
 gulp.task('js:dist', function() {
     return gulp.src('static/js/rivet.js')
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('./js'));
 });
 
 // Create the string for the verion number banner.
 var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
 
 gulp.task('js:header', function() {
-    gulp.src('dist/js/rivet.js')
+    gulp.src('./js/rivet.js')
         .pipe(header(banner, { package : package }))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('./js/'));
 
-    gulp.src('dist/js/rivet.min.js')
+    gulp.src('./js/rivet.min.js')
         .pipe(header(banner, { package : package }))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('js:minify', function (done) {
   pump([
-        gulp.src('dist/js/rivet.js'),
+        gulp.src('./js/rivet.js'),
         uglify(),
         rename({suffix: '.min'}),
-        gulp.dest('dist/js')
+        gulp.dest('./js')
     ],
     done
   );

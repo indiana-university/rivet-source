@@ -1,7 +1,7 @@
 {
-  "name": "Rivet",
-  "description": "UITS design system",
-  "version": "1.0.0",
+  "name": "rivet-iu",
+  "description": "Indiana University design system",
+  "version": "1.1.0-alpha",
   "repository": {
     "type": "git",
     "url": "https://github.iu.edu/UITS/rivet-source.git"
@@ -11,8 +11,15 @@
     "build": "gulp build:dist && gulp fractal:build",
     "test": "npm run cypress:test && npm run visual-test",
     "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
-    "cypress:test": "npx cypress run"
+    "cypress:test": "npx cypress run",
+    "prepublishOnly": "npm run build"
   },
+  "files": [
+    "css/**/*",
+    "sass/**/*",
+    "js/**/*",
+    "index.html"
+  ],
   "dependencies": {
     "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",

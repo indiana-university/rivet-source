@@ -9,26 +9,26 @@ const package = require('../package.json');
 
 gulp.task('css:dist', function() {
     return gulp.src('static/css/rivet.css')
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('./css'));
 });
 
 // Create the string for the verion number banner.
 var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
 
 gulp.task('css:header', function() {
-    return gulp.src('dist/css/rivet.css')
+    return gulp.src('./css/rivet.css')
         .pipe(header(banner, { package : package }))
-        .pipe(gulp.dest('dist/css/'))
+        .pipe(gulp.dest('./css/'))
 });
 
 
 gulp.task('css:minify', function() {
-    return gulp.src('dist/css/rivet.css')
+    return gulp.src('./css/rivet.css')
         .pipe(cssnano())
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('css:prefix-fractal', function() {
@@ -38,9 +38,9 @@ gulp.task('css:prefix-fractal', function() {
 });
 
 gulp.task('css:prefix-release', function() {
-    return gulp.src('dist/css/rivet.css')
+    return gulp.src('./css/rivet.css')
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('css:release', function(done) {
