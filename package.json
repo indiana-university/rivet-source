@@ -1,7 +1,7 @@
 {
   "name": "rivet-iu",
   "description": "Indiana University design system",
-  "version": "1.1.0-alpha",
+  "version": "1.1.0-alpha.2",
   "repository": {
     "type": "git",
     "url": "https://github.iu.edu/UITS/rivet-source.git"
@@ -20,7 +20,7 @@
     "js/**/*",
     "index.html"
   ],
-  "dependencies": {
+  "devDependencies": {
     "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",
     "autoprefixer": "^7.1.2",
