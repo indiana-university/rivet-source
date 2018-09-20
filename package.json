@@ -1,7 +1,7 @@
 {
   "name": "rivet-uits",
   "description": "Indiana University design system",
-  "version": "1.1.0-alpha.2",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.iu.edu/UITS/rivet-source.git"
