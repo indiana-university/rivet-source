@@ -1,10 +1,16 @@
 {
   "name": "rivet-uits",
   "description": "Indiana University design system",
-  "version": "1.1.0-alpha",
+  "homepage": "https://rivet.iu.edu",
+  "version": "1.1.0-alpha.2",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "https://github.iu.edu/UITS/rivet-source.git"
+  },
+  "bugs": {
+    "url": "https://github.iu.edu/UITS/rivet-source/issues",
+    "email": "rivet@iu.edu"
   },
   "scripts": {
     "start": "gulp dev:serve",
