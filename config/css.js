@@ -6,18 +6,16 @@ const header = require('gulp-header');
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const package = require('../package.json');
+const bannerPackage = require('./banner')
 
 gulp.task('css:dist', function() {
     return gulp.src('static/css/rivet.css')
         .pipe(gulp.dest('dist/css'));
 });
 
-// Create the string for the verion number banner.
-var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
-
 gulp.task('css:header', function() {
     return gulp.src('dist/css/rivet.css')
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('dist/css/'))
 });
 

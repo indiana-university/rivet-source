@@ -11,6 +11,7 @@ const scss = require("postcss-scss");
 const header = require('gulp-header');
 const runSequence = require('run-sequence');
 const package = require('../package.json');
+const bannerPackage = require('./banner')
 
 gulp.task('sass', function() {
  return gulp.src('src/sass/**/*.scss')
@@ -44,13 +45,10 @@ gulp.task('sass:release-copy', function() {
         .pipe(gulp.dest('dist/sass'));
 });
 
-// Create the string for the verion number banner.
-var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
-
 // Add version number header to all .scss files.
 gulp.task('sass:header', function() {
     return gulp.src(['dist/sass/**/*.scss', '!dist/sass/libs/*'])
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('dist/sass/'));
 });
 
