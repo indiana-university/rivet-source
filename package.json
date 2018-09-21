@@ -12,6 +12,7 @@
     "test": "npm run cypress:test && npm run visual-test",
     "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
     "cypress:test": "npx cypress run",
+    "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build"
   },
   "files": [
