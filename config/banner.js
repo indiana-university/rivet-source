@@ -7,7 +7,9 @@ const currentYear = "2018"
 var bannerText = `/*! ${package.name} - @version ${package.version}
 
 Copyright (c) ${currentYear} TheTrustees of Indiana University
+
 Licensed under the BSD 3-Clause License.
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
   1.Redistributions of source code must retain the above copyright notice,
