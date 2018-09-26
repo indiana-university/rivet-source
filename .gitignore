@@ -7,3 +7,10 @@ static
 .vscode
 cypress/videos
 cypress/screenshots
+
+# Built files
+/css
+/sass
+/js
+/index.html
+/rivet.zip

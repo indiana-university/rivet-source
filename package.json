@@ -1,19 +1,33 @@
 {
-  "name": "Rivet",
-  "description": "UITS design system",
-  "version": "1.0.0",
+  "name": "rivet-uits",
+  "description": "Indiana University design system",
+  "homepage": "https://rivet.iu.edu",
+  "version": "1.1.0",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "https://github.iu.edu/UITS/rivet-source.git"
   },
+  "bugs": {
+    "url": "https://github.iu.edu/UITS/rivet-source/issues",
+    "email": "rivet@iu.edu"
+  },
   "scripts": {
     "start": "gulp dev:serve",
-    "build": "gulp build:dist && gulp fractal:build",
+    "build": "npm run clean && gulp build:dist && gulp fractal:build && zip -r rivet.zip css js sass index.html",
     "test": "npm run cypress:test && npm run visual-test",
     "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
-    "cypress:test": "npx cypress run"
+    "cypress:test": "npx cypress run",
+    "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
+  "files": [
+    "css/**/*",
+    "sass/**/*",
+    "js/**/*",
+    "index.html"
+  ],
+  "devDependencies": {
     "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",
     "autoprefixer": "^7.1.2",

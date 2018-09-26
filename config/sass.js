@@ -42,14 +42,14 @@ gulp.task('sass:watch', function() {
 // Copy all .scss files to dist folder.
 gulp.task('sass:release-copy', function() {
     return gulp.src('src/sass/**/*.scss')
-        .pipe(gulp.dest('dist/sass'));
+        .pipe(gulp.dest('./sass'));
 });
 
 // Add version number header to all .scss files.
 gulp.task('sass:header', function() {
-    return gulp.src(['dist/sass/**/*.scss', '!dist/sass/libs/*'])
-        .pipe(header(bannerPackage, { package : package }))
-        .pipe(gulp.dest('dist/sass/'));
+    return gulp.src(['./sass/**/*.scss', '!./sass/libs/*'])
+        .pipe(header(banner, { package : package }))
+        .pipe(gulp.dest('./sass/'));
 });
 
 // Move sass source files to "dist" folder for release.
