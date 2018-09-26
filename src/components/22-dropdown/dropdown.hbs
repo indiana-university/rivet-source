@@ -11,8 +11,8 @@
         <div
             class="rvt-dropdown__menu"
             id="dropdown-navigation"
-            aria-hidden="true"
             role="menu"
+            aria-hidden="true"
         >
             <a href="#">Item one</a>
             <a href="#">Item two</a>
@@ -79,3 +79,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Callback function that puts focus on the button that was toggled.
+    function focusTheToggle(id) {
+        document
+            .querySelector('[data-dropdown-toggle="' + id + '"]')
+            .focus();
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 68) {
+            Dropdown.toggle('dropdown-1', focusTheToggle('dropdown-1'));
+        }
+    });
+</script>

@@ -1,30 +1,45 @@
 {
-  "name": "Rivet",
-  "description": "UITS design system",
-  "version": "1.0.0",
+  "name": "rivet-uits",
+  "description": "Indiana University design system",
+  "homepage": "https://rivet.iu.edu",
+  "version": "1.1.0",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "https://github.iu.edu/UITS/rivet-source.git"
   },
-  "scripts": {
-    "build": "gulp build:dist && gulp fractal:build",
-    "test": "node_modules/mocha/bin/mocha tests/unit --require jsdom-global/register; node_modules/nightwatch/bin/nightwatch -c ./tests/integration/nightwatch.json",
-    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
-    "testing-screenshots": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/golden.js\" --exit"
+  "bugs": {
+    "url": "https://github.iu.edu/UITS/rivet-source/issues",
+    "email": "rivet@iu.edu"
   },
-  "dependencies": {
+  "scripts": {
+    "start": "gulp dev:serve",
+    "build": "npm run clean && gulp build:dist && gulp fractal:build && zip -r rivet.zip css js sass index.html",
+    "test": "npm run cypress:test && npm run visual-test",
+    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
+    "cypress:test": "npx cypress run",
+    "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "css/**/*",
+    "sass/**/*",
+    "js/**/*",
+    "index.html"
+  ],
+  "devDependencies": {
     "@frctl/fractal": "^1.1.4",
     "@frctl/mandelbrot": "^1.1.0",
     "autoprefixer": "^7.1.2",
     "browser-sync": "^2.23.6",
     "chai": "^4.1.2",
+    "cypress": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^4.0.0",
     "gulp-header": "^1.8.9",
     "gulp-mocha": "^4.3.1",
-    "gulp-nightwatch": "^0.3.2",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
@@ -32,7 +47,6 @@
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^4.0.1",
-    "nightwatch": "^0.9.16",
     "node-sass": "^4.7.2",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",

@@ -1,110 +1,122 @@
 
 // Base font family
-$font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif";
-
-
+$font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
 
 
 // Main type sizes map. This is used to generate all of the .ts-
 // utilitiy classes in "components/_type-scale.scss"
 
 // $key = pixel size, $value = relational units
+
 $type-sizes: (
     12: .75rem,
+    xxs: .75rem,
     14: .875rem,
+    xs: .875rem,
     16: 1rem,
+    base: 1rem,
     18: 1.125rem,
     20: 1.25rem,
+    sm: 1.25rem,
     23: 1.4375rem,
     26: 1.625rem,
+    md: 1.625rem,
     29: 1.8125rem,
     32: 2rem,
+    lg: 2rem,
     36: 2.25rem,
     41: 2.5625rem,
+    xl: 2.5625rem,
     46: 2.875rem,
     52: 3.25rem,
-);
+    xxl: 3.25rem,
+) !default;
+
 
 // Type Size variables
-$ts-12: map-get($type-sizes, 12);
-$ts-14: map-get($type-sizes, 14);
-$ts-16: map-get($type-sizes, 16);
-$ts-base: $ts-16;
-$ts-18: map-get($type-sizes, 18);
-$ts-20: map-get($type-sizes, 20);
-$ts-23: map-get($type-sizes, 23);
-$ts-26: map-get($type-sizes, 26);
-$ts-29: map-get($type-sizes, 29);
-$ts-32: map-get($type-sizes, 32);
-$ts-36: map-get($type-sizes, 36);
-$ts-41: map-get($type-sizes, 41);
-$ts-46: map-get($type-sizes, 46);
-$ts-52: map-get($type-sizes, 52);
+
+$ts-12: map-get($type-sizes, 12) !default;
+$ts-14: map-get($type-sizes, 14) !default;
+$ts-16: map-get($type-sizes, 16) !default;
+$ts-18: map-get($type-sizes, 18) !default;
+$ts-20: map-get($type-sizes, 20) !default;
+$ts-23: map-get($type-sizes, 23) !default;
+$ts-26: map-get($type-sizes, 26) !default;
+$ts-29: map-get($type-sizes, 29) !default;
+$ts-32: map-get($type-sizes, 32) !default;
+$ts-36: map-get($type-sizes, 36) !default;
+$ts-41: map-get($type-sizes, 41) !default;
+$ts-46: map-get($type-sizes, 46) !default;
+$ts-52: map-get($type-sizes, 52) !default;
 
 
+// Type scale aliases
+
+$ts-xxs: $ts-12 !default;
+$ts-xs: $ts-14 !default;
+$ts-base: $ts-16 !default;
+$ts-sm: $ts-20 !default;
+$ts-md: $ts-26 !default;
+$ts-lg: $ts-32 !default;
+$ts-xl: $ts-41 !default;
+$ts-xxl: $ts-52 !default;
 
 
 // Base colors
 
-$color-white: #ffffff;
-$color-subtle-gray: #f7f7f7;
-$color-black: #333333;
+$color-white: #ffffff !default;
+$color-subtle-gray: #f7f7f7 !default;
+$color-black: #333333 !default;
+
 
 // Brand Colors
 
-$color-cream: #edebeb;
-$color-crimson: #990000;
-$color-midnight: #006298;
-$color-dark-midnight: #01426a;
-
-
+$color-cream: #edebeb !default;
+$color-crimson: #990000 !default;
+$color-midnight: #006298 !default;
+$color-dark-midnight: #01426a !default;
 
 
 // Black tints
 
-$color-black--50: #fafafa;
-$color-black--100: #eeeeee;
-$color-black--150: #eaeaea;
-$color-black--200: #dddddd;
-$color-black--300: #cccccc;
-$color-black--400: #aaaaaa;
-$color-black--500: #999999;
-$color-black--600: #777777;
-$color-black--700: #666666;
-$color-black--800: #555555;
-$color-black--900: #444444;
+$color-black--50: #fafafa !default;
+$color-black--100: #eeeeee !default;
+$color-black--150: #eaeaea !default;
+$color-black--200: #dddddd !default;
+$color-black--300: #cccccc !default;
+$color-black--400: #aaaaaa !default;
+$color-black--500: #999999 !default;
+$color-black--600: #777777 !default;
+$color-black--700: #666666 !default;
+$color-black--800: #555555 !default;
+$color-black--900: #444444 !default;
+
 
 // Use this when you need a default (darkest) black.
-$color-black--rich: #000000;
-
-
+$color-black--rich: #000000 !default;
 
 
 // Midnight Variations
-
-$color-midnight--100: #dce3ee;
-$color-midnight--200: #b8c8dc;
-$color-midnight--300: #95adcb;
-$color-midnight--400: #7194ba;
-$color-midnight--500: #497ba9;
-$color-midnight--600: #076399;
-$color-midnight--700: #134a71;
-$color-midnight--800: #16324b;
-$color-midnight--900: #121c28;
-
-
+$color-midnight--50: #edf1f6 !default;
+$color-midnight--100: #dce3ee !default;
+$color-midnight--200: #b8c8dc !default;
+$color-midnight--300: #95adcb !default;
+$color-midnight--400: #7194ba !default;
+$color-midnight--500: #497ba9 !default;
+$color-midnight--600: #076399 !default;
+$color-midnight--700: #134a71 !default;
+$color-midnight--800: #16324b !default;
+$color-midnight--900: #121c28 !default;
 
 
 // Colors by purpose
 
-$color-text: $color-black;
-$color-background: $color-white;
-$color-background-subtle: $color-subtle-gray;
-$color-action: $color-midnight;
-$color-link: $color-midnight;
-$color-link-visited: $color-dark-midnight;
-
-
+$color-text: $color-black !default;
+$color-background: $color-white !default;
+$color-background-subtle: $color-subtle-gray !default;
+$color-action: $color-midnight !default;
+$color-link: $color-midnight !default;
+$color-link-visited: $color-dark-midnight !default;
 
 
 // Alert colors
@@ -116,22 +128,20 @@ $color-link-visited: $color-dark-midnight;
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
 
-$color-alert-gray: #a7a9ab;
-$color-alert-gray-light: #eeeeee;
-$color-alert-green: #008a28;
-$color-alert-green-text: #16521d;
-$color-alert-green-light: #ddf4ea;
-$color-alert-blue: #49afc7;
-$color-alert-blue-text: #284c55;
-$color-alert-blue-light: #e9f6fc;
-$color-alert-yellow: #f5bb17;
-$color-alert-yellow-text: #584416;
-$color-alert-yellow-light: #fdf7e7;
-$color-alert-orange: #df3603;
-$color-alert-orange-text: #82270d;
-$color-alert-orange-light: #fdeee8;
-
-
+$color-alert-gray: #a7a9ab !default;
+$color-alert-gray-light: #eeeeee !default;
+$color-alert-green: #008a28 !default;
+$color-alert-green-text: #16521d !default;
+$color-alert-green-light: #ddf4ea !default;
+$color-alert-blue: $color-action !default;
+$color-alert-blue-text: $color-midnight--700 !default;
+$color-alert-blue-light: $color-midnight--50 !default;
+$color-alert-yellow: #f5bb17 !default;
+$color-alert-yellow-text: #584416 !default;
+$color-alert-yellow-light: #fdf7e7 !default;
+$color-alert-orange: #df3603 !default;
+$color-alert-orange-text: #82270d !default;
+$color-alert-orange-light: #fdeee8 !default;
 
 
 // TODO: Should we keep all colors in a map so that we can iterate
@@ -147,23 +157,20 @@ $color-map: (
     "blue": $color-alert-blue,
     "yellow": $color-alert-yellow,
     "orange": $color-alert-orange
-);
-
-
+) !default;
 
 
 // Global spacing units
 
-$spacing-unit: .5rem;        // 8px
+$spacing-unit: .5rem !default;        // 8px
 
-$xxs: $spacing-unit/2;       // 4px
-$xs: $spacing-unit;          // 8px
-$sm: $spacing-unit * 2;      // 16px Base
-$md: $spacing-unit * 3;      // 24px
-$lg: $spacing-unit * 4;      // 32px
-$xl: $spacing-unit * 5;      // 40px
-$xxl: $spacing-unit * 8;     // 64px
-
+$xxs: $spacing-unit/2 !default;       // 4px
+$xs: $spacing-unit !default;          // 8px
+$sm: $spacing-unit * 2 !default;      // 16px Base
+$md: $spacing-unit * 3 !default;      // 24px
+$lg: $spacing-unit * 4 !default;      // 32px
+$xl: $spacing-unit * 5 !default;      // 40px
+$xxl: $spacing-unit * 8 !default;     // 64px
 
 
 // Global breakpoints
@@ -174,12 +181,18 @@ $breakpoints: (
     lg: 1080px,
     xl: 1260px,
     xxl: 1400px
-);
+) !default;
+
+$breakpoint-sm: map-get($breakpoints, 'sm');
+$breakpoint-md: map-get($breakpoints, 'md');
+$breakpoint-lg: map-get($breakpoints, 'lg');
+$breakpoint-xl: map-get($breakpoints, 'xl');
+$breakpoint-xxl: map-get($breakpoints, 'xxl');
 
 
 // TODO: This should be depricated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
-$radius-small: 3px;
+$radius-small: 3px !default;
 
 
 // z-index map
@@ -200,4 +213,4 @@ $z-index: (
     z-800: 800,
     z-900: 900,
     z-1000: 1000
-);
+) !default;

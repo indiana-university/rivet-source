@@ -1,229 +1,235 @@
 var Tabs = (function() {
+  // Documentation base URL:
+  var docsBaseUrl = 'https://rivet.uits.iu.edu';
+
+  // component URL
+  var componentUrl =
+    docsBaseUrl + '/components/page-content/tabs/#javascript-api';
+
+  // Keycodes for easy reference
+  var KEYS = {
+    end: 35,
+    home: 36,
+    left: 37,
+    up: 38,
+    right: 39,
+    down: 40,
+  };
+
+  var LEGACY_SELECTORS = '[data-tab], [aria-controls]';
+
+  /**
+   * @param {nodes} nodeList - Accepts a nodeList and returns an array.
+   */
+  function nodeListToArray(nodes) {
+    return Array.prototype.slice.call(nodes);
+  }
+
+  /**
+   *
+   * @param {HTMLButtonElement} item
+   */
+  function handleTabActivate(item) {
+    item.setAttribute('aria-selected', 'true');
+    item.removeAttribute('tabindex');
+  }
+
+  /**
+   *
+   * @param {HTMLButtonElement} item
+   */
+  function handleTabDeactivate(item) {
+    item.setAttribute('aria-selected', 'false');
+    item.setAttribute('tabindex', '-1');
+  }
+
+  /**
+   *
+   * @param {String} id
+   */
+  function activateTab(id, callback) {
+    /**
+     * NOTE: Adding "aria-controls" to this list for backwards
+     * compatibility. Should eventually deprecate the use of or
+     * "aria-controls" in favor of the data attributes added here.
+     */
+    var activeTabSelector =
+      '[data-tab="' + id + '"], [aria-controls="' + id + '"]';
+
+    var activeTab =
+      document.querySelector(activeTabSelector);
+
+    if (!activeTab) {
+      /**
+       * In recent rewrites of the some of the other JS components I've
+       * been throwing Error Objects for things like missing parameters.
+       * Wondering if it might makes sense to just provide a console
+       * warning with links to the docs for these API methods?
+       */
+      console.warn(
+        'There were no tabs found with the id of ' + id + '.' + '\n' +
+        'Please see the Rivet Tabs JavaScript API documentation for more info: ' + '\n'
+        + componentUrl
+      );
+
+      return;
+    }
+
+    var tabSet =
+      activeTab.parentNode.querySelectorAll(LEGACY_SELECTORS);
+
+    var tabs = nodeListToArray(tabSet);
 
     /**
-     * Set up locally-scoped variables
-     * Aria requirements https://www.w3.org/TR/wai-aria-practices/#tabpanel
+     * Creates a new array of the tab panels. The array index of each
+     * panel corresponds to the index of each tab (button).
      */
+    var tabPanels = tabs.map(function (item) {
+      /**
+       * NOTE: should think about removing the aria-controls selector in
+       * future versions in favor of the standard data attributes
+       * we are for JS hooks throughout Rivet.
+       */
+      var id =
+        item.getAttribute('data-tab') ||
+        item.getAttribute('aria-controls');
+
+      return document.getElementById(id);
+    });
+
+    tabs.forEach(function(item) {
+      item === activeTab ?
+        handleTabActivate(item) :
+        handleTabDeactivate(item);
+    });
+
+    tabPanels.forEach(function(item) {
+      var tabId =
+        activeTab.getAttribute('data-tab') ||
+        activeTab.getAttribute('aria-controls');
+
+      item.id === tabId ?
+        item.removeAttribute('hidden') :
+        item.setAttribute('hidden', 'hidden');
+    });
 
     /**
-     * Get all the tab sets on the page
+     * NOTE: For backward compatibility, we're excepting either the
+     * 'data-tab' or 'aria-controls' attributes.
      */
-    var tabSets = null;
+    var eventAttribute =
+      activeTab.hasAttribute('data-tab') ? 'data-tab' : 'aria-controls';
 
-    var tablist = []
-    var tabs = []
-    var panels = []
+    // Fire the custom 'tabActivated' event
+    fireCustomEvent(activeTab, eventAttribute, 'tabActivated');
 
-    function generateArrays () {
-        for (var tabsetIndex = 0; tabsetIndex < tabSets.length; tabsetIndex++) {
-            tablist[tabsetIndex] = tabSets[tabsetIndex].querySelectorAll('[role="tablist"]')[0]
-            tabs[tabsetIndex] = tabSets[tabsetIndex].querySelectorAll('[role="tab"]')
-            panels[tabsetIndex] = tabSets[tabsetIndex].querySelectorAll('[role="tabpanel"]')
-        }
+    // Execute callback if it exists
+    if (callback && typeof callback === 'function') {
+      callback();
     }
+  }
 
-    // For easy reference
-    var keys = {
-        end: 35,
-        home: 36,
-        left: 37,
-        up: 38,
-        right: 39,
-        down: 40,
-        enter: 13,
-        space: 32
-    }
+  function _handleClick(event) {
+    // NOTE: Backwards compatibility for 'aria-controls' here.
+    var activeTab = event.target.closest(LEGACY_SELECTORS);
 
-    // Add or subtract depending on key pressed
-    var direction = {
-        37: -1,
-        38: -1,
-        39: 1,
-        40: 1
-    }
+    if (!activeTab) return;
 
-    var init = function(context) {
-        if (context === undefined) {
-            context = document;
-        }
+    var id =
+      activeTab.getAttribute('data-tab') ||
+      activeTab.getAttribute('aria-controls');
 
-        tabSets = context.querySelectorAll('.rvt-tabs')
-        generateArrays();
+    activateTab(id);
+  }
 
-        // Check to make sure there are any tab sets in the DOM.
-        if(tabSets.length != 0) {
+  function _handleKeydown(event) {
+    // Handle keydown events here
+    var activeTab  = event.target.closest(LEGACY_SELECTORS);
 
-            // Loop through the tab sets and initialize each one
-            for (var tabsetIndex = 0; tabsetIndex < tabSets.length; tabsetIndex++) {
-                _bindUiActions(tabs[tabsetIndex], tabsetIndex);
-            }
-        }
-    }
+    if (!activeTab) return;
+
+    // Create a nodeList of all the buttons in the tab set
+    var tabSet =
+      activeTab.parentNode.querySelectorAll(LEGACY_SELECTORS);
 
     /**
-     * @param {object} els - HTML elements to bind the actions to.
+     * Convert nodeList to an array so we can find the first, last, etc.
+     * element and use Array methods on it.
      */
-    var _bindUiActions = function(tabs, tabsetIndex) {
+    var tabs = nodeListToArray(tabSet);
 
-        for (var i = 0; i < tabs.length; i++) {
+    var nextTab = tabs.indexOf(activeTab) + 1;
 
-            tabs[i].addEventListener('click', function(event) { clickEventListener(event, tabsetIndex) });
-            tabs[i].addEventListener('keydown', function(event) { keydownEventListener(event, tabsetIndex) });
-            tabs[i].addEventListener('keyup', function(event) { keyupEventListener(event, tabsetIndex) });
+    var prevTab = tabs.indexOf(activeTab) - 1;
 
-            // Build an array with all tabs (<button>s) in it
-            tabs[i].index = i;
-            tabs[i].tabsetIndex = tabsetIndex
-        }
+    switch (event.keyCode) {
+      case KEYS.right || KEYS.down:
+        !tabs[nextTab] ?
+          tabs[0].focus() :
+          tabs[nextTab].focus();
+
+        break;
+      case KEYS.down:
+        !tabs[nextTab] ?
+          tabs[0].focus() :
+          tabs[nextTab].focus();
+
+        break;
+      case KEYS.left:
+        !tabs[prevTab] ?
+          tabs[tabs.length - 1].focus() :
+          tabs[prevTab].focus();
+
+        break;
+      case KEYS.up:
+        !tabs[prevTab] ?
+        tabs[tabs.length - 1].focus() :
+        tabs[prevTab].focus();
+
+        break;
+      case KEYS.end:
+        tabs[tabs.length - 1].focus();
+
+        break;
+      case KEYS.home:
+        tabs[0].focus();
+
+        break;
+      default:
+        return;
+    }
+  }
+
+  /**
+   * @param {HTMLElement} context
+   */
+  function destroy(context) {
+    if (context === undefined) {
+      context = document;
     }
 
-    // When a tab is clicked, activateTab is fired to activate it
-    function clickEventListener (event, tabsetIndex) {
-        var tab = event.target;
-        activateTab(tab, tabsetIndex, false);
+    context.removeEventListener('click', _handleClick, false);
+    context.removeEventListener('keydown', _handleKeydown, false);
+  }
+
+  /**
+   * @param {HTMLElement} context
+   */
+  function init(context) {
+    if (context === undefined) {
+      context = document;
     }
 
-    // Handle keydown on tabs
-    function keydownEventListener (event, tabsetIndex) {
-        var key = event.keyCode;
+    // Destroy any currently initialized tabs
+    destroy(context);
 
-        switch (key) {
-            case keys.end:
-                event.preventDefault();
-                // Activate last tab
-                focusLastTab(tabsetIndex);
-                break;
-            case keys.home:
-                event.preventDefault();
-                // Activate first tab
-                focusFirstTab(tabsetIndex);
-                break;
+    context.addEventListener('click', _handleClick, false);
+    context.addEventListener('keydown', _handleKeydown, false);
+  }
 
-            // Up and down are in keydown
-            // because we need to prevent page scroll >:)
-            case keys.up:
-            case keys.down:
-                determineOrientation(event, tabsetIndex);
-                break;
-        }
-    }
-
-    // Handle keyup on tabs
-    function keyupEventListener (event, tabsetIndex) {
-        var key = event.keyCode;
-
-        switch (key) {
-            case keys.left:
-            case keys.right:
-                determineOrientation(event, tabsetIndex);
-                break;
-            case keys.enter:
-            case keys.space:
-                activateTab(event.target, tabsetIndex);
-                break;
-        }
-    }
-
-    // When a tablists aria-orientation is set to vertical,
-    // only up and down arrow should function.
-    // In all other cases only left and right arrow function.
-    function determineOrientation (event, tabsetIndex) {
-        var key = event.keyCode;
-        var vertical = tablist[tabsetIndex].getAttribute('aria-orientation') == 'vertical';
-        var proceed = false;
-
-        if (vertical) {
-            if (key === keys.up || key === keys.down) {
-                event.preventDefault();
-                proceed = true;
-            }
-        }
-        else {
-            if (key === keys.left || key === keys.right) {
-                proceed = true;
-            }
-        }
-
-        if (proceed) {
-            switchTabOnArrowPress(event, tabsetIndex);
-        }
-    }
-
-
-    // Either focus the next, previous, first, or last tab
-    // depending on key pressed
-    function switchTabOnArrowPress (event, tabsetIndex) {
-        var pressed = event.keyCode;
-
-        if (direction[pressed]) {
-            var target = event.target;
-            if (target.index !== undefined) {
-                if (tabs[tabsetIndex][target.index + direction[pressed]]) {
-                    tabs[tabsetIndex][target.index + direction[pressed]].focus();
-                }
-                else if (pressed === keys.left || pressed === keys.up) {
-                    focusLastTab(tabsetIndex);
-                }
-                else if (pressed === keys.right || pressed == keys.down) {
-                    focusFirstTab(tabsetIndex);
-                }
-            }
-        }
-    }
-
-    // Activates any given tab panel
-    function activateTab (tab, tabsetIndex, setFocus) {
-
-        setFocus = setFocus || true;
-
-        // Deactivate all other tabs in tabset
-        deactivateTabs(tabsetIndex);
-
-        // Remove tabindex attribute
-        tab.removeAttribute('tabindex');
-
-        // Set the tab as selected
-        tab.setAttribute('aria-selected', 'true');
-
-        // Get the value of aria-controls (which is an ID)
-        var controls = tab.getAttribute('aria-controls');
-
-        // Remove hidden attribute from tab panel to make it visible
-        document.getElementById(controls).removeAttribute('hidden');
-
-        // Set focus when required
-        if (setFocus) {
-            tab.focus();
-        }
-    }
-
-    // Deactivate all tabs and tab panels
-    function deactivateTabs (tabsetIndex) {
-
-        for (var t = 0; t < tabs[tabsetIndex].length; t++) {
-            tabs[tabsetIndex][t].setAttribute('tabindex', '-1');
-            tabs[tabsetIndex][t].setAttribute('aria-selected', 'false');
-        }
-
-        for (var p = 0; p < panels[tabsetIndex].length; p++) {
-            panels[tabsetIndex][p].setAttribute('hidden', 'hidden');
-        }
-    }
-
-    // Make a guess
-    function focusFirstTab (tabsetIndex) {
-        tabs[tabsetIndex][0].focus();
-    }
-
-    // Make a guess
-    function focusLastTab (tabsetIndex) {
-        tabs[tabsetIndex][tabs[tabsetIndex].length - 1].focus();
-    }
-
-    // Expose public methods
-    return {
-        init: init,
-        activateTab: activateTab
-    }
-
+  return {
+    init: init,
+    destroy: destroy,
+    activateTab: activateTab
+  };
 })();

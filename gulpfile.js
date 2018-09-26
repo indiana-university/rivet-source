@@ -21,7 +21,6 @@ gulp.task('build', function(cb) {
 
 gulp.task('dev:serve', [
     'sass:lint',
-    'js:lint',
     'sass',
     'js:concat',
     'fractal:start',
@@ -38,10 +37,7 @@ gulp.task('default', ['dev:serve']);
 gulp.task('build:example', function() {
     gulp.src('./src/components/_extras/_index-example.html')
         .pipe(rename('index.html'))
-        .pipe(gulp.dest('dist'));
-    gulp.src('./src/components/_extras/_README-PACKAGE.md')
-        .pipe(rename('README.md'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('.'));
 });
 
 gulp.task('build:dist', function(done) {
@@ -52,20 +48,6 @@ gulp.task('build:dist', function(done) {
         'js:release',
         'sass:release',
         'build:example',
-        'test:unit',
         done
     );
 });
-
-/**
- * Testing tasks
- */
-gulp.task('test:all', function(done) {
-    runSequence(
-        'test:unit',
-        'test:integration',
-        done
-    );
-});
-
-gulp.task('test', ['test:all']);

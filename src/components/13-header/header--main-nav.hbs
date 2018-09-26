@@ -11,3 +11,28 @@
     {{> @includes--header-controls }}
     {{> @includes--drawer }}
 </header>
+
+<script>
+    // Tests callbacks and custom events
+
+    var focusToggle = function() {
+        var theToggle = document.querySelector('[data-drawer-toggle="mobile-drawer"]');
+
+        theToggle.focus();
+    }
+
+    // Press the "d" key
+    document.addEventListener('keyup', function(event) {
+        if (event.keyCode === 68) {
+            Drawer.open('mobile-drawer', focusToggle());
+        }
+    });
+
+    document.addEventListener('drawerOpen', (event) => {
+        console.log('opened from ' + event.detail.name());
+    });
+
+    document.addEventListener('drawerClose', (event) => {
+        console.log('closed from ' + event.detail.name());
+    })
+</script>

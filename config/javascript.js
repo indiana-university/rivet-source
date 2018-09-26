@@ -17,6 +17,8 @@ gulp.task('js:lint', function() {
 gulp.task('js:concat', function() {
     return gulp.src([
         'src/js/polyfills/closest.js',
+        'src/js/polyfills/CustomEvent.js',
+        'src/js/utilities/fireCustomEvent.js',
         'src/js/components/alert.js',
         'src/js/components/drawer.js',
         'src/js/components/dropdown.js',
@@ -39,33 +41,33 @@ gulp.task('js:vendor', function() {
  */
 
 gulp.task('js:watch', function() {
-    gulp.watch('src/js/**/*.js', ['js:lint', 'js:concat', 'js:vendor']);
+    gulp.watch('src/js/**/*.js', ['js:concat', 'js:vendor']);
 });
 
 gulp.task('js:dist', function() {
     return gulp.src('static/js/rivet.js')
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('./js'));
 });
 
 // Create the string for the verion number banner.
 var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
 
 gulp.task('js:header', function() {
-    gulp.src('dist/js/rivet.js')
+    gulp.src('./js/rivet.js')
         .pipe(header(banner, { package : package }))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('./js/'));
 
-    gulp.src('dist/js/rivet.min.js')
+    gulp.src('./js/rivet.min.js')
         .pipe(header(banner, { package : package }))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('js:minify', function (done) {
   pump([
-        gulp.src('dist/js/rivet.js'),
+        gulp.src('./js/rivet.js'),
         uglify(),
         rename({suffix: '.min'}),
-        gulp.dest('dist/js')
+        gulp.dest('./js')
     ],
     done
   );

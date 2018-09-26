@@ -1,12 +1,12 @@
 <div class="rvt-tabs rvt-tabs--fitted">
     <div class="rvt-tabs__tablist" role="tablist" aria-label="Rivet tabs">
-        <button class="rvt-tabs__tab" role="tab" aria-selected="true" aria-controls="tab-1" id="t-one">
+        <button class="rvt-tabs__tab" role="tab" aria-selected="true" data-tab="tab-1" id="t-one">
             Tab one
         </button>
-        <button class="rvt-tabs__tab" role="tab" aria-selected="false" aria-controls="tab-2" id="t-two" tabindex="-1">
+        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-2" id="t-two" tabindex="-1">
             Tab two
         </button>
-        <button class="rvt-tabs__tab" role="tab" aria-selected="false" aria-controls="tab-3" id="t-three" tabindex="-1">
+        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-3" id="t-three" tabindex="-1">
             Tab three
         </button>
     </div>
@@ -33,3 +33,13 @@
         </p>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Tabs.activateTab('tab-3');
+    });
+
+    document.addEventListener('tabActivated', function(event) {
+        console.log('Tab activated from ' + event.detail.name());
+    })
+</script>

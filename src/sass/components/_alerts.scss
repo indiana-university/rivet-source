@@ -72,14 +72,18 @@
 }
 
 .alert--message,
-.rvt-alert--message {
+.rvt-alert--message,
+.alert--warning,
+.rvt-alert--warning {
     background-color: $color-alert-yellow-light;
     border-left-color: $color-alert-yellow;
     color: $color-alert-yellow-text;
 }
 
 .alert--error,
-.rvt-alert--error {
+.rvt-alert--error,
+.alert--danger,
+.rvt-alert--danger {
     background-color: $color-alert-orange-light;
     border-left-color: $color-alert-orange;
     color: $color-alert-orange-text;

@@ -124,7 +124,7 @@
         outline: none;
     }
 
-    &.is-open {
+    &[aria-expanded="true"] {
         background-color: $color-black--100;
 
         &:hover {
@@ -187,7 +187,7 @@
     }
 }
 
-.rvt-drawer-button.is-open {
+.rvt-drawer-button[aria-expanded="true"] {
     > .rvt-drawer-button-close {
         display: flex;
     }
@@ -220,7 +220,6 @@
          * This fixes some display issues in IE.
          */
         display: flex;
-        height: 100%;
     }
 
     ul li a[aria-current],
