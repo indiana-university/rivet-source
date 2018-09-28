@@ -48,7 +48,7 @@ gulp.task('sass:release-copy', function() {
 // Add version number header to all .scss files.
 gulp.task('sass:header', function() {
     return gulp.src(['./sass/**/*.scss', '!./sass/libs/*'])
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('./sass/'));
 });
 

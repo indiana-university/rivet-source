@@ -15,7 +15,7 @@ gulp.task('css:dist', function() {
 
 gulp.task('css:header', function() {
     return gulp.src('./css/rivet.css')
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('./css/'))
 });
 

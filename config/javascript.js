@@ -52,11 +52,11 @@ gulp.task('js:dist', function() {
 
 gulp.task('js:header', function() {
     gulp.src('./js/rivet.js')
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('./js/'));
 
     gulp.src('./js/rivet.min.js')
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('./js/'));
 });
 
