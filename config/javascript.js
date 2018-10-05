@@ -7,6 +7,7 @@ const pump = require('pump');
 const runSequence = require('run-sequence');
 const header = require('gulp-header');
 const package = require('../package.json');
+const bannerPackage = require('./banner')
 
 gulp.task('js:lint', function() {
     return gulp.src(['src/js/**/*.js', '!node_modules/**', '!src/js/vendor.js'])
@@ -49,16 +50,13 @@ gulp.task('js:dist', function() {
         .pipe(gulp.dest('./js'));
 });
 
-// Create the string for the verion number banner.
-var banner = '/*! <%= package.name %> - @version v<%= package.version %> */' + '\n' + '\n';
-
 gulp.task('js:header', function() {
     gulp.src('./js/rivet.js')
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('./js/'));
 
     gulp.src('./js/rivet.min.js')
-        .pipe(header(banner, { package : package }))
+        .pipe(header(bannerPackage, { package : package }))
         .pipe(gulp.dest('./js/'));
 });
 
