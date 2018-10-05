@@ -96,6 +96,11 @@ select:focus {
     transition: box-shadow .2s ease;
 }
 
+input[type="search"] {
+    height: auto;
+    -webkit-appearance: none;
+}
+
 label {
     display: inline-block;
     font-size: $ts-14;
