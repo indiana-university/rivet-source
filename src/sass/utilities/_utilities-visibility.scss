@@ -1,5 +1,5 @@
 %start-hidden {
-    display: none;
+    display: none !important;
 }
 
 @each $bp-name, $bp-size in $breakpoints {
@@ -11,14 +11,14 @@
     @include mq($bp-size) {
         .hide-#{$bp-name}-down,
         .rvt-hide-#{$bp-name}-down {
-            display: block;
+            display: block !important;
         }
     }
 
     @include mq($bp-size) {
         .hide-#{$bp-name}-up,
         .rvt-hide-#{$bp-name}-up {
-            display: none;
+            display: none !important;
         }
     }
 }
