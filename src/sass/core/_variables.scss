@@ -176,11 +176,11 @@ $xxl: $spacing-unit * 8 !default;     // 64px
 // Global breakpoints
 
 $breakpoints: (
-    sm: 480px,
-    md: 740px,
-    lg: 1080px,
-    xl: 1260px,
-    xxl: 1400px
+    sm: (480em/16),
+    md: (740em/16),
+    lg: (1080em/16),
+    xl: (1260em/16),
+    xxl: (1400em/16)
 ) !default;
 
 $breakpoint-sm: map-get($breakpoints, 'sm');
