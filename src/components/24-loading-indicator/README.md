@@ -25,8 +25,12 @@ While the button is in the loading state the `aria-busy="true"` and `disabled` a
 When using the loading indicator inside buttons the visible button text should be wrapped in a `.rvt-button__text` class. This CSS class will visually hide the button text but maintain the display width of the button while the loading indicator is visible.
 
 ### Loading indicator sizes
-The loading indicator comes in three sizes.
+The loading indicator comes in multiple sizes that follow the standard Rivet size naming conventions.
 
-- `rvt-loader` - the default size, also the only sized allowed inside buttons.
-- `rvt-loader--lg` - Large
-- `rvt-loader--xl` - Extra-large
+- `rvt-loader--xxs`
+- `rvt-loader--xs` - The default size. Same as `rvt-loader` with no modifier. NOTE: this is the **only** size that is allowed to be used inside of buttons.
+- `rvt-loader--sm`
+- `rvt-loader--md`
+- `rvt-loader--lg`
+- `rvt-loader--xl`
+- `rvt-loader--xxl`
