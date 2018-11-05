@@ -30,6 +30,12 @@
 
     transition: box-shadow .2s ease;
 
+    // Initially hide any loaders if they're being used inside buttons.
+
+    .rvt-loader {
+        display: none;
+    }
+
     &:focus,
     &--focus {
         @extend %button-focus;
@@ -266,4 +272,41 @@
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+/**
+ * Loading state - used in tandem with the Rivet loading indicator
+ * found in components/24-loading-indicator/
+ */
+
+.rvt-button--loading,
+.rvt-button--loading[disabled] {
+    background-color: $color-midnight--100;
+    border-color: $color-midnight--200;
+    color: $color-midnight;
+    justify-content: center;
+    position: relative;
+
+    &:hover {
+        background-color: $color-midnight--100;
+        border-color: $color-midnight--200;
+        color: $color-midnight;
+    }
+
+    .rvt-button__text {
+        color: transparent;
+    }
+
+    .rvt-loader {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        /**
+         * This negative margin accounts for the width/height of the
+         * default loading indicator above.
+         */
+        margin-top: -.65rem;
+        margin-left: -$xs;
+    }
 }

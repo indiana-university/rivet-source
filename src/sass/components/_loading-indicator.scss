@@ -1,0 +1,63 @@
+.rvt-loader {
+    animation: .8s linear infinite loader;
+    display: inline-block;
+    width: $sm * 1.25;
+    height: $sm * 1.25;
+    border: .2rem solid transparent;
+    border-top-color: $color-action;
+    border-right-color: $color-action;
+    border-bottom-color: $color-action;
+    border-radius: 50%;
+    position: relative;
+
+    &--reverse {
+        border-top-color: $color-background;
+        border-right-color: $color-background;
+        border-bottom-color: $color-background;
+    }
+
+    &--xxs {
+        width: $sm;
+        height: $sm;
+    }
+
+    &--xs {
+        width: $sm * 1.25;
+        height: $sm * 1.25;
+    }
+
+    &--sm {
+        width: $sm * 1.75;
+        height: $sm * 1.75;
+    }
+
+    &--md {
+        width: $sm * 2;
+        height: $sm * 2;
+    }
+
+    &--lg {
+        width: $sm * 2.75;
+        height: $sm * 2.75;
+    }
+
+    &--xl {
+        width: $sm * 3.25;
+        height: $sm * 3.25;
+    }
+
+    &--xxl {
+        width: $sm * 4;
+        height: $sm * 4;
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
