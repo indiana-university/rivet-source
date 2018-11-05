@@ -1,0 +1,38 @@
+.rvt-loader {
+    animation: .8s linear infinite loader;
+    display: inline-block;
+    width: $sm * 1.25;
+    height: $sm * 1.25;
+    border: .2rem solid transparent;
+    border-top-color: $color-action;
+    border-right-color: $color-action;
+    border-bottom-color: $color-action;
+    border-radius: 50%;
+    position: relative;
+
+    &--reverse {
+        border-top-color: $color-background;
+        border-right-color: $color-background;
+        border-bottom-color: $color-background;
+    }
+
+    &--lg {
+        width: $lg;
+        height: $lg;
+    }
+
+    &--xl {
+        width: $xxl;
+        height: $xxl;
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
