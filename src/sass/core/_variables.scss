@@ -4,7 +4,7 @@ $font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
 
 
 // Main type sizes map. This is used to generate all of the .ts-
-// utilitiy classes in "components/_type-scale.scss"
+// utility classes in "components/_type-scale.scss"
 
 // $key = pixel size, $value = relational units
 
@@ -190,7 +190,7 @@ $breakpoint-xl: map-get($breakpoints, 'xl');
 $breakpoint-xxl: map-get($breakpoints, 'xxl');
 
 
-// TODO: This should be depricated moving forward. All instances where it
+// TODO: This should be deprecated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
 $radius-small: 3px !default;
 
