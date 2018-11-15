@@ -96,9 +96,11 @@ var Dropdown = (function() {
 
     var menu = document.getElementById(id);
 
-    if (menu !== null) {
-      menu.setAttribute('aria-hidden', 'true');
+    if (!menu) {
+      throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
     }
+
+    menu.setAttribute('aria-hidden', 'true');
 
     // Emmit a custom event that can be used as a hook for other actions
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownClose');
