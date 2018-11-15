@@ -87,6 +87,7 @@ var Dropdown = (function() {
     if (!id) {
       throw new Error("You must provide a unique id for the menu you're trying to close.");
     }
+
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
     if (toggle && toggle !== undefined) {
@@ -95,7 +96,9 @@ var Dropdown = (function() {
 
     var menu = document.getElementById(id);
 
-    menu.setAttribute('aria-hidden', 'true');
+    if (menu !== null) {
+      menu.setAttribute('aria-hidden', 'true');
+    }
 
     // Emmit a custom event that can be used as a hook for other actions
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownClose');
