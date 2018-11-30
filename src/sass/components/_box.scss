@@ -46,7 +46,9 @@
   &__footer {
     background-color: $color-subtle-gray;
     border-top: 1px solid $color-black--200;
-    padding: .25rem $sm;
+    border-bottom-right-radius: $xxs; // Gets rid of border clipping
+    border-bottom-left-radius: $xxs; // Gets rid of border clipping
+    padding: $xxs $sm;
   }
 
   &__header {
