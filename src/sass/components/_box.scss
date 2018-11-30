@@ -1,0 +1,177 @@
+.rvt-box {
+  background-color: $color-background;
+  border: 1px solid $color-black--200;
+  border-radius: $xxs;
+
+  &__body {
+    padding: $sm;
+  }
+
+  &__row {
+    border-top: 1px solid $color-black--150;
+    margin-top: -1px;
+    padding: $sm;
+  }
+
+  &__row--selected,
+  &__row[aria-current] {
+    background-color: $color-black--50;
+    box-shadow: .25rem 0 0 0 $color-alert-blue inset;
+  }
+
+  &__row--info {
+    background-color: $color-alert-blue-light;
+    box-shadow: .25rem 0 0 0 $color-alert-blue inset;
+    color: $color-alert-blue-text;
+  }
+
+  &__row--success {
+    background-color: $color-alert-green-light;
+    color: $color-alert-green-text;
+    box-shadow: .25rem 0 0 0 $color-alert-green inset;
+  }
+
+  &__row--warning {
+    background-color: $color-alert-yellow-light;
+    box-shadow: .25rem 0 0 0 $color-alert-yellow inset;
+    color: $color-alert-yellow-text;
+  }
+
+  &__row--danger {
+    background-color: $color-alert-orange-light;
+    box-shadow: .25rem 0 0 0 $color-alert-orange inset;
+    color: $color-alert-orange-text;
+  }
+
+  &__footer {
+    background-color: $color-subtle-gray;
+    border-top: 1px solid $color-black--200;
+    padding: .25rem $sm;
+  }
+
+  &__header {
+    align-items: center;
+    background-color: $color-subtle-gray;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+    border-top-right-radius: $xxs; // Gets rid of border clipping
+    border-top-left-radius: $xxs; // Gets rid of border clipping
+    border-left: none;
+    font-weight: 700;
+    font-size: $sm;
+    display: flex;
+    position: relative;
+    padding: $sm;
+    text-align: left;
+    width: 100%;
+
+    &:focus {
+      box-shadow: 0 0 0 0.125rem #ffffff, 0 0 0 0.25rem #006298;
+      outline: none;
+    }
+  }
+
+  &__image {
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &--light &__header,
+  &--light &__footer {
+    background-color: $color-background;
+  }
+
+  &--card &__row:first-child {
+    border-top: none;
+  }
+
+  &--compact &__header,
+  &--compact &__body,
+  &--compact &__row {
+     padding: .5rem;
+  }
+
+  /**
+   * Alert variant
+   */
+
+  &--info {
+    border-color: $color-alert-blue-border;
+  }
+
+  &--info &__header,
+  &--info &__footer {
+    background-color: $color-alert-blue-light;
+    border-color: $color-alert-blue-border;
+    color: $color-alert-blue-text;
+  }
+
+  &--info &__row {
+    border-color: $color-alert-blue-border;
+  }
+
+
+  &--success {
+    border-color: $color-alert-green-border;
+  }
+
+  &--success &__header,
+  &--success &__footer {
+    background-color: $color-alert-green-light;
+    border-color: $color-alert-green-border;
+    color: $color-alert-green-text;
+  }
+
+  &--success &__row {
+    border-color: $color-alert-green-border;
+  }
+
+
+  &--warning {
+    border-color: $color-alert-yellow-border;
+  }
+
+  &--warning &__header,
+  &--warning &__footer {
+    background-color: $color-alert-yellow-light;
+    border-color: $color-alert-yellow-border;
+    color: $color-alert-yellow-text;
+  }
+
+  &--warning &__row {
+    border-color: $color-alert-yellow-border;
+  }
+
+
+  &--danger {
+    border-color: $color-alert-orange-border;
+  }
+
+  &--danger &__header,
+  &--danger &__footer {
+    background-color: $color-alert-orange-light;
+    border-color: $color-alert-orange-border;
+    color: $color-alert-orange-text;
+  }
+
+  &--danger &__row {
+    border-color: $color-alert-orange-border;
+  }
+
+
+  &--card {
+    box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.07);
+    border: none;
+  }
+
+  &--card &__footer {
+    border-top-color: #dddddd;
+  }
+}
