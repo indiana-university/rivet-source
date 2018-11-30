@@ -1,7 +1,6 @@
-
 // Base font family
-$font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
 
+$font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
 
 // Main type sizes map. This is used to generate all of the .ts-
 // utility classes in "components/_type-scale.scss"
@@ -32,7 +31,6 @@ $type-sizes: (
     xxl: 3.25rem,
 ) !default;
 
-
 // Type Size variables
 
 $ts-12: map-get($type-sizes, 12) !default;
@@ -61,13 +59,11 @@ $ts-lg: $ts-32 !default;
 $ts-xl: $ts-41 !default;
 $ts-xxl: $ts-52 !default;
 
-
 // Base colors
 
 $color-white: #ffffff !default;
 $color-subtle-gray: #f7f7f7 !default;
 $color-black: #333333 !default;
-
 
 // Brand Colors
 
@@ -75,7 +71,6 @@ $color-cream: #edebeb !default;
 $color-crimson: #990000 !default;
 $color-midnight: #006298 !default;
 $color-dark-midnight: #01426a !default;
-
 
 // Black tints
 
@@ -133,16 +128,19 @@ $color-alert-gray-light: #eeeeee !default;
 $color-alert-green: #008a28 !default;
 $color-alert-green-text: #16521d !default;
 $color-alert-green-light: #ddf4ea !default;
+$color-alert-green-border: #aad1a7 !default;
 $color-alert-blue: $color-action !default;
 $color-alert-blue-text: $color-midnight--700 !default;
 $color-alert-blue-light: $color-midnight--50 !default;
+$color-alert-blue-border: $color-midnight--200 !default;
 $color-alert-yellow: #f5bb17 !default;
 $color-alert-yellow-text: #584416 !default;
 $color-alert-yellow-light: #fdf7e7 !default;
+$color-alert-yellow-border: #ffdd9b !default;
 $color-alert-orange: #df3603 !default;
 $color-alert-orange-text: #82270d !default;
 $color-alert-orange-light: #fdeee8 !default;
-
+$color-alert-orange-border: #ffc7b3 !default;
 
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
@@ -159,7 +157,6 @@ $color-map: (
     "orange": $color-alert-orange
 ) !default;
 
-
 // Global spacing units
 
 $spacing-unit: .5rem !default;        // 8px
@@ -171,7 +168,6 @@ $md: $spacing-unit * 3 !default;      // 24px
 $lg: $spacing-unit * 4 !default;      // 32px
 $xl: $spacing-unit * 5 !default;      // 40px
 $xxl: $spacing-unit * 8 !default;     // 64px
-
 
 // Global breakpoints
 
@@ -189,11 +185,9 @@ $breakpoint-lg: map-get($breakpoints, 'lg');
 $breakpoint-xl: map-get($breakpoints, 'xl');
 $breakpoint-xxl: map-get($breakpoints, 'xxl');
 
-
 // TODO: This should be deprecated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
 $radius-small: 3px !default;
-
 
 // z-index map
 // Starts and 0 and works up to 1000. Leaving some space between intervals
