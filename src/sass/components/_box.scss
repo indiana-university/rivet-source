@@ -16,30 +16,30 @@
   &__row--selected,
   &__row[aria-current] {
     background-color: $color-black--50;
-    box-shadow: .25rem 0 0 0 $color-alert-blue inset;
+    box-shadow: $xxs 0 0 0 $color-alert-blue inset;
   }
 
   &__row--info {
     background-color: $color-alert-blue-light;
-    box-shadow: .25rem 0 0 0 $color-alert-blue inset;
+    box-shadow: $xxs 0 0 0 $color-alert-blue inset;
     color: $color-alert-blue-text;
   }
 
   &__row--success {
     background-color: $color-alert-green-light;
     color: $color-alert-green-text;
-    box-shadow: .25rem 0 0 0 $color-alert-green inset;
+    box-shadow: $xxs 0 0 0 $color-alert-green inset;
   }
 
   &__row--warning {
     background-color: $color-alert-yellow-light;
-    box-shadow: .25rem 0 0 0 $color-alert-yellow inset;
+    box-shadow: $xxs 0 0 0 $color-alert-yellow inset;
     color: $color-alert-yellow-text;
   }
 
   &__row--danger {
     background-color: $color-alert-orange-light;
-    box-shadow: .25rem 0 0 0 $color-alert-orange inset;
+    box-shadow: $xxs 0 0 0 $color-alert-orange inset;
     color: $color-alert-orange-text;
   }
 
@@ -68,15 +68,20 @@
     text-align: left;
     width: 100%;
 
+    /**
+     * You could technically make the box header a button and then use
+     * the Rivet collapsible package with the box. This needs more
+     * experimenting, but I can confirm that it works.
+     */
     &:focus {
-      box-shadow: 0 0 0 0.125rem #ffffff, 0 0 0 0.25rem #006298;
+      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-midnight;
       outline: none;
     }
   }
 
   &__image {
-    border-top-right-radius: .25rem;
-    border-top-left-radius: .25rem;
+    border-top-right-radius: $xxs;
+    border-top-left-radius: $xxs;
     overflow: hidden;
 
     img {
@@ -97,7 +102,7 @@
   &--compact &__header,
   &--compact &__body,
   &--compact &__row {
-     padding: .5rem;
+     padding: $xs;
   }
 
   /**
@@ -174,6 +179,6 @@
   }
 
   &--card &__footer {
-    border-top-color: #dddddd;
+    border-top-color: $color-black--200;
   }
 }
