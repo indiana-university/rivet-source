@@ -1,0 +1,184 @@
+.rvt-box {
+  background-color: $color-background;
+  border: 1px solid $color-black--200;
+  border-radius: $xxs;
+
+  &__body {
+    padding: $sm;
+  }
+
+  &__row {
+    border-top: 1px solid $color-black--150;
+    margin-top: -1px;
+    padding: $sm;
+  }
+
+  &__row--selected,
+  &__row[aria-current] {
+    background-color: $color-black--50;
+    box-shadow: $xxs 0 0 0 $color-alert-blue inset;
+  }
+
+  &__row--info {
+    background-color: $color-alert-blue-light;
+    box-shadow: $xxs 0 0 0 $color-alert-blue inset;
+    color: $color-alert-blue-text;
+  }
+
+  &__row--success {
+    background-color: $color-alert-green-light;
+    color: $color-alert-green-text;
+    box-shadow: $xxs 0 0 0 $color-alert-green inset;
+  }
+
+  &__row--warning {
+    background-color: $color-alert-yellow-light;
+    box-shadow: $xxs 0 0 0 $color-alert-yellow inset;
+    color: $color-alert-yellow-text;
+  }
+
+  &__row--danger {
+    background-color: $color-alert-orange-light;
+    box-shadow: $xxs 0 0 0 $color-alert-orange inset;
+    color: $color-alert-orange-text;
+  }
+
+  &__footer {
+    background-color: $color-subtle-gray;
+    border-top: 1px solid $color-black--200;
+    border-bottom-right-radius: $xxs; // Gets rid of border clipping
+    border-bottom-left-radius: $xxs; // Gets rid of border clipping
+    padding: $xxs $sm;
+  }
+
+  &__header {
+    align-items: center;
+    background-color: $color-subtle-gray;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+    border-top-right-radius: $xxs; // Gets rid of border clipping
+    border-top-left-radius: $xxs; // Gets rid of border clipping
+    border-left: none;
+    font-weight: 700;
+    font-size: $sm;
+    display: flex;
+    position: relative;
+    padding: $sm;
+    text-align: left;
+    width: 100%;
+
+    /**
+     * You could technically make the box header a button and then use
+     * the Rivet collapsible package with the box. This needs more
+     * experimenting, but I can confirm that it works.
+     */
+    &:focus {
+      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-midnight;
+      outline: none;
+    }
+  }
+
+  &__image {
+    border-top-right-radius: $xxs;
+    border-top-left-radius: $xxs;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &--light &__header,
+  &--light &__footer {
+    background-color: $color-background;
+  }
+
+  &--card &__row:first-child {
+    border-top: none;
+  }
+
+  &--compact &__header,
+  &--compact &__body,
+  &--compact &__row {
+     padding: $xs;
+  }
+
+  /**
+   * Alert variant
+   */
+
+  &--info {
+    border-color: $color-alert-blue-border;
+  }
+
+  &--info &__header,
+  &--info &__footer {
+    background-color: $color-alert-blue-light;
+    border-color: $color-alert-blue-border;
+    color: $color-alert-blue-text;
+  }
+
+  &--info &__row {
+    border-color: $color-alert-blue-border;
+  }
+
+
+  &--success {
+    border-color: $color-alert-green-border;
+  }
+
+  &--success &__header,
+  &--success &__footer {
+    background-color: $color-alert-green-light;
+    border-color: $color-alert-green-border;
+    color: $color-alert-green-text;
+  }
+
+  &--success &__row {
+    border-color: $color-alert-green-border;
+  }
+
+
+  &--warning {
+    border-color: $color-alert-yellow-border;
+  }
+
+  &--warning &__header,
+  &--warning &__footer {
+    background-color: $color-alert-yellow-light;
+    border-color: $color-alert-yellow-border;
+    color: $color-alert-yellow-text;
+  }
+
+  &--warning &__row {
+    border-color: $color-alert-yellow-border;
+  }
+
+
+  &--danger {
+    border-color: $color-alert-orange-border;
+  }
+
+  &--danger &__header,
+  &--danger &__footer {
+    background-color: $color-alert-orange-light;
+    border-color: $color-alert-orange-border;
+    color: $color-alert-orange-text;
+  }
+
+  &--danger &__row {
+    border-color: $color-alert-orange-border;
+  }
+
+
+  &--card {
+    box-shadow: 0 1px 3px 2px rgba(0, 0, 0, .07);
+    border: none;
+  }
+
+  &--card &__footer {
+    border-top-color: $color-black--200;
+  }
+}

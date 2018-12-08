@@ -1,4 +1,4 @@
-status: "beta"
+status: "ready"
 variants:
     - name: "default"
       label: "Buttons"
