@@ -3,7 +3,7 @@ a,
     color: $color-midnight;
 
     &:hover {
-        color: $color-dark-midnight;
+        color: $color-midnight--900;
     }
 
     &:focus {
@@ -15,7 +15,7 @@ a,
         /**
          * TODO: Come up with a better color for the :visited state.
          */
-        color: $color-dark-midnight;
+        color: $color-midnight--900;
     }
 }
 
