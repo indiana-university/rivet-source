@@ -43,15 +43,15 @@
 
     &:hover,
     &--hover {
-        background-color: mix($color-midnight, black, 70%);
-        border-color: mix($color-midnight, black, 70%);
+        background-color: $color-midnight--700;
+        border-color: $color-midnight--700;
         color: $color-background;
     }
 
     &:active,
     &--active {
-        background-color: mix($color-midnight, black, 50%);
-        border-color: mix($color-midnight, black, 50%);
+        background-color: $color-midnight--800;
+        border-color: $color-midnight--800;
     }
 
     &:disabled,
@@ -75,15 +75,15 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-midnight, white, 20%);
+        background-color: $color-midnight--100;
         border-color: $color-midnight;
-        color: $color-midnight;
+        color: $color-midnight--800;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-midnight, white, 35%);
-        color: mix($color-midnight, black, 85%);
+        background-color: $color-midnight--200;
+        color: $color-midnight--800;
     }
 }
 
@@ -99,15 +99,15 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-green, black, 70%);
-        border-color: mix($color-alert-green, black, 70%);
+        background-color: $color-green--700;
+        border-color: $color-green--700;
         color: $color-background;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-green, black, 50%);
-        border-color: mix($color-alert-green, black, 50%);
+        background-color: $color-green--800;
+        border-color: $color-green--800;
     }
 }
 
@@ -124,23 +124,23 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-green, white, 15%);
-        border-color: $color-alert-green;
-        color: mix($color-alert-green, black, 85%);
+        background-color: $color-green--050;
+        border-color: $color-green;
+        color: $color-green--700;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-green, white, 30%);
-        border-color: $color-alert-green;
-        color: mix($color-alert-green, black, 75%);
+        background-color: $color-green--100;
+        border-color: $color-green;
+        color: $color-green--800;
     }
 }
 
 .button--danger,
 .rvt-button--danger {
-    background-color: $color-alert-orange;
-    border-color: $color-alert-orange;
+    background-color: $color-orange;
+    border-color: $color-orange;
 
     &:focus,
     &-focus {
@@ -149,23 +149,23 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-orange, black, 70%);
-        border-color: mix($color-alert-orange, black, 70%);
+        background-color: $color-orange--700;
+        border-color: $color-orange--700;
         color: $color-background;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-orange, black, 50%);
-        border-color: mix($color-alert-orange, black, 50%);
+        background-color: $color-orange--800;
+        border-color: $color-orange--800;
     }
 }
 
 .button--danger-secondary,
 .rvt-button--danger-secondary {
     background-color: transparent;
-    border-color: $color-alert-orange;
-    color: $color-alert-orange;
+    border-color: $color-orange;
+    color: $color-orange;
 
     &:focus,
     &-focus {
@@ -174,16 +174,16 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-orange, white, 15%);
-        border-color: $color-alert-orange;
-        color: mix($color-alert-orange, black, 85%);
+        background-color: $color-orange--050;
+        border-color: $color-orange;
+        color: $color-orange--700;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-orange, white, 30%);
-        border-color: $color-alert-orange;
-        color: mix($color-alert-orange, black, 75%);
+        background-color: $color-orange--100;
+        border-color: $color-orange;
+        color: $color-orange--800;
     }
 }
 
@@ -196,21 +196,22 @@
     padding-right: $xs;
     padding-left: $xs;
 
-    &-focus {
+    &-focus,
+    &--focus {
         @extend %button-focus;
     }
 
-    &-hover {
-        background-color: mix($color-midnight, white, 20%);
-        border-color: rgba($color-midnight, 0);
-        color: $color-midnight;
+    &-hover,
+    &--hover {
+        background-color: $color-midnight--700;
+        border-color: $color-midnight--700;
+        color: $color-background;
     }
 
     &-active,
     :active {
-        background-color: mix($color-midnight, white, 35%);
-        border-color: rgba($color-midnight, 0);
-        color: $color-action;
+        background-color: $color-midnight--800;
+        border-color: $color-midnight--800;
         padding-top: 0;
     }
 }
@@ -222,22 +223,24 @@
     color: $color-action;
 
     &:focus,
-    &-focus {
+    &-focus,
+    &--focus {
         @extend %button-focus;
     }
 
     &:hover,
-    &-hover {
-        background-color: mix($color-midnight, white, 20%);
-        border-color: rgba($color-midnight, 0);
-        color: $color-midnight;
+    &-hover,
+    &--hover {
+        background-color: $color-midnight--100;
+        border-color: transparent;
+        color: $color-midnight--800;
     }
 
     &:active,
-    &-active {
-        background-color: mix($color-midnight, white, 35%);
-        border-color: rgba($color-midnight, 0);
-        color: mix($color-action, black, 85%);
+    &-active,
+    &--active {
+        background-color: $color-midnight--200;
+        color: $color-midnight--800;
     }
 
     &:disabled,
