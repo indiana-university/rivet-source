@@ -32,7 +32,6 @@ $type-sizes: (
 ) !default;
 
 // Type Size variables
-
 $ts-12: map-get($type-sizes, 12) !default;
 $ts-14: map-get($type-sizes, 14) !default;
 $ts-16: map-get($type-sizes, 16) !default;
@@ -49,7 +48,6 @@ $ts-52: map-get($type-sizes, 52) !default;
 
 
 // Type scale aliases
-
 $ts-xxs: $ts-12 !default;
 $ts-xs: $ts-14 !default;
 $ts-base: $ts-16 !default;
@@ -60,19 +58,15 @@ $ts-xl: $ts-41 !default;
 $ts-xxl: $ts-52 !default;
 
 // Base colors
-
 $color-white: #ffffff !default;
 $color-subtle-gray: #f7f7f7 !default;
 $color-black: #333333 !default;
 
 // Brand Colors
-
 $color-cream: #edebeb !default;
 $color-crimson: #990000 !default;
-$color-midnight: #006298 !default;
-$color-dark-midnight: #01426a !default;
 
-// Black tints
+// Black variants
 
 $color-black--50: #fafafa !default;
 $color-black--100: #eeeeee !default;
@@ -85,7 +79,6 @@ $color-black--600: #777777 !default;
 $color-black--700: #666666 !default;
 $color-black--800: #555555 !default;
 $color-black--900: #444444 !default;
-
 
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
