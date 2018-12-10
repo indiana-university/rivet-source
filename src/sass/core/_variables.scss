@@ -68,8 +68,18 @@ $color-crimson: #990000 !default;
 
 // Black variants
 
+// DEPRECATED: See note below on $color-black--050 variable name.
 $color-black--50: #fafafa !default;
+
+// NOTE: Standardize the way we are using variants less than 100.
+$color-black--050: #fafafa !default;
 $color-black--100: #eeeeee !default;
+
+// NOTE: This black variant is an outlier. We don't include a "--150"
+// variant with the other colors, but this color has worked really well
+// for border colors on components like the header, etc.
+// We could revisit and see if it makes sense to remove and replace any
+// references moving forward.
 $color-black--150: #eaeaea !default;
 $color-black--200: #dddddd !default;
 $color-black--300: #cccccc !default;
@@ -83,9 +93,21 @@ $color-black--900: #444444 !default;
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
 
+// Midnight variants
+$color-midnight: #006298 !default;
+// This is a color from the brand palette. It's a bit of an outlier, but
+// I'm leaving it here for now until we decide what to do with it. Outside
+// of this file, there were only two references to this variable
+// (both in _links.scss). I've replaced those with properly generated
+// color below ($color-midnight--900).
+$color-dark-midnight: #01426a !default;
 
-// Midnight Variations
+// Rest of Midnight variants
+
+// DEPRECATED: See note below on $color-midnight--050 variable name.
 $color-midnight--50: #edf1f6 !default;
+// NOTE: Standardize the way we are using variants less than 100.
+$color-midnight--050: #edf1f6 !default;
 $color-midnight--100: #dce3ee !default;
 $color-midnight--200: #b8c8dc !default;
 $color-midnight--300: #95adcb !default;
