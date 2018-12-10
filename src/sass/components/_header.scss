@@ -115,7 +115,7 @@
     }
 
     &:active:hover {
-        background-color: mix($color-midnight, black, 50%);
+        background-color: $color-midnight--800;
         color: $color-background;
     }
 
@@ -133,7 +133,7 @@
 
         &:active:hover {
             padding-top: 0;
-            background-color: mix($color-midnight, black, 50%);
+            background-color: $color-midnight--800;
         }
 
         &:focus {
