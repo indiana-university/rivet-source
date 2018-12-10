@@ -15,7 +15,7 @@
 
   &__row--selected,
   &__row[aria-current] {
-    background-color: $color-black--50;
+    background-color: $color-black--050;
     box-shadow: $xxs 0 0 0 $color-alert-blue inset;
   }
 
