@@ -32,6 +32,7 @@ $type-sizes: (
 ) !default;
 
 // Type Size variables
+
 $ts-12: map-get($type-sizes, 12) !default;
 $ts-14: map-get($type-sizes, 14) !default;
 $ts-16: map-get($type-sizes, 16) !default;
@@ -48,6 +49,7 @@ $ts-52: map-get($type-sizes, 52) !default;
 
 
 // Type scale aliases
+
 $ts-xxs: $ts-12 !default;
 $ts-xs: $ts-14 !default;
 $ts-base: $ts-16 !default;
@@ -58,20 +60,24 @@ $ts-xl: $ts-41 !default;
 $ts-xxl: $ts-52 !default;
 
 // Base colors
+
 $color-white: #ffffff !default;
 $color-subtle-gray: #f7f7f7 !default;
 $color-black: #333333 !default;
 
 // Brand Colors
+
 $color-cream: #edebeb !default;
 $color-crimson: #990000 !default;
 
 // Black variants
 
 // DEPRECATED: See note below on $color-black--050 variable name.
+
 $color-black--50: #fafafa !default;
 
 // NOTE: Standardize the way we are using variants less than 100.
+
 $color-black--050: #fafafa !default;
 $color-black--100: #eeeeee !default;
 
@@ -80,6 +86,7 @@ $color-black--100: #eeeeee !default;
 // for border colors on components like the header, etc.
 // We could revisit and see if it makes sense to remove and replace any
 // references moving forward.
+
 $color-black--150: #eaeaea !default;
 $color-black--200: #dddddd !default;
 $color-black--300: #cccccc !default;
@@ -105,8 +112,11 @@ $color-dark-midnight: #01426a !default;
 // Rest of Midnight variants
 
 // DEPRECATED: See note below on $color-midnight--050 variable name.
+
 $color-midnight--50: #edf1f6 !default;
+
 // NOTE: Standardize the way we are using variants less than 100.
+
 $color-midnight--050: #edf1f6 !default;
 $color-midnight--100: #dce3ee !default;
 $color-midnight--200: #b8c8dc !default;
@@ -119,6 +129,7 @@ $color-midnight--800: #16324b !default;
 $color-midnight--900: #121c28 !default;
 
 // Green variants
+
 $color-green: #008a28 !default;
 $color-green--050: #eaf3e8 !default;
 $color-green--100: #d4e8d2 !default;
@@ -132,6 +143,7 @@ $color-green--800: #153717 !default;
 $color-green--900: #111f0f !default;
 
 // Yellow variants
+
 $color-yellow: #f5bb17 !default;
 $color-yellow--050: #ffeecd !default;
 $color-yellow--100: #ffdd9b !default;
@@ -144,6 +156,7 @@ $color-yellow--800: #3c2e13 !default;
 $color-yellow--900: #221b0c !default;
 
 // Orange variants
+
 $color-orange: #df3603 !default;
 $color-orange--050: #ffece5 !default;
 $color-orange--100: #ffd9cc !default;
@@ -178,24 +191,28 @@ $color-alert-gray: $color-black--400 !default;
 $color-alert-gray-light: $color-black--100 !default;
 
 // Success variants
+
 $color-alert-green: $color-green !default;
 $color-alert-green-text: $color-green--700 !default;
 $color-alert-green-light: $color-green--050 !default;
 $color-alert-green-border: $color-green--200 !default;
 
 // Info variants
+
 $color-alert-blue: $color-midnight !default;
 $color-alert-blue-text: $color-midnight--700 !default;
 $color-alert-blue-light: $color-midnight--50 !default;
 $color-alert-blue-border: $color-midnight--200 !default;
 
 // Warning variants
+
 $color-alert-yellow: $color-yellow !default;
 $color-alert-yellow-text: $color-yellow--700 !default;
 $color-alert-yellow-light: $color-yellow--050 !default;
 $color-alert-yellow-border: $color-yellow--200 !default;
 
 // Danger variants
+
 $color-alert-orange: $color-orange !default;
 $color-alert-orange-text: $color-orange--700 !default;
 $color-alert-orange-light: $color-orange--050 !default;
@@ -244,8 +261,9 @@ $breakpoint-lg: map-get($breakpoints, 'lg');
 $breakpoint-xl: map-get($breakpoints, 'xl');
 $breakpoint-xxl: map-get($breakpoints, 'xxl');
 
-// TODO: This should be deprecated moving forward. All instances where it
+// DEPRECATED: This should be deprecated moving forward. All instances where it
 // was used have been replaced with the $xxs (4px) global variable.
+
 $radius-small: 3px !default;
 
 // z-index map
@@ -254,6 +272,7 @@ $radius-small: 3px !default;
 // but, hopefully not.
 //
 // E.g. z-250: 250.
+
 $z-index: (
     z-0: 0,
     z-100: 100,
