@@ -140,7 +140,7 @@ $color-background: $color-white !default;
 $color-background-subtle: $color-subtle-gray !default;
 $color-action: $color-midnight !default;
 $color-link: $color-midnight !default;
-$color-link-visited: $color-dark-midnight !default;
+$color-link-visited: $color-midnight--900 !default;
 
 
 // Alert colors
@@ -152,24 +152,32 @@ $color-link-visited: $color-dark-midnight !default;
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
 
-$color-alert-gray: #a7a9ab !default;
-$color-alert-gray-light: #eeeeee !default;
-$color-alert-green: #008a28 !default;
-$color-alert-green-text: #16521d !default;
-$color-alert-green-light: #ddf4ea !default;
-$color-alert-green-border: #aad1a7 !default;
-$color-alert-blue: $color-action !default;
+$color-alert-gray: $color-black--400 !default;
+$color-alert-gray-light: $color-black--100 !default;
+
+// Success variants
+$color-alert-green: $color-green !default;
+$color-alert-green-text: $color-green--700 !default;
+$color-alert-green-light: $color-green--050 !default;
+$color-alert-green-border: $color-green--200 !default;
+
+// Info variants
+$color-alert-blue: $color-midnight !default;
 $color-alert-blue-text: $color-midnight--700 !default;
 $color-alert-blue-light: $color-midnight--50 !default;
 $color-alert-blue-border: $color-midnight--200 !default;
-$color-alert-yellow: #f5bb17 !default;
-$color-alert-yellow-text: #584416 !default;
-$color-alert-yellow-light: #fdf7e7 !default;
-$color-alert-yellow-border: #ffdd9b !default;
-$color-alert-orange: #df3603 !default;
-$color-alert-orange-text: #82270d !default;
-$color-alert-orange-light: #fdeee8 !default;
-$color-alert-orange-border: #ffc7b3 !default;
+
+// Warning variants
+$color-alert-yellow: $color-yellow !default;
+$color-alert-yellow-text: $color-yellow--700 !default;
+$color-alert-yellow-light: $color-yellow--050 !default;
+$color-alert-yellow-border: $color-yellow--200 !default;
+
+// Danger variants
+$color-alert-orange: $color-orange !default;
+$color-alert-orange-text: $color-orange--700 !default;
+$color-alert-orange-light: $color-orange--050 !default;
+$color-alert-orange-border: $color-orange--200 !default;
 
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
@@ -178,12 +186,12 @@ $color-map: (
     "cream": $color-cream,
     "crimson": $color-crimson,
     "midnight": $color-midnight,
-    "dark-midnight": $color-dark-midnight,
-    "gray": $color-alert-gray,
-    "green": $color-alert-green,
-    "blue": $color-alert-blue,
-    "yellow": $color-alert-yellow,
-    "orange": $color-alert-orange
+    "dark-midnight": $color-midnight--900,
+    "gray": $color-black--400,
+    "green": $color-green,
+    "blue": $color-midnight,
+    "yellow": $color-yellow,
+    "orange": $color-orange
 ) !default;
 
 // Global spacing units
