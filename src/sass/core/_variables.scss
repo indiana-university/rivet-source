@@ -101,15 +101,16 @@ $color-black--900: #444444 !default;
 $color-black--rich: #000000 !default;
 
 // Midnight variants
+
 $color-midnight: #006298 !default;
+
 // This is a color from the brand palette. It's a bit of an outlier, but
 // I'm leaving it here for now until we decide what to do with it. Outside
 // of this file, there were only two references to this variable
 // (both in _links.scss). I've replaced those with properly generated
 // color below ($color-midnight--900).
-$color-dark-midnight: #01426a !default;
 
-// Rest of Midnight variants
+$color-dark-midnight: #01426a !default;
 
 // DEPRECATED: See note below on $color-midnight--050 variable name.
 
@@ -118,6 +119,9 @@ $color-midnight--50: #edf1f6 !default;
 // NOTE: Standardize the way we are using variants less than 100.
 
 $color-midnight--050: #edf1f6 !default;
+
+// Rest of Midnight variants
+
 $color-midnight--100: #dce3ee !default;
 $color-midnight--200: #b8c8dc !default;
 $color-midnight--300: #95adcb !default;
