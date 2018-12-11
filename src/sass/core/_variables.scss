@@ -100,7 +100,21 @@ $color-black--900: #444444 !default;
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
 
-// Midnight variants
+// DEPRECATED: Midnight variants
+// In order to simplify the way we refer to colors we'll be dropping
+// the use of "Midnight" to refer to the blue color we use in Rivet for
+// actions, links, etc. We're doing this to help reduced the cognitive
+// burden of having to remember branded names for colors and can simply
+// refer to blue as blue, green as green, etc. from now on.
+//
+// See this thread for more background: https://github.iu.edu/UITS/rivet-source/pull/403
+//
+// I've duplicated all $color-midnight--* variables below as $color-blue--*.
+// All $color-midnight--* will be removed in the next major version of Rivet.
+//
+// The equivalent of $color-midnight will become $color-midnight--600 which
+// is the visual equivalent of the old Midnight value, but based on a
+// programmatically generated luminosity color scale from this tool:
 
 $color-midnight: #006298 !default;
 
@@ -132,6 +146,23 @@ $color-midnight--700: #134a71 !default;
 $color-midnight--800: #16324b !default;
 $color-midnight--900: #121c28 !default;
 
+// Blue variants (See note above about "Midnight") $color-blue--600 = new Midnight
+
+// Base color from brand palette. All color scale colors generated from this.
+// Internal use only: Use $color-blue--600 in all components to reference
+// the base blue.
+
+$color-blue: #006298;
+
+$color-blue--050: #edf1f6 !default;
+$color-blue--100: #dce3ee !default;
+$color-blue--200: #b8c8dc !default;
+$color-blue--300: #95adcb !default;
+$color-blue--400: #7194ba !default;
+$color-blue--500: #497ba9 !default;
+$color-blue--600: #076399 !default;
+$color-blue--700: #134a71 !default;
+$color-blue--800: #16324b !default;
 // Green variants
 
 $color-green: #008a28 !default;
