@@ -115,6 +115,8 @@ $color-black--rich: #000000 !default;
 // The equivalent of $color-midnight will become $color-midnight--600 which
 // is the visual equivalent of the old Midnight value, but based on a
 // programmatically generated luminosity color scale from this tool:
+//
+// https://codepen.io/basham/pen/OpNybO
 
 $color-midnight: #006298 !default;
 
@@ -163,9 +165,16 @@ $color-blue--500: #497ba9 !default;
 $color-blue--600: #076399 !default;
 $color-blue--700: #134a71 !default;
 $color-blue--800: #16324b !default;
+$color-blue--900: #121c28 !default;
+
 // Green variants
 
+// Base color from brand palette. All color scale colors generated from this.
+// Internal use only: Use $color-green--500 in all components to reference
+// the base green.
+
 $color-green: #008a28 !default;
+
 $color-green--050: #eaf3e8 !default;
 $color-green--100: #d4e8d2 !default;
 $color-green--200: #aad1a7 !default;
@@ -179,7 +188,12 @@ $color-green--900: #111f0f !default;
 
 // Yellow variants
 
+// Base color from brand palette. All color scale colors generated from this.
+// Internal use only: Use $color-yellow--200 in all components to reference
+// the base yellow.
+
 $color-yellow: #f5bb17 !default;
+
 $color-yellow--050: #ffeecd !default;
 $color-yellow--100: #ffdd9b !default;
 $color-yellow--200: #f7be29 !default;
@@ -193,7 +207,12 @@ $color-yellow--900: #221b0c !default;
 
 // Orange variants
 
+// Base color from brand palette. All color scale colors generated from this.
+// Internal use only: Use $color-orange--500 in all components to reference
+// the base orange.
+
 $color-orange: #df3603 !default;
+
 $color-orange--050: #ffece5 !default;
 $color-orange--100: #ffd9cc !default;
 $color-orange--200: #ffb49a !default;
@@ -223,6 +242,9 @@ $color-link-visited: $color-midnight--900 !default;
 
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
+
+// DEPRECATED: All "color-alert-*" aliases will be removed in the
+// next major version in favor of the "color-black--*00" version
 
 $color-alert-gray: $color-black--400 !default;
 $color-alert-gray-light: $color-black--100 !default;
@@ -265,7 +287,7 @@ $color-map: (
     "dark-midnight": $color-midnight--900,
     "gray": $color-black--400,
     "green": $color-green,
-    "blue": $color-midnight,
+    "blue": $color-blue--600,
     "yellow": $color-yellow,
     "orange": $color-orange
 ) !default;
