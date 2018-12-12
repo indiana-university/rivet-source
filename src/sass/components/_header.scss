@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid $color-black--150;
-    background-color: $color-background-subtle;
+    background-color: $color-black--050;
     width: 100%;
 }
 
@@ -512,7 +512,7 @@
         padding-top: .35rem;
         font-size: .75rem;
         font-weight: 700;
-        color: $color-background-subtle;
+        color: $color-black--050;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
