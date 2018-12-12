@@ -239,14 +239,20 @@ $color-orange--700: #82270d !default;
 $color-orange--800: #571e0c !default;
 $color-orange--900: #2f1407 !default;
 
+
+// DEPRECATED: We'll be working to replace the use of these aliased
+// variables in the nex major version of Rivet.
+
 // Colors by purpose
 
 $color-text: $color-black !default;
 $color-background: $color-white !default;
 $color-background-subtle: $color-subtle-gray !default;
-$color-action: $color-midnight !default;
-$color-link: $color-midnight !default;
-$color-link-visited: $color-midnight--900 !default;
+$color-action: $color-blue--600 !default;
+$color-link: $color-blue--600 !default;
+$color-link-visited: $color-blue--900 !default;
+
+// END DEPRECATED
 
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
