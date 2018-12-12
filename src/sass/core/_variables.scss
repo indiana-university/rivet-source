@@ -63,7 +63,6 @@ $ts-xxl: $ts-52 !default;
 
 $color-white: #ffffff !default;
 $color-subtle-gray: #f7f7f7 !default;
-$color-black: #333333 !default;
 
 // Brand Colors
 
@@ -101,6 +100,8 @@ $color-black--900: #444444 !default;
 
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
+
+$color-black: #333333 !default;
 
 // DEPRECATED: Midnight variants
 // In order to simplify the way we refer to colors we'll be dropping
@@ -271,9 +272,9 @@ $color-alert-green-border: $color-green--200 !default;
 
 // Info variants
 
-$color-alert-blue: $color-blue !default;
+$color-alert-blue: $color-blue--600 !default;
 $color-alert-blue-text: $color-blue--700 !default;
-$color-alert-blue-light: $color-blue--50 !default;
+$color-alert-blue-light: $color-blue--050 !default;
 $color-alert-blue-border: $color-blue--200 !default;
 
 // Warning variants
