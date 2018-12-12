@@ -76,6 +76,8 @@ $color-crimson: #990000 !default;
 
 $color-black--50: #fafafa !default;
 
+// END DEPRECATED
+
 // NOTE: Standardize the way we are using variants less than 100.
 
 $color-black--050: #fafafa !default;
@@ -143,10 +145,14 @@ $color-midnight--200: #b8c8dc !default;
 $color-midnight--300: #95adcb !default;
 $color-midnight--400: #7194ba !default;
 $color-midnight--500: #497ba9 !default;
-$color-midnight--600: #076399 !default;
+// Replacing generated color here with base brand color since they are
+// perceivably the same. Generated value was #076399
+$color-midnight--600: $color-midnight !default;
 $color-midnight--700: #134a71 !default;
 $color-midnight--800: #16324b !default;
 $color-midnight--900: #121c28 !default;
+
+// END DEPRECATED
 
 // Blue variants (See note above about "Midnight") $color-blue--600 = new Midnight
 
@@ -154,7 +160,7 @@ $color-midnight--900: #121c28 !default;
 // Internal use only: Use $color-blue--600 in all components to reference
 // the base blue.
 
-$color-blue: #006298;
+$color-blue: #006298; // Luminosity 604
 
 $color-blue--050: #edf1f6 !default;
 $color-blue--100: #dce3ee !default;
@@ -162,7 +168,9 @@ $color-blue--200: #b8c8dc !default;
 $color-blue--300: #95adcb !default;
 $color-blue--400: #7194ba !default;
 $color-blue--500: #497ba9 !default;
-$color-blue--600: #076399 !default;
+// Replacing generated color here with base brand color since they are
+// perceivably the same. Generated value was #076399
+$color-blue--600: $color-blue !default;
 $color-blue--700: #134a71 !default;
 $color-blue--800: #16324b !default;
 $color-blue--900: #121c28 !default;
@@ -173,14 +181,16 @@ $color-blue--900: #121c28 !default;
 // Internal use only: Use $color-green--500 in all components to reference
 // the base green.
 
-$color-green: #008a28 !default;
+$color-green: #008a28 !default; // Luminosity 501
 
 $color-green--050: #eaf3e8 !default;
 $color-green--100: #d4e8d2 !default;
 $color-green--200: #aad1a7 !default;
 $color-green--300: #7eb97c !default;
 $color-green--400: #50a253 !default;
-$color-green--500: #028a28 !default;
+// Replacing generated color here with base brand color since they are
+// perceivably the same. Generated value was #028a28
+$color-green--500: $color-green !default;
 $color-green--600: #116d23 !default;
 $color-green--700: #16521d !default;
 $color-green--800: #153717 !default;
@@ -192,11 +202,13 @@ $color-green--900: #111f0f !default;
 // Internal use only: Use $color-yellow--200 in all components to reference
 // the base yellow.
 
-$color-yellow: #f5bb17 !default;
+$color-yellow: #f5bb17 !default; // Luminosity 209
 
 $color-yellow--050: #ffeecd !default;
 $color-yellow--100: #ffdd9b !default;
-$color-yellow--200: #f7be29 !default;
+// Replacing generated color here with base brand color since they are
+// perceivably the same. Generated value was #f7be29
+$color-yellow--200: $color-yellow !default;
 $color-yellow--300: #d6a31a !default;
 $color-yellow--400: #b58a1b !default;
 $color-yellow--500: #94721b !default;
@@ -211,14 +223,16 @@ $color-yellow--900: #221b0c !default;
 // Internal use only: Use $color-orange--500 in all components to reference
 // the base orange.
 
-$color-orange: #df3603 !default;
+$color-orange: #df3603 !default; // Luminosity 501
 
 $color-orange--050: #ffece5 !default;
 $color-orange--100: #ffd9cc !default;
 $color-orange--200: #ffb49a !default;
 $color-orange--300: #fa8e6b !default;
 $color-orange--400: #ef663c !default;
-$color-orange--500: #df3704 !default;
+// Replacing generated color here with base brand color since they are
+// perceivably the same. Generated value was #df3704
+$color-orange--500: $color-orange !default;
 $color-orange--600: #b02f0a !default;
 $color-orange--700: #82270d !default;
 $color-orange--800: #571e0c !default;
@@ -232,7 +246,6 @@ $color-background-subtle: $color-subtle-gray !default;
 $color-action: $color-midnight !default;
 $color-link: $color-midnight !default;
 $color-link-visited: $color-midnight--900 !default;
-
 
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
@@ -251,31 +264,33 @@ $color-alert-gray-light: $color-black--100 !default;
 
 // Success variants
 
-$color-alert-green: $color-green !default;
+$color-alert-green: $color-green--500 !default;
 $color-alert-green-text: $color-green--700 !default;
 $color-alert-green-light: $color-green--050 !default;
 $color-alert-green-border: $color-green--200 !default;
 
 // Info variants
 
-$color-alert-blue: $color-midnight !default;
-$color-alert-blue-text: $color-midnight--700 !default;
-$color-alert-blue-light: $color-midnight--50 !default;
-$color-alert-blue-border: $color-midnight--200 !default;
+$color-alert-blue: $color-blue !default;
+$color-alert-blue-text: $color-blue--700 !default;
+$color-alert-blue-light: $color-blue--50 !default;
+$color-alert-blue-border: $color-blue--200 !default;
 
 // Warning variants
 
-$color-alert-yellow: $color-yellow !default;
+$color-alert-yellow: $color-yellow--200 !default;
 $color-alert-yellow-text: $color-yellow--700 !default;
 $color-alert-yellow-light: $color-yellow--050 !default;
 $color-alert-yellow-border: $color-yellow--200 !default;
 
 // Danger variants
 
-$color-alert-orange: $color-orange !default;
+$color-alert-orange: $color-orange--500 !default;
 $color-alert-orange-text: $color-orange--700 !default;
 $color-alert-orange-light: $color-orange--050 !default;
 $color-alert-orange-border: $color-orange--200 !default;
+
+// END DEPRECATED
 
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
