@@ -71,6 +71,8 @@ $color-crimson: #990000 !default;
 
 // Black variants
 
+$color-black: #333333 !default;
+
 // DEPRECATED: See note below on $color-black--050 variable name.
 
 $color-black--50: #fafafa !default;
@@ -100,8 +102,6 @@ $color-black--900: #444444 !default;
 
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
-
-$color-black: #333333 !default;
 
 // DEPRECATED: Midnight variants
 // In order to simplify the way we refer to colors we'll be dropping
