@@ -207,10 +207,9 @@
     }
 
     &-active,
-    :active {
+    &:active {
         background-color: $color-blue--800;
         border-color: $color-blue--800;
-        padding-top: 0;
     }
 }
 
