@@ -282,7 +282,7 @@ $color-alert-blue-border: $color-blue--200 !default;
 $color-alert-yellow: $color-yellow--200 !default;
 $color-alert-yellow-text: $color-yellow--700 !default;
 $color-alert-yellow-light: $color-yellow--050 !default;
-$color-alert-yellow-border: $color-yellow--200 !default;
+$color-alert-yellow-border: $color-yellow--100 !default;
 
 // Danger variants
 
@@ -361,3 +361,7 @@ $z-index: (
     z-900: 900,
     z-1000: 1000
 ) !default;
+
+// Standard shadow(s)
+
+$shadow-base: 0 1px 3px 2px rgba(0, 0, 0, .07);

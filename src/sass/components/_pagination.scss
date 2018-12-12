@@ -45,7 +45,7 @@
             border-radius: inherit;
             /* stylelint-disable */
             box-shadow: 0 0 0 $xxs/2 $color-background,
-                        0 0 0 $xxs $color-action;
+                        0 0 0 $xxs $color-blue--600;
             /* stylelint-enable */
             outline: none;
             z-index: map-get($z-index, z-1000);
@@ -79,8 +79,8 @@
      */
 
     &__item.is-active a {
-        background-color: $color-action;
-        border-color: $color-action;
+        background-color: $color-blue--600;
+        border-color: $color-blue--600;
         color: $color-background;
         /**
          * z-index hides the border overlap

@@ -91,7 +91,7 @@ select:focus {
     outline: none;
     /* stylelint-disable */
     box-shadow: 0 0 0 $xxs/2 $color-background,
-                0 0 0 $xxs $color-action;
+                0 0 0 $xxs $color-blue--600;
     /* stylelint-enable */
     transition: box-shadow .2s ease;
 }

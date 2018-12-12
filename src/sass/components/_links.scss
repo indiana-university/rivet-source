@@ -1,13 +1,13 @@
 a,
 .rvt-link {
-    color: $color-midnight;
+    color: $color-blue--600;
 
     &:hover {
-        color: $color-midnight--900;
+        color: $color-blue--900;
     }
 
     &:focus {
-        outline: $xxs/2 solid $color-action;
+        outline: $xxs/2 solid $color-blue--600;
         outline-offset: $xxs/2;
     }
 
@@ -15,7 +15,7 @@ a,
         /**
          * TODO: Come up with a better color for the :visited state.
          */
-        color: $color-midnight--900;
+        color: $color-blue--900;
     }
 }
 

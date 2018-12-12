@@ -47,8 +47,8 @@ input[type="checkbox"]:checked + label,
 .rvt-checkbox-wrapper input[type="checkbox"]:checked ~ label {
     &:before {
         color: $color-white;
-        background-color: $color-action;
-        box-shadow: 0 0 0 .08rem $color-action;
+        background-color: $color-blue--600;
+        box-shadow: 0 0 0 .08rem $color-blue--600;
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=");
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -61,16 +61,16 @@ input[type="checkbox"]:focus + label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-black--700,
                 0 0 0 .1875rem $color-background,
-                0 0 0 .3125rem $color-midnight;
+                0 0 0 .3125rem $color-blue--600;
 }
 
 input[type="checkbox"]:checked:focus + label:before,
 input[type="checkbox"]:indeterminate:focus + label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:checked:focus ~ label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:indeterminate:focus ~ label:before {
-    box-shadow: 0 0 0 .08rem $color-action,
+    box-shadow: 0 0 0 .08rem $color-blue--600,
                 0 0 0 .1875rem $color-background,
-                0 0 0 .3125rem $color-midnight--500;
+                0 0 0 .3125rem $color-blue--500;
 }
 /* stylelint-enable */
 
@@ -93,8 +93,8 @@ input[type="checkbox"]:disabled + label,
 input[type="checkbox"]:indeterminate + label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:indeterminate ~ label:before {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=");
-    background-color: $color-action;
-    box-shadow: 0 0 0 .08rem $color-action;
+    background-color: $color-blue--600;
+    box-shadow: 0 0 0 .08rem $color-blue--600;
 }
 
 input[type="checkbox"]:indeterminate:disabled + label:before,

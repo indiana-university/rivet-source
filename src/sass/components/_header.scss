@@ -115,12 +115,12 @@
     }
 
     &:active:hover {
-        background-color: $color-midnight--800;
+        background-color: $color-blue--800;
         color: $color-background;
     }
 
     &:focus {
-        box-shadow: inset 0 0 0 $xxs/2 $color-action;
+        box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
         outline: none;
     }
 
@@ -128,16 +128,16 @@
         background-color: $color-black--100;
 
         &:hover {
-            color: $color-text;
+            color: $color-black;
         }
 
         &:active:hover {
             padding-top: 0;
-            background-color: $color-midnight--800;
+            background-color: $color-blue--800;
         }
 
         &:focus {
-            background-color: $color-action;
+            background-color: $color-blue--600;
             box-shadow: none;
             color: $color-background;
         }
@@ -227,7 +227,7 @@
         position: relative;
 
         &:focus {
-            outline: $xxs/2 solid $color-action;
+            outline: $xxs/2 solid $color-blue--600;
             outline-offset: $xxs/2;
         }
 
@@ -243,7 +243,7 @@
         &::after {
             content: " ";
             position: absolute;
-            background-color: $color-action;
+            background-color: $color-blue--600;
             height: $xxs;
             width: 100%;
             top: 2.75rem;
@@ -407,13 +407,13 @@
         ul li a[aria-current],
         ul li button[aria-current],
         ul li ul li a[aria-current] {
-            box-shadow: inset $xxs 0 0 $color-action;
+            box-shadow: inset $xxs 0 0 $color-blue--600;
 
             &:focus {
                 /* stylelint-disable */
-                box-shadow: inset $xxs 0 0 $color-action,
+                box-shadow: inset $xxs 0 0 $color-blue--600,
                             0 0 0 $xxs/2 $color-background,
-                            0 0 0 $xxs $color-action;
+                            0 0 0 $xxs $color-blue--600;
                 /* stylelint-enable */
             }
         }
@@ -436,7 +436,7 @@
 
         &:focus {
             outline: none;
-            box-shadow: 0 0 0 .125rem $color-action;
+            box-shadow: 0 0 0 .125rem $color-blue--600;
             display: block;
             width: auto;
             margin-top: $xs;
@@ -474,7 +474,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        color: $color-text;
+        color: $color-black;
         border-right: 1px solid $color-black--300;
         padding-right: $sm;
     }
@@ -500,7 +500,7 @@
         display: inline-block;
         width: 30px;
         height: 30px;
-        background-color: $color-text;
+        background-color: $color-black;
         border-radius: 50%;
         margin-right: $xs;
 
