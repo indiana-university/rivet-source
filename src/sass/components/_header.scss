@@ -63,7 +63,7 @@
     line-height: 1;
 
     a {
-        color: $color-text;
+        color: $color-black;
         text-decoration: none;
 
         &:hover {
@@ -301,7 +301,7 @@
 
     a {
         text-decoration: none;
-        color: $color-text;
+        color: $color-black;
 
         &:hover {
             text-decoration: underline;
@@ -358,7 +358,7 @@
         ul li button {
             display: block;
             text-decoration: none;
-            color: $color-text;
+            color: $color-black;
             padding: $sm;
             position: relative;
             width: 100%;
