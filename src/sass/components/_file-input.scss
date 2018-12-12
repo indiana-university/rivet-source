@@ -28,8 +28,8 @@
     input[type="file"]:focus + label {
         outline: none;
         /* stylelint-disable */
-        box-shadow: 0 0 0 $xxs/2 $color-background,
-                    0 0 0 $xxs $color-action !important;
+        box-shadow: 0 0 0 $xxs/2 $color-white,
+                    0 0 0 $xxs $color-blue--600 !important;
         /* stylelint-enable */
     }
 

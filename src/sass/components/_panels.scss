@@ -2,9 +2,9 @@
     box-shadow: 0 $xxs/2 0 $color-black--200;
     border-radius: $xxs;
     padding: $md;
-    background-color: $color-background-subtle;
+    background-color: $color-black--050;
 
     &--light {
-        background-color: $color-background;
+        background-color: $color-white;
     }
 }

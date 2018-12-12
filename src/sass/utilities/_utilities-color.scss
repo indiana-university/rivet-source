@@ -17,14 +17,14 @@
     .bg-#{$key},
     .rvt-bg-#{$key} {
         background-color: #{$value};
-        color: $color-background;
+        color: $color-white;
 
         a {
-            color: rgba($color-background, .9);
+            color: rgba($color-white, .9);
         }
 
         a:hover {
-            color: $color-background;
+            color: $color-white;
         }
     }
 }

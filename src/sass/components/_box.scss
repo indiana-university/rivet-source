@@ -1,5 +1,5 @@
 .rvt-box {
-  background-color: $color-background;
+  background-color: $color-white;
   border: 1px solid $color-black--200;
   border-radius: $xxs;
 
@@ -15,32 +15,32 @@
 
   &__row--selected,
   &__row[aria-current] {
-    background-color: $color-black--50;
-    box-shadow: $xxs 0 0 0 $color-alert-blue inset;
+    background-color: $color-black--050;
+    box-shadow: $xxs 0 0 0 $color-blue--600 inset;
   }
 
   &__row--info {
-    background-color: $color-alert-blue-light;
-    box-shadow: $xxs 0 0 0 $color-alert-blue inset;
-    color: $color-alert-blue-text;
+    background-color: $color-blue--050;
+    box-shadow: $xxs 0 0 0 $color-blue--600 inset;
+    color: $color-blue--700;
   }
 
   &__row--success {
-    background-color: $color-alert-green-light;
-    color: $color-alert-green-text;
-    box-shadow: $xxs 0 0 0 $color-alert-green inset;
+    background-color: $color-green--050;
+    color: $color-green--700;
+    box-shadow: $xxs 0 0 0 $color-green--500 inset;
   }
 
   &__row--warning {
-    background-color: $color-alert-yellow-light;
-    box-shadow: $xxs 0 0 0 $color-alert-yellow inset;
-    color: $color-alert-yellow-text;
+    background-color: $color-yellow--050;
+    box-shadow: $xxs 0 0 0 $color-yellow--200 inset;
+    color: $color-yellow--700;
   }
 
   &__row--danger {
-    background-color: $color-alert-orange-light;
-    box-shadow: $xxs 0 0 0 $color-alert-orange inset;
-    color: $color-alert-orange-text;
+    background-color: $color-orange--050;
+    box-shadow: $xxs 0 0 0 $color-orange--500 inset;
+    color: $color-orange--700;
   }
 
   &__footer {
@@ -56,7 +56,7 @@
     background-color: $color-subtle-gray;
     border-top: none;
     border-right: none;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid $color-black--200;
     border-top-right-radius: $xxs; // Gets rid of border clipping
     border-top-left-radius: $xxs; // Gets rid of border clipping
     border-left: none;
@@ -74,7 +74,7 @@
      * experimenting, but I can confirm that it works.
      */
     &:focus {
-      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-midnight;
+      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-blue--600;
       outline: none;
     }
   }
@@ -92,7 +92,7 @@
 
   &--light &__header,
   &--light &__footer {
-    background-color: $color-background;
+    background-color: $color-white;
   }
 
   &--card &__row:first-child {
@@ -110,71 +110,71 @@
    */
 
   &--info {
-    border-color: $color-alert-blue-border;
+    border-color: $color-blue--200;
   }
 
   &--info &__header,
   &--info &__footer {
-    background-color: $color-alert-blue-light;
-    border-color: $color-alert-blue-border;
-    color: $color-alert-blue-text;
+    background-color: $color-blue--050;
+    border-color: $color-blue--200;
+    color: $color-blue--700;
   }
 
   &--info &__row {
-    border-color: $color-alert-blue-border;
+    border-color: $color-blue--200;
   }
 
 
   &--success {
-    border-color: $color-alert-green-border;
+    border-color: $color-green--200;
   }
 
   &--success &__header,
   &--success &__footer {
-    background-color: $color-alert-green-light;
-    border-color: $color-alert-green-border;
-    color: $color-alert-green-text;
+    background-color: $color-green--050;
+    border-color: $color-green--200;
+    color: $color-green--700;
   }
 
   &--success &__row {
-    border-color: $color-alert-green-border;
+    border-color: $color-green--200;
   }
 
 
   &--warning {
-    border-color: $color-alert-yellow-border;
+    border-color: $color-yellow--100;
   }
 
   &--warning &__header,
   &--warning &__footer {
-    background-color: $color-alert-yellow-light;
-    border-color: $color-alert-yellow-border;
-    color: $color-alert-yellow-text;
+    background-color: $color-yellow--050;
+    border-color: $color-yellow--100;
+    color: $color-yellow--700;
   }
 
   &--warning &__row {
-    border-color: $color-alert-yellow-border;
+    border-color: $color-yellow--100;
   }
 
 
   &--danger {
-    border-color: $color-alert-orange-border;
+    border-color: $color-orange--200;
   }
 
   &--danger &__header,
   &--danger &__footer {
-    background-color: $color-alert-orange-light;
-    border-color: $color-alert-orange-border;
-    color: $color-alert-orange-text;
+    background-color: $color-orange--050;
+    border-color: $color-orange--200;
+    color: $color-orange--700;
   }
 
   &--danger &__row {
-    border-color: $color-alert-orange-border;
+    border-color: $color-orange--200;
   }
 
 
   &--card {
-    box-shadow: 0 1px 3px 2px rgba(0, 0, 0, .07);
+    box-shadow: $shadow-base;
     border: none;
   }
 

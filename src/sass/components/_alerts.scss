@@ -1,7 +1,7 @@
 .alert,
 .rvt-alert {
-    background-color: $color-alert-gray-light;
-    border-left: $xxs solid $color-alert-gray;
+    background-color: $color-black--100;
+    border-left: $xxs solid $color-black--400;
     padding: $sm;
     position: relative;
 
@@ -48,45 +48,51 @@
 
         &:focus {
             outline: none;
-            box-shadow: 0 0 0 $xxs/2 $color-action !important;
+            box-shadow: 0 0 0 $xxs/2 $color-blue--600 !important;
         }
     }
 }
 
 /**
  * Alert modifiers
+ *
+ * NOTE: Old un-prefixed versions should be removed in the next major
+ * version of Rivet.
+ *
+ * The ".alert-message" and "alert--error" class names should also be removed
+ * in favor on the newer unified alert/feedback naming conventions.
  */
 
 .alert--info,
 .rvt-alert--info {
-    background-color: $color-alert-blue-light;
-    border-left-color: $color-alert-blue;
-    color: $color-alert-blue-text;
+    background-color: $color-blue--050;
+    border-left-color: $color-blue--600;
+    color: $color-blue--700;
 }
 
 .alert--success,
 .rvt-alert--success {
-    background-color: $color-alert-green-light;
-    border-left-color: $color-alert-green;
-    color: $color-alert-green-text;
+    background-color: $color-green--050;
+    border-left-color: $color-green--500;
+    color: $color-green--700;
 }
 
 .alert--message,
 .rvt-alert--message,
 .alert--warning,
 .rvt-alert--warning {
-    background-color: $color-alert-yellow-light;
-    border-left-color: $color-alert-yellow;
-    color: $color-alert-yellow-text;
+    background-color: $color-yellow--050;
+    border-left-color: $color-yellow--200;
+    color: $color-yellow--700;
 }
 
 .alert--error,
 .rvt-alert--error,
 .alert--danger,
 .rvt-alert--danger {
-    background-color: $color-alert-orange-light;
-    border-left-color: $color-alert-orange;
-    color: $color-alert-orange-text;
+    background-color: $color-orange--050;
+    border-left-color: $color-orange--500;
+    color: $color-orange--700;
 }
 
 /**

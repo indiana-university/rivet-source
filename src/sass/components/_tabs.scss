@@ -33,15 +33,15 @@
 
         &:focus,
         &:hover {
-            background-color: $color-action;
-            border-color: $color-action;
-            color: $color-background;
+            background-color: $color-blue--600;
+            border-color: $color-blue--600;
+            color: $color-white;
         }
 
         &:focus {
             /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-background,
-            0 0 0 $xxs $color-action;
+            box-shadow: 0 0 0 $xxs/2 $color-white,
+            0 0 0 $xxs $color-blue--600;
             /* stylelint-enable */
             outline: none;
             z-index: map-get($z-index, z-1000);
@@ -49,9 +49,9 @@
     }
 
     &__tab[aria-selected="true"] {
-        background-color: $color-action;
-        border-color: $color-action;
-        color: $color-background;
+        background-color: $color-blue--600;
+        border-color: $color-blue--600;
+        color: $color-white;
     }
 
     &__panel {
@@ -63,7 +63,7 @@
         transition: box-shadow .2s ease;
 
         &:focus {
-            box-shadow: inset 0 0 0 $xxs/2 $color-action;
+            box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
             outline: none;
         }
     }

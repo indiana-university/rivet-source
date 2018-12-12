@@ -1,55 +1,55 @@
 @include all-inputs('.rvt-validation-info') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-blue;
-    box-shadow: 0 0 0 .125rem $color-alert-blue;
+    border-color: $color-blue--600;
+    box-shadow: 0 0 0 .125rem $color-blue--600;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-blue;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-blue--600;
         /* stylelint-enable */
     }
 }
 
 @include all-inputs('.rvt-validation-warning') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-yellow;
-    box-shadow: 0 0 0 .125rem $color-alert-yellow;
+    border-color: $color-yellow--200;
+    box-shadow: 0 0 0 .125rem $color-yellow--200;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-yellow;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-yellow--200;
         /* stylelint-enable */
     }
 }
 
 @include all-inputs('.rvt-validation-danger') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-orange;
-    box-shadow: 0 0 0 .125rem $color-alert-orange;
+    border-color: $color-orange--500;
+    box-shadow: 0 0 0 .125rem $color-orange--500;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-orange;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-orange--500;
         /* stylelint-enable */
     }
 }
 
 @include all-inputs('.rvt-validation-success') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-green;
-    box-shadow: 0 0 0 .125rem $color-alert-green;
+    border-color: $color-green--500;
+    box-shadow: 0 0 0 .125rem $color-green--500;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-green;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-green--500;
         /* stylelint-enable */
     }
 }
@@ -65,14 +65,14 @@
 
 @include all-inputs('.rvt-is-invalid') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-orange;
-    box-shadow: 0 0 0 .125rem $color-alert-orange;
+    border-color: $color-orange--500;
+    box-shadow: 0 0 0 .125rem $color-orange--500;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-orange;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-orange--500;
         /* stylelint-enable */
     }
 }
@@ -80,42 +80,42 @@
 
 @include all-inputs('.rvt-is-valid') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-green;
-    box-shadow: 0 0 0 .125rem $color-alert-green;
+    border-color: $color-green--500;
+    box-shadow: 0 0 0 .125rem $color-green--500;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-green;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-green--500;
         /* stylelint-enable */
     }
 }
 
 @include all-inputs('.rvt-has-warning') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-yellow;
-    box-shadow: 0 0 0 .125rem $color-alert-yellow;
+    border-color: $color-yellow--200;
+    box-shadow: 0 0 0 .125rem $color-yellow--200;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-yellow;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-yellow--200;
         /* stylelint-enable */
     }
 }
 
 @include all-inputs('.rvt-has-info') {
     transition: box-shadow .2s ease;
-    border-color: $color-alert-blue;
-    box-shadow: 0 0 0 .125rem $color-alert-blue;
+    border-color: $color-blue--600;
+    box-shadow: 0 0 0 .125rem $color-blue--600;
 
     &:focus {
         border-color: $color-black--700;
         /* stylelint-disable */
-        box-shadow: 0 0 0 .125rem $color-background,
-                    0 0 0 .2875rem $color-alert-blue;
+        box-shadow: 0 0 0 .125rem $color-white,
+                    0 0 0 .2875rem $color-blue--600;
         /* stylelint-enable */
     }
 }
@@ -149,22 +149,22 @@
 
     &--is-valid,
     &--success {
-        color: $color-alert-green;
+        color: $color-green--500;
     }
 
     &--has-warning,
     &--warning {
-        color: $color-alert-yellow;
+        color: $color-yellow--200;
     }
 
     &--is-invalid,
     &--danger {
-        color: $color-alert-orange;
+        color: $color-orange--500;
     }
 
     &--has-info,
     &--info {
-        color: $color-alert-blue;
+        color: $color-blue--600;
     }
 
     /**
@@ -177,39 +177,39 @@
 
         &.rvt-inline-alert--is-invalid,
         &.rvt-inline-alert--danger {
-            border-left: $xxs solid $color-alert-orange;
-            background-color: $color-alert-orange-light;
+            border-left: $xxs solid $color-orange--500;
+            background-color: $color-orange--050;
 
             .rvt-inline-alert__message {
-                color: $color-alert-orange-text;
+                color: $color-orange--700;
             }
         }
 
         &.rvt-inline-alert--success {
-            border-left: $xxs solid $color-alert-green;
-            background-color: $color-alert-green-light;
+            border-left: $xxs solid $color-green--500;
+            background-color: $color-green--050;
 
             .rvt-inline-alert__message {
-                color: $color-alert-green-text;
+                color: $color-green--700;
             }
         }
 
         &.rvt-inline-alert--warning {
-            border-left: $xxs solid $color-alert-yellow;
-            background-color: $color-alert-yellow-light;
+            border-left: $xxs solid $color-yellow--200;
+            background-color: $color-yellow--050;
 
             .rvt-inline-alert__message {
-                color: $color-alert-yellow-text;
+                color: $color-yellow--700;
             }
         }
 
         &.rvt-inline-alert--has-info,
         &.rvt-inline-alert--info {
-            border-left: $xxs solid $color-alert-blue;
-            background-color: $color-alert-blue-light;
+            border-left: $xxs solid $color-blue--600;
+            background-color: $color-blue--050;
 
             .rvt-inline-alert__message {
-                color: $color-alert-blue-text;
+                color: $color-blue--700;
             }
         }
     }

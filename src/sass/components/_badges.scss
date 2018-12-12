@@ -2,7 +2,7 @@
     background-color: $color-black--300;
     border: 2px solid $color-black--300;
     border-radius: 999px;
-    color: $color-text;
+    color: $color-black;
     display: inline-block;
     /**
      * We set the type size to a percent here so that if the bade is used
@@ -30,7 +30,7 @@ a.rvt-badge {
     text-decoration: none;
 
     &:hover {
-        color: $color-text;
+        color: $color-black;
         background-color: $color-black--400;
         border-color: $color-black--400;
     }
@@ -39,32 +39,32 @@ a.rvt-badge {
     &--action-secondary:hover,
     &--info:hover,
     &--info-secondary:hover {
-        background-color: $color-midnight--700;
-        border-color: $color-midnight--700;
-        color: $color-background;
+        background-color: $color-blue--700;
+        border-color: $color-blue--700;
+        color: $color-white;
     }
 
     &--success:hover,
     &--success-secondary:hover {
-        background-color: $color-alert-green-text;
-        border-color: $color-alert-green-text;
-        color: $color-background;
+        background-color: $color-green--700;
+        border-color: $color-green--700;
+        color: $color-white;
     }
 
     &--warning:hover,
     &--warning-secondary:hover {
-        background-color: $color-alert-yellow-text;
-        border-color: $color-alert-yellow-text;
-        color: $color-background;
+        background-color: $color-yellow--700;
+        border-color: $color-yellow--700;
+        color: $color-white;
     }
 
     &--error:hover,
     &--error-secondary:hover,
     &--danger:hover,
     &--danger-secondary:hover {
-        background-color: $color-alert-orange-text;
-        border-color: $color-alert-orange-text;
-        color: $color-background;
+        background-color: $color-orange--700;
+        border-color: $color-orange--700;
+        color: $color-white;
     }
 
     &:focus {
@@ -72,52 +72,60 @@ a.rvt-badge {
     }
 }
 
+/**
+ * DEPRECATED: Remove --action modifier in next major version.
+ */
+
 .rvt-badge--action,
 .rvt-badge--info {
-    background-color: $color-action;
-    border-color: $color-action;
-    color: $color-background;
+    background-color: $color-blue--600;
+    border-color: $color-blue--600;
+    color: $color-white;
 
     &-secondary {
         background-color: transparent;
-        border-color: $color-action;
-        color: $color-action;
+        border-color: $color-blue--600;
+        color: $color-blue--600;
     }
 }
 
 .rvt-badge--success {
-    background-color: $color-alert-green;
-    border-color: $color-alert-green;
-    color: $color-background;
+    background-color: $color-green--500;
+    border-color: $color-green--500;
+    color: $color-white;
 
     &-secondary {
         background-color: transparent;
-        border-color: $color-alert-green;
-        color: $color-alert-green;
+        border-color: $color-green--500;
+        color: $color-green--500;
     }
 }
 
 .rvt-badge--warning {
-    background-color: $color-alert-yellow;
-    border-color: $color-alert-yellow;
+    background-color: $color-yellow--200;
+    border-color: $color-yellow--200;
     color: $color-black--rich;
 
     &-secondary {
         background-color: transparent;
-        border-color: $color-alert-yellow;
+        border-color: $color-yellow--200;
         color: $color-black--rich;
     }
 }
 
+/**
+ * DEPRECATED: Remove --error modifier in next major version.
+ */
+
 .rvt-badge--error,
 .rvt-badge--danger {
-    background-color: $color-alert-orange;
-    border-color: $color-alert-orange;
-    color: $color-background;
+    background-color: $color-orange--500;
+    border-color: $color-orange--500;
+    color: $color-white;
 
     &-secondary {
         background-color: transparent;
-        border-color: $color-alert-orange;
-        color: $color-alert-orange;
+        border-color: $color-orange--500;
+        color: $color-orange--500;
     }
 }

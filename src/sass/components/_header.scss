@@ -5,21 +5,21 @@
 
     &:focus {
         top: 0;
-        background-color: $color-background;
+        background-color: $color-white;
     }
 }
 
 .rvt-header {
-    background-color: $color-background;
+    background-color: $color-white;
     display: flex;
     align-items: center;
     border-bottom: 1px solid $color-black--150;
-    background-color: $color-background-subtle;
+    background-color: $color-black--050;
     width: 100%;
 }
 
 .rvt-header--light {
-    background-color: $color-background;
+    background-color: $color-white;
     border-bottom: 1px solid $color-black--150;
 }
 
@@ -63,7 +63,7 @@
     line-height: 1;
 
     a {
-        color: $color-text;
+        color: $color-black;
         text-decoration: none;
 
         &:hover {
@@ -115,12 +115,12 @@
     }
 
     &:active:hover {
-        background-color: mix($color-midnight, black, 50%);
-        color: $color-background;
+        background-color: $color-blue--800;
+        color: $color-white;
     }
 
     &:focus {
-        box-shadow: inset 0 0 0 $xxs/2 $color-action;
+        box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
         outline: none;
     }
 
@@ -128,22 +128,22 @@
         background-color: $color-black--100;
 
         &:hover {
-            color: $color-text;
+            color: $color-black;
         }
 
         &:active:hover {
             padding-top: 0;
-            background-color: mix($color-midnight, black, 50%);
+            background-color: $color-blue--800;
         }
 
         &:focus {
-            background-color: $color-action;
+            background-color: $color-blue--600;
             box-shadow: none;
-            color: $color-background;
+            color: $color-white;
         }
 
         &:focus:hover {
-            color: $color-background;
+            color: $color-white;
         }
     }
 }
@@ -227,7 +227,7 @@
         position: relative;
 
         &:focus {
-            outline: $xxs/2 solid $color-action;
+            outline: $xxs/2 solid $color-blue--600;
             outline-offset: $xxs/2;
         }
 
@@ -243,7 +243,7 @@
         &::after {
             content: " ";
             position: absolute;
-            background-color: $color-action;
+            background-color: $color-blue--600;
             height: $xxs;
             width: 100%;
             top: 2.75rem;
@@ -301,7 +301,7 @@
 
     a {
         text-decoration: none;
-        color: $color-text;
+        color: $color-black;
 
         &:hover {
             text-decoration: underline;
@@ -331,7 +331,7 @@
             list-style: none;
             margin-bottom: $md;
             padding: 0;
-            background-color: $color-background;
+            background-color: $color-white;
         }
 
         ul li {
@@ -358,13 +358,13 @@
         ul li button {
             display: block;
             text-decoration: none;
-            color: $color-text;
+            color: $color-black;
             padding: $sm;
             position: relative;
             width: 100%;
             text-align: left;
             border: none;
-            background-color: $color-background;
+            background-color: $color-white;
 
             &:focus {
                 @extend %button-focus;
@@ -407,13 +407,13 @@
         ul li a[aria-current],
         ul li button[aria-current],
         ul li ul li a[aria-current] {
-            box-shadow: inset $xxs 0 0 $color-action;
+            box-shadow: inset $xxs 0 0 $color-blue--600;
 
             &:focus {
                 /* stylelint-disable */
-                box-shadow: inset $xxs 0 0 $color-action,
-                            0 0 0 $xxs/2 $color-background,
-                            0 0 0 $xxs $color-action;
+                box-shadow: inset $xxs 0 0 $color-blue--600,
+                            0 0 0 $xxs/2 $color-white,
+                            0 0 0 $xxs $color-blue--600;
                 /* stylelint-enable */
             }
         }
@@ -436,7 +436,7 @@
 
         &:focus {
             outline: none;
-            box-shadow: 0 0 0 .125rem $color-action;
+            box-shadow: 0 0 0 .125rem $color-blue--600;
             display: block;
             width: auto;
             margin-top: $xs;
@@ -474,7 +474,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        color: $color-text;
+        color: $color-black;
         border-right: 1px solid $color-black--300;
         padding-right: $sm;
     }
@@ -500,7 +500,7 @@
         display: inline-block;
         width: 30px;
         height: 30px;
-        background-color: $color-text;
+        background-color: $color-black;
         border-radius: 50%;
         margin-right: $xs;
 
@@ -512,7 +512,7 @@
         padding-top: .35rem;
         font-size: .75rem;
         font-weight: 700;
-        color: $color-background-subtle;
+        color: $color-black--050;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -526,7 +526,7 @@
         display: flex;
         border-right: none;
         padding: $xxs $sm;
-        background-color: $color-background;
+        background-color: $color-white;
     }
 
     &__profile--drawer &__user {

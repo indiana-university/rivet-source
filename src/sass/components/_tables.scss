@@ -61,15 +61,15 @@ tr td {
 }
 
 .rvt-table-cells {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $color-black--200;
 
     tr td,
     tr th {
-        border-right: 1px solid #ddd;
+        border-right: 1px solid $color-black--200;
     }
 
     tr td:first-child,
     tr th:first-child {
-        border-left: 1px solid #ddd;
+        border-left: 1px solid $color-black--200;
     }
 }

@@ -1,18 +1,18 @@
 /* stylelint-disable */
 %button-focus {
     outline: none;
-    box-shadow: 0 0 0 $xxs/2 $color-background,
-                0 0 0 $xxs $color-action;
+    box-shadow: 0 0 0 $xxs/2 $color-white,
+                0 0 0 $xxs $color-blue--600;
 }
 /* stylelint-enable */
 
 
 .button,
 .rvt-button {
-    background-color: $color-midnight;
-    border: $xxs/2 solid $color-midnight;
+    background-color: $color-blue--600;
+    border: $xxs/2 solid $color-blue--600;
     border-radius: $xxs;
-    color: $color-background;
+    color: $color-white;
     cursor: pointer;
     font-weight: bold;
     line-height: 1;
@@ -43,15 +43,15 @@
 
     &:hover,
     &--hover {
-        background-color: mix($color-midnight, black, 70%);
-        border-color: mix($color-midnight, black, 70%);
-        color: $color-background;
+        background-color: $color-blue--700;
+        border-color: $color-blue--700;
+        color: $color-white;
     }
 
     &:active,
     &--active {
-        background-color: mix($color-midnight, black, 50%);
-        border-color: mix($color-midnight, black, 50%);
+        background-color: $color-blue--800;
+        border-color: $color-blue--800;
     }
 
     &:disabled,
@@ -66,7 +66,7 @@
 .button--secondary,
 .rvt-button--secondary {
     background-color: transparent;
-    color: $color-midnight;
+    color: $color-blue--600;
 
     &:focus,
     &-focus {
@@ -75,22 +75,22 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-midnight, white, 20%);
-        border-color: $color-midnight;
-        color: $color-midnight;
+        background-color: $color-blue--100;
+        border-color: $color-blue--600;
+        color: $color-blue--800;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-midnight, white, 35%);
-        color: mix($color-midnight, black, 85%);
+        background-color: $color-blue--200;
+        color: $color-blue--800;
     }
 }
 
 .button--success,
 .rvt-button--success {
-    background-color: $color-alert-green;
-    border-color: $color-alert-green;
+    background-color: $color-green--500;
+    border-color: $color-green--500;
 
     &:focus,
     &-focus {
@@ -99,23 +99,23 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-green, black, 70%);
-        border-color: mix($color-alert-green, black, 70%);
-        color: $color-background;
+        background-color: $color-green--700;
+        border-color: $color-green--700;
+        color: $color-white;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-green, black, 50%);
-        border-color: mix($color-alert-green, black, 50%);
+        background-color: $color-green--800;
+        border-color: $color-green--800;
     }
 }
 
 .button--success-secondary,
 .rvt-button--success-secondary {
     background-color: transparent;
-    border-color: $color-alert-green;
-    color: $color-alert-green;
+    border-color: $color-green--500;
+    color: $color-green--500;
 
     &:focus,
     &-focus {
@@ -124,23 +124,23 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-green, white, 15%);
-        border-color: $color-alert-green;
-        color: mix($color-alert-green, black, 85%);
+        background-color: $color-green--050;
+        border-color: $color-green--500;
+        color: $color-green--700;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-green, white, 30%);
-        border-color: $color-alert-green;
-        color: mix($color-alert-green, black, 75%);
+        background-color: $color-green--100;
+        border-color: $color-green--500;
+        color: $color-green--800;
     }
 }
 
 .button--danger,
 .rvt-button--danger {
-    background-color: $color-alert-orange;
-    border-color: $color-alert-orange;
+    background-color: $color-orange--500;
+    border-color: $color-orange--500;
 
     &:focus,
     &-focus {
@@ -149,23 +149,23 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-orange, black, 70%);
-        border-color: mix($color-alert-orange, black, 70%);
-        color: $color-background;
+        background-color: $color-orange--700;
+        border-color: $color-orange--700;
+        color: $color-white;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-orange, black, 50%);
-        border-color: mix($color-alert-orange, black, 50%);
+        background-color: $color-orange--800;
+        border-color: $color-orange--800;
     }
 }
 
 .button--danger-secondary,
 .rvt-button--danger-secondary {
     background-color: transparent;
-    border-color: $color-alert-orange;
-    color: $color-alert-orange;
+    border-color: $color-orange--500;
+    color: $color-orange--500;
 
     &:focus,
     &-focus {
@@ -174,16 +174,16 @@
 
     &:hover,
     &-hover {
-        background-color: mix($color-alert-orange, white, 15%);
-        border-color: $color-alert-orange;
-        color: mix($color-alert-orange, black, 85%);
+        background-color: $color-orange--050;
+        border-color: $color-orange--500;
+        color: $color-orange--700;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-alert-orange, white, 30%);
-        border-color: $color-alert-orange;
-        color: mix($color-alert-orange, black, 75%);
+        background-color: $color-orange--100;
+        border-color: $color-orange--500;
+        color: $color-orange--800;
     }
 }
 
@@ -201,16 +201,15 @@
     }
 
     &-hover {
-        background-color: mix($color-midnight, white, 20%);
-        border-color: rgba($color-midnight, 0);
-        color: $color-midnight;
+        background-color: $color-blue--700;
+        border-color: $color-blue--700;
+        color: $color-white;
     }
 
     &-active,
     :active {
-        background-color: mix($color-midnight, white, 35%);
-        border-color: rgba($color-midnight, 0);
-        color: $color-action;
+        background-color: $color-blue--800;
+        border-color: $color-blue--800;
         padding-top: 0;
     }
 }
@@ -219,25 +218,26 @@
 .rvt-button--plain {
     border-color: transparent;
     background-color: transparent;
-    color: $color-action;
+    color: $color-blue--600;
 
     &:focus,
-    &-focus {
+    &-focus,
+    &--focus {
         @extend %button-focus;
     }
 
     &:hover,
     &-hover {
-        background-color: mix($color-midnight, white, 20%);
-        border-color: rgba($color-midnight, 0);
-        color: $color-midnight;
+        background-color: $color-blue--100;
+        border-color: transparent;
+        color: $color-blue--800;
     }
 
     &:active,
     &-active {
-        background-color: mix($color-midnight, white, 35%);
-        border-color: rgba($color-midnight, 0);
-        color: mix($color-action, black, 85%);
+        background-color: $color-blue--200;
+        border-color: transparent;
+        color: $color-blue--800;
     }
 
     &:disabled,
@@ -281,16 +281,16 @@
 
 .rvt-button--loading,
 .rvt-button--loading[disabled] {
-    background-color: $color-midnight--100;
-    border-color: $color-midnight--200;
-    color: $color-midnight;
+    background-color: $color-blue--100;
+    border-color: $color-blue--200;
+    color: $color-blue--600;
     justify-content: center;
     position: relative;
 
     &:hover {
-        background-color: $color-midnight--100;
-        border-color: $color-midnight--200;
-        color: $color-midnight;
+        background-color: $color-blue--100;
+        border-color: $color-blue--200;
+        color: $color-blue--600;
     }
 
     .rvt-button__text {
