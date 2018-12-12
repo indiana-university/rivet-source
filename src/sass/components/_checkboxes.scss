@@ -60,7 +60,7 @@ input[type="checkbox"]:checked + label,
 input[type="checkbox"]:focus + label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-black--700,
-                0 0 0 .1875rem $color-background,
+                0 0 0 .1875rem $color-white,
                 0 0 0 .3125rem $color-blue--600;
 }
 
@@ -69,7 +69,7 @@ input[type="checkbox"]:indeterminate:focus + label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:checked:focus ~ label:before,
 .rvt-checkbox-wrapper input[type="checkbox"]:indeterminate:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-blue--600,
-                0 0 0 .1875rem $color-background,
+                0 0 0 .1875rem $color-white,
                 0 0 0 .3125rem $color-blue--500;
 }
 /* stylelint-enable */

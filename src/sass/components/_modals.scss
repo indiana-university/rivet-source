@@ -27,7 +27,7 @@
         top: 5rem;
         max-width: 600px;
         width: 90%;
-        background-color: $color-background;
+        background-color: $color-white;
         margin: 0 auto;
         margin-bottom: 5rem;
         border-radius: $xxs;
@@ -52,13 +52,13 @@
 
         &:hover {
             background-color: $color-blue--600;
-            color: $color-background;
+            color: $color-white;
         }
 
         &:focus {
             outline: none;
             /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-background,
+            box-shadow: 0 0 0 $xxs/2 $color-white,
                         0 0 0 $xxs $color-blue--600;
             /* stylelint-enable */
         }

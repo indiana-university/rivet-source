@@ -49,7 +49,7 @@ input[type="radio"]:checked + label,
 .rvt-radio-wrapper input[type="radio"]:checked ~ label {
     &:before {
         background-color: $color-blue--600;
-        box-shadow: inset 0 0 0 .125rem $color-background,
+        box-shadow: inset 0 0 0 .125rem $color-white,
                           0 0 0 .125rem $color-blue--600;
     }
 }
@@ -57,7 +57,7 @@ input[type="radio"]:checked + label,
 input[type="radio"]:focus + label:before,
 .rvt-radio-wrapper input[type="radio"]:focus ~ label:before {
     box-shadow: 0 0 0 .08rem $color-black--700,
-                0 0 0 .1875rem $color-background,
+                0 0 0 .1875rem $color-white,
                 0 0 0 .3125rem $color-blue--600;
 }
 
@@ -68,7 +68,7 @@ input[type="radio"]:focus + label:before,
  */
 input[type="radio"]:checked:focus + label:before,
 .rvt-radio-wrapper input[type="radio"]:checked:focus ~ label:before {
-    box-shadow: inset 0 0 0 .125rem $color-background,
+    box-shadow: inset 0 0 0 .125rem $color-white,
                       0 0 0 .125rem $color-blue--600,
                       0 0 0 .3125rem $color-blue--500;
 }

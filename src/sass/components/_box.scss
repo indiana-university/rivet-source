@@ -1,5 +1,5 @@
 .rvt-box {
-  background-color: $color-background;
+  background-color: $color-white;
   border: 1px solid $color-black--200;
   border-radius: $xxs;
 
@@ -92,7 +92,7 @@
 
   &--light &__header,
   &--light &__footer {
-    background-color: $color-background;
+    background-color: $color-white;
   }
 
   &--card &__row:first-child {

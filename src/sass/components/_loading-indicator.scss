@@ -11,9 +11,9 @@
     position: relative;
 
     &--reverse {
-        border-top-color: $color-background;
-        border-right-color: $color-background;
-        border-bottom-color: $color-background;
+        border-top-color: $color-white;
+        border-right-color: $color-white;
+        border-bottom-color: $color-white;
     }
 
     &--xxs {

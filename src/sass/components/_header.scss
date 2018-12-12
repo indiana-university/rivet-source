@@ -5,12 +5,12 @@
 
     &:focus {
         top: 0;
-        background-color: $color-background;
+        background-color: $color-white;
     }
 }
 
 .rvt-header {
-    background-color: $color-background;
+    background-color: $color-white;
     display: flex;
     align-items: center;
     border-bottom: 1px solid $color-black--150;
@@ -19,7 +19,7 @@
 }
 
 .rvt-header--light {
-    background-color: $color-background;
+    background-color: $color-white;
     border-bottom: 1px solid $color-black--150;
 }
 
@@ -116,7 +116,7 @@
 
     &:active:hover {
         background-color: $color-blue--800;
-        color: $color-background;
+        color: $color-white;
     }
 
     &:focus {
@@ -139,11 +139,11 @@
         &:focus {
             background-color: $color-blue--600;
             box-shadow: none;
-            color: $color-background;
+            color: $color-white;
         }
 
         &:focus:hover {
-            color: $color-background;
+            color: $color-white;
         }
     }
 }
@@ -331,7 +331,7 @@
             list-style: none;
             margin-bottom: $md;
             padding: 0;
-            background-color: $color-background;
+            background-color: $color-white;
         }
 
         ul li {
@@ -364,7 +364,7 @@
             width: 100%;
             text-align: left;
             border: none;
-            background-color: $color-background;
+            background-color: $color-white;
 
             &:focus {
                 @extend %button-focus;
@@ -412,7 +412,7 @@
             &:focus {
                 /* stylelint-disable */
                 box-shadow: inset $xxs 0 0 $color-blue--600,
-                            0 0 0 $xxs/2 $color-background,
+                            0 0 0 $xxs/2 $color-white,
                             0 0 0 $xxs $color-blue--600;
                 /* stylelint-enable */
             }
@@ -526,7 +526,7 @@
         display: flex;
         border-right: none;
         padding: $xxs $sm;
-        background-color: $color-background;
+        background-color: $color-white;
     }
 
     &__profile--drawer &__user {

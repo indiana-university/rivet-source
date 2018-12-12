@@ -41,21 +41,21 @@ a.rvt-badge {
     &--info-secondary:hover {
         background-color: $color-blue--700;
         border-color: $color-blue--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &--success:hover,
     &--success-secondary:hover {
         background-color: $color-green--700;
         border-color: $color-green--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &--warning:hover,
     &--warning-secondary:hover {
         background-color: $color-yellow--700;
         border-color: $color-yellow--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &--error:hover,
@@ -64,7 +64,7 @@ a.rvt-badge {
     &--danger-secondary:hover {
         background-color: $color-orange--700;
         border-color: $color-orange--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &:focus {
@@ -80,7 +80,7 @@ a.rvt-badge {
 .rvt-badge--info {
     background-color: $color-blue--600;
     border-color: $color-blue--600;
-    color: $color-background;
+    color: $color-white;
 
     &-secondary {
         background-color: transparent;
@@ -92,7 +92,7 @@ a.rvt-badge {
 .rvt-badge--success {
     background-color: $color-green--500;
     border-color: $color-green--500;
-    color: $color-background;
+    color: $color-white;
 
     &-secondary {
         background-color: transparent;
@@ -121,7 +121,7 @@ a.rvt-badge {
 .rvt-badge--danger {
     background-color: $color-orange--500;
     border-color: $color-orange--500;
-    color: $color-background;
+    color: $color-white;
 
     &-secondary {
         background-color: transparent;

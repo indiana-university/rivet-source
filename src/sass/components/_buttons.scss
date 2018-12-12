@@ -1,7 +1,7 @@
 /* stylelint-disable */
 %button-focus {
     outline: none;
-    box-shadow: 0 0 0 $xxs/2 $color-background,
+    box-shadow: 0 0 0 $xxs/2 $color-white,
                 0 0 0 $xxs $color-blue--600;
 }
 /* stylelint-enable */
@@ -12,7 +12,7 @@
     background-color: $color-blue--600;
     border: $xxs/2 solid $color-blue--600;
     border-radius: $xxs;
-    color: $color-background;
+    color: $color-white;
     cursor: pointer;
     font-weight: bold;
     line-height: 1;
@@ -45,7 +45,7 @@
     &--hover {
         background-color: $color-blue--700;
         border-color: $color-blue--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &:active,
@@ -101,7 +101,7 @@
     &-hover {
         background-color: $color-green--700;
         border-color: $color-green--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &:active,
@@ -151,7 +151,7 @@
     &-hover {
         background-color: $color-orange--700;
         border-color: $color-orange--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &:active,
@@ -203,7 +203,7 @@
     &-hover {
         background-color: $color-blue--700;
         border-color: $color-blue--700;
-        color: $color-background;
+        color: $color-white;
     }
 
     &-active,

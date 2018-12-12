@@ -35,12 +35,12 @@
         &:hover {
             background-color: $color-blue--600;
             border-color: $color-blue--600;
-            color: $color-background;
+            color: $color-white;
         }
 
         &:focus {
             /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-background,
+            box-shadow: 0 0 0 $xxs/2 $color-white,
             0 0 0 $xxs $color-blue--600;
             /* stylelint-enable */
             outline: none;
@@ -51,7 +51,7 @@
     &__tab[aria-selected="true"] {
         background-color: $color-blue--600;
         border-color: $color-blue--600;
-        color: $color-background;
+        color: $color-white;
     }
 
     &__panel {
