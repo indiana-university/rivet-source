@@ -7,7 +7,7 @@
         "block-opening-brace-space-before": "always",
         "color-hex-case": "lower",
         "selector-list-comma-newline-after": "always",
-        "indentation": 4,
+        "indentation": 2,
         "number-leading-zero": never,
         "declaration-colon-space-after": "always-single-line",
         "declaration-block-semicolon-newline-after": "always",

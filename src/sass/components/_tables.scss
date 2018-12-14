@@ -3,73 +3,73 @@
  */
 
 table {
-    text-align: left;
-    width: 100%;
+  text-align: left;
+  width: 100%;
 }
 
 thead {
-    border-bottom: 1px solid $color-black--200;
-    background-color: $color-subtle-gray;
+  border-bottom: 1px solid $color-black--200;
+  background-color: $color-subtle-gray;
 
-    th,
-    tr th {
-        padding: $sm;
-        line-height: 1;
-        font-weight: 700;
-    }
+  th,
+  tr th {
+    padding: $sm;
+    line-height: 1;
+    font-weight: 700;
+  }
 }
 
 tr {
-    border-bottom: 1px solid $color-black--200;
+  border-bottom: 1px solid $color-black--200;
 }
 
 tr th {
-    font-weight: 400;
-    padding: $sm;
+  font-weight: 400;
+  padding: $sm;
 }
 
 tr td {
-    padding: $sm;
+  padding: $sm;
 }
 
 .table-stripes,
 .rvt-table-stripes {
-    tr:nth-child(even) {
-        background-color: $color-subtle-gray;
-    }
+  tr:nth-child(even) {
+    background-color: $color-subtle-gray;
+  }
 }
 
 .table-plain,
 .rvt-table-plain {
-    thead {
-        background-color: transparent;
-        border-bottom: none;
-    }
+  thead {
+    background-color: transparent;
+    border-bottom: none;
+  }
 
-    tr {
-        border-bottom: none;
-    }
+  tr {
+    border-bottom: none;
+  }
 }
 
 .rvt-table-compact {
-    line-height: 1.2;
+  line-height: 1.2;
 
-    tr th,
-    tr td {
-        padding: .5rem;
-    }
+  tr th,
+  tr td {
+    padding: .5rem;
+  }
 }
 
 .rvt-table-cells {
-    border-top: 1px solid $color-black--200;
+  border-top: 1px solid $color-black--200;
 
-    tr td,
-    tr th {
-        border-right: 1px solid $color-black--200;
-    }
+  tr td,
+  tr th {
+    border-right: 1px solid $color-black--200;
+  }
 
-    tr td:first-child,
-    tr th:first-child {
-        border-left: 1px solid $color-black--200;
-    }
+  tr td:first-child,
+  tr th:first-child {
+    border-left: 1px solid $color-black--200;
+  }
 }

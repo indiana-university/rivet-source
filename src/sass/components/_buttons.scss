@@ -1,257 +1,254 @@
 /* stylelint-disable */
 %button-focus {
-    outline: none;
-    box-shadow: 0 0 0 $xxs/2 $color-white,
-                0 0 0 $xxs $color-blue--600;
+  outline: none;
+  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
 }
 /* stylelint-enable */
 
-
 .button,
 .rvt-button {
-    background-color: $color-blue--600;
-    border: $xxs/2 solid $color-blue--600;
-    border-radius: $xxs;
+  background-color: $color-blue--600;
+  border: $xxs/2 solid $color-blue--600;
+  border-radius: $xxs;
+  color: $color-white;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+  position: relative;
+  text-decoration: none;
+
+  // New
+  height: $xl;
+  padding-right: $sm * .75;
+  padding-left: $sm * .75;
+  display: inline-flex;
+  align-items: center;
+  // End new
+
+  transition: box-shadow .2s ease;
+
+  // Initially hide any loaders if they're being used inside buttons.
+
+  .rvt-loader {
+    display: none;
+  }
+
+  &:focus,
+  &--focus {
+    @extend %button-focus;
+  }
+
+  &:hover,
+  &--hover {
+    background-color: $color-blue--700;
+    border-color: $color-blue--700;
     color: $color-white;
-    cursor: pointer;
-    font-weight: bold;
-    line-height: 1;
-    text-decoration: none;
-    position: relative;
-    text-decoration: none;
+  }
 
-    // New
-    height: $xl;
-    padding-right: $sm*.75;
-    padding-left: $sm*.75;
-    display: inline-flex;
-    align-items: center;
-    // End new
+  &:active,
+  &--active {
+    background-color: $color-blue--800;
+    border-color: $color-blue--800;
+  }
 
-    transition: box-shadow .2s ease;
-
-    // Initially hide any loaders if they're being used inside buttons.
-
-    .rvt-loader {
-        display: none;
-    }
-
-    &:focus,
-    &--focus {
-        @extend %button-focus;
-    }
-
-    &:hover,
-    &--hover {
-        background-color: $color-blue--700;
-        border-color: $color-blue--700;
-        color: $color-white;
-    }
-
-    &:active,
-    &--active {
-        background-color: $color-blue--800;
-        border-color: $color-blue--800;
-    }
-
-    &:disabled,
-    &:disabled:hover {
-        background-color: $color-black--100;
-        color: $color-black--700;
-        border-color: $color-black--400;
-        cursor: not-allowed;
-    }
+  &:disabled,
+  &:disabled:hover {
+    background-color: $color-black--100;
+    color: $color-black--700;
+    border-color: $color-black--400;
+    cursor: not-allowed;
+  }
 }
 
 .button--secondary,
 .rvt-button--secondary {
-    background-color: transparent;
-    color: $color-blue--600;
+  background-color: transparent;
+  color: $color-blue--600;
 
-    &:focus,
-    &-focus {
-        @extend %button-focus;
-    }
+  &:focus,
+  &-focus {
+    @extend %button-focus;
+  }
 
-    &:hover,
-    &-hover {
-        background-color: $color-blue--100;
-        border-color: $color-blue--600;
-        color: $color-blue--800;
-    }
+  &:hover,
+  &-hover {
+    background-color: $color-blue--100;
+    border-color: $color-blue--600;
+    color: $color-blue--800;
+  }
 
-    &:active,
-    &-active {
-        background-color: $color-blue--200;
-        color: $color-blue--800;
-    }
+  &:active,
+  &-active {
+    background-color: $color-blue--200;
+    color: $color-blue--800;
+  }
 }
 
 .button--success,
 .rvt-button--success {
-    background-color: $color-green--500;
-    border-color: $color-green--500;
+  background-color: $color-green--500;
+  border-color: $color-green--500;
 
-    &:focus,
-    &-focus {
-        @extend %button-focus;
-    }
+  &:focus,
+  &-focus {
+    @extend %button-focus;
+  }
 
-    &:hover,
-    &-hover {
-        background-color: $color-green--700;
-        border-color: $color-green--700;
-        color: $color-white;
-    }
+  &:hover,
+  &-hover {
+    background-color: $color-green--700;
+    border-color: $color-green--700;
+    color: $color-white;
+  }
 
-    &:active,
-    &-active {
-        background-color: $color-green--800;
-        border-color: $color-green--800;
-    }
+  &:active,
+  &-active {
+    background-color: $color-green--800;
+    border-color: $color-green--800;
+  }
 }
 
 .button--success-secondary,
 .rvt-button--success-secondary {
-    background-color: transparent;
+  background-color: transparent;
+  border-color: $color-green--500;
+  color: $color-green--500;
+
+  &:focus,
+  &-focus {
+    @extend %button-focus;
+  }
+
+  &:hover,
+  &-hover {
+    background-color: $color-green--050;
     border-color: $color-green--500;
-    color: $color-green--500;
+    color: $color-green--700;
+  }
 
-    &:focus,
-    &-focus {
-        @extend %button-focus;
-    }
-
-    &:hover,
-    &-hover {
-        background-color: $color-green--050;
-        border-color: $color-green--500;
-        color: $color-green--700;
-    }
-
-    &:active,
-    &-active {
-        background-color: $color-green--100;
-        border-color: $color-green--500;
-        color: $color-green--800;
-    }
+  &:active,
+  &-active {
+    background-color: $color-green--100;
+    border-color: $color-green--500;
+    color: $color-green--800;
+  }
 }
 
 .button--danger,
 .rvt-button--danger {
-    background-color: $color-orange--500;
-    border-color: $color-orange--500;
+  background-color: $color-orange--500;
+  border-color: $color-orange--500;
 
-    &:focus,
-    &-focus {
-        @extend %button-focus;
-    }
+  &:focus,
+  &-focus {
+    @extend %button-focus;
+  }
 
-    &:hover,
-    &-hover {
-        background-color: $color-orange--700;
-        border-color: $color-orange--700;
-        color: $color-white;
-    }
+  &:hover,
+  &-hover {
+    background-color: $color-orange--700;
+    border-color: $color-orange--700;
+    color: $color-white;
+  }
 
-    &:active,
-    &-active {
-        background-color: $color-orange--800;
-        border-color: $color-orange--800;
-    }
+  &:active,
+  &-active {
+    background-color: $color-orange--800;
+    border-color: $color-orange--800;
+  }
 }
 
 .button--danger-secondary,
 .rvt-button--danger-secondary {
-    background-color: transparent;
+  background-color: transparent;
+  border-color: $color-orange--500;
+  color: $color-orange--500;
+
+  &:focus,
+  &-focus {
+    @extend %button-focus;
+  }
+
+  &:hover,
+  &-hover {
+    background-color: $color-orange--050;
     border-color: $color-orange--500;
-    color: $color-orange--500;
+    color: $color-orange--700;
+  }
 
-    &:focus,
-    &-focus {
-        @extend %button-focus;
-    }
-
-    &:hover,
-    &-hover {
-        background-color: $color-orange--050;
-        border-color: $color-orange--500;
-        color: $color-orange--700;
-    }
-
-    &:active,
-    &-active {
-        background-color: $color-orange--100;
-        border-color: $color-orange--500;
-        color: $color-orange--800;
-    }
+  &:active,
+  &-active {
+    background-color: $color-orange--100;
+    border-color: $color-orange--500;
+    color: $color-orange--800;
+  }
 }
-
 
 .button--small,
 .rvt-button--small {
-    height: $md;
-    line-height: 1.1;
-    vertical-align: bottom;
-    padding-right: $xs;
-    padding-left: $xs;
+  height: $md;
+  line-height: 1.1;
+  vertical-align: bottom;
+  padding-right: $xs;
+  padding-left: $xs;
 
-    &-focus {
-        @extend %button-focus;
-    }
+  &-focus {
+    @extend %button-focus;
+  }
 
-    &-hover {
-        background-color: $color-blue--700;
-        border-color: $color-blue--700;
-        color: $color-white;
-    }
+  &-hover {
+    background-color: $color-blue--700;
+    border-color: $color-blue--700;
+    color: $color-white;
+  }
 
-    &-active,
-    &:active {
-        background-color: $color-blue--800;
-        border-color: $color-blue--800;
-    }
+  &-active,
+  &:active {
+    background-color: $color-blue--800;
+    border-color: $color-blue--800;
+  }
 }
 
 .button--plain,
 .rvt-button--plain {
+  border-color: transparent;
+  background-color: transparent;
+  color: $color-blue--600;
+
+  &:focus,
+  &-focus,
+  &--focus {
+    @extend %button-focus;
+  }
+
+  &:hover,
+  &-hover {
+    background-color: $color-blue--100;
     border-color: transparent;
-    background-color: transparent;
-    color: $color-blue--600;
+    color: $color-blue--800;
+  }
 
-    &:focus,
-    &-focus,
-    &--focus {
-        @extend %button-focus;
-    }
+  &:active,
+  &-active {
+    background-color: $color-blue--200;
+    border-color: transparent;
+    color: $color-blue--800;
+  }
 
-    &:hover,
-    &-hover {
-        background-color: $color-blue--100;
-        border-color: transparent;
-        color: $color-blue--800;
-    }
-
-    &:active,
-    &-active {
-        background-color: $color-blue--200;
-        border-color: transparent;
-        color: $color-blue--800;
-    }
-
-    &:disabled,
-    &:disabled:hover {
-        border-color: $color-black--100;
-    }
+  &:disabled,
+  &:disabled:hover {
+    border-color: $color-black--100;
+  }
 }
 
 .button-group,
 .rvt-button-group {
-    display: flex;
+  display: flex;
 
-    > *:not(:last-child) {
-        margin-right: $sm;
-    }
+  > *:not(:last-child) {
+    margin-right: $sm;
+  }
 }
 
 /**
@@ -260,7 +257,7 @@
 
 .button-group--right,
 .rvt-button-group--right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 /**
@@ -268,9 +265,9 @@
  */
 
 .rvt-button--full-width {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /**
@@ -280,32 +277,32 @@
 
 .rvt-button--loading,
 .rvt-button--loading[disabled] {
+  background-color: $color-blue--100;
+  border-color: $color-blue--200;
+  color: $color-blue--600;
+  justify-content: center;
+  position: relative;
+
+  &:hover {
     background-color: $color-blue--100;
     border-color: $color-blue--200;
     color: $color-blue--600;
-    justify-content: center;
-    position: relative;
+  }
 
-    &:hover {
-        background-color: $color-blue--100;
-        border-color: $color-blue--200;
-        color: $color-blue--600;
-    }
+  .rvt-button__text {
+    color: transparent;
+  }
 
-    .rvt-button__text {
-        color: transparent;
-    }
-
-    .rvt-loader {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        /**
+  .rvt-loader {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /**
          * This negative margin accounts for the width/height of the
          * default loading indicator above.
          */
-        margin-top: -.65rem;
-        margin-left: -$xs;
-    }
+    margin-top: -.65rem;
+    margin-left: -$xs;
+  }
 }

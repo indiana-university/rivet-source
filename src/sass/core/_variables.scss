@@ -8,27 +8,27 @@ $font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
 // $key = pixel size, $value = relational units
 
 $type-sizes: (
-    12: .75rem,
-    xxs: .75rem,
-    14: .875rem,
-    xs: .875rem,
-    16: 1rem,
-    base: 1rem,
-    18: 1.125rem,
-    20: 1.25rem,
-    sm: 1.25rem,
-    23: 1.4375rem,
-    26: 1.625rem,
-    md: 1.625rem,
-    29: 1.8125rem,
-    32: 2rem,
-    lg: 2rem,
-    36: 2.25rem,
-    41: 2.5625rem,
-    xl: 2.5625rem,
-    46: 2.875rem,
-    52: 3.25rem,
-    xxl: 3.25rem,
+  12: .75rem,
+  xxs: .75rem,
+  14: .875rem,
+  xs: .875rem,
+  16: 1rem,
+  base: 1rem,
+  18: 1.125rem,
+  20: 1.25rem,
+  sm: 1.25rem,
+  23: 1.4375rem,
+  26: 1.625rem,
+  md: 1.625rem,
+  29: 1.8125rem,
+  32: 2rem,
+  lg: 2rem,
+  36: 2.25rem,
+  41: 2.5625rem,
+  xl: 2.5625rem,
+  46: 2.875rem,
+  52: 3.25rem,
+  xxl: 3.25rem,
 ) !default;
 
 // Type Size variables
@@ -303,15 +303,15 @@ $color-alert-orange-border: $color-orange--200 !default;
 // through them to make utility classes?
 
 $color-map: (
-    "cream": $color-cream,
-    "crimson": $color-crimson,
-    "midnight": $color-blue--600,
-    "dark-midnight": $color-midnight--900,
-    "gray": $color-black--400,
-    "green": $color-green--500,
-    "blue": $color-blue--600,
-    "yellow": $color-yellow--200,
-    "orange": $color-orange--500
+  "cream": $color-cream,
+  "crimson": $color-crimson,
+  "midnight": $color-blue--600,
+  "dark-midnight": $color-midnight--900,
+  "gray": $color-black--400,
+  "green": $color-green--500,
+  "blue": $color-blue--600,
+  "yellow": $color-yellow--200,
+  "orange": $color-orange--500
 ) !default;
 
 // Global spacing units
@@ -329,11 +329,11 @@ $xxl: $spacing-unit * 8 !default;     // 64px
 // Global breakpoints
 
 $breakpoints: (
-    sm: (480em/16),
-    md: (740em/16),
-    lg: (1080em/16),
-    xl: (1260em/16),
-    xxl: (1400em/16)
+  sm: (480em/16),
+  md: (740em/16),
+  lg: (1080em/16),
+  xl: (1260em/16),
+  xxl: (1400em/16)
 ) !default;
 
 $breakpoint-sm: map-get($breakpoints, 'sm');
@@ -355,17 +355,17 @@ $radius-small: 3px !default;
 // E.g. z-250: 250.
 
 $z-index: (
-    z-0: 0,
-    z-100: 100,
-    z-200: 200,
-    z-300: 300,
-    z-400: 400,
-    z-500: 500,
-    z-600: 600,
-    z-700: 700,
-    z-800: 800,
-    z-900: 900,
-    z-1000: 1000
+  z-0: 0,
+  z-100: 100,
+  z-200: 200,
+  z-300: 300,
+  z-400: 400,
+  z-500: 500,
+  z-600: 600,
+  z-700: 700,
+  z-800: 800,
+  z-900: 900,
+  z-1000: 1000
 ) !default;
 
 // Standard shadow(s)

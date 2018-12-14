@@ -1,24 +1,24 @@
 %start-hidden {
-    display: none !important;
+  display: none !important;
 }
 
 @each $bp-name, $bp-size in $breakpoints {
+  .hide-#{$bp-name}-down,
+  .rvt-hide-#{$bp-name}-down {
+    @extend %start-hidden;
+  }
+
+  @include mq($bp-size) {
     .hide-#{$bp-name}-down,
     .rvt-hide-#{$bp-name}-down {
-        @extend %start-hidden;
+      display: block !important;
     }
+  }
 
-    @include mq($bp-size) {
-        .hide-#{$bp-name}-down,
-        .rvt-hide-#{$bp-name}-down {
-            display: block !important;
-        }
+  @include mq($bp-size) {
+    .hide-#{$bp-name}-up,
+    .rvt-hide-#{$bp-name}-up {
+      display: none !important;
     }
-
-    @include mq($bp-size) {
-        .hide-#{$bp-name}-up,
-        .rvt-hide-#{$bp-name}-up {
-            display: none !important;
-        }
-    }
+  }
 }

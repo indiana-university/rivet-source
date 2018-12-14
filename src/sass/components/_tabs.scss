@@ -1,147 +1,143 @@
-
 .rvt-tabs {
-    &__tab {
-        background-color: $color-black--100;
-        border-top: 1px solid $color-black--300;
-        border-right: 1px solid $color-black--300;
-        border-left: 1px solid $color-black--300;
-        border-bottom: none;
-        border-radius: 0;
-        color: $color-black--700;
-        display: block;
-        line-height: 1;
-        margin-right: $xs;
-        padding: $xs $md;
-        position: relative;
-        text-align: left;
-        transition: box-shadow .2s ease;
-        width: 100%;
-        z-index: map-get($z-index, z-100);
+  &__tab {
+    background-color: $color-black--100;
+    border-top: 1px solid $color-black--300;
+    border-right: 1px solid $color-black--300;
+    border-left: 1px solid $color-black--300;
+    border-bottom: none;
+    border-radius: 0;
+    color: $color-black--700;
+    display: block;
+    line-height: 1;
+    margin-right: $xs;
+    padding: $xs $md;
+    position: relative;
+    text-align: left;
+    transition: box-shadow .2s ease;
+    width: 100%;
+    z-index: map-get($z-index, z-100);
 
-        &:last-child {
-            border-bottom: 1px solid $color-black--300;
-        }
-
-        &:first-child {
-            border-top-right-radius: $xxs;
-            border-top-left-radius: $xxs;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-
-        &:focus,
-        &:hover {
-            background-color: $color-blue--600;
-            border-color: $color-blue--600;
-            color: $color-white;
-        }
-
-        &:focus {
-            /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-white,
-            0 0 0 $xxs $color-blue--600;
-            /* stylelint-enable */
-            outline: none;
-            z-index: map-get($z-index, z-1000);
-        }
+    &:last-child {
+      border-bottom: 1px solid $color-black--300;
     }
 
-    &__tab[aria-selected="true"] {
-        background-color: $color-blue--600;
-        border-color: $color-blue--600;
-        color: $color-white;
+    &:first-child {
+      border-top-right-radius: $xxs;
+      border-top-left-radius: $xxs;
     }
 
-    &__panel {
-        border: 1px solid $color-black--300;
-        border-bottom-right-radius: $xxs;
-        border-bottom-left-radius: $xxs;
-        margin-top: -1px;
-        padding: $md;
-        transition: box-shadow .2s ease;
-
-        &:focus {
-            box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
-            outline: none;
-        }
+    &:last-child {
+      margin-right: 0;
     }
+
+    &:focus,
+    &:hover {
+      background-color: $color-blue--600;
+      border-color: $color-blue--600;
+      color: $color-white;
+    }
+
+    &:focus {
+      /* stylelint-disable */
+      box-shadow: 0 0 0 $xxs/2 $color-white,
+                  0 0 0 $xxs $color-blue--600;
+      /* stylelint-enable */
+      outline: none;
+      z-index: map-get($z-index, z-1000);
+    }
+  }
+
+  &__tab[aria-selected='true'] {
+    background-color: $color-blue--600;
+    border-color: $color-blue--600;
+    color: $color-white;
+  }
+
+  &__panel {
+    border: 1px solid $color-black--300;
+    border-bottom-right-radius: $xxs;
+    border-bottom-left-radius: $xxs;
+    margin-top: -1px;
+    padding: $md;
+    transition: box-shadow .2s ease;
+
+    &:focus {
+      box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
+      outline: none;
+    }
+  }
 }
 
 @include mq(bp(md)) {
-    .rvt-tabs {
-        &__tab {
-            border-top-right-radius: $xxs;
-            border-top-left-radius: $xxs;
-            display: inline-block;
-            text-align: center;
-            width: auto;
-            border-bottom: 1px solid $color-black--300;
-        }
-
-        &__tablist {
-            display: flex;
-        }
-
-        &__panel {
-            border-top-right-radius: $xxs;
-        }
+  .rvt-tabs {
+    &__tab {
+      border-top-right-radius: $xxs;
+      border-top-left-radius: $xxs;
+      display: inline-block;
+      text-align: center;
+      width: auto;
+      border-bottom: 1px solid $color-black--300;
     }
+
+    &__tablist {
+      display: flex;
+    }
+
+    &__panel {
+      border-top-right-radius: $xxs;
+    }
+  }
 }
-
-
 
 /**
  * Vertical tabs
  */
 @include mq(bp(md)) {
-    .rvt-tabs--vertical {
-        border: 1px solid $color-black--300;
-        border-radius: $xxs;
-        display: flex;
-        justify-content: space-between;
+  .rvt-tabs--vertical {
+    border: 1px solid $color-black--300;
+    border-radius: $xxs;
+    display: flex;
+    justify-content: space-between;
 
-        .rvt-tabs__tablist {
-            border-right: 1px solid $color-black--300;
-            display: block;
-            flex-basis: 250px;
-            flex-grow: 0;
-            min-width: 250px;
-        }
-
-        .rvt-tabs__tab {
-            border-right: none;
-            border-radius: 0;
-            border-top: none;
-            border-right: none;
-            border-bottom: 1px solid $color-black--300;
-            border-left: none;
-            width: 100%;
-
-            &[aria-selected="true"]:first-child {
-                border-top-left-radius: $xxs;
-            }
-        }
-
-        .rvt-tabs__panel {
-            border: none;
-            flex-grow: 1;
-        }
+    .rvt-tabs__tablist {
+      border-right: 1px solid $color-black--300;
+      display: block;
+      flex-basis: 250px;
+      flex-grow: 0;
+      min-width: 250px;
     }
-}
 
+    .rvt-tabs__tab {
+      border-right: none;
+      border-radius: 0;
+      border-top: none;
+      border-right: none;
+      border-bottom: 1px solid $color-black--300;
+      border-left: none;
+      width: 100%;
+
+      &[aria-selected='true']:first-child {
+        border-top-left-radius: $xxs;
+      }
+    }
+
+    .rvt-tabs__panel {
+      border: none;
+      flex-grow: 1;
+    }
+  }
+}
 
 /**
  * Fitted tabs
  */
 
 .rvt-tabs--fitted {
-    .rvt-tabs__tab {
-        flex-grow: 1;
-    }
+  .rvt-tabs__tab {
+    flex-grow: 1;
+  }
 
-    .rvt-tabs__panel {
-        border-top-right-radius: 0;
-    }
+  .rvt-tabs__panel {
+    border-top-right-radius: 0;
+  }
 }
