@@ -11,7 +11,6 @@ const fractal = require('../fractal.js');
 
 const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility
 
-
 /*
  * Start the Fractal server
  *
@@ -22,14 +21,14 @@ const logger = fractal.cli.console; // keep a reference to the fractal CLI conso
  * This task will also log any errors to the console.
  */
 
-gulp.task('fractal:start', function(){
-    const server = fractal.web.server({
-        sync: true
-    });
-    server.on('error', err => logger.error(err.message));
-    return server.start().then(() => {
-        logger.success(`Fractal server is now running at ${server.url}`);
-    });
+gulp.task('fractal:start', function() {
+  const server = fractal.web.server({
+    sync: true
+  });
+  server.on('error', err => logger.error(err.message));
+  return server.start().then(() => {
+    logger.success(`Fractal server is now running at ${server.url}`);
+  });
 });
 
 /*
@@ -42,11 +41,13 @@ gulp.task('fractal:start', function(){
  * configuration option set above.
  */
 
-gulp.task('fractal:build', function(){
-    const builder = fractal.web.builder();
-    builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
-    builder.on('error', err => logger.error(err.message));
-    return builder.build().then(() => {
-        logger.success('Fractal build completed!');
-    });
+gulp.task('fractal:build', function() {
+  const builder = fractal.web.builder();
+  builder.on('progress', (completed, total) =>
+    logger.update(`Exported ${completed} of ${total} items`, 'info')
+  );
+  builder.on('error', err => logger.error(err.message));
+  return builder.build().then(() => {
+    logger.success('Fractal build completed!');
+  });
 });
