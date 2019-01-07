@@ -1,4 +1,3 @@
-
 /**
  * This class gets applied to the body of the document when the modal
  * is open so that the modal scrolls but not the content of the body.
@@ -7,138 +6,137 @@
 
 .modal-open,
 .rvt-modal-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .modal,
 .rvt-modal {
-    z-index: map-get($z-index, z-1000);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($color-black, .85);
-    overflow-y: scroll;
-    padding-bottom: 5rem;
+  z-index: map-get($z-index, z-1000);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color-black, .85);
+  overflow-y: scroll;
+  padding-bottom: 5rem;
 
-    &__inner {
-        position: relative;
-        top: 5rem;
-        max-width: 600px;
-        width: 90%;
-        background-color: $color-white;
-        margin: 0 auto;
-        margin-bottom: 5rem;
-        border-radius: $xxs;
-        overflow: hidden;
+  &__inner {
+    position: relative;
+    top: 5rem;
+    max-width: 600px;
+    width: 90%;
+    background-color: $color-white;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    border-radius: $xxs;
+    overflow: hidden;
+  }
+
+  &__close {
+    background-color: transparent;
+    border: none;
+    border-radius: $xxs;
+    position: absolute;
+    right: $sm;
+    top: 1.1rem;
+    padding: $xs;
+    height: auto;
+    /**
+     * Helps vertically center icon on hover.
+     */
+    line-height: .5;
+    display: inline-block;
+    color: $color-text;
+
+    &:hover {
+      background-color: $color-blue--600;
+      color: $color-white;
     }
 
-    &__close {
-        background-color: transparent;
-        border: none;
-        border-radius: $xxs;
-        position: absolute;
-        right: $sm;
-        top: 1.1rem;
-        padding: $xs;
-        height: auto;
-        /**
-         * Helps vertically center icon on hover.
-         */
-        line-height: .5;
-        display: inline-block;
-        color: $color-text;
+    &:focus {
+      outline: none;
+      /* stylelint-disable */
+      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+      /* stylelint-enable */
+    }
+  }
 
-        &:hover {
-            background-color: $color-blue--600;
-            color: $color-white;
+  &__header {
+    padding: $md $sm;
+    border-bottom: 1px solid $color-black--100;
+  }
+
+  &--confirmation &__header {
+    border-bottom: none;
+  }
+
+  &__title {
+    font-size: $ts-20;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &--confirmation &__body {
+    text-align: center;
+  }
+
+  &__body {
+    padding: $sm;
+  }
+
+  &__controls {
+    padding: $sm;
+    display: flex;
+    border-top: 1px solid $color-black--100;
+    background-color: $color-black--050;
+    flex-wrap: wrap;
+
+    .rvt-button {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      margin-bottom: $sm;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include mq(bp(sm)) {
+      justify-content: flex-end;
+
+      .rvt-button {
+        width: auto;
+        margin-right: $sm;
+        margin-bottom: 0;
+
+        &:last-child {
+          margin-right: 0;
         }
-
-        &:focus {
-            outline: none;
-            /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-white,
-                        0 0 0 $xxs $color-blue--600;
-            /* stylelint-enable */
-        }
+      }
     }
+  }
 
-    &__header {
-        padding: $md $sm;
-        border-bottom: 1px solid $color-black--100;
-    }
+  &--small &__inner {
+    max-width: 500px;
+  }
 
-    &--confirmation &__header {
-        border-bottom: none;
-    }
+  &--medium {
+    max-width: 800px;
+  }
 
-    &__title {
-        font-size: $ts-20;
-        font-weight: 700;
-        line-height: 1;
-    }
-
-    &--confirmation &__body {
-        text-align: center;
-    }
-
-    &__body {
-        padding: $sm;
-    }
-
-    &__controls {
-        padding: $sm;
-        display: flex;
-        border-top: 1px solid $color-black--100;
-        background-color: $color-black--050;
-        flex-wrap: wrap;
-
-        .rvt-button {
-            width: 100%;
-            text-align: center;
-            justify-content: center;
-            margin-bottom: $sm;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        @include mq(bp(sm)) {
-            justify-content: flex-end;
-
-            .rvt-button {
-                width: auto;
-                margin-right: $sm;
-                margin-bottom: 0;
-
-                &:last-child {
-                    margin-right: 0;
-                }
-            }
-        }
-    }
-
-    &--small &__inner {
-        max-width: 500px;
-    }
-
-    &--medium {
-        max-width: 800px;
-    }
-
-    &--large {
-        max-width: 1040px;
-    }
+  &--large {
+    max-width: 1040px;
+  }
 }
 
-.modal[aria-hidden="true"],
-.rvt-modal[aria-hidden="true"] {
-    display: none;
+.modal[aria-hidden='true'],
+.rvt-modal[aria-hidden='true'] {
+  display: none;
 }
 
-.modal:not([aria-hidden="true"]),
-.rvt-modal:not([aria-hidden="true"]) {
-    display: block;
+.modal:not([aria-hidden='true']),
+.rvt-modal:not([aria-hidden='true']) {
+  display: block;
 }

@@ -5,31 +5,25 @@
 // That used "-btm" for class names. The documentation needs to be updated to reflect
 // This change.
 $spacing-directions: (
-    null,
-    -top,
-    -right,
-    -bottom,
-    -left
+  null,
+  -top,
+  -right,
+  -bottom,
+  -left
 );
-
-
-
 
 // Spacing size values
 // NOTE you can reference these sizes in core/_variables.scss
 
 $spacing-sizes: (
-    -xxs: $xxs,
-    -xs: $xs,
-    -sm: $sm,
-    -md: $md,
-    -lg: $lg,
-    -xl: $xl,
-    -xxl: $xxl
+  -xxs: $xxs,
+  -xs: $xs,
+  -sm: $sm,
+  -md: $md,
+  -lg: $lg,
+  -xl: $xl,
+  -xxl: $xxl
 );
-
-
-
 
 // Super gnarly loop here, but it save sooo much time
 
@@ -37,168 +31,140 @@ $spacing-sizes: (
 // https://github.com/NHSLeadership/nightingale/blob/develop/utilities/_utilities.spacing.scss#L48
 
 @each $direction in $spacing-directions {
+  @each $size, $value in $spacing-sizes {
+    // NOTE: We use !important here because we want these utilities to always
+    // produced the same result.
 
-    @each $size, $value in $spacing-sizes {
+    // If the direction is "null", add margin to all directions.
+    @if $direction == null {
+      .m-all#{$size},
+      .rvt-m-all#{$size} {
+        margin: $value !important;
+      }
+
+      .p-all#{$size},
+      .rvt-p-all#{$size} {
+        padding: $value !important;
+      }
+
+      .rvt-m-tb#{$size} {
+        margin-bottom: $value !important;
+        margin-top: $value !important;
+      }
+
+      .rvt-m-lr#{$size} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+
+      .rvt-p-tb#{$size} {
+        padding-bottom: $value !important;
+        padding-top: $value !important;
+      }
+
+      .rvt-p-lr#{$size} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+
+      // Otherwise create individual direction utilities.
+    } @else {
+      .m#{$direction}#{$size},
+      .rvt-m#{$direction}#{$size} {
+        margin#{$direction}: $value !important;
+      }
+
+      .p#{$direction}#{$size},
+      .rvt-p#{$direction}#{$size} {
+        padding#{$direction}: $value !important;
+      }
+    }
+  } // End $spacing-sizes loop
+} // End $spacing-directions loop
+
+// Builds responsive spacing classes
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    @each $direction in $spacing-directions {
+      @each $size, $value in $spacing-sizes {
         // NOTE: We use !important here because we want these utilities to always
         // produced the same result.
 
         // If the direction is "null", add margin to all directions.
         @if $direction == null {
+          .m-all#{$size}-#{$bp-name}-up,
+          .rvt-m-all#{$size}-#{$bp-name}-up {
+            margin: $value !important;
+          }
 
-            .m-all#{$size},
-            .rvt-m-all#{$size} {
-                margin: $value !important;
-            }
+          .p-all#{$size}-#{$bp-name}-up,
+          .rvt-p-all#{$size}-#{$bp-name}-up {
+            padding: $value !important;
+          }
 
-            .p-all#{$size},
-            .rvt-p-all#{$size} {
-                padding: $value !important;
-            }
+          .rvt-m-tb#{$size}-#{$bp-name}-up {
+            margin-bottom: $value !important;
+            margin-top: $value !important;
+          }
 
-            .rvt-m-tb#{$size} {
-                margin-bottom: $value !important;
-                margin-top: $value !important;
-            }
+          .rvt-m-lr#{$size}-#{$bp-name}-up {
+            margin-left: $value !important;
+            margin-right: $value !important;
+          }
 
-            .rvt-m-lr#{$size} {
-                margin-left: $value !important;
-                margin-right: $value !important;
-            }
+          .rvt-p-tb#{$size}-#{$bp-name}-up {
+            padding-bottom: $value !important;
+            padding-top: $value !important;
+          }
 
-            .rvt-p-tb#{$size} {
-                padding-bottom: $value !important;
-                padding-top: $value !important;
-            }
+          .rvt-p-lr#{$size}-#{$bp-name}-up {
+            padding-left: $value !important;
+            padding-right: $value !important;
+          }
 
-            .rvt-p-lr#{$size} {
-                padding-left: $value !important;
-                padding-right: $value !important;
-            }
-
-        // Otherwise create individual direction utilities.
+          // Otherwise create individual direction utilities.
         } @else {
+          .m#{$direction}#{$size}-#{$bp-name}-up,
+          .rvt-m#{$direction}#{$size}-#{$bp-name}-up {
+            margin#{$direction}: $value !important;
+          }
 
-            .m#{$direction}#{$size},
-            .rvt-m#{$direction}#{$size} {
-                margin#{$direction}: $value !important;
-            }
-
-            .p#{$direction}#{$size},
-            .rvt-p#{$direction}#{$size} {
-                padding#{$direction}: $value !important;
-            }
-
+          .p#{$direction}#{$size}-#{$bp-name}-up,
+          .rvt-p#{$direction}#{$size}-#{$bp-name}-up {
+            padding#{$direction}: $value !important;
+          }
         }
-
-    } // End $spacing-sizes loop
-
-} // End $spacing-directions loop
-
-
-
-// Builds responsive spacing classes
-
-@each $bp-name, $bp-value in $breakpoints {
-
-    @include mq($bp-value) {
-
-        @each $direction in $spacing-directions {
-
-            @each $size, $value in $spacing-sizes {
-                // NOTE: We use !important here because we want these utilities to always
-                // produced the same result.
-
-                // If the direction is "null", add margin to all directions.
-                @if $direction == null {
-
-                    .m-all#{$size}-#{$bp-name}-up,
-                    .rvt-m-all#{$size}-#{$bp-name}-up {
-                        margin: $value !important;
-                    }
-
-                    .p-all#{$size}-#{$bp-name}-up,
-                    .rvt-p-all#{$size}-#{$bp-name}-up {
-                        padding: $value !important;
-                    }
-
-                    .rvt-m-tb#{$size}-#{$bp-name}-up {
-                        margin-bottom: $value !important;
-                        margin-top: $value !important;
-                    }
-
-                    .rvt-m-lr#{$size}-#{$bp-name}-up {
-                        margin-left: $value !important;
-                        margin-right: $value !important;
-                    }
-
-                    .rvt-p-tb#{$size}-#{$bp-name}-up {
-                        padding-bottom: $value !important;
-                        padding-top: $value !important;
-                    }
-
-                    .rvt-p-lr#{$size}-#{$bp-name}-up {
-                        padding-left: $value !important;
-                        padding-right: $value !important;
-                    }
-
-                    // Otherwise create individual direction utilities.
-                    } @else {
-
-
-                    .m#{$direction}#{$size}-#{$bp-name}-up,
-                    .rvt-m#{$direction}#{$size}-#{$bp-name}-up {
-                        margin#{$direction}: $value !important;
-                    }
-
-                    .p#{$direction}#{$size}-#{$bp-name}-up,
-                    .rvt-p#{$direction}#{$size}-#{$bp-name}-up {
-                        padding#{$direction}: $value !important;
-                    }
-
-                }
-
-            } // End $spacing-sizes loop
-
-        } // End $spacing-directions loop
-
-    }
-
+      } // End $spacing-sizes loop
+    } // End $spacing-directions loop
+  }
 }
-
-
-
 
 // This loop creates classes that remove margin and padding from
 // and element.
 
 @each $direction in $spacing-directions {
-
-    @if $direction == null {
-
-        .m-all-remove,
-        .rvt-m-all-remove {
-            margin: 0 !important;
-        }
-
-        .p-all-remove,
-        .rvt-p-all-remove {
-            padding: 0 !important;
-        }
-
-    } @else {
-
-        .m#{$direction}-remove,
-        .rvt-m#{$direction}-remove {
-            margin#{$direction}: 0 !important;
-        }
-
-        .p#{$direction}-remove,
-        .rvt-p#{$direction}-remove {
-            padding#{$direction}: 0 !important;
-        }
-
+  @if $direction == null {
+    .m-all-remove,
+    .rvt-m-all-remove {
+      margin: 0 !important;
     }
 
+    .p-all-remove,
+    .rvt-p-all-remove {
+      padding: 0 !important;
+    }
+  } @else {
+    .m#{$direction}-remove,
+    .rvt-m#{$direction}-remove {
+      margin#{$direction}: 0 !important;
+    }
+
+    .p#{$direction}-remove,
+    .rvt-p#{$direction}-remove {
+      padding#{$direction}: 0 !important;
+    }
+  }
 } // End remove loop
 
 /* stylelint-enable */

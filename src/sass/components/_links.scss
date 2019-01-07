@@ -1,39 +1,39 @@
 a,
 .rvt-link {
-    color: $color-blue--600;
+  color: $color-blue--600;
 
-    &:hover {
-        color: $color-blue--900;
-    }
+  &:hover {
+    color: $color-blue--900;
+  }
 
-    &:focus {
-        outline: $xxs/2 solid $color-blue--600;
-        outline-offset: $xxs/2;
-    }
+  &:focus {
+    outline: $xxs/2 solid $color-blue--600;
+    outline-offset: $xxs/2;
+  }
 
-    a:visited {
-        /**
-         * TODO: Come up with a better color for the :visited state.
-         */
-        color: $color-blue--900;
-    }
+  a:visited {
+    /**
+     * TODO: Come up with a better color for the :visited state.
+     */
+    color: $color-blue--900;
+  }
 }
 
 .rvt-link--reverse,
 .rvt-link-reverse {
-    color: rgba($color-white, .8);
+  color: rgba($color-white, .8);
 
-    &:hover {
-        color: $color-white;
-    }
+  &:hover {
+    color: $color-white;
+  }
 }
 
 .rvt-link--bold,
 .rvt-link-bold {
-    font-weight: 700;
-    text-decoration: none;
+  font-weight: 700;
+  text-decoration: none;
 
-    &:hover {
-        text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
 }

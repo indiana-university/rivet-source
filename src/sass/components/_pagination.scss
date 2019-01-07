@@ -1,108 +1,104 @@
 .rvt-pagination {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 
-    &--center {
-        justify-content: center;
+  &--center {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  &__item {
+    line-height: 1;
+    margin-top: 0;
+
+    a {
+      border: 1px solid $color-black--300;
+      display: inline-block;
+      /**
+       * This negative margin compensates for the 1px borders that
+       * bump up against each other.
+       */
+      margin-left: -1px;
+      min-width: $lg;
+      /**
+       * .75rem here makes the pagination the same height as text inputs
+       * for consistency's sake.
+       */
+      padding: .75rem $sm;
+      position: relative;
+      text-decoration: none;
+      transition: box-shadow .2s ease;
+      z-index: map-get($z-index, z-100);
     }
 
-    &--right {
-        justify-content: flex-end;
+    a:hover {
+      background-color: $color-black--100;
     }
 
-    &__item {
-
-        line-height: 1;
-        margin-top: 0;
-
-        a {
-            border: 1px solid $color-black--300;
-            display: inline-block;
-            /**
-             * This negative margin compensates for the 1px borders that
-             * bump up against each other.
-             */
-            margin-left: -1px;
-            min-width: $lg;
-            /**
-             * .75rem here makes the pagination the same height as text inputs
-             * for consistency's sake.
-             */
-            padding: .75rem $sm;
-            position: relative;
-            text-decoration: none;
-            transition: box-shadow .2s ease;
-            z-index: map-get($z-index, z-100);
-        }
-
-        a:hover {
-            background-color: $color-black--100;
-        }
-
-        a:focus {
-            border-radius: inherit;
-            /* stylelint-disable */
-            box-shadow: 0 0 0 $xxs/2 $color-white,
-                        0 0 0 $xxs $color-blue--600;
-            /* stylelint-enable */
-            outline: none;
-            z-index: map-get($z-index, z-1000);
-        }
+    a:focus {
+      border-radius: inherit;
+      /* stylelint-disable */
+      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+      /* stylelint-enable */
+      outline: none;
+      z-index: map-get($z-index, z-1000);
     }
+  }
 
-    &--small &__item {
-        a {
-            /**
-             * NOTE: These are magic numbers that make the small pagination
-             * the same size as the small buttons.
-             */
-            padding: .35rem .65rem;
-        }
+  &--small &__item {
+    a {
+      /**
+       * NOTE: These are magic numbers that make the small pagination
+       * the same size as the small buttons.
+       */
+      padding: .35rem .65rem;
     }
+  }
 
-    &__item:first-child a {
-        border-top-left-radius: $xxs;
-        border-bottom-left-radius: $xxs;
-    }
+  &__item:first-child a {
+    border-top-left-radius: $xxs;
+    border-bottom-left-radius: $xxs;
+  }
 
-    &__item:last-child a {
-        border-top-right-radius: $xxs;
-        border-bottom-right-radius: $xxs;
-    }
+  &__item:last-child a {
+    border-top-right-radius: $xxs;
+    border-bottom-right-radius: $xxs;
+  }
 
+  /**
+   * Active state
+   */
 
-
+  &__item.is-active a {
+    background-color: $color-blue--600;
+    border-color: $color-blue--600;
+    color: $color-white;
     /**
-     * Active state
+     * z-index hides the border overlap
      */
+    z-index: map-get($z-index, z-200);
+  }
 
-    &__item.is-active a {
-        background-color: $color-blue--600;
-        border-color: $color-blue--600;
-        color: $color-white;
-        /**
-         * z-index hides the border overlap
-         */
-        z-index: map-get($z-index, z-200);
+  /**
+   * Disabled state
+   */
+
+  &__item.is-disabled a {
+    color: $color-black--700;
+    background-color: $color-black--100;
+
+    &:hover {
+      border-color: $color-black--200;
+      cursor: default;
     }
 
-    /**
-     * Disabled state
-     */
-
-    &__item.is-disabled a {
-        color: $color-black--700;
-        background-color: $color-black--100;
-
-        &:hover {
-            border-color: $color-black--200;
-            cursor: default;
-        }
-
-        &:focus {
-            box-shadow: none;
-        }
+    &:focus {
+      box-shadow: none;
     }
+  }
 }

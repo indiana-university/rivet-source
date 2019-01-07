@@ -73,6 +73,7 @@
      * the Rivet collapsible package with the box. This needs more
      * experimenting, but I can confirm that it works.
      */
+
     &:focus {
       box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-blue--600;
       outline: none;
@@ -102,7 +103,7 @@
   &--compact &__header,
   &--compact &__body,
   &--compact &__row {
-     padding: $xs;
+    padding: $xs;
   }
 
   /**

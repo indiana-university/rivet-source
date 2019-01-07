@@ -1,59 +1,59 @@
 ul,
 ol {
-    /**
-     * Zero out margins so we can use more uniform rem-based utility
-     * classes for spacing.
-     */
-    margin: 0;
+  /**
+   * Zero out margins so we can use more uniform rem-based utility
+   * classes for spacing.
+   */
+  margin: 0;
 }
 
 ul li,
 ol li {
-    margin-top: $xs;
+  margin-top: $xs;
 }
 
 dl dt {
-    font-weight: 700;
-    margin-top: $sm;
+  font-weight: 700;
+  margin-top: $sm;
 
-    &:first-child {
-        margin-top: 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 dl dd {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 @mixin plain-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 @mixin inline-list {
-    /**
-     * This is a hack that remove extras space between elements that are
-     * set to display inline-block.
-     */
-    font-size: 0;
+  /**
+   * This is a hack that remove extras space between elements that are
+   * set to display inline-block.
+   */
+  font-size: 0;
 
-    @include plain-list;
+  @include plain-list;
 
-    & li {
-        display: inline-block;
-        line-height: 1;
-        font-size: 1rem;
-        margin-right: $sm;
-        margin-bottom: $xs;
-    }
+  & li {
+    display: inline-block;
+    line-height: 1;
+    font-size: 1rem;
+    margin-right: $sm;
+    margin-bottom: $xs;
+  }
 }
 
 .plain-list,
 .rvt-plain-list {
-    @include plain-list;
+  @include plain-list;
 }
 
 .inline-list,
 .rvt-inline-list {
-    @include inline-list;
+  @include inline-list;
 }

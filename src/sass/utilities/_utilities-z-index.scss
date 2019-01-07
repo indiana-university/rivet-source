@@ -1,7 +1,7 @@
 /* stylelint-disable */
 @each $key, $value in $z-index {
-    .rvt-#{$key} {
-        z-index: $value !important;
-    }
+  .rvt-#{$key} {
+    z-index: $value !important;
+  }
 }
 /* stylelint-enable */
