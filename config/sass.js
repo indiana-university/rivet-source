@@ -11,7 +11,7 @@ const scss = require('postcss-scss');
 const header = require('gulp-header');
 const runSequence = require('run-sequence');
 const package = require('../package.json');
-const bannerPackage = require('./banner');
+const bannerPackage = require('./sass-banner');
 
 gulp.task('sass', function() {
   return gulp
