@@ -1,3 +1,6 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 /* stylelint-disable */
 
 /**
@@ -7,16 +10,11 @@
  */
 
 @each $ts-pixels, $ts-rems in $type-sizes {
-
-    .ts-#{$ts-pixels},
-    .rvt-ts-#{$ts-pixels} {
-        font-size: $ts-rems !important;
-    }
-
+  .ts-#{$ts-pixels},
+  .rvt-ts-#{$ts-pixels} {
+    font-size: $ts-rems !important;
+  }
 }
-
-
-
 
 /**
  * These responsive type scale classes make it easy to apply different
@@ -29,20 +27,14 @@
  */
 
 @each $bp-name, $bp-size in $breakpoints {
-
-    @include mq($bp-size) {
-
-        @each $ts-pixels, $ts-rems in $type-sizes {
-
-            .ts-#{$ts-pixels}-#{$bp-name}-up,
-            .rvt-ts-#{$ts-pixels}-#{$bp-name}-up {
-                font-size: $ts-rems !important;
-            }
-
-        }
-
+  @include mq($bp-size) {
+    @each $ts-pixels, $ts-rems in $type-sizes {
+      .ts-#{$ts-pixels}-#{$bp-name}-up,
+      .rvt-ts-#{$ts-pixels}-#{$bp-name}-up {
+        font-size: $ts-rems !important;
+      }
     }
-
+  }
 }
 
 /* stylelint-enable */

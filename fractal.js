@@ -57,9 +57,9 @@ fractal.set('project.title', 'Rivet');
 fractal.components.set('path', path.join(__dirname, 'src/components'));
 
 fractal.components.set('statuses', {
-    prototype: {
-        label: "Prototype",
-        description: "Don't use this. We've got some stuff to work out.",
+    deprecated: {
+        label: "Deprecated",
+        description: "Don't use this in new projects. This component will be removed in the next major version of Rivet.",
         color: '#F25B19'
     },
     alpha: {
@@ -88,7 +88,7 @@ fractal.components.set('default.preview', '@preview');
 /**
  * Sets the default component status to "wip"
  */
-fractal.components.set('default.status', 'prototype');
+fractal.components.set('default.status', 'alpha');
 
 /**
  * Tell Fractal where to look for documentation pages.

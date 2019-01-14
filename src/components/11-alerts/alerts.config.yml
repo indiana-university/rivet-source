@@ -1,5 +1,5 @@
 title: Alerts & errors
-status: "beta"
+status: "ready"
 variants:
     - name: "default"
       label: "Page-level alerts"

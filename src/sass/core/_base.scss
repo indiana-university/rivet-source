@@ -1,22 +1,25 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 html * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    color: $color-text;
-    font-family: $font-base;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
+  color: $color-black;
+  font-family: $font-base;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
 }
 
 /**
- * Normalize Headig sizes since we're dealing with applications not
- * Editoral/article-like content. We'll make them slightly bigger than the
+ * Normalize Heading sizes since we're dealing with applications not
+ * Editorial/article-like content. We'll make them slightly bigger than the
  * base font size.
  */
 
@@ -26,33 +29,33 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: 1.125rem;
-    font-weight: 400;
-    margin: 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin: 0;
 }
 
 strong {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 hr {
-    border-top: 1px solid $color-black--100;
-    border-right: none;
-    border-bottom: none;
-    border-left: none;
+  border-top: 1px solid $color-black--100;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
 }
 
 code {
-    font-family: monospace;
-    background-color: $color-black--100;
-    display: inline-block;
-    padding: .125rem .25rem;
-    color: $color-midnight;
-    border-radius: $xxs;
+  font-family: monospace;
+  background-color: $color-black--100;
+  display: inline-block;
+  padding: .125rem .25rem;
+  color: $color-blue--600;
+  border-radius: $xxs;
 }
 
 abbr,
 abbr[title] {
-    border: none;
-    text-decoration: none;
+  border: none;
+  text-decoration: none;
 }

@@ -1,19 +1,22 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 // These Sass maps are used for all the basic grid set up.
 
 // Grid columns map
 $grid-columns: (
-    "1": 8.333,
-    "2": 16.6667,
-    "3": 25,
-    "4": 33.3333,
-    "5": 41.6667,
-    "6": 50,
-    "7": 58.3333,
-    "8": 66.6667,
-    "9": 75,
-    "10": 83.3333,
-    "11": 91.6667,
-    "12": 100
+  '1': 8.333,
+  '2': 16.6667,
+  '3': 25,
+  '4': 33.3333,
+  '5': 41.6667,
+  '6': 50,
+  '7': 58.3333,
+  '8': 66.6667,
+  '9': 75,
+  '10': 83.3333,
+  '11': 91.6667,
+  '12': 100
 );
 
 // Grid sizes map.
@@ -23,10 +26,10 @@ $grid-columns: (
 // like, .grid .grid--yournewsize.
 
 $grid-widths: (
-    "freshman": 640px,
-    "sophomore": 1024px,
-    "junior": 1140px,
-    "senior": 1380px
+  'freshman': 640px,
+  'sophomore': 1024px,
+  'junior': 1140px,
+  'senior': 1380px
 );
 
 // Global grid gutter. Set this to half of what you want the final gutter to be.
@@ -37,23 +40,20 @@ $gutter: $md / 2;
 // source files in their app.
 
 @mixin container($width: 100%) {
-    max-width: $width;
-    padding-right: $gutter*2;
-    padding-left: $gutter*2;
+  max-width: $width;
+  padding-right: $gutter * 2;
+  padding-left: $gutter * 2;
 }
-
 
 @mixin grid {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: ($gutter / -1);
-    margin-left: ($gutter / -1);
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: ($gutter / -1);
+  margin-left: ($gutter / -1);
 }
 
-
-
 .rvt-container {
-    @include container();
+  @include container();
 }
 
 /**
@@ -61,18 +61,18 @@ $gutter: $md / 2;
  */
 
 .rvt-container--center {
-    margin-right: auto !important;
-    margin-left: auto !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
 }
 
 @each $key, $value in $grid-widths {
-    .rvt-container--#{$key} {
-        max-width: $value;
-    }
+  .rvt-container--#{$key} {
+    max-width: $value;
+  }
 }
 
 .rvt-container--collapse {
-    padding: 0;
+  padding: 0;
 }
 
 /**
@@ -83,31 +83,31 @@ $gutter: $md / 2;
 // that want ot use the Sass source in their app.
 
 @mixin grid-item {
-    max-width: 100%;
-    flex-basis: 0;
-    flex-grow: 1;
-    padding: 0 $gutter;
-    position: relative;
+  max-width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 0 $gutter;
+  position: relative;
 }
 
 .rvt-grid {
-    @include grid;
+  @include grid;
 
-    &__item {
-        @include grid-item;
-    }
+  &__item {
+    @include grid-item;
+  }
 
-    &__item--last {
-        margin-left: auto;
-    }
+  &__item--last {
+    margin-left: auto;
+  }
 
-    [class^="rvt-grid__item"] {
-        /**
-        * This keeps the grid from collapsing when items inside are too
-        * big for their parent .rvt-grid__item.
-        */
-        min-width: 0;
-    }
+  [class^='rvt-grid__item'] {
+    /**
+     * This keeps the grid from collapsing when items inside are too
+     * big for their parent .rvt-grid__item.
+     */
+    min-width: 0;
+  }
 }
 
 /**
@@ -116,33 +116,29 @@ $gutter: $md / 2;
  */
 
 .rvt-grid--right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 %auto-grid-props {
-    width: 100%;
-    position: relative;
-    padding: 0 $gutter;
+  width: 100%;
+  position: relative;
+  padding: 0 $gutter;
 }
 
 @each $bp-name, $bp-size in $breakpoints {
+  .rvt-grid__item-#{$bp-name} {
+    @extend %auto-grid-props;
+  }
+}
+
+@each $bp-name, $bp-size in $breakpoints {
+  @include mq($bp-size) {
     .rvt-grid__item-#{$bp-name} {
-        @extend %auto-grid-props;
+      max-width: 100%;
+      flex-basis: 0;
+      flex-grow: 1;
     }
-}
-
-
-@each $bp-name, $bp-size in $breakpoints {
-
-    @include mq($bp-size) {
-        .rvt-grid__item-#{$bp-name} {
-            max-width: 100%;
-            flex-basis: 0;
-            flex-grow: 1;
-        }
-
-    }
-
+  }
 }
 
 /**
@@ -158,18 +154,17 @@ $gutter: $md / 2;
  */
 
 %item-properties {
-    position: relative;
-    padding: 0 $gutter;
-    width: 100%;
+  position: relative;
+  padding: 0 $gutter;
+  width: 100%;
 }
 
 @each $columns, $width in $grid-columns {
-    .rvt-grid__item-#{$columns} {
-        flex-basis: $width * 1%;
-        max-width: $width * 1%;
-        @extend %item-properties;
-    }
-
+  .rvt-grid__item-#{$columns} {
+    flex-basis: $width * 1%;
+    max-width: $width * 1%;
+    @extend %item-properties;
+  }
 }
 
 /**
@@ -178,90 +173,78 @@ $gutter: $md / 2;
 
 /* stylelint-disable */
 @each $bp-name, $bp-size in $breakpoints {
-
-    @each $columns, $width in $grid-columns {
-        .rvt-grid__item-#{$columns}-#{$bp-name}-up {
-            @extend %item-properties;
-        }
-
+  @each $columns, $width in $grid-columns {
+    .rvt-grid__item-#{$columns}-#{$bp-name}-up {
+      @extend %item-properties;
     }
-
+  }
 }
 
 @each $bp-name, $bp-size in $breakpoints {
-
-    @if $bp-name == "sm" {
-
-        @each $columns, $width in $grid-columns {
-            .rvt-grid__item-#{$columns}-sm-up {
-                flex-basis: $width * 1%;
-                max-width: $width * 1%;
-            }
-        }
-
-    } @else {
-
-        @include mq($bp-size) {
-
-            @each $columns, $width in $grid-columns {
-                .rvt-grid__item-#{$columns}-#{$bp-name}-up {
-                    flex-basis: $width * 1%;
-                    max-width: $width * 1%;
-                }
-
-            }
-
-        }
-
+  @if $bp-name == 'sm' {
+    @each $columns, $width in $grid-columns {
+      .rvt-grid__item-#{$columns}-sm-up {
+        flex-basis: $width * 1%;
+        max-width: $width * 1%;
+      }
     }
+  } @else {
+    @include mq($bp-size) {
+      @each $columns, $width in $grid-columns {
+        .rvt-grid__item-#{$columns}-#{$bp-name}-up {
+          flex-basis: $width * 1%;
+          max-width: $width * 1%;
+        }
+      }
+    }
+  }
 }
 
 // Push and pull utilities
-// ------------------------------------------------------------------------
+
 @each $columns, $width in $grid-columns {
-    .rvt-grid__item-push-#{$columns} {
-        left: $width * 1%;
-    }
+  .rvt-grid__item-push-#{$columns} {
+    left: $width * 1%;
+  }
 }
 
 @each $columns, $width in $grid-columns {
-    .rvt-grid__item-pull-#{$columns} {
-        right: $width * 1%;
-    }
+  .rvt-grid__item-pull-#{$columns} {
+    right: $width * 1%;
+  }
 }
 
 @each $bp-name, $bp-size in $breakpoints {
-
-    // NOTE: This is sort of repetitive because you could use the number
-    // suffix only (see above) to push and pull on small screens,
-    // but it seems like both should have the same behaviour
-    // as a convienience.
-    @if $bp-name == "sm" {
-        @each $columns, $width in $grid-columns {
-            .rvt-grid__item-push-#{$columns}-#{$bp-name} {
-                left: $width * 1%;
-            }
-        }
-
-        @each $columns, $width in $grid-columns {
-            .rvt-grid__item-pull-#{$columns}-#{$bp-name} {
-                right: $width * 1%;
-            }
-        }
-    } @else {
-        @include mq($bp-size) {
-            @each $columns, $width in $grid-columns {
-                .rvt-grid__item-push-#{$columns}-#{$bp-name} {
-                    left: $width * 1%;
-                }
-            }
-            @each $columns, $width in $grid-columns {
-                .rvt-grid__item-pull-#{$columns}-#{$bp-name} {
-                    right: $width * 1%;
-                }
-            }
-        }
+  // NOTE: This is sort of repetitive because you could use the number
+  // suffix only (see above) to push and pull on small screens,
+  // but it seems like both should have the same behavior
+  // as a convenience.
+  @if $bp-name == 'sm' {
+    @each $columns, $width in $grid-columns {
+      .rvt-grid__item-push-#{$columns}-#{$bp-name} {
+        left: $width * 1%;
+      }
     }
+
+    @each $columns, $width in $grid-columns {
+      .rvt-grid__item-pull-#{$columns}-#{$bp-name} {
+        right: $width * 1%;
+      }
+    }
+  } @else {
+    @include mq($bp-size) {
+      @each $columns, $width in $grid-columns {
+        .rvt-grid__item-push-#{$columns}-#{$bp-name} {
+          left: $width * 1%;
+        }
+      }
+      @each $columns, $width in $grid-columns {
+        .rvt-grid__item-pull-#{$columns}-#{$bp-name} {
+          right: $width * 1%;
+        }
+      }
+    }
+  }
 }
 
 /* stylelint-enable */

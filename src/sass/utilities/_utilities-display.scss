@@ -1,3 +1,6 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 /* Hide only visually, but have it available for
  * screenreaders: h5bp.com/v
  */
@@ -6,14 +9,14 @@
 .v-hide,
 .sr-only,
 .rvt-sr-only {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* Extends the .visuallyhidden class to allow the element
@@ -29,39 +32,39 @@
 .sr-only.focusable:focus,
 .rvt-sr-only.focusable:active,
 .rvt-sr-only.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 .display-block,
 .rvt-display-block {
-    display: block !important;
+  display: block !important;
 }
 
 .display-inline-block,
 .rvt-display-inline-block {
-    display: inline-block !important;
+  display: inline-block !important;
 }
 
 .display-inline,
 .rvt-display-inline {
-    display: inline !important;
+  display: inline !important;
 }
 
 .display-flex,
 .rvt-display-flex {
-    display: flex !important;
+  display: flex !important;
 }
 
 .display-none,
 .rvt-display-none {
-    display: none !important;
+  display: none !important;
 }
 
 .rvt-vertical-center {
-    align-items: center !important;
+  align-items: center !important;
 }

@@ -1,79 +1,81 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 .rvt-button-segmented {
-    display: inline-flex;
+  display: inline-flex;
 
-    &--fitted {
-        display: flex;
-        width: 100%;
-
-        .rvt-button {
-            flex-grow: 1;
-            justify-content: center;
-        }
-    }
+  &--fitted {
+    display: flex;
+    width: 100%;
 
     .rvt-button {
-        position: relative;
-
-        &:focus {
-            z-index: 1000;
-        }
+      flex-grow: 1;
+      justify-content: center;
     }
+  }
 
-    a.rvt-buton {
-        text-align: center;
+  .rvt-button {
+    position: relative;
+
+    &:focus {
+      z-index: 1000;
     }
+  }
 
-    .rvt-button:first-child {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+  a.rvt-button {
+    text-align: center;
+  }
 
-    .rvt-button:last-child {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        margin-left: -2px;
-    }
+  .rvt-button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-    .rvt-button:not(:first-child):not(:last-child) {
-        border-radius: 0;
-        margin-left: -2px;
-    }
+  .rvt-button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -2px;
+  }
 
-    /*
-     * The following helpers handle dropdowns which are nested inside of a
-     * segmented button.
-     */
+  .rvt-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    margin-left: -2px;
+  }
 
-    .dropdown:first-child > .rvt-button:only-of-type,
-    .rvt-dropdown:first-child > .rvt-button:only-of-type {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        margin-left: -2px;
-    }
+  /*
+   * The following helpers handle dropdowns which are nested inside of a
+   * segmented button.
+   */
 
-    .dropdown:first-child > .rvt-button:first-of-type,
-    .rvt-dropdown:first-child > .rvt-button:first-of-type {
-        border-top-left-radius: $xxs;
-        border-bottom-left-radius: $xxs;
-    }
+  .dropdown:first-child > .rvt-button:only-of-type,
+  .rvt-dropdown:first-child > .rvt-button:only-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-left: -2px;
+  }
 
-    .dropdown:last-child > .rvt-button:only-of-type,
-    .rvt-dropdown:last-child > .rvt-button:only-of-type {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        margin-left: -2px;
-    }
+  .dropdown:first-child > .rvt-button:first-of-type,
+  .rvt-dropdown:first-child > .rvt-button:first-of-type {
+    border-top-left-radius: $xxs;
+    border-bottom-left-radius: $xxs;
+  }
 
-    .dropdown:last-child > .rvt-button:last-of-type,
-    .rvt-dropdown:last-child > .rvt-button:last-of-type {
-        border-top-right-radius: $xxs;
-        border-bottom-right-radius: $xxs;
-    }
+  .dropdown:last-child > .rvt-button:only-of-type,
+  .rvt-dropdown:last-child > .rvt-button:only-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -2px;
+  }
 
-    .dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
-    .rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
-        border-radius: 0;
-        margin-left: -2px;
-    }
+  .dropdown:last-child > .rvt-button:last-of-type,
+  .rvt-dropdown:last-child > .rvt-button:last-of-type {
+    border-top-right-radius: $xxs;
+    border-bottom-right-radius: $xxs;
+  }
 
+  .dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
+  .rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
+    border-radius: 0;
+    margin-left: -2px;
+  }
 }

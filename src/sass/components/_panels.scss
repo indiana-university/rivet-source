@@ -1,10 +1,13 @@
-.rvt-panel {
-    box-shadow: 0 $xxs/2 0 $color-black--200;
-    border-radius: $xxs;
-    padding: $md;
-    background-color: $color-background-subtle;
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
 
-    &--light {
-        background-color: $color-background;
-    }
+.rvt-panel {
+  box-shadow: 0 $xxs/2 0 $color-black--200;
+  border-radius: $xxs;
+  padding: $md;
+  background-color: $color-black--050;
+
+  &--light {
+    background-color: $color-white;
+  }
 }

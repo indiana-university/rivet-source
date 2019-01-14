@@ -1,3 +1,8 @@
+/**
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
 var Dropdown = (function() {
   'use strict';
 
@@ -87,6 +92,7 @@ var Dropdown = (function() {
     if (!id) {
       throw new Error("You must provide a unique id for the menu you're trying to close.");
     }
+
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
     if (toggle && toggle !== undefined) {
@@ -94,6 +100,10 @@ var Dropdown = (function() {
     }
 
     var menu = document.getElementById(id);
+
+    if (!menu) {
+      throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
+    }
 
     menu.setAttribute('aria-hidden', 'true');
 

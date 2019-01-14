@@ -1,3 +1,6 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 @import "libs/normalize";
 
 @import "core/variables";
@@ -15,6 +18,7 @@
 
 @import "components/alerts";
 @import "components/badges";
+@import "components/box";
 @import "components/breadcrumb";
 @import "components/buttons";
 @import "components/buttons-segmented";
@@ -28,6 +32,8 @@
 @import "components/inputs";
 @import "components/links";
 @import "components/lists";
+@import "components/loading-indicator";
+@import "components/media-object";
 @import "components/modals";
 @import "components/pagination";
 @import "components/panels";

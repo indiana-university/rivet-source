@@ -1,55 +1,58 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 .rvt-footer {
+  align-items: center;
+  font-size: ts(12);
+  padding: $xs $md;
+  background-color: $color-black--050;
+  border-top: 1px solid $color-black--150;
+  width: 100%;
+
+  a {
+    color: $color-crimson;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__copyright-lockup {
+    display: flex;
     align-items: center;
-    font-size: ts(12);
-    padding: $xs $md;
-    background-color: $color-background-subtle;
-    border-top: 1px solid $color-black--150;
-    width: 100%;
+  }
 
-    a {
-        color: $color-crimson;
-        text-decoration: none;
+  &__trident {
+    margin-right: $sm;
+  }
 
-        &:hover {
-            text-decoration: underline;
-        }
+  &__aux-links {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    padding: 0;
+  }
+
+  &__aux-item {
+    display: inline-block;
+    margin-top: 0;
+
+    &:after {
+      content: '|';
+      color: $color-black--500;
+      margin: 0 $xs;
     }
 
-    &__copyright-lockup {
-        display: flex;
-        align-items: center;
+    &:last-child:after {
+      content: none;
     }
-
-    &__trident {
-        margin-right: $sm;
-    }
-
-    &__aux-links {
-        list-style: none;
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: auto;
-        padding: 0;
-    }
-
-    &__aux-item {
-        display: inline-block;
-        margin-top: 0;
-
-        &:after {
-            content: "|";
-            color: $color-black--500;
-            margin: 0 $xs;
-        }
-
-        &:last-child:after {
-            content: none;
-        }
-    }
+  }
 }
 
 @include mq(640px) {
-    .rvt-footer {
-        display: flex;
-    }
+  .rvt-footer {
+    display: flex;
+  }
 }

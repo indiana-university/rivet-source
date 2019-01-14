@@ -12,7 +12,7 @@ requireDir('./config');
  */
 
 gulp.task('build', function(cb) {
-    runSequence('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
+  runSequence('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
 });
 
 /**
@@ -20,12 +20,12 @@ gulp.task('build', function(cb) {
  */
 
 gulp.task('dev:serve', [
-    'sass:lint',
-    'sass',
-    'js:concat',
-    'fractal:start',
-    'sass:watch',
-    'js:watch'
+  'sass:lint',
+  'sass',
+  'js:concat',
+  'fractal:start',
+  'sass:watch',
+  'js:watch'
 ]);
 
 gulp.task('default', ['dev:serve']);
@@ -35,19 +35,19 @@ gulp.task('default', ['dev:serve']);
  */
 
 gulp.task('build:example', function() {
-    gulp.src('./src/components/_extras/_index-example.html')
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest('.'));
+  gulp.src('./src/components/_extras/_index-example.html')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('build:dist', function(done) {
-    runSequence(
-        'sass',
-        'js:concat',
-        'css:release',
-        'js:release',
-        'sass:release',
-        'build:example',
-        done
-    );
+  runSequence(
+    'sass',
+    'js:concat',
+    'css:release',
+    'js:release',
+    'sass:release',
+    'build:example',
+    done
+  );
 });

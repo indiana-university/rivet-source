@@ -8,9 +8,9 @@ Each component will go through phases in it's lifecycle. Below is a breakdown of
     </thead>
     <tbody>
         <tr>
-            <td>Prototype</td>
-            <td><strong>Don't use this.</strong> We've got some stuff to work out. Prototypes are concepts that need further development. <strong>New components will default to Prototype status</strong>.</td>
-            <td><label class="Status-label" style="background-color: #F25B19; border-color: #F25B19;">Prototype</label></td>
+            <td>Deprecated</td>
+            <td><strong>Don't use this.</strong> This component will be removed in the next major version of Rivet.</td>
+            <td><label class="Status-label" style="background-color: #F25B19; border-color: #F25B19;">Deprecated</label></td>
         </tr>
         <tr>
             <td>Alpha</td>

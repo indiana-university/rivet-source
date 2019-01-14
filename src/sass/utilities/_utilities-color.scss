@@ -1,12 +1,13 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 /* stylelint-disable */
 
 @each $key, $value in $color-map {
-
-    .color-#{$key},
-    .rvt-color-#{$key} {
-        color: #{$value};
-    }
-
+  .color-#{$key},
+  .rvt-color-#{$key} {
+    color: #{$value};
+  }
 }
 
 // @example - CSS output
@@ -14,19 +15,19 @@
 //     background-color: #006298;
 // }
 @each $key, $value in $color-map {
-    .bg-#{$key},
-    .rvt-bg-#{$key} {
-        background-color: #{$value};
-        color: $color-background;
+  .bg-#{$key},
+  .rvt-bg-#{$key} {
+    background-color: #{$value};
+    color: $color-white;
 
-        a {
-            color: rgba($color-background, .9);
-        }
-
-        a:hover {
-            color: $color-background;
-        }
+    a {
+      color: rgba($color-white, 0.9);
     }
+
+    a:hover {
+      color: $color-white;
+    }
+  }
 }
 
 /* stylelint-enable */
