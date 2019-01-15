@@ -32,7 +32,7 @@ To get started working locally on your computer first clone or download this rep
 
 ```sh
 git clone https://github.iu.edu/UITS/rivet-source.git
-cd uitsds
+cd rivet-source
 ```
 
 Next you'll need to install it's dependencies via NPM:
