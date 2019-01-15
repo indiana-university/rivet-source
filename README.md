@@ -47,15 +47,14 @@ The default gulp task will watch all component templates (.hbs) and Sass (.scss)
 
 Read more about configuring components on the [Fractal webiste](http://fractal.build/guide/components).
 
-## Deployment
-To make it easier to share work in progress, commits to this repo are deployed automatically [using Webhooks](https://github.iu.edu/UITS/uitsds/settings/hooks) to [https://uitsdsgn.webtest.iu.edu/BRANCH-NAME](https://uitsdsgn.webtest.iu.edu/uitsds), where `BRANCH-NAME` is the name of the branch you are committing to. Commits to the `master` and `develop` branches will deploy to the default https://uitsdsgn.webtest.iu.edu/uitsds directory. Directories on webtest are deleted when their corresponding branch is deleted on github.
+## Submitting a Github issue
+To help us understand the kind of contribution you want to make we ask that you first submit a Github issue. Here are a few guidelines to follow when creating a new issue:
 
-### Deployment process
-The deployment process uses [Webhooks](https://github.iu.edu/UITS/uitsds/settings/hooks) to trigger a php script on the webtest server. The repo is checked out and built, and then the `_build` directory is copied to a subdirectory of wwws reflecting the name of the branch. Deployment takes about a minute to pull, build, and copy. If you encounter issues with deployment, you can check the recent deliveries of the Webhooks, where you can redeliver a Webhook payload to fire the script again:
-
-`push` webhook: https://github.iu.edu/UITS/uitsds/settings/hooks/1053
-
-`delete` webhook: https://github.iu.edu/UITS/uitsds/settings/hooks/1066
+1. Go to the Rivet repository on [GitHub](https://github.com/indiana-university/rivet-source/issues).
+3. Click the "New Issue" button.
+4. Fill out the provided issue template to the best of your ability. If you are submitting a design concept for a new or existing component please attach a screenshot, a link to an Axure mockup, or feel free to link to example HTML/CSS/javaScript (a link to pen on [Codepen](http://codepen.io/) would be great!).
+5. After you have filled out the issue template click the **Submit new issue** button to create your new issue :tada:.
+6. Once the team has had a chance to review the issue they will either mark it as **request**, or ask you for more information before moving on to the next steps.
 
 ## Submitting a pull request
 1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to https://github.iu.edu/UITS/rivet-source.git.
