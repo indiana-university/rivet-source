@@ -6,10 +6,10 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.iu.edu/UITS/rivet-source.git"
+    "url": "https://github.com/indiana-university/rivet-source"
   },
   "bugs": {
-    "url": "https://github.iu.edu/UITS/rivet-source/issues",
+    "url": "https://github.com/indiana-university/rivet-source/issues",
     "email": "rivet@iu.edu"
   },
   "scripts": {
