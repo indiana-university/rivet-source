@@ -57,94 +57,12 @@ To help us understand the kind of contribution you want to make we ask that you 
 6. Once the team has had a chance to review the issue they will either mark it as **request**, or ask you for more information before moving on to the next steps.
 
 ## Submitting a pull request
-1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to https://github.iu.edu/UITS/rivet-source.git.
-2. Create a new feature branch off of `develop` (the default branch) with the prefix `feature-` e.g. `feature-modal`
+1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to `https://github.com/indiana-university/rivet-source.git`.
+2. Create a new feature branch off of `develop` (the default branch) with the prefix `feature/` e.g. `feature/modal`
 3. Commit your changes. Be sure to keep your commits narrow in scope and avoid committing changes not related to your feature.
 4. Locally merge any upstream changes into your feature branch: `git pull upstream develop`
-5. Push your feature branch to your fork: `git push origin feature-**your feature**`
+5. Push your feature branch to your fork: `git push origin feature/**your feature**`
 6. [Open a pull request](https://help.github.com/articles/about-pull-requests/) with a title and clear description of your feature branch against `develop`
-
-## Coding style
-A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/README.md), because it's really good :100:
-
-### HTML
-- Use [BEM naming methodology](https://css-tricks.com/bem-101/) - “Block-Element-Modifier”
-- 4 spaces for indentation
-- Use valid HTML5 markup
-
-### CSS & Sass
-
-- 4 spaces for indentation
-- Prefer dashes over camelCasing in class names.
-- Underscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
-- **Do not use ID selectors**
-- When using multiple selectors in a rule declaration, give each selector its own line.
-- Put a space before the opening brace { in rule declarations
-- In properties, put a space after, but not before, the : character.
-- Put closing braces } of rule declarations on a new line
-- Put blank lines between rule declarations
-
-### Rule declaration
-
-**Not good**
-
-```css
-.selector-one {
-    border-radius:50%;
-    border:2px solid white; }
-.no, .nope, .not_good {
-    // ...
-}
-
-#lol-no {
-  // ...
-}
-```
-
-**Good**
-
-```css
-.avatar {
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-.one,
-.selector,
-.per-line {
-  // ...
-}
-```
-
-
-### Comments
-Make use comments as often as you can. It will help other developers understand your decisions and make it easier to maintain over time.
-
-- Prefer CSS (not Sass) multiline comments anywhere that actual CSS will be compiled/output. Use Sass-style comments (e.g.. `//`) in code that doesn't output any actual CSS (variables, mixins, functions, etc).
-- Use lots of white space in your comments. It makes code easier to scan and comments easier to read. Comments should have at least one blank line above and below them.
-- Break comments that exceed 80 characters on to new lines (see below).
-
-#### Examples
-
-```css
-
-/**
- * This is a really nice comment that helps other people.
- */
-
-```
-
-**Longer multi-line comments**
-```css
-
-/**
- * This
- * This is a comment that is very descriptive which is good.
- * Try to keep the line length of comments to 75-80 characters
- * so that they are easier to read.
- */
-
-```
 
 ### Testing Javascript
 We use [Cypress](https://www.cypress.io/) to run automated end-to-end tests on Rivet's JavaScript components. To run tests do the following:
