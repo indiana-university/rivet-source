@@ -6,4 +6,3 @@ variants:
       label: "Segemented button"
       notes: |
             # Segmented Buttons
-            The segemented button is used to display a group related controls in a single line. They can be combined with the dropdown to create complex menu controls.

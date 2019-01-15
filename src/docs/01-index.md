@@ -3,21 +3,9 @@ title: Rivet Design System
 ---
 Our goal is to make it easier for teams to design and develop great experiences for users across all UITS applications.
 
-<a href="https://uxo.iu.edu/status/" class="create-button">Track our progress</a>
+This site is a preview of the Rivet source. It's where we develop new features and components and is not always stable. For that reason you should **always** reference the official Rivet documentation site at [rivet.iu.edu](https://rivet.iu.edu/).
 
-## Principles
-
-**Be clear.**
-
-Make design decisions based on user needs. Design interfaces that help our users accomplish their goals quickly and easily.
-
-**Be flexible.**
-
-Our design system is for all types of UITS applications, even ones that have yet to be imagined. We need to design and build for flexibility.
-
-**Be productive.**
-
-Done is better than perfect. Iteration is only half the battle. Testing with users could reveal issues or questions we didn’t anticipate.
+<a href="https://rivet.iu.edu/" class="create-button">Visit the Rivet docs</a>
 
 ## What is this?
 
@@ -27,6 +15,20 @@ We are using [Fractal](http://fractal.build/) to build and document components f
 
 - [More about Fractal](http://fractal.build/guide)
 - [Fractal Installation guide](http://fractal.build/guide/installation) (Node.js required)
+
+## Principles
+
+**Be clear.**
+
+Make design decisions based on user needs. Design interfaces that help our users accomplish their goals quickly and easily.
+
+**Be flexible.**
+
+Our design system is for all types of IU applications, even ones that have yet to be imagined. We need to design and build for flexibility.
+
+**Be productive.**
+
+Done is better than perfect. Iteration is only half the battle. Testing with users could reveal issues or questions we didn’t anticipate.
 
 
 <style scoped>

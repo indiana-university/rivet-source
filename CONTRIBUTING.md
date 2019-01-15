@@ -1,9 +1,17 @@
 # Hey!
+We're excited that you want to contribute to Rivet. If you're ever unsure about anything please feel free to [email us](mailto:rivet@iu.edu).
 
-We're excited that you want to contribute to the UITS Design system. If you're ever unsure about anything please feel free to [email us](mailto:uxo@iu.edu) or post in the **#design-system** channel on Slack.
+## Contributing to Rivet
 
-## Design contribution
-The first step in contributing to the design system is to submit your suggestions to the team. To submit your proposed contribution create a new issue on [github.iu.edu](https://github.iu.edu/UITS/uitsds/issues) ([see more below](submitting-a-github-issue)). Someone from the team will respond to your submission and the begin the review process.
+### Outside contributions
+We're happy to accept pull requests from contributors outside of Indiana University, but before we can merge the code they will need to sign a [Contributor License Agreement (CLA)](https://en.wikipedia.org/wiki/Contributor_License_Agreement). Although a signed CLA is required to merge pull requests, we are happy to accept bug reports via [GitHub issues](https://github.com/indiana-university/rivet-source/issues).
+
+The Rivet team will reach out to outside contributors to initiate the CLA process once a pull request has been opened.
+
+See the CONTRIBUTING.md file in the root of this repository for more information.
+
+### Getting started with a contribution
+The first step in contributing to Rivet is to submit your suggestions to the team. To submit your proposed contribution create a new issue on [GitHub](https://github.com/indiana-university/rivet-source/issues). Someone from the team will respond to your submission and the begin the review process. Visit the Rivet docs to [read more about the review process](https://rivet.iu.edu/components/information/contributing/#review-process).
 
 ### Submission requirements
 
@@ -16,10 +24,10 @@ The first step in contributing to the design system is to submit your suggestion
 - any other document, links, research you would like to include
 
 ### Review process
-After the Github issue is created and the submission has enough information and supporting materials (i.e. issue template is completely filled out) someone from the team will mark the issue as **proposed**. Otherwise, someone from the team will ask the submitter for further information/documentation and mark the issue as **needs more info**.
+After the Github issue is created and the submission has enough information and supporting materials (i.e. issue template is completely filled out) someone from the team will mark the issue as **request**. Otherwise, someone from the team will ask the submitter for further information/documentation and mark the issue as **needs more info**.
 
 #### Review criteria
-Once we have enough info the team will do a review of the proposed design based on the following criteria:
+Once we have enough info the Rivet team will do a review of the proposed design based on the following criteria:
 
 **Note**: Using the criteria from [this document](https://github.com/18F/web-design-standards/wiki/Contribution-Guidelines%3A-Design) which is super thorough and has a lot of great ideas for how to structure this type of process.
 
@@ -28,38 +36,23 @@ Once we have enough info the team will do a review of the proposed design based 
 - **Visual design** — Is the contribution consistent with our visual style?
 - **Content** — Does the pattern have plain language, correct spelling, and grammar? Does the author clearly describe actions?
 
-If the team decides to not move forward with the design submission the issue will be closed.
-
-#### Alpha Status
-If the team finds the proposed pattern to meet the above criteria someone from the development team will pair up with the designer to create a HTML/CSS/javaScript prototype of the submission. At this stage the component will move from _Proposed_ status into the design system with _Alpha_ status.
-
-#### Beta status, Usability & Accessibility testing
-After the prototype component has been created and is functional, it will move to _Beta_ status within the design system. The component will be tested to ensure that it meets accessibility requirements. The User Experience office will conduct usability tests to ensure that it's easy to use and understand.
-
-#### Ready Status
-Once the new component is tested and meets all requirements it will move to _Ready_ status in the design system at which point it will be ready for teams to use in production applications.
-
-This bit probably needs fleshed out a bit more...
+If the team decides to not move forward with the design submission the issue will be closed and the contributor will be notified.
 
 ## Submitting a Github issue
-To help us understand the kind of contribution you want to make we ask that you first submit a Github issue on github.iu.edu. Here are a few guidelines to follow when creating a new issue:
+To help us understand the kind of contribution you want to make we ask that you first submit a Github issue. Here are a few guidelines to follow when creating a new issue:
 
-1. Go to the UITS Design system repository on [github.iu.edu](https://github.iu.edu/UITS/uitsds/issues).
-2. Login with your IU CAS username and passphrase. Don't worry if you've never logged into github.iu.edu before—anyone with a CAS username and passphrase can log in.
+1. Go to the Rivet repository on [GitHub](https://github.com/indiana-university/rivet-source/issues).
 3. Click the "New Issue" button.
 4. Fill out the provided issue template to the best of your ability. If you are submitting a design concept for a new or existing component please attach a screenshot, a link to an Axure mockup, or feel free to link to example HTML/CSS/javaScript (a link to pen on [Codepen](http://codepen.io/) would be great!).
 5. After you have filled out the issue template click the **Submit new issue** button to create your new issue :tada:.
-6. Once the team has had a chance to review the issue they will either mark it as **Proposed**, or ask you for more information before moving on to the next steps.
-
-### Github Resources
-If you need more info, this [Knowledge Base article](https://kb.iu.edu/d/bagk) explains IU's Github Enterprise service in a little more detail and has some handy links to Git and GitHub documentation.
+6. Once the team has had a chance to review the issue they will either mark it as **request**, or ask you for more information before moving on to the next steps.
 
 ## Submitting a pull request
-1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to https://github.iu.edu/UITS/rivet-source.git.
-2. Create a new feature branch off of `develop` (the default branch) with the prefix `feature-` e.g. `feature-modal`
+1. Fork the main `rivet-source` repository and then clone your fork locally. Follow [these instructions on syncing your local fork](https://help.github.com/articles/fork-a-repo/#keep-your-fork-synced). Set your new `upstream` remote to point to `https://github.com/indiana-university/rivet-source.git`.
+2. Create a new feature branch off of `develop` (the default branch) with the prefix `feature/` e.g. `feature/modal`
 3. Commit your changes. Be sure to keep your commits narrow in scope and avoid committing changes not related to your feature.
 4. Locally merge any upstream changes into your feature branch: `git pull upstream develop`
-5. Push your feature branch to your fork: `git push origin feature-**your feature**`
+5. Push your feature branch to your fork: `git push origin feature/**your feature**`
 6. [Open a pull request](https://help.github.com/articles/about-pull-requests/) with a title and clear description of your feature branch against `develop`
 
 ## Coding style
@@ -67,11 +60,11 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 
 ### HTML
 - Use [BEM naming methodology](https://css-tricks.com/bem-101/) - “Block-Element-Modifier”
-- 4 spaces for indentation
+- 2 spaces for indentation
 - Use valid HTML5 markup
 
 ### CSS & Sass
-- 4 spaces for indentation
+- 2 spaces for indentation
 - Prefer dashes over camelCasing in class names.
 - Underscores are ok for [BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 - **Do not use ID selectors**
@@ -81,43 +74,10 @@ A lot of this taken from [this doc](https://github.com/airbnb/css/blob/master/RE
 - Put closing braces } of rule declarations on a new line
 - Put blank lines between rule declarations
 
-### Rule declaration
-
-**Not good**
-
-```css
-.selector-one{
-    border-radius:50%;
-    border:2px solid white; }
-.no, .nope, .not_good {
-    // ...
-}
-
-#lol-no {
-  // ...
-}
-```
-
-**Good**
-
-```css
-.avatar {
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-.one,
-.selector,
-.per-line {
-  // ...
-}
-```
-
-
 ### Comments
 Make use comments as often as you can. It will help other developers understand your decisions and make it easier to maintain over time.
 
-- Prefer CSS (not Sass) multiline comments anywhere that actual CSS will be compiled/output. Use Sass-style comments (e.g.. `//`) in code that doesn't output any actual CSS (variables, mixins, functions, etc).
+- Prefer CSS (not Sass) multi-line comments anywhere that actual CSS will be compiled/output. Use Sass-style comments (e.g.. `//`) in code that doesn't output any actual CSS (variables, mixins, functions, etc).
 - Use lots of white space in your comments. It makes code easier to scan and comments easier to read. Comments should have at least one blank line above and below them.
 - Break comments that exceed 80 characters on to new lines (see below).
 
@@ -143,5 +103,6 @@ Make use comments as often as you can. It will help other developers understand 
 
 ```
 
-### javaScript
-Work in progress...
+### javaScript (WIP)
+- 2 spaces
+- single quotes

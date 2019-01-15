@@ -7,18 +7,3 @@ variants:
       label: "Alert lists"
       notes: |
         # Alert lists
-
-        Alert lists provide a way to group a set of errors together. For instance, when summarizing a list of errors on a long form.
-
-        ## Accessibility
-
-        Alert lists can be particularly useful for summarizing multiple errors on a page, and providing links to the invalid fields. These summaries are especially helpful for non-sighted users, who will not receive the visual cue provided by multiple [inline alerts](./alerts--inline-errors) appearing on the page when a form is submitted.
-
-        ## Microcopy notes
-
-        - Alert title should be clear and concise
-        - Where appropriate, alert title should be a link to the position on the page where the invalid element can be found.
-        - Alert message should be descriptive and should clearly articulate the problem the user has encountered or the information you are trying to convey to the user.
-        - Alert message should offer next steps where appropriate.
-
-        See the [Microcopy section](/docs/microcopy/) for additional information.
