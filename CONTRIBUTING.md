@@ -4,9 +4,11 @@ We're excited that you want to contribute to Rivet. If you're ever unsure about 
 ## Contributing to Rivet
 
 ### Outside contributions
-We're happy to accept pull requests from contributors outside of Indiana University, but before we can merge the code they will need to sign a [Contributor License Agreement (CLA)](https://en.wikipedia.org/wiki/Contributor_License_Agreement). Although a signed CLA is required to merge pull requests, we are happy to accept bug reports via [GitHub issues](https://github.com/indiana-university/rivet-source/issues). See the _Submitting a pull request_ section below.
+We're happy to accept pull requests from contributors outside of Indiana University, but before we can merge the code they will need to sign a [Contributor License Agreement (CLA)](https://en.wikipedia.org/wiki/Contributor_License_Agreement). Although a signed CLA is required to merge pull requests, we are happy to accept bug reports via [GitHub issues](https://github.com/indiana-university/rivet-source/issues).
 
 The Rivet team will reach out to outside contributors to initiate the CLA process once a pull request has been opened.
+
+See the CONTRIBUTING.md file in the root of this repository for more information.
 
 ### Getting started with a contribution
 The first step in contributing to Rivet is to submit your suggestions to the team. To submit your proposed contribution create a new issue on [GitHub](https://github.com/indiana-university/rivet-source/issues). Someone from the team will respond to your submission and the begin the review process. Visit the Rivet docs to [read more about the review process](https://rivet.iu.edu/components/information/contributing/#review-process).
