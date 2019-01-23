@@ -246,8 +246,9 @@ var Modal = (function() {
         event.preventDefault();
 
         close(id);
-
-        activeTrigger.focus();
+        
+        // Check to make sure modal was opened via a trigger element.
+        if (activeTrigger !== null) activeTrigger.focus();
 
         break;
       case trigger === id && !event.clickedInModal:
