@@ -232,8 +232,9 @@ var Modal = (function() {
 
     // Sets the id based on whatever the matching target was.
     var id = trigger.getAttribute(TRIGGER_ATTR) ||
-      (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ? trigger.getAttribute(CLOSE_ATTR) : false) ||
-      event.target.closest(MODAL_SELECTOR);
+      (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ?
+        trigger.getAttribute(CLOSE_ATTR) : false) ||
+        event.target.closest(MODAL_SELECTOR);
 
     switch (trigger !== null) {
       case trigger.hasAttribute(TRIGGER_ATTR):
