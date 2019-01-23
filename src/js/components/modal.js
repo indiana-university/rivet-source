@@ -119,11 +119,11 @@ var Modal = (function() {
      * be deprecated in the next major version.
      */
     if (typeof id === 'object' && id.nodeType === 1) {
-        id = id.getAttribute('id');
+      id = id.getAttribute('id');
 
-        if (!id) {
-          throw new Error('Please proved an id attribute for the modal you want to close.');
-        }
+      if (!id) {
+        throw new Error('Please proved an id attribute for the modal you want to close.');
+      }
     }
 
     var modal = _createModalObject(id);
@@ -235,7 +235,7 @@ var Modal = (function() {
       (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ? trigger.getAttribute(CLOSE_ATTR) : false) ||
       event.target.closest(MODAL_SELECTOR);
 
-    switch (trigger !== null || undefined) {
+    switch (trigger !== null) {
       case trigger.hasAttribute(TRIGGER_ATTR):
         open(id);
 
@@ -258,6 +258,8 @@ var Modal = (function() {
         close(id);
 
         activeTrigger.focus();
+        
+        break;
       default:
         return;
     }
