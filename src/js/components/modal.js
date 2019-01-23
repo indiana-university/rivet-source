@@ -82,7 +82,7 @@ var Modal = (function() {
 
     // Sets a class on the body to handle overflow and scroll.
     document.body.classList.add('rvt-modal-open');
-    
+
     /**
      * Emit a custom 'modalOpen' event and send along the modal's
      * id attribute in the event.detail.name()
@@ -235,7 +235,7 @@ var Modal = (function() {
         close(id);
 
         activeTrigger.focus();
-        
+
         break;
       default:
         return;
@@ -311,9 +311,9 @@ var Modal = (function() {
         if (activeModal.hasAttribute('data-modal-dialog')) return;
 
         close(activeModal.id);
-        
+
         if (activeTrigger !== null) activeTrigger.focus();
-        
+
         break;
       default:
         break;
