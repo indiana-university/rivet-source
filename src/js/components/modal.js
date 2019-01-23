@@ -311,9 +311,9 @@ var Modal = (function() {
         if (activeModal.hasAttribute('data-modal-dialog')) return;
 
         close(activeModal.id);
-
-        activeTrigger.focus();
-
+        
+        if (activeTrigger !== null) activeTrigger.focus();
+        
         break;
       default:
         break;
