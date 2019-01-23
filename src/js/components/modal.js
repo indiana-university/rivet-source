@@ -82,8 +82,25 @@ var Modal = (function() {
 
     // Sets a class on the body to handle overflow and scroll.
     document.body.classList.add('rvt-modal-open');
-
-    fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalOpen');
+    
+    /**
+     * TODO: Here we are checking to see if the modal was triggered by
+     * clicking an element with the "data-modal-trigger" attribute. This
+     * is to cover the case that someone might use a modal without a
+     * trigger associated with it i.e. opening the modal programmatically
+     * via the API. This could probably be refactored to always use the
+     * modal's "id" attribute when emitting the custom event. Same for the
+     * ".close()" method below.
+     */
+    
+    // If there is a corresponding modal trigger
+    if (activeTrigger !== null) {
+      // Fire the custom event from the trigger
+      fireCustomEvent(activeTrigger, TRIGGER_ATTR, 'modalOpen');
+    } else {
+      // Otherwise use the modal's id attribute
+      fireCustomEvent(activeModal, 'id', 'modalOpen');
+    }
 
     if (callback && typeof callback === 'function') {
       callback();
@@ -118,8 +135,23 @@ var Modal = (function() {
     modal.body.setAttribute('aria-hidden', 'true');
 
     document.body.classList.remove('rvt-modal-open');
-
-    fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalClose');
+    
+    /**
+     * TODO: Here we are checking to see if the modal was triggered by
+     * clicking an element with the "data-modal-trigger" attribute. This
+     * is to cover the case that someone might use a modal without a
+     * trigger associated with it i.e. opening the modal programmatically
+     * via the API. This could probably be refactored to always use the
+     * modal's "id" attribute when emitting the custom event. Same for the
+     * ".open()" method above.
+     */
+    
+    // If there is a corresponding modal trigger
+    if (activeTrigger !== null) {
+      fireCustomEvent(activeTrigger, TRIGGER_ATTR, 'modalClose');
+    } else {
+      fireCustomEvent(activeModal, 'id', 'modalClose');
+    }
 
     if (callback && typeof callback === 'function') {
         callback();
