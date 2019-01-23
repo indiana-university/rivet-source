@@ -86,6 +86,34 @@
 </div>
 
 <script>
+    document.addEventListener('keydown', event => {
+        if (event.keyCode === 77) {
+            Modal.open('modal-example');
+            
+            return;
+        }
+        
+        if (event.keyCode === 67) {
+            Modal.close('modal-example');
+        }
+    })
+    
+    // Listen for a custom "modalOpen" event
+    document.addEventListener('modalOpen', event => {
+    if (event.detail.name() === 'modal-example') {
+      alert('Hey, you opened the modal!')
+    }
+    // Maybe send some data via an AJAX request, etc...
+    }, false);
+    
+    // Listen for a custom "modalOpen" event
+    document.addEventListener('modalClose', event => {
+    if (event.detail.name() === 'modal-example') {
+      alert('Hey, you closed the modal!')
+    }
+    // Maybe send some data via an AJAX request, etc...
+    }, false);
+    
     const newAlert = `
         <div class="rvt-alert rvt-alert--error rvt-m-bottom-sm" role="alert" aria-labelledby="error-alert-title" tabindex="-1">
             <h1 class="rvt-alert__title" id="error-alert-title">Incorrect User ID or Password</h1>
