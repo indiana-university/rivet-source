@@ -149,22 +149,30 @@ $spacing-sizes: (
 @each $direction in $spacing-directions {
   @if $direction == null {
     .m-all-remove,
-    .rvt-m-all-remove {
+    .rvt-m-all-remove,
+    .m-all-none, 
+    .rvt-m-all-none {
       margin: 0 !important;
     }
 
     .p-all-remove,
-    .rvt-p-all-remove {
+    .rvt-p-all-remove, 
+    .p-all-none,
+    .rvt-p-all-none {
       padding: 0 !important;
     }
   } @else {
     .m#{$direction}-remove,
-    .rvt-m#{$direction}-remove {
+    .rvt-m#{$direction}-remove, 
+    .m#{$direction}-none,
+    .rvt-m#{$direction}-none {
       margin#{$direction}: 0 !important;
     }
 
     .p#{$direction}-remove,
-    .rvt-p#{$direction}-remove {
+    .rvt-p#{$direction}-remove,
+    .p#{$direction}-none, 
+    .rvt-p#{$direction}-none {
       padding#{$direction}: 0 !important;
     }
   }
