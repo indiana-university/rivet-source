@@ -83,7 +83,11 @@ var Modal = (function() {
     // Sets a class on the body to handle overflow and scroll.
     document.body.classList.add('rvt-modal-open');
 
-    fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalOpen');
+    /**
+     * Emit a custom 'modalOpen' event and send along the modal's
+     * id attribute in the event.detail.name()
+     */
+    fireCustomEvent(activeModal, 'id', 'modalOpen');
 
     if (callback && typeof callback === 'function') {
       callback();
@@ -102,11 +106,11 @@ var Modal = (function() {
      * be deprecated in the next major version.
      */
     if (typeof id === 'object' && id.nodeType === 1) {
-        id = id.getAttribute('id');
+      id = id.getAttribute('id');
 
-        if (!id) {
-          throw new Error('Please proved an id attribute for the modal you want to close.');
-        }
+      if (!id) {
+        throw new Error('Please proved an id attribute for the modal you want to close.');
+      }
     }
 
     var modal = _createModalObject(id);
@@ -118,8 +122,12 @@ var Modal = (function() {
     modal.body.setAttribute('aria-hidden', 'true');
 
     document.body.classList.remove('rvt-modal-open');
-
-    fireCustomEvent(modal.trigger, TRIGGER_ATTR, 'modalClose');
+    
+    /**
+     * Emit a custom 'modalClose' event and send along the modal's
+     * id attribute in the event.detail.name()
+     */
+    fireCustomEvent(activeModal, 'id', 'modalClose');
 
     if (callback && typeof callback === 'function') {
         callback();
@@ -200,10 +208,11 @@ var Modal = (function() {
 
     // Sets the id based on whatever the matching target was.
     var id = trigger.getAttribute(TRIGGER_ATTR) ||
-      (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ? trigger.getAttribute(CLOSE_ATTR) : false) ||
-      event.target.closest(MODAL_SELECTOR);
+      (trigger.getAttribute(CLOSE_ATTR) && trigger.getAttribute(CLOSE_ATTR) !== 'close' ?
+        trigger.getAttribute(CLOSE_ATTR) : false) ||
+        event.target.closest(MODAL_SELECTOR);
 
-    switch (trigger !== null || undefined) {
+    switch (trigger !== null) {
       case trigger.hasAttribute(TRIGGER_ATTR):
         open(id);
 
@@ -214,8 +223,9 @@ var Modal = (function() {
         event.preventDefault();
 
         close(id);
-
-        activeTrigger.focus();
+        
+        // Check to make sure modal was opened via a trigger element.
+        if (activeTrigger !== null) activeTrigger.focus();
 
         break;
       case trigger === id && !event.clickedInModal:
@@ -225,6 +235,8 @@ var Modal = (function() {
         close(id);
 
         activeTrigger.focus();
+
+        break;
       default:
         return;
     }
@@ -300,7 +312,7 @@ var Modal = (function() {
 
         close(activeModal.id);
 
-        activeTrigger.focus();
+        if (activeTrigger !== null) activeTrigger.focus();
 
         break;
       default:
