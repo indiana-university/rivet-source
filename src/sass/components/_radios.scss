@@ -10,7 +10,7 @@ input[type='radio'] {
 input[type='radio'] + label,
 .rvt-radio-wrapper input[type='radio'] ~ label {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: $text-regular;
   /**
    * Visually adjust due to the bigger hit area for radio buttons.
    */

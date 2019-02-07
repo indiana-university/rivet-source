@@ -14,7 +14,7 @@ input[type='checkbox'] + label,
    * Helps visually align checkbox lists
    */
   margin-left: .2rem;
-  font-weight: 400;
+  font-weight: $text-regular;
 
   &:before {
     display: inline-block;

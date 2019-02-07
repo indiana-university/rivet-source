@@ -33,7 +33,7 @@ a,
 
 .rvt-link--bold,
 .rvt-link-bold {
-  font-weight: 700;
+  font-weight: $text-bold;
   text-decoration: none;
 
   &:hover {

@@ -121,7 +121,7 @@
   &__menu-heading {
     color: $color-black--700;
     padding: $sm $sm $xxs;
-    font-weight: 700;
+    font-weight: $text-bold;
     font-size: $ts-14;
 
     &:first-child {

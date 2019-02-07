@@ -18,7 +18,7 @@ thead {
   tr th {
     padding: $sm;
     line-height: 1;
-    font-weight: 700;
+    font-weight: $text-bold;
   }
 }
 
@@ -27,7 +27,7 @@ tr {
 }
 
 tr th {
-  font-weight: 400;
+  font-weight: $text-regular;
   padding: $sm;
 }
 
