@@ -434,7 +434,7 @@
     width: 1px;
     margin-top: -1px;
     overflow: hidden;
-    font-weight: $text-bold;
+    font-weight: $font-weight-bold;
 
     &:focus {
       outline: none;
@@ -511,7 +511,7 @@
     text-align: center;
     padding-top: .35rem;
     font-size: .75rem;
-    font-weight: $text-bold;
+    font-weight: $font-weight-bold;
     color: $color-black--050;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

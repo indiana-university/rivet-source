@@ -9,7 +9,7 @@
   position: relative;
 
   &__title {
-    font-weight: $text-bold;
+    font-weight: $font-weight-bold;
     font-size: $ts-18;
     /**
      * We'll put bottom margin on the title here so that the .alert can
@@ -144,7 +144,7 @@
     margin: 0;
     padding: $sm;
     line-height: 1.2;
-    font-weight: $text-bold;
+    font-weight: $font-weight-bold;
     font-size: $ts-14;
   }
 }
