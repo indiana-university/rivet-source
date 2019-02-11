@@ -102,7 +102,11 @@ var Dropdown = (function() {
     var menu = document.getElementById(id);
 
     if (!menu) {
-      throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
+      if(id) {
+        return 
+      } else {
+        throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
+      }
     }
 
     menu.setAttribute('aria-hidden', 'true');
