@@ -102,9 +102,11 @@ var Dropdown = (function() {
     var menu = document.getElementById(id);
 
     if (!menu) {
+      // If the menu has been removed from the DOM as a result of some other action in the menu then bail
       if(id) {
         return 
       } else {
+      // Otherwise throw an error
         throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
       }
     }

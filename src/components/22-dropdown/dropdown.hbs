@@ -1,7 +1,7 @@
 <h1 class="rvt-ts-32 rvt-text-bold rvt-m-bottom-xxl">Dropdowns</h1>
 
 <div class="rvt-button-group">
-    <div class="rvt-dropdown" id="bug">
+    <div class="rvt-dropdown">
         <button class="rvt-button" data-dropdown-toggle="dropdown-navigation" aria-haspopup="true" aria-expanded="false">
             <span>Navigation menu</span>
             <svg role="img" alt="" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -17,7 +17,7 @@
             <a href="#">Item one</a>
             <a href="#">Item two</a>
             <a href="#" aria-current="page">Item three</a>
-            <a href="#" onclick="removeDropdown()">Item four</a>
+            <a href="#">Item four</a>
             <div role="group" aria-label="Related">
                 <a href="#">Related item three</a>
                 <a href="#">Related item four</a>
@@ -93,9 +93,4 @@
             Dropdown.toggle('dropdown-1', focusTheToggle('dropdown-1'));
         }
     });
-
-    function removeDropdown() {
-        var element = document.getElementById('bug');
-        element.parentNode.remove(element);
-    }
 </script>
