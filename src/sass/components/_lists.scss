@@ -16,7 +16,7 @@ ol li {
 }
 
 dl dt {
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   margin-top: $sm;
 
   &:first-child {

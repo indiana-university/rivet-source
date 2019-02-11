@@ -63,7 +63,7 @@
     border-top-right-radius: $xxs; // Gets rid of border clipping
     border-top-left-radius: $xxs; // Gets rid of border clipping
     border-left: none;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     font-size: $sm;
     display: flex;
     position: relative;
