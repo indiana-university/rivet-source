@@ -197,6 +197,26 @@ $spacing-sizes: (
         .rvt-p-all-none-#{$bp-name}-up {
           padding: 0 !important;
         }
+        
+        .rvt-m-tb-none-#{$bp-name}-up {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+        }
+        
+        .rvt-p-tb-none-#{$bp-name}-up {
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+        }
+        
+        .rvt-m-lr-none-#{$bp-name}-up {
+          margin-right: 0 !important;
+          margin-left: 0 !important;
+        }
+        
+        .rvt-p-lr-none-#{$bp-name}-up {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+        }
       } @else {
         .rvt-m#{$direction}-none-#{$bp-name}-up {
           margin#{$direction}: 0 !important;
