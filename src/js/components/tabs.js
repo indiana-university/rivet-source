@@ -21,7 +21,12 @@ var Tabs = (function() {
     down: 40,
   };
 
-  var LEGACY_SELECTORS = '[data-tab], [aria-controls]';
+  /**
+     * DEPRECATED: "Aria-controls" will be removed for next major 
+     * release. Have added CSS selector to provide specific context
+     * for aria-controls selection.
+     */
+  var LEGACY_SELECTORS = '[data-tab], .rvt-tabs__tab[aria-controls]';
 
   /**
    * @param {nodes} nodeList - Accepts a nodeList and returns an array.
