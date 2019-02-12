@@ -280,16 +280,16 @@
 
 .rvt-button--loading,
 .rvt-button--loading[disabled] {
-  background-color: $color-blue--100;
-  border-color: $color-blue--200;
-  color: $color-blue--600;
+  background-color: $color-black--100;
+  border-color: $color-black--400;
+  color: $color-black--700;
   justify-content: center;
   position: relative;
 
   &:hover {
-    background-color: $color-blue--100;
-    border-color: $color-blue--200;
-    color: $color-blue--600;
+    background-color: $color-black--100;
+    border-color: $color-black--400;
+    color: $color-black--700;
   }
 
   .rvt-button__text {
