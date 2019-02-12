@@ -22,10 +22,10 @@ var Tabs = (function() {
   };
 
   /**
-     * DEPRECATED: "Aria-controls" will be removed for next major 
-     * release. Have added CSS selector to provide specific context
-     * for aria-controls selection.
-     */
+   * DEPRECATED: "Aria-controls" will be removed for next major 
+   * release. Have added CSS selector to provide specific context
+   * for aria-controls selection.
+   */
   var LEGACY_SELECTORS = '[data-tab], .rvt-tabs__tab[aria-controls]';
 
   /**
