@@ -8,7 +8,7 @@ Add a clear and concise description of the problem you are trying to solve with 
 > I have the following use case, but there's nothing in Rivet to support it [...]
 
 ## Describe the solution you'd like
-Add a clear and specific description of what you'd like to see enhanced in or added to the Rivet.
+Add a clear and specific description of what you'd like to see enhanced in or added to Rivet.
 
 ## Describe alternatives you've considered
 Add a clear and concise description of any alternative solutions or features you've considered.
