@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
-const runSequence = require('run-sequence');
 const header = require('gulp-header');
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
@@ -41,6 +40,6 @@ gulp.task('css:prefix-release', function () {
     .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('css:release', function (done) {
-  runSequence('css:dist', 'css:prefix-release', 'css:header', 'css:minify', done);
+gulp.task('css:release', async function (done) {
+  gulp.series('css:dist', 'css:prefix-release', 'css:header', 'css:minify', done);
 });

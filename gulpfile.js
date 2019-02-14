@@ -1,6 +1,5 @@
 
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
 const requireDir = require('require-dir');
 const rename = require('gulp-rename');
 
@@ -12,7 +11,7 @@ requireDir('./config');
  */
 
 gulp.task('build', function(cb) {
-  runSequence('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
+  gulp.series('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
 });
 
 /**
@@ -33,20 +32,18 @@ gulp.task('dev:serve', gulp.series('sass',
  * Build dist directory
  */
 
-gulp.task('build:example', function() {
+gulp.task('build:example', async function() {
   gulp.src('./src/components/_extras/_index-example.html')
     .pipe(rename('index.html'))
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('build:dist', function(done) {
-  runSequence(
+gulp.task('build:dist', gulp.series(
     'sass',
     'js:concat',
     'css:release',
     'js:release',
     'sass:release',
-    'build:example',
-    done
-  );
-});
+    'build:example'
+  )
+);

@@ -9,7 +9,6 @@ const reporter = require('postcss-reporter');
 const stylelint = require('stylelint');
 const scss = require('postcss-scss');
 const header = require('gulp-header');
-const runSequence = require('run-sequence');
 const package = require('../package.json');
 const bannerPackage = require('./sass-banner');
 
@@ -54,6 +53,4 @@ gulp.task('sass:header', function() {
 });
 
 // Move sass source files to "dist" folder for release.
-gulp.task('sass:release', function(done) {
-  runSequence('sass:release-copy', 'sass:header', done);
-});
+gulp.task('sass:release', gulp.series('sass:release-copy', 'sass:header'));
