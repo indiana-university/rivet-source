@@ -19,16 +19,15 @@ gulp.task('build', function(cb) {
  * Default development task
  */
 
-gulp.task('dev:serve', [
+gulp.task('dev:serve', gulp.series('sass',
   'sass:lint',
-  'sass',
   'js:concat',
   'fractal:start',
-  'sass:watch',
-  'js:watch'
-]);
+  'sass:watch', 'js:watch'
+  )
+);
 
-gulp.task('default', ['dev:serve']);
+
 
 /**
  * Build dist directory

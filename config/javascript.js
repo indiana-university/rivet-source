@@ -42,8 +42,8 @@ gulp.task('js:vendor', function() {
  * Watch scripts for changes and move to the "static" folder
  */
 
-gulp.task('js:watch', function() {
-  gulp.watch('src/js/**/*.js', ['js:concat', 'js:vendor']);
+gulp.task('js:watch', async function() {
+  gulp.watch('src/js/**/*.js', gulp.series('js:concat', 'js:vendor'));
 });
 
 gulp.task('js:dist', function() {
