@@ -40,6 +40,4 @@ gulp.task('css:prefix-release', function () {
     .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('css:release', async function (done) {
-  gulp.series('css:dist', 'css:prefix-release', 'css:header', 'css:minify', done);
-});
+gulp.task('css:release', gulp.series('css:dist', 'css:prefix-release', 'css:header', 'css:minify'));

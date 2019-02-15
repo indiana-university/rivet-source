@@ -35,8 +35,9 @@ gulp.task('sass:lint', function() {
 
 // Watch files
 
-gulp.task('sass:watch', async function() {
-  gulp.watch('src/sass/**/*.scss', gulp.series('sass', 'sass:lint'))
+gulp.task('sass:watch', function(callback) {
+  gulp.watch('src/sass/**/*.scss', gulp.series('sass', 'sass:lint'));
+  callback();
 });
 
 // Copy all .scss files to dist folder.

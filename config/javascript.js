@@ -41,15 +41,16 @@ gulp.task('js:vendor', function() {
  * Watch scripts for changes and move to the "static" folder
  */
 
-gulp.task('js:watch', async function() {
-  gulp.watch('src/js/**/*.js', gulp.series('js:concat', 'js:vendor'));
+gulp.task('js:watch', function(callback) {
+  gulp.watch('src/js/**/*.js', gulp.series('js:concat', 'js:vendor'))
+  callback();
 });
 
 gulp.task('js:dist', function() {
   return gulp.src('static/js/rivet.js').pipe(gulp.dest('./js'));
 });
 
-gulp.task('js:header', async function() {
+gulp.task('js:header', function(callback) {
   gulp.src('./js/rivet.js')
     .pipe(header(bannerPackage, { package: package }))
     .pipe(gulp.dest('./js/'));
@@ -57,6 +58,8 @@ gulp.task('js:header', async function() {
   gulp.src('./js/rivet.min.js')
     .pipe(header(bannerPackage, { package: package }))
     .pipe(gulp.dest('./js/'));
+  
+  callback();
 });
 
 gulp.task('js:minify', function(done) {

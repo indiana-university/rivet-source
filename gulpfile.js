@@ -10,9 +10,7 @@ requireDir('./config');
  * Build the fractal UI with all components and CSS compiled.
  */
 
-gulp.task('build', function(cb) {
-  gulp.series('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal', cb);
-});
+gulp.task('build', gulp.series('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal'));
 
 /**
  * Default development task
@@ -32,10 +30,11 @@ gulp.task('dev:serve', gulp.series('sass',
  * Build dist directory
  */
 
-gulp.task('build:example', async function() {
+gulp.task('build:example', function(callback) {
   gulp.src('./src/components/_extras/_index-example.html')
     .pipe(rename('index.html'))
     .pipe(gulp.dest('.'));
+    callback();
 });
 
 gulp.task('build:dist', gulp.series(
