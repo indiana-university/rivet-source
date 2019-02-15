@@ -15,9 +15,7 @@
   "scripts": {
     "start": "gulp dev:serve",
     "build": "npm run clean && gulp build:dist && gulp fractal:build && zip -r rivet.zip css js sass index.html",
-    "test": "npm run cypress:test && npm run visual-test",
-    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
-    "cypress:test": "npx cypress run",
+    "test": "npx cypress run",
     "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build"
   },
