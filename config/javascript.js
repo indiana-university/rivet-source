@@ -4,7 +4,6 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const pump = require('pump');
-const runSequence = require('run-sequence');
 const header = require('gulp-header');
 const package = require('../package.json');
 const bannerPackage = require('./banner');
@@ -42,24 +41,25 @@ gulp.task('js:vendor', function() {
  * Watch scripts for changes and move to the "static" folder
  */
 
-gulp.task('js:watch', function() {
-  gulp.watch('src/js/**/*.js', ['js:concat', 'js:vendor']);
+gulp.task('js:watch', function(callback) {
+  gulp.watch('src/js/**/*.js', gulp.series('js:concat', 'js:vendor'))
+  callback();
 });
 
 gulp.task('js:dist', function() {
   return gulp.src('static/js/rivet.js').pipe(gulp.dest('./js'));
 });
 
-gulp.task('js:header', function() {
-  gulp
-    .src('./js/rivet.js')
+gulp.task('js:header', function(callback) {
+  gulp.src('./js/rivet.js')
     .pipe(header(bannerPackage, { package: package }))
     .pipe(gulp.dest('./js/'));
 
-  gulp
-    .src('./js/rivet.min.js')
+  gulp.src('./js/rivet.min.js')
     .pipe(header(bannerPackage, { package: package }))
     .pipe(gulp.dest('./js/'));
+  
+  callback();
 });
 
 gulp.task('js:minify', function(done) {
@@ -74,6 +74,4 @@ gulp.task('js:minify', function(done) {
   );
 });
 
-gulp.task('js:release', function(done) {
-  runSequence('js:dist', 'js:minify', 'js:header', done);
-});
+gulp.task('js:release', gulp.series('js:dist', 'js:minify', 'js:header'));
