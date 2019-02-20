@@ -18,9 +18,35 @@
   &-column-reverse {
     flex-direction: column-reverse !important;
   }
-  
-  // Wrap
+}
 
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-#{$bp-name}-up {
+      display: flex !important;
+    }
+
+    .#{$prefix}-flex-row-#{$bp-name}-up {
+      flex-direction: row !important;
+    }
+
+    .#{$prefix}-flex-row-reverse-#{$bp-name}-up {
+      flex-direction: row-reverse !important;
+    }
+
+    .#{$prefix}-flex-column-#{$bp-name}-up {
+      flex-direction: column !important;
+    }
+
+    .#{$prefix}-flex-column-reverse-#{$bp-name}-up {
+      flex-direction: column-reverse !important;
+    }
+  }
+}
+
+// Wrap
+
+.#{$prefix}-flex {
   &-wrap {
     flex-wrap: wrap !important;
   }
@@ -32,9 +58,27 @@
   &-wrap-reverse {
     flex-wrap: wrap-reverse !important;
   }
-  
-  // Shrink
+}
 
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-wrap-#{$bp-name}-up {
+      flex-wrap: wrap !important;
+    }
+
+    .#{$prefix}-flex-no-wrap-#{$bp-name}-up {
+      flex-wrap: nowrap !important;
+    }
+
+    .#{$prefix}-flex-wrap-reverse-#{$bp-name}-up {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+// Shrink
+
+.#{$prefix}-flex {
   &-shrink-1 {
     flex-shrink: 1 !important;
   }
@@ -42,9 +86,23 @@
   &-shrink-0 {
     flex-shrink: 0 !important;
   }
-  
-  // Grow
+}
 
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-shrink-1-#{$bp-name}-up {
+      flex-shrink: 1 !important;
+    }
+
+    .#{$prefix}-flex-shrink-0-#{$bp-name}-up {
+      flex-shrink: 0 !important;
+    }
+  }
+}
+ 
+// Grow
+
+.#{$prefix}-flex {
   &-grow-1 {
     flex-grow: 1 !important;
   }
@@ -52,9 +110,23 @@
   &-grow-0 {
     flex-grow: 0 !important;
   }
-  
-  // Align items
+}
 
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-grow-1-#{$bp-name}-up {
+      flex-grow: 1 !important;
+    }
+
+    .#{$prefix}-flex-grow-0-#{$bp-name}-up {
+      flex-grow: 0 !important;
+    }
+  }
+}
+  
+// Align items
+
+.#{$prefix}-flex {
   &-items-start {
     align-items: flex-start !important;
   }
@@ -74,9 +146,35 @@
   &-items-stretch {
     align-items: stretch !important;
   }
-  
-  //Flex justify-content
+}
 
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-items-start-#{$bp-name}-up {
+      align-items: flex-start !important;
+    }
+
+    .#{$prefix}-flex-items-end-#{$bp-name}-up {
+      align-items: flex-end !important;
+    }
+
+    .#{$prefix}-flex-items-center-#{$bp-name}-up {
+      align-items: center !important;
+    }
+
+    .#{$prefix}-flex-items-baseline-#{$bp-name}-up {
+      align-items: baseline !important;
+    }
+
+    .#{$prefix}-flex-items-stretch-#{$bp-name}-up {
+      align-items: stretch !important;
+    }
+  }
+}
+
+//Flex justify-content
+
+.#{$prefix}-flex {
   &-start {
     justify-content: flex-start;
   }
@@ -99,5 +197,33 @@
 
   &-space-evenly {
     justify-content: space-evenly;
+  }
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-start-#{$bp-name}-up {
+      justify-content: flex-start;
+    }
+
+    .#{$prefix}-flex-end-#{$bp-name}-up {
+      justify-content: flex-end;
+    }
+
+    .#{$prefix}-flex-center-#{$bp-name}-up {
+      justify-content: center;
+    }
+
+    .#{$prefix}-flex-space-between-#{$bp-name}-up {
+      justify-content: space-between;
+    }
+
+    .#{$prefix}-flex-space-around-#{$bp-name}-up {
+      justify-content: space-around;
+    }
+
+    .#{$prefix}-flex-space-evenly-#{$bp-name}-up {
+      justify-content: space-evenly;
+    }
   }
 }
