@@ -1,16 +1,16 @@
-<div class="rvt-flex-md-up rvt-flex-space-between">
-  {{# each demos }}
+<div class="rvt-flex-md-up rvt-space-around">
+  {{#each demos }}
     <div class="flex-demo">
       <div class="flex-demo-inner">Item {{ this }}</div>
     </div>
   {{/each}}
 </div>
 
-<div class="rvt-flex-md-up rvt-m-top-xl">
-  <div class="flex-demo" style="width: 16rem;">
+<div class="rvt-flex-sm-up rvt-items-center rvt-m-top-xl flex-demo--tall">
+  <div class="flex-demo">
     <div class="flex-demo-inner">Item One</div>
   </div>
-  <div class="rvt-flex-grow-1 flex-demo">
+  <div class="flex-demo rvt-grow-1-md-up">
     <div class="flex-demo-inner">Item Two</div>
   </div>
   <div class="flex-demo">
@@ -18,12 +18,9 @@
   </div>
 </div>
 
-<div class="rvt-flex rvt-m-top-xl">
-  <div class="flex-demo rvt-flex-grow-1">
-    <div class="flex-demo-inner">Item One</div>
-  </div>
-  <div class="flex-demo">
-    <div class="flex-demo-inner">Item Three</div>
+<div class="rvt-flex">
+  <div>
+    <input type="text">
   </div>
 </div>
 
@@ -32,6 +29,11 @@
     background-color: #dce3ee;
     color: #ffffff;
     padding: .5rem;
+  }
+  
+  .flex-demo--tall {
+    height: 20rem;
+    background-color: #edf1f6;
   }
   
   .flex-demo-inner {
