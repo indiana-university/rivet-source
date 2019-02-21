@@ -55,16 +55,26 @@
   display: inline !important;
 }
 
+/**
+ * DEPRECATED: This flex utility will be removed in the
+ * next major version of Rivet in favor of the new flex utilities.
+ */
 .display-flex,
 .rvt-display-flex {
   display: flex !important;
 }
+/* End DEPRECATED */
 
 .display-none,
 .rvt-display-none {
   display: none !important;
 }
 
+/**
+ * DEPRECATED: This flex utility will be removed in the
+ * next major version of Rivet in favor of the new flex utilities.
+ */
 .rvt-vertical-center {
   align-items: center !important;
 }
+/* End DEPRECATED */
