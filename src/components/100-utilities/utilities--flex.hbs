@@ -1,4 +1,5 @@
-<div class="rvt-flex-md-up rvt-space-around">
+<h2 class="rvt-m-tb-md">Base flex class</h2>
+<div class="rvt-flex rvt-justify-center" style="border: 1px solid #ccc;">
   {{#each demos }}
     <div class="flex-demo">
       <div class="flex-demo-inner">Item {{ this }}</div>
@@ -18,9 +19,17 @@
   </div>
 </div>
 
-<div class="rvt-flex">
-  <div>
+<div class="rvt-flex-md-up rvt-m-top-xxl rvt-border-all rvt-p-all-md">
+  <div class="rvt-grow-1">
     <input type="text">
+  </div>
+  <div class="rvt-flex rvt-shrink-0 rvt-m-left-md-md-up rvt-m-top-md rvt-m-top-none-md-up">
+    <select name="" id="">
+      <option value="">Option one</option>
+      <option value="">Option one</option>
+      <option value="">Option one</option>
+    </select>
+    <button class="rvt-button rvt-m-left-sm">Add</button>
   </div>
 </div>
 
@@ -32,7 +41,7 @@
   }
   
   .flex-demo--tall {
-    height: 20rem;
+    height: 8rem;
     background-color: #edf1f6;
   }
   

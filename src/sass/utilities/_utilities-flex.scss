@@ -212,54 +212,100 @@
 
 //Flex justify-content
 
-.#{$prefix}-start {
+.#{$prefix}-justify-start {
   justify-content: flex-start;
 }
 
-.#{$prefix}-end {
+.#{$prefix}-justify-end {
   justify-content: flex-end;
 }
 
-.#{$prefix}-center {
+.#{$prefix}-justify-center {
   justify-content: center;
 }
 
-.#{$prefix}-space-between {
+.#{$prefix}-justify-space-between {
   justify-content: space-between;
 }
 
-.#{$prefix}-space-around {
+.#{$prefix}-justify-space-around {
   justify-content: space-around;
 }
 
-.#{$prefix}-space-evenly {
+.#{$prefix}-justify-space-evenly {
   justify-content: space-evenly;
 }
 
 @each $bp-name, $bp-value in $breakpoints {
   @include mq($bp-value) {
-    .#{$prefix}-start-#{$bp-name}-up {
+    .#{$prefix}-justify-start-#{$bp-name}-up {
       justify-content: flex-start;
     }
 
-    .#{$prefix}-end-#{$bp-name}-up {
+    .#{$prefix}-justify-end-#{$bp-name}-up {
       justify-content: flex-end;
     }
 
-    .#{$prefix}-center-#{$bp-name}-up {
+    .#{$prefix}-justify-center-#{$bp-name}-up {
       justify-content: center;
     }
 
-    .#{$prefix}-space-between-#{$bp-name}-up {
+    .#{$prefix}-justify-space-between-#{$bp-name}-up {
       justify-content: space-between;
     }
 
-    .#{$prefix}-space-around-#{$bp-name}-up {
+    .#{$prefix}-justify-space-around-#{$bp-name}-up {
       justify-content: space-around;
     }
 
-    .#{$prefix}-space-evenly-#{$bp-name}-up {
+    .#{$prefix}-justify-space-evenly-#{$bp-name}-up {
       justify-content: space-evenly;
+    }
+  }
+}
+
+// self
+
+.#{$prefix}-self-start {
+  align-self: flex-start !important;
+}
+
+.#{$prefix}-self-end {
+  align-self: flex-end !important;
+}
+
+.#{$prefix}-self-center {
+  align-self: center !important;
+}
+
+.#{$prefix}-self-baseline {
+  align-self: baseline !important;
+}
+
+.#{$prefix}-self-stretch {
+  align-self: stretch !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-self-start-#{$bp-name}-up {
+      align-self: flex-start;
+    }
+
+    .#{$prefix}-self-end-#{$bp-name}-up {
+      align-self: flex-end;
+    }
+
+    .#{$prefix}-self-center-#{$bp-name}-up {
+      align-self: center;
+    }
+
+    .#{$prefix}-self-baseline-#{$bp-name}-up {
+      align-self: baseline;
+    }
+
+    .#{$prefix}-self-stretch-#{$bp-name}-up {
+      align-self: stretch;
     }
   }
 }
