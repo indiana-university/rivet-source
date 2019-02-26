@@ -4,6 +4,10 @@
   display: flex !important;
 }
 
+.#{$prefix}-inline-flex {
+  display: inline-flex !important;
+}
+
 .#{$prefix}-row {
   flex-direction: row !important;
 }
@@ -24,6 +28,10 @@
   @include mq($bp-value) {
     .#{$prefix}-flex-#{$bp-name}-up {
       display: flex !important;
+    }
+
+    .#{$prefix}-inline-flex-#{$bp-name}-up {
+      display: inline-flex !important;
     }
 
     .#{$prefix}-row-#{$bp-name}-up {
