@@ -107,7 +107,7 @@ label {
   display: inline-block;
   font-size: $ts-14;
   line-height: 1;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   margin-bottom: $xs;
 }
 
@@ -119,7 +119,7 @@ fieldset {
 
 legend {
   margin: 0;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   display: block;
 }
 

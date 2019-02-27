@@ -1,0 +1,319 @@
+// Display flex
+
+.#{$prefix}-flex {
+  display: flex !important;
+}
+
+.#{$prefix}-inline-flex {
+  display: inline-flex !important;
+}
+
+.#{$prefix}-row {
+  flex-direction: row !important;
+}
+
+.#{$prefix}-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.#{$prefix}-column {
+  flex-direction: column !important;
+}
+
+.#{$prefix}-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-flex-#{$bp-name}-up {
+      display: flex !important;
+    }
+
+    .#{$prefix}-inline-flex-#{$bp-name}-up {
+      display: inline-flex !important;
+    }
+
+    .#{$prefix}-row-#{$bp-name}-up {
+      flex-direction: row !important;
+    }
+
+    .#{$prefix}-row-reverse-#{$bp-name}-up {
+      flex-direction: row-reverse !important;
+    }
+
+    .#{$prefix}-column-#{$bp-name}-up {
+      flex-direction: column !important;
+    }
+
+    .#{$prefix}-column-reverse-#{$bp-name}-up {
+      flex-direction: column-reverse !important;
+    }
+  }
+}
+
+// Wrap
+
+.#{$prefix}-wrap {
+  flex-wrap: wrap !important;
+}
+
+.#{$prefix}-no-wrap {
+  flex-wrap: nowrap !important;
+}
+
+.#{$prefix}-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-wrap-#{$bp-name}-up {
+      flex-wrap: wrap !important;
+    }
+
+    .#{$prefix}-no-wrap-#{$bp-name}-up {
+      flex-wrap: nowrap !important;
+    }
+
+    .#{$prefix}-wrap-reverse-#{$bp-name}-up {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+// Shrink
+
+.#{$prefix}-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+.#{$prefix}-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-shrink-1-#{$bp-name}-up {
+      flex-shrink: 1 !important;
+    }
+
+    .#{$prefix}-shrink-0-#{$bp-name}-up {
+      flex-shrink: 0 !important;
+    }
+  }
+}
+ 
+// Grow
+
+.#{$prefix}-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.#{$prefix}-grow-0 {
+  flex-grow: 0 !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-grow-1-#{$bp-name}-up {
+      flex-grow: 1 !important;
+    }
+
+    .#{$prefix}-grow-0-#{$bp-name}-up {
+      flex-grow: 0 !important;
+    }
+  }
+}
+  
+// Align items
+
+.#{$prefix}-items-start {
+  align-items: flex-start !important;
+}
+
+.#{$prefix}-items-end {
+  align-items: flex-end !important;
+}
+
+.#{$prefix}-items-center {
+  align-items: center !important;
+}
+
+.#{$prefix}-items-baseline {
+  align-items: baseline !important;
+}
+
+.#{$prefix}-items-stretch {
+  align-items: stretch !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-items-start-#{$bp-name}-up {
+      align-items: flex-start !important;
+    }
+
+    .#{$prefix}-items-end-#{$bp-name}-up {
+      align-items: flex-end !important;
+    }
+
+    .#{$prefix}-items-center-#{$bp-name}-up {
+      align-items: center !important;
+    }
+
+    .#{$prefix}-items-baseline-#{$bp-name}-up {
+      align-items: baseline !important;
+    }
+
+    .#{$prefix}-items-stretch-#{$bp-name}-up {
+      align-items: stretch !important;
+    }
+  }
+}
+
+// Align content
+
+.#{$prefix}-content-start {
+  align-content: flex-start !important;
+}
+
+.#{$prefix}-content-end {
+  align-content: flex-end !important;
+}
+
+.#{$prefix}-content-center {
+  align-content: center !important;
+}
+
+.#{$prefix}-content-stretch {
+  align-content: stretch !important;
+}
+
+.#{$prefix}-content-baseline {
+  align-content: baseline !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-content-start-#{$bp-name}-up {
+      align-content: flex-start !important;
+    }
+
+    .#{$prefix}-content-end-#{$bp-name}-up {
+      align-content: flex-end !important;
+    }
+
+    .#{$prefix}-content-center-#{$bp-name}-up {
+      align-content: center !important;
+    }
+
+    .#{$prefix}-content-stretch-#{$bp-name}-up {
+      align-content: stretch !important;
+    }
+
+    .#{$prefix}-content-baseline-#{$bp-name}-up {
+      align-content: baseline !important;
+    }
+  }
+}
+
+//Flex justify-content
+
+.#{$prefix}-justify-start {
+  justify-content: flex-start;
+}
+
+.#{$prefix}-justify-end {
+  justify-content: flex-end;
+}
+
+.#{$prefix}-justify-center {
+  justify-content: center;
+}
+
+.#{$prefix}-justify-space-between {
+  justify-content: space-between;
+}
+
+.#{$prefix}-justify-space-around {
+  justify-content: space-around;
+}
+
+.#{$prefix}-justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-justify-start-#{$bp-name}-up {
+      justify-content: flex-start;
+    }
+
+    .#{$prefix}-justify-end-#{$bp-name}-up {
+      justify-content: flex-end;
+    }
+
+    .#{$prefix}-justify-center-#{$bp-name}-up {
+      justify-content: center;
+    }
+
+    .#{$prefix}-justify-space-between-#{$bp-name}-up {
+      justify-content: space-between;
+    }
+
+    .#{$prefix}-justify-space-around-#{$bp-name}-up {
+      justify-content: space-around;
+    }
+
+    .#{$prefix}-justify-space-evenly-#{$bp-name}-up {
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// self
+
+.#{$prefix}-self-start {
+  align-self: flex-start !important;
+}
+
+.#{$prefix}-self-end {
+  align-self: flex-end !important;
+}
+
+.#{$prefix}-self-center {
+  align-self: center !important;
+}
+
+.#{$prefix}-self-baseline {
+  align-self: baseline !important;
+}
+
+.#{$prefix}-self-stretch {
+  align-self: stretch !important;
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+  @include mq($bp-value) {
+    .#{$prefix}-self-start-#{$bp-name}-up {
+      align-self: flex-start;
+    }
+
+    .#{$prefix}-self-end-#{$bp-name}-up {
+      align-self: flex-end;
+    }
+
+    .#{$prefix}-self-center-#{$bp-name}-up {
+      align-self: center;
+    }
+
+    .#{$prefix}-self-baseline-#{$bp-name}-up {
+      align-self: baseline;
+    }
+
+    .#{$prefix}-self-stretch-#{$bp-name}-up {
+      align-self: stretch;
+    }
+  }
+}

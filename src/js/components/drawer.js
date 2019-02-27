@@ -205,8 +205,6 @@ var Drawer = (function() {
     // Handle keyboard stuff
     switch (event.keyCode) {
       case KEYS.down:
-        // Stop the page from shimmying when using down key
-        event.preventDefault();
 
         // Check to see if the target was the drawer toggle.
         var toggle = event.target.closest(TOGGLE_SELECTOR);

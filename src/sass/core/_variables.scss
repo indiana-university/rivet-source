@@ -1,6 +1,9 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+// Global class name prefix
+$prefix: "rvt";
+
 // Base font family
 
 $font-base: "BentonSans", "Helvetica Neue", "Helvetica", "sans-serif" !default;
@@ -61,6 +64,11 @@ $ts-md: $ts-26 !default;
 $ts-lg: $ts-32 !default;
 $ts-xl: $ts-41 !default;
 $ts-xxl: $ts-52 !default;
+
+// Font weight variables 
+
+$font-weight-bold: 700;
+$font-weight-regular: 400;
 
 // Base colors
 

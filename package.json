@@ -2,7 +2,7 @@
   "name": "rivet-uits",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -15,9 +15,7 @@
   "scripts": {
     "start": "gulp dev:serve",
     "build": "npm run clean && gulp build:dist && gulp fractal:build && zip -r rivet.zip css js sass index.html",
-    "test": "npm run cypress:test && npm run visual-test",
-    "visual-test": "gulp build && node_modules/mocha/bin/mocha \"tests/visual/!(golden).js\" --exit",
-    "cypress:test": "npx cypress run",
+    "test": "npx cypress run",
     "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build"
   },
@@ -34,12 +32,12 @@
     "browser-sync": "^2.23.6",
     "chai": "^4.1.2",
     "cypress": "^3.1.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^4.0.0",
     "gulp-header": "^1.8.9",
-    "gulp-mocha": "^4.3.1",
+    "gulp-mocha": "^6.0.0",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
@@ -50,14 +48,13 @@
     "node-sass": "^4.7.2",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",
-    "polyserve": "^0.23.0",
+    "polyserve": "^0.27.15",
     "postcss": "^6.0.8",
     "postcss-reporter": "^4.0.0",
     "postcss-scss": "^1.0.2",
     "pump": "^1.0.2",
     "puppeteer": "^1.0.0",
     "require-dir": "^0.3.2",
-    "run-sequence": "^2.0.0",
     "stylelint": "^7.13.0"
   }
 }

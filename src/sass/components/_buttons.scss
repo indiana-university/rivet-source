@@ -20,15 +20,10 @@
   text-decoration: none;
   position: relative;
   text-decoration: none;
-
-  // New
   height: $xl;
-  padding-right: $sm * .75;
-  padding-left: $sm * .75;
+  padding: 0 $sm * .75;
   display: inline-flex;
   align-items: center;
-  // End new
-
   transition: box-shadow .2s ease;
 
   // Initially hide any loaders if they're being used inside buttons.
