@@ -18,10 +18,27 @@
     }
   }
 
+  /**
+   * DEPRECATED
+   *
+   * With the updates to the footer lockup, the div that the 
+   * `.rvt-footer__copyright-lockup` class is unncessary. We are deprecating
+   * the class and removing the div from the code snippet.
+   *
+   * See the following for more info:
+   *
+   * - /src/components/14-footer/footer.hbs
+   *
+   */
+
   &__copyright-lockup {
     display: flex;
     align-items: center;
   }
+
+  /**
+   * End deprecated input validation
+   */
 
   &__trident {
     margin-right: $sm;
