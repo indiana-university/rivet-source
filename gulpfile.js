@@ -1,48 +1,234 @@
+const { dest, series, src, watch } = require("gulp");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("gulp-cssnano");
+const eslint = require("gulp-eslint");
+const concat = require("gulp-concat");
+const header = require("gulp-header");
+const postcss = require("gulp-postcss");
+const pump = require("pump");
+const rename = require("gulp-rename");
+const reporter = require("postcss-reporter");
+const requireDir = require("require-dir");
+const sass = require("gulp-sass");
+const scss = require("postcss-scss");
+const stylelint = require("stylelint");
+const uglify = require("gulp-uglify");
 
-const gulp = require('gulp');
-const requireDir = require('require-dir');
-const rename = require('gulp-rename');
+const bannerPackage = require("./config/banner");
+const fractal = require("./fractal");
+const package = require("./package.json");
+const sassBannerPackage = require("./config/sass-banner");
+
+// Keep a reference to the fractal CLI console utility
+const logger = fractal.cli.console;
 
 // Include everything in the "tasks" folder
-requireDir('./config');
+requireDir("./config");
 
 /**
- * Build the fractal UI with all components and CSS compiled.
+ * Sass tasks
  */
 
-gulp.task('build', gulp.series('sass', 'js:concat', 'js:vendor', 'fractal:build', 'css:prefix-fractal'));
+function compileSass() {
+  return src("src/sass/**/*.scss")
+    .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
+    .pipe(dest("static/css/"));
+}
+
+// List .scss files. See .stylelintrc for config
+function lintSass() {
+  return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"]).pipe(
+    postcss([stylelint(), reporter({ clearMessages: true })], {
+      syntax: scss
+    })
+  );
+}
+
+function watchSass(callback) {
+  watch("src/sass/**/*.scss", series(compileSass, lintSass));
+  callback();
+}
+
+// Copy all .scss files to dist folder.
+function releaseCopySass() {
+  return src("src/sass/**/*.scss").pipe(dest("./sass"));
+}
+
+// Add version number header to all .scss files.
+function headerSass() {
+  return src(["./sass/**/*.scss", "!./sass/libs/*"])
+    .pipe(header(sassBannerPackage, { package: package }))
+    .pipe(dest("./sass/"));
+}
+
+/**
+ * CSS tasks
+ */
+
+function compileCSS() {
+  return src("static/css/rivet.css").pipe(dest("./css"));
+}
+
+function headerCSS(callback) {
+  src("./css/rivet.css")
+    .pipe(header(bannerPackage, { package: package }))
+    .pipe(dest("./css/"));
+  callback();
+}
+
+function minifyCSS(callback) {
+  src("./css/rivet.css")
+    .pipe(cssnano())
+    .pipe(
+      rename({
+        suffix: ".min"
+      })
+    )
+    .pipe(dest("./css/"));
+  callback();
+}
+
+function prefixFractalCSS() {
+  return src("_build/css/*.css")
+    .pipe(postcss([autoprefixer({ browsers: ["last 2 versions"] })]))
+    .pipe(dest("_build/css/"));
+}
+
+function prefixReleaseCSS() {
+  return src("./css/rivet.css")
+    .pipe(postcss([autoprefixer({ browsers: ["last 2 versions"] })]))
+    .pipe(dest("./css/"));
+}
+
+/**
+ * JS tasks
+ */
+
+function lintJS() {
+  return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
+    .pipe(eslint())
+    .pipe(eslint.format());
+}
+
+function concatJS() {
+  return src([
+    "src/js/polyfills/closest.js",
+    "src/js/polyfills/CustomEvent.js",
+    "src/js/utilities/fireCustomEvent.js",
+    "src/js/components/alert.js",
+    "src/js/components/drawer.js",
+    "src/js/components/dropdown.js",
+    "src/js/components/modal.js",
+    "src/js/components/tabs.js",
+    "src/js/components/fileInput.js",
+    "src/js/index.js"
+  ])
+    .pipe(concat("rivet.js"))
+    .pipe(dest("./static/js"));
+}
+
+function vendorJS() {
+  return src("src/js/vendor.js").pipe(dest("./static/js"));
+}
+
+function watchJS(callback) {
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(concatJS, vendorJS));
+  callback();
+}
+
+function distJS() {
+  return src("static/js/rivet.js").pipe(dest("./js"));
+}
+
+function headerJS(callback) {
+  src("./js/rivet.js")
+    .pipe(header(bannerPackage, { package: package }))
+    .pipe(dest("./js/"));
+
+  src("./js/rivet.min.js")
+    .pipe(header(bannerPackage, { package: package }))
+    .pipe(dest("./js/"));
+
+  callback();
+}
+
+function minifyJS(callback) {
+  pump(
+    [src("./js/rivet.js"), uglify(), rename({ suffix: ".min" }), dest("./js")],
+    callback
+  );
+}
+
+/**
+ * Fractal tasks
+ */
+
+function fractalStart() {
+  const server = fractal.web.server({
+    sync: true
+  });
+  server.on("error", err => logger.error(err.message));
+  return server.start().then(() => {
+    logger.success(`Fractal server is now running at ${server.url}`);
+  });
+}
+
+function fractalBuild() {
+  const builder = fractal.web.builder();
+  builder.on("progress", (completed, total) =>
+    logger.update(`Exported ${completed} of ${total} items`, "info")
+  );
+  builder.on("error", err => logger.error(err.message));
+  return builder.build().then(() => {
+    logger.success("Fractal build completed!");
+  });
+}
 
 /**
  * Default development task
  */
 
-gulp.task('dev:serve', gulp.series('sass',
-  'sass:lint',
-  'js:concat',
-  'fractal:start',
-  'sass:watch', 'js:watch'
-  )
-);
-
-
-
 /**
  * Build dist directory
  */
 
-gulp.task('build:example', function(callback) {
-  gulp.src('./src/components/_extras/_index-example.html')
-    .pipe(rename('index.html'))
-    .pipe(gulp.dest('.'));
-    callback();
-});
+function example(callback) {
+  src("./src/components/_extras/_index-example.html")
+    .pipe(rename("index.html"))
+    .pipe(dest("."));
+  callback();
+}
 
-gulp.task('build:dist', gulp.series(
-    'sass',
-    'js:concat',
-    'css:release',
-    'js:release',
-    'sass:release',
-    'build:example'
-  )
+exports.release = series(
+  compileSass,
+  concatJS,
+  compileCSS,
+  prefixReleaseCSS,
+  headerCSS,
+  minifyCSS,
+  distJS,
+  minifyJS,
+  headerJS,
+  releaseCopySass,
+  headerSass,
+  example
+);
+
+exports.build = series(
+  compileSass,
+  concatJS,
+  vendorJS,
+  fractalBuild,
+  prefixFractalCSS
+);
+
+exports.fractalBuild = fractalBuild;
+
+exports.default = series(
+  compileSass,
+  lintSass,
+  concatJS,
+  fractalStart,
+  watchSass,
+  watchJS
 );
