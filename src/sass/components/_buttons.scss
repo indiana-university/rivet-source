@@ -287,9 +287,27 @@
     color: $color-blue--600;
   }
 
+  /**
+   * DEPRECATED
+   *
+   * .rvt-button__text was the original version of the wrapper class for button
+   * content. We've updated the class language to be more clear and better
+   * represent its purpose. Please use .rvt-button__content going forward.
+   *
+   * See the following for more info:
+   *
+   * - /src/components/24-loading-indicator/loading-indicator.hbs
+   *
+   */
+
+  .rvt-button__content,
   .rvt-button__text {
     color: transparent;
   }
+
+  /**
+   * End deprecated input validation
+   */
 
   .rvt-loader {
     display: block;

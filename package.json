@@ -2,7 +2,7 @@
   "name": "rivet-uits",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -13,8 +13,8 @@
     "email": "rivet@iu.edu"
   },
   "scripts": {
-    "start": "gulp dev:serve",
-    "build": "npm run clean && gulp build:dist && gulp fractal:build && zip -r rivet.zip css js sass index.html",
+    "start": "gulp",
+    "build": "npm run clean && gulp release && gulp fractalBuild && zip -r rivet.zip css js sass index.html",
     "test": "npx cypress run",
     "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build"
