@@ -40,36 +40,62 @@
    * End deprecated input validation
    */
 
-  &__trident {
-    margin-right: $sm;
+  &__trident > svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $xxs;
   }
 
   &__aux-links {
     list-style: none;
-    margin-top: 0;
+    margin-top: $xs;
     margin-bottom: 0;
-    margin-left: auto;
-    padding: 0;
+    padding-inline-start: 0;
+    text-align: center;
   }
 
   &__aux-item {
     display: inline-block;
     margin-top: 0;
 
-    &:after {
-      content: '|';
+    &:first-child:after {
+      content: "|";
       color: $color-black--500;
       margin: 0 $xs;
     }
 
-    &:last-child:after {
+    &:after {
       content: none;
     }
   }
 }
 
-@include mq(640px) {
+/**
+ * Pixels for breakpoint chosen due to margins in default footer lockup
+ */
+
+@include mq(519px) {
+  .rvt-footer {
+    &__aux-item:after {
+      content: "|";
+      color: $color-black--500;
+      margin: 0 $xs;
+    }
+
+    &__aux-item:last-child:after {
+      content: none;
+    }
+  }
+}
+
+@include mq($breakpoint-md) {
   .rvt-footer {
     display: flex;
+
+    &__aux-links {
+      margin-left: auto;
+      margin-top: 0;
+    }
   }
 }
