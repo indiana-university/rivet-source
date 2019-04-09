@@ -173,6 +173,19 @@ function fractalStart() {
   });
 }
 
+function fractalHeadless() {
+  const server = fractal.web.server({
+    sync: true
+  });
+  fractal.web.set('server.syncOptions', {
+    open: false
+  });
+  server.on("error", err => logger.error(err.message));
+  return server.start().then(() => {
+    logger.success(`Fractal server is now running at ${server.url}`);
+  });
+}
+
 function fractalBuild() {
   const builder = fractal.web.builder();
   builder.on("progress", (completed, total) =>
@@ -223,6 +236,8 @@ exports.build = series(
 );
 
 exports.fractalBuild = fractalBuild;
+
+exports.headless = fractalHeadless;
 
 exports.default = series(
   compileSass,
