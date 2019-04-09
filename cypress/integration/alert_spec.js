@@ -1,6 +1,6 @@
 const ALERT_INFO = '[aria-labelledby="information-alert-title"]';
 const ALERT_CLOSE = ALERT_INFO + '>.rvt-alert__dismiss'
-const DEV_SERVER = 'http://localhost:3000';
+const DEV_SERVER = "http://localhost:3000";
 
 describe('Rivet alert interactions', function () {
   it('Visits the alert page', function () {

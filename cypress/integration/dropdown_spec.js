@@ -1,6 +1,6 @@
 const DROPDOWN_TOGGLE = '[data-dropdown-toggle="dropdown-navigation"]';
 const DROPDOWN_MENU = '#dropdown-navigation'
-const DEV_SERVER = 'http://localhost:3000';
+const DEV_SERVER = "http://localhost:3000";
 const DOWN = 40
 const UP = 38
 const ENTER = 13

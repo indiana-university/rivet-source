@@ -2,7 +2,7 @@ const TAB_ONE_TOGGLE = '[data-tab="tab-1"]';
 const TAB_ONE_CONTENT = '#tab-1'
 const TAB_TWO_TOGGLE = '[data-tab="tab-2"]';
 const TAB_TWO_CONTENT = '#tab-2'
-const DEV_SERVER = 'http://localhost:3000';
+const DEV_SERVER = "http://localhost:3000";
 const DOWN = 40
 const LEFT = 37
 const UP = 38
