@@ -237,7 +237,12 @@ exports.build = series(
 
 exports.fractalBuild = fractalBuild;
 
-exports.headless = fractalHeadless;
+exports.headless = (compileSass,
+  concatJS,
+  vendorJS,
+  fractalHeadless,
+  prefixFractalCSS
+);
 
 exports.default = series(
   compileSass,
