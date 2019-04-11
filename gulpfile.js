@@ -238,10 +238,11 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = (compileSass,
+  lintSass,
   concatJS,
-  vendorJS,
   fractalHeadless,
-  prefixFractalCSS
+  watchSass,
+  watchJS
 );
 
 exports.default = series(
