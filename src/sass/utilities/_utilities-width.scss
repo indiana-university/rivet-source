@@ -1,16 +1,16 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-$width-base: 4rem !default;
+$width-base: 4rem !default;    // 64px
 
 $width-map: (
-  xxs: $width-base,
-  xs: $width-base * 2,
-  sm: $width-base * 3,
-  md: $width-base * 4,
-  lg: $width-base * 5,
-  xl: $width-base * 6,
-  xxl: $width-base * 8
+  xxs: $width-base,            // 64px Base
+  xs: $width-base * 2,         // 128px
+  sm: $width-base * 3,         // 192px
+  md: $width-base * 4,         // 256px
+  lg: $width-base * 5,         // 320px
+  xl: $width-base * 6,         // 384px
+  xxl: $width-base * 8         // 512px
 ) !default;
 
 // Builds non-responsive width utility classes
