@@ -16,7 +16,7 @@ $width-map: (
 // Builds non-responsive width utility classes
 
 @each $size, $width in $width-map {
-  .rvt-width-#{$size} {
+  .#{$prefix}-width-#{$size} {
     width: $width;
     max-width: $width;
   }
@@ -27,7 +27,7 @@ $width-map: (
 @each $bp-name, $bp-value in $breakpoints {
   @include mq($bp-value) {
     @each $size, $width in $width-map {
-      .rvt-width-#{$size}-#{$bp-name}-up {
+      .#{$prefix}-width-#{$size}-#{$bp-name}-up {
         width: $width;
         max-width: $width;
       }
