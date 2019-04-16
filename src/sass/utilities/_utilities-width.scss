@@ -5,7 +5,7 @@
 
 @each $size, $width in $width-map {
   .#{$prefix}-width-#{$size} {
-    width: $width;
+    width: 100%;
     max-width: $width;
   }
 }
@@ -16,7 +16,7 @@
   @include mq($bp-value) {
     @each $size, $width in $width-map {
       .#{$prefix}-width-#{$size}-#{$bp-name}-up {
-        width: $width;
+        width: 100%;
         max-width: $width;
       }
     }
