@@ -1,0 +1,146 @@
+.rvt-steps {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      box-shadow: 0 $sm*2.75 0 $xxs/2 $color-black--100;
+      z-index: 0;
+    }
+
+    &:last-child:before {
+      width: 50%;
+    }
+
+    &:first-child::before {
+      position: absolute;
+      left: 50%;
+    }
+  }
+  
+  &--vertical {
+    flex-direction: column;
+  }
+  
+  &--vertical &__item {
+    text-align: left;
+    margin-top: 0;
+    padding-top: $md;
+    position: relative;
+  }
+  
+  &--vertical &__item:first-child::before {
+    content: none;
+  }
+  
+  &--vertical &__item::before {
+    box-shadow: none;
+    width: $xxs;
+    height: 100%;
+    background-color: $color-black--100;
+    position: absolute;
+    top: 0;
+    left: $sm*.85;
+  }
+
+  &--vertical &__item-content {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  
+  &--vertical &__label {
+    margin-bottom: 0;
+    padding-left: $sm;
+  }
+
+  &__label {
+    display: block;
+    color: $color-black;
+    margin-bottom: $xs;
+    font-size: $ts-14;
+  }
+
+  &__indicator {
+    width: $lg;
+    height: $lg;
+    border: $xxs solid $color-black--200;
+    box-shadow: 0 0 0 $xxs $color-white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-background;
+    border-radius: 999rem;
+    position: relative;
+    z-index: map-get($z-index, z-100);
+  }
+
+  &__indicator--success {
+    background-color: $color-green--500;
+    color: $color-background;
+    border-color: $color-green--400;
+  }
+
+  &__indicator--warning {
+    background-color: $color-yellow--200;
+    color: $color-black--rich;
+    border-color: $color-yellow--100;
+  }
+
+  &__indicator--danger {
+    background-color: $color-orange--500;
+    color: $color-background;
+    border-color: $color-orange--400;
+  }
+}
+
+.rvt-steps__item-content {
+  color: $color-black;
+  /**
+   * If we set the link to display flex, we can use
+   * flex-direction: column-reverse to add a variant where the label
+   * is on the bottom.
+   */
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+a.rvt-steps__item-content {
+  text-decoration: none;
+}
+
+.rvt-steps__item-content[aria-current] .rvt-steps__indicator {
+  font-weight: 700;
+}
+
+a.rvt-steps__item-content:hover .rvt-steps__label,
+a.rvt-steps__item-content:focus .rvt-steps__label {
+  text-decoration: underline;
+}
+
+.rvt-steps__item-content:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+a.rvt-steps__item-content:hover .rvt-steps__indicator,
+a.rvt-steps__item-content:focus .rvt-steps__indicator,
+a.rvt-steps__item-content[aria-current] .rvt-steps__indicator {
+  background-color: $color-blue;
+  color: $color-white;
+  border-color: $color-blue;
+}
+
+.rvt-steps__item-content:focus .rvt-steps__indicator {
+  box-shadow: 0 0 0 $xxs $color-blue--300;
+}
