@@ -1,4 +1,4 @@
-.rvt-steps {
+.#{$prefix}-steps {
   display: flex;
   list-style: none;
   margin: 0;
@@ -95,16 +95,16 @@
   }
 
   &__indicator {
-    width: $lg;
-    height: $lg;
+    align-items: center;
+    background-color: $color-background;
     border: $xxs solid $color-black--200;
+    border-radius: 999rem;
     box-shadow: 0 0 0 $xxs $color-white;
     display: inline-flex;
-    align-items: center;
+    height: $lg;
     justify-content: center;
-    background-color: $color-background;
-    border-radius: 999rem;
     position: relative;
+    width: $lg;
     z-index: map-get($z-index, z-100);
   }
 
@@ -132,18 +132,18 @@
  * when user can click through all steps of a multipage flow.
  */
 
-a.rvt-steps__item-content {
+a.#{$prefix}-steps__item-content {
   text-decoration: none;
 }
 
-a.rvt-steps__item-content:hover .rvt-steps__label,
-a.rvt-steps__item-content:focus .rvt-steps__label {
+a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__label,
+a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__label {
   text-decoration: underline;
 }
 
-a.rvt-steps__item-content:hover .rvt-steps__indicator,
-a.rvt-steps__item-content:focus .rvt-steps__indicator,
-a.rvt-steps__item-content[aria-current] .rvt-steps__indicator {
+a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
+a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
+a.#{$prefix}-steps__item-content[aria-current] .#{$prefix}-steps__indicator {
   background-color: $color-blue;
   color: $color-white;
   border-color: $color-blue;
