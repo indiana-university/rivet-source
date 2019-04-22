@@ -27,37 +27,61 @@
       left: 50%;
     }
   }
-  
+
+  &__item-content {
+    color: $color-black;
+    /**
+     * If we set the link to display flex, we can use
+     * flex-direction: column-reverse to add a variant where the label
+     * is on the bottom.
+     */
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__item-content[aria-current] &__indicator {
+    font-weight: 700;
+  }
+
+  &__item-content:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &__item-content:focus &__indicator {
+    box-shadow: 0 0 0 $xxs $color-blue--300;
+  }
+
   &--vertical {
     flex-direction: column;
   }
-  
+
   &--vertical &__item {
     text-align: left;
     margin-top: 0;
     padding-top: $md;
     position: relative;
   }
-  
+
   &--vertical &__item:first-child::before {
     content: none;
   }
-  
+
   &--vertical &__item::before {
-    box-shadow: none;
-    width: $xxs;
+    box-shadow: -$xxs 0 0 0 $color-black--100;
     height: 100%;
-    background-color: $color-black--100;
     position: absolute;
     top: 0;
-    left: $sm*.85;
+    left: $sm*1.125;
   }
 
   &--vertical &__item-content {
     flex-direction: row-reverse;
     align-items: center;
+    position: relative;
   }
-  
+
   &--vertical &__label {
     margin-bottom: 0;
     padding-left: $sm;
@@ -103,34 +127,18 @@
   }
 }
 
-.rvt-steps__item-content {
-  color: $color-black;
-  /**
-   * If we set the link to display flex, we can use
-   * flex-direction: column-reverse to add a variant where the label
-   * is on the bottom.
-   */
-  display: inline-flex;
-  align-items: center;
-  flex-direction: column;
-}
+/**
+ * Alternate styles used when wrapper element is a link. For instance,
+ * when user can click through all steps of a multipage flow.
+ */
 
 a.rvt-steps__item-content {
   text-decoration: none;
 }
 
-.rvt-steps__item-content[aria-current] .rvt-steps__indicator {
-  font-weight: 700;
-}
-
 a.rvt-steps__item-content:hover .rvt-steps__label,
 a.rvt-steps__item-content:focus .rvt-steps__label {
   text-decoration: underline;
-}
-
-.rvt-steps__item-content:focus {
-  box-shadow: none;
-  outline: none;
 }
 
 a.rvt-steps__item-content:hover .rvt-steps__indicator,
@@ -139,8 +147,4 @@ a.rvt-steps__item-content[aria-current] .rvt-steps__indicator {
   background-color: $color-blue;
   color: $color-white;
   border-color: $color-blue;
-}
-
-.rvt-steps__item-content:focus .rvt-steps__indicator {
-  box-shadow: 0 0 0 $xxs $color-blue--300;
 }

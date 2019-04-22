@@ -1,71 +1,37 @@
 <h1>Step indicator (default)</h1>
-
-<ol class="rvt-steps rvt-steps--vertical rvt-m-top-lg">
-  <li class="rvt-steps__item">
-    <a href="#" class="rvt-steps__item-content" aria-current="page">
-      <span class="rvt-steps__label">Step 1 <span class="rvt-sr-only">: Current step</span></span>
-      <span class="rvt-steps__indicator">1</span>
-    </a>
-  </li>
-  <li class="rvt-steps__item">
-    <span class="rvt-steps__item-content">
-      <span class="rvt-steps__label">Step 2</span>
-      <span class="rvt-steps__indicator">2</span>
-    </span>
-  </li>
-  <li class="rvt-steps__item">
-    <span class="rvt-steps__item-content">
-      <span class="rvt-steps__label">Step 3</span>
-      <span class="rvt-steps__indicator">3</span>
-    </span>
-  </li>
-  <li class="rvt-steps__item">
-    <span class="rvt-steps__item-content">
-      <span class="rvt-steps__label">Step 4</span>
-      <span class="rvt-steps__indicator">4</span>
-    </span>
-  </li>
-  <li class="rvt-steps__item">
-    <span class="rvt-steps__item-content">
-      <span class="rvt-steps__label">Step 5</span>
-      <span class="rvt-steps__indicator">5</span>
-    </span>
-  </li>
-</ol>
-
-
-
 <ol class="rvt-steps rvt-m-top-xxl">
   <li class="rvt-steps__item">
     <a href="#" class="rvt-steps__item-content" aria-current="page">
       <span class="rvt-steps__label">Step 1 <span class="rvt-sr-only">: Current step</span></span>
-      <span class="rvt-steps__indicator">1</span>
+      <!--
+        Use aria-hidden here to stop screen readers from announcing
+        the visual indicator.
+      -->
+      <span class="rvt-steps__indicator" aria-hidden="true">1</span>
     </a>
   </li>
   <li class="rvt-steps__item is-current">
-    <span class="rvt-steps__item-content">
+    <a href="#" class="rvt-steps__item-content">
       <span class="rvt-steps__label">Step 2</span>
-      <span class="rvt-steps__indicator">2</span>
-    </span>
+      <span class="rvt-steps__indicator" aria-hidden="true">2</span>
+    </a>
   </li>
   <li class="rvt-steps__item">
     <span class="rvt-steps__item-content">
       <span class="rvt-steps__label">Step 3</span>
-      <span class="rvt-steps__indicator">
-        3
-      </span>
+      <span class="rvt-steps__indicator" aria-hidden="true">3</span>
     </span>
   </li>
   <li class="rvt-steps__item">
     <span class="rvt-steps__item-content">
       <span class="rvt-steps__label">Step 4</span>
-      <span class="rvt-steps__indicator">4</span>
+      <span class="rvt-steps__indicator" aria-hidden="true">4</span>
     </span>
   </li>
   <li class="rvt-steps__item">
     <span class="rvt-steps__item-content">
       <span class="rvt-steps__label">Step 5</span>
-      <span class="rvt-steps__indicator">5</span>
+      <span class="rvt-steps__indicator" aria-hidden="true">5</span>
     </span>
   </li>
 </ol>
@@ -115,5 +81,40 @@
       <span class="rvt-steps__label">Step 5</span>
       <span class="rvt-steps__indicator">5</span>
     </a>
+  </li>
+</ol>
+
+<h2 class="rvt-m-top-xxl">Vertical variant</h2>
+
+<ol class="rvt-steps rvt-steps--vertical rvt-m-top-md">
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content" aria-current="page">
+      <span class="rvt-steps__label">Step 1 </span>
+      <span class="rvt-steps__indicator">1</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Step 2</span>
+      <span class="rvt-steps__indicator">2</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Step 3</span>
+      <span class="rvt-steps__indicator">3</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <span class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Step 4</span>
+      <span class="rvt-steps__indicator">4</span>
+    </span>
+  </li>
+  <li class="rvt-steps__item">
+    <span class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Step 5</span>
+      <span class="rvt-steps__indicator">5</span>
+    </span>
   </li>
 </ol>
