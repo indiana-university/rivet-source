@@ -110,20 +110,20 @@
 
   &__indicator--success {
     background-color: $color-green--500;
-    color: $color-background;
     border-color: $color-green--400;
+    color: $color-background;
   }
 
   &__indicator--warning {
     background-color: $color-yellow--200;
-    color: $color-black--rich;
     border-color: $color-yellow--100;
+    color: $color-black--rich;
   }
 
   &__indicator--danger {
     background-color: $color-orange--500;
-    color: $color-background;
     border-color: $color-orange--400;
+    color: $color-background;
   }
 }
 
