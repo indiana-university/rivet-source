@@ -3,6 +3,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  /**
+   * Allows content to be scroll-able on smaller screens
+   */
+  overflow-x: scroll;
 
   &__item {
     text-align: center;
@@ -53,45 +57,13 @@
     box-shadow: 0 0 0 $xxs $color-blue--300;
   }
 
-  &--vertical {
-    flex-direction: column;
-  }
-
-  &--vertical &__item {
-    text-align: left;
-    margin-top: 0;
-    padding-top: $md;
-    position: relative;
-  }
-
-  &--vertical &__item:first-child::before {
-    content: none;
-  }
-
-  &--vertical &__item::before {
-    box-shadow: -$xxs 0 0 0 $color-black--100;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: $sm*1.125;
-  }
-
-  &--vertical &__item-content {
-    flex-direction: row-reverse;
-    align-items: center;
-    position: relative;
-  }
-
-  &--vertical &__label {
-    margin-bottom: 0;
-    padding-left: $sm;
-  }
-
   &__label {
     display: block;
     color: $color-black;
     margin-bottom: $xs;
     font-size: $ts-14;
+    padding-right: $xs;
+    padding-left: $xs;
   }
 
   &__indicator {
@@ -125,11 +97,49 @@
     border-color: $color-orange--400;
     color: $color-background;
   }
+
+  /**
+   * Start vertical variant
+   */
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--vertical &__item {
+    text-align: left;
+    margin-top: 0;
+    padding-top: $md;
+    position: relative;
+  }
+
+  &--vertical &__item:first-child::before {
+    content: none;
+  }
+
+  &--vertical &__item::before {
+    box-shadow: -$xxs 0 0 0 $color-black--100;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: $sm*1.125;
+  }
+
+  &--vertical &__item-content {
+    flex-direction: row-reverse;
+    align-items: center;
+    position: relative;
+  }
+
+  &--vertical &__label {
+    margin-bottom: 0;
+    padding-left: $sm;
+  }
 }
 
 /**
  * Alternate styles used when wrapper element is a link. For instance,
- * when user can click through all steps of a multipage flow.
+ * when user can click through all steps of a multi-page flow.
  */
 
 a.#{$prefix}-steps__item-content {
@@ -147,4 +157,10 @@ a.#{$prefix}-steps__item-content[aria-current] .#{$prefix}-steps__indicator {
   background-color: $color-blue;
   color: $color-white;
   border-color: $color-blue;
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-steps {
+    overflow-x: visible;
+  }
 }
