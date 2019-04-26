@@ -8,7 +8,7 @@
 .visuallyhidden,
 .v-hide,
 .sr-only,
-.rvt-sr-only {
+.#{$prefix}-sr-only {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -30,8 +30,8 @@
 .v-hide.focusable:focus,
 .sr-only.focusable:active,
 .sr-only.focusable:focus,
-.rvt-sr-only.focusable:active,
-.rvt-sr-only.focusable:focus {
+.#{$prefix}-sr-only.focusable:active,
+.#{$prefix}-sr-only.focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;
@@ -41,17 +41,17 @@
 }
 
 .display-block,
-.rvt-display-block {
+.#{$prefix}-display-block {
   display: block !important;
 }
 
 .display-inline-block,
-.rvt-display-inline-block {
+.#{$prefix}-display-inline-block {
   display: inline-block !important;
 }
 
 .display-inline,
-.rvt-display-inline {
+.#{$prefix}-display-inline {
   display: inline !important;
 }
 
@@ -61,13 +61,13 @@
  */
 
 .display-flex,
-.rvt-display-flex {
+.#{$prefix}-display-flex {
   display: flex !important;
 }
 /* End DEPRECATED */
 
 .display-none,
-.rvt-display-none {
+.#{$prefix}-display-none {
   display: none !important;
 }
 
@@ -76,7 +76,7 @@
  * next major version of Rivet in favor of the new flex utilities.
  */
 
-.rvt-vertical-center {
+.#{$prefix}-vertical-center {
   align-items: center !important;
 }
 /* End DEPRECATED */

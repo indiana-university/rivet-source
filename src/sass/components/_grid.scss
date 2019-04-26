@@ -52,7 +52,7 @@ $gutter: $md / 2;
   margin-left: ($gutter / -1);
 }
 
-.rvt-container {
+.#{$prefix}-container {
   @include container();
 }
 
@@ -60,18 +60,18 @@ $gutter: $md / 2;
  * Contianer variants
  */
 
-.rvt-container--center {
+.#{$prefix}-container--center {
   margin-right: auto !important;
   margin-left: auto !important;
 }
 
 @each $key, $value in $grid-widths {
-  .rvt-container--#{$key} {
+  .#{$prefix}-container--#{$key} {
     max-width: $value;
   }
 }
 
-.rvt-container--collapse {
+.#{$prefix}-container--collapse {
   padding: 0;
 }
 
@@ -90,7 +90,7 @@ $gutter: $md / 2;
   position: relative;
 }
 
-.rvt-grid {
+.#{$prefix}-grid {
   @include grid;
 
   &__item {
@@ -101,10 +101,10 @@ $gutter: $md / 2;
     margin-left: auto;
   }
 
-  [class^='rvt-grid__item'] {
+  [class^='#{$prefix}-grid__item'] {
     /**
      * This keeps the grid from collapsing when items inside are too
-     * big for their parent .rvt-grid__item.
+     * big for their parent .#{$prefix}-grid__item.
      */
     min-width: 0;
   }
@@ -115,7 +115,7 @@ $gutter: $md / 2;
  * than 12 columns in total.
  */
 
-.rvt-grid--right {
+.#{$prefix}-grid--right {
   justify-content: flex-end;
 }
 
@@ -126,14 +126,14 @@ $gutter: $md / 2;
 }
 
 @each $bp-name, $bp-size in $breakpoints {
-  .rvt-grid__item-#{$bp-name} {
+  .#{$prefix}-grid__item-#{$bp-name} {
     @extend %auto-grid-props;
   }
 }
 
 @each $bp-name, $bp-size in $breakpoints {
   @include mq($bp-size) {
-    .rvt-grid__item-#{$bp-name} {
+    .#{$prefix}-grid__item-#{$bp-name} {
       max-width: 100%;
       flex-basis: 0;
       flex-grow: 1;
@@ -160,7 +160,7 @@ $gutter: $md / 2;
 }
 
 @each $columns, $width in $grid-columns {
-  .rvt-grid__item-#{$columns} {
+  .#{$prefix}-grid__item-#{$columns} {
     flex-basis: $width * 1%;
     max-width: $width * 1%;
     @extend %item-properties;
@@ -174,7 +174,7 @@ $gutter: $md / 2;
 /* stylelint-disable */
 @each $bp-name, $bp-size in $breakpoints {
   @each $columns, $width in $grid-columns {
-    .rvt-grid__item-#{$columns}-#{$bp-name}-up {
+    .#{$prefix}-grid__item-#{$columns}-#{$bp-name}-up {
       @extend %item-properties;
     }
   }
@@ -183,7 +183,7 @@ $gutter: $md / 2;
 @each $bp-name, $bp-size in $breakpoints {
   @if $bp-name == 'sm' {
     @each $columns, $width in $grid-columns {
-      .rvt-grid__item-#{$columns}-sm-up {
+      .#{$prefix}-grid__item-#{$columns}-sm-up {
         flex-basis: $width * 1%;
         max-width: $width * 1%;
       }
@@ -191,7 +191,7 @@ $gutter: $md / 2;
   } @else {
     @include mq($bp-size) {
       @each $columns, $width in $grid-columns {
-        .rvt-grid__item-#{$columns}-#{$bp-name}-up {
+        .#{$prefix}-grid__item-#{$columns}-#{$bp-name}-up {
           flex-basis: $width * 1%;
           max-width: $width * 1%;
         }
@@ -203,13 +203,13 @@ $gutter: $md / 2;
 // Push and pull utilities
 
 @each $columns, $width in $grid-columns {
-  .rvt-grid__item-push-#{$columns} {
+  .#{$prefix}-grid__item-push-#{$columns} {
     left: $width * 1%;
   }
 }
 
 @each $columns, $width in $grid-columns {
-  .rvt-grid__item-pull-#{$columns} {
+  .#{$prefix}-grid__item-pull-#{$columns} {
     right: $width * 1%;
   }
 }
@@ -221,25 +221,25 @@ $gutter: $md / 2;
   // as a convenience.
   @if $bp-name == 'sm' {
     @each $columns, $width in $grid-columns {
-      .rvt-grid__item-push-#{$columns}-#{$bp-name} {
+      .#{$prefix}-grid__item-push-#{$columns}-#{$bp-name} {
         left: $width * 1%;
       }
     }
 
     @each $columns, $width in $grid-columns {
-      .rvt-grid__item-pull-#{$columns}-#{$bp-name} {
+      .#{$prefix}-grid__item-pull-#{$columns}-#{$bp-name} {
         right: $width * 1%;
       }
     }
   } @else {
     @include mq($bp-size) {
       @each $columns, $width in $grid-columns {
-        .rvt-grid__item-push-#{$columns}-#{$bp-name} {
+        .#{$prefix}-grid__item-push-#{$columns}-#{$bp-name} {
           left: $width * 1%;
         }
       }
       @each $columns, $width in $grid-columns {
-        .rvt-grid__item-pull-#{$columns}-#{$bp-name} {
+        .#{$prefix}-grid__item-pull-#{$columns}-#{$bp-name} {
           right: $width * 1%;
         }
       }
