@@ -5,7 +5,7 @@
 
 @each $key, $value in $color-map {
   .color-#{$key},
-  .rvt-color-#{$key} {
+  .#{$prefix}-color-#{$key} {
     color: #{$value};
   }
 }
@@ -16,7 +16,7 @@
 // }
 @each $key, $value in $color-map {
   .bg-#{$key},
-  .rvt-bg-#{$key} {
+  .#{$prefix}-bg-#{$key} {
     background-color: #{$value};
     color: $color-white;
 

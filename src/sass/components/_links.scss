@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 a,
-.rvt-link {
+.#{$prefix}-link {
   color: $color-blue--600;
 
   &:hover {
@@ -22,8 +22,8 @@ a,
   }
 }
 
-.rvt-link--reverse,
-.rvt-link-reverse {
+.#{$prefix}-link--reverse,
+.#{$prefix}-link-reverse {
   color: rgba($color-white, .8);
 
   &:hover {
@@ -31,8 +31,8 @@ a,
   }
 }
 
-.rvt-link--bold,
-.rvt-link-bold {
+.#{$prefix}-link--bold,
+.#{$prefix}-link-bold {
   font-weight: $font-weight-bold;
   text-decoration: none;
 

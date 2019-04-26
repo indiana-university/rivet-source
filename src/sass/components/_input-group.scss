@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-input-group {
+.#{$prefix}-input-group {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -22,7 +22,7 @@
     flex-grow: 1;
     margin-left: -1px;
 
-    .rvt-button {
+    .#{$prefix}-button {
       flex-grow: 1;
       z-index: map-get($z-index, z-200);
       border-top-left-radius: 0;
@@ -56,7 +56,7 @@
   &__prepend {
     margin-right: -1px;
 
-    .rvt-button {
+    .#{$prefix}-button {
       z-index: map-get($z-index, z-200);
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;

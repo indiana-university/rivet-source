@@ -36,14 +36,14 @@ tr td {
 }
 
 .table-stripes,
-.rvt-table-stripes {
+.#{$prefix}-table-stripes {
   tr:nth-child(even) {
     background-color: $color-subtle-gray;
   }
 }
 
 .table-plain,
-.rvt-table-plain {
+.#{$prefix}-table-plain {
   thead {
     background-color: transparent;
     border-bottom: none;
@@ -54,7 +54,7 @@ tr td {
   }
 }
 
-.rvt-table-compact {
+.#{$prefix}-table-compact {
   line-height: 1.2;
 
   tr th,
@@ -63,7 +63,7 @@ tr td {
   }
 }
 
-.rvt-table-cells {
+.#{$prefix}-table-cells {
   border-top: 1px solid $color-black--200;
 
   tr td,

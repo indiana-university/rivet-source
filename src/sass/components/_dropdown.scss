@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .dropdown,
-.rvt-dropdown {
+.#{$prefix}-dropdown {
   position: relative;
   display: inline-block;
 
@@ -98,7 +98,7 @@
         box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
       }
 
-      &.rvt-is-selected,
+      &.#{$prefix}-is-selected,
       &[aria-current],
       &[aria-checked='true'] {
         box-shadow: inset $xxs 0 0 $color-blue--600;

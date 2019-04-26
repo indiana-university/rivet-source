@@ -3,7 +3,7 @@
 
 /* stylelint-disable */
 @each $key, $value in $z-index {
-  .rvt-#{$key} {
+  .#{$prefix}-#{$key} {
     z-index: $value !important;
   }
 }
