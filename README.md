@@ -1,4 +1,8 @@
-# Principles
+# Rivet
+
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) [![Node version](https://img.shields.io/node/v/[rivet-uits].svg?style=flat)](http://nodejs.org/download/) [![CircleCI](https://circleci.com/gh/indiana-university/rivet-source.svg?style=svg)](https://circleci.com/gh/indiana-university/rivet-source)
+
+## Principles
 Designers and developers can use this system as a foundation for great experiences across all UITS applications. They can also contribute to it—and make the system relevant to any team.
 
 We want to hear about the patterns you need, but we need to make sure all patterns are cohesive. So, we’ve established these principles to help guide the creation process:
@@ -64,7 +68,7 @@ To help us understand the kind of contribution you want to make we ask that you 
 5. Push your feature branch to your fork: `git push origin feature/**your feature**`
 6. [Open a pull request](https://help.github.com/articles/about-pull-requests/) with a title and clear description of your feature branch against `develop`
 
-### Testing Javascript
+## Testing Javascript
 We use [Cypress](https://www.cypress.io/) to run automated end-to-end tests on Rivet's JavaScript components. To run tests do the following:
 
 1. Start the local development server by typing `npm run start` in your terminal.
