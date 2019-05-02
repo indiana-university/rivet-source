@@ -26,6 +26,9 @@ RC_VERSION="$VERSION-rc.$CIRCLE_BUILD_NUM"
 echo "Updating package.json version to $RC_VERSION..."
 npm version $RC_VERSION --no-git-tag-version --no-commit-hooks
 
+# Manually build package files
+npm run build
+
 # Form the tag with the number of commits to this branch and publish the package.
 echo "Publishing package to NPM tag 'rc' with version '$RC_VERSION' ..."
 npm publish --tag rc
@@ -38,8 +41,6 @@ if [ $? -eq 0 ]; then
     git config user.name "iubot"
     # Stage the change to package.json
     git add package.json
-    git add dist
-    git add docs
     git commit -m "Circle CI: update package.json version. [skip ci]"
     # Push quietly to prevent showing the token in log
     echo "Pushing updated package.json to origin..."
