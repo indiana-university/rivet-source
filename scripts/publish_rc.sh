@@ -38,8 +38,6 @@ if [ $? -eq 0 ]; then
     git config user.name "iubot"
     # Stage the change to package.json
     git add package.json
-    git add dist
-    git add docs
     git commit -m "Circle CI: update package.json version. [skip ci]"
     # Push quietly to prevent showing the token in log
     echo "Pushing updated package.json to origin..."
