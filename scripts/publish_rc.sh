@@ -26,6 +26,9 @@ RC_VERSION="$VERSION-rc.$CIRCLE_BUILD_NUM"
 echo "Updating package.json version to $RC_VERSION..."
 npm version $RC_VERSION --no-git-tag-version --no-commit-hooks
 
+# Manually build package files
+npm run build
+
 # Form the tag with the number of commits to this branch and publish the package.
 echo "Publishing package to NPM tag 'rc' with version '$RC_VERSION' ..."
 npm publish --tag rc
