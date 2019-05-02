@@ -11,6 +11,9 @@ if [[ $CIRCLE_BRANCH != "master" ]] ; then
     exit 0
 fi
 
+# Manually build package files
+npm run build
+
 # And away we go!
 echo "Publishing from $CIRCLE_BRANCH" 
 
