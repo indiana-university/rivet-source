@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@include all-inputs('.rvt-validation-info') {
+@include all-inputs('.#{$prefix}-validation-info') {
   transition: box-shadow .2s ease;
   border-color: $color-blue--600;
   box-shadow: 0 0 0 .125rem $color-blue--600;
@@ -15,7 +15,7 @@
   }
 }
 
-@include all-inputs('.rvt-validation-warning') {
+@include all-inputs('.#{$prefix}-validation-warning') {
   transition: box-shadow .2s ease;
   border-color: $color-yellow--200;
   box-shadow: 0 0 0 .125rem $color-yellow--200;
@@ -29,7 +29,7 @@
   }
 }
 
-@include all-inputs('.rvt-validation-danger') {
+@include all-inputs('.#{$prefix}-validation-danger') {
   transition: box-shadow .2s ease;
   border-color: $color-orange--500;
   box-shadow: 0 0 0 .125rem $color-orange--500;
@@ -43,7 +43,7 @@
   }
 }
 
-@include all-inputs('.rvt-validation-success') {
+@include all-inputs('.#{$prefix}-validation-success') {
   transition: box-shadow .2s ease;
   border-color: $color-green--500;
   box-shadow: 0 0 0 .125rem $color-green--500;
@@ -66,7 +66,7 @@
  * remove this stuff from the code base.
  */
 
-@include all-inputs('.rvt-is-invalid') {
+@include all-inputs('.#{$prefix}-is-invalid') {
   transition: box-shadow .2s ease;
   border-color: $color-orange--500;
   box-shadow: 0 0 0 .125rem $color-orange--500;
@@ -80,7 +80,7 @@
   }
 }
 
-@include all-inputs('.rvt-is-valid') {
+@include all-inputs('.#{$prefix}-is-valid') {
   transition: box-shadow .2s ease;
   border-color: $color-green--500;
   box-shadow: 0 0 0 .125rem $color-green--500;
@@ -94,7 +94,7 @@
   }
 }
 
-@include all-inputs('.rvt-has-warning') {
+@include all-inputs('.#{$prefix}-has-warning') {
   transition: box-shadow .2s ease;
   border-color: $color-yellow--200;
   box-shadow: 0 0 0 .125rem $color-yellow--200;
@@ -108,7 +108,7 @@
   }
 }
 
-@include all-inputs('.rvt-has-info') {
+@include all-inputs('.#{$prefix}-has-info') {
   transition: box-shadow .2s ease;
   border-color: $color-blue--600;
   box-shadow: 0 0 0 .125rem $color-blue--600;
@@ -132,7 +132,7 @@
  * alongside groups of form inputs like radio buttons and checkboxes
  */
 
-.rvt-inline-alert {
+.#{$prefix}-inline-alert {
   margin-top: $xs;
   font-size: $ts-14;
   display: flex;
@@ -177,40 +177,40 @@
   &--standalone {
     padding: $xs;
 
-    &.rvt-inline-alert--is-invalid,
-    &.rvt-inline-alert--danger {
+    &.#{$prefix}-inline-alert--is-invalid,
+    &.#{$prefix}-inline-alert--danger {
       border-left: $xxs solid $color-orange--500;
       background-color: $color-orange--050;
 
-      .rvt-inline-alert__message {
+      .#{$prefix}-inline-alert__message {
         color: $color-orange--700;
       }
     }
 
-    &.rvt-inline-alert--success {
+    &.#{$prefix}-inline-alert--success {
       border-left: $xxs solid $color-green--500;
       background-color: $color-green--050;
 
-      .rvt-inline-alert__message {
+      .#{$prefix}-inline-alert__message {
         color: $color-green--700;
       }
     }
 
-    &.rvt-inline-alert--warning {
+    &.#{$prefix}-inline-alert--warning {
       border-left: $xxs solid $color-yellow--200;
       background-color: $color-yellow--050;
 
-      .rvt-inline-alert__message {
+      .#{$prefix}-inline-alert__message {
         color: $color-yellow--700;
       }
     }
 
-    &.rvt-inline-alert--has-info,
-    &.rvt-inline-alert--info {
+    &.#{$prefix}-inline-alert--has-info,
+    &.#{$prefix}-inline-alert--info {
       border-left: $xxs solid $color-blue--600;
       background-color: $color-blue--050;
 
-      .rvt-inline-alert__message {
+      .#{$prefix}-inline-alert__message {
         color: $color-blue--700;
       }
     }

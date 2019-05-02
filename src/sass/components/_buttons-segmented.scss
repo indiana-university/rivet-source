@@ -1,20 +1,20 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-button-segmented {
+.#{$prefix}-button-segmented {
   display: inline-flex;
 
   &--fitted {
     display: flex;
     width: 100%;
 
-    .rvt-button {
+    .#{$prefix}-button {
       flex-grow: 1;
       justify-content: center;
     }
   }
 
-  .rvt-button {
+  .#{$prefix}-button {
     position: relative;
 
     &:focus {
@@ -22,22 +22,22 @@
     }
   }
 
-  a.rvt-button {
+  a.#{$prefix}-button {
     text-align: center;
   }
 
-  .rvt-button:first-child {
+  .#{$prefix}-button:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .rvt-button:last-child {
+  .#{$prefix}-button:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: -2px;
   }
 
-  .rvt-button:not(:first-child):not(:last-child) {
+  .#{$prefix}-button:not(:first-child):not(:last-child) {
     border-radius: 0;
     margin-left: -2px;
   }
@@ -47,34 +47,34 @@
    * segmented button.
    */
 
-  .dropdown:first-child > .rvt-button:only-of-type,
-  .rvt-dropdown:first-child > .rvt-button:only-of-type {
+  .dropdown:first-child > .#{$prefix}-button:only-of-type,
+  .#{$prefix}-dropdown:first-child > .#{$prefix}-button:only-of-type {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin-left: -2px;
   }
 
-  .dropdown:first-child > .rvt-button:first-of-type,
-  .rvt-dropdown:first-child > .rvt-button:first-of-type {
+  .dropdown:first-child > .#{$prefix}-button:first-of-type,
+  .#{$prefix}-dropdown:first-child > .#{$prefix}-button:first-of-type {
     border-top-left-radius: $xxs;
     border-bottom-left-radius: $xxs;
   }
 
-  .dropdown:last-child > .rvt-button:only-of-type,
-  .rvt-dropdown:last-child > .rvt-button:only-of-type {
+  .dropdown:last-child > .#{$prefix}-button:only-of-type,
+  .#{$prefix}-dropdown:last-child > .#{$prefix}-button:only-of-type {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: -2px;
   }
 
-  .dropdown:last-child > .rvt-button:last-of-type,
-  .rvt-dropdown:last-child > .rvt-button:last-of-type {
+  .dropdown:last-child > .#{$prefix}-button:last-of-type,
+  .#{$prefix}-dropdown:last-child > .#{$prefix}-button:last-of-type {
     border-top-right-radius: $xxs;
     border-bottom-right-radius: $xxs;
   }
 
-  .dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
-  .rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
+  .dropdown:not(:first-child):not(:last-child) > .#{$prefix}-button:only-of-type,
+  .#{$prefix}-dropdown:not(:first-child):not(:last-child) > .#{$prefix}-button:only-of-type {
     border-radius: 0;
     margin-left: -2px;
   }

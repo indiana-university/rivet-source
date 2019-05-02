@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-footer {
+.#{$prefix}-footer {
   align-items: center;
   font-size: ts(12);
   padding: $xs $md;
@@ -22,7 +22,7 @@
    * DEPRECATED
    *
    * With the updates to the footer lockup, the div that the 
-   * `.rvt-footer__copyright-lockup` class is unncessary. We are deprecating
+   * `.#{$prefix}-footer__copyright-lockup` class is unncessary. We are deprecating
    * the class and removing the div from the code snippet.
    *
    * See the following for more info:
@@ -40,36 +40,62 @@
    * End deprecated input validation
    */
 
-  &__trident {
-    margin-right: $sm;
+  &__trident > svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $xxs;
   }
 
   &__aux-links {
     list-style: none;
-    margin-top: 0;
+    margin-top: $xs;
     margin-bottom: 0;
-    margin-left: auto;
-    padding: 0;
+    padding-inline-start: 0;
+    text-align: center;
   }
 
   &__aux-item {
     display: inline-block;
     margin-top: 0;
 
-    &:after {
-      content: '|';
+    &:first-child:after {
+      content: "|";
       color: $color-black--500;
       margin: 0 $xs;
     }
 
-    &:last-child:after {
+    &:after {
       content: none;
     }
   }
 }
 
-@include mq(640px) {
-  .rvt-footer {
+/**
+ * Pixels for breakpoint chosen due to margins in default footer lockup
+ */
+
+@include mq(519px) {
+  .#{$prefix}-footer {
+    &__aux-item:after {
+      content: "|";
+      color: $color-black--500;
+      margin: 0 $xs;
+    }
+
+    &__aux-item:last-child:after {
+      content: none;
+    }
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-footer {
     display: flex;
+
+    &__aux-links {
+      margin-left: auto;
+      margin-top: 0;
+    }
   }
 }

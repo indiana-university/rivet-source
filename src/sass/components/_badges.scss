@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-badge {
+.#{$prefix}-badge {
   background-color: $color-black--300;
   border: 2px solid $color-black--300;
   border-radius: 999px;
@@ -29,7 +29,7 @@
   }
 }
 
-a.rvt-badge {
+a.#{$prefix}-badge {
   text-decoration: none;
 
   &:hover {
@@ -79,8 +79,8 @@ a.rvt-badge {
  * DEPRECATED: Remove --action modifier in next major version.
  */
 
-.rvt-badge--action,
-.rvt-badge--info {
+.#{$prefix}-badge--action,
+.#{$prefix}-badge--info {
   background-color: $color-blue--600;
   border-color: $color-blue--600;
   color: $color-white;
@@ -92,7 +92,7 @@ a.rvt-badge {
   }
 }
 
-.rvt-badge--success {
+.#{$prefix}-badge--success {
   background-color: $color-green--500;
   border-color: $color-green--500;
   color: $color-white;
@@ -104,7 +104,7 @@ a.rvt-badge {
   }
 }
 
-.rvt-badge--warning {
+.#{$prefix}-badge--warning {
   background-color: $color-yellow--200;
   border-color: $color-yellow--200;
   color: $color-black--rich;
@@ -120,8 +120,8 @@ a.rvt-badge {
  * DEPRECATED: Remove --error modifier in next major version.
  */
 
-.rvt-badge--error,
-.rvt-badge--danger {
+.#{$prefix}-badge--error,
+.#{$prefix}-badge--danger {
   background-color: $color-orange--500;
   border-color: $color-orange--500;
   color: $color-white;

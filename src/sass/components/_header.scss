@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-skip-link {
+.#{$prefix}-skip-link {
   position: fixed;
   top: -6rem;
   padding: $xs;
@@ -12,7 +12,7 @@
   }
 }
 
-.rvt-header {
+.#{$prefix}-header {
   background-color: $color-white;
   display: flex;
   align-items: center;
@@ -21,12 +21,12 @@
   width: 100%;
 }
 
-.rvt-header--light {
+.#{$prefix}-header--light {
   background-color: $color-white;
   border-bottom: 1px solid $color-black--150;
 }
 
-.rvt-header__trident {
+.#{$prefix}-header__trident {
   min-width: 41px;
   flex-basis: 41px;
   height: 47px;
@@ -40,7 +40,7 @@
 }
 
 @include mq(bp(lg)) {
-  .rvt-header__trident {
+  .#{$prefix}-header__trident {
     min-width: 60px;
     flex-basis: 60px;
     height: 70px;
@@ -55,13 +55,13 @@
     }
   }
 
-  .rvt-header__trident-logo {
+  .#{$prefix}-header__trident-logo {
     width: 60px;
     height: 70px;
   }
 }
 
-.rvt-header__title {
+.#{$prefix}-header__title {
   font-size: $ts-18;
   line-height: 1;
 
@@ -80,18 +80,18 @@
  */
 
 @include mq(bp(lg)) {
-  .rvt-header__title {
+  .#{$prefix}-header__title {
     font-size: ts(23);
   }
 }
 
-.rvt-header__controls {
+.#{$prefix}-header__controls {
   display: flex;
   margin-left: auto;
   align-items: center;
 }
 
-.rvt-drawer-button {
+.#{$prefix}-drawer-button {
   background-color: transparent;
   box-shadow: none;
   border: none;
@@ -152,55 +152,55 @@
 }
 
 @include mq(bp(lg)) {
-  .rvt-drawer-button {
+  .#{$prefix}-drawer-button {
     height: 70px;
     width: 71px;
   }
 }
 
 @include mq(bp(lg)) {
-  .rvt-drawer-button {
+  .#{$prefix}-drawer-button {
     display: none;
   }
 
-  .rvt-drawer-button--persistent {
+  .#{$prefix}-drawer-button--persistent {
     display: flex;
   }
 }
 
-.rvt-drawer-button--persistent {
+.#{$prefix}-drawer-button--persistent {
   display: flex;
 }
 
-.rvt-drawer-button-close {
+.#{$prefix}-drawer-button-close {
   display: none;
 }
 
-.rvt-drawer-button-open,
-.rvt-drawer-button-close {
+.#{$prefix}-drawer-button-open,
+.#{$prefix}-drawer-button-close {
   width: 16px;
   height: 16px;
 }
 
 @include mq(bp(lg)) {
-  .rvt-drawer-button-open,
-  .rvt-drawer-button-close {
+  .#{$prefix}-drawer-button-open,
+  .#{$prefix}-drawer-button-close {
     width: 24px;
     height: 24px;
   }
 }
 
-.rvt-drawer-button[aria-expanded='true'] {
-  > .rvt-drawer-button-close {
+.#{$prefix}-drawer-button[aria-expanded='true'] {
+  > .#{$prefix}-drawer-button-close {
     display: flex;
   }
 
-  > .rvt-drawer-button-open {
+  > .#{$prefix}-drawer-button-open {
     display: none;
   }
 }
 
-.rvt-header__main-nav {
+.#{$prefix}-header__main-nav {
   display: none;
   margin-right: $xxl;
 
@@ -255,12 +255,12 @@
   }
 
   /**
-   * HACK: this combats some specificity issues in the code for .rvt-header__main-nav
+   * HACK: this combats some specificity issues in the code for .#{$prefix}-header__main-nav
    * How can one of them be refactored to fix this?
    */
 
   ul li .dropdown__menu a:hover,
-  ul li .rvt-dropdown__menu a:hover {
+  ul li .#{$prefix}-dropdown__menu a:hover {
     text-decoration: none;
   }
 
@@ -270,13 +270,13 @@
    *
    * Combating some under-specific selectors here. Maybe should think
    * about shying away from using the super generic:
-   * .rvt-header__main-nav ul li selectors above. Could posibly
+   * .#{$prefix}-header__main-nav ul li selectors above. Could posibly
    * add more explicit classes to the ul and li E.g:
    *
-   * ul.rvt-header__main-nav-list > li.rvt-header__main-nav-item
+   * ul.#{$prefix}-header__main-nav-list > li.#{$prefix}-header__main-nav-item
    */
 
-  ul li .rvt-dropdown__menu a::after {
+  ul li .#{$prefix}-dropdown__menu a::after {
     content: none;
   }
 
@@ -312,11 +312,11 @@
   }
 }
 
-.rvt-drawer[aria-hidden='true'] {
+.#{$prefix}-drawer[aria-hidden='true'] {
   display: none;
 }
 
-.rvt-drawer {
+.#{$prefix}-drawer {
   position: absolute;
   right: 0;
   top: 47px;
@@ -453,11 +453,11 @@
 }
 
 @include mq(bp(lg)) {
-  .rvt-drawer {
+  .#{$prefix}-drawer {
     top: 70px;
   }
 
-  .rvt-header__main-nav {
+  .#{$prefix}-header__main-nav {
     display: block;
   }
 
@@ -466,7 +466,7 @@
   }
 }
 
-.rvt-header-id {
+.#{$prefix}-header-id {
   display: none;
   align-items: center;
 
@@ -545,19 +545,19 @@
  * an explicit height to match the other links inside the drawer.
  */
 
-button.rvt-header-id__profile.rvt-header-id__profile--drawer {
+button.#{$prefix}-header-id__profile.#{$prefix}-header-id__profile--drawer {
   height: 3.5rem;
   padding: $xs $sm;
 }
 
 @include mq(bp(lg)) {
-  .rvt-header-id {
+  .#{$prefix}-header-id {
     display: flex;
   }
 }
 
 @include mq(bp(lg)) {
-  .rvt-header-id--drawer {
+  .#{$prefix}-header-id--drawer {
     display: none;
   }
 }

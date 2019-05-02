@@ -8,12 +8,12 @@
  */
 
 .modal-open,
-.rvt-modal-open {
+.#{$prefix}-modal-open {
   overflow: hidden;
 }
 
 .modal,
-.rvt-modal {
+.#{$prefix}-modal {
   z-index: map-get($z-index, z-1000);
   position: fixed;
   top: 0;
@@ -95,7 +95,7 @@
     background-color: $color-black--050;
     flex-wrap: wrap;
 
-    .rvt-button {
+    .#{$prefix}-button {
       width: 100%;
       text-align: center;
       justify-content: center;
@@ -109,7 +109,7 @@
     @include mq(bp(sm)) {
       justify-content: flex-end;
 
-      .rvt-button {
+      .#{$prefix}-button {
         width: auto;
         margin-right: $sm;
         margin-bottom: 0;
@@ -135,11 +135,11 @@
 }
 
 .modal[aria-hidden='true'],
-.rvt-modal[aria-hidden='true'] {
+.#{$prefix}-modal[aria-hidden='true'] {
   display: none;
 }
 
 .modal:not([aria-hidden='true']),
-.rvt-modal:not([aria-hidden='true']) {
+.#{$prefix}-modal:not([aria-hidden='true']) {
   display: block;
 }

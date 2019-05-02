@@ -9,7 +9,7 @@
 /* stylelint-enable */
 
 .button,
-.rvt-button {
+.#{$prefix}-button {
   background-color: $color-blue--600;
   border: $xxs/2 solid $color-blue--600;
   border-radius: $xxs;
@@ -28,7 +28,7 @@
 
   // Initially hide any loaders if they're being used inside buttons.
 
-  .rvt-loader {
+  .#{$prefix}-loader {
     display: none;
   }
 
@@ -60,7 +60,7 @@
 }
 
 .button--secondary,
-.rvt-button--secondary {
+.#{$prefix}-button--secondary {
   background-color: transparent;
   color: $color-blue--600;
 
@@ -84,7 +84,7 @@
 }
 
 .button--success,
-.rvt-button--success {
+.#{$prefix}-button--success {
   background-color: $color-green--500;
   border-color: $color-green--500;
 
@@ -108,7 +108,7 @@
 }
 
 .button--success-secondary,
-.rvt-button--success-secondary {
+.#{$prefix}-button--success-secondary {
   background-color: transparent;
   border-color: $color-green--500;
   color: $color-green--500;
@@ -134,7 +134,7 @@
 }
 
 .button--danger,
-.rvt-button--danger {
+.#{$prefix}-button--danger {
   background-color: $color-orange--500;
   border-color: $color-orange--500;
 
@@ -158,7 +158,7 @@
 }
 
 .button--danger-secondary,
-.rvt-button--danger-secondary {
+.#{$prefix}-button--danger-secondary {
   background-color: transparent;
   border-color: $color-orange--500;
   color: $color-orange--500;
@@ -184,7 +184,7 @@
 }
 
 .button--small,
-.rvt-button--small {
+.#{$prefix}-button--small {
   height: $md;
   line-height: 1.1;
   vertical-align: bottom;
@@ -203,13 +203,12 @@
 
   &-active,
   &:active {
-    background-color: $color-blue--800;
     border-color: $color-blue--800;
   }
 }
 
 .button--plain,
-.rvt-button--plain {
+.#{$prefix}-button--plain {
   border-color: transparent;
   background-color: transparent;
   color: $color-blue--600;
@@ -241,7 +240,7 @@
 }
 
 .button-group,
-.rvt-button-group {
+.#{$prefix}-button-group {
   display: flex;
 
   > *:not(:last-child) {
@@ -254,7 +253,7 @@
  */
 
 .button-group--right,
-.rvt-button-group--right {
+.#{$prefix}-button-group--right {
   justify-content: flex-end;
 }
 
@@ -262,7 +261,7 @@
  * Full-width buttons.
  */
 
-.rvt-button--full-width {
+.#{$prefix}-button--full-width {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -273,8 +272,8 @@
  * found in components/24-loading-indicator/
  */
 
-.rvt-button--loading,
-.rvt-button--loading[disabled] {
+.#{$prefix}-button--loading,
+.#{$prefix}-button--loading[disabled] {
   background-color: $color-blue--100;
   border-color: $color-blue--200;
   color: $color-blue--600;
@@ -290,9 +289,9 @@
   /**
    * DEPRECATED
    *
-   * .rvt-button__text was the original version of the wrapper class for button
+   * .#{$prefix}-button__text was the original version of the wrapper class for button
    * content. We've updated the class language to be more clear and better
-   * represent its purpose. Please use .rvt-button__content going forward.
+   * represent its purpose. Please use .#{$prefix}-button__content going forward.
    *
    * See the following for more info:
    *
@@ -300,8 +299,8 @@
    *
    */
 
-  .rvt-button__content,
-  .rvt-button__text {
+  .#{$prefix}-button__content,
+  .#{$prefix}-button__text {
     color: transparent;
   }
 
@@ -309,7 +308,7 @@
    * End deprecated input validation
    */
 
-  .rvt-loader {
+  .#{$prefix}-loader {
     display: block;
     position: absolute;
     left: 50%;
