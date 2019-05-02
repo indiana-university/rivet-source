@@ -52,11 +52,11 @@ dl dd {
 }
 
 .plain-list,
-.rvt-plain-list {
+.#{$prefix}-plain-list {
   @include plain-list;
 }
 
 .inline-list,
-.rvt-inline-list {
+.#{$prefix}-inline-list {
   @include inline-list;
 }

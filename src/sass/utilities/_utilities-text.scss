@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .text-uppercase,
-.rvt-text-uppercase {
+.#{$prefix}-text-uppercase {
   text-transform: uppercase;
   /**
    * All uppercase text is harder for humans to read. A little extra
@@ -12,27 +12,27 @@
 }
 
 .text-bold,
-.rvt-text-bold {
+.#{$prefix}-text-bold {
   font-weight: 700 !important;
 }
 
 .text-regular,
-.rvt-text-regular {
+.#{$prefix}-text-regular {
   font-weight: 400 !important;
 }
 
 .text-left,
-.rvt-text-left {
+.#{$prefix}-text-left {
   text-align: left !important;
 }
 
 .text-right,
-.rvt-text-right {
+.#{$prefix}-text-right {
   text-align: right !important;
 }
 
 .text-center,
-.rvt-text-center {
+.#{$prefix}-text-center {
   text-align: center !important;
 }
 
@@ -40,10 +40,10 @@
  * Sets shorter line-height for headings and title.
  */
 
-.rvt-lh-title {
+.#{$prefix}-lh-title {
   line-height: 1.1;
 }
 
-.rvt-text-nobr {
+.#{$prefix}-text-nobr {
   white-space: nowrap;
 }

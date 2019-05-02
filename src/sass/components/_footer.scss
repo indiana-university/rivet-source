@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-footer {
+.#{$prefix}-footer {
   align-items: center;
   font-size: ts(12);
   padding: $xs $md;
@@ -22,7 +22,7 @@
    * DEPRECATED
    *
    * With the updates to the footer lockup, the div that the 
-   * `.rvt-footer__copyright-lockup` class is unncessary. We are deprecating
+   * `.#{$prefix}-footer__copyright-lockup` class is unncessary. We are deprecating
    * the class and removing the div from the code snippet.
    *
    * See the following for more info:
@@ -76,7 +76,7 @@
  */
 
 @include mq(519px) {
-  .rvt-footer {
+  .#{$prefix}-footer {
     &__aux-item:after {
       content: "|";
       color: $color-black--500;
@@ -90,7 +90,7 @@
 }
 
 @include mq($breakpoint-md) {
-  .rvt-footer {
+  .#{$prefix}-footer {
     display: flex;
 
     &__aux-links {

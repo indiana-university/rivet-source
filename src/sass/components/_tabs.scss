@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-tabs {
+.#{$prefix}-tabs {
   &__tab {
     background-color: $color-black--100;
     border-top: 1px solid $color-black--300;
@@ -72,7 +72,7 @@
 }
 
 @include mq(bp(md)) {
-  .rvt-tabs {
+  .#{$prefix}-tabs {
     &__tab {
       border-top-right-radius: $xxs;
       border-top-left-radius: $xxs;
@@ -96,13 +96,13 @@
  * Vertical tabs
  */
 @include mq(bp(md)) {
-  .rvt-tabs--vertical {
+  .#{$prefix}-tabs--vertical {
     border: 1px solid $color-black--300;
     border-radius: $xxs;
     display: flex;
     justify-content: space-between;
 
-    .rvt-tabs__tablist {
+    .#{$prefix}-tabs__tablist {
       border-right: 1px solid $color-black--300;
       display: block;
       flex-basis: 250px;
@@ -110,7 +110,7 @@
       min-width: 250px;
     }
 
-    .rvt-tabs__tab {
+    .#{$prefix}-tabs__tab {
       border-right: none;
       border-radius: 0;
       border-top: none;
@@ -124,7 +124,7 @@
       }
     }
 
-    .rvt-tabs__panel {
+    .#{$prefix}-tabs__panel {
       border: none;
       flex-grow: 1;
     }
@@ -135,12 +135,12 @@
  * Fitted tabs
  */
 
-.rvt-tabs--fitted {
-  .rvt-tabs__tab {
+.#{$prefix}-tabs--fitted {
+  .#{$prefix}-tabs__tab {
     flex-grow: 1;
   }
 
-  .rvt-tabs__panel {
+  .#{$prefix}-tabs__panel {
     border-top-right-radius: 0;
   }
 }

@@ -8,7 +8,7 @@ input[type='radio'] {
 }
 
 input[type='radio'] + label,
-.rvt-radio-wrapper input[type='radio'] ~ label {
+.#{$prefix}-radio-wrapper input[type='radio'] ~ label {
   font-size: 1rem;
   font-weight: $font-weight-regular;
   /**
@@ -49,7 +49,7 @@ input[type='radio'] + label,
 
 /* stylelint-disable */
 input[type='radio']:checked + label,
-.rvt-radio-wrapper input[type='radio']:checked ~ label {
+.#{$prefix}-radio-wrapper input[type='radio']:checked ~ label {
   &:before {
     background-color: $color-blue--600;
     box-shadow: inset 0 0 0 .125rem $color-white,
@@ -58,7 +58,7 @@ input[type='radio']:checked + label,
 }
 
 input[type='radio']:focus + label:before,
-.rvt-radio-wrapper input[type='radio']:focus ~ label:before {
+.#{$prefix}-radio-wrapper input[type='radio']:focus ~ label:before {
   box-shadow: 0 0 0 .08rem $color-black--700,
               0 0 0 .1875rem $color-white,
               0 0 0 .3125rem $color-blue--600;
@@ -70,31 +70,31 @@ input[type='radio']:focus + label:before,
  * rings and it sort of looks like a bullseye.
  */
 input[type='radio']:checked:focus + label:before,
-.rvt-radio-wrapper input[type='radio']:checked:focus ~ label:before {
+.#{$prefix}-radio-wrapper input[type='radio']:checked:focus ~ label:before {
   box-shadow: inset 0 0 0 .125rem $color-white, 0 0 0 .125rem $color-blue--600,
     0 0 0 .3125rem $color-blue--500;
 }
 /* stylelint-enable */
 
 input[type='radio']:disabled + label:before,
-.rvt-radio-wrapper input[type='radio']:disabled ~ label:before {
+.#{$prefix}-radio-wrapper input[type='radio']:disabled ~ label:before {
   background-color: $color-black--200;
   box-shadow: 0 0 0 .08rem $color-black--300;
 }
 
 input[type='radio']:disabled + label:before,
-.rvt-radio-wrapper input[type='radio']:disabled ~ label:before {
+.#{$prefix}-radio-wrapper input[type='radio']:disabled ~ label:before {
   background-color: $color-black--200;
 }
 
 input[type='radio']:checked:disabled + label:before,
-.rvt-radio-wrapper input[type='radio']:checked:disabled ~ label:before {
+.#{$prefix}-radio-wrapper input[type='radio']:checked:disabled ~ label:before {
   background-color: $color-black--300;
   box-shadow: inset 0 0 0 .125rem $color-black--200, 0 0 0 .08rem $color-black--300;
 }
 
 input[type='radio']:disabled + label,
-.rvt-radio-wrapper input[type='radio']:disabled ~ label {
+.#{$prefix}-radio-wrapper input[type='radio']:disabled ~ label {
   cursor: default;
   color: $color-black--600;
 }
