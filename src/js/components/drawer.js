@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+// eslint-disable-next-line no-unused-vars
 var Drawer = (function() {
   'use strict';
 
@@ -76,6 +77,7 @@ var Drawer = (function() {
     drawer.menu.setAttribute('aria-hidden', 'false');
 
     // Emit a custom event that can be used as a hook for other actions
+    // eslint-disable-next-line no-undef
     fireCustomEvent(activeDrawerToggle, TOGGLE_ATTRIBUTE, 'drawerOpen');
 
     if (callback && typeof callback === 'function') {
@@ -99,10 +101,11 @@ var Drawer = (function() {
     drawer.setAttribute('aria-hidden', 'true');
 
     // Emit a custom event that can be used as a hook for other actions
+    // eslint-disable-next-line no-undef
     fireCustomEvent(drawerButton, TOGGLE_ATTRIBUTE, 'drawerClose');
 
     if (callback && typeof callback === 'function') {
-        callback();
+      callback();
     }
   }
 
@@ -116,6 +119,7 @@ var Drawer = (function() {
    * @param {HTMLElement} target - the drawer menu
    * @param {Event} event - The event object
    */
+  // eslint-disable-next-line no-unused-vars
   function toggle(trigger, target, event) {
     /**
      * Note, there's no need for the target and event parameters here if
@@ -232,7 +236,7 @@ var Drawer = (function() {
          */
         if (event.target.closest('#' + activeDrawer)) {
           // Each time we create a new drawer object to work with.
-          var drawer = _createDrawerObject(activeDrawer);
+          drawer = _createDrawerObject(activeDrawer);
 
           // Keep track of the index of the currently focused element
           var currentIndex;
@@ -278,13 +282,13 @@ var Drawer = (function() {
          */
         if (event.target.closest('#' + activeDrawer)) {
           // Each time we create a new drawer object to work with.
-          var drawer = _createDrawerObject(activeDrawer);
+          drawer = _createDrawerObject(activeDrawer);
 
           // Keep track of the index of the currently focused element
-          var currentIndex;
+          currentIndex;
 
           // Filter out any focus-able that is not visible
-          var currentlyVisible = drawer.focusables.filter(function (item) {
+          currentlyVisible = drawer.focusables.filter(function (item) {
             return item.clientHeight > 0;
           });
 
@@ -295,7 +299,7 @@ var Drawer = (function() {
            * This keeps track of which button/focusable is focused
            * in the open drawer.
            */
-          for (var i = 0; i < drawer.visibleFocusables.length; i++) {
+          for (i = 0; i < drawer.visibleFocusables.length; i++) {
             if (event.target === drawer.visibleFocusables[i]) {
               currentIndex = i;
             }
@@ -332,10 +336,10 @@ var Drawer = (function() {
         activeDrawer = null;
         activeDrawerToggle = null;
 
-      break;
+        break;
 
       default:
-      break;
+        break;
     }
   }
 
@@ -350,7 +354,7 @@ var Drawer = (function() {
    */
   function destroy(context) {
     if (context === undefined) {
-        context = document;
+      context = document;
     }
 
     document.removeEventListener('click', _handleClick, false);

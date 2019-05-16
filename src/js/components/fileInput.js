@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+// eslint-disable-next-line no-unused-vars
 var FileInput = (function() {
   'use strict';
 
@@ -95,6 +96,7 @@ var FileInput = (function() {
         uploadPreview.appendChild(_buildSingleFile(uploadInput));
 
       // Fire a custom event as a hook for other scripts
+      // eslint-disable-next-line no-undef
       fireCustomEvent(uploadElement, UPLOAD_ATTR, 'fileAttached');
     } else {
       /**

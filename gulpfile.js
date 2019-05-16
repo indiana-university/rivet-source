@@ -139,7 +139,7 @@ function vendorJS() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(concatJS, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(lintJSWatch, concatJS, vendorJS));
   callback();
 }
 
