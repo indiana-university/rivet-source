@@ -40,7 +40,7 @@ aliases:
 defaults: &defaults
   working_directory: ~/rivet-source
   docker:
-    - image: circleci/node:12.1.0
+    - image: circleci/node:10
 
 jobs:
   build:
