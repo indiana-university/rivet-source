@@ -104,10 +104,17 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-function lintJS() {
+function lintJSWatch() {
   return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
     .pipe(eslint())
     .pipe(eslint.format());
+}
+
+function lintJSBuild() {
+  return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 }
 
 function concatJS() {
@@ -214,6 +221,7 @@ function example(callback) {
 
 exports.release = series(
   compileSass,
+  lintJSBuild,
   concatJS,
   compileCSS,
   prefixReleaseCSS,
@@ -229,6 +237,7 @@ exports.release = series(
 
 exports.build = series(
   compileSass,
+  lintJSBuild,
   concatJS,
   vendorJS,
   fractalBuild,
@@ -239,6 +248,7 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSass,
+  lintJSWatch,
   concatJS,
   fractalHeadless,
   watchSass,
@@ -248,6 +258,7 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSass,
+  lintJSWatch,
   concatJS,
   fractalStart,
   watchSass,
