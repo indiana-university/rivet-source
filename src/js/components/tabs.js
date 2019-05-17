@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+// eslint-disable-next-line no-unused-vars
 var Tabs = (function() {
   // Documentation base URL:
   var docsBaseUrl = 'https://rivet.uits.iu.edu';
@@ -76,6 +77,7 @@ var Tabs = (function() {
        * Wondering if it might makes sense to just provide a console
        * warning with links to the docs for these API methods?
        */
+      // eslint-disable-next-line no-console
       console.warn(
         'There were no tabs found with the id of ' + id + '.' + '\n' +
         'Please see the Rivet Tabs JavaScript API documentation for more info: ' + '\n'
@@ -131,6 +133,7 @@ var Tabs = (function() {
       activeTab.hasAttribute('data-tab') ? 'data-tab' : 'aria-controls';
 
     // Fire the custom 'tabActivated' event
+    // eslint-disable-next-line no-undef
     fireCustomEvent(activeTab, eventAttribute, 'tabActivated');
 
     // Execute callback if it exists
@@ -193,8 +196,8 @@ var Tabs = (function() {
         break;
       case KEYS.up:
         !tabs[prevTab] ?
-        tabs[tabs.length - 1].focus() :
-        tabs[prevTab].focus();
+          tabs[tabs.length - 1].focus() :
+          tabs[prevTab].focus();
 
         break;
       case KEYS.end:
