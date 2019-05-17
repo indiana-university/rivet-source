@@ -12,6 +12,7 @@
  * @param {String} eventName
  * A unique name for the custom event
  */
+// eslint-disable-next-line no-unused-vars
 var fireCustomEvent = function (element, attributeId, eventName) {
   var event = new CustomEvent(eventName, {
     bubbles: true,
