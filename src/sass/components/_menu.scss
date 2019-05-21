@@ -38,6 +38,43 @@
     left: 0;
     top: 0;
   }
+
+  // Force horizontal menus with the --horizontal modifier class
+
+  &--horizontal {
+    border-bottom: 1px solid $color-black--200;
+  }
+
+  &--horizontal &__list {
+    display: flex;
+  }
+
+  &--horizontal &__item {
+    flex-shrink: 0;
+  }
+
+  &--horizontal &__item a,
+  &--horizontal &__item button {
+    padding: $sm $sm*1.25;
+  }
+  
+  &--horizontal &__item a[aria-current] {
+    background-color: transparent;
+  }
+  
+  &--horizontal &__item a[aria-current]::after,
+  &--horizontal &__item a:hover::after,
+  &--horizontal &__item button:hover::after {
+    width: 100%;
+    height: $xxs;
+    bottom: 0;
+    top: auto;
+  }
+  
+  &--horizontal &__item a:hover::after,
+  &--horizontal &__item button:hover::after {
+    background-color: $color-black--200;
+  }
 }
 
 @include mq(bp(md)) {
