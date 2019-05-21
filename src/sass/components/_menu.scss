@@ -42,38 +42,38 @@
 
 @include mq(bp(md)) {
   .rvt-menu {
-    &--responsive {
+    &:not(&--vertical) {
       border-bottom: 1px solid $color-black--200;
     }
     
-    &--responsive &__list {
+    &:not(&--vertical) &__list {
       display: flex;
     }
     
-    &--responsive &__item {
+    &:not(&--vertical) &__item {
       flex-shrink: 0;
     }
     
-    &--responsive &__item a,
-    &--responsive &__item button {
+    &:not(&--vertical) &__item a,
+    &:not(&--vertical) &__item button {
       padding: $sm $sm*1.25;
     }
     
-    &--responsive &__item a[aria-current] {
+    &:not(&--vertical) &__item a[aria-current] {
       background-color: transparent;
     }
     
-    &--responsive &__item a[aria-current]::after,
-    &--responsive &__item a:hover::after,
-    &--responsive &__item button:hover::after {
+    &:not(&--vertical) &__item a[aria-current]::after,
+    &:not(&--vertical) &__item a:hover::after,
+    &:not(&--vertical) &__item button:hover::after {
       width: 100%;
       height: $xxs;
       bottom: 0;
       top: auto;
     }
     
-    &--responsive &__item a:hover::after,
-    &--responsive &__item button:hover::after {
+    &:not(&--vertical) &__item a:hover::after,
+    &:not(&--vertical) &__item button:hover::after {
       background-color: $color-black--200;
     }
   }
