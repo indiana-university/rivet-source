@@ -8,6 +8,9 @@
 // on it's own only return CSS properties or values.
 
 // Gets breakpoints out of the $breakpoints map
+// DEPRECATED: The bp() function has been deprecated in favor of using
+// the $breakpoint-* variables and will be removed in the next
+// major version.
 
 @function bp($key) {
   @return map-get($breakpoints, $key);
