@@ -1,16 +1,3 @@
 {
-  "defaultSeverity": "warning",
-  "rules": {
-    "block-closing-brace-newline-after": "always",
-    "block-opening-brace-newline-after": "always",
-    "block-closing-brace-newline-before": "always",
-    "block-opening-brace-space-before": "always",
-    "color-hex-case": "lower",
-    "selector-list-comma-newline-after": "always",
-    "indentation": 2,
-    "number-leading-zero": never,
-    "declaration-colon-space-after": "always-single-line",
-    "declaration-block-semicolon-newline-after": "always",
-    "rule-empty-line-before": ["always", { except: ["first-nested"] }]
-  }
+  "extends": "stylelint-config-rivet"
 }
