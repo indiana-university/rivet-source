@@ -81,6 +81,6 @@
 
 @include horizontal-menu('&--horizontal');
 
-@include mq(bp(md)) {
+@include mq($breakpoint-md) {
   @include horizontal-menu('&:not(&--vertical)');
 }

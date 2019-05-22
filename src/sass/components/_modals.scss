@@ -106,7 +106,7 @@
       }
     }
 
-    @include mq(bp(sm)) {
+    @include mq($breakpoint-sm) {
       justify-content: flex-end;
 
       .#{$prefix}-button {

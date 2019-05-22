@@ -71,7 +71,7 @@
   }
 }
 
-@include mq(bp(md)) {
+@include mq($breakpoint-md) {
   .#{$prefix}-tabs {
     &__tab {
       border-top-right-radius: $xxs;
@@ -95,7 +95,7 @@
 /**
  * Vertical tabs
  */
-@include mq(bp(md)) {
+@include mq($breakpoint-md) {
   .#{$prefix}-tabs--vertical {
     border: 1px solid $color-black--300;
     border-radius: $xxs;
