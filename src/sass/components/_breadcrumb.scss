@@ -52,7 +52,7 @@
   }
 }
 
-@include mq(bp(md)) {
+@include mq($breakpoint-md) {
   .#{$prefix}-breadcrumbs li {
     font-size: $ts-base;
   }
