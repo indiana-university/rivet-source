@@ -22,6 +22,7 @@ select {
   width: 100%;
   border-radius: $xxs;
   background-color: inherit;
+
   /**
    * Making the decision here to stay with 1px border on form element,
    * but increasing the color contrast to meet WCAG requirements.
@@ -51,6 +52,28 @@ select {
 textarea {
   height: $spacing-unit * 15;
   line-height: 1.5;
+}
+
+input[type='search'] {
+  height: auto;
+  -webkit-appearance: none;
+}
+
+select {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik04LDEyLjQ2YTIsMiwwLDAsMS0xLjUyLS43TDEuMjQsNS42NWExLDEsMCwxLDEsMS41Mi0xLjNMOCwxMC40Nmw1LjI0LTYuMTFhMSwxLDAsMCwxLDEuNTIsMS4zTDkuNTIsMTEuNzZBMiwyLDAsMCwxLDgsMTIuNDZaIi8+Cjwvc3ZnPg==');
+  background-position: right $sm center;
+  background-size: $sm $sm;
+  background-repeat: no-repeat;
+  padding-right: $xl;
+  padding-left: $xs;
+
+  /**
+   * Prefixes get rid of browser default select element styles.
+   */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
 }
 
 input[type='color']:disabled,
@@ -98,11 +121,6 @@ select:focus {
   transition: box-shadow .2s ease;
 }
 
-input[type='search'] {
-  height: auto;
-  -webkit-appearance: none;
-}
-
 label {
   display: inline-block;
   font-size: $ts-14;
@@ -121,23 +139,6 @@ legend {
   margin: 0;
   font-weight: $font-weight-regular;
   display: block;
-}
-
-select {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik04LDEyLjQ2YTIsMiwwLDAsMS0xLjUyLS43TDEuMjQsNS42NWExLDEsMCwxLDEsMS41Mi0xLjNMOCwxMC40Nmw1LjI0LTYuMTFhMSwxLDAsMCwxLDEuNTIsMS4zTDkuNTIsMTEuNzZBMiwyLDAsMCwxLDgsMTIuNDZaIi8+Cjwvc3ZnPg==');
-  background-position: right $sm center;
-  background-size: $sm $sm;
-  background-repeat: no-repeat;
-  padding-right: $xl;
-  padding-left: $xs;
-
-  /**
-   * Prefixes get rid of browser default select element styles.
-   */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
 }
 
 select[multiple] {

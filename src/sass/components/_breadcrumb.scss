@@ -14,10 +14,10 @@
     font-size: $ts-14;
     line-height: 1;
 
-    &:before {
+    &::before {
       content: '/';
       padding-right: $xs;
-      color: #bbb;
+      color: #bbbbbb;
     }
 
     a {
@@ -32,7 +32,7 @@
   li:first-child {
     color: $color-black--600;
 
-    &:before {
+    &::before {
       content: none;
     }
   }

@@ -60,6 +60,7 @@
     "puppeteer": "^1.16.0",
     "require-dir": "^0.3.2",
     "stylelint": "^10.0.1",
-    "stylelint-config-rivet": "^1.0.0"
+    "stylelint-config-rivet": "^1.0.0",
+    "stylelint-scss": "^3.6.1"
   }
 }

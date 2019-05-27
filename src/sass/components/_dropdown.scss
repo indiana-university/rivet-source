@@ -46,8 +46,8 @@
   &__menu {
     position: absolute;
     margin-top: $xs;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
     border-radius: $xxs;
     min-width: 12.5rem;
     padding-top: $xs;
@@ -77,6 +77,7 @@
       display: block;
       text-decoration: none;
       color: $color-black;
+
       /**
              * This padding-top and bottom value is a magic number. Sorry,
              * it just looks better. :)

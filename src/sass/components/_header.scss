@@ -13,7 +13,6 @@
 }
 
 .#{$prefix}-header {
-  background-color: $color-white;
   display: flex;
   align-items: center;
   border-bottom: 1px solid $color-black--150;
@@ -101,7 +100,6 @@
   border-radius: 0;
   border-left: 1px solid $color-black--200;
   vertical-align: middle;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,6 +188,7 @@
   }
 }
 
+/* stylelint-disable */
 .#{$prefix}-drawer-button[aria-expanded='true'] {
   > .#{$prefix}-drawer-button-close {
     display: flex;
@@ -199,6 +198,7 @@
     display: none;
   }
 }
+/* stylelint-enable */
 
 .#{$prefix}-header__main-nav {
   display: none;
@@ -214,11 +214,13 @@
   ul li {
     margin-right: $lg;
     line-height: 1.5;
+
     /**
      * This gets rid of the margin from default lists so that nav
      * items are vertically centered.
      */
     margin-top: 0;
+
     /**
      * This fixes some display issues in IE.
      */
@@ -279,7 +281,7 @@
   ul li .#{$prefix}-dropdown__menu a::after {
     content: none;
   }
-
+  /* stylelint-disable */
   ul li {
     ul {
       display: block;
@@ -297,6 +299,7 @@
       }
     }
   }
+  /* stylelint-enable */
 
   ul li:last-child {
     margin-right: 0;
@@ -370,6 +373,7 @@
 
       &:focus {
         @extend %button-focus;
+
         z-index: map-get($z-index, z-1000);
       }
     }
@@ -387,6 +391,7 @@
       background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik04LDEyLjQ2YTIsMiwwLDAsMS0xLjUyLS43TDEuMjQsNS42NWExLDEsMCwxLDEsMS41Mi0xLjNMOCwxMC40Nmw1LjI0LTYuMTFhMSwxLDAsMCwxLDEuNTIsMS4zTDkuNTIsMTEuNzZBMiwyLDAsMCwxLDgsMTIuNDZaIi8+Cjwvc3ZnPg==');
       background-position: 0 center;
       background-repeat: no-repeat;
+
       /**
              * Magic number - Use this to optically center by juuuust a smidge.
              */
@@ -440,7 +445,6 @@
       outline: none;
       box-shadow: 0 0 0 .125rem $color-blue--600;
       display: block;
-      width: auto;
       margin-top: $xs;
       width: 100%;
       border-radius: $xxs;
