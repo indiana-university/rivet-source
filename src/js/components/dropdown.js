@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+// eslint-disable-next-line no-unused-vars
 var Dropdown = (function() {
   'use strict';
 
@@ -42,7 +43,7 @@ var Dropdown = (function() {
    */
   function openMenu(id, callback) {
     if (!id) {
-      throw new Error("You must provide a unique id for the menu you're trying to open.");
+      throw new Error('You must provide a unique id for the menu you\'re trying to open.');
     }
     // If there's an open menu, close it.
     if (activeMenu) {
@@ -74,6 +75,7 @@ var Dropdown = (function() {
     menu.setAttribute('aria-hidden', 'false');
 
     // Emmit a custom event that can be used as a hook for other actions
+    // eslint-disable-next-line no-undef
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
 
     // Execute supplied callback function if it exists
@@ -90,7 +92,7 @@ var Dropdown = (function() {
    */
   function closeMenu(id, callback) {
     if (!id) {
-      throw new Error("You must provide a unique id for the menu you're trying to close.");
+      throw new Error('You must provide a unique id for the menu you\'re trying to close.');
     }
 
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
@@ -114,6 +116,7 @@ var Dropdown = (function() {
     menu.setAttribute('aria-hidden', 'true');
 
     // Emmit a custom event that can be used as a hook for other actions
+    // eslint-disable-next-line no-undef
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownClose');
 
     // Execute supplied callback function if it exists
@@ -162,7 +165,7 @@ var Dropdown = (function() {
    */
   function toggle(id, callback) {
     if (!id) {
-      throw new Error("You must provide a unique id for the menu you're trying to toggle.");
+      throw new Error('You must provide a unique id for the menu you\'re trying to toggle.');
     }
 
     var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
@@ -280,7 +283,7 @@ var Dropdown = (function() {
         if (event.target.closest('#' + activeMenu) !== null) {
           var theMenu = event.target.closest('#' + activeMenu);
 
-          var currentMenu = _setUpMenu(theMenu);
+          currentMenu = _setUpMenu(theMenu);
 
           var currentIndex;
 
@@ -314,14 +317,14 @@ var Dropdown = (function() {
 
         // Handle up arrow key when inside the open menu.
         if (event.target.closest('#' + activeMenu) !== null) {
-          var theMenu = event.target.closest('#' + activeMenu);
+          theMenu = event.target.closest('#' + activeMenu);
 
-          var currentMenu = _setUpMenu(theMenu);
+          currentMenu = _setUpMenu(theMenu);
 
-          var currentIndex;
+          currentIndex;
 
           // This keeps track of which button/focusable is focused in the open menu
-          for (var i = 0; i < currentMenu.all.length; i++) {
+          for (i = 0; i < currentMenu.all.length; i++) {
             if (event.target == currentMenu.all[i]) {
               currentIndex = i;
             }
@@ -361,14 +364,14 @@ var Dropdown = (function() {
       case KEYS.tab:
         // Handle tab key when inside the open menu.
         if (event.target.closest('#' + activeMenu) !== null || undefined) {
-          var theMenu = event.target.closest('#' + activeMenu);
+          theMenu = event.target.closest('#' + activeMenu);
 
-          var currentMenu = _setUpMenu(theMenu);
+          currentMenu = _setUpMenu(theMenu);
 
-          var currentIndex;
+          currentIndex;
 
           // This keeps track of which button/focusable is focused in the open menu
-          for (var i = 0; i < currentMenu.all.length; i++) {
+          for (i = 0; i < currentMenu.all.length; i++) {
             if (event.target == currentMenu.all[i]) {
               currentIndex = i;
             }

@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+// eslint-disable-next-line no-unused-vars
 var Modal = (function() {
   'use strict';
 
@@ -71,7 +72,7 @@ var Modal = (function() {
     var modal = _createModalObject(id);
 
     if (!modal.body) {
-        throw new Error("Could not find a modal with the id of " + id + " to open.");
+      throw new Error('Could not find a modal with the id of ' + id + ' to open.');
     }
 
     activeModal = modal.body;
@@ -87,6 +88,7 @@ var Modal = (function() {
      * Emit a custom 'modalOpen' event and send along the modal's
      * id attribute in the event.detail.name()
      */
+    // eslint-disable-next-line no-undef
     fireCustomEvent(activeModal, 'id', 'modalOpen');
 
     if (callback && typeof callback === 'function') {
@@ -127,10 +129,11 @@ var Modal = (function() {
      * Emit a custom 'modalClose' event and send along the modal's
      * id attribute in the event.detail.name()
      */
+    // eslint-disable-next-line no-undef
     fireCustomEvent(activeModal, 'id', 'modalClose');
 
     if (callback && typeof callback === 'function') {
-        callback();
+      callback();
     }
   }
 

@@ -39,7 +39,7 @@
   }
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-header__trident {
     min-width: 60px;
     flex-basis: 60px;
@@ -79,7 +79,7 @@
  * When id menu is present the title needs a little more space.
  */
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-header__title {
     font-size: ts(23);
   }
@@ -151,14 +151,14 @@
   }
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-drawer-button {
     height: 70px;
     width: 71px;
   }
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-drawer-button {
     display: none;
   }
@@ -182,7 +182,7 @@
   height: 16px;
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-drawer-button-open,
   .#{$prefix}-drawer-button-close {
     width: 24px;
@@ -452,7 +452,7 @@
   }
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-drawer {
     top: 70px;
   }
@@ -550,13 +550,13 @@ button.#{$prefix}-header-id__profile.#{$prefix}-header-id__profile--drawer {
   padding: $xs $sm;
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-header-id {
     display: flex;
   }
 }
 
-@include mq(bp(lg)) {
+@include mq($breakpoint-lg) {
   .#{$prefix}-header-id--drawer {
     display: none;
   }

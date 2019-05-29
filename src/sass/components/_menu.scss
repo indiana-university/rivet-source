@@ -1,0 +1,86 @@
+.rvt-menu {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  &__item {
+    margin: 0;
+  }
+  
+  &__item a,
+  &__item button {
+    text-decoration: none;
+    display: block;
+    padding: $xxs $sm;
+    position: relative;
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    -webkit-appearance: none;
+    border: none;
+  }
+  
+  &__item a[aria-current] {
+    background-color: $color-black--100;
+  }
+  
+  &__item a[aria-current]::after,
+  &__item a:hover::after,
+  &__item button:hover::after {
+    content: "";
+    display: block;
+    width: $xxs;
+    height: 100%;
+    background-color: $color-blue--600;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+@mixin horizontal-menu($selector) {
+  .rvt-menu {
+    #{$selector} {
+      border-bottom: 1px solid $color-black--200;
+    }
+
+    #{$selector} &__list {
+      display: flex;
+    }
+
+    #{$selector} &__item {
+      flex-shrink: 0;
+    }
+
+    #{$selector} &__item a,
+    #{$selector} &__item button {
+      padding: $sm $sm*1.25;
+    }
+    
+    #{$selector} &__item a[aria-current] {
+      background-color: transparent;
+    }
+    
+    #{$selector} &__item a[aria-current]::after,
+    #{$selector} &__item a:hover::after,
+    #{$selector} &__item button:hover::after {
+      width: 100%;
+      height: $xxs;
+      bottom: 0;
+      top: auto;
+    }
+    
+    #{$selector} &__item a:hover::after,
+    #{$selector} &__item button:hover::after {
+      background-color: $color-black--200;
+    }
+  }
+}
+
+@include horizontal-menu('&--horizontal');
+
+@include mq($breakpoint-md) {
+  @include horizontal-menu('&:not(&--vertical)');
+}
