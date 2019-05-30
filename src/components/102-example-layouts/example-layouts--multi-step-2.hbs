@@ -1,0 +1,58 @@
+{{> @header--id-menu }}
+<main id="main-content" class="rvt-p-tb-xxl">
+  <div class="rvt-container rvt-container--sophomore rvt-container--center">
+
+    <ol class="rvt-steps">
+      <li class="rvt-steps__item">
+        <a href="./example-layouts--multi-step-1" class="rvt-steps__item-content">
+          <span class="rvt-steps__label">Create username</span>
+          <!--
+            Use aria-hidden here to stop screen readers from announcing
+            the visual indicator.
+          -->
+          <span class="rvt-steps__indicator">
+            <span class="rvt-sr-only">Step</span> 1
+          </span>
+        </a>
+      </li>
+      <li class="rvt-steps__item">
+        <a href="./example-layouts--multi-step-2" class="rvt-steps__item-content" aria-current="step">
+          <span class="rvt-steps__label">Personal information</span>
+          <span class="rvt-steps__indicator">2</span>
+        </a>
+      </li>
+      <li class="rvt-steps__item">
+        <span class="rvt-steps__item-content">
+          <span class="rvt-steps__label">Records &amp; Transcripts</span>
+          <span class="rvt-steps__indicator">3</span>
+        </span>
+      </li>
+    </ol>
+    <div class="rvt-container rvt-container--center rvt-container--freshman">
+      
+      <div class="rvt-width-lg rvt-m-top-xl">
+        <form>
+          <fieldset>
+            <legend class="rvt-ts-20 rvt-text-bold">Step 2: Personal information</legend>
+            <div class="rvt-m-top-md">
+              <label for="username">Name</label>
+              <input type="text" id="name">
+            </div>
+            <div class="rvt-m-top-md">
+              <label for="address-1">Address</label>
+              <input type="text" id="address-1">
+            </div>
+            <div class="rvt-m-top-md">
+              <label for="address-1">Address 2 (optional)</label>
+              <input type="text" id="address-2">
+            </div>
+          </fieldset>
+          <div class="rvt-button-group rvt-m-top-md">
+            <a href="./example-layouts--multi-step-2" class="rvt-button">Save and continue</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</main>
