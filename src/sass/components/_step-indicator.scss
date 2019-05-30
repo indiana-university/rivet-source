@@ -3,6 +3,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
   /**
    * Allows content to be scrollable on smaller screens
    */
@@ -22,7 +23,7 @@
       z-index: 0;
     }
 
-    &:last-child:before {
+    &:last-child::before {
       width: 50%;
     }
 
@@ -34,6 +35,7 @@
 
   &__item-content {
     color: $color-black;
+
     /**
      * If we set the link to display flex, we can use
      * flex-direction: column-reverse to add a variant where the label

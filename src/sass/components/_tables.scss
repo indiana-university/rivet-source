@@ -10,6 +10,11 @@ table {
   width: 100%;
 }
 
+tr th {
+  font-weight: $font-weight-regular;
+  padding: $sm;
+}
+
 thead {
   border-bottom: 1px solid $color-black--200;
   background-color: $color-subtle-gray;
@@ -26,20 +31,8 @@ tr {
   border-bottom: 1px solid $color-black--200;
 }
 
-tr th {
-  font-weight: $font-weight-regular;
-  padding: $sm;
-}
-
 tr td {
   padding: $sm;
-}
-
-.table-stripes,
-.#{$prefix}-table-stripes {
-  tr:nth-child(even) {
-    background-color: $color-subtle-gray;
-  }
 }
 
 .table-plain,
@@ -51,6 +44,13 @@ tr td {
 
   tr {
     border-bottom: none;
+  }
+}
+
+.table-stripes,
+.#{$prefix}-table-stripes {
+  tr:nth-child(even) {
+    background-color: $color-subtle-gray;
   }
 }
 

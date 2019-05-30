@@ -22,12 +22,14 @@
     a {
       border: 1px solid $color-black--300;
       display: inline-block;
+
       /**
        * This negative margin compensates for the 1px borders that
        * bump up against each other.
        */
       margin-left: -1px;
       min-width: $lg;
+
       /**
        * .75rem here makes the pagination the same height as text inputs
        * for consistency's sake.
@@ -81,6 +83,7 @@
     background-color: $color-blue--600;
     border-color: $color-blue--600;
     color: $color-white;
+
     /**
      * z-index hides the border overlap
      */

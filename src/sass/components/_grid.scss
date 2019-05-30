@@ -163,6 +163,7 @@ $gutter: $md / 2;
   .#{$prefix}-grid__item-#{$columns} {
     flex-basis: $width * 1%;
     max-width: $width * 1%;
+
     @extend %item-properties;
   }
 }

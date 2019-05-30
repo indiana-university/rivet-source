@@ -53,7 +53,6 @@ $ts-41: map-get($type-sizes, 41) !default;
 $ts-46: map-get($type-sizes, 46) !default;
 $ts-52: map-get($type-sizes, 52) !default;
 
-
 // Type scale aliases
 
 $ts-xxs: $ts-12 !default;
@@ -65,7 +64,7 @@ $ts-lg: $ts-32 !default;
 $ts-xl: $ts-41 !default;
 $ts-xxl: $ts-52 !default;
 
-// Font weight variables 
+// Font weight variables
 
 $font-weight-bold: 700;
 $font-weight-regular: 400;
@@ -87,7 +86,6 @@ $color-black: #333333 !default;
 
 $color-black--50: #fafafa !default;
 $color-subtle-gray: #f7f7f7 !default;
-
 
 // END DEPRECATED
 
@@ -250,7 +248,6 @@ $color-orange--600: #b02f0a !default;
 $color-orange--700: #82270d !default;
 $color-orange--800: #571e0c !default;
 $color-orange--900: #2f1407 !default;
-
 
 // DEPRECATED: We'll be working to replace the use of these aliased
 // variables in the nex major version of Rivet.

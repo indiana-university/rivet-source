@@ -4,15 +4,14 @@
     margin: 0;
     padding: 0;
   }
-  
+
   &__item {
     margin: 0;
   }
-  
+
   &__item a,
   &__item button {
     text-decoration: none;
-    display: block;
     padding: $xxs $sm;
     position: relative;
     color: $color-black;
@@ -21,11 +20,11 @@
     -webkit-appearance: none;
     border: none;
   }
-  
+
   &__item a[aria-current] {
     background-color: $color-black--100;
   }
-  
+
   &__item a[aria-current]::after,
   &__item a:hover::after,
   &__item button:hover::after {
@@ -58,11 +57,11 @@
     #{$selector} &__item button {
       padding: $sm $sm*1.25;
     }
-    
+
     #{$selector} &__item a[aria-current] {
       background-color: transparent;
     }
-    
+
     #{$selector} &__item a[aria-current]::after,
     #{$selector} &__item a:hover::after,
     #{$selector} &__item button:hover::after {
@@ -71,7 +70,7 @@
       bottom: 0;
       top: auto;
     }
-    
+
     #{$selector} &__item a:hover::after,
     #{$selector} &__item button:hover::after {
       background-color: $color-black--200;
