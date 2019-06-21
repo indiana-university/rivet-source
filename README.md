@@ -2,6 +2,8 @@
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) [![npm version](https://img.shields.io/npm/v/rivet-uits.svg?style=flat)](https://www.npmjs.com/package/rivet-uits) [![CircleCI](https://circleci.com/gh/indiana-university/rivet-source.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/indiana-university/rivet-source)
 
+![Browserstack logo](./src/components/_extras/Browserstack-logo@2x.png)
+
 ## Principles
 Designers and developers can use this system as a foundation for great experiences across all UITS applications. They can also contribute to it—and make the system relevant to any team.
 
