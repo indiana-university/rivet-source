@@ -49,6 +49,7 @@ function lintSassWatch() {
 function lintSassBuild() {
   return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"])
   .pipe(stylelint({
+    failAfterError: true,
     reporters: [
       {formatter: 'string', console: true}
     ]
@@ -80,11 +81,10 @@ function compileCSS() {
   return src("static/css/rivet.css").pipe(dest("./css"));
 }
 
-function headerCSS(callback) {
-  src("./css/rivet.css")
+function headerCSS() {
+  return src("./css/rivet.css")
     .pipe(header(bannerPackage, { package: package }))
     .pipe(dest("./css/"));
-  callback();
 }
 
 function minifyCSS(callback) {
