@@ -2,12 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .#{$prefix}-timeline {
-  width: 90%;
-  margin: 0 auto;
   position: relative;
   padding: $lg 0;
-  margin-top: $lg;
-  margin-bottom: $lg;
 
   &::before {
     content: '';
@@ -17,10 +13,6 @@
     height: 100%;
     width: $xxs;
     background: $color-black--200;
-  }
-
-  &:first-child {
-    margin-top: 0;
   }
 
   .#{$prefix}-timeline__item::after {
