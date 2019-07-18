@@ -161,7 +161,7 @@
     }
   }
 
-  .#{$prefix}-timeline-right .#{$prefix}-timeline__item {
+  .#{$prefix}-timeline--right .#{$prefix}-timeline__item {
     .#{$prefix}-timeline__date.#{$prefix}-timeline__date--label {
       max-width: fit-content;
       text-align: left;
