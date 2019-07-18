@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (min-width: 740px) {
+@include mq($breakpoint-md) {
   .#{$prefix}-timeline-center {
     &::before {
       content: '';
@@ -145,7 +145,7 @@
   }
 }
 
-@media screen and (min-width: 1260px) {
+@include mq($breakpoint-xl) {
   .#{$prefix}-timeline-center .#{$prefix}-timeline__item {
     .#{$prefix}-timeline__date.#{$prefix}-timeline__date--label {
       max-width: fit-content;
