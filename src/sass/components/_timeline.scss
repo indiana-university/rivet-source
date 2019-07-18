@@ -15,7 +15,7 @@
     background: $color-black--200;
   }
 
-  .#{$prefix}-timeline__item::after {
+  &__item::after {
     margin-left: -$xxs;
     border: solid transparent;
     content: " ";
@@ -28,12 +28,12 @@
     top: .625rem;
   }
 
-  .#{$prefix}-timeline__item {
+  &__item {
     position: relative;
     margin: $lg 0;
   }
 
-  .#{$prefix}-timeline__marker {
+  &__marker {
     width: .75rem;
     height: .75rem;
     position: absolute;
@@ -45,27 +45,21 @@
     margin-left: -$xxs;
   }
 
-  .#{$prefix}-timeline__content {
+  &__content {
     padding: $md;
     margin-left: 1.75rem;
   }
 
-  .#{$prefix}-timeline__date {
+  &__date {
     font-size: $ts-14;
     color: $color-black--700;
   }
 }
 
-.#{$prefix}-timeline-right {
+.#{$prefix}-timeline--right {
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
     left: unset;
     right: 1.125rem;
-    height: 100%;
-    width: $xxs;
-    background: $color-cream;
   }
 
   .#{$prefix}-timeline__item::after {
@@ -87,15 +81,9 @@
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-timeline-center {
+  .#{$prefix}-timeline--center {
     &::before {
-      content: '';
-      position: absolute;
-      top: 0;
       left: 50%;
-      height: 100%;
-      width: $xxs;
-      background: $color-cream;
     }
 
     .#{$prefix}-timeline__item-right {
@@ -139,39 +127,8 @@
 }
 
 @include mq($breakpoint-xl) {
-  .#{$prefix}-timeline-center .#{$prefix}-timeline__item {
-    .#{$prefix}-timeline__date.#{$prefix}-timeline__date--label {
-      max-width: fit-content;
-      text-align: left;
-      position: relative;
-      display: block;
-      left: unset;
-      right: unset;
-      top: unset;
-      margin-left: 30.5rem;
-      margin-top: -3rem;
-      margin-bottom: 3rem;
-    }
-  }
-
-  .#{$prefix}-timeline--right .#{$prefix}-timeline__item {
-    .#{$prefix}-timeline__date.#{$prefix}-timeline__date--label {
-      max-width: fit-content;
-      text-align: left;
-      position: relative;
-      display: block;
-      left: unset;
-      right: unset;
-      top: unset;
-      margin-left: 60rem;
-      margin-top: -3rem;
-      margin-bottom: 3rem;
-    }
-  }
-
-  .#{$prefix}-timeline-center .#{$prefix}-timeline__item-right,
-  .#{$prefix}-timeline__item {
-    .#{$prefix}-timeline__date.#{$prefix}-timeline__date--label {
+  .#{$prefix}-timeline {
+    &__date--label {
       min-width: 6.25rem;
       min-height: fit-content;
       left: -7.5rem;
@@ -183,6 +140,50 @@
       margin-left: unset;
       margin-top: unset;
       margin-right: unset;
+    }
+  }
+
+  .#{$prefix}-timeline--center {
+    .#{$prefix}-timeline__date--label {
+      max-width: fit-content;
+      text-align: left;
+      position: relative;
+      display: block;
+      left: unset;
+      right: unset;
+      top: unset;
+      margin-left: 30.5rem;
+      margin-top: -3rem;
+      margin-bottom: 3rem;
+    }
+
+    .#{$prefix}-timeline__item-right .#{$prefix}-timeline__date--label {
+      min-width: 6.25rem;
+      min-height: fit-content;
+      left: -7.5rem;
+      right: initial;
+      text-align: right;
+      position: absolute;
+      display: block;
+      top: $sm;
+      margin-left: unset;
+      margin-top: unset;
+      margin-right: unset;
+    }
+  }
+
+  .#{$prefix}-timeline--right {
+    .#{$prefix}-timeline__date--label {
+      max-width: fit-content;
+      text-align: left;
+      position: relative;
+      display: block;
+      left: unset;
+      right: unset;
+      top: unset;
+      margin-left: 60rem;
+      margin-top: -3rem;
+      margin-bottom: 3rem;
     }
   }
 }
