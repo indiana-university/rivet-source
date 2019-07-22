@@ -48,6 +48,10 @@
   &__content {
     padding: $md;
     margin-left: 1.75rem;
+    background-color: $color-white;
+    border-radius: $xxs;
+    box-shadow: $shadow-base;
+    border: none;
   }
 
   &__date {
