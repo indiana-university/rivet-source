@@ -1,1 +1,12 @@
+title: "Text inputs"
 status: "ready"
+context:
+    modifier: ""
+    class: ""
+    alert: false
+variants:
+    - name: "disabled"
+      context:
+          modifier: "disabled"
+          alert: true
+          alertVariant: "\\@alerts"
