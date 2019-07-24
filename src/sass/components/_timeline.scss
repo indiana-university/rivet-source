@@ -114,7 +114,7 @@
       width: 100%;
     }
 
-    .#{$prefix}-timeline__item-right {
+    .#{$prefix}-timeline__item--right {
       margin-left: auto;
     }
 
@@ -125,7 +125,7 @@
       border-right-color: transparent;
     }
 
-    .#{$prefix}-timeline__item-right::after {
+    .#{$prefix}-timeline__item--right::after {
       margin-left: -$sm;
       left: unset;
       border-right-color: $color-black--100;
@@ -137,7 +137,7 @@
       left: 100%;
     }
 
-    .#{$prefix}-timeline__item-right .#{$prefix}-timeline__marker {
+    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__marker {
       left: unset;
       margin-left: -$sm;
     }
@@ -147,7 +147,7 @@
       margin-right: $sm*.75;
     }
 
-    .#{$prefix}-timeline__item-right .#{$prefix}-timeline__content {
+    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__content {
       margin-right: 0;
       margin-left: $sm;
     }
@@ -162,7 +162,7 @@
       margin-top: -$sm*3.15;
     }
 
-    .#{$prefix}-timeline__item-right .#{$prefix}-timeline__date--label {
+    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__date--label {
       min-width: fit-content;
       min-height: fit-content;
       left: -$sm*7.5;
