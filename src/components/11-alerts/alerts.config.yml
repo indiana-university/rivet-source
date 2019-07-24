@@ -1,9 +1,22 @@
 title: Alerts & errors
 status: "ready"
+context:
+    type: "info"
+    title: "Scheduled System Maintenance"
+    message: "This system will be unavailable on August 1st due to scheduled system maintenance. Please check back on August 2nd."
 variants:
-    - name: "default"
-      label: "Page-level alerts"
-    - name: "alert-lists"
-      label: "Alert lists"
-      notes: |
-        # Alert lists
+    - name: "success"
+      context:
+          type: "success"
+          title: "Thank you!"
+          message: "We have received your application. Check your email in a few weeks to find out if you’ve been admitted."
+    - name: "warning"
+      context:
+          type: "warning"
+          title: "Unsaved Changes"
+          message: "Your changes have not been saved. To save your changes, click ‘Save my changes’ or click ‘Cancel’ to exit without saving."
+    - name: "error"
+      context:
+          type: "error"
+          title: "Incorrect User ID or Password"
+          message: "The user ID and password you entered do not match. Please check your entries and try again. <a href="#0">Forgot your user ID or password?</a>"
