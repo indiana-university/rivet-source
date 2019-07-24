@@ -5,11 +5,11 @@ const ALERT_CLOSE = ALERT_INFO + '>.rvt-alert__dismiss';
 const DEV_SERVER = "http://localhost:3000";
 
 describe('Rivet alert interactions', function() {
-  it('Visits the alert page', function() {
+  it('Visits the info alert page', function() {
     cy.visit(DEV_SERVER + '/components/preview/alerts--default');
   });
 
-  it('Should see the alert', function() {
+  it('Should see the info alert page', function() {
     cy.get(ALERT_INFO)
       .should('have.attr', 'aria-labelledby', 'information-alert-title')
       .and('be.visible');
@@ -23,12 +23,20 @@ describe('Rivet alert interactions', function() {
     cy.get(ALERT_INFO).should('not.exist');
   });
 
+  it('Visits the warning alert page', function() {
+    cy.visit(DEV_SERVER + '/components/preview/alerts--warning');
+  });
+
   it('Should be able to dismiss with .dismiss() method', function() {
     cy.window().then(win => {
       win.Alert.dismiss('warning-alert-title');
     });
 
     cy.get(ALERT_WARNING).should('not.exist');
+  });
+
+  it('Visits the success alert page', function() {
+    cy.visit(DEV_SERVER + '/components/preview/alerts--success');
   });
 
   it('Should be able to dismiss with .dismiss() method with DOM element', function() {
