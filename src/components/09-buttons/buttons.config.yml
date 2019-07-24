@@ -1,8 +1,17 @@
+title: Buttons
 status: "ready"
+context:
+    label: "Primary"
 variants:
-    - name: "default"
-      label: "Buttons"
-    - name: "segmented"
-      label: "Segemented button"
-      notes: |
-            # Segmented Buttons
+    - name: "success"
+      context:
+          type: "success"
+          label: "Success"
+    - name: "danger"
+      context:
+          type: "danger"
+          label: "Danger"
+    - name: "plain"
+      context:
+          type: "plain"
+          label: "Plain"
