@@ -1,0 +1,24 @@
+title: Standalone inline alerts
+label: "Standalone"
+status: "ready"
+collated: true
+context:
+    type: "info"
+    message: "The Description tells users more about this stuff."
+    SVG: "\\@includes--inline-alert-info"
+variants:
+    - name: "success"
+      context:
+          type: "success"
+          message: "First name is valid!"
+          SVG: "\\@includes--inline-alert-success"
+    - name: "warning"
+      context:
+          type: "warning"
+          message: "Your Password is weak."
+          SVG: "\\@includes--inline-alert-warning"
+    - name: "danger"
+      context:
+          type: "danger"
+          message: "The Username you entered is taken."
+          SVG: "\\@includes--inline-alert-danger"
