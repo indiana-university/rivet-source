@@ -6,7 +6,7 @@ const DEV_SERVER = "http://localhost:3000";
 
 describe('Rivet alert interactions', function() {
   it('Visits the info alert page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/alerts--default');
+    cy.visit(DEV_SERVER + '/components/preview/alert');
   });
 
   it('Should see the info alert page', function() {
@@ -23,20 +23,12 @@ describe('Rivet alert interactions', function() {
     cy.get(ALERT_INFO).should('not.exist');
   });
 
-  it('Visits the warning alert page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/alerts--warning');
-  });
-
   it('Should be able to dismiss with .dismiss() method', function() {
     cy.window().then(win => {
       win.Alert.dismiss('warning-alert-title');
     });
 
     cy.get(ALERT_WARNING).should('not.exist');
-  });
-
-  it('Visits the success alert page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/alerts--success');
   });
 
   it('Should be able to dismiss with .dismiss() method with DOM element', function() {
