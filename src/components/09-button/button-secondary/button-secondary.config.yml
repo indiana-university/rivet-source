@@ -1,0 +1,30 @@
+title: Secondary Buttons
+label: Secondary
+status: "ready"
+collated: true
+context:
+    content: "Secondary"
+variants:
+    - name: "success"
+      context:
+          content: "Success"
+          type: "-success"
+    - name: "danger"
+      context:
+          content: "Danger"
+          type: "-danger"
+
+    - name: "small"
+      context:
+          content: "Secondary"
+          size: "small"
+    - name: "small secondary success"
+      context:
+          content: "Success"
+          type: "-success"
+          size: "small"
+    - name: "small secondary danger"
+      context:
+          content: "Danger"
+          type: "-danger"
+          size: "small"
