@@ -1,0 +1,30 @@
+title: "Text input"
+status: "ready"
+collated: true
+context:
+    alert: false
+variants:
+    - name: "disabled"
+      context:
+          modifier: "disabled"
+          alert: false
+    - name: "success"
+      context:
+          class: "success"
+          alert: true
+          alertVariant: "\\@alert-inline--success"
+    - name: "warning"
+      context:
+          class: "warning"
+          alert: true
+          alertVariant: "\\@alert-inline--warning"
+    - name: "danger"
+      context:
+          class: "danger"
+          alert: true
+          alertVariant: "\\@alert-inline--danger"
+    - name: "info"
+      context:
+          class: "info"
+          alert: true
+          alertVariant: "\\@alert-inline"

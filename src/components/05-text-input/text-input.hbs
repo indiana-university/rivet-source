@@ -1,0 +1,5 @@
+<label for="demo-1">Text Input</label>
+<input type="text" id="demo-1" {{~#if class}} class="rvt-validation-{{ class }}"{{~/if}} {{ modifier }}>
+{{#if alert}}
+  {{render (lookup . 'alertVariant') merge=true }}
+{{/if}}
