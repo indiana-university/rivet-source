@@ -1,5 +1,7 @@
 title: Alerts & errors
+label: "Default"
 status: "ready"
+collated: true
 context:
     type: "info"
     id: "information"

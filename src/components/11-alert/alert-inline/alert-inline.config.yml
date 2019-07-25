@@ -1,5 +1,7 @@
 title: Inline alerts
+label: "Inline"
 status: "ready"
+collated: true
 context:
     type: "info"
     message: "The Description tells users more about this stuff."
