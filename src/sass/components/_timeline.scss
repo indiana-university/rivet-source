@@ -134,7 +134,7 @@
       margin-left: 0;
     }
 
-    & > div {
+    .#{$prefix}-timeline__row {
       display: flex;
       flex-wrap: wrap;
       margin-right: -$sm*.75;
