@@ -1,5 +1,5 @@
-<label for="demo-{{name}}">Textarea</label>
-<textarea id="demo-{{name}}" {{~#if class}} class="rvt-validation-{{ class }}"{{~/if}} {{ modifier }}></textarea>
+<label for="textarea-{{id}}">Textarea</label>
+<textarea id="textarea-{{id}}" {{~#if class}} class="rvt-validation-{{ class }}"{{~/if}} {{ modifier }}></textarea>
 {{#if alert}}
   {{render (lookup . 'alertVariant') merge=true }}
 {{/if}}
