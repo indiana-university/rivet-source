@@ -96,10 +96,7 @@
 @include mq($breakpoint-md) {
   .#{$prefix}-timeline {
     &__date--label {
-      min-width: fit-content;
-      max-width: fit-content;
-      min-height: fit-content;
-      left: -$sm*7;
+      left: -$sm*11.25;
       right: initial;
       text-align: right;
       position: absolute;
@@ -108,16 +105,14 @@
       margin-left: unset;
       margin-top: unset;
       margin-right: unset;
+      width: 10rem;
     }
   }
 
   .#{$prefix}-timeline--right {
     .#{$prefix}-timeline__date--label {
-      min-width: fit-content;
-      max-width: fit-content;
-      min-height: fit-content;
       left: unset;
-      right: -$sm*6;
+      right: -$sm*11.25;
       text-align: left;
       position: absolute;
       display: block;
@@ -125,6 +120,7 @@
       margin-left: unset;
       margin-top: unset;
       margin-right: unset;
+      width: 10rem;
     }
   }
 
@@ -187,19 +183,18 @@
     }
 
     .#{$prefix}-timeline__date--label {
+      left: initial;
+      right: -$sm*11.75;
       text-align: left;
       position: absolute;
       display: block;
-      left: initial;
-      right: -$sm*7;
       top: unset;
       margin-top: -$sm*3.15;
+      width: $sm*10;
     }
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__date--label {
-      min-width: fit-content;
-      min-height: fit-content;
-      left: -$sm*7.5;
+      left: -$sm*11.5;
       right: initial;
       text-align: right;
       position: absolute;
@@ -208,6 +203,7 @@
       margin-left: unset;
       margin-top: unset;
       margin-right: unset;
+      width: $sm*10;
     }
   }
 }
