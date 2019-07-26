@@ -71,7 +71,7 @@
 
 .#{$prefix}-timeline--right {
   &::before {
-    left: initial;
+    left: auto;
     right: $xxs;
   }
 
@@ -102,24 +102,24 @@
       position: absolute;
       display: block;
       top: $sm*.75;
-      margin-left: initial;
-      margin-top: initial;
-      margin-right: initial;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: auto;
       width: 10rem;
     }
   }
 
   .#{$prefix}-timeline--right {
     .#{$prefix}-timeline__date--label {
-      left: initial;
+      left: auto;
       right: -$sm*11.25;
       text-align: left;
       position: absolute;
       display: block;
       top: $sm*.75;
-      margin-left: initial;
-      margin-top: initial;
-      margin-right: initial;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: auto;
       width: 10rem;
     }
   }
@@ -157,7 +157,7 @@
 
     .#{$prefix}-timeline__item--right::after {
       margin-left: -$sm;
-      left: initial;
+      left: auto;
       border-right-color: $color-black--100;
       border-left-color: transparent;
     }
@@ -168,7 +168,7 @@
     }
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__marker {
-      left: initial;
+      left: auto;
       margin-left: -$sm;
     }
 
@@ -188,7 +188,7 @@
       text-align: left;
       position: absolute;
       display: block;
-      top: initial;
+      top: auto;
       margin-top: -$sm*3.15;
       width: $sm*10;
     }
@@ -200,9 +200,9 @@
       position: absolute;
       display: block;
       top: $sm*.75;
-      margin-left: initial;
-      margin-top: initial;
-      margin-right: initial;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: auto;
       width: $sm*10;
     }
   }
