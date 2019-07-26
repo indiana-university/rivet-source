@@ -97,7 +97,7 @@
   .#{$prefix}-timeline {
     &__date--label {
       left: -$sm*11.25;
-      right: initial;
+      right: auto;
       text-align: right;
       position: absolute;
       display: block;
@@ -183,7 +183,7 @@
     }
 
     .#{$prefix}-timeline__date--label {
-      left: initial;
+      left: auto;
       right: -$sm*11.75;
       text-align: left;
       position: absolute;
@@ -195,7 +195,7 @@
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__date--label {
       left: -$sm*11.5;
-      right: initial;
+      right: auto;
       text-align: right;
       position: absolute;
       display: block;
