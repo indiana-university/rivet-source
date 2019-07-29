@@ -1,0 +1,209 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.#{$prefix}-timeline {
+  position: relative;
+  padding: $lg 0;
+
+  &::before {
+    content: '';
+    margin-left: $xxs;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $xxs;
+    background: $color-black--200;
+  }
+
+  &__item::after {
+    margin-left: 0;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: $color-black--100;
+    border-width: $sm;
+    top: .4rem;
+  }
+
+  &__item {
+    position: relative;
+    margin: $lg 0;
+  }
+
+  /**
+   *  The marker for the timeline visually only looks good at 12px (.75rem). This results in several magic numbers related to the placement of other items such as the &__item::after (above) and date labels (where applicable). This also results in cascading magic numbers for placement of elements such as &__content for variant timelines.
+   */
+
+  &__marker {
+    width: $sm*.75;
+    height: $sm*.75;
+    position: absolute;
+    color: $color-white;
+    background: $color-midnight;
+    border-radius: 50%;
+    box-shadow: 0 0 0 $xxs $color-black--100;
+    margin-top: $sm;
+  }
+
+  &__content {
+    padding: $md;
+    margin-left: $lg;
+    background-color: $color-white;
+    border-radius: $xxs;
+    box-shadow: $shadow-base;
+    border: none;
+  }
+
+  &__heading {
+    font-size: $ts-26;
+    font-weight: $font-weight-bold;
+  }
+
+  &__date {
+    font-size: $ts-14;
+    color: $color-black--700;
+  }
+}
+
+.#{$prefix}-timeline--right {
+  &::before {
+    left: auto;
+    right: $xxs;
+  }
+
+  .#{$prefix}-timeline__item::after {
+    margin-left: 0;
+    right: 0;
+    border-left-color: $color-black--100;
+    border-right-color: transparent;
+  }
+
+  .#{$prefix}-timeline__marker {
+    margin-left: 0;
+    right: 0;
+  }
+
+  .#{$prefix}-timeline__content {
+    margin-left: 0;
+    margin-right: $lg;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-timeline {
+    &__date--label {
+      left: -$sm*11.25;
+      right: auto;
+      text-align: right;
+      position: absolute;
+      display: block;
+      top: $sm*.75;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: auto;
+      width: 10rem;
+    }
+  }
+
+  .#{$prefix}-timeline--right {
+    .#{$prefix}-timeline__date--label {
+      left: auto;
+      right: -$sm*11.25;
+      text-align: left;
+      position: absolute;
+      display: block;
+      top: $sm*.75;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: auto;
+      width: 10rem;
+    }
+  }
+
+  .#{$prefix}-timeline--center {
+    &::before {
+      left: 50%;
+      margin-left: 0;
+    }
+
+    .#{$prefix}-timeline__row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -$sm*.75;
+      margin-left: -$sm*.75;
+    }
+
+    .#{$prefix}-timeline__item {
+      flex-basis: 50%;
+      max-width: 50%;
+      padding: 0 $sm*.75;
+      width: 100%;
+    }
+
+    .#{$prefix}-timeline__item--right {
+      margin-left: auto;
+    }
+
+    .#{$prefix}-timeline__item::after {
+      margin-left: -$md;
+      left: 100%;
+      border-left-color: $color-black--100;
+      border-right-color: transparent;
+    }
+
+    .#{$prefix}-timeline__item--right::after {
+      margin-left: -$sm;
+      left: auto;
+      border-right-color: $color-black--100;
+      border-left-color: transparent;
+    }
+
+    .#{$prefix}-timeline__marker {
+      margin-left: -$xxs;
+      left: 100%;
+    }
+
+    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__marker {
+      left: auto;
+      margin-left: -$sm;
+    }
+
+    .#{$prefix}-timeline__content {
+      margin-left: 0;
+      margin-right: $sm*.75;
+    }
+
+    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__content {
+      margin-right: 0;
+      margin-left: $sm;
+    }
+
+    .#{$prefix}-timeline__date--label {
+      left: auto;
+      right: -$sm*11.75;
+      text-align: left;
+      position: absolute;
+      display: block;
+      top: auto;
+      margin-top: -$sm*3.15;
+      width: $sm*10;
+    }
+
+    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__date--label {
+      left: -$sm*11.5;
+      right: auto;
+      text-align: right;
+      position: absolute;
+      display: block;
+      top: $sm*.75;
+      margin-left: auto;
+      margin-top: auto;
+      margin-right: auto;
+      width: $sm*10;
+    }
+  }
+}
