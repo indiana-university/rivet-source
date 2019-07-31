@@ -2,7 +2,7 @@
   "name": "rivet-uits",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.2",
+    "gulp-stylelint": "^9.0.0",
     "gulp-uglify": "^3.0.0",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
@@ -58,6 +59,8 @@
     "pump": "^1.0.2",
     "puppeteer": "^1.16.0",
     "require-dir": "^0.3.2",
-    "stylelint": "^10.0.1"
+    "stylelint": "^10.0.1",
+    "stylelint-config-rivet": "^1.0.0",
+    "stylelint-scss": "^3.6.1"
   }
 }

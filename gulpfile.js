@@ -11,7 +11,7 @@ const reporter = require("postcss-reporter");
 const requireDir = require("require-dir");
 const sass = require("gulp-sass");
 const scss = require("postcss-scss");
-const stylelint = require("stylelint");
+const stylelint = require("gulp-stylelint");
 const uglify = require("gulp-uglify");
 
 const bannerPackage = require("./config/banner");
@@ -36,16 +36,28 @@ function compileSass() {
 }
 
 // List .scss files. See .stylelintrc for config
-function lintSass() {
-  return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"]).pipe(
-    postcss([stylelint(), reporter({ clearMessages: true })], {
-      syntax: scss
-    })
-  );
+function lintSassWatch() {
+  return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"])
+  .pipe(stylelint({
+    failAfterError: false,
+    reporters: [
+      {formatter: 'string', console: true}
+    ]
+  }));
+}
+
+function lintSassBuild() {
+  return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"])
+  .pipe(stylelint({
+    failAfterError: true,
+    reporters: [
+      {formatter: 'string', console: true}
+    ]
+  }));
 }
 
 function watchSass(callback) {
-  watch("src/sass/**/*.scss", series(compileSass, lintSass));
+  watch("src/sass/**/*.scss", series(compileSass, lintSassWatch));
   callback();
 }
 
@@ -69,11 +81,10 @@ function compileCSS() {
   return src("static/css/rivet.css").pipe(dest("./css"));
 }
 
-function headerCSS(callback) {
-  src("./css/rivet.css")
+function headerCSS() {
+  return src("./css/rivet.css")
     .pipe(header(bannerPackage, { package: package }))
     .pipe(dest("./css/"));
-  callback();
 }
 
 function minifyCSS(callback) {
@@ -220,6 +231,7 @@ function example(callback) {
 }
 
 exports.release = series(
+  lintSassBuild,
   compileSass,
   lintJSBuild,
   concatJS,
@@ -236,6 +248,7 @@ exports.release = series(
 );
 
 exports.build = series(
+  lintSassBuild,
   compileSass,
   lintJSBuild,
   concatJS,
@@ -247,7 +260,7 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
-  lintSass,
+  lintSassWatch,
   lintJSWatch,
   concatJS,
   fractalHeadless,
@@ -257,7 +270,7 @@ exports.headless = series(compileSass,
 
 exports.default = series(
   compileSass,
-  lintSass,
+  lintSassWatch,
   lintJSWatch,
   concatJS,
   fractalStart,

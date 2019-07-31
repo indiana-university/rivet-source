@@ -21,7 +21,7 @@
   /**
    * DEPRECATED
    *
-   * With the updates to the footer lockup, the div that the 
+   * With the updates to the footer lockup, the div that the
    * `.#{$prefix}-footer__copyright-lockup` class is unncessary. We are deprecating
    * the class and removing the div from the code snippet.
    *
@@ -59,13 +59,13 @@
     display: inline-block;
     margin-top: 0;
 
-    &:first-child:after {
+    &:first-child::after {
       content: "|";
       color: $color-black--500;
       margin: 0 $xs;
     }
 
-    &:after {
+    &::after {
       content: none;
     }
   }
@@ -77,13 +77,13 @@
 
 @include mq(519px) {
   .#{$prefix}-footer {
-    &__aux-item:after {
+    &__aux-item::after {
       content: "|";
       color: $color-black--500;
       margin: 0 $xs;
     }
 
-    &__aux-item:last-child:after {
+    &__aux-item:last-child::after {
       content: none;
     }
   }

@@ -2,12 +2,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @import "libs/normalize";
-
 @import "core/variables";
 @import "core/tools";
 @import "core/fonts";
 @import "core/base";
-
 @import "utilities/utilities-border";
 @import "utilities/utilities-color";
 @import "utilities/utilities-display";
@@ -17,7 +15,6 @@
 @import "utilities/utilities-visibility";
 @import "utilities/utilities-width";
 @import "utilities/utilities-z-index";
-
 @import "components/alerts";
 @import "components/badges";
 @import "components/box";
@@ -44,5 +41,6 @@
 @import "components/step-indicator";
 @import "components/tables";
 @import "components/tabs";
+@import "components/timeline";
 @import "components/type-scale";
 @import "components/validation";

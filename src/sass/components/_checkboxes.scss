@@ -10,13 +10,14 @@ input[type='checkbox'] {
 input[type='checkbox'] + label,
 .#{$prefix}-checkbox-wrapper input[type='checkbox'] ~ label {
   font-size: $sm;
+
   /**
    * Helps visually align checkbox lists
    */
   margin-left: .2rem;
   font-weight: $font-weight-regular;
 
-  &:before {
+  &::before {
     display: inline-block;
     content: ' ';
     border-radius: .125rem;
@@ -24,6 +25,7 @@ input[type='checkbox'] + label,
     width: $sm;
     height: $sm;
     transition: all .2s ease;
+
     /**
      * There are some magic numbers here that help improve rendering
      * of box-shadows in Firefox and IE. Making them just a smidge
@@ -33,6 +35,7 @@ input[type='checkbox'] + label,
      * used on other inputs like text inputs, textareas, and selects.
      */
     box-shadow: 0 0 0 .08rem $color-black--700;
+
     /**
      * This helps visually center the label with the pseudo
      * element checkbox.
@@ -48,7 +51,7 @@ input[type='checkbox'] + label,
 
 input[type='checkbox']:checked + label,
 .#{$prefix}-checkbox-wrapper input[type='checkbox']:checked ~ label {
-  &:before {
+  &::before {
     color: $color-white;
     background-color: $color-blue--600;
     box-shadow: 0 0 0 .08rem $color-blue--600;
@@ -59,12 +62,22 @@ input[type='checkbox']:checked + label,
 }
 
 /* stylelint-disable */
-input[type='checkbox']:focus + label:before,
-.#{$prefix}-checkbox-wrapper input[type='checkbox']:focus ~ label:before {
+input[type='checkbox']:focus + label::before,
+.#{$prefix}-checkbox-wrapper input[type='checkbox']:focus ~ label::before {
   box-shadow: 0 0 0 .08rem $color-black--700,
               0 0 0 .1875rem $color-white,
               0 0 0 .3125rem $color-blue--600;
 }
+
+/* stylelint-enable */
+
+input[type='checkbox']:disabled + label::before,
+.#{$prefix}-checkbox-wrapper input[type='checkbox']:disabled ~ label::before {
+  background-color: $color-black--200;
+  box-shadow: 0 0 0 .08rem $color-black--300;
+}
+
+/* stylelint-disable */
 
 input[type='checkbox']:checked:focus + label:before,
 input[type='checkbox']:indeterminate:focus + label:before,
@@ -78,12 +91,6 @@ input[type='checkbox']:indeterminate:focus + label:before,
 }
 /* stylelint-enable */
 
-input[type='checkbox']:disabled + label:before,
-.#{$prefix}-checkbox-wrapper input[type='checkbox']:disabled ~ label:before {
-  background-color: $color-black--200;
-  box-shadow: 0 0 0 .08rem $color-black--300;
-}
-
 input[type='checkbox']:disabled + label,
 .#{$prefix}-checkbox-wrapper input[type='checkbox']:disabled ~ label {
   color: $color-black--700;
@@ -94,15 +101,15 @@ input[type='checkbox']:disabled + label,
  * Indeterminate state
  */
 
-input[type='checkbox']:indeterminate + label:before,
-.#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate ~ label:before {
+input[type='checkbox']:indeterminate + label::before,
+.#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate ~ label::before {
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=');
   background-color: $color-blue--600;
   box-shadow: 0 0 0 .08rem $color-blue--600;
 }
 
-input[type='checkbox']:indeterminate:disabled + label:before,
-.#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate:disabled ~ label:before {
+input[type='checkbox']:indeterminate:disabled + label::before,
+.#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate:disabled ~ label::before {
   background-color: $color-black--200;
   box-shadow: 0 0 0 .08rem $color-black--300;
 }

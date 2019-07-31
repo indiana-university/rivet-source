@@ -22,15 +22,12 @@
 
     &:last-child {
       border-bottom: 1px solid $color-black--300;
+      margin-right: 0;
     }
 
     &:first-child {
       border-top-right-radius: $xxs;
       border-top-left-radius: $xxs;
-    }
-
-    &:last-child {
-      margin-right: 0;
     }
 
     &:focus,
@@ -114,7 +111,6 @@
       border-right: none;
       border-radius: 0;
       border-top: none;
-      border-right: none;
       border-bottom: 1px solid $color-black--300;
       border-left: none;
       width: 100%;

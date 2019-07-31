@@ -11,12 +11,14 @@
   &__title {
     font-weight: $font-weight-bold;
     font-size: $ts-18;
+
     /**
      * We'll put bottom margin on the title here so that the .alert can
      * be used with the __message only and still get the proper padding
      * around all sides.
      */
     margin-bottom: $xxs;
+
     /**
      * Add a little padding on the right so that the title won't end up
      * showing underneath the "X" button if it's used.

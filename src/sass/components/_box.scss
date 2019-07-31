@@ -128,7 +128,6 @@
     border-color: $color-blue--200;
   }
 
-
   &--success {
     border-color: $color-green--200;
   }
@@ -143,7 +142,6 @@
   &--success &__row {
     border-color: $color-green--200;
   }
-
 
   &--warning {
     border-color: $color-yellow--100;
@@ -160,7 +158,6 @@
     border-color: $color-yellow--100;
   }
 
-
   &--danger {
     border-color: $color-orange--200;
   }
@@ -175,7 +172,6 @@
   &--danger &__row {
     border-color: $color-orange--200;
   }
-
 
   &--card {
     box-shadow: $shadow-base;

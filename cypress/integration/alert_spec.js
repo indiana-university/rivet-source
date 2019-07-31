@@ -5,11 +5,11 @@ const ALERT_CLOSE = ALERT_INFO + '>.rvt-alert__dismiss';
 const DEV_SERVER = "http://localhost:3000";
 
 describe('Rivet alert interactions', function() {
-  it('Visits the alert page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/alerts--default');
+  it('Visits the info alert page', function() {
+    cy.visit(DEV_SERVER + '/components/preview/alert');
   });
 
-  it('Should see the alert', function() {
+  it('Should see the info alert page', function() {
     cy.get(ALERT_INFO)
       .should('have.attr', 'aria-labelledby', 'information-alert-title')
       .and('be.visible');

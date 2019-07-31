@@ -18,6 +18,11 @@
     z-index: map-get($z-index, z-100);
   }
 
+  &__input:focus:not(:last-child),
+  &__input:focus:not(:first-child) {
+    z-index: map-get($z-index, z-300);
+  }
+
   &__append {
     flex-grow: 1;
     margin-left: -1px;
