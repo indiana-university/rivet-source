@@ -1,9 +1,9 @@
-<legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio input ({{ id }})</legend>
+<legend>{{legend}}</legend>
 <ul {{#if list}}class="rvt-plain-list"{{else}}class="rvt-inline-list"{{/if}}>
   {{#if options}}
     {{#each options.option}}
       <li {{#if this.hiddenFields}}class="rvt-radio-wrapper"{{/if}}>
-        <input type="radio" name="radio-{{this.id}}-{{this.text}}" id="radio-{{this.id}}-{{this.text}}" {{this.modifier}} {{this.checked}}>
+        <input type="radio" name="radio-{{this.id}}" id="radio-{{this.id}}-{{this.text}}" {{this.modifier}} {{this.checked}}>
         {{#if this.hiddenFields}}
           <input type="hidden">
         {{/if}}
@@ -12,14 +12,14 @@
     {{/each}}
   {{else}}
     <li {{#if hiddenFields}}class="rvt-radio-wrapper"{{/if}}>
-      <input type="radio" name="radio-{{id}}-option-one" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
+      <input type="radio" name="radio-{{id}}" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
       {{#if hiddenFields}}
         <input type="hidden">
       {{/if}}
       <label for="radio-{{id}}-option-one">Option one</label>
     </li>
     <li {{#if hiddenFields}}class="rvt-radio-wrapper"{{/if}}>
-        <input type="radio" name="radio-{{id}}-option-two" id="radio-{{id}}-option-two" {{modifier}}>
+        <input type="radio" name="radio-{{id}}" id="radio-{{id}}-option-two" {{modifier}}>
         {{#if hiddenFields}}
           <input type="hidden">
         {{/if}}
