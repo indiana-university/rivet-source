@@ -1,85 +1,30 @@
-<div class="rvt-container rvt-container--freshman">
-    <form>
-        <fieldset class="rvt-m-bottom-xl">
-            <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio inputs inline</legend>
-            <ul class="rvt-inline-list">
-                <li>
-                    <input type="radio" name="radio-demo" id="radio-1" >
-                    <label for="radio-1">Option one</label>
-                </li>
-                <li>
-                    <input type="radio" name="radio-demo" id="radio-2" >
-                    <label for="radio-2">Option two</label>
-                </li>
-            </ul>
-        </fieldset>
-        <fieldset class="rvt-m-bottom-xl">
-            <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio list</legend>
-            <ul class="rvt-plain-list">
-                <li>
-                    <input type="radio"
-                           name="radio-demo-2"
-                           id="radio-3"
-                           aria-invalid="true"
-                           aria-describedby="radio-list-message">
-                    <label for="radio-3" >Option one</label>
-                </li>
-                <li>
-                    <input type="radio"
-                           name="radio-demo-2"
-                           id="radio-4"
-                           aria-invalid="true"
-                           aria-describedby="radio-list-message">
-                    <label for="radio-4">Option two</label>
-                </li>
-                <li>
-                    <input type="radio"
-                           name="radio-demo-2"
-                           id="radio-4-disabled"
-                           aria-invalid="true"
-                           aria-describedby="radio-list-message"
-                           disabled>
-                    <label for="radio-4-disabled">Option three disabled</label>
-                </li>
-                <li>
-                    <input type="radio"
-                           name="radio-demo-2"
-                           id="radio-5"
-                           aria-invalid="true"
-                           aria-describedby="radio-list-message">
-                    <label for="radio-5">Option four checked and disabled</label>
-                </li>
-            </ul>
-            <div class="rvt-inline-alert rvt-inline-alert--standalone rvt-inline-alert--danger">
-                <span class="rvt-inline-alert__icon">
-                    <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                        <g fill="currentColor">
-                            <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
-                            <path d="M10.83,5.17a1,1,0,0,0-1.41,0L8,6.59,6.59,5.17A1,1,0,0,0,5.17,6.59L6.59,8,5.17,9.41a1,1,0,1,0,1.41,1.41L8,9.41l1.41,1.41a1,1,0,0,0,1.41-1.41L9.41,8l1.41-1.41A1,1,0,0,0,10.83,5.17Z"
-                            />
-                        </g>
-                    </svg>
-                </span>
-                <span class="rvt-inline-alert__message" role="alert" id="radio-list-message">
-                    This field is required to continue.
-                </span>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio inputs inline</legend>
-            <p>This example includes a hidden input in the markup, as some frameworks include. It requires that the input and label be wrapped in a <code>.rvt-radio-wrapper</code>.</p>
-            <ul class="rvt-inline-list">
-                <li class="rvt-radio-wrapper">
-                    <input type="radio" name="radio-demo" id="radio-6" >
-                    <input type="hidden">
-                    <label for="radio-6">Option one</label>
-                </li>
-                <li class="rvt-radio-wrapper">
-                    <input type="radio" name="radio-demo" id="radio-7" >
-                    <input type="hidden">
-                    <label for="radio-7">Option two</label>
-                </li>
-            </ul>
-        </fieldset>
-    </form>
-</div>
+<legend class="rvt-ts-23 rvt-text-bold rvt-m-bottom-sm">Radio inputs ({{ id }})</legend>
+<ul {{#if list}}class="rvt-plain-list"{{else}}class="rvt-inline-list"{{/if}}>
+  {{#if options}}
+    {{#each options.option}}
+      <li {{#if this.hiddenFields}}class="rvt-radio-wrapper"{{/if}}>
+        <input type="radio" name="radio-{{this.id}}-{{this.text}}" id="radio-{{this.id}}-{{this.text}}" {{this.modifier}} {{this.checked}}>
+        {{#if this.hiddenFields}}
+          <input type="hidden">
+        {{/if}}
+        <label for="radio-{{this.id}}-{{this.text}}">{{this.text}}</label>
+      </li>
+    {{/each}}
+  {{else}}
+    <li {{#if hiddenFields}}class="rvt-radio-wrapper"{{/if}}>
+      <input type="radio" name="radio-{{id}}-option-one" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
+      {{#if hiddenFields}}
+        <input type="hidden">
+      {{/if}}
+      <label for="radio-{{id}}-option-one">Option one</label>
+    </li>
+    <li {{#if hiddenFields}}class="rvt-radio-wrapper"{{/if}}>
+        <input type="radio" name="radio-{{id}}-option-two" id="radio-{{id}}-option-two" {{modifier}}>
+        {{#if hiddenFields}}
+          <input type="hidden">
+        {{/if}}
+        <label for="radio-{{id}}-option-two">Option two</label>
+    </li>
+  {{/if}}
+    
+</ul>

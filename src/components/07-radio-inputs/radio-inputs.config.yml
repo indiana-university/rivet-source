@@ -1,1 +1,47 @@
+title: "Radio input"
 status: "ready"
+collated: true
+context:
+    id: "default"
+variants:
+    - name: "checked"
+      context:
+          id: "checked"
+          checked: "checked"
+    - name: "disabled"
+      context:
+          id: "disabled"
+          modifier: "disabled"
+    - name: "hidden fields"
+      context:
+          id: "hidden"
+          hiddenFields: true
+    - name: "list"
+      context:
+          id: "list"
+          list: true
+    - name: "custom"
+      context:
+          id: "custom"
+          checked: "checked"
+          modifier: "disabled"
+          hiddenFields: true
+          list: true
+          options:
+            id: "custom"
+            checked: "checked"
+            option:
+              apple:
+                text: apple
+                id: custom
+                checked: checked
+              banana:
+                text: banana
+                id: custom
+                modifier: disabled
+              orange:
+                text: orange
+                id: custom
+              raspberry:
+                text: raspberry
+                id: custom
