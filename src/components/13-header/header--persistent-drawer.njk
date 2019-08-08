@@ -2,7 +2,7 @@
     <a class="rvt-skip-link" href="#main-content">Skip to content</a>
     <!-- Trident -->
     <div class="rvt-header__trident">
-        {{> @includes--trident }}
+        {% view "@includes--trident" %}
     </div>
     <!-- App title -->
     <span class="rvt-header__title">
@@ -58,11 +58,11 @@
             </ul>
         </nav>
         <!-- ID menu w/ dropdown -->
-        {{> @includes--header-id-menu }}
+        {% view "@includes--header-id-menu" %}
         <!-- Drawer close button - shows on small screens -->
         <button class="rvt-drawer-button rvt-drawer-button--persistent" aria-haspopup="true" aria-expanded="false" data-drawer-toggle="mobile-drawer">
             <span class="sr-only">Toggle menu</span>
-            {{> @includes--drawer-button }}
+            {% view "@includes--drawer-button" %}
         </button>
     </div>
     <!--

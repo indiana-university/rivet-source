@@ -2,14 +2,14 @@
     <a class="rvt-skip-link" href="#main-content">Skip to content</a>
     <!-- Trident -->
     <div class="rvt-header__trident">
-        {{> @includes--trident }}
+        {% view "@includes--trident" %}
     </div>
     <!-- App title -->
     <span class="rvt-header__title">
         <a href="#0">Application Title</a>
     </span>
-     {{> @includes--header-controls }}
-     {{> @includes--drawer }}
+    {% view "@includes--header-controls" %}
+    {% view "@includes--drawer" %}
 </header>
 
 <!-- Skip link demo only -->

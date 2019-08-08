@@ -1,7 +1,7 @@
 <header class="rvt-header" role="banner">
     <a class="rvt-skip-link" href="#main-content">Skip to content</a>
     <div class="rvt-header__trident">
-        {{> @includes--trident }}
+        {% view "@includes--trident" %}
     </div>
     <span class="rvt-header__title">
         <a href="#0">Application Title</a>
@@ -18,7 +18,7 @@
         </div>
         <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-toggle="mobile-drawer">
             <span class="sr-only">Toggle menu</span>
-            {{> @includes--drawer-button }}
+            {% view "@includes--drawer-button" %}
         </button>
     </div>
     <div class="rvt-drawer" aria-hidden="true" id="mobile-drawer">
