@@ -46,11 +46,10 @@
         </ul>
     </nav>
     <!-- ID menu w/ dropdown -->
-    <!-- PROBLEM: Figure out how to make these includes work -->
-    {% view "@includes--header-id-menu" %}
+    {% include "@includes--header-id-menu" %}
     <!-- Drawer close button - shows on small screens -->
     <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-toggle="mobile-drawer">
         <span class="sr-only">Toggle menu</span>
-        {% view "@includes--drawer-button" %}
+        {% include "@includes--drawer-button" %}
     </button>
 </div>
