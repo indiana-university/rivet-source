@@ -1,0 +1,10 @@
+title: "Ordered List"
+label: "Ordered"
+status: "ready"
+collated: true
+context:
+    texts:
+    - List Item One
+    - List Item Two
+    - List Item Three
+    - List Item Four
