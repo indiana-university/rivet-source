@@ -1,9 +1,0 @@
-title: Alerts & errors
-status: "ready"
-variants:
-    - name: "default"
-      label: "Page-level alerts"
-    - name: "alert-lists"
-      label: "Alert lists"
-      notes: |
-        # Alert lists

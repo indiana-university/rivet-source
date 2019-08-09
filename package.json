@@ -2,7 +2,7 @@
   "name": "rivet-uits",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.2.1",
+    "@frctl/nunjucks": "^2.0.1",
     "autoprefixer": "^7.1.2",
     "browser-sync": "^2.26.5",
     "chai": "^4.1.2",
@@ -62,5 +63,6 @@
     "stylelint": "^10.0.1",
     "stylelint-config-rivet": "^1.0.0",
     "stylelint-scss": "^3.6.1"
-  }
+  },
+  "dependencies": {}
 }
