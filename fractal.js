@@ -51,9 +51,14 @@ fractal.web.theme(myCustomizedTheme);
  */
 fractal.set('project.title', 'Rivet');
 
+fractal.components.engine('@frctl/nunjucks');
+
 /**
  * Tell Fractal where to look for components.
  */
+
+fractal.components.set('ext', '.njk');
+
 fractal.components.set('path', path.join(__dirname, 'src/components'));
 
 fractal.components.set('statuses', {
