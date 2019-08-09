@@ -34,20 +34,17 @@ variants:
           list: true
           legend: "Radio input (custom)"
           options:
-            id: "custom"
-            checked: "checked"
-            option:
-              apple:
-                text: apple
-                id: custom
-                checked: checked
-              banana:
-                text: banana
-                id: custom
-                modifier: disabled
-              orange:
-                text: orange
-                id: custom
-              raspberry:
-                text: raspberry
-                id: custom
+            apple:
+              text: apple
+              id: custom
+              checked: checked
+            banana:
+              text: banana
+              id: custom
+              modifier: disabled
+            orange:
+              text: orange
+              id: custom
+            raspberry:
+              text: raspberry
+              id: custom
