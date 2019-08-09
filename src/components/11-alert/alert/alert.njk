@@ -1,5 +1,5 @@
 <div class="rvt-alert rvt-alert--{{ type }}" role="alertdialog" aria-labelledby="{{ id }}-alert-title">
     <h1 class="rvt-alert__title" id="{{ id }}-alert-title">{{ title }}</h1>
     <p class="rvt-alert__message">{{ message }}</p>
-    {{> @includes--alert-close-button }}
+    {% view "@includes--alert-close-button" %}
 </div>

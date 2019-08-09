@@ -2,14 +2,14 @@
     <a class="rvt-skip-link" href="#main-content">Skip to content</a>
     <!-- Trident -->
     <div class="rvt-header__trident">
-        {{> @includes--trident }}
+        {% include "@includes--trident" %}
     </div>
     <!-- App title -->
     <span class="rvt-header__title">
         <a href="#">Application Title</a>
     </span>
-    {{> @includes--header-controls }}
-    {{> @includes--drawer }}
+    {% include "@includes--header-controls" %} <!-- PROBLEM: The include within this file appears to be too nested -->
+    {% include "@includes--drawer" %}
 </header>
 
 <script>

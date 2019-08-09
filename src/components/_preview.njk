@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link media="all" rel="stylesheet" href="{{ path '/css/rivet.css' }}">
+    <link media="all" rel="stylesheet" href="{{ '/css/rivet.css' | path }}">
     <title>Preview Layout</title>
 </head>
 <body>
     <main>
         <div class="display-wrapper">
 
-            {{{ yield }}}
+            {{ yield | safe }}
 
             <style scoped>
                 /**
@@ -26,6 +26,6 @@
             </style>
         </div>
     </main>
-    <script src="{{ path '/js/rivet.js' }}"></script>
+    <script src="{{ '/js/rivet.js' | path }}"></script>
 </body>
 </html>
