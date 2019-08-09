@@ -1,0 +1,34 @@
+title: Buttons
+label: Primary
+status: "ready"
+collated: true
+context:
+    content: "Primary"
+variants:
+    - name: "success"
+      context:
+          content: "Success"
+          type: "-success"
+    - name: "danger"
+      context:
+          content: "Danger"
+          type: "-danger"
+    - name: "plain"
+      context:
+          content: "Plain"
+          type: "-plain"
+
+    - name: "small"
+      context:
+          content: "Primary"
+          size: "small"
+    - name: "small primary success"
+      context:
+          content: "Success"
+          type: "-success"
+          size: "small"
+    - name: "small primary danger"
+      context:
+          content: "Danger"
+          type: "-danger"
+          size: "small"

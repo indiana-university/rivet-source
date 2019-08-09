@@ -1,0 +1,19 @@
+title: Segmented Buttons
+label: Segmented
+status: "ready"
+collated: true
+context:
+    content: "Primary"
+    texts:
+    - One
+    - Two
+    - Three
+variants:
+    - name: "secondary"
+      context:
+          content: "Secondary"
+          secondary: true
+    - name: "fitted"
+      context:
+          content: "Fitted"
+          fitted: true

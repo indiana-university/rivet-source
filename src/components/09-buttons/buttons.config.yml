@@ -1,8 +1,0 @@
-status: "ready"
-variants:
-    - name: "default"
-      label: "Buttons"
-    - name: "segmented"
-      label: "Segemented button"
-      notes: |
-            # Segmented Buttons

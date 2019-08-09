@@ -1,0 +1,5 @@
+<div class="rvt-button-segmented{%if fitted %} rvt-button--segmented--fitted{% endif %}" role="group" aria-label="{{ content }} group">
+    {% for text in texts %}
+    <button class="rvt-button{%if secondary %} rvt-button--secondary{% endif %}">{{ text }}</button>
+    {% endfor %}
+</div>
