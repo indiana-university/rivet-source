@@ -11,9 +11,3 @@ variants:
           attributes:
             - label: "class"
               value: "rvt-link-bold"
-    - name: "aria-labelled"
-      context:
-          text: "link with aria-roles"
-          attributes:
-              - label: "aria-current"
-                value: "page"
