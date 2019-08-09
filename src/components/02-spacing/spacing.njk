@@ -13,18 +13,18 @@
             <th>Example</th>
         </thead>
         <tbody>
-            {{# each spacings }}
+            {% for space in spacings %}
             <tr>
-                <td><code>{{ abbr }}</code></td>
-                <td>{{ rem }}</td>
-                <td>{{ pixels }}px</td>
+                <td><code>{{ space.abbr }}</code></td>
+                <td>{{ space.rem }}</td>
+                <td>{{ space.pixels }}px</td>
                 <td>
-                    <div class="sp-example p-all{{ abbr }}">
-                        <p class="sp-example-inner m-all-remove p-all-xs">{{ name }}</p>
+                    <div class="sp-example p-all{{ space.abbr }}">
+                        <p class="sp-example-inner m-all-remove p-all-xs">{{ space.name }}</p>
                     </div>
                 </td>
             </tr>
-            {{/ each }}
+            {% endfor %}
         </tbody>
     </table>
 
