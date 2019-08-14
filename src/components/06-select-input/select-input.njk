@@ -1,8 +1,8 @@
-<label for="select-input-{{id}}">Select Input:</label>
-<select id="select-input-{{id}}" {% if class %} class="rvt-validation-{{ class }}"{% endif %} {{ modifier }}>
+<label for="select-input-{{ id }}">Select Input:</label>
+<select id="select-input-{{ id }}" {% if class %} class="rvt-validation-{{ class }}"{% endif %} {{ modifier }}>
   {% if options %}
     {% for option in options %}
-      <option value="{{this}}">{{this}}</option>
+      <option value="{{ this }}">{{ this }}</option>
     {% endfor %}
   {% else %}
   <option value="option one">Option One</option>
@@ -11,12 +11,9 @@
   {% endif %}
 </select>
 {% if alert %}
-  <div class="rvt-inline-alert rvt-inline-alert--{{ class }}">
-      <span class="rvt-inline-alert__icon">
-        {% include alertVariant %}
-      </span>
-      <span class="rvt-inline-alert__message" role="alert" id="inline-select">
-          You must choose an option.
-      </span>
-  </div>
+  {% set variant = "@alert-inline" %}
+  {% if alertVariant %}
+    {% set variant = (variant + alertVariant) %}
+  {% endif %}
+  {% render variant, {type: class}, true %}
 {% endif %}
