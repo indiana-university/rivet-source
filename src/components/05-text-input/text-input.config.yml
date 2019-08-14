@@ -14,18 +14,18 @@ variants:
       context:
           id: "success"
           class: success
-          alert: true
+          alert: "true"
           alertVariant: --success
     - name: "warning"
       context:
           id: "warning"
-          class: warning
+          class: "warning"
           alert: true
           alertVariant: --warning
     - name: "danger"
       context:
           id: "danger"
-          class: danger
+          class: "danger"
           alert: true
           alertVariant: --danger
     - name: "info"
