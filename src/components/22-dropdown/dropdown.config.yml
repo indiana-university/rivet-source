@@ -1,1 +1,17 @@
+title: Dropdown
+label: Dropdown
 status: "ready"
+collated: true
+context:
+    title: "Navigation menu"
+    id: "dropdown-navigation"
+    items:
+      - text: "Item one"
+      - text: "Item two"
+      - text: "Item three"
+        attributes:
+          - label: "aria-current"
+            value: "page"
+      - relatedLinks:
+        - text: "Related item one"
+        - text: "Related item two"

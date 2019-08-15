@@ -1,83 +1,18 @@
-<h1 class="rvt-ts-32 rvt-text-bold rvt-m-bottom-xxl">Dropdowns</h1>
-
-<div class="rvt-button-group">
-    <div class="rvt-dropdown">
-        <button class="rvt-button" data-dropdown-toggle="dropdown-navigation" aria-haspopup="true" aria-expanded="false">
-            <span>Navigation menu</span>
-            <svg role="img" alt="" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-            </svg>
-        </button>
-        <div
-            class="rvt-dropdown__menu"
-            id="dropdown-navigation"
-            role="menu"
-            aria-hidden="true"
-        >
-            <a href="#">Item one</a>
-            <a href="#">Item two</a>
-            <a href="#" aria-current="page">Item three</a>
-            <a href="#">Item four</a>
-            <div role="group" aria-label="Related">
-                <a href="#">Related item three</a>
-                <a href="#">Related item four</a>
-            </div>
+<div class="rvt-dropdown">
+  {% render '@button-primary', { content: label, attributes: [{ label: "data-dropdown-toggle", value: id }] }, true %}
+  <div class="rvt-dropdown__menu" id="{{ id }}" role="menu" aria-hidden="true">
+    {% for item in items %}
+      {% if item.relatedLinks %}
+        <div role="group" aria-label="Related">
+          {% for relatedLink in item.relatedLinks %}
+            {% render '@link', { link: relatedLink.link, text: relatedLink.text }, true %}
+          {% endfor %}
         </div>
-    </div>
-
-    <div class="rvt-dropdown">
-        <button
-            class="rvt-button"
-            data-dropdown-toggle="dropdown-1"
-            aria-haspopup="true"
-            aria-expanded="false"
-        >
-            <span>Application menu</span>
-            <svg role="img" alt="" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-            </svg>
-        </button>
-        <div
-            class="rvt-dropdown__menu"
-            id="dropdown-1"
-            role="menu"
-            aria-hidden="true"
-        >
-            <button role="menuitemradio">Notify all</button>
-            <button role="menuitemradio" aria-checked="true">Notify admins</button>
-            <button role="menuitemradio">Notify contributors</button>
-            <div class="rvt-dropdown__menu-heading" aria-hidden="true">Personal settings</div>
-            <div role="group" aria-label="Personal settings">
-                <button role="menu-item">Profile settings</button>
-                <button role="menu-item">Logout</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="rvt-dropdown">
-        <button
-            class="rvt-button rvt-button--plain"
-            data-dropdown-toggle="dropdown-plain"
-            aria-haspopup="true"
-            aria-expanded="false"
-        >
-            <span>Plain</span>
-            <svg role="img" alt="" class="rvt-m-left-xs" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-            </svg>
-        </button>
-        <div
-            class="rvt-dropdown__menu"
-            id="dropdown-plain"
-            role="menu"
-            aria-hidden="true"
-        >
-            <button role="menuitem">Button one</button>
-            <button role="menuitem">Button two</button>
-            <button role="menuitem">Button three</button>
-            <button role="menuitem">Button four</button>
-        </div>
-    </div>
+      {% else %}
+        {% render '@link', { link: item.link, text: item.text, attributes: item.attributes }, true %}
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 <script>
