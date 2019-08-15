@@ -15,22 +15,21 @@ variants:
           id: "success"
           class: "success"
           alert: true
-          alertVariant: "\\@alert-inline--success"
+          alertVariant: "--success"
     - name: "warning"
       context:
           id: "warning"
           class: "warning"
           alert: true
-          alertVariant: "\\@alert-inline--warning"
+          alertVariant: "--warning"
     - name: "danger"
       context:
           id: "danger"
           class: "danger"
           alert: true
-          alertVariant: "\\@alert-inline--danger"
+          alertVariant: "--danger"
     - name: "info"
       context:
           id: "info"
           class: "info"
           alert: true
-          alertVariant: "\\@alert-inline"
