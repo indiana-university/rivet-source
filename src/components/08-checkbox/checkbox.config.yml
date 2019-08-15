@@ -1,0 +1,49 @@
+title: "Checkbox input"
+status: "ready"
+collated: true
+context:
+    label: "inline"
+    name: "inline"
+    id: "default"
+    legend: "Checkboxes inline"
+variants:
+    - name: "list"
+      context:
+          id: "list"
+          checked: "checked"
+          modifier: "disabled"
+          list: true
+          legend: "Checkbox list"
+          options:
+            apple:
+              text: apple
+              id: custom
+            banana:
+              text: banana
+              id: custom
+            orange:
+              text: orange
+              id: custom
+              modifier: disabled
+            raspberry:
+              text: raspberry
+              id: custom
+              modifier: disabled
+              checked: checked
+    - name: "alternate"
+      context:
+          hiddenFields: true
+          id: "alternate"
+          list: false
+          legend: "Alternate markup with hidden fields"
+    - name: "indeterminate"
+      context:
+          id: "indeterminate"
+          list: true
+          legend: "Indeterminate state"
+          children:
+            red:
+              text: red
+              checked: checked
+            blue:
+              text: blue

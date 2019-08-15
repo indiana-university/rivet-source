@@ -1,0 +1,53 @@
+<form>
+    <fieldset>
+        <legend>{{legend}}</legend>
+        <ul{% if list %} class="rvt-plain-list"{% else %} class="rvt-inline-list"{% endif %}>
+            {% if options %}
+                {% for name, option in options %}
+                <li {% if option.hiddenFields %}class="rvt-checkbox-wrapper"{% endif %}>
+                    <input type="checkbox" name="checkbox-{{option.id}}" id="checkbox-{{option.id}}-{{option.text}}" {{option.modifier}} {{option.checked}}>
+                    {% if option.hiddenFields %}
+                    <input type="hidden">
+                    {% endif %}
+                    <label for="checkbox-{{option.id}}-{{option.text}}">{{option.text}}</label>
+                </li>
+                {% endfor %}
+            {% else %}
+                <li {% if hiddenFields %}class="rvt-checkbox-wrapper"{% endif %}>
+                <input type="checkbox" name="checkbox-{{id}}" id="checkbox-{{id}}-option-one" {{modifier}} {{checked}}>
+                {% if hiddenFields %}
+                    <input type="hidden">
+                {% endif %}
+                <label for="checkbox-{{id}}-option-one">Option one</label>
+                </li>
+                <li {% if hiddenFields %}class="rvt-checkbox-wrapper"{% endif %}>
+                    <input type="checkbox" name="checkbox-{{id}}" id="checkbox-{{id}}-option-two" {{modifier}}>
+                    {% if hiddenFields %}
+                    <input type="hidden">
+                    {% endif %}
+                    <label for="checkbox-{{id}}-option-two">Option two</label>
+                </li>
+                {% if children %}
+                    <ul class="rvt-plain-list rvt-p-left-lg">
+                    {% for name, child in children %}
+                        <li {% if hiddenFields %}class="rvt-checkbox-wrapper"{% endif %}>
+                        <input type="checkbox" name="checkbox-{{child.id}}" id="checkbox-{{child.id}}-{{child.text}}" {{child.modifier}} {{child.checked}}>
+                        {% if child.hiddenFields %}
+                        <input type="hidden">
+                        {% endif %}
+                        <label for="checkbox-{{child.id}}-{{child.text}}">{{child.text}}</label>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        </ul>
+    </fieldset>
+</form>
+<script>
+    /**
+     * Setting indeterminate state for demo purposes here.
+     */
+    var indCheck = document.querySelector('#checkbox-indeterminate');
+    indCheck.indeterminate = true;
+</script>
