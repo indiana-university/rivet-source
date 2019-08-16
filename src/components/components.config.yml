@@ -21,3 +21,13 @@ context:
         - List Item Two
         - List Item Three
         - List Item Four
+
+    # Sizes
+    sizes:
+        - xxs
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+        - xxl
