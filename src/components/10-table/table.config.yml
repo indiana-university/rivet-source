@@ -1,0 +1,39 @@
+title: "Table"
+status: "ready"
+collated: true
+context:
+    tableTitle: "Default table"
+    headers:
+      - text: "Services"
+      - text: "Description"
+      - text: "URL"
+    rows:
+      - cols:
+        - text: "One.IU"
+        - text: "One.IU was created to bring a modern app store experience to finding what you need at IU. With One.IU, you search for what you want to do, and click to launch it."
+        - text: "<a href='#'>one.iu.edu</a>"
+      - cols:
+        - text: "Box"
+        - text: "Box is a no-cost cloud storage and collaboration environment available to students, faculty, and staff."
+        - text: "<a href='#'>box.iu.edu</a>"
+      - cols:
+        - text: "Zoom"
+        - text: "Zoom is a web collaboration tool available to all Indiana University students, faculty, and staff."
+        - text: "<a href='#'>zoom.iu.edu</a>"
+      - cols:
+        - text: "Canvas"
+        - text: "Canvas is a learning management system developed by Instructure, Inc."
+        - text: "<a href='#'>canvas.iu.edu</a>"
+variants:
+    - name: "stripes"
+      context:
+        class: "rvt-table-stripes"
+    - name: "plain"
+      context:
+        class: "rvt-table-plain"
+    - name: "compact"
+      context:
+        class: "rvt-table-compact"
+    - name: "cells"
+      context:
+        class: "rvt-table-cells"
