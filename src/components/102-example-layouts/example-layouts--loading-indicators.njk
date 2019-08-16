@@ -1,0 +1,14 @@
+<div class="rvt-p-all-md rvt-bg-midnight">
+  {% for size in sizes %}
+      {% render '@loading-indicator', {reverse: true, size: size} %}
+  {% endfor %}
+</div>
+
+<div class="rvt-flex rvt-row rvt-items-center rvt-p-all-md">
+  {% for size in sizes %}
+    <div class="rvt-flex rvt-column rvt-items-center rvt-p-all-sm">
+    {% render '@loading-indicator', {size: size} %}
+    <div class="rvt-text-center rvt-ts-18 rvt-m-top-xxs">Loading&hellip;</div>
+    </div>
+  {% endfor %}
+</div>
