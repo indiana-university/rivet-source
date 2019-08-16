@@ -11,7 +11,7 @@
         <ul class="rvt-plain-list rvt-p-left-lg">
           {% for item in box.items %}
             <li>
-              <input type="checkbox" name="checkbox-{{ item.id }}" id="{{ item.id }}"{% if item.modifiers %}{% for modifier in item.modifiers %} {{ modifier.status }}{% endfor %}{% endif %}>
+              <input type="checkbox" name="checkbox-{{ item.id }}" id="{{ item.id }}"{% if loop.index === 1 %} checked{% endif %}>
               <label for="{{ item.id }}">{{ item.checkboxLabel }}</label>
             </li>
           {% endfor %}
