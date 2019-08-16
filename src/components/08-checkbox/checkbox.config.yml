@@ -37,6 +37,8 @@ variants:
               items:
                 - id: "checkbox-child-1"
                   checkboxLabel: "Child option one"
+                  modifiers:
+                    - status: "checked"
                 - id: "checkbox-child-2"
                   checkboxLabel: "Child option two"
             - id: "checkbox-is-2"
