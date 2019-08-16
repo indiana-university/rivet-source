@@ -1,5 +1,9 @@
+title: "Right-aligned Timeline"
+label: "Right-aligned"
 status: "alpha"
+collated: true
 context:
+  date: false
   timeline_items:
     - heading: Sample Item
       label: Spring 2019
@@ -8,15 +12,7 @@ context:
       label: Summer 2019
       content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nulla ante. Suspendisse potenti. Donec efficitur, sem vitae dignissim viverra, nunc purus tempus nisi, feugiat ullamcorper tellus urna ut dui. Suspendisse potenti.
 variants:
-    - name: "default"
-      label: "Standard Timeline"
-    - name: "standard-dates"
-      label: "Standard Timeline w/ Date Labels"
-    - name: "centered"
-      label: "Centered Timeline"
-    - name: "centered-dates"
-      label: "Centered Timeline w/ Date Labels"
-    - name: "right-aligned"
-      label: "Right-aligned Timeline"
     - name: "right-dates"
-      label: "Right-aligned Timeline w/ Date Labels"
+      context:
+        label: "Right-aligned Timeline w/ Date Labels"
+        date: true
