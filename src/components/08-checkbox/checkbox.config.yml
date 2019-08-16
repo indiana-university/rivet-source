@@ -1,0 +1,55 @@
+title: "Checkbox input"
+status: "ready"
+collated: true
+context:
+    legend: "Checkboxes inline"
+    boxes:
+      - id: "checkbox-1"
+        checkboxLabel: "Option one"
+      - id: "checkbox-2"
+        checkboxLabel: "Option two"
+variants:
+    - name: "checkbox list"
+      context:
+          legend: "Checkbox list"
+          list: true
+          boxes:
+            - id: "checkbox-list-1"
+              checkboxLabel: "Option one"
+            - id: "checkbox-list-2"
+              checkboxLabel: "Option two"
+            - id: "checkbox-list-3"
+              checkboxLabel: "Option three"
+              modifiers:
+                - status: "disabled"
+            - id: "checkbox-list-4"
+              checkboxLabel: "Option four"
+              modifiers:
+                - status: "disabled"
+                - status: "checked"
+    - name: "indeterminate state"
+      context:
+          legend: "Indeterminate state"
+          list: true
+          boxes:
+            - id: "checkbox-indeterminate"
+              checkboxLabel: Parent option
+              items:
+                - id: "checkbox-child-1"
+                  checkboxLabel: "Child option one"
+                - id: "checkbox-child-2"
+                  checkboxLabel: "Child option two"
+            - id: "checkbox-is-2"
+              checkboxLabel: "Non-parent checkbox one"
+            - id: "checkbox-is-3"
+              checkboxLabel: "Non-parent checkbox two"
+    - name: "hidden fields"
+      context:
+          legend: "Hidden fields"
+          boxes:
+            - id: "checkbox-hidden-1"
+              checkboxLabel: "Option one"
+              hidden: true
+            - id: "checkbox-hidden-2"
+              checkboxLabel: "Option two"
+              hidden: true
