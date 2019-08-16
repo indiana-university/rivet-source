@@ -1,5 +1,5 @@
 <div class="rvt-dropdown">
-  {% render '@button-primary', { content: label, attributes: [{ label: "data-dropdown-toggle", value: id }] }, true %}
+  {% render '@button--dropdown', { content: label, attributes: [{ label: "data-dropdown-toggle", value: id }] }, true %}
   <div class="rvt-dropdown__menu" id="{{ id }}" role="menu" aria-hidden="true">
     {% for item in items %}
       {% if item.relatedLinks %}
