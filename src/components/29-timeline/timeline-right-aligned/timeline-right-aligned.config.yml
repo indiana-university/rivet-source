@@ -1,0 +1,18 @@
+title: "Right-aligned Timeline"
+label: "Right-aligned"
+status: "alpha"
+collated: true
+context:
+  date: false
+  timeline_items:
+    - heading: Sample Item
+      label: Spring 2019
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nulla ante. Suspendisse potenti. Donec efficitur, sem vitae dignissim viverra, nunc purus tempus nisi, feugiat ullamcorper tellus urna ut dui. Suspendisse potenti.
+    - heading: Sample Item 2
+      label: Summer 2019
+      content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nulla ante. Suspendisse potenti. Donec efficitur, sem vitae dignissim viverra, nunc purus tempus nisi, feugiat ullamcorper tellus urna ut dui. Suspendisse potenti.
+variants:
+    - name: "right-dates"
+      context:
+        label: "Right-aligned Timeline w/ Date Labels"
+        date: true

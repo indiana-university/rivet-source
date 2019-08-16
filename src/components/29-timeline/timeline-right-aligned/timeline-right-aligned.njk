@@ -1,0 +1,13 @@
+<div class="rvt-timeline rvt-timeline--right">
+  {% for item in timeline_items %}
+  <div class="rvt-timeline__item">
+    <div class="rvt-timeline__marker" aria-hidden="true">
+    </div>
+    <div class="rvt-timeline__content">
+      <h2 class="rvt-timeline__heading">{{ item.heading }}</h2>
+      <span class="rvt-timeline__date{% if date %} rvt-timeline__date--label{% endif %}">{{ item.label }}</span>
+      <p>{{ item.content }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>

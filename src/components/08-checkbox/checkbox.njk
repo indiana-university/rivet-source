@@ -1,0 +1,30 @@
+<legend class="sr-only">{{ legend }}</legend>
+<ul{% if list %} class="rvt-plain-list"{% else %} class="rvt-inline-list"{% endif %}>
+  {% for box in boxes %}
+    <li{% if box.hidden %} class="rvt-checkbox-wrapper"{% endif %}>
+      <input type="checkbox" name="checkbox-{{ box.id }}" id="{{ box.id }}"{% if box.modifiers %}{% for modifier in box.modifiers %} {{ modifier.status }}{% endfor %}{% endif %}>
+      {% if box.hidden %}
+        <input type="hidden">
+      {% endif %}
+      <label for="{{ box.id }}">{{ box.checkboxLabel }}</label>
+      {% if (box.id === "checkbox-indeterminate") %}
+        <ul class="rvt-plain-list rvt-p-left-lg">
+          {% for item in box.items %}
+            <li>
+              <input type="checkbox" name="checkbox-{{ item.id }}" id="{{ item.id }}"{% if loop.index === 1 %} checked{% endif %}>
+              <label for="{{ item.id }}">{{ item.checkboxLabel }}</label>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<script>
+    /**
+     * Setting indeterminate state for demo purposes here.
+     */
+    var indCheck = document.querySelector('#checkbox-indeterminate');
+    indCheck.indeterminate = true;
+</script>
