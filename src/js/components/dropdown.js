@@ -34,6 +34,8 @@ var Dropdown = (function() {
 
   var TOGGLE_ATTR = 'data-dropdown-toggle';
 
+  var NOT_DISABLED = ':not([disabled])';
+
   /**
    * @param {String} id - A unique string used for the dropdown toggle
    * element's data-dropdown-toggle attribute and the corresponding menu's
@@ -53,7 +55,7 @@ var Dropdown = (function() {
     // Set the current active menu the menu we're about to open
     activeMenu = id;
 
-    var toggleSelector = '[' + TOGGLE_ATTR + '="' + id + '"]';
+    var toggleSelector = '[' + TOGGLE_ATTR + '="' + id + '"]' + NOT_DISABLED;
 
     var toggle = document.querySelector(toggleSelector);
 
@@ -74,7 +76,7 @@ var Dropdown = (function() {
     // Remove the 'hidden' attribute to show the menu
     menu.setAttribute('aria-hidden', 'false');
 
-    // Emmit a custom event that can be used as a hook for other actions
+    // Emit a custom event that can be used as a hook for other actions
     // eslint-disable-next-line no-undef
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
 
@@ -95,7 +97,7 @@ var Dropdown = (function() {
       throw new Error('You must provide a unique id for the menu you\'re trying to close.');
     }
 
-    var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
+    var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]' + NOT_DISABLED);
 
     if (toggle && toggle !== undefined) {
       toggle.setAttribute('aria-expanded', 'false');
@@ -168,7 +170,7 @@ var Dropdown = (function() {
       throw new Error('You must provide a unique id for the menu you\'re trying to toggle.');
     }
 
-    var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
+    var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]' + NOT_DISABLED);
 
     // Check the state of the dropdown toggle button
     var isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
@@ -217,7 +219,7 @@ var Dropdown = (function() {
    * it closes any open/active dropdown.
    */
   function _handleClick(event) {
-    var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
+    var toggle = event.target.closest('[' + TOGGLE_ATTR + ']' + NOT_DISABLED);
 
     var menu = event.target.closest('#' + activeMenu);
 
@@ -257,7 +259,7 @@ var Dropdown = (function() {
     switch (event.keyCode) {
       // Handle down key
       case KEYS.down:
-        var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
+        var toggle = event.target.closest('[' + TOGGLE_ATTR + ']' + NOT_DISABLED);
 
         /**
          * If you were focused on the dropdown toggle
@@ -426,7 +428,7 @@ var Dropdown = (function() {
     destroy(context);
 
     /**
-     * Attach all event listerns to the document
+     * Attach all event listeners to the document
      */
     context.addEventListener('click', _handleClick, false);
     context.addEventListener('keydown', _handleKeydown, false);
