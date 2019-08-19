@@ -1,8 +1,27 @@
 <div class="rvt-dropdown">
-  {% render '@button--dropdown', { content: label, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
-  <div class="rvt-dropdown__menu" id="{{ id }}" role="menu" aria-hidden="true">
+  {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}" role="menu" aria-hidden="true">
+  {% if buttons %}
     {% for item in items %}
       {% if item.relatedLinks %}
+        {% if item.text %}
+          <div class="rvt-dropdown__menu-heading" aria-hidden="true">{{ item.text }}</div>
+        {% endif %}
+        <div role="group" aria-label="Related">
+          {% for relatedLink in item.relatedLinks %}
+            {% render '@button', { special: "true", content: relatedLink.text, attributes: [{ "label": "role", "value": "menuitem" }] }, true %}
+          {% endfor %}
+        </div>
+      {% else %}
+        {% render '@button', { special: "true", content: item.text, attributes: item.attributes }, true %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% for item in items %}
+      {% if item.relatedLinks %}
+        {% if item.text %}
+          <div class="rvt-dropdown__menu-heading" aria-hidden="true">{{ item.text }}</div>
+        {% endif %}
         <div role="group" aria-label="Related">
           {% for relatedLink in item.relatedLinks %}
             {% render '@link', { link: relatedLink.link, text: relatedLink.text }, true %}
@@ -12,6 +31,7 @@
         {% render '@link', { link: item.link, text: item.text, attributes: item.attributes }, true %}
       {% endif %}
     {% endfor %}
+  {% endif %}
   </div>
 </div>
 

@@ -15,3 +15,84 @@ context:
       - relatedLinks:
         - text: "Related item one"
         - text: "Related item two"
+variants:
+  - name: "secondary"
+    context:
+        title: "Secondary menu"
+        id: "dropdown-secondary"
+        modifier: "-secondary"
+  - name: "right-align"
+    context:
+        title: "Right-aligned menu"
+        id: "dropdown-right"
+        class: "rvt-dropdown__menu--right"
+  - name: "buttons"
+    context:
+        title: "Dropdown with buttons"
+        id: "dropdown-buttons"
+        buttons: true
+        items:
+          - text: "Notify all"
+            attributes:
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Notify admins"
+            attributes:
+              - label: "aria-checked"
+                value: "true"
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Notify contributors"
+            attributes:
+              - label: "role"
+                value: "menuitemradio"
+          - relatedLinks:
+            - text: "Profile settings"
+            - text: "Logout"
+  - name: "heading"
+    context:
+        title: "Dropdown with heading"
+        id: "dropdown-heading"
+        items:
+          - text: "Notify all"
+            attributes:
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Notify admins"
+            attributes:
+              - label: "aria-checked"
+                value: "true"
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Notify contributors"
+            attributes:
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Personal settings"
+            relatedLinks:
+              - text: "Profile settings"
+              - text: "Logout"
+  - name: "heading"
+    context:
+        title: "Heading and buttons"
+        id: "dropdown-heading-buttons"
+        buttons: true
+        items:
+          - text: "Notify all"
+            attributes:
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Notify admins"
+            attributes:
+              - label: "aria-checked"
+                value: "true"
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Notify contributors"
+            attributes:
+              - label: "role"
+                value: "menuitemradio"
+          - text: "Personal settings"
+            relatedLinks:
+              - text: "Profile settings"
+              - text: "Logout"
