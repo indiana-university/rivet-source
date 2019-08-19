@@ -1,0 +1,39 @@
+<div class="rvt-box{% if light %} rvt-box--light{% endif %}{% if compact %} rvt-box--compact{% endif %}{% if colorBox %} rvt-box{{ state }}{% endif %}">
+  {% if header %}
+  <div class="rvt-box__header">
+    {{ headerText }}
+  </div>
+  {% endif %}
+
+  {% if body %}
+  <div class="rvt-box__body">
+    {{ content }}
+  </div>
+  {% elif rows %}
+    {% if list %}
+      <ul class="rvt-plain-list">
+        {% for row in rows %}
+          <li class="rvt-box__row{% if colorRow %} rvt-box__row{{ state }}{% endif %}">
+            {{ row }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div>
+      {% for row in rows %}
+        <div class="rvt-box__row{% if colorRow %} rvt-box__row{{ state }}{% endif %}">
+            {{ row }}
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+  {% else %}
+    {{ content }}
+  {% endif %}
+
+  {% if footer %}
+  <div class="rvt-box__footer">
+    {{ footerText }}
+  </div>
+  {% endif %}
+</div>

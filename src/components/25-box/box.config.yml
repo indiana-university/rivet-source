@@ -1,2 +1,76 @@
 title: "Box"
 status: "alpha"
+collated: true
+context:
+  content: "This is a basic box"
+  rows:
+    - Some text in a row
+    - Some text in a row
+    - Some text in a row
+variants:
+    - name: "box-body"
+      context:
+        body: true
+        content: "This is a basic box body"
+    - name: "header-footer"
+      context:
+        header: true
+        headerText: Header text
+        body: true
+        footer: true
+        footerText: Footer text
+        content: This is a box with a header, a footer, and some content
+    - name: "light-box"
+      context:
+        header: true
+        headerText: Header text
+        body: true
+        footer: true
+        footerText: Footer text
+        light: true
+    - name: "rows-list"
+      context:
+        list: true
+        rows:
+          - First row
+          - Some text in a row
+          - Some text in another row
+    - name: "rows-generic-elements"
+      context:
+        rows:
+          - Plain box row one
+          - Plain box row two
+          - Plain box row three
+    - name: "compact-rows"
+      context:
+        compact: true
+    - name: "info-box"
+      context:
+        header: true
+        headerText: A box with rows
+        colorBox: true
+        state: "--info"
+    - name: "success-box"
+      context:
+        header: true
+        headerText: A box with rows
+        colorBox: true
+        state: "--success"
+    - name: "warning-box"
+      context:
+        header: true
+        headerText: A box with rows
+        colorBox: true
+        state: "--warning"
+    - name: "danger-box"
+      context:
+        header: true
+        headerText: A box with rows
+        colorBox: true
+        state: "--danger"
+    - name: color-rows"
+      context:
+        header: true
+        headerText: A box with rows
+        colorRow: true
+        state: "--info"
