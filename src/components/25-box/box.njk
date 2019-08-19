@@ -1,19 +1,31 @@
-<div class="rvt-box{% if light %} rvt-box--light{% endif %}{% if compact %} rvt-box--compact{% endif %}{% if colorBox %} rvt-box{{ state }}{% endif %}">
+<div class="rvt-box{% if light %} rvt-box--light{% endif %}{% if compact %} rvt-box--compact{% endif %}{% if colorBox %} rvt-box--{{ state }}{% endif %}{% if card %} rvt-box--card{% endif %}">
   {% if header %}
   <div class="rvt-box__header">
-    {{ headerText }}
+    {{ header }}
   </div>
+  {% endif %}
+
+  {% if card.image %}
+    <div class="rvt-box__image">
+      <img src="{{ card.image }}" alt="{{ card.imageAlt }}">
+    </div>
   {% endif %}
 
   {% if body %}
   <div class="rvt-box__body">
-    {{ content }}
+    {% if card %}
+      {% if card.title %}<{{ card.headingLevel }}>{{ card.title }}</{{ headingLevel }}>{% endif %}
+      {% if card.content %}<p>{{ card.content }}</p>{% endif %}
+      {% if card.link %}<a href="{{ card.link }}">{{ card.linkText }}</a>{% endif %}
+    {% else %}
+      {{ content }}
+    {% endif %}
   </div>
   {% elif rows %}
     {% if list %}
       <ul class="rvt-plain-list">
         {% for row in rows %}
-          <li class="rvt-box__row{% if colorRow %} rvt-box__row{{ state }}{% endif %}">
+          <li class="rvt-box__row">
             {{ row }}
           </li>
         {% endfor %}
@@ -21,8 +33,8 @@
     {% else %}
       <div>
       {% for row in rows %}
-        <div class="rvt-box__row{% if colorRow %} rvt-box__row{{ state }}{% endif %}">
-            {{ row }}
+        <div class="rvt-box__row{% if row.colorRow %} rvt-box__row--{{ row.state }}{% endif %}">
+            {% if row.colorRow %}{{ row.content }}{% else %}{{ row }}{% endif %}
         </div>
       {% endfor %}
       </div>
@@ -33,7 +45,7 @@
 
   {% if footer %}
   <div class="rvt-box__footer">
-    {{ footerText }}
+    {{ footer }}
   </div>
   {% endif %}
 </div>
