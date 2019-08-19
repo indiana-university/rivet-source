@@ -48,7 +48,7 @@ describe('Rivet dropdown interactions', function() {
 
     cy.focused().trigger('keydown', { keyCode: UP, which: UP });
 
-    cy.focused().should('have.text', 'Related item four');
+    cy.focused().should('have.text', 'Related item two');
   });
 
   it('Should be able to close with esc key', function() {
