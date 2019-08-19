@@ -1,4 +1,4 @@
-<button type="button" class="rvt-button{% if modifier %} rvt-button-{{ modifier }}{% endif %}{% if size %} rvt-button--{{ size }}{% endif %}" {% for attribute in attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>
+<button type="button" {% if not special %}class="rvt-button{% if modifier %} rvt-button-{{ modifier }}{% endif %}{% if size %} rvt-button--{{ size }}{% endif %}"{% endif %} {% for attribute in attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>
 {% if SVG %}{% set img = "@includes--" + SVG %}
   {% if dropdown %}<span>{{ content }}</span>{% include img %}
   {% else %}{% include img %}<span class="rvt-m-left-xs">{{ content }}</span>{% endif %}
