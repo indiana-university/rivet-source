@@ -14,7 +14,7 @@
   {% if body %}
   <div class="rvt-box__body">
     {% if card %}
-      {% if card.title %}<{{ card.headingLevel }}>{{ card.title }}</{{ headingLevel }}>{% endif %}
+      {% if card.title %}<{{ card.headingLevel }}>{{ card.title }}</{{ card.headingLevel }}>{% endif %}
       {% if card.content %}<p>{{ card.content }}</p>{% endif %}
       {% if card.link %}<a href="{{ card.link }}">{{ card.linkText }}</a>{% endif %}
     {% else %}
@@ -25,8 +25,8 @@
     {% if list %}
       <ul class="rvt-plain-list">
         {% for row in rows %}
-          <li class="rvt-box__row">
-            {{ row }}
+          <li class="rvt-box__row{% if row.colorRow %} rvt-box__row--{{ row.state }}{% endif %}">
+            {% if row.colorRow %}{{ row.content }}{% else %}{{ row }}{% endif %}
           </li>
         {% endfor %}
       </ul>
