@@ -1,1 +1,7 @@
+title: "Media Object"
 status: "alpha"
+collated: true
+context:
+    preContent: "Prepended content"
+    content: "Content"
+    postContent: "Appended content"
