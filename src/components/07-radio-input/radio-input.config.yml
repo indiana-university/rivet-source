@@ -15,6 +15,19 @@ variants:
           id: "disabled"
           modifier: "disabled"
           legend: "Radio input (disabled)"
+    - name: "disabled-checked"
+      context:
+          id: "disabled"
+          modifier: "disabled"
+          legend: "Radio input (disabled with one option checked)"
+          options:
+            one:
+              text: Option one
+              checked: checked
+              modifier: disabled
+            two:
+              text: Option two
+              modifier: disabled
     - name: "hidden fields"
       context:
           id: "hidden"
