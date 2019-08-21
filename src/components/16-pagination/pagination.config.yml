@@ -1,1 +1,45 @@
+title: Pagination
+label: "Pagination"
 status: "ready"
+collated: true
+context:
+    attributes:
+      - label: "aria-label"
+        value: "Default results pages"
+    items:
+      - name: "previous"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Previous set of pages"
+        text: "Previous"
+      - name: "four"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Page 4"
+        text: "4"
+      - name: "five"
+        current: true
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Page 5, current page"
+        text: "5"
+      - name: "six"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Page 6"
+        text: "6"
+      - name: "next"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Next set of pages"
+        text: "Next"
