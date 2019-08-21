@@ -99,3 +99,54 @@ variants:
             - label: "href"
               value: "#0"
           text: "Next"
+  - name: "right-align"
+    context:
+      modifier: "right"
+      attributes:
+        - label: "aria-label"
+          value: "Right-aligned results pages"
+      items:
+        - name: "previous"
+          disabled: true
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Previous pages"
+          text: "Previous"
+        - name: "one"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 1"
+          text: "1"
+        - name: "two"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 2"
+          text: "2"
+        - name: "three"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 3"
+          text: "3"
+        - name: "four"
+          current: true
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 4, current page"
+          text: "4"
+        - name: "next"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Next set of pages"
+          text: "Next"
