@@ -6,7 +6,7 @@
           {% if item.icon %}
             {% include '@includes--' + item.icon %}<span class="rvt-m-left-xs">{{ item.content }}</span>
           {% elif item.badge %}
-            {% render '@badge--' + item.badge, { content: item.badge.content }, true %}
+            <span>{{ item.content }}</span>{% render '@badge--' + item.badgeType, { content: item.badgeContent, utility: "rvt-m-left-xxs" }, true %}
           {% else %}
             {{ item.content | safe }}
           {% endif %}
