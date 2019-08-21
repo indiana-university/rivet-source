@@ -86,8 +86,8 @@ input[type='radio']:disabled + label::before,
 
 input[type='radio']:checked:disabled + label::before,
 .#{$prefix}-radio-wrapper input[type='radio']:checked:disabled ~ label::before {
-  background-color: $color-black--300;
-  box-shadow: inset 0 0 0 .125rem $color-black--200, 0 0 0 .08rem $color-black--300;
+  background-color: $color-black--600;
+  box-shadow: inset 0 0 0 .125rem $color-black--200, 0 0 0 .08rem $color-black--600;
 }
 
 input[type='radio']:disabled + label,
