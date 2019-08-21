@@ -70,6 +70,20 @@ variants:
               value: "true"
             - label: "aria-expanded"
               value: "false"
+    - name: "drawer"
+      context:
+          special: "true"
+          SVG: "drawer-button"
+          srContent: "Toggle menu"
+          attributes:
+            - label: "class"
+              value: "rvt-drawer-button"
+            - label: "aria-haspopup"
+              value: "true"
+            - label: "aria-expanded"
+              value: "false"
+            - label: "data-drawer-toggle"
+              value: "mobile-drawer"
     - name: "delete"
       context:
           content: "Delete"
