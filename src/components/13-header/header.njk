@@ -1,9 +1,9 @@
-<header class="rvt-header" role="banner">
-    <a class="rvt-skip-link" href="#main-content">Skip to content</a>
-    <div class="rvt-header__trident">
-        {% include "@includes--trident" %}
-    </div>
-    <span class="rvt-header__title">
-        <a href="#0">Application Title</a>
-    </span>
+<header class="rvt-header{% if light %} rvt-header--light{% endif %}{% if utility %} {{ utility }}{% endif %}" role="banner">
+  {% render '@link', { link: "#main-content", text: "Skip to content", attributes: [{ label: "class", value: "rvt-skip-link"}]}, true %}
+  <div class="rvt-header__trident">
+    {% include '@includes--trident' %}
+  </div>
+  <span class="rvt-header__title">
+    {% render '@link', { link: home, text: applicationTitle}, true %}
+  </span>
 </header>

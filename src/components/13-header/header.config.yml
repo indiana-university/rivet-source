@@ -1,5 +1,9 @@
+title: "Header"
 status: "ready"
 preview: "@preview-no-padding"
+context:
+    home: "#0"
+    applicationTitle: "Application Title"
 variants:
     - name: "default"
       label: "Header base"
