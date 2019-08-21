@@ -1,0 +1,30 @@
+<h2 class="rvt-ts-md rvt-text-bold rvt-m-bottom-md">Basic Media Object</h2>
+{% render '@media-object', {preContent: "<div style='width: 2rem; height: 2rem; border-radius: 999rem; overflow: hidden;' class='rvt-m-right-sm'><img src='https://www.fillmurray.com/g/200/200' alt=''></div>", content: "<a href='#' class='rvt-link-bold rvt-ts-18'>Rivet 1.2.0 is now available!</a><div class='rvt-ts-14'>Updated Sept. 24 by <strong>bmacklin</strong></div>"}, true | safe %}
+
+<h2 class="rvt-ts-md rvt-text-bold rvt-m-tb-md">Using media objects to represent records</h2>
+{% render '@media-object', {preContent: "<input id='check-1' type='checkbox' aria-describedby='option-1-title'><label for='check-1'><span class='rvt-sr-only'>Select this item</span></label>", content: "<div href='#' class='rvt-text-bold rvt-ts-18' id='option-1-title'>Rivet 1.2.0 is now available!</div><div><span class='rvt-ts-14'>Updated Sept. 24 by bmacklin</span><span class='rvt-badge'>Updated</span></div>", postContent: "<div class='rvt-dropdown'><button class='rvt-button rvt-button--small rvt-button--plain' type='button' data-dropdown-toggle='dropdown-1'aria-haspopup='true' aria-expanded='false'><span class='rvt-sr-only'>Application menu</span><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><g fill='currentColor'><circle cx='8' cy='8' r='2'></circle><circle cx='14' cy='8' r='2'></circle><circle cx='2' cy='8' r='2'></circle></g></svg></button><div class='rvt-dropdown__menu rvt-dropdown__menu--right' id='dropdown-1' role='menu' aria-hidden='true'><button type='button' role='menuitemradio'>Notify all</button><button type='button' role='menuitemradio' aria-checked='true'>Notify admins</button><button type='button' role='menuitemradio'>Notify contributors</button></div></div>"}, true | safe %}
+
+<h2 class="rvt-ts-md rvt-text-bold rvt-m-tb-md">Demo</h2>
+
+{% render '@media-object', { class: "rvt-mo-demo-only", preContent: "1", content: "2", postContent: "3"}, true %}
+
+<style>
+.rvt-mo-demo-only .rvt-mo__prepend,
+.rvt-mo-demo-only .rvt-mo__main,
+.rvt-mo-demo-only .rvt-mo__append {
+  padding: 1rem;
+}
+.rvt-mo-demo-only .rvt-mo__prepend,
+.rvt-mo-demo-only .rvt-mo__append {
+  width: 80px;
+}
+.rvt-mo-demo-only .rvt-mo__prepend {
+  background-color: powderblue;
+}
+.rvt-mo-demo-only .rvt-mo__main {
+  background-color: lightsteelblue;
+}
+.rvt-mo-demo-only .rvt-mo__append {
+  background-color: lightcoral;
+}
+</style>

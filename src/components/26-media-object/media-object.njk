@@ -1,0 +1,5 @@
+<div class="rvt-mo{% if class %} {{ class }}{% endif %}">
+  {% if preContent %}<div class="rvt-mo__prepend">{{ preContent | safe }}</div>{% endif %}
+  <div class="rvt-mo__main">{{ content | safe }}</div>
+  {% if postContent %}<div class="rvt-mo__append">{{ postContent | safe }}</div>{% endif %}
+</div>
