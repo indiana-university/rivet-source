@@ -1,0 +1,7 @@
+<nav role="navigation" {% for attribute in attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>
+    <ol class="rvt-breadcrumbs{% if callout %} rvt-breadcrumbs--call-out{% endif %}">
+        {% for item in items %}
+        <li {% for attribute in item.attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>{% if item.link %}<a href="{{ item.link }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</li>
+        {% endfor %}
+    </ol>
+</nav>
