@@ -18,3 +18,22 @@ context:
             value: "modal-example"
           - label: "role"
             value: "button"
+variants:
+    - name: "with-form"
+      context:
+        buttonText: "Open modal with form"
+        id: "modal-with-form"
+        formId: "test-form"
+        modalFormTitle: "modal-form-title"
+        modalBody: <div class="m-bottom-sm"><label for="the-title">Title</label><input type="text" id="the-title"></div><label for="description">Description</label><textarea id="description"></textarea><fieldset><legend class="rvt-ts-23 rvt-m-bottom-sm"><strong>Select dropdown</strong> default</legend><label for="select-demo">Select input:</label><select class="m-bottom-md" id="select-demo"><option value="">Option One</option><option value="">Option Two</option><option value="">Option Three</option><option value="">Option Four</option></select></fieldset><fieldset class="rvt-m-top-xl"><legend class="rvt-ts-20 rvt-text-bold">Category</legend><ul class="rvt-plain-list"><li><input type="checkbox" name="checkbox-demo" id="checkbox-3"><label for="checkbox-3" class="m-right-sm">Option one</label></li><li><input type="checkbox" name="checkbox-demo" id="checkbox-4"><label for="checkbox-4">Option two</label></li><li><input type="checkbox" name="checkbox-demo" id="checkbox-4-disable" disabled><label for="checkbox-4-disable">Option three disabled</label></li><li><input type="checkbox" name="checkbox-demo" id="checkbox-5" disabled checked><label for="checkbox-5">Option four checked and disabled</label></li></ul></fieldset>
+        controls:
+          - text: OK
+            attributes:
+              - label: "role"
+                value: "button"
+          - text: Cancel
+            attributes:
+              - label: "data-modal-close"
+                value: "modal-with-form"
+              - label: "role"
+                value: "button"
