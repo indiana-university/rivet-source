@@ -6,6 +6,8 @@
       {% render "@button", { content: content, modifier: modifier }, true %}
     {% elif type === "dropdown" %}
       {% render "@dropdown", { title: title }, true %}
+    {% elif type === "text" %}
+      <div class="rvt-input-group__text" id="{{ id }}">{{ text }}</div>
     {% endif %}
   </div>
   <input class="rvt-input-group__input" type="text" id="{{ id }}">
@@ -16,6 +18,8 @@
       {% render "@button", { content: content, modifier: modifier }, true %}
     {% elif type === "dropdown" %}
       {% render "@dropdown", { title: title }, true %}
+    {% elif type === "text" %}
+      <div class="rvt-input-group__text" id="{{ id }}">{{ text }}</div>
     {% endif %}
   </div>
   {% endif %}

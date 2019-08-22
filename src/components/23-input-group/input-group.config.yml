@@ -16,3 +16,20 @@ variants:
       button: false
       type: "dropdown"
       title: "All stuff"
+  - name: "text"
+    context:
+      id: "text-append-example"
+      labelText: "Email address"
+      button: false
+      dropdown: false
+      type: "text"
+      text: \@iu.edu
+  - name: "text-prepend"
+    context:
+      prepend: true
+      id: "text-append-example"
+      labelText: "Website"
+      button: false
+      dropdown: false
+      type: "text"
+      text: "https://"
