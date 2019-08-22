@@ -1,0 +1,9 @@
+<nav role="navigation" {% for attribute in attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>
+  <ul class="rvt-pagination{% if modifier %} rvt-pagination--{{ modifier }}{% endif %}">
+    {% for item in items %}
+      <li class="rvt-pagination__item{% if item.current %} is-active" aria-current="true{% elif item.disabled %} is-disabled{% endif %}">
+        <a{% for attribute in item.linkAttributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}{% if item.disabled %} tabindex="-1"{% endif %}>{{ item.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
