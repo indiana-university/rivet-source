@@ -73,7 +73,7 @@ variants:
     - name: "drawer"
       context:
           special: "true"
-          SVG: "drawer-button"
+          icon: "drawer-button"
           srContent: "Toggle menu"
           attributes:
             - label: "class"
@@ -88,8 +88,8 @@ variants:
       context:
           content: "Delete"
           modifier: "-danger"
-          SVG: "delete"
+          icon: "delete"
     - name: "copy"
       context:
           content: "Copy"
-          SVG: "copy"
+          icon: "copy"
