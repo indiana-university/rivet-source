@@ -2,7 +2,7 @@ title: Modal
 status: "ready"
 collated: true
 context:
-    buttonText: "Open modal example"
+    buttonText: "Modal example"
     id: "modal-example"
     modalTitleId: "modal-example-title"
     modalTitle: "Modal Title"
@@ -21,7 +21,7 @@ context:
 variants:
     - name: "with-form"
       context:
-        buttonText: "Open modal with form"
+        buttonText: "Modal with form"
         id: "modal-with-form"
         formId: "test-form"
         modalFormTitle: "modal-form-title"
@@ -40,14 +40,14 @@ variants:
     - name: "modal-with-dialog"
       context:
         dialog: true
-        buttonText: "Open modal dialog"
+        buttonText: "Modal dialog"
         id: "modal-dialog-example"
         modalTitleId: "modal-dialog-title"
         modalTitle: "Modal Dialog"
         dataModalDialog: true
         modalBody: "<p>A modal dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
         controls:
-          - text: Yes
+          - text: "Yes"
             attributes:
               - label: "role"
                 value: "button"
@@ -55,5 +55,27 @@ variants:
             attributes:
               - label: "data-modal-close"
                 value: "modal-dialog-example"
+              - label: "role"
+                value: "button"
+    - name: "confirmation-dialog"
+      context:
+        buttonText: "Confirmation modal dialog"
+        id: "modal-confirmation"
+        ariaDescribedby: "modal-description-confirmation"
+        dataModalDialog: true
+        modalTitle: "Delete item"
+        modalTitleId: "modal-title-confirmation"
+        modalBody: "<p class='m-top-remove m-bottom-xl' id='modal-description-confirmation'>Are you sure you want to <strong>delete your progress</strong>? This modal is a dialog and can not be dismissed by clicking outside of the modal on the background.</p>"
+        controls:
+          - text: "Delete my progress"
+            modifier: "-danger"
+            attributes:
+              - label: "role"
+                value: "button"
+          - text: "Cancel"
+            modifier: "-secondary"
+            attributes:
+              - label: "data-modal-close"
+                value: "modal-confirmation"
               - label: "role"
                 value: "button"

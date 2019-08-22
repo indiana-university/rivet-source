@@ -5,6 +5,7 @@
   role="dialog"
   aria-labelledby="{{ modalTitleId }}"
   aria-hidden="true"
+  {% if ariaDescribedby %}aria-describedby="{{ ariaDescribedby }}"{% endif %}
   tabindex="-1"
   {% if dataModalDialog %}data-modal-dialog="true"{% endif %}>
   <div class="rvt-modal__inner">
@@ -24,7 +25,7 @@
     {% endif %}
     <div class="rvt-modal__controls">
       {% for control in controls %}
-        {% render '@button', { content: control.text, attributes: control.attributes }, true %}
+        {% render '@button', { content: control.text, attributes: control.attributes, modifier: control.modifier }, true %}
       {% endfor %}
     </div>
     {% if not dialog %}
