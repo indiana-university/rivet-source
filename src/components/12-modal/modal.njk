@@ -5,7 +5,8 @@
   role="dialog"
   aria-labelledby="{{ modalTitleId }}"
   aria-hidden="true"
-  tabindex="-1">
+  tabindex="-1"
+  {% if dataModalDialog %}data-modal-dialog="true"{% endif %}>
   <div class="rvt-modal__inner">
     <header class="rvt-modal__header">
         <h1 class="rvt-modal__title" id="{{ modalTitledId }}">{{ modalTitle }}</h1>
@@ -26,10 +27,12 @@
         {% render '@button', { content: control.text, attributes: control.attributes }, true %}
       {% endfor %}
     </div>
+    {% if not dialog %}
     <button class="rvt-button rvt-button--plain rvt-modal__close" data-modal-close="{{ id }}" role="button">
       <span class="v-hide">Close</span>
       {% include "@includes--close" %}
     </button>
+    {% endif %}
   </div>
 </div>
 
