@@ -1,1 +1,9 @@
+title: Input Group
 status: "ready"
+collated: true
+context:
+  id: "search"
+  labelText: "Search"
+  button:
+    content: "Search docs"
+    modifier: "-secondary"
