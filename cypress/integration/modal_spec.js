@@ -9,7 +9,7 @@ const ESC = 27;
 
 describe('Rivet modal interactions', function() {
   it('Visits the modal page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/modals--default');
+    cy.visit(DEV_SERVER + '/components/preview/modal');
   });
 
   it('Should see a modal button', function() {

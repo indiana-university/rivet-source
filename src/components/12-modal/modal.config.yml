@@ -8,11 +8,17 @@ context:
     modalTitle: "Modal Title"
     modalBody: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <a href="#0">incididunt ut labore</a> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     controls:
-      - text: OK
+      - text: "I want to continue"
         attributes:
           - label: "role"
             value: "button"
-      - text: Cancel
+      - text: "No"
+        attributes:
+          - label: "data-modal-close"
+            value: "close"
+          - label: "role"
+            value: "button"
+      - text: "No, please cancel"
         attributes:
           - label: "data-modal-close"
             value: "modal-example"
