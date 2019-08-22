@@ -1,6 +1,12 @@
 <div class="rvt-dropdown">
-  {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
-  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}" role="menu" aria-hidden="true">
+  {% if not special %}
+    {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  {% elif identityModule %}
+    {% render '@button--dropdown', { special: "true", identityModule: "true", initials: initials, username: username, attributes: [{ label: "class", value: "rvt-header-id__profile rvt-header-id__profile--has-dropdown rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  {% else %}
+    {% render '@button--dropdown', { special: "true", content: title, initials: initials, username: username, attributes: [{ label: "class", value: "rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  {% endif %}
+  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} aria-hidden="true">
   {% if buttons %}
     {% for item in items %}
       {% if item.relatedLinks %}
@@ -31,6 +37,11 @@
         {% render '@link', { link: item.link, text: item.text, attributes: item.attributes }, true %}
       {% endif %}
     {% endfor %}
+  {% endif %}
+  {% if identityModule %}
+    <div role="group" aria-label="User actions">
+      {% render '@link', { link: logout, text: "Log out" }, true %}
+    </div>
   {% endif %}
   </div>
 </div>
