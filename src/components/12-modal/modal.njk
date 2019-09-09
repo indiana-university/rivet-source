@@ -1,4 +1,4 @@
-<button class="rvt-button" data-modal-trigger="{{ id }}">{{ buttonText }}</button>
+{% render '@button', { content: buttonText, attributes: [{ label: "data-modal-trigger", value: id }]}, true %}
 
 <div class="rvt-modal"
   id="{{ id }}"
