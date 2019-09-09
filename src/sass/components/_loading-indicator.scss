@@ -22,36 +22,43 @@
   &--xxs {
     width: $sm;
     height: $sm;
+    border-width: $sm * .125;
   }
 
   &--xs {
     width: $sm * 1.25;
     height: $sm * 1.25;
+    border-width: $sm * (.125 * 1.25);
   }
 
   &--sm {
     width: $sm * 1.75;
     height: $sm * 1.75;
+    border-width: $sm * (.125 * 1.75);
   }
 
   &--md {
     width: $sm * 2;
     height: $sm * 2;
+    border-width: $sm * (.125 * 2);
   }
 
   &--lg {
     width: $sm * 2.75;
     height: $sm * 2.75;
+    border-width: $sm * (.125 * 2.75);
   }
 
   &--xl {
     width: $sm * 3.25;
     height: $sm * 3.25;
+    border-width: $sm * (.125 * 3.25);
   }
 
   &--xxl {
     width: $sm * 4;
     height: $sm * 4;
+    border-width: $sm * (.125 * 4);
   }
 }
 
