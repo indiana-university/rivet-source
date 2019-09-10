@@ -50,8 +50,10 @@ variants:
         id: "modal-dialog-example"
         modalTitleId: "modal-dialog-title"
         modalTitle: "Modal Dialog"
-        dataModalDialog: true
         modalBody: "<p>A modal dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
+        attributes:
+          - label: "data-modal-dialog"
+            value: "true"
         controls:
           - text: "Yes"
             attributes:
@@ -67,11 +69,14 @@ variants:
       context:
         buttonText: "Confirmation modal dialog"
         id: "modal-confirmation"
-        ariaDescribedby: "modal-description-confirmation"
-        dataModalDialog: true
         modalTitle: "Delete item"
         modalTitleId: "modal-title-confirmation"
         modalBody: "<p class='m-top-remove m-bottom-xl' id='modal-description-confirmation'>Are you sure you want to <strong>delete your progress</strong>? This modal is a dialog and can not be dismissed by clicking outside of the modal on the background.</p>"
+        attributes:
+          - label: "data-modal-dialog"
+            value: "true"
+          - label: "aria-describedby"
+            value: "modal-description-confirmation"
         controls:
           - text: "Delete my progress"
             modifier: "-danger"

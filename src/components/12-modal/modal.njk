@@ -3,11 +3,12 @@
 <div class="rvt-modal"
   id="{{ id }}"
   role="dialog"
-  aria-labelledby="{{ modalTitleId }}"
-  aria-hidden="true"
-  {% if ariaDescribedby %}aria-describedby="{{ ariaDescribedby }}"{% endif %}
   tabindex="-1"
-  {% if dataModalDialog %}data-modal-dialog="true"{% endif %}>
+  aria-hidden="true"
+  aria-labelledby="{{ modalTitleId }}"
+  {% for attribute in attributes %}
+    {{ attribute.label }}="{{ attribute.value }}"
+  {% endfor %}>
   <div class="rvt-modal__inner">
     <header class="rvt-modal__header">
         <h1 class="rvt-modal__title" id="{{ modalTitledId }}">{{ modalTitle }}</h1>
