@@ -38,7 +38,11 @@
           {% endif %}
         </div>
       {% endif %}
-      {% render '@button--drawer', { attributes: [ { label: "class", value: "rvt-drawer-button" }, { label: "data-drawer-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+      {% if persistent %}
+        {% render '@button--drawer', { attributes: [ { label: "class", value: "rvt-drawer-button rvt-drawer-button--persistent" }, { label: "data-drawer-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+      {% else %}
+        {% render '@button--drawer', { attributes: [ { label: "class", value: "rvt-drawer-button" }, { label: "data-drawer-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+      {% endif %}
     </div>
     <div class="rvt-drawer" aria-hidden="true" id="{{ id }}">
       {% if userFunctions or main %}
