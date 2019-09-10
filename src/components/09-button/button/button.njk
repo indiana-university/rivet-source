@@ -3,7 +3,7 @@
     {% set img = "@includes--" + SVG %}
     {% if identityModule %}
       <span class="rvt-header-id__avatar" aria-hidden="true">{{ initials | upper }}</span>
-      <span class="rvt-header-id__user">{{ username }}</span>{% if SVG %}{% include img %}{% endif %}
+      <span class="rvt-header-id__user rvt-header-id__user--has-dropdown">{{ username }}</span>{% if SVG %}{% include img %}{% endif %}
     {% else %}
       <span class="rvt-dropdown__toggle-text">{{ content }}</span>{% include img %}
     {% endif %}

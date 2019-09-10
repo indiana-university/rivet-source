@@ -41,45 +41,47 @@
       {% endif %}
     </div>
     <div class="rvt-drawer" aria-hidden="true" id="{{ id }}">
-      {% if main %}
-        <ul>
-          {% if identityModule %}
-            <li class="has-children">
-              {% set identityId = "identity-" + id %}
-              {% render '@button', { special: "true", identityModule: "true", initials: user.initials, username: user.username, attributes: [ { label: "class", value: "rvt-header-id__profile rvt-header-id__profile--drawer" }, { label: "data-subnav-toggle", value: identityId } ] }, true %}
-              <div id="identity-"{{ id }} role="menu" aria-hidden="true">
-                <ul>
-                  {% for userFunction in userFunctions %}
-                    <li>
-                      {% render '@link', { link: userFunction.link, text: userFunction.text, attributes: userFunction.attributes }, true %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </li>
-          {% endif %}
-          {% for navItem in navItems %}
-            {% if not navItem.relatedLinks %}
-              <li>
-                {% render '@link', { link: navItem.link, text: navItem.text }, true %}
-              </li>
-            {% else %}
+      {% if userFunctions or main %}
+        <nav class="rvt-drawer__nav" role="navigation">
+          <ul>
+            {% if identityModule %}
               <li class="has-children">
-                {% set subnavId = "subnav-" + loop.index %}
-                {% render '@button', { special: true, content: navItem.text, attributes: [{ label: "data-subnav-toggle", value: subnavId }, { label: "aria-haspopup", value: "true" }, { label: "aria-expanded", value: "false"}] }, true %}
-                <div id="{{ subnavId }}" role="menu" aria-hidden="true">
+                {% set identityId = "identity-" + id %}
+                {% render '@button', { special: "true", dropdown: "true", identityModule: "true", initials: user.initials, username: user.username, attributes: [ { label: "class", value: "rvt-header-id__profile rvt-header-id__profile--drawer" }, { label: "data-subnav-toggle", value: identityId }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"} ] }, true %}
+                <div id={{ identityId }} role="menu" aria-hidden="true">
                   <ul>
-                    {% for relatedLink in navItem.relatedLinks %}
+                    {% for userFunction in userFunctions %}
                       <li>
-                        {% render '@link', { link: relatedLink.link, text: relatedLink.text }, true %}
+                        {% render '@link', { link: userFunction.link, text: userFunction.text, attributes: userFunction.attributes }, true %}
                       </li>
                     {% endfor %}
                   </ul>
                 </div>
               </li>
             {% endif %}
-          {% endfor %}
-        </ul>
+            {% for navItem in navItems %}
+              {% if not navItem.relatedLinks %}
+                <li>
+                  {% render '@link', { link: navItem.link, text: navItem.text }, true %}
+                </li>
+              {% else %}
+                <li class="has-children">
+                  {% set subnavId = "subnav-" + loop.index %}
+                  {% render '@button', { special: true, content: navItem.text, attributes: [{ label: "data-subnav-toggle", value: subnavId }, { label: "aria-haspopup", value: "true" }, { label: "aria-expanded", value: "false"}] }, true %}
+                  <div id="{{ subnavId }}" role="menu" aria-hidden="true">
+                    <ul>
+                      {% for relatedLink in navItem.relatedLinks %}
+                        <li>
+                          {% render '@link', { link: relatedLink.link, text: relatedLink.text }, true %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
       {% else %}
         <div class="rvt-header-id rvt-header-id--drawer">
             <div class="rvt-header-id__profile rvt-header-id__profile--drawer p-all-sm">
