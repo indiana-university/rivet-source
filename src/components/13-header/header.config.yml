@@ -33,6 +33,7 @@ variants:
       context:
           navigation: "true"
           main: "true"
+          dropdown: "true"
           navItems:
             - link: "#"
               text: "Nav one"
@@ -45,8 +46,6 @@ variants:
                   text: "Item two"
                 - link: "#"
                   text: "Item three"
-                - link: "#"
-                  text: "Item four"
             - link: "#"
               text: "Nav three"
             - text: "Nav four"
