@@ -1,0 +1,94 @@
+{% render '@button', { content: buttonText, attributes: [{ label: "data-modal-trigger", value: id }]}, true %}
+
+<div class="rvt-modal"
+  id="{{ id }}"
+  role="dialog"
+  tabindex="-1"
+  aria-hidden="true"
+  aria-labelledby="{{ modalTitleId }}"
+  {% for attribute in attributes %}
+    {{ attribute.label }}="{{ attribute.value }}"
+  {% endfor %}>
+  <div class="rvt-modal__inner">
+    <header class="rvt-modal__header">
+        <h1 class="rvt-modal__title" id="{{ modalTitledId }}">{{ modalTitle }}</h1>
+    </header>
+    {% if form %}
+    <form id="{{ formId }}">
+      <div class="rvt-modal__body">
+        {{ modalBody | safe }}
+      </div>
+    </form>
+    {% else %}
+    <div class="rvt-modal__body">
+      {{ modalBody | safe }}
+    </div>
+    {% endif %}
+    <div class="rvt-modal__controls">
+      {% for control in controls %}
+        {% render '@button', { content: control.text, attributes: control.attributes, modifier: control.modifier }, true %}
+      {% endfor %}
+    </div>
+    {% if not dialog %}
+    <button class="rvt-button rvt-button--plain rvt-modal__close" data-modal-close="{{ id }}" role="button">
+      <span class="v-hide">Close</span>
+      {% include "@includes--close" %}
+    </button>
+    {% endif %}
+  </div>
+</div>
+
+{# <script>
+    document.addEventListener('keydown', event => {
+        if (event.keyCode === 77) {
+            Modal.open('modal-example');
+            
+            return;
+        }
+        
+        if (event.keyCode === 67) {
+            Modal.close('modal-example');
+        }
+    })
+    
+    // Listen for a custom "modalOpen" event
+    document.addEventListener('modalOpen', event => {
+    if (event.detail.name() === 'modal-example') {
+      alert('Hey, you opened the ' + event.detail.name() + ' modal!');
+    }
+    // Maybe send some data via an AJAX request, etc...
+    }, false);
+    
+    // Listen for a custom "modalOpen" event
+    document.addEventListener('modalClose', event => {
+    if (event.detail.name() === 'modal-example') {
+      alert('Hey, you closed the ' + event.detail.name() + ' modal!');
+    }
+    // Maybe send some data via an AJAX request, etc...
+    }, false);
+    
+    const newAlert = `
+        <div class="rvt-alert rvt-alert--error rvt-m-bottom-sm" role="alert" aria-labelledby="error-alert-title" tabindex="-1">
+            <h1 class="rvt-alert__title" id="error-alert-title">Incorrect User ID or Password</h1>
+            <p class="rvt-alert__message">The user ID and password you entered do not match. Please check your entries and try again.</p>
+        </div>
+    `;
+
+    const formTest = document.getElementById('test-form');
+
+    formTest.addEventListener('submit', event => {
+        event.preventDefault();
+
+        let newStuff = document.createElement('div');
+
+        newStuff.innerHTML = newAlert;
+
+        let modalBody = formTest.querySelector('.rvt-modal__body');
+
+        let modalBodyFirst = modalBody.firstChild;
+
+        modalBody.insertBefore(newStuff, modalBodyFirst);
+
+        newStuff.focus();
+    })
+</script> #}

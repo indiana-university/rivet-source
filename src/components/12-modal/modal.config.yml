@@ -1,0 +1,92 @@
+title: Modal
+status: "ready"
+collated: true
+context:
+    buttonText: "Modal example"
+    id: "modal-example"
+    modalTitleId: "modal-example-title"
+    modalTitle: "Modal Title"
+    modalBody: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <a href="#0">incididunt ut labore</a> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    controls:
+      - text: "I want to continue"
+        attributes:
+          - label: "role"
+            value: "button"
+      - text: "No"
+        attributes:
+          - label: "data-modal-close"
+            value: "close"
+          - label: "role"
+            value: "button"
+      - text: "No, please cancel"
+        attributes:
+          - label: "data-modal-close"
+            value: "modal-example"
+          - label: "role"
+            value: "button"
+variants:
+    - name: "with-form"
+      context:
+        buttonText: "Modal with form"
+        id: "modal-with-form"
+        formId: "test-form"
+        modalFormTitle: "modal-form-title"
+        modalBody: <div class="m-bottom-sm"><label for="the-title">Title</label><input type="text" id="the-title"></div><label for="description">Description</label><textarea id="description"></textarea><fieldset><legend class="rvt-ts-23 rvt-m-bottom-sm"><strong>Select dropdown</strong> default</legend><label for="select-demo">Select input:</label><select class="m-bottom-md" id="select-demo"><option value="">Option One</option><option value="">Option Two</option><option value="">Option Three</option><option value="">Option Four</option></select></fieldset><fieldset class="rvt-m-top-xl"><legend class="rvt-ts-20 rvt-text-bold">Category</legend><ul class="rvt-plain-list"><li><input type="checkbox" name="checkbox-demo" id="checkbox-3"><label for="checkbox-3" class="m-right-sm">Option one</label></li><li><input type="checkbox" name="checkbox-demo" id="checkbox-4"><label for="checkbox-4">Option two</label></li><li><input type="checkbox" name="checkbox-demo" id="checkbox-4-disable" disabled><label for="checkbox-4-disable">Option three disabled</label></li><li><input type="checkbox" name="checkbox-demo" id="checkbox-5" disabled checked><label for="checkbox-5">Option four checked and disabled</label></li></ul></fieldset>
+        controls:
+          - text: OK
+            attributes:
+              - label: "role"
+                value: "button"
+          - text: Cancel
+            attributes:
+              - label: "data-modal-close"
+                value: "modal-with-form"
+              - label: "role"
+                value: "button"
+    - name: "modal-with-dialog"
+      context:
+        dialog: true
+        buttonText: "Modal dialog"
+        id: "modal-dialog-example"
+        modalTitleId: "modal-dialog-title"
+        modalTitle: "Modal Dialog"
+        modalBody: "<p>A modal dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
+        attributes:
+          - label: "data-modal-dialog"
+            value: "true"
+        controls:
+          - text: "Yes"
+            attributes:
+              - label: "role"
+                value: "button"
+          - text: "No, thanks"
+            attributes:
+              - label: "data-modal-close"
+                value: "modal-dialog-example"
+              - label: "role"
+                value: "button"
+    - name: "confirmation-dialog"
+      context:
+        buttonText: "Confirmation modal dialog"
+        id: "modal-confirmation"
+        modalTitle: "Delete item"
+        modalTitleId: "modal-title-confirmation"
+        modalBody: "<p class='m-top-remove m-bottom-xl' id='modal-description-confirmation'>Are you sure you want to <strong>delete your progress</strong>? This modal is a dialog and can not be dismissed by clicking outside of the modal on the background.</p>"
+        attributes:
+          - label: "data-modal-dialog"
+            value: "true"
+          - label: "aria-describedby"
+            value: "modal-description-confirmation"
+        controls:
+          - text: "Delete my progress"
+            modifier: "-danger"
+            attributes:
+              - label: "role"
+                value: "button"
+          - text: "Cancel"
+            modifier: "-secondary"
+            attributes:
+              - label: "data-modal-close"
+                value: "modal-confirmation"
+              - label: "role"
+                value: "button"
