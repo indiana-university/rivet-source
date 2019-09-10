@@ -27,7 +27,7 @@
       {% if identityModule %}
         <div class="rvt-header-id">
           {% if dropdown %}
-            {% set dropdownId = "dropwdown-"+ id %}
+            {% set dropdownId = "dropdown-"+ id %}
             {% render '@dropdown', { special: "true", identityModule: "true", initials: user.initials, username: user.username, items: userFunctions, id: dropdownId, class: "rvt-header-id__menu" }, true %}
           {% else %}
             <div href="#0" class="rvt-header-id__profile">
