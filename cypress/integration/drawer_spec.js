@@ -9,7 +9,7 @@ const ESC = 27;
 
 describe('Rivet drawer interactions', function() {
   it('Visits the drawer page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/header--persistent-drawer');
+    cy.visit(DEV_SERVER + '/components/preview/header--persistent');
   });
 
   it('Should see a button', function() {
