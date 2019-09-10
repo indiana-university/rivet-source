@@ -12,7 +12,7 @@ const ESC = 27;
 
 describe('Rivet tabs interactions', function() {
   it('Visits the tabs page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/tabs--default');
+    cy.visit(DEV_SERVER + '/components/preview/tab--default');
   });
 
   it('Should see the tabs with first tab selected', function() {
