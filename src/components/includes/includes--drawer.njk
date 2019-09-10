@@ -1,0 +1,76 @@
+<!--
+        Drawer - small screens only
+        NOTE: If we are going to give people the option to use the drawer
+        on desktop as well, a combo of duplicating markup and showing/hiding
+        is probably the best way to handle that kind of flexibility.
+        We'll just need to be clear about it in the documentation.
+    -->
+<div class="rvt-drawer" aria-hidden="true" id="mobile-drawer">
+    <!-- Drawer nav -->
+    <nav class="rvt-drawer__nav" role="navigation">
+        <ul>
+            <li class="has-children">
+                <button class="rvt-header-id__profile rvt-header-id__profile--drawer" data-subnav-toggle="subnav-id" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+                    <span class="rvt-header-id__user rvt-header-id__user--has-dropdown">rswanson</span>
+                </button>
+                <div id="subnav-id" role="menu" aria-hidden="true">
+                    <ul>
+                        <li>
+                            <a href="#">Account settings</a>
+                        </li>
+                        <li>
+                            <a href="#">Admin task one</a>
+                        </li>
+                        <li>
+                            <a href="#">Admin task two</a>
+                        </li>
+                        <li>
+                            <a href="">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Nav one</a>
+            </li>
+            <li class="has-children">
+                <button data-subnav-toggle="subnav-1" aria-haspopup="true" aria-expanded="false">Nav two</button>
+                <div id="subnav-1" role="menu" aria-hidden="true">
+                    <ul>
+                        <li>
+                            <a href="#">Subnav one</a>
+                        </li>
+                        <li>
+                            <a href="#">Subnav two</a>
+                        </li>
+                        <li>
+                            <a href="#">Subnav three</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" aria-current="page">Nav three</a>
+            </li>
+            <li class="has-children">
+                <button data-subnav-toggle="subnav-2" aria-haspopup="true" aria-expanded="false">Nav four</button>
+                <div id="subnav-2" role="menu" aria-hidden="true">
+                    <ul>
+                        <li>
+                            <a href="#">Subnav one</a>
+                        </li>
+                        <li>
+                            <a href="#">Subnav two</a>
+                        </li>
+                        <li>
+                            <a href="#">Subnav three</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <button class="rvt-drawer__bottom-close" data-close-drawer="mobile-drawer">Close nav</button>
+    </nav>
+</div>
