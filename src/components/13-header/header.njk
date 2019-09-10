@@ -86,6 +86,9 @@
             {% endfor %}
           </ul>
         </nav>
+        {% if persistent %}
+          {% render '@button', { special: "true", content: "Close nav", attributes: [{ label: "class", value: "rvt-drawer__bottom-close" }] }, true %}
+        {% endif %}
       {% else %}
         <div class="rvt-header-id rvt-header-id--drawer">
             <div class="rvt-header-id__profile rvt-header-id__profile--drawer p-all-sm">
