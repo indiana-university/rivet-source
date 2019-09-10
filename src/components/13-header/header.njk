@@ -37,10 +37,10 @@
             {% render '@link', { link: "#0", text: "Log out", attributes: [{ label: "class", value: "rvt-header-id__log-out" }]}, true %}
           {% endif %}
         </div>
-        {% render '@button--drawer', { attributes: [ { label: "class", value: "rvt-drawer-button" }, { label: "data-drawer-toggle", value: drawerId }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+        {% render '@button--drawer', { attributes: [ { label: "class", value: "rvt-drawer-button" }, { label: "data-drawer-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
       {% endif %}
     </div>
-    <div class="rvt-drawer" aria-hidden="true" id="drawer-{{ id }}">
+    <div class="rvt-drawer" aria-hidden="true" id="{{ id }}">
       {% if main %}
         <ul>
           {% if identityModule %}
