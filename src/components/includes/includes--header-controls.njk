@@ -1,0 +1,55 @@
+<!-- Wrapper for header interactive elements -->
+<div class="rvt-header__controls">
+    <!-- Main inline nav element -->
+    <nav class="rvt-header__main-nav" role="navigation">
+        <ul>
+            <li>
+                <a href="#">Nav one</a>
+            </li>
+            <li>
+                <div class="rvt-dropdown">
+                    <button class="rvt-dropdown__toggle" data-dropdown-toggle="dropdown-1" aria-haspopup="true" aria-expanded="false">
+                        <span class="rvt-dropdown__toggle-text">Nav two</span>
+                        <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <title>Dropdown icon</title>
+                            <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
+                            />
+                        </svg>
+                    </button>
+                    <div class="rvt-dropdown__menu" id="dropdown-1" role="menu" aria-hidden="true">
+                        <a href="#">Item one</a>
+                        <a href="#">Item two</a>
+                        <a href="#">Item three</a>
+                        <a href="#">Item four</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" aria-current="page">Nav three</a>
+            </li>
+            <li>
+                <div class="rvt-dropdown">
+                    <button class="rvt-dropdown__toggle" data-dropdown-toggle="dropdown-2" aria-haspopup="true" aria-expanded="false">
+                        <span class="rvt-dropdown__toggle-text">Nav four</span>
+                        <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+                        </svg>
+                    </button>
+                    <div class="rvt-dropdown__menu" id="dropdown-2" role="menu" aria-hidden="true">
+                        <a href="#">Item one</a>
+                        <a href="#">Item two</a>
+                        <a href="#">Item three</a>
+                        <a href="#">Item four</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- ID menu w/ dropdown -->
+    {% include "@includes--header-id-menu" %}
+    <!-- Drawer close button - shows on small screens -->
+    <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-toggle="mobile-drawer">
+        <span class="sr-only">Toggle menu</span>
+        {% include "@includes--drawer-button" %}
+    </button>
+</div>
