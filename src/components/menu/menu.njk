@@ -1,0 +1,17 @@
+<nav class="rvt-menu{% if orientation %} rvt-menu--{{ orientation }}{% endif %}" aria-label="{{ id }}">
+  <ul class="rvt-menu__list">
+    {% for item in items %}
+      <li class="rvt-menu__item">
+        <a href="{{ item.link }}"{% if item.current %} aria-current="page"{% endif %}>
+          {% if item.icon %}
+            {% include '@includes--' + item.icon %}<span class="rvt-m-left-xs">{{ item.content }}</span>
+          {% elif item.badge %}
+            <span>{{ item.content }}</span>{% render '@badge--' + item.badgeType, { content: item.badgeContent, utility: "rvt-m-left-xxs" }, true %}
+          {% else %}
+            {{ item.content | safe }}
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

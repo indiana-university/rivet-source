@@ -1,9 +1,0 @@
-title: Modals
-status: "ready"
-variants:
-    - name: default
-      label: "Modal"
-    - name: "modal-dialog"
-      label: "Modal dialog"
-      notes: |
-        # Modal dialog

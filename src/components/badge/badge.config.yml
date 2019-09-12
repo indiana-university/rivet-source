@@ -1,0 +1,55 @@
+title: "Badge"
+status: "ready"
+collated: "true"
+context:
+    content: "Base"
+variants:
+    - name: "info"
+      context:
+          content: "Info"
+          class: "true"
+          type: "-info"
+    - name: "success"
+      context:
+          content: "Success"
+          class: "true"
+          type: "-success"
+    - name: "warning"
+      context:
+          content: "Warning"
+          class: "true"
+          type: "-warning"
+    - name: "danger"
+      context:
+          content: "Danger"
+          class: "true"
+          type: "-danger"
+    - name: "secondary"
+      context:
+          content: "Secondary"
+          class: "true"
+          secondary: "-secondary"
+    - name: "secondary info"
+      context:
+          content: "Info"
+          class: "true"
+          secondary: "-secondary"
+          type: "-info"
+    - name: "secondary success"
+      context:
+          content: "Success"
+          class: "true"
+          secondary: "-secondary"
+          type: "-success"
+    - name: "secondary warning"
+      context:
+          content: "Warning"
+          class: "true"
+          secondary: "-secondary"
+          type: "-warning"
+    - name: "secondary danger"
+      context:
+          content: "Danger"
+          class: "true"
+          secondary: "-secondary"
+          type: "-danger"

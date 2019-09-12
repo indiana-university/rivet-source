@@ -14,6 +14,10 @@
     border-top: 1px solid $color-black--150;
     margin-top: -1px;
     padding: $sm;
+
+    &:first-child {
+      border-top: none;
+    }
   }
 
   &__row--selected,
@@ -97,10 +101,6 @@
   &--light &__header,
   &--light &__footer {
     background-color: $color-white;
-  }
-
-  &--card &__row:first-child {
-    border-top: none;
   }
 
   &--compact &__header,

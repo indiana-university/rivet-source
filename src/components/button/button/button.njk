@@ -1,0 +1,19 @@
+<button type="button" {% if not special %}class="rvt-button{% if modifier %} rvt-button-{{ modifier }}{% endif %}{% if size %} rvt-button--{{ size }}{% endif %}"{% endif %} {% for attribute in attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>
+  {% if dropdown %}
+    {% set img = "@includes--" + SVG %}
+    {% if identityModule %}
+      <span class="rvt-header-id__avatar" aria-hidden="true">{{ initials | upper }}</span>
+      <span class="rvt-header-id__user rvt-header-id__user--has-dropdown">{{ username }}</span>{% if SVG %}{% include img %}{% endif %}
+    {% else %}
+      <span class="rvt-dropdown__toggle-text">{{ content }}</span>{% include img %}
+    {% endif %}
+  {% elif icon %}
+    {% set img = "@includes--" + icon %}
+    {% if srContent %}<span class="sr-only">{{ srContent }}</span>{% endif %}
+    {% include img %}
+    {% if not srContent %}
+      <span class="rvt-m-left-xs">{{ content }}</span>
+    {% endif %}
+{% else %}<span>{{ content }}</span>
+{% endif %}
+</button>

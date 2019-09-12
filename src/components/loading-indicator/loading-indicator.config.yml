@@ -1,0 +1,53 @@
+title: Loading indicator
+label: Loading indicator
+status: "alpha"
+collated: true
+context:
+  size: "xxs"
+variants:
+    - name: "xs"
+      context:
+        size: "xs"
+    - name: "sm"
+      context:
+        size: "sm"
+    - name: "md"
+      context:
+        size: "md"
+    - name: "lg"
+      context:
+        size: "lg"
+    - name: "xl"
+      context:
+        size: "xl"
+    - name: "xxl"
+      context:
+        size: "xxl"
+    - name: "reverse xxs"
+      context:
+        size: "xxs"
+        reverse: true
+    - name: "reverse xs"
+      context:
+        size: "xs"
+        reverse: true
+    - name: "reverse sm"
+      context:
+        size: "sm"
+        reverse: true
+    - name: "reverse md"
+      context:
+        size: "md"
+        reverse: true
+    - name: "reverse lg"
+      context:
+        size: "lg"
+        reverse: true
+    - name: "reverse xl"
+      context:
+        size: "xl"
+        reverse: true
+    - name: "reverse xxl"
+      context:
+        size: "xxl"
+        reverse: true

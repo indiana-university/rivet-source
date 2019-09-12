@@ -1,0 +1,39 @@
+title: "Textarea"
+status: "ready"
+collated: true
+context:
+    id: "default"
+    alert: false
+variants:
+    - name: "disabled"
+      context:
+          id: "disabled"
+          modifier: "disabled"
+          alert: false
+    - name: "success"
+      context:
+          id: "success"
+          class: "success"
+          alert: true
+          alertVariant: --success
+          warning: "Your Essay is valid!"
+    - name: "warning"
+      context:
+          id: "warning"
+          class: "warning"
+          alert: true
+          alertVariant: --warning
+          warning: "Your Response has some misspellings!"
+    - name: "danger"
+      context:
+          id: "danger"
+          class: "danger"
+          alert: true
+          alertVariant: --danger
+          warning: "Your Description has special characters that need to be replaced."
+    - name: "info"
+      context:
+          id: "info"
+          class: "info"
+          alert: true
+          warning: "Add a Message to give users more information."

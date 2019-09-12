@@ -1,0 +1,24 @@
+title: Breadcrumbs
+status: "ready"
+collated: true
+context:
+  ariaLabel: "Breadcrumbs"
+  attributes:
+    - label: "aria-label"
+      value: "Breadcrumb"
+  items:
+    - text: Home
+      link: "#"
+    - text: Files
+      link: "#"
+    - text: my-file.txt
+      attributes:
+        - label: "aria-label"
+          value: "Current page"
+variants:
+  - name: "callout"
+    context:
+      callout: true
+      attributes:
+        - label: "aria-label"
+          value: "Breadcrumb call out"

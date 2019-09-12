@@ -1,0 +1,127 @@
+title: "Box"
+status: "alpha"
+collated: true
+context:
+  content: "This is a basic box"
+variants:
+    - name: "box-body"
+      context:
+        body: true
+        content: "This is a basic box body"
+    - name: "header-footer"
+      context:
+        header: Header text
+        body: true
+        footer: Footer text
+        content: This is a box with a header, a footer, and some content
+    - name: "light-box"
+      context:
+        header: Header text
+        body: true
+        footer: Footer text
+        light: true
+    - name: "rows-list"
+      context:
+        list: true
+        rows:
+          - First row
+          - Some text in a row
+          - Some text in another row
+    - name: "rows-generic-elements"
+      context:
+        rows:
+          - Plain box row one
+          - Plain box row two
+          - Plain box row three
+    - name: "compact-rows"
+      context:
+        compact: true
+        rows:
+          - Compact row one
+          - Compact row two
+          - Compact row three
+    - name: "info-box"
+      context:
+        header: A box with rows
+        colorBox: true
+        state: info
+        rows:
+          - Some text in a row
+          - Some text in a row
+          - Some text in a row
+    - name: "success-box"
+      context:
+        header: A box with rows
+        colorBox: true
+        state: success
+        rows:
+          - Some text in a row
+          - Some text in a row
+          - Some text in a row
+    - name: "warning-box"
+      context:
+        header: A box with rows
+        colorBox: true
+        state: warning
+        rows:
+          - Some text in a row
+          - Some text in a row
+          - Some text in a row
+    - name: "danger-box"
+      context:
+        header: A box with rows
+        colorBox: true
+        state: danger
+        rows:
+          - Some text in a row
+          - Some text in a row
+          - Some text in a row
+    - name: "info-row"
+      context:
+        header: A box with rows
+        rows:
+          - Some text in a row
+          - colorRow: true
+            content: Some text in a row
+            state: info
+    - name: "success-row"
+      context:
+        header: A box with rows
+        rows:
+          - colorRow: true
+            content: Some text in a row
+            state: success
+          - Some text in a row
+    - name: "warning-row"
+      context:
+        header: A box with rows
+        rows:
+          - Some text in a row
+          - Some text in a row
+          - colorRow: true
+            content: Some text in a row
+            state: warning
+    - name: "danger-row"
+      context:
+        header: A box with rows
+        rows:
+          - colorRow: true
+            content: Some text in a row
+            state: danger
+          - Some text in a row
+    - name: "card"
+      context:
+        body: true
+        card:
+          content: This is the card variant of a box with a body element
+    - name: "card-image"
+      context:
+        body: true
+        card:
+          title: Card title
+          headingLevel: h2
+          content: This is the card variant of a box with a body element
+          image: http://www.fillmurray.com/g/800/450
+          imageAlt: ""
+          link: "#"
+          linkText: Card link

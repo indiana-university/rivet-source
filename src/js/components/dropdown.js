@@ -57,6 +57,11 @@ var Dropdown = (function() {
 
     var toggle = document.querySelector(toggleSelector);
 
+    // Return if disabled dropdown is being opened programmatically
+    if (toggle.hasAttribute('disabled')) {
+      return;
+    }
+
     // If the menu was opened by clicking an associated toggle
     if (toggle && toggle !== null) {
       toggle.setAttribute('aria-expanded', 'true');
@@ -74,7 +79,7 @@ var Dropdown = (function() {
     // Remove the 'hidden' attribute to show the menu
     menu.setAttribute('aria-hidden', 'false');
 
-    // Emmit a custom event that can be used as a hook for other actions
+    // Emit a custom event that can be used as a hook for other actions
     // eslint-disable-next-line no-undef
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
 
@@ -96,6 +101,11 @@ var Dropdown = (function() {
     }
 
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
+
+    // Return if disabled dropdown is being closed programmatically
+    if (toggle.hasAttribute('disabled')) {
+      return;
+    }
 
     if (toggle && toggle !== undefined) {
       toggle.setAttribute('aria-expanded', 'false');
@@ -426,7 +436,7 @@ var Dropdown = (function() {
     destroy(context);
 
     /**
-     * Attach all event listerns to the document
+     * Attach all event listeners to the document
      */
     context.addEventListener('click', _handleClick, false);
     context.addEventListener('keydown', _handleKeydown, false);

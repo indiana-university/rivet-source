@@ -1,0 +1,30 @@
+<legend>{{legend}}</legend>
+<ul {% if list %}class="rvt-plain-list"{% else %}class="rvt-inline-list"{% endif %}>
+  {% if options %}
+    {% for name, option in options %}
+      <li {% if option.hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
+        <input type="radio" name="radio-{{option.id}}" id="radio-{{option.id}}-{{option.text}}" {{option.modifier}} {{option.checked}}>
+        {% if option.hiddenFields %}
+          <input type="hidden">
+        {% endif %}
+        <label for="radio-{{option.id}}-{{option.text}}">{{option.text}}</label>
+      </li>
+    {% endfor %}
+  {% else %}
+    <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
+      <input type="radio" name="radio-{{id}}" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
+      {% if hiddenFields %}
+        <input type="hidden">
+      {% endif %}
+      <label for="radio-{{id}}-option-one">Option one</label>
+    </li>
+    <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
+        <input type="radio" name="radio-{{id}}" id="radio-{{id}}-option-two" {{modifier}}>
+        {% if hiddenFields %}
+          <input type="hidden">
+        {% endif %}
+        <label for="radio-{{id}}-option-two">Option two</label>
+    </li>
+  {% endif %}
+    
+</ul>

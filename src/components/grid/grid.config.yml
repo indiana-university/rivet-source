@@ -1,0 +1,94 @@
+title: "Grid"
+status: "ready"
+collated: true
+context:
+    gridItems:
+      - content: <span>Single item grid</span>
+variants:
+    - name: "freshman"
+      context:
+          classes: 
+            - freshman
+          gridItems:
+            - content: <span>Freshman grid</span>
+    - name: "sophomore"
+      context:
+          classes: 
+            - sophomore
+          gridItems:
+            - content: <span>Sophomore size grid</span>
+    - name: "junior"
+      context:
+          classes:
+            - junior
+          gridItems:
+            - content: <span>Junior size grid</span>
+    - name: "senior"
+      context:
+          classes:
+            - senior
+          gridItems:
+            - content: <span>Senior size grid</span>
+    - name: "centered"
+      context:
+          classes:
+            - freshman
+            - center
+          gridItems:
+            - content: <span>Centered freshman grid</span>
+    - name: "auto"
+      context:
+          gridItems:
+            - content: <span>Automatic column 1</span>
+            - content: <span>Automatic column 2</span>
+            - content: <span>Automatic column 3</span>
+            - content: <span>Automatic column 4</span>
+    - name: "responsive"
+      context:
+          gridItems:
+            - modifier: "-sm"
+              content: <span>Responsive automatic column sm</span>
+            - modifier: "-md"
+              content: <span>Responsive automatic column md</span>
+            - modifier: "-lg"
+              content: <span>Responsive automatic column lg</span>
+            - modifier: "-xl"
+              content: <span>Responsive automatic column xl</span>
+            - modifier: "-xxl"
+              content: <span>Responsive automatic column xxl</span>
+    - name: "set"
+      context:
+          gridItems:
+            - modifier: "-4-md-up"
+              content: <span>4 columns medium and up</span>
+            - modifier: "-4-md-up"
+              content: <span>4 columns medium and up</span>
+            - modifier: "-4-md-up"
+              content: <span>4 columns medium and up</span>
+    - name: "mixed"
+      context:
+          gridItems:
+            - content: <span>Automatic column width</span>
+            - modifier: "-6-md-up"
+              content: <span>6 columns medium and up</span>
+            - content: <span>Automatic column width</span>
+    - name: "order"
+      context:
+          gridItems:
+            - modifier: "-4-md-up"
+              content: <span>First column in source</span>
+              orders:
+                - modifier: "rvt-grid__item-push-8-md"
+            - modifier: "-8-md-up"
+              content: <span>Second column in source</span>
+              orders:
+                - modifier: "rvt-grid__item-pull-4-md"
+    - name: "right-align"
+      context:
+          gridItems:
+            - modifier: "-4-md-up"
+              content: <span>4 columns medium and up</span>
+            - modifier: "-7-md-up"
+              content: <span>7 columns (right-aligned)</span>
+              orders:
+                - modifier: "rvt-grid__item--last"

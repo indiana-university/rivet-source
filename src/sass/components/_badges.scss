@@ -13,16 +13,16 @@
    * inside another element that uses a "ts-*" type scale utility,
    * the badge will inherit that size.
    */
-  font-size: 80%;
+  font-size: 88%;
   font-weight: $font-weight-bold;
   letter-spacing: .02rem;
-  line-height: 1.5;
+  line-height: 1.6;
 
   /**
    * Use ems here so that padding stays proportional if parent
    * element font size changes.
    */
-  padding: .03125em .5em;
+  padding: .03125em .5rem;
   -webkit-font-smoothing: antialiased;
   -osx-font-smoothing: grayscale;
 

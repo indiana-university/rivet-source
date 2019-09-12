@@ -1,0 +1,95 @@
+title: Buttons
+label: Default
+status: "ready"
+collated: true
+context:
+    content: "Default"
+variants:
+    - name: "success"
+      context:
+          content: "Success"
+          modifier: "-success"
+    - name: "danger"
+      context:
+          content: "Danger"
+          modifier: "-danger"
+    - name: "plain"
+      context:
+          content: "Plain"
+          modifier: "-plain"
+    - name: "small"
+      context:
+          content: "Primary"
+          size: "small"
+    - name: "success small"
+      context:
+          content: "Success"
+          modifier: "-success"
+          size: "small"
+    - name: "danger small"
+      context:
+          content: "Danger"
+          modifier: "-danger"
+          size: "small"
+    - name: "secondary"
+      context:
+          content: "Secondary"
+          modifier: "-secondary"
+    - name: "secondary success"
+      context:
+          content: "Secondary"
+          modifier: "-success-secondary"
+    - name: "secondary danger"
+      context:
+          content: "Secondary"
+          modifier: "-danger-secondary"
+    - name: "secondary small"
+      context:
+          content: "Secondary"
+          modifier: "-secondary"
+          size: "small"
+    - name: "secondary success small"
+      context:
+          content: "Success"
+          modifier: "-success-secondary"
+          size: "small"
+    - name: "secondary danger small"
+      context:
+          content: "Danger"
+          modifier: "-danger-secondary"
+          size: "small"
+    - name: "dropdown"
+      context:
+          content: "Dropdown"
+          dropdown: true
+          SVG: "down-carat"
+          attributes:
+            - label: "data-dropdown-toggle"
+              value: "dropdown-navigation"
+            - label: "aria-haspopup"
+              value: "true"
+            - label: "aria-expanded"
+              value: "false"
+    - name: "drawer"
+      context:
+          special: "true"
+          icon: "drawer-button"
+          srContent: "Toggle menu"
+          attributes:
+            - label: "class"
+              value: "rvt-drawer-button"
+            - label: "aria-haspopup"
+              value: "true"
+            - label: "aria-expanded"
+              value: "false"
+            - label: "data-drawer-toggle"
+              value: "mobile-drawer"
+    - name: "delete"
+      context:
+          content: "Delete"
+          modifier: "-danger"
+          icon: "delete"
+    - name: "copy"
+      context:
+          content: "Copy"
+          icon: "copy"

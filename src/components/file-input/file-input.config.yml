@@ -1,0 +1,17 @@
+title: File Input
+label: File Input
+status: "ready"
+collated: true
+context:
+    id: "my-file-input"
+    buttonText: Upload a file
+    previewText: No file selected
+    fileDescription: "file-description"
+variants:
+  - name: "secondary"
+    context:
+        id: "my-file-input-two"
+        buttonText: Upload multiple files
+        multiple: true
+        secondary: true
+        fileDescription: "file-description-two"

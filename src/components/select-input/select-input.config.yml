@@ -1,0 +1,35 @@
+title: "Select input"
+status: "ready"
+collated: true
+context:
+    id: "default"
+    alert: false
+variants:
+    - name: "disabled"
+      context:
+          id: "disabled"
+          modifier: "disabled"
+          alert: false
+    - name: "success"
+      context:
+          id: "success"
+          class: "success"
+          alert: true
+          alertVariant: "--success"
+    - name: "warning"
+      context:
+          id: "warning"
+          class: "warning"
+          alert: true
+          alertVariant: "--warning"
+    - name: "danger"
+      context:
+          id: "danger"
+          class: "danger"
+          alert: true
+          alertVariant: "--danger"
+    - name: "info"
+      context:
+          id: "info"
+          class: "info"
+          alert: true

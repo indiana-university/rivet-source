@@ -1,0 +1,152 @@
+title: Pagination
+label: "Pagination"
+status: "ready"
+collated: true
+context:
+    attributes:
+      - label: "aria-label"
+        value: "Default results pages"
+    items:
+      - name: "previous"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Previous set of pages"
+        text: "Previous"
+      - name: "four"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Page 4"
+        text: "4"
+      - name: "five"
+        current: true
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Page 5, current page"
+        text: "5"
+      - name: "six"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Page 6"
+        text: "6"
+      - name: "next"
+        linkAttributes:
+          - label: "href"
+            value: "#0"
+          - label: "aria-label"
+            value: "Next set of pages"
+        text: "Next"
+variants:
+  - name: "small"
+    context:
+      modifier: "small"
+      attributes:
+        - label: "aria-label"
+          value: "Small results pages"
+  - name: "centered"
+    context:
+      modifier: "center"
+      attributes:
+        - label: "aria-label"
+          value: "Centered results pages"
+      items:
+        - name: "previous"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Previous pages"
+          text: "Previous"
+        - name: "five"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 5"
+          text: "5"
+        - name: "six"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 6"
+          text: "6"
+        - name: "seven"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 7"
+          text: "7"
+        - name: "eight"
+          current: true
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 8, current page"
+          text: "8"
+        - name: "next"
+          disabled: true
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+          text: "Next"
+  - name: "right-align"
+    context:
+      modifier: "right"
+      attributes:
+        - label: "aria-label"
+          value: "Right-aligned results pages"
+      items:
+        - name: "previous"
+          disabled: true
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Previous pages"
+          text: "Previous"
+        - name: "one"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 1"
+          text: "1"
+        - name: "two"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 2"
+          text: "2"
+        - name: "three"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 3"
+          text: "3"
+        - name: "four"
+          current: true
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Page 4, current page"
+          text: "4"
+        - name: "next"
+          linkAttributes:
+            - label: "href"
+              value: "#0"
+            - label: "aria-label"
+              value: "Next set of pages"
+          text: "Next"

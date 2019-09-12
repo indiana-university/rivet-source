@@ -1,0 +1,35 @@
+title: Input Group
+status: "ready"
+collated: true
+context:
+  id: "search"
+  labelText: "Search"
+  type: "button"
+  content: "Search docs"
+  modifier: "-secondary"
+variants:
+  - name: "prepend"
+    context:
+      prepend: true
+      id: "segmented-prepend"
+      labelText: "Add new"
+      button: false
+      type: "dropdown"
+      title: "All stuff"
+  - name: "text"
+    context:
+      id: "text-append-example"
+      labelText: "Email address"
+      button: false
+      dropdown: false
+      type: "text"
+      text: \@iu.edu
+  - name: "text-prepend"
+    context:
+      prepend: true
+      id: "text-append-example"
+      labelText: "Website"
+      button: false
+      dropdown: false
+      type: "text"
+      text: "https://"

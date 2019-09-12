@@ -1,0 +1,24 @@
+title: "Menu"
+status: "alpha"
+collated: "true"
+context:
+    id: "Section navigation"
+    items:
+      - link: "#"
+        current: "true"
+        content: "Item one"
+      - link: "#"
+        content: "Item two"
+      - link: "#"
+        content: "Item three"
+      - link: "#"
+        content: "Item four"
+      - link: "#"
+        content: "Item five"
+variants:
+    - name: "vertical"
+      context:
+          orientation: "vertical"
+    - name: "horizontal"
+      context:
+          orientation: "horizontal"

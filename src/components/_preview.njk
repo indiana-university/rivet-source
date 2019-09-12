@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link media="all" rel="stylesheet" href="{{ '/css/rivet.css' | path }}">
+    <title>Preview Layout</title>
+</head>
+<body>
+    <main>
+        <div class="display-wrapper">
+
+            {{ yield | safe }}
+
+            <style scoped>
+                /**
+                * Using these styles for display purposes only. We don't want them
+                * to end up in the final compiled CSS for distribution.
+                * For reference:
+                * http://w3c.github.io/html-reference/style.html#style.attrs.scoped
+                * https://css-tricks.com/saving-the-day-with-scoped-css/
+                */
+                .display-wrapper {
+                    padding: 3rem;
+                }
+            </style>
+        </div>
+    </main>
+    <script src="{{ '/js/rivet.js' | path }}"></script>
+</body>
+</html>

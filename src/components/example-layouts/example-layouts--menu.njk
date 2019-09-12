@@ -1,0 +1,5 @@
+<h2 class="rvt-ts-md rvt-text-bold rvt-m-bottom-md">Menu with icons</h2>
+{% render '@menu', { items: [{ link: "#", content: "Profile", icon: "user" }, { link: "#", current: "true", content: "Notifications", icon: "bell" }, { link: "#", content: "Schedule", icon: "calendar" }, { link: "#", content: "Settings", icon: "gear" }]}, true %}
+
+<h2 class="rvt-ts-md rvt-text-bold rvt-m-tb-md">Menu with badges</h2>
+{% render '@menu', { items: [{ link: "#" , current: "true", content: "Item one", badge: "true", badgeType: "info", badgeContent: "2" }, { link: "#" , content: "Item two", badge: "true", badgeType: "success", badgeContent: "3"  }, { link: "#" , content: "Item three", badge: "true", badgeType: "warning", badgeContent: "1" }, { link: "#" , content: "Item four", badge: "true", badgeType: "danger", badgeContent: "5" }] }, true %}

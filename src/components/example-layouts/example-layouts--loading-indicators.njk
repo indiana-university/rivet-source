@@ -1,0 +1,45 @@
+<h2 class="rvt-text-uppercase rvt-ts-14 rvt-m-top-sm rvt-m-bottom-sm">Reversed color</h2>
+<div class="rvt-p-all-md rvt-bg-midnight">
+  {% for size in sizes %}
+      {% render '@loading-indicator', {reverse: true, size: size} %}
+  {% endfor %}
+</div>
+
+<h2 class="rvt-text-uppercase rvt-ts-14 rvt-m-top-sm">Position demo</h2>
+<div class="rvt-flex rvt-row rvt-items-center">
+  {% for size in sizes %}
+    <div class="rvt-flex rvt-column rvt-items-center rvt-p-all-sm">
+    {% render '@loading-indicator', {size: size} %}
+    <div class="rvt-text-center rvt-ts-18 rvt-m-top-xxs">Loading&hellip;</div>
+    </div>
+  {% endfor %}
+</div>
+
+<h2 class="rvt-text-uppercase rvt-ts-14 rvt-m-top-sm rvt-m-bottom-sm">Button loading state</h2>
+<button class="rvt-button rvt-button--loading" aria-busy="true" disabled>
+  <span class="rvt-button__content">Update settings</span>
+  {% render '@loading-indicator', {size: "xs"} %}
+</button>
+
+<h2 class="rvt-text-uppercase rvt-ts-14 rvt-m-top-lg rvt-m-bottom-sm">Toggle button loading state</h2>
+<button class="rvt-button" data-loading-button>
+  <span class="rvt-button__content" id="my-loader">Submit</span>
+  {% render '@loading-indicator', {size: "xs"} %}
+</button>
+<div class="rvt-m-top-sm">Save/Loading button usage demo. <strong>Click the submit button</strong> to briefly toggle loading state.</div>
+
+<script>
+  const handleClick = event => {
+  const loader = event.target.closest('[data-loading-button]');
+  if (!loader) return;
+  loader.classList.add('rvt-button--loading');
+  loader.setAttribute('aria-busy', 'true');
+  loader.setAttribute('disabled', '');
+  setTimeout(function() {
+    loader.classList.remove('rvt-button--loading');
+    loader.setAttribute('aria-busy', 'false');
+    loader.removeAttribute('disabled');
+  }, 2000);
+}
+document.addEventListener('click', handleClick, false);
+</script>

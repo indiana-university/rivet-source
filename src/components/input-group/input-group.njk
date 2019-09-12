@@ -1,0 +1,26 @@
+<label for="{{ id }}" class="rvt-sr-only">{{ labelText }}</label>
+<div class="rvt-input-group">
+  {% if prepend %}
+  <div class="rvt-input-group__prepend">
+    {% if type === "button" %}
+      {% render "@button", { content: content, modifier: modifier }, true %}
+    {% elif type === "dropdown" %}
+      {% render "@dropdown", { title: title }, true %}
+    {% elif type === "text" %}
+      <div class="rvt-input-group__text" id="{{ id }}">{{ text }}</div>
+    {% endif %}
+  </div>
+  <input class="rvt-input-group__input" type="text" id="{{ id }}">
+  {% else %}
+  <input class="rvt-input-group__input" type="text" id="{{ id }}">
+  <div class="rvt-input-group__append">
+    {% if type === "button" %}
+      {% render "@button", { content: content, modifier: modifier }, true %}
+    {% elif type === "dropdown" %}
+      {% render "@dropdown", { title: title }, true %}
+    {% elif type === "text" %}
+      <div class="rvt-input-group__text" id="{{ id }}">{{ text }}</div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

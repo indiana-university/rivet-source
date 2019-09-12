@@ -1,0 +1,25 @@
+title: "Step indicator"
+status: "alpha"
+collated: true
+context:
+    steps:
+      - link: "#"
+        label: "Create username"
+        internal: "<span class='rvt-sr-only'>Step</span> 1"
+      - link: "#"
+        label: "Personal information"
+        internal: "2"
+      - link: "#"
+        current: "true"
+        label: "Records & Transcripts"
+        internal: "3"
+      - link: "#"
+        label: "Supporting documents"
+        internal: "4"
+      - link: "#"
+        label: "Confirmation"
+        internal: "5"
+variants:
+    - name: "vertical"
+      context:
+          vertical: "true"

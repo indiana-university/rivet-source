@@ -1,0 +1,13 @@
+title: "Link"
+status: "ready"
+collated: true
+context:
+    link: "#"
+    text: "link text"
+variants:
+    - name: "bold"
+      context:
+          text: "bold link"
+          attributes:
+            - label: "class"
+              value: "rvt-link-bold"

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link media="all" rel="stylesheet" href="{{ '/css/rivet.css' | path }}">
+    <title>Preview Layout</title>
+</head>
+<body>
+    <div class="display-wrapper">
+        {{ yield | safe }}
+    </div>
+    <script src="{{ '/js/rivet.js' | path }}"></script>
+</body>
+</html>

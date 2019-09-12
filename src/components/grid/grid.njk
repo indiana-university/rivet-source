@@ -1,0 +1,20 @@
+<div class="rvt-container{% for class in classes %} rvt-container--{{class}}{% endfor %}">
+  <div class="rvt-grid">
+    {% for gridItem in gridItems %}
+      <div class="rvt-grid__item{% if gridItem.modifier -%}{{gridItem.modifier}}{%- endif %}{% for order in gridItem.orders %} {{order.modifier}}{% endfor %}">
+        {{ gridItem.content | safe }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style scoped>
+    [class^="rvt-grid__item"] span {
+        display: block;
+        background-color: #006298;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+</style>

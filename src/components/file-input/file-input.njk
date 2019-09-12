@@ -1,0 +1,18 @@
+<div class="rvt-file" data-upload="{{ id }}">
+    <input type="file" id="{{ id }}" aria-describedby="{{ fileDescription }}" {% if multiple %} multiple{% endif %}>
+    <label for="{{ id }}" class="rvt-button{% if secondary %} rvt-button--secondary{% endif %}">
+        <span>{{ buttonText }}</span>
+        {% include "@includes--file-upload" %}
+    </label>
+    <div class="rvt-file__preview" data-file-preview="{{ id }}" id="{{ fileDescription }}">
+        {{ previewText }}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('fileAttached', function(event) {
+        if (event.detail.name() == 'my-file-input-two') {
+            alert('File was attached! 💌');
+        }
+    });
+</script>

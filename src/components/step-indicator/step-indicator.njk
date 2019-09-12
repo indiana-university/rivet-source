@@ -1,0 +1,10 @@
+<ol class="rvt-steps{% if vertical %}  rvt-steps--vertical{% endif %}">
+  {% for step in steps %}
+    <li class="rvt-steps__item">
+      <a href="{{ step.link }}" class="rvt-steps__item-content"{% if current %} aria-current="step"{% endif %}>
+        <span class="rvt-steps__label">{{ step.label }}</span>
+        <span class="rvt-steps__indicator{% if step.notice %} rvt-steps__indicator--{{ step.notice }}{% endif %}">{% if not step.notice %}{{ step.internal | safe }}{% else %}{% include '@includes--' + step.notice %}{% endif %}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ol>

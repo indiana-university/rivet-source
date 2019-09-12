@@ -4,13 +4,30 @@ context:
 
     # Fake people
     people:
-        -   name: Bert Macklin
-            title: The FBI
-        -   name: Leslie Knope
-            title: Assistan Director, Pawnee Parks Department
-        -   name: Ron Swanson
-            title: Director, Pawnee Parks Department
-        -   name: April Ludgate
-            title: Animal Control
-        -   name: Ben Wayatt
-            title: Creator, The Cones of Dunshire
+        - name: Bert Macklin
+          title: The FBI
+        - name: Leslie Knope
+          title: Assistant Director, Pawnee Parks Department
+        - name: Ron Swanson
+          title: Director, Pawnee Parks Department
+        - name: April Ludgate
+          title: Animal Control
+        - name: Ben Wayatt
+          title: Creator, The Cones of Dunshire
+
+    # For unordered/ordered lists
+    list_items:
+        - List Item One
+        - List Item Two
+        - List Item Three
+        - List Item Four
+
+    # Sizes
+    sizes:
+        - xxs
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+        - xxl

@@ -1,0 +1,9 @@
+<label for="textarea-{{ id }}">Textarea</label>
+<textarea id="textarea-{{ id }}" {% if class -%} class="rvt-validation-{{ class }}"{%- endif %} {{ modifier }}></textarea>
+{% if alert %}
+  {% set variant = "@alert-inline" %}
+  {% if alertVariant %}
+    {% set variant = (variant + alertVariant) %}
+  {% endif %}
+  {% render variant, {type: class, message: warning}, true %}
+{% endif %}

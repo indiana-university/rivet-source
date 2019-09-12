@@ -1,0 +1,62 @@
+<div class="rvt-dropdown">
+  {% if not special %}
+    {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  {% elif identityModule %}
+    {% render '@button--dropdown', { special: "true", identityModule: "true", initials: initials, username: username, attributes: [{ label: "class", value: "rvt-header-id__profile rvt-header-id__profile--has-dropdown rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  {% else %}
+    {% render '@button--dropdown', { special: "true", content: title, initials: initials, username: username, attributes: [{ label: "class", value: "rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+  {% endif %}
+  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} aria-hidden="true">
+  {% if buttons %}
+    {% for item in items %}
+      {% if item.relatedLinks %}
+        {% if item.text %}
+          <div class="rvt-dropdown__menu-heading" aria-hidden="true">{{ item.text }}</div>
+        {% endif %}
+        <div role="group" aria-label="Related">
+          {% for relatedLink in item.relatedLinks %}
+            {% render '@button', { special: "true", content: relatedLink.text, attributes: [{ "label": "role", "value": "menuitem" }] }, true %}
+          {% endfor %}
+        </div>
+      {% else %}
+        {% render '@button', { special: "true", content: item.text, attributes: item.attributes }, true %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% for item in items %}
+      {% if item.relatedLinks %}
+        {% if item.text %}
+          <div class="rvt-dropdown__menu-heading" aria-hidden="true">{{ item.text }}</div>
+        {% endif %}
+        <div role="group" aria-label="Related">
+          {% for relatedLink in item.relatedLinks %}
+            {% render '@link', { link: relatedLink.link, text: relatedLink.text }, true %}
+          {% endfor %}
+        </div>
+      {% else %}
+        {% render '@link', { link: item.link, text: item.text, attributes: item.attributes }, true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if identityModule %}
+    <div role="group" aria-label="User actions">
+      {% render '@link', { link: logout, text: "Log out" }, true %}
+    </div>
+  {% endif %}
+  </div>
+</div>
+
+<script>
+    // Callback function that puts focus on the button that was toggled.
+    function focusTheToggle(id) {
+        document
+            .querySelector('[data-dropdown-toggle="' + id + '"]')
+            .focus();
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 68) {
+            Dropdown.toggle('dropdown-1', focusTheToggle('dropdown-1'));
+        }
+    });
+</script>

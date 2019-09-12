@@ -1,0 +1,63 @@
+title: "Radio input"
+status: "ready"
+collated: true
+context:
+    id: "default"
+    legend: "Radio input (default)"
+variants:
+    - name: "checked"
+      context:
+          id: "checked"
+          checked: "checked"
+          legend: "Radio input (checked)"
+    - name: "disabled"
+      context:
+          id: "disabled"
+          modifier: "disabled"
+          legend: "Radio input (disabled)"
+    - name: "disabled-checked"
+      context:
+          id: "disabled"
+          modifier: "disabled"
+          legend: "Radio input (disabled with one option checked)"
+          options:
+            one:
+              text: Option one
+              checked: checked
+              modifier: disabled
+            two:
+              text: Option two
+              modifier: disabled
+    - name: "hidden fields"
+      context:
+          id: "hidden"
+          hiddenFields: true
+          legend: "Radio input (hidden fields)"
+    - name: "list"
+      context:
+          id: "list"
+          list: true
+          legend: "Radio input (list)"
+    - name: "custom"
+      context:
+          id: "custom"
+          checked: "checked"
+          modifier: "disabled"
+          hiddenFields: true
+          list: true
+          legend: "Radio input (custom)"
+          options:
+            apple:
+              text: apple
+              id: custom
+              checked: checked
+            banana:
+              text: banana
+              id: custom
+              modifier: disabled
+            orange:
+              text: orange
+              id: custom
+            raspberry:
+              text: raspberry
+              id: custom

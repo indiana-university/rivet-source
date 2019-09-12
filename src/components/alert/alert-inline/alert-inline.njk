@@ -1,0 +1,7 @@
+<div class="rvt-inline-alert rvt-inline-alert--{{ type }}">
+    <span class="rvt-inline-alert__icon">
+        {% set variant = "@includes--inline-alert-" + type %}
+        {% include variant %}
+    </span>
+    <span class="rvt-inline-alert__message" id="first-name-message">{{ message }}</span>
+</div>
