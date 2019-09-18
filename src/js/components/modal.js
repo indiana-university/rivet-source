@@ -68,6 +68,9 @@ var Modal = (function() {
         throw new Error('Please proved an id attribute for the modal you want to open.');
       }
     }
+    /**
+     * END DEPRECATION
+     */
 
     var modal = _createModalObject(id);
 
@@ -114,6 +117,9 @@ var Modal = (function() {
         throw new Error('Please proved an id attribute for the modal you want to close.');
       }
     }
+    /**
+     * END DEPRECATION
+     */
 
     var modal = _createModalObject(id);
 
