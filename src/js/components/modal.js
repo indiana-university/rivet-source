@@ -261,10 +261,7 @@ var Modal = (function() {
    * @param {Event} event - The event object
    */
   function _handleBackwardTab(first, last, event) {
-    if (document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (document.activeElement === activeModal) {
+    if (document.activeElement === first || document.activeElement === activeModal) {
       event.preventDefault();
       last.focus();
     }
