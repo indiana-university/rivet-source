@@ -258,6 +258,9 @@ var Modal = (function() {
     if (document.activeElement === first) {
       event.preventDefault();
       last.focus();
+    } else if (document.activeElement === activeModal) {
+      event.preventDefault();
+      last.focus();
     }
   }
 
