@@ -260,7 +260,7 @@ var Modal = (function() {
       last.focus();
     } else if (document.activeElement === activeModal) {
       event.preventDefault();
-      first.focus();
+      last.focus();
     }
   }
 
