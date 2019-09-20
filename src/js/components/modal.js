@@ -68,6 +68,9 @@ var Modal = (function() {
         throw new Error('Please proved an id attribute for the modal you want to open.');
       }
     }
+    /**
+     * END DEPRECATION
+     */
 
     var modal = _createModalObject(id);
 
@@ -114,6 +117,9 @@ var Modal = (function() {
         throw new Error('Please proved an id attribute for the modal you want to close.');
       }
     }
+    /**
+     * END DEPRECATION
+     */
 
     var modal = _createModalObject(id);
 
@@ -254,7 +260,7 @@ var Modal = (function() {
    * of focus-able elements
    * @param {Event} event - The event object
    */
-  function _handBackwardTab(first, last, event) {
+  function _handleBackwardTab(first, last, event) {
     if (document.activeElement === first) {
       event.preventDefault();
       last.focus();
@@ -308,7 +314,7 @@ var Modal = (function() {
         var lastFocusable = focusables[focusables.length - 1];
 
         event.shiftKey ?
-          _handBackwardTab(firstFocusable, lastFocusable, event) :
+          _handleBackwardTab(firstFocusable, lastFocusable, event) :
           _handleForwardTab(firstFocusable, lastFocusable, event);
 
         break;
