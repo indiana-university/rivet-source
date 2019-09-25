@@ -45,23 +45,33 @@
       {% endif %}
     </div>
     <div class="rvt-drawer" aria-hidden="true" id="{{ id }}">
-      {% if userFunctions or main %}
+      {% if dropdown or main %}
         <nav class="rvt-drawer__nav" role="navigation">
           <ul>
             {% if identityModule %}
-              <li class="has-children">
-                {% set identityId = "identity-" + id %}
-                {% render '@button', { special: "true", dropdown: "true", identityModule: "true", initials: user.initials, username: user.username, attributes: [ { label: "class", value: "rvt-header-id__profile rvt-header-id__profile--drawer" }, { label: "data-subnav-toggle", value: identityId }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"} ] }, true %}
-                <div id={{ identityId }} role="menu" aria-hidden="true">
-                  <ul>
-                    {% for userFunction in userFunctions %}
-                      <li>
-                        {% render '@link', { link: userFunction.link, text: userFunction.text, attributes: userFunction.attributes }, true %}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </li>
+              {% if dropdown %}
+                <li class="has-children">
+                  {% set identityId = "identity-" + id %}
+                  {% render '@button', { special: "true", dropdown: "true", identityModule: "true", initials: user.initials, username: user.username, attributes: [ { label: "class", value: "rvt-header-id__profile rvt-header-id__profile--drawer" }, { label: "data-subnav-toggle", value: identityId }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"} ] }, true %}
+                  <div id={{ identityId }} role="menu" aria-hidden="true">
+                    <ul>
+                      {% for userFunction in userFunctions %}
+                        <li>
+                          {% render '@link', { link: userFunction.link, text: userFunction.text, attributes: userFunction.attributes }, true %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </li>
+              {% else %}
+                <li>
+                  <div class="rvt-header-id__profile rvt-header-id__profile--drawer">
+                    <span class="rvt-header-id__avatar" aria-hidden="true">{{ user.initials }}</span>
+                    <span class="rvt-header-id__user">{{ user.username }}</span>
+                    {% render '@link', { link: "#0", text: "Log out", attributes: [{ label: "class", value: "rvt-header-id__log-out" }]}, true %}
+                  </div>
+                </li>
+              {% endif %}
             {% endif %}
             {% for navItem in navItems %}
               {% if not navItem.relatedLinks %}
