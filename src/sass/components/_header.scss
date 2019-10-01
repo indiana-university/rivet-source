@@ -378,6 +378,22 @@
       }
     }
 
+    .rvt-header-id__log-out {
+      display: flex;
+      width: inherit;
+      margin-left: 0;
+      color: $color-blue--600;
+
+      &:hover {
+        color: $color-blue--900;
+      }
+
+      &:focus {
+        outline: $xxs/2 solid $color-blue--600;
+        outline-offset: $xxs/2;
+      }
+    }
+
     ul li.has-children > a::after,
     ul li.has-children > button::after {
       position: absolute;
