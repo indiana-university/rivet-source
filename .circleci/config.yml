@@ -37,6 +37,12 @@ aliases:
         - /^release.*/
         - /^hotfix.*/
 
+  - &filter-ignore-v2
+    branches:
+      ignore:
+        - 2.0.0-dev
+        - 2.0.0-master
+
 defaults: &defaults
   working_directory: ~/rivet-source
   docker:
@@ -139,7 +145,8 @@ workflows:
   version: 2
   build-test:
     jobs:
-      - build
+      - build:
+          filters: *filter-ignore-v2
       - test:
           requires:
             - build
