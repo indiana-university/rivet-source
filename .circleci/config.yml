@@ -146,7 +146,7 @@ workflows:
   build-test:
     jobs:
       - build:
-          filters: *&filter-ignore-v2
+          filters: *filter-ignore-v2
       - test:
           requires:
             - build
