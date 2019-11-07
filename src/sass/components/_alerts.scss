@@ -119,38 +119,6 @@
   }
 }
 
-/**
- * DEPRECATED
- *
- * This was the original version of inline form validation errors. We've
- * Redesigned inline form validation errors/messages to be more flexible
- * and consistent. Please use .#{$prefix}-inline-alert(s) going forward.
- *
- * See the following for more info:
- *
- * - /src/components/05-text-inputs/text-inputs.hbs
- * - /src/components/06-select-input/select-input.hbs
- * - /src/components/07-radio-inputs/radio-inputs.hbs
- * - /src/components/08-checkboxes/checkboxes.hbs
- * - /src/sass/components/_validation.scss
- *
- */
-
-.alert-inline,
-.#{$prefix}-alert-inline {
-  background-color: $color-alert-orange-light;
-  border-left: $xxs solid $color-alert-orange;
-  color: $color-alert-orange-text;
-
-  &__message {
-    margin: 0;
-    padding: $sm;
-    line-height: 1.2;
-    font-weight: $font-weight-bold;
-    font-size: $ts-14;
-  }
-}
-
 .input-error,
 .#{$prefix}-input-error > {
   input[type='color'],
