@@ -8,12 +8,7 @@ var Alert = (function() {
   'use strict';
 
   // Selectors
-  
-  /**
-   * DEPRECATED: .rvt-alert__dismiss will be removed in the future in favor of
-   * using the more consistent data attribute data-alert-close.
-   */
-  var SELECTORS = '[data-alert-close], .rvt-alert__dismiss';
+  var SELECTORS = '[data-alert-close]';
 
   /**
    * Kicks off the Alert component and sets up all event listeners
@@ -71,28 +66,6 @@ var Alert = (function() {
    * is closed.
    */
   function dismissAlert(id, callback) {
-    /**
-     * DEPRECATED: This is to add backwards compatibility for the older API
-     * where you needed to pass in the alert Object/HTMLElement. This should
-     * be deprecated in the next major version.
-     */
-    if (typeof id === 'object' && id.nodeType === 1) {
-      var alertEl = id;
-      id = alertEl.getAttribute('id');
-
-      // if an id isn't provided try aria-labelledby
-      if (!id) {
-        id = alertEl.getAttribute('aria-labelledby');
-      }
-
-      // if aria-labelledby and id aren't provided throw an error
-      if (!id) {
-        throw new Error(
-          'Please proved an id attribute for the alert you want to dismiss.'
-        );
-      }
-    }
-
     var alert = document.querySelector('[aria-labelledby="' + id + '"]');
 
     if (!alert) {
