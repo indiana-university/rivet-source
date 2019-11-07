@@ -110,27 +110,6 @@ var Drawer = (function() {
   }
 
   /**
-   * DEPRECATED: This was a part of the original API and should be replaced
-   * with the new open() and close() methods. I don't think anyone would
-   * be using this as it was more of an internal/private method, but
-   * just to be sure let's deprecate it and remove it at the next
-   * major version.
-   * @param {HTMLButtonElement} trigger - button to toggle the drawer
-   * @param {HTMLElement} target - the drawer menu
-   * @param {Event} event - The event object
-   */
-  // eslint-disable-next-line no-unused-vars
-  function toggle(trigger, target, event) {
-    /**
-     * Note, there's no need for the target and event parameters here if
-     * all we're doing is opening/closing the drawer.
-     */
-    var id = trigger.getAttribute(TOGGLE_ATTRIBUTE);
-
-    trigger.getAttribute('aria-expanded') === 'true' ? close(id) : open(id);
-  }
-
-  /**
    * Toggles drawer subnavs
    * @param {String} id - the unique id of the drawer subnav/tree toggle
    */
@@ -386,7 +365,6 @@ var Drawer = (function() {
     init: init,
     destroy: destroy,
     open: open,
-    close: close,
-    toggle: toggle
+    close: close
   }
 })();
