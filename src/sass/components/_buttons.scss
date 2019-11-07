@@ -285,27 +285,9 @@
     color: $color-black--700;
   }
 
-  /**
-   * DEPRECATED
-   *
-   * .#{$prefix}-button__text was the original version of the wrapper class for button
-   * content. We've updated the class language to be more clear and better
-   * represent its purpose. Please use .#{$prefix}-button__content going forward.
-   *
-   * See the following for more info:
-   *
-   * - /src/components/24-loading-indicator/loading-indicator.hbs
-   *
-   */
-
-  .#{$prefix}-button__content,
-  .#{$prefix}-button__text {
+  .#{$prefix}-button__content {
     color: transparent;
   }
-
-  /**
-   * End deprecated input validation
-   */
 
   .#{$prefix}-loader {
     border-bottom-color: $color-black--400;
