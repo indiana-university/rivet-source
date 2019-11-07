@@ -22,12 +22,7 @@ var Tabs = (function() {
     down: 40,
   };
 
-  /**
-   * DEPRECATED: "Aria-controls" will be removed for next major 
-   * release. Have added CSS selector to provide specific context
-   * for aria-controls selection.
-   */
-  var LEGACY_SELECTORS = '[data-tab], .rvt-tabs__tab[aria-controls]';
+  var LEGACY_SELECTORS = '[data-tab]';
 
   /**
    * @param {nodes} nodeList - Accepts a nodeList and returns an array.
@@ -59,13 +54,8 @@ var Tabs = (function() {
    * @param {String} id
    */
   function activateTab(id, callback) {
-    /**
-     * NOTE: Adding "aria-controls" to this list for backwards
-     * compatibility. Should eventually deprecate the use of or
-     * "aria-controls" in favor of the data attributes added here.
-     */
     var activeTabSelector =
-      '[data-tab="' + id + '"], [aria-controls="' + id + '"]';
+      '[data-tab="' + id + '"]';
 
     var activeTab =
       document.querySelector(activeTabSelector);
