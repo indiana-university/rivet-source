@@ -1,7 +1,6 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.alert,
 .#{$prefix}-alert {
   background-color: $color-black--100;
   border-left: $xxs solid $color-black--400;
@@ -68,32 +67,26 @@
  * in favor on the newer unified alert/feedback naming conventions.
  */
 
-.alert--info,
 .#{$prefix}-alert--info {
   background-color: $color-blue--050;
   border-left-color: $color-blue--600;
   color: $color-blue--700;
 }
 
-.alert--success,
 .#{$prefix}-alert--success {
   background-color: $color-green--050;
   border-left-color: $color-green--500;
   color: $color-green--700;
 }
 
-.alert--message,
 .#{$prefix}-alert--message,
-.alert--warning,
 .#{$prefix}-alert--warning {
   background-color: $color-yellow--050;
   border-left-color: $color-yellow--200;
   color: $color-yellow--700;
 }
 
-.alert--error,
 .#{$prefix}-alert--error,
-.alert--danger,
 .#{$prefix}-alert--danger {
   background-color: $color-orange--050;
   border-left-color: $color-orange--500;
@@ -104,7 +97,6 @@
  * Alert lists
  */
 
-.alert-list,
 .#{$prefix}-alert-list {
   list-style: none;
   margin: 0;
@@ -119,7 +111,6 @@
   }
 }
 
-.input-error,
 .#{$prefix}-input-error > {
   input[type='color'],
   input[type='color']:focus,
