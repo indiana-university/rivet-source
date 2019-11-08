@@ -7,15 +7,6 @@
 // parts of the codebase. Nothing in this file should generate CSS
 // on it's own only return CSS properties or values.
 
-// Gets breakpoints out of the $breakpoints map
-// DEPRECATED: The bp() function has been deprecated in favor of using
-// the $breakpoint-* variables and will be removed in the next
-// major version.
-
-@function bp($key) {
-  @return map-get($breakpoints, $key);
-}
-
 // This little function makes it easier to get values out
 // of the type-sizes map. see "core/_varibales.scss".
 
