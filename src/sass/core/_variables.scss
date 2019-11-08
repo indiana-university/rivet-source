@@ -82,13 +82,6 @@ $color-crimson: #990000 !default;
 
 $color-black: #333333 !default;
 
-// DEPRECATED: See note below on $color-black--050 variable name. $color-subtle-gray is being deprecated in favor of $color-black--050.
-
-$color-black--50: #fafafa !default;
-$color-subtle-gray: #f7f7f7 !default;
-
-// END DEPRECATED
-
 // NOTE: Standardize the way we are using variants less than 100.
 
 $color-black--050: #fafafa !default;
@@ -112,58 +105,6 @@ $color-black--900: #444444 !default;
 
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
-
-// DEPRECATED: Midnight variants
-// In order to simplify the way we refer to colors we'll be dropping
-// the use of "Midnight" to refer to the blue color we use in Rivet for
-// actions, links, etc. We're doing this to help reduced the cognitive
-// burden of having to remember branded names for colors and can simply
-// refer to blue as blue, green as green, etc. from now on.
-//
-// See this thread for more background: https://github.iu.edu/UITS/rivet-source/pull/403
-//
-// I've duplicated all $color-midnight--* variables below as $color-blue--*.
-// All $color-midnight--* will be removed in the next major version of Rivet.
-//
-// The equivalent of $color-midnight will become $color-midnight--600 which
-// is the visual equivalent of the old Midnight value, but based on a
-// programmatically generated luminosity color scale from this tool:
-//
-// https://codepen.io/basham/pen/OpNybO
-
-$color-midnight: #006298 !default;
-
-// This is a color from the brand palette. It's a bit of an outlier, but
-// I'm leaving it here for now until we decide what to do with it. Outside
-// of this file, there were only two references to this variable
-// (both in _links.scss). I've replaced those with properly generated
-// color below ($color-midnight--900).
-
-$color-dark-midnight: #01426a !default;
-
-// DEPRECATED: See note below on $color-midnight--050 variable name.
-
-$color-midnight--50: #edf1f6 !default;
-
-// NOTE: Standardize the way we are using variants less than 100.
-
-$color-midnight--050: #edf1f6 !default;
-
-// Rest of Midnight variants
-
-$color-midnight--100: #dce3ee !default;
-$color-midnight--200: #b8c8dc !default;
-$color-midnight--300: #95adcb !default;
-$color-midnight--400: #7194ba !default;
-$color-midnight--500: #497ba9 !default;
-// Replacing generated color here with base brand color since they are
-// perceivably the same. Generated value was #076399
-$color-midnight--600: $color-midnight !default;
-$color-midnight--700: #134a71 !default;
-$color-midnight--800: #16324b !default;
-$color-midnight--900: #121c28 !default;
-
-// END DEPRECATED
 
 // Blue variants (See note above about "Midnight") $color-blue--600 = new Midnight
 
@@ -249,20 +190,6 @@ $color-orange--700: #82270d !default;
 $color-orange--800: #571e0c !default;
 $color-orange--900: #2f1407 !default;
 
-// DEPRECATED: We'll be working to replace the use of these aliased
-// variables in the nex major version of Rivet.
-
-// Colors by purpose
-
-$color-text: $color-black !default;
-$color-background: $color-white !default;
-$color-background-subtle: $color-subtle-gray !default;
-$color-action: $color-blue--600 !default;
-$color-link: $color-blue--600 !default;
-$color-link-visited: $color-blue--900 !default;
-
-// END DEPRECATED
-
 // Alert colors
 // https://styleguide.iu.edu/visual-style/colors.html
 
@@ -271,42 +198,6 @@ $color-link-visited: $color-blue--900 !default;
 
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
-
-// DEPRECATED: All "color-alert-*" aliases will be removed in the
-// next major version in favor of the "color-black--*00" version
-
-$color-alert-gray: $color-black--400 !default;
-$color-alert-gray-light: $color-black--100 !default;
-
-// Success variants
-
-$color-alert-green: $color-green--500 !default;
-$color-alert-green-text: $color-green--700 !default;
-$color-alert-green-light: $color-green--050 !default;
-$color-alert-green-border: $color-green--200 !default;
-
-// Info variants
-
-$color-alert-blue: $color-blue--600 !default;
-$color-alert-blue-text: $color-blue--700 !default;
-$color-alert-blue-light: $color-blue--050 !default;
-$color-alert-blue-border: $color-blue--200 !default;
-
-// Warning variants
-
-$color-alert-yellow: $color-yellow--200 !default;
-$color-alert-yellow-text: $color-yellow--700 !default;
-$color-alert-yellow-light: $color-yellow--050 !default;
-$color-alert-yellow-border: $color-yellow--100 !default;
-
-// Danger variants
-
-$color-alert-orange: $color-orange--500 !default;
-$color-alert-orange-text: $color-orange--700 !default;
-$color-alert-orange-light: $color-orange--050 !default;
-$color-alert-orange-border: $color-orange--200 !default;
-
-// END DEPRECATED
 
 // TODO: Should we keep all colors in a map so that we can iterate
 // through them to make utility classes?
@@ -372,11 +263,6 @@ $breakpoint-md: map-get($breakpoints, 'md');
 $breakpoint-lg: map-get($breakpoints, 'lg');
 $breakpoint-xl: map-get($breakpoints, 'xl');
 $breakpoint-xxl: map-get($breakpoints, 'xxl');
-
-// DEPRECATED: This should be deprecated moving forward. All instances where it
-// was used have been replaced with the $xxs (4px) global variable.
-
-$radius-small: 3px !default;
 
 // z-index map
 // Starts and 0 and works up to 1000. Leaving some space between intervals
