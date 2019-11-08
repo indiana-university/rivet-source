@@ -4,7 +4,6 @@
 /* stylelint-disable */
 
 @each $key, $value in $color-map {
-  .color-#{$key},
   .#{$prefix}-color-#{$key} {
     color: #{$value};
   }
@@ -15,7 +14,6 @@
 //     background-color: #006298;
 // }
 @each $key, $value in $color-map {
-  .bg-#{$key},
   .#{$prefix}-bg-#{$key} {
     background-color: #{$value};
     color: $color-white;
