@@ -5,9 +5,6 @@
  * screenreaders: h5bp.com/v
  */
 
-.visuallyhidden,
-.v-hide,
-.sr-only,
 .#{$prefix}-sr-only {
   border: 0;
   clip: rect(0 0 0 0);
@@ -24,12 +21,6 @@
  * keyboard: h5bp.com/p
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus,
-.v-hide.focusable:active,
-.v-hide.focusable:focus,
-.sr-only.focusable:active,
-.sr-only.focusable:focus,
 .#{$prefix}-sr-only.focusable:active,
 .#{$prefix}-sr-only.focusable:focus {
   clip: auto;
@@ -40,22 +31,18 @@
   width: auto;
 }
 
-.display-block,
 .#{$prefix}-display-block {
   display: block !important;
 }
 
-.display-inline-block,
 .#{$prefix}-display-inline-block {
   display: inline-block !important;
 }
 
-.display-inline,
 .#{$prefix}-display-inline {
   display: inline !important;
 }
 
-.display-none,
 .#{$prefix}-display-none {
   display: none !important;
 }
