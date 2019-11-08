@@ -17,7 +17,7 @@ tr th {
 
 thead {
   border-bottom: 1px solid $color-black--200;
-  background-color: $color-subtle-gray;
+  background-color: $color-black--050;
 
   th,
   tr th {
@@ -50,7 +50,7 @@ tr td {
 .table-stripes,
 .#{$prefix}-table-stripes {
   tr:nth-child(even) {
-    background-color: $color-subtle-gray;
+    background-color: $color-black--050;
   }
 }
 

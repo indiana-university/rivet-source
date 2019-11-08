@@ -70,7 +70,7 @@
 
   &__indicator {
     align-items: center;
-    background-color: $color-background;
+    background-color: $color-white;
     border: $xxs solid $color-black--200;
     border-radius: 999rem;
     box-shadow: 0 0 0 $xxs $color-white;
@@ -85,7 +85,7 @@
   &__indicator--success {
     background-color: $color-green--500;
     border-color: $color-green--400;
-    color: $color-background;
+    color: $color-white;
   }
 
   &__indicator--warning {
@@ -97,7 +97,7 @@
   &__indicator--danger {
     background-color: $color-orange--500;
     border-color: $color-orange--400;
-    color: $color-background;
+    color: $color-white;
   }
 
   /**

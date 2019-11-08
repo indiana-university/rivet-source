@@ -151,7 +151,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 $xxs/2 $color-alert-orange;
-    border-color: $color-alert-orange;
+    box-shadow: 0 0 0 $xxs/2 $color-orange--500;
+    border-color: $color-orange--500;
   }
 }
