@@ -35,7 +35,6 @@ tr td {
   padding: $sm;
 }
 
-.table-plain,
 .#{$prefix}-table-plain {
   thead {
     background-color: transparent;
@@ -47,7 +46,6 @@ tr td {
   }
 }
 
-.table-stripes,
 .#{$prefix}-table-stripes {
   tr:nth-child(even) {
     background-color: $color-black--050;
