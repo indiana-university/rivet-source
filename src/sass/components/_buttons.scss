@@ -8,7 +8,6 @@
 }
 /* stylelint-enable */
 
-.button,
 .#{$prefix}-button {
   background-color: $color-blue--600;
   border: $xxs/2 solid $color-blue--600;
@@ -58,7 +57,6 @@
   }
 }
 
-.button--secondary,
 .#{$prefix}-button--secondary {
   background-color: transparent;
   color: $color-blue--600;
@@ -82,7 +80,6 @@
   }
 }
 
-.button--success,
 .#{$prefix}-button--success {
   background-color: $color-green--500;
   border-color: $color-green--500;
@@ -106,7 +103,6 @@
   }
 }
 
-.button--success-secondary,
 .#{$prefix}-button--success-secondary {
   background-color: transparent;
   border-color: $color-green--500;
@@ -132,7 +128,6 @@
   }
 }
 
-.button--danger,
 .#{$prefix}-button--danger {
   background-color: $color-orange--500;
   border-color: $color-orange--500;
@@ -156,7 +151,6 @@
   }
 }
 
-.button--danger-secondary,
 .#{$prefix}-button--danger-secondary {
   background-color: transparent;
   border-color: $color-orange--500;
@@ -182,7 +176,6 @@
   }
 }
 
-.button--small,
 .#{$prefix}-button--small {
   height: $md;
   line-height: 1.1;
@@ -206,7 +199,6 @@
   }
 }
 
-.button--plain,
 .#{$prefix}-button--plain {
   border-color: transparent;
   background-color: transparent;
@@ -238,7 +230,6 @@
   }
 }
 
-.button-group,
 .#{$prefix}-button-group {
   display: flex;
 
@@ -251,7 +242,6 @@
  * Right align buttons.
  */
 
-.button-group--right,
 .#{$prefix}-button-group--right {
   justify-content: flex-end;
 }
