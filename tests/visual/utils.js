@@ -25,7 +25,6 @@ const componentNames = [
     "pagination",
     "breadcrumb",
     "badges",
-    "panel",
     "tabs--default",
     "file-input",
     "dropdown",
