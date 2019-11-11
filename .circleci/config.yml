@@ -18,12 +18,12 @@ aliases:
   # Cache Management
   - &restore-node-modules
     keys:
-      - v2-node-modules-{{ checksum "package.json" }}
+      - v3-node-modules-{{ checksum "package.json" }}
 
   - &save-node-modules
     paths:
       - node_modules
-    key: v2-node-modules-{{ checksum "package.json" }}
+    key: v3-node-modules-{{ checksum "package.json" }}
 
   # Branch Filtering
   - &filter-only-master
