@@ -1,7 +1,6 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.text-uppercase,
 .#{$prefix}-text-uppercase {
   text-transform: uppercase;
 
@@ -12,27 +11,22 @@
   letter-spacing: .04rem;
 }
 
-.text-bold,
 .#{$prefix}-text-bold {
   font-weight: 700 !important;
 }
 
-.text-regular,
 .#{$prefix}-text-regular {
   font-weight: 400 !important;
 }
 
-.text-left,
 .#{$prefix}-text-left {
   text-align: left !important;
 }
 
-.text-right,
 .#{$prefix}-text-right {
   text-align: right !important;
 }
 
-.text-center,
 .#{$prefix}-text-center {
   text-align: center !important;
 }

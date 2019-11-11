@@ -37,18 +37,13 @@ $spacing-sizes: (
   @each $size, $value in $spacing-sizes {
     // NOTE: We use !important here because we want these utilities to always
     // produced the same result.
-    
-    // DEPRECATED: In the next major version of Rivet we will be removing
-    // any non-prefixed versions of utility classes.
 
     // If the direction is "null", add margin to all directions.
     @if $direction == null {
-      .m-all#{$size},
       .#{$prefix}-m-all#{$size} {
         margin: $value !important;
       }
 
-      .p-all#{$size},
       .#{$prefix}-p-all#{$size} {
         padding: $value !important;
       }
@@ -75,12 +70,10 @@ $spacing-sizes: (
 
       // Otherwise create individual direction utilities.
     } @else {
-      .m#{$direction}#{$size},
       .#{$prefix}-m#{$direction}#{$size} {
         margin#{$direction}: $value !important;
       }
 
-      .p#{$direction}#{$size},
       .#{$prefix}-p#{$direction}#{$size} {
         padding#{$direction}: $value !important;
       }
@@ -96,18 +89,13 @@ $spacing-sizes: (
       @each $size, $value in $spacing-sizes {
         // NOTE: We use !important here because we want these utilities to always
         // produced the same result.
-        
-        // DEPRECATED: In the next major version of Rivet we will be removing
-        // any non-prefixed versions of utility classes.
-    
+
         // If the direction is "null", add margin to all directions.
         @if $direction == null {
-          .m-all#{$size}-#{$bp-name}-up,
           .#{$prefix}-m-all#{$size}-#{$bp-name}-up {
             margin: $value !important;
           }
 
-          .p-all#{$size}-#{$bp-name}-up,
           .#{$prefix}-p-all#{$size}-#{$bp-name}-up {
             padding: $value !important;
           }
@@ -134,12 +122,10 @@ $spacing-sizes: (
 
           // Otherwise create individual direction utilities.
         } @else {
-          .m#{$direction}#{$size}-#{$bp-name}-up,
           .#{$prefix}-m#{$direction}#{$size}-#{$bp-name}-up {
             margin#{$direction}: $value !important;
           }
 
-          .p#{$direction}#{$size}-#{$bp-name}-up,
           .#{$prefix}-p#{$direction}#{$size}-#{$bp-name}-up {
             padding#{$direction}: $value !important;
           }
@@ -157,25 +143,21 @@ $spacing-sizes: (
 // class with "rvt-" moving forward.
 @each $direction in $spacing-directions {
   @if $direction == null {
-    .m-all-remove,
     .#{$prefix}-m-all-remove,
     .#{$prefix}-m-all-none {
       margin: 0 !important;
     }
 
-    .p-all-remove,
     .#{$prefix}-p-all-remove, 
     .#{$prefix}-p-all-none {
       padding: 0 !important;
     }
   } @else {
-    .m#{$direction}-remove,
     .#{$prefix}-m#{$direction}-remove, 
     .#{$prefix}-m#{$direction}-none {
       margin#{$direction}: 0 !important;
     }
 
-    .p#{$direction}-remove,
     .#{$prefix}-p#{$direction}-remove,
     .#{$prefix}-p#{$direction}-none {
       padding#{$direction}: 0 !important;

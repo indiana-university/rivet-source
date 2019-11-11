@@ -10,7 +10,6 @@
  */
 
 @each $ts-pixels, $ts-rems in $type-sizes {
-  .ts-#{$ts-pixels},
   .#{$prefix}-ts-#{$ts-pixels} {
     font-size: $ts-rems !important;
   }
@@ -29,7 +28,6 @@
 @each $bp-name, $bp-size in $breakpoints {
   @include mq($bp-size) {
     @each $ts-pixels, $ts-rems in $type-sizes {
-      .ts-#{$ts-pixels}-#{$bp-name}-up,
       .#{$prefix}-ts-#{$ts-pixels}-#{$bp-name}-up {
         font-size: $ts-rems !important;
       }

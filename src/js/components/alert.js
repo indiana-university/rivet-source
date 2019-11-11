@@ -8,7 +8,6 @@ var Alert = (function() {
   'use strict';
 
   // Selectors
-  
   /**
    * DEPRECATED: .rvt-alert__dismiss will be removed in the future in favor of
    * using the more consistent data attribute data-alert-close.

@@ -30,8 +30,6 @@ var Dropdown = (function() {
   // Anything that is focusable
   var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
-  var MENU_SELECTOR = '.rvt-dropdown__menu';
-
   var TOGGLE_ATTR = 'data-dropdown-toggle';
 
   /**
@@ -133,61 +131,6 @@ var Dropdown = (function() {
     if (callback && typeof callback === 'function') {
       callback();
     }
-  }
-
-  /**
-   * DEPRECATED: This adds backward compatibility for the closeAll() method
-   * in before and including 1.0.0. This should be marked as deprecated
-   * moving forward and removed in the next major version.
-   */
-  function closeAll() {
-    // Find all the dropdown toggles and convert them to an array
-    var allDropdownToggles =
-      Array.prototype.slice.call(
-        document.querySelectorAll('[' + TOGGLE_ATTR + ']')
-      );
-
-    // Find all the dropdown menus and convert them to an array
-    var allDropdownMenus =
-      Array.prototype.slice.call(
-        document.querySelectorAll(MENU_SELECTOR)
-      );
-
-    allDropdownToggles.forEach(function(toggle) {
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-
-    allDropdownMenus.forEach(function (menu) {
-      menu.setAttribute('aria-hidden', 'true');
-    });
-  }
-
-  /**
-   * A helper function that toggles a dropdown to the opposite of it's
-   * current state (opened or closed). The .toggle() method was part
-   * of the original API, so we're keeping it here for backwards
-   * compatibility.
-   *
-   * @param {String} id - A unique string associate with the dropdown's
-   * "data-dropdown-toggle" and "id" attributes.
-   * @param {Function} callback - An optional callback that get's executed
-   * after the dropdown is either opened or closed.
-   */
-  function toggle(id, callback) {
-    if (!id) {
-      throw new Error('You must provide a unique id for the menu you\'re trying to toggle.');
-    }
-
-    var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
-
-    // Check the state of the dropdown toggle button
-    var isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
-
-    /**
-     * If the button is expanded/the menu is open run the close method,
-     * otherwise open the menu.
-     */
-    isExpanded ? closeMenu(id, callback) : openMenu(id, callback);
   }
 
   /**
@@ -448,9 +391,7 @@ var Dropdown = (function() {
   return {
     open: openMenu,
     close: closeMenu,
-    closeAll: closeAll,
     init: init,
-    destroy: destroy,
-    toggle: toggle
+    destroy: destroy
   };
 })();

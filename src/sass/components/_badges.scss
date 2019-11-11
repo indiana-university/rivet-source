@@ -40,8 +40,6 @@ a.#{$prefix}-badge {
     border-color: $color-black--400;
   }
 
-  &--action:hover,
-  &--action-secondary:hover,
   &--info:hover,
   &--info-secondary:hover {
     background-color: $color-blue--700;
@@ -63,8 +61,6 @@ a.#{$prefix}-badge {
     color: $color-white;
   }
 
-  &--error:hover,
-  &--error-secondary:hover,
   &--danger:hover,
   &--danger-secondary:hover {
     background-color: $color-orange--700;
@@ -77,11 +73,6 @@ a.#{$prefix}-badge {
   }
 }
 
-/**
- * DEPRECATED: Remove --action modifier in next major version.
- */
-
-.#{$prefix}-badge--action,
 .#{$prefix}-badge--info {
   background-color: $color-blue--600;
   border-color: $color-blue--600;
@@ -118,11 +109,6 @@ a.#{$prefix}-badge {
   }
 }
 
-/**
- * DEPRECATED: Remove --error modifier in next major version.
- */
-
-.#{$prefix}-badge--error,
 .#{$prefix}-badge--danger {
   background-color: $color-orange--500;
   border-color: $color-orange--500;
