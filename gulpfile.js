@@ -1,33 +1,42 @@
 const { dest, series, src, watch } = require("gulp");
+const { eslint } = require("rollup-plugin-eslint");
 const autoprefixer = require("autoprefixer");
+const babel = require("rollup-plugin-babel");
 const cssnano = require("gulp-cssnano");
-const eslint = require("gulp-eslint");
-const concat = require("gulp-concat");
 const header = require("gulp-header");
 const postcss = require("gulp-postcss");
-const pump = require("pump");
 const rename = require("gulp-rename");
 const reporter = require("postcss-reporter");
-const requireDir = require("require-dir");
+const rollup = require("rollup");
 const sass = require("gulp-sass");
 const scss = require("postcss-scss");
 const stylelint = require("gulp-stylelint");
 const uglify = require("gulp-uglify");
 
-const bannerPackage = require("./config/banner");
 const fractal = require("./fractal");
 const package = require("./package.json");
-const sassBannerPackage = require("./config/sass-banner");
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
 
-// Include everything in the "tasks" folder
-requireDir("./config");
-
 /**
  * Sass tasks
  */
+
+// Create the string for the version number banner.
+var sassBannerText = `// ${package.name} - @version ${package.version}
+
+`;
+
+// Create the string for the verion number banner.
+var bannerText = `/*!
+ * ${package.name} - @version ${package.version}
+
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+`;
 
 function compileSass() {
   return src("src/sass/**/*.scss")
@@ -69,7 +78,7 @@ function releaseCopySass() {
 // Add version number header to all .scss files.
 function headerSass() {
   return src(["./sass/**/*.scss", "!./sass/libs/*"])
-    .pipe(header(sassBannerPackage, { package: package }))
+    .pipe(header(sassBannerText, { package: package }))
     .pipe(dest("./sass/"));
 }
 
@@ -83,7 +92,7 @@ function compileCSS() {
 
 function headerCSS() {
   return src("./css/rivet.css")
-    .pipe(header(bannerPackage, { package: package }))
+    .pipe(header(bannerText, { package: package }))
     .pipe(dest("./css/"));
 }
 
@@ -115,34 +124,19 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-function lintJSWatch() {
-  return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
-    .pipe(eslint())
-    .pipe(eslint.format());
-}
-
-function lintJSBuild() {
-  return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
-
-function concatJS() {
-  return src([
-    "src/js/polyfills/closest.js",
-    "src/js/polyfills/CustomEvent.js",
-    "src/js/utilities/fireCustomEvent.js",
-    "src/js/components/alert.js",
-    "src/js/components/drawer.js",
-    "src/js/components/dropdown.js",
-    "src/js/components/modal.js",
-    "src/js/components/tabs.js",
-    "src/js/components/fileInput.js",
-    "src/js/index.js"
-  ])
-    .pipe(concat("rivet.js"))
-    .pipe(dest("./static/js"));
+function compileJSDev() {
+  return rollup
+    .rollup({
+      input: './src/js/index.js',
+      plugins: [babel({ runtimeHelpers: true })]
+    })
+    .then(bundle => {
+      return bundle.write({
+        file: './static/js/rivet.js',
+        format: 'iife',
+        name: 'Rivet'
+      })
+    })
 }
 
 function vendorJS() {
@@ -150,7 +144,7 @@ function vendorJS() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(lintJSWatch, concatJS, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJSDev, vendorJS));
   callback();
 }
 
@@ -160,11 +154,11 @@ function distJS() {
 
 function headerJS(callback) {
   src("./js/rivet.js")
-    .pipe(header(bannerPackage, { package: package }))
+    .pipe(header(bannerText, { package: package }))
     .pipe(dest("./js/"));
 
   src("./js/rivet.min.js")
-    .pipe(header(bannerPackage, { package: package }))
+    .pipe(header(bannerText, { package: package }))
     .pipe(dest("./js/"));
 
   callback();
@@ -233,8 +227,6 @@ function example(callback) {
 exports.release = series(
   lintSassBuild,
   compileSass,
-  lintJSBuild,
-  concatJS,
   compileCSS,
   prefixReleaseCSS,
   headerCSS,
@@ -250,8 +242,6 @@ exports.release = series(
 exports.build = series(
   lintSassBuild,
   compileSass,
-  lintJSBuild,
-  concatJS,
   vendorJS,
   fractalBuild,
   prefixFractalCSS
@@ -261,8 +251,6 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
-  lintJSWatch,
-  concatJS,
   fractalHeadless,
   watchSass,
   watchJS
@@ -271,8 +259,7 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSassWatch,
-  lintJSWatch,
-  concatJS,
+  compileJSDev,
   fractalStart,
   watchSass,
   watchJS
