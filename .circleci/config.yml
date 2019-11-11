@@ -92,12 +92,8 @@ workflows:
   build-test:
     jobs:
       - publish_rc_package:
-          requires:
-            - test
           filters: *filter-only-release-hotfix
           context: iubot
       - publish_production_package:
-          requires:
-            - test
           filters: *filter-only-master
           context: iubot
