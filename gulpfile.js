@@ -149,7 +149,7 @@ function vendorJS() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJSDev, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, vendorJS));
   callback();
 }
 
