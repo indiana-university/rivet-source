@@ -10,6 +10,7 @@ const reporter = require("postcss-reporter");
 const rollup = require("rollup");
 const sass = require("gulp-sass");
 const scss = require("postcss-scss");
+const strip = require('gulp-strip-comments');
 const stylelint = require("gulp-stylelint");
 const uglify = require("gulp-uglify");
 
@@ -124,22 +125,7 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-function compileJSDev() {
-  return rollup
-    .rollup({
-      input: './src/js/index.js',
-      plugins: [babel({ runtimeHelpers: true })]
-    })
-    .then(bundle => {
-      return bundle.write({
-        file: './static/js/rivet.js',
-        format: 'iife',
-        name: 'Rivet'
-      })
-    })
-}
-
-async function compileJSBuild() {
+async function compileJS() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
     plugins: [ babel({ runtimeHelpers: true })]
@@ -164,6 +150,18 @@ function vendorJS() {
 
 function watchJS(callback) {
   watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJSDev, vendorJS));
+  callback();
+}
+
+function stripJS(callback) {
+  src('./js/rivet.js')
+    .pipe(strip())
+    .pipe(dest('./js'));
+
+  src('./js/rivet-esm.js')
+  .pipe(strip())
+  .pipe(dest('./js'));
+
   callback();
 }
 
@@ -254,8 +252,9 @@ exports.release = series(
   prefixReleaseCSS,
   headerCSS,
   minifyCSS,
-  compileJSBuild,
+  compileJS,
   distJS,
+  stripJS,
   minifyJS,
   headerJS,
   releaseCopySass,
@@ -263,20 +262,11 @@ exports.release = series(
   example
 );
 
-exports.build = series(
-  lintSassBuild,
-  compileSass,
-  compileJSBuild,
-  vendorJS,
-  fractalBuild,
-  prefixFractalCSS
-);
-
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
-  compileJSBuild,
+  compileJS,
   fractalHeadless,
   watchSass,
   watchJS
@@ -285,7 +275,7 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSassWatch,
-  compileJSDev,
+  compileJS,
   fractalStart,
   watchSass,
   watchJS
