@@ -139,6 +139,25 @@ function compileJSDev() {
     })
 }
 
+async function compileJSBuild() {
+  const bundle = await rollup.rollup({
+    input: './src/js/index.js',
+    plugins: [ babel({ runtimeHelpers: true })]
+  });
+
+  await bundle.write({
+    file: './static/js/rivet.js',
+    format: 'iife',
+    name: 'Rivet'
+  });
+
+  await bundle.write({
+    file: './static/js/rivet-esm.js',
+    format: 'es',
+    name: 'Rivet'
+  });
+}
+
 function vendorJS() {
   return src("src/js/vendor.js").pipe(dest("./static/js"));
 }
@@ -149,11 +168,15 @@ function watchJS(callback) {
 }
 
 function distJS() {
-  return src("static/js/rivet.js").pipe(dest("./js"));
+  return src("static/js/rivet*.js").pipe(dest("./js"));
 }
 
 function headerJS(callback) {
   src("./js/rivet.js")
+    .pipe(header(bannerText, { package: package }))
+    .pipe(dest("./js/"));
+
+    src("./js/rivet-esm.js")
     .pipe(header(bannerText, { package: package }))
     .pipe(dest("./js/"));
 
@@ -164,11 +187,11 @@ function headerJS(callback) {
   callback();
 }
 
-function minifyJS(callback) {
-  pump(
-    [src("./js/rivet.js"), uglify(), rename({ suffix: ".min" }), dest("./js")],
-    callback
-  );
+function minifyJS() {
+  return src('./js/rivet.js')
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('./js'));
 }
 
 /**
@@ -231,6 +254,7 @@ exports.release = series(
   prefixReleaseCSS,
   headerCSS,
   minifyCSS,
+  compileJSBuild,
   distJS,
   minifyJS,
   headerJS,
@@ -242,6 +266,7 @@ exports.release = series(
 exports.build = series(
   lintSassBuild,
   compileSass,
+  compileJSBuild,
   vendorJS,
   fractalBuild,
   prefixFractalCSS
@@ -251,6 +276,7 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
+  compileJSBuild,
   fractalHeadless,
   watchSass,
   watchJS
