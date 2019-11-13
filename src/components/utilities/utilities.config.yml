@@ -1,6 +1,7 @@
+title: "Utilities"
 status: "ready"
 context:
-  demos:
+    demos:
     - "One"
     - "Two"
     - "Three"
