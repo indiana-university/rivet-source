@@ -1,9 +1,38 @@
 title: "Utilities"
 status: "ready"
 context:
-    demos:
-    - "One"
-    - "Two"
-    - "Three"
-    - "Four"
-    - "Five"
+    flexText:
+        - "One"
+        - "Two"
+        - "Three"
+        - "Four"
+        - "Five"
+    spacings:
+        - abbr: -xxs
+          rem: .25rem
+          pixels: 4
+          name: Extra extra small
+        - abbr: -xs
+          rem: .5rem
+          pixels: 8
+          name: Extra small
+        - abbr: -sm
+          rem: 1rem
+          pixels: 16
+          name: Small
+        - abbr: -md
+          rem: 1.5rem
+          pixels: 24
+          name: Medium
+        - abbr: -lg
+          rem: 2rem
+          pixels: 32
+          name: Large
+        - abbr: -xl
+          rem: 2.5rem
+          pixels: 40
+          name: Extra large
+        - abbr: -xxl
+          rem: 3rem
+          pixels: 48
+          name: Extra extra large
