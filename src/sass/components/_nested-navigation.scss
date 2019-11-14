@@ -9,7 +9,7 @@
   &__list[aria-hidden='true'] {
     display: none;
   }
-  
+
   &__item {
     align-items: center;
     border-top: 1px solid $color-black--100;
@@ -27,7 +27,7 @@
     &[aria-current] {
       box-shadow: inset $xxs 0 0 $color-blue;
     }
-    
+
     &:focus,
     &:hover {
       color: $color-blue;
@@ -41,7 +41,7 @@
     border: none;
     justify-content: center;
     padding: $sm;
-    
+
     svg {
       vertical-align: middle;
     }
@@ -88,7 +88,11 @@ $level-styles: (
   120: $color-black--200
 );
 
+/* TODO: Adjust stylelint rules to handle nested Sass */
+
 @each $indent, $shade in $level-styles {
+  /* stylelint-disable */
+
   // Get current @each index
   $index: index(($level-styles), ($indent $shade));
 
@@ -118,4 +122,6 @@ $level-styles: (
 
   // Append another pair of item and list to selector for shading
   $shade-selector: '#{$shade-selector} > .#{$item} > .#{$list}';
+
+  /* stylelint-enable */
 }
