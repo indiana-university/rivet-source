@@ -44,6 +44,19 @@ context:
           rem: 3
           pixels: 48
           name: Extra extra large
+    texts:
+        - abbr: -regular
+          name: Regular
+        - abbr: -bold
+          name: Bold
+        - abbr: -uppercase
+          name: Uppercase
+        - abbr: -left
+          name: Left
+        - abbr: -center
+          name: Center
+        - abbr: -right
+          name: Right
     typeScale:
         - abbr: -xxs
           rem: .75
