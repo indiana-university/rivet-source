@@ -80,7 +80,7 @@ fractal.components.set('statuses', {
     beta: {
         label: "Beta",
         description: "This component is stable, but could still change slightly.",
-        color: '#49AFC7'
+        color: '#006298'
     },
     ready: {
         label: "Ready",
