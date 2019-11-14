@@ -13,7 +13,7 @@ const stylelint = require("gulp-stylelint");
 const uglify = require("gulp-uglify");
 
 const fractal = require("./fractal");
-const package = require("./package.json");
+const pkg = require("./package.json");
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
@@ -23,13 +23,13 @@ const logger = fractal.cli.console;
  */
 
 // Create the string for the version number banner.
-var sassBannerText = `// ${package.name} - @version ${package.version}
+var sassBannerText = `// ${pkg.name} - @version ${pkg.version}
 
 `;
 
-// Create the string for the verion number banner.
+// Create the string for the version number banner.
 var bannerText = `/*!
- * ${package.name} - @version ${package.version}
+ * ${pkg.name} - @version ${pkg.version}
 
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
@@ -77,7 +77,7 @@ function releaseCopySass() {
 // Add version number header to all .scss files.
 function headerSass() {
   return src(["./sass/**/*.scss", "!./sass/libs/*"])
-    .pipe(header(sassBannerText, { package: package }))
+    .pipe(header(sassBannerText, { package: pkg }))
     .pipe(dest("./sass/"));
 }
 
@@ -91,7 +91,7 @@ function compileCSS() {
 
 function headerCSS() {
   return src("./css/rivet.css")
-    .pipe(header(bannerText, { package: package }))
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./css/"));
 }
 
@@ -169,15 +169,15 @@ function distJS() {
 
 function headerJS(callback) {
   src("./js/rivet-iife.js")
-    .pipe(header(bannerText, { package: package }))
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./js/"));
 
   src("./js/rivet-esm.js")
-    .pipe(header(bannerText, { package: package }))
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./js/"));
 
   src("./js/rivet.min.js")
-    .pipe(header(bannerText, { package: package }))
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./js/"));
 
   callback();
