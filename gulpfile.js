@@ -8,7 +8,6 @@ const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
 const rollup = require("rollup");
 const sass = require("gulp-sass");
-const scss = require("postcss-scss");
 const strip = require('gulp-strip-comments');
 const stylelint = require("gulp-stylelint");
 const uglify = require("gulp-uglify");
