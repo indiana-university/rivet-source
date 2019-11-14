@@ -7,6 +7,14 @@ context:
         - "Three"
         - "Four"
         - "Five"
+    borders:
+        - side: top
+        - side: right
+        - side: bottom
+        - side: left
+        - side: all
+        - side: all
+          radius: true
     spacings:
         - abbr: -xxs
           rem: .25
