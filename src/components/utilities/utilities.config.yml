@@ -36,3 +36,39 @@ context:
           rem: 3rem
           pixels: 48
           name: Extra extra large
+    typeScale:
+        - abbr: -xxs
+          rem: .75
+          pixels: 12
+        - abbr: -xs
+          rem: .875
+          pixels: 14
+        - abbr: -base
+          rem: 1
+          pixels: 16
+        - rem: 1.125
+          pixels: 18
+        - abbr: -sm
+          rem: 1.25
+          pixels: 20
+        - rem: 1.4375
+          pixels: 23
+        - abbr: -md
+          rem: 1.625
+          pixels: 26
+        - rem: 1.8125
+          pixels: 29
+        - abbr: -lg
+          rem: 2
+          pixels: 32
+        - rem: 2.25
+          pixels: 36
+        - abbr: -xl
+          rem: 2.5625
+          pixels: 41
+        - rem: 2.875
+          pixels: 46
+        - abbr: -xxl
+          rem: 3.25
+          pixels: 52
+    typeScaleText: Lorem ipsum
