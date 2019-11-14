@@ -1,0 +1,11 @@
+<h1 class="rvt-ts-32 rvt-m-bottom-lg">Border utilities</h1>
+
+<ul class="rvt-plain-list">
+    {% for border in borders %}
+        <li class="rvt-m-top-md">
+            <div class="rvt-border-{{ border.side }} {% if border.radius %}rvt-border-radius {% endif %}rvt-p-all-md">
+                <span>Border {{ border.side }}</span>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
