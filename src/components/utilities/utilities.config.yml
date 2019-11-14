@@ -9,31 +9,31 @@ context:
         - "Five"
     spacings:
         - abbr: -xxs
-          rem: .25rem
+          rem: .25
           pixels: 4
           name: Extra extra small
         - abbr: -xs
-          rem: .5rem
+          rem: .5
           pixels: 8
           name: Extra small
         - abbr: -sm
-          rem: 1rem
+          rem: 1
           pixels: 16
           name: Small
         - abbr: -md
-          rem: 1.5rem
+          rem: 1.5
           pixels: 24
           name: Medium
         - abbr: -lg
-          rem: 2rem
+          rem: 2
           pixels: 32
           name: Large
         - abbr: -xl
-          rem: 2.5rem
+          rem: 2.5
           pixels: 40
           name: Extra large
         - abbr: -xxl
-          rem: 3rem
+          rem: 3
           pixels: 48
           name: Extra extra large
     typeScale:
