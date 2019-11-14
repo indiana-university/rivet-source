@@ -6,7 +6,6 @@ const cssnano = require("gulp-cssnano");
 const header = require("gulp-header");
 const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
-const reporter = require("postcss-reporter");
 const rollup = require("rollup");
 const sass = require("gulp-sass");
 const scss = require("postcss-scss");
