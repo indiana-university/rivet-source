@@ -130,7 +130,7 @@ async function compileJS() {
   });
 
   await bundle.write({
-    file: './static/js/rivet.js',
+    file: './static/js/rivet-iife.js',
     format: 'iife',
     name: 'Rivet'
   });
@@ -152,7 +152,7 @@ function watchJS(callback) {
 }
 
 function stripJS(callback) {
-  src('./js/rivet.js')
+  src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
 
@@ -168,11 +168,11 @@ function distJS() {
 }
 
 function headerJS(callback) {
-  src("./js/rivet.js")
+  src("./js/rivet-iife.js")
     .pipe(header(bannerText, { package: package }))
     .pipe(dest("./js/"));
 
-    src("./js/rivet-esm.js")
+  src("./js/rivet-esm.js")
     .pipe(header(bannerText, { package: package }))
     .pipe(dest("./js/"));
 
@@ -184,9 +184,9 @@ function headerJS(callback) {
 }
 
 function minifyJS() {
-  return src('./js/rivet.js')
+  return src('./js/rivet-iife.js')
     .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({ basename: 'rivet', suffix: '.min' }))
     .pipe(dest('./js'));
 }
 
