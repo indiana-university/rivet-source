@@ -3,4 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export * from './components/alert.js';
+import Alert from './components/alert';
+
+export default { Alert };

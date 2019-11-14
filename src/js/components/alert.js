@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export class Alert {
+export default class Alert {
 
   constructor(options) {
     this.handleClick = this.handleClick.bind(this);
