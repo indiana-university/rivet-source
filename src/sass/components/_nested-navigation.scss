@@ -1,0 +1,121 @@
+.#{$prefix}-nested-nav {
+  &__list {
+    flex-basis: 100%;
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &__list[hidden],
+  &__list[aria-hidden='true'] {
+    display: none;
+  }
+  
+  &__item {
+    align-items: center;
+    border-top: 1px solid $color-black--100;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0; // resets Rivet default margin-top
+  }
+
+  &__link {
+    color: $color-black;
+    flex-grow: 1;
+    padding: $sm;
+    text-decoration: none;
+
+    &[aria-current] {
+      box-shadow: inset $xxs 0 0 $color-blue;
+    }
+    
+    &:focus,
+    &:hover {
+      color: $color-blue;
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    background: transparent;
+    border: none;
+    justify-content: center;
+    padding: $sm;
+    
+    svg {
+      vertical-align: middle;
+    }
+
+    &[aria-expanded="true"] {
+      transform: rotate(180deg);
+    }
+
+    &:focus {
+      outline: $xxs/2 solid $color-blue;
+      outline-offset: $xxs/2;
+    }
+
+    &:focus,
+    &:hover {
+      background: $color-blue;
+      color: $color-white;
+    }
+  }
+
+  &__link,
+  &__icon {
+    &:focus {
+      z-index: 1;
+    }
+  }
+}
+
+/*
+  * Nested levels:
+  * Indent text and set background colors and border-top colors
+  */
+$list: 'rvt-nested-nav__list';
+$item: 'rvt-nested-nav__item';
+
+/* Set up initial selectors for indenting and shading */
+$indent-selector: '.#{$list} > .#{$item} > .#{$list} > .#{$item}';
+$shade-selector: '.#{$item} > .#{$list}';
+
+// Set up level indent/background shade map
+$level-styles: (
+  40: $color-black--050,
+  80: $color-black--100,
+  120: $color-black--200
+);
+
+@each $indent, $shade in $level-styles {
+  // Get current @each index
+  $index: index(($level-styles), ($indent $shade));
+
+  // Indent the link text
+  #{$indent-selector} > .rvt-nested-nav__link {
+    text-indent: $indent + px;
+  }
+
+  // Set border-top color per nested level
+  #{$indent-selector} {
+    @if $index == 1 {
+      border-color: $color-black--150;
+    } @else if $index == 2 {
+      border-color: $color-black--200;
+    } @else if $index == 3 {
+      border-color: $color-black--300;
+    }
+  }
+
+  // Set the background shade
+  #{$shade-selector} {
+    background-color: $shade;
+  }
+
+  // Append another pair of list and item to the selector for indenting
+  $indent-selector: '#{$indent-selector} > .#{$list} > .#{$item}';
+
+  // Append another pair of item and list to selector for shading
+  $shade-selector: '#{$shade-selector} > .#{$item} > .#{$list}';
+}
