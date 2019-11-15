@@ -25,7 +25,7 @@ export default class Alert {
   }
 
   dismissAlert(id, callback) {
-    const alert = document.querySelector('[aria-labelledby="' + id + '"]');
+    let alert = document.querySelector('[aria-labelledby="' + id + '"]');
 
     if (!alert) {
       alert = document.getElementById(id);
