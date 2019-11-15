@@ -228,14 +228,6 @@ function fractalBuild() {
   });
 }
 
-/**
- * Default development task
- */
-
-/**
- * Build dist directory
- */
-
 function example(callback) {
   src("./src/components/_extras/_index-example.html")
     .pipe(rename("index.html"))
