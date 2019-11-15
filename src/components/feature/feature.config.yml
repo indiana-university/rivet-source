@@ -3,7 +3,7 @@ label: Feature
 status: "ready"
 collated: true
 context:
-    title: "Feature title"
+    title: "Lorem ipsum dolor sit amet consectetur adipiscing elit"
     teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
 variants:
     - name: "image"
