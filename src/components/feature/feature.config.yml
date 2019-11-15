@@ -1,0 +1,26 @@
+title: Features
+label: Features
+status: "ready"
+collated: true
+context:
+    title: "Feature title"
+    teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+variants:
+    - name: "image"
+      context:
+          image: "http://www.fillmurray.com/315/210"
+    - name: "tag"
+      context:
+          tag: "optional tag"
+    - name: "byline"
+      context:
+          byline: "By Bill Murray"
+    - name: "meta"
+      context:
+          meta: "Meta text  | Sept. 16, 2019"
+    - name: "complete"
+      context:
+          image: "http://www.fillmurray.com/315/210"
+          tag: "optional tag"
+          byline: "By Bill Murray"
+          meta: "Meta text  | Sept. 16, 2019"

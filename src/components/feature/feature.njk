@@ -1,0 +1,20 @@
+<div class="rvt-feature">
+  {% if image %}
+    <div class="rvt-feature__image">
+        <img src="{{ image }}" />
+    </div>
+  {% endif %}
+  <div class="rvt-feature__body">
+    {% if tag %}
+      <p class="rvt-feature__tag">{{ tag }}</p>
+    {% endif %}
+    <h2 class="rvt-feature__title">{{ title }}</h2>
+    {% if byline %}
+      <p class="rvt-feature__byline">{{ byline }}</p>
+    {% endif %}
+    <p class="rvt-feature__teaser">{{ teaser }}</p>
+    {% if meta %}
+      <p class="rvt-feature__meta">{{ meta }}</p>
+    {% endif %}
+  </div>
+</div>
