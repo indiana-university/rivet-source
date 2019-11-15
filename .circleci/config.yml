@@ -18,12 +18,12 @@ aliases:
   # Cache Management
   - &restore-node-modules
     keys:
-      - v2-node-modules-{{ checksum "package.json" }}
+      - v3-node-modules-{{ checksum "package.json" }}
 
   - &save-node-modules
     paths:
       - node_modules
-    key: v2-node-modules-{{ checksum "package.json" }}
+    key: v3-node-modules-{{ checksum "package.json" }}
 
   # Branch Filtering
   - &filter-only-master
@@ -49,60 +49,6 @@ defaults: &defaults
     - image: circleci/node:10
 
 jobs:
-  build:
-    <<: *defaults
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache: *restore-node-modules
-
-      # Install dependencies
-      - run:
-          name: Install dependencies
-          command: npm install
-
-      # Save cache settings
-      - save_cache: *save-node-modules
-
-      # Build!
-      - run:
-          name: Build components
-          command: npm run build
-
-  test:
-    working_directory: ~/rivet-source
-
-    docker:
-      - image: cypress/base:8
-
-    environment:
-      ## this enables colors in the output
-      TERM: xterm
-
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache: *restore-node-modules
-
-      # Install dependencies
-      - run:
-          name: Install dependencies
-          command: npm install
-
-      # Save cache settings
-      - save_cache: *save-node-modules
-
-      - run:
-          command: npm run headless
-          background: true
-
-      # Run tests
-      - run:
-          name: Run tests
-          command: npm test
-
   publish_rc_package:
     <<: *defaults
     steps:
@@ -145,18 +91,9 @@ workflows:
   version: 2
   build-test:
     jobs:
-      - build:
-          filters: *filter-ignore-v2
-      - test:
-          requires:
-            - build
       - publish_rc_package:
-          requires:
-            - test
           filters: *filter-only-release-hotfix
           context: iubot
       - publish_production_package:
-          requires:
-            - test
           filters: *filter-only-master
           context: iubot

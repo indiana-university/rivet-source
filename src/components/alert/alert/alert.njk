@@ -3,3 +3,8 @@
     <p class="rvt-alert__message">{{ message }}</p>
     {% render "@includes--alert-close-button" %}
 </div>
+<script>
+  const {{ id }}Alert = new Rivet.Alert({
+    id: '{{ id }}-alert-title'
+  }); 
+</script>
