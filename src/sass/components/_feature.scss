@@ -2,31 +2,27 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .#{$prefix}-feature {
-  max-width: 100%;
-
-  &__image {
-    overflow: hidden;
-  }
-
   & img {
+    display: block;
     width: 100%;
   }
 
   &__body {
     margin-top: $md;
-    padding-right: $sm;
   }
 
   &__tag {
-    text-transform: uppercase;
-    font-size: $ts-12;
     color: $color-blue;
+    font-size: $ts-12;
+    margin: 0;
+    text-transform: uppercase;
   }
 
   &__title {
     font-size: $ts-26;
     font-weight: 700;
-    margin-bottom: $sm;
+    line-height: 1.1;
+    margin-top: $xxs;
   }
 
   &__byline,
@@ -37,5 +33,6 @@
   &__meta {
     margin-top: $md;
     color: $color-black--700;
+    margin-bottom: 0;
   }
 }
