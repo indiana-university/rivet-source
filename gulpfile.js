@@ -126,7 +126,7 @@ function prefixReleaseCSS() {
 async function compileJS() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [ babel({ runtimeHelpers: true })]
+    plugins: [ eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
   });
 
   await bundle.write({
