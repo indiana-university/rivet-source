@@ -10,7 +10,7 @@
             <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
         </svg>
       </button>
-      <ul class="rvt-sidenav__list" id="toggle-1" role="menu">
+      <ul class="rvt-sidenav__list" data-sidenav-list="toggle-1" role="menu">
         <li class="rvt-sidenav__item">
           <a href="#" class="rvt-sidenav__link">Level two</a>
           <button class="rvt-sidenav__toggle" data-sidenav-toggle="toggle-2" hidden>
@@ -18,7 +18,7 @@
                 <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
             </svg>
           </button>
-          <ul class="rvt-sidenav__list" id="toggle-2" role="menu">
+          <ul class="rvt-sidenav__list" data-sidenav-list="toggle-2" role="menu">
             <li class="rvt-sidenav__item">
               <a href="#" class="rvt-sidenav__link">Level three</a>
             </li>
@@ -33,7 +33,7 @@
                 <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
             </svg>
           </button>
-          <ul class="rvt-sidenav__list" id="toggle-3" role="menu">
+          <ul class="rvt-sidenav__list" data-sidenav-list="toggle-3" role="menu">
             <li class="rvt-sidenav__item">
               <a href="#" class="rvt-sidenav__link">Level three</a>
             <li class="rvt-sidenav__item">
@@ -59,7 +59,7 @@
                 <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
             </svg>
           </button>
-          <ul class="rvt-sidenav__list" id="toggle-4" role="menu">
+          <ul class="rvt-sidenav__list" data-sidenav-list="toggle-4" role="menu">
             <li class="rvt-sidenav__item">
               <a href="#" class="rvt-sidenav__link">
                 <span>Level three</span>
@@ -69,7 +69,7 @@
                     <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
                 </svg>
               </button>
-              <ul class="rvt-sidenav__list" id="toggle-5" role="menu">
+              <ul class="rvt-sidenav__list" data-sidenav-list="toggle-5" role="menu">
                 <li class="rvt-sidenav__item">
                   <a href="#" class="rvt-sidenav__link">Level four</a>
                 </li>
@@ -82,7 +82,7 @@
                         <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
                     </svg>
                   </button>
-                  <ul class="rvt-sidenav__list" id="toggle-6" role="menu">
+                  <ul class="rvt-sidenav__list" data-sidenav-list="toggle-6" role="menu">
                     <li class="rvt-sidenav__item">
                       <a href="#" class="rvt-sidenav__link">Level five</a>
                       <button class="rvt-sidenav__toggle" data-sidenav-toggle="toggle-7">
@@ -90,7 +90,7 @@
                             <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
                         </svg>
                       </button>
-                      <ul class="rvt-sidenav__list" id="toggle-7" role="menu">
+                      <ul class="rvt-sidenav__list" data-sidenav-list="toggle-7" role="menu">
                         <li class="rvt-sidenav__item">
                           <a href="#" class="rvt-sidenav__link">Level six</a>
                         </li>
@@ -115,3 +115,8 @@
     </li>
   </ul>
 </nav>
+
+<script>
+  const sidenavElement = document.querySelector('[data-sidenav]');
+  const newSidenav = new Rivet.Sidenav(sidenavElement); 
+</script>

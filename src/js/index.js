@@ -4,5 +4,6 @@
  */
 
 import Alert from './components/alert';
+import Sidenav from './components/sidenav';
 
-export default { Alert };
+export default { Alert, Sidenav };
