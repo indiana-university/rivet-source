@@ -6,15 +6,15 @@
   {% endif %}
   <div class="rvt-feature__body">
     {% if tag %}
-      <p class="rvt-feature__tag">{{ tag }}</p>
+      <p class="rvt-feature__tag">{% if taglink %}<a href="{{ taglink }}">{% endif %}{{ tag }}{% if taglink %}</a>{% endif %}</p>
     {% endif %}
-    <h2 class="rvt-feature__title">{{ title }}</h2>
+    <h2 class="rvt-feature__title">{% if titlelink %}<a href="{{ titlelink }}">{% endif %}{{ title }}{% if titlelink %}</a>{% endif %}</h2>
     {% if byline %}
       <p class="rvt-feature__byline">{{ byline }}</p>
     {% endif %}
     <p class="rvt-feature__teaser">{{ teaser }}</p>
     {% if meta %}
-      <p class="rvt-feature__meta">{{ meta }}</p>
+      <p class="rvt-feature__meta">{% if metalink %}<a href="{{ metalink }}">{% endif %}{{ meta }}{% if metalink %}</a>{% endif %}</p>
     {% endif %}
   </div>
 </div>

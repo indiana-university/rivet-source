@@ -28,11 +28,25 @@
   &__byline,
   &__meta {
     font-size: $ts-14;
+    margin-bottom: 0;
   }
 
   &__meta {
     margin-top: $md;
     color: $color-black--700;
-    margin-bottom: 0;
+  }
+
+  &__title a,
+  &__tag a,
+  &__meta a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__title a:hover,
+  &__tag a:hover,
+  &__meta a:hover {
+    color: $color-blue;
+    text-decoration: underline;
   }
 }
