@@ -1,8 +1,107 @@
+title: "Utilities"
 status: "ready"
 context:
-  demos:
-    - "One"
-    - "Two"
-    - "Three"
-    - "Four"
-    - "Five"
+    flexText:
+        - "One"
+        - "Two"
+        - "Three"
+        - "Four"
+        - "Five"
+    borders:
+        - side: top
+        - side: right
+        - side: bottom
+        - side: left
+        - side: all
+        - side: all
+          radius: true
+    spacings:
+        - abbr: -xxs
+          rem: .25
+          pixels: 4
+          name: Extra extra small
+        - abbr: -xs
+          rem: .5
+          pixels: 8
+          name: Extra small
+        - abbr: -sm
+          rem: 1
+          pixels: 16
+          name: Small
+        - abbr: -md
+          rem: 1.5
+          pixels: 24
+          name: Medium
+        - abbr: -lg
+          rem: 2
+          pixels: 32
+          name: Large
+        - abbr: -xl
+          rem: 2.5
+          pixels: 40
+          name: Extra large
+        - abbr: -xxl
+          rem: 3
+          pixels: 48
+          name: Extra extra large
+    texts:
+        - abbr: -regular
+          name: Regular
+        - abbr: -bold
+          name: Bold
+        - abbr: -uppercase
+          name: Uppercase
+        - abbr: -left
+          name: Left
+        - abbr: -center
+          name: Center
+        - abbr: -right
+          name: Right
+    typeScale:
+        - abbr: -xxs
+          rem: .75
+          pixels: 12
+        - abbr: -xs
+          rem: .875
+          pixels: 14
+        - abbr: -base
+          rem: 1
+          pixels: 16
+        - rem: 1.125
+          pixels: 18
+        - abbr: -sm
+          rem: 1.25
+          pixels: 20
+        - rem: 1.4375
+          pixels: 23
+        - abbr: -md
+          rem: 1.625
+          pixels: 26
+        - rem: 1.8125
+          pixels: 29
+        - abbr: -lg
+          rem: 2
+          pixels: 32
+        - rem: 2.25
+          pixels: 36
+        - abbr: -xl
+          rem: 2.5625
+          pixels: 41
+        - rem: 2.875
+          pixels: 46
+        - abbr: -xxl
+          rem: 3.25
+          pixels: 52
+    typeScaleText: Lorem ipsum
+    zIndexes:
+        - number: 1000
+        - number: 900
+        - number: 800
+        - number: 700
+        - number: 600
+        - number: 500
+        - number: 400
+        - number: 300
+        - number: 200
+        - number: 100
+        - number: 0
