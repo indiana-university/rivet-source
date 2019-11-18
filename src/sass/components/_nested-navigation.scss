@@ -21,7 +21,7 @@
   &__link {
     color: $color-black;
     flex-grow: 1;
-    padding: $sm;
+    padding: $sm*.875;
     text-decoration: none;
 
     &[aria-current] {
