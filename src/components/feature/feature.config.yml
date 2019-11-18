@@ -24,17 +24,24 @@ variants:
           byline: "By Bill Murray"
     - name: "meta"
       context:
-          meta: "Meta text  | Sept. 16, 2019"
+          meta: true
+          metatext: "Meta text"
+          metadate: "Sept. 16, 2019"
     - name: "linked meta"
       context:
-          meta: "Linked meta text  | Sept. 16, 2019"
-          metalink: "#0"
+          meta: true
+          metatext: "Linked meta text"
+          metatextLink: "#0"
+          metadate: "Sept. 16, 2019"
+          metadateLink: "#1"
     - name: "complete no links"
       context:
           image: "http://www.fillmurray.com/315/210"
           tag: "optional tag"
           byline: "By Bill Murray"
-          meta: "Meta text  | Sept. 16, 2019"
+          meta: true
+          metatext: "Meta text"
+          metadate: "Sept. 16, 2019"
     - name: "complete links"
       context:
           titlelink: "#0"
@@ -42,5 +49,8 @@ variants:
           tag: "optional tag"
           taglink: "#1"
           byline: "By Bill Murray"
-          meta: "Meta text  | Sept. 16, 2019"
-          metalink: "#2"
+          meta: true
+          metatext: "Meta text"
+          metatextLink: "#2"
+          metadate: "Sept. 16, 2019"
+          metadateLink: "#3"

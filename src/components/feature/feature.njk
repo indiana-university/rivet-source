@@ -14,7 +14,7 @@
     {% endif %}
     <p class="rvt-feature__teaser">{{ teaser }}</p>
     {% if meta %}
-      <p class="rvt-feature__meta">{% if metalink %}<a href="{{ metalink }}">{% endif %}{{ meta }}{% if metalink %}</a>{% endif %}</p>
+      <p class="rvt-feature__meta">{% if metatextLink %}<a href="{{ metatextLink }}">{% endif %}{{ metatext }}{% if metatextLink %}</a>{% endif %} | {% if metadateLink %}<a href="{{ metadateLink }}">{% endif %}{{ metadate }}{% if metadateLink %}</a>{% endif %}</p>
     {% endif %}
   </div>
 </div>
