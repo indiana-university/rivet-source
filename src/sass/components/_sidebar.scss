@@ -1,4 +1,4 @@
-.#{$prefix}-nested-nav {
+.#{$prefix}-sidenav {
   &__list {
     flex-basis: 100%;
     list-style-type: none;
@@ -74,8 +74,8 @@
   * Nested levels:
   * Indent text and set background colors and border-top colors
   */
-$list: 'rvt-nested-nav__list';
-$item: 'rvt-nested-nav__item';
+$list: 'rvt-sidenav__list';
+$item: 'rvt-sidenav__item';
 
 /* Set up initial selectors for indenting and shading */
 $indent-selector: '.#{$list} > .#{$item} > .#{$list} > .#{$item}';
@@ -97,7 +97,7 @@ $level-styles: (
   $index: index(($level-styles), ($indent $shade));
 
   // Indent the link text
-  #{$indent-selector} > .rvt-nested-nav__link {
+  #{$indent-selector} > .rvt-sidenav__link {
     text-indent: $indent + px;
   }
 
