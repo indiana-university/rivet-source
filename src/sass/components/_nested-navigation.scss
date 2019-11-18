@@ -35,7 +35,7 @@
     }
   }
 
-  &__icon {
+  &__toggle {
     align-items: center;
     background: transparent;
     border: none;
@@ -63,7 +63,7 @@
   }
 
   &__link,
-  &__icon {
+  &__toggle {
     &:focus {
       z-index: 1;
     }
