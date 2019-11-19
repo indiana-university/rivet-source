@@ -252,6 +252,19 @@ exports.release = series(
   example
 );
 
+exports.build = series(
+  lintSassBuild,
+  compileSass,
+  compileJS,
+  distJS,
+  stripJS,
+  minifyJS,
+  headerJS,
+  vendorJS,
+  fractalBuild,
+  prefixFractalCSS
+);
+
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
