@@ -1,0 +1,60 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.rvt-action-link {
+  align-items: center;
+  border-radius: 999rem;
+  color: #006298;
+  display: inline-flex;
+  line-height: 1.2;
+  text-decoration: none;
+
+  // Experimenting with a new :focus style here
+
+  &:focus {
+    outline: 2px dotted $color-crimson;
+    outline-offset: .125rem;
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: $color-blue;
+    border-radius: 999rem;
+    display: flex;
+    color: #ffffff;
+    flex-shrink: 0;
+    height: 1.75rem;
+    justify-content: center;
+    // This helps optically center the forward chevron in the circle container.
+    padding-left: .125rem;
+    width: 1.75rem;
+  }
+
+  &__text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+
+  &:hover &__text {
+    color: $color-blue;
+    text-decoration: underline;
+  }
+
+  &--reverse {
+    color: #ffffff;
+  }
+
+  &--reverse:hover &__text {
+    color: #ffffff;
+  }
+
+  &--reverse:focus {
+    outline: 2px dotted #ffffff;
+  }
+
+  &--reverse &__icon {
+    background-color: #ffffff;
+    color: $color-crimson;
+  }
+}
