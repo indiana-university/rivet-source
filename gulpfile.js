@@ -256,6 +256,10 @@ exports.build = series(
   lintSassBuild,
   compileSass,
   compileJS,
+  distJS,
+  stripJS,
+  minifyJS,
+  headerJS,
   vendorJS,
   fractalBuild,
   prefixFractalCSS
