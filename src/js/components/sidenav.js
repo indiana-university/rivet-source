@@ -6,38 +6,31 @@
 export default class Sidenav {
   constructor(element, options) {
     const defaultOptions = {
-      openAllOnInit: false,
-      onOpen: null,
-      onClose: null,
+      openAllOnInit: false
+    };
+
+    const settings = {
+      ...defaultOptions,
+      ...options
     };
 
     this.element = element;
-    // this.onOpen = options.onOpen;
-    // this.openAllOnInit = options.openAllOnInit;
-
-    // bind methods
-    this._handleClick = this._handleClick.bind(this);
+    this.openAllOnInit = settings.openAllOnInit;
 
     // get DOM selectors
     this.childMenus = this.element.querySelectorAll('[data-sidenav-toggle] + [data-sidenav-list]');
     this.menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
 
-    const settings = Object.assign({}, defaultOptions, options);
+    // bind methods
+    this._handleClick = this._handleClick.bind(this);
 
-    this.init(settings);
+    this._init();
   }
 
   _handleClick(event) {
     const toggleButton = event.target.closest('[data-sidenav-toggle]');
-    const newEvent = new CustomEvent('rvt:sideNavFoldOpen', {
-      bubbles: true,
-      cancelable: true,
-      detail: {
-        foldValue: toggleButton.getAttribute('data-sidenav-toggle')
-      }
-    });
-
-    const targetList = this.element.querySelector('[data-sidenav-list="' + newEvent.detail.foldValue + '"]');
+    const toggleId = toggleButton.dataset.sidenavToggle;
+    const targetList = this.element.querySelector(`[data-sidenav-list="${toggleId}"]`);
 
     // Exit if toggle button doesn't exist
     if (!toggleButton) {
@@ -45,44 +38,62 @@ export default class Sidenav {
     }
     
     // Exit if the target list isn't linked with a button
-    if (targetList.getAttribute('data-sidenav-list') === '') {
+    if (!targetList || targetList.getAttribute('data-sidenav-list') === '') {
       return;
     }
-    
-    if (targetList.hasAttribute('hidden')) {
-      this.open(toggleButton, targetList)
-    } else {
-      this.close(toggleButton, targetList)
-    }
+
+    targetList.hasAttribute('hidden') ?
+      this.open(toggleButton, targetList) :
+      this.close(toggleButton, targetList);
+  }
+
+  _createFoldEvent(eventName, toggleButton) {
+    const newEvent = new CustomEvent(`rvt:${eventName}`, {
+      bubbles: true,
+      cancelable: true,
+      detail: {
+        foldValue: toggleButton.getAttribute('data-sidenav-toggle')
+      }
+    });
+
+    const eventShouldFire = toggleButton.dispatchEvent(newEvent);
+
+    if (!eventShouldFire) return;
   }
 
   open(toggleButton, targetList) {
+    this._createFoldEvent('sidenavFoldOpen', toggleButton);
+
     toggleButton.setAttribute('aria-expanded', 'true');
     targetList.removeAttribute('hidden');
   }
 
   close(toggleButton, targetList) {
+    this._createFoldEvent('sidenavFoldClose', toggleButton);
+
     toggleButton.setAttribute('aria-expanded', 'false');
     targetList.setAttribute('hidden', '');
   }
 
   destroy() {
+    // this.element.removeEventListener('click', event => this._handleClick(event), false);
     this.element.removeEventListener('click', this._handleClick, false);
   }
 
-  init(settings) { 
+  _init() { 
     // Handle open/closed folds on load
-    if (settings.openAllOnInit === false) {
+    if (this.openAllOnInit === false) {
       this.menuToggles.forEach(function(menuToggle) {
         menuToggle.setAttribute('aria-expanded', 'false');
       });
-      
+
       this.childMenus.forEach(function(childMenu) {
         childMenu.setAttribute('hidden', '');
       });
     }
     
     // Add click handlers
+    // this.element.addEventListener('click', event => this._handleClick(event), false);
     this.element.addEventListener('click', this._handleClick, false);
   }
 }
