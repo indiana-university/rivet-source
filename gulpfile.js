@@ -256,7 +256,6 @@ exports.build = series(
   lintSassBuild,
   compileSass,
   compileJS,
-  concatJS,
   vendorJS,
   fractalBuild,
   prefixFractalCSS
