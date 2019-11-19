@@ -3,8 +3,7 @@
 
 .rvt-action-link {
   align-items: center;
-  border-radius: 999rem;
-  color: #006298;
+  color: $color-blue;
   display: inline-flex;
   line-height: 1.2;
   text-decoration: none;
@@ -12,28 +11,19 @@
   // Experimenting with a new :focus style here
 
   &:focus {
-    outline: 2px dotted $color-crimson;
-    outline-offset: .125rem;
+    outline: $xxs/2 dotted $color-crimson;
+    outline-offset: $xxs/2;
   }
 
   &__icon {
-    align-items: center;
-    background-color: $color-blue;
-    border-radius: 999rem;
     display: flex;
-    color: #ffffff;
     flex-shrink: 0;
-    height: 1.75rem;
-    justify-content: center;
-    // This helps optically center the forward chevron in the circle container.
-    padding-left: .125rem;
-    width: 1.75rem;
   }
 
   &__text {
-    font-size: 1.25rem;
+    font-size: $ts-20;
     font-weight: 700;
-    margin-left: 1rem;
+    margin-left: $sm;
   }
 
   &:hover &__text {
@@ -41,20 +31,20 @@
     text-decoration: underline;
   }
 
-  &--reverse {
-    color: #ffffff;
+  &:hover &__icon {
+    color: $color-blue;
   }
 
-  &--reverse:hover &__text {
-    color: #ffffff;
+  /* stylelint-disable */
+  &--reverse,
+  &--reverse &__icon,
+  &--reverse:hover &__text,
+  &--reverse:hover &__icon {
+    color: $color-white;
   }
+  /* stylelint-enable */
 
   &--reverse:focus {
-    outline: 2px dotted #ffffff;
-  }
-
-  &--reverse &__icon {
-    background-color: #ffffff;
-    color: $color-crimson;
+    outline: $xxs/2 dotted $color-white;
   }
 }
