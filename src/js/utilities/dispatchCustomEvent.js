@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import  globalSettings from '../globalSettings';
+const { prefix } = globalSettings;
+
 /**
  * Helper for creating and dispatching a CustomEvent.
  * @param {String} eventName The name of the event to emit
@@ -15,7 +18,7 @@
  * event.preventDefault().
  */
 function dispatchCustomEvent(eventName, element, detail) {
-  const newEvent = new CustomEvent(`rvt:${eventName}`, {
+  const newEvent = new CustomEvent(`${prefix}:${eventName}`, {
     bubbles: true,
     cancelable: true,
     detail
