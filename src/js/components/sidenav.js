@@ -4,8 +4,7 @@
  */
 
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
-
-const nodeListToArray = nodes => Array.prototype.slice.call(nodes);
+import { nodeListToArray } from '../utilities/domHelpers';
 
 export default class Sidenav {
   constructor(element, options) {
@@ -83,13 +82,14 @@ export default class Sidenav {
   }
   
   init() {
-    // Handle open/closed folds on load
+    // Handle open/closed lists on load
     if (this.openAllOnInit === false) {
       const elements = this._getDOMElements();
-
       nodeListToArray(elements.menuToggles)
         .forEach(function(menuToggle) {
           menuToggle.setAttribute('aria-expanded', 'false');
+          // Since JavaScript is available add popup semantics to toggles
+          menuToggle.setAttribute('aria-haspopup', 'true');
         });
 
       nodeListToArray(elements.childMenus)
