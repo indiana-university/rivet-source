@@ -74,25 +74,20 @@ export default class Sidenav {
     targetList.setAttribute('hidden', '');
   }
   
-  _getDOMElements() {
-    return {
-      menuToggles: this.element.querySelectorAll('[data-sidenav-toggle]'),
-      childMenus: this.element.querySelectorAll('[data-sidenav-list]')
-    }
-  }
-  
   init() {
     // Handle open/closed lists on load
     if (this.openAllOnInit === false) {
-      const elements = this._getDOMElements();
-      nodeListToArray(elements.menuToggles)
+      const menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
+      const childMenus = this.element.querySelectorAll('[data-sidenav-list]');
+      
+      nodeListToArray(menuToggles)
         .forEach(function(menuToggle) {
           menuToggle.setAttribute('aria-expanded', 'false');
           // Since JavaScript is available add popup semantics to toggles
           menuToggle.setAttribute('aria-haspopup', 'true');
         });
 
-      nodeListToArray(elements.childMenus)
+      nodeListToArray(childMenus)
         .forEach(function(childMenu) {
           childMenu.setAttribute('hidden', '');
         });
