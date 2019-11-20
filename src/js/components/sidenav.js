@@ -18,7 +18,7 @@ export default class Sidenav {
     this.openAllOnInit = settings.openAllOnInit;
 
     // get DOM selectors
-    this.childMenus = this.element.querySelectorAll('[data-sidenav-toggle] + [data-sidenav-list]');
+    this.childMenus = this.element.querySelectorAll('[data-sidenav-list]');
     this.menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
 
     // bind methods
