@@ -3,6 +3,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
+
+const nodeListToArray = nodes => Array.prototype.slice.call(nodes);
+
 export default class Sidenav {
   constructor(element, options) {
     const defaultOptions = {
@@ -16,10 +20,6 @@ export default class Sidenav {
 
     this.element = element;
     this.openAllOnInit = settings.openAllOnInit;
-
-    // get DOM selectors
-    this.childMenus = this.element.querySelectorAll('[data-sidenav-list]');
-    this.menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -45,49 +45,55 @@ export default class Sidenav {
       this.close(toggleButton, targetList);
   }
 
-  _createFoldEvent(eventName, toggleButton) {
-    const newEvent = new CustomEvent(`rvt:${eventName}`, {
-      bubbles: true,
-      cancelable: true,
-      detail: {
-        foldValue: toggleButton.getAttribute('data-sidenav-toggle')
-      }
-    });
-
-    const eventShouldFire = toggleButton.dispatchEvent(newEvent);
-
-    if (!eventShouldFire) return;
-  }
-
   open(toggleButton, targetList) {
-    this._createFoldEvent('sidenavFoldOpen', toggleButton);
+    const openEvent = dispatchCustomEvent(
+      'sidenavListOpen',
+      toggleButton,
+      {
+        id: toggleButton.dataset.sidenavToggle
+      }
+    );
+
+    if (!openEvent) return;
 
     toggleButton.setAttribute('aria-expanded', 'true');
     targetList.removeAttribute('hidden');
   }
 
   close(toggleButton, targetList) {
-    this._createFoldEvent('sidenavFoldClose', toggleButton);
+    const closeEvent = dispatchCustomEvent(
+      'sidenavListClose',
+      toggleButton,
+      {
+        id: toggleButton.dataset.sidenavToggle
+      }
+    );
+
+    if (!closeEvent) return;
 
     toggleButton.setAttribute('aria-expanded', 'false');
     targetList.setAttribute('hidden', '');
   }
 
   destroy() {
-    // this.element.removeEventListener('click', event => this._handleClick(event), false);
     this.element.removeEventListener('click', this._handleClick, false);
   }
-
-  init() { 
+  
+  init() {
     // Handle open/closed folds on load
     if (this.openAllOnInit === false) {
-      this.menuToggles.forEach(function(menuToggle) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
+      const menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
+      const childMenus = this.element.querySelectorAll('[data-sidenav-list]');
 
-      this.childMenus.forEach(function(childMenu) {
-        childMenu.setAttribute('hidden', '');
-      });
+      nodeListToArray(menuToggles)
+        .forEach(function(menuToggle) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+
+      nodeListToArray(childMenus)
+        .forEach(function(childMenu) {
+          childMenu.setAttribute('hidden', '');
+        });
     }
     
     // Add click handlers
