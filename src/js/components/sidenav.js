@@ -28,6 +28,13 @@ export default class Sidenav {
     // bind methods
     this._handleClick = this._handleClick.bind(this);
 
+    // Check to make sure that a DOM element was passed in for initialization
+    if (!isNode(this.element)) {
+      throw new TypeError(
+        'A DOM element should be passed as the first argument to initialize the sidenav'
+      );
+    }
+
     this.init();
   }
 
