@@ -11,3 +11,12 @@
  * @returns {Array} An array of DOM elements
  */
 export const nodeListToArray = nodes => Array.prototype.slice.call(nodes);
+
+/**
+ * Checks to make sure an element is a DOM node is an Element,
+ * or a DocumentFragment. See MDN for more info:
+ * https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+ * @param {Element} element
+ */
+export const isNode = element =>
+  element.nodeType === 1 || element.nodeType === 1;
