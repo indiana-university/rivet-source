@@ -82,20 +82,27 @@ export default class Sidenav {
   }
   
   init() {
-    // Handle open/closed lists on load
-    if (this.openAllOnInit === false) {
-      const menuToggles = this.element.querySelectorAll(this.toggleSelector);
-      const childMenus = this.element.querySelectorAll(this.listSelector);
+    // Get all the necessary DOM elements and convert to Arrays.
+    const menuToggles = nodeListToArray(
+      this.element.querySelectorAll(this.toggleSelector)
+    );
+    const childMenus = nodeListToArray(
+      this.element.querySelectorAll(this.listSelector)
+    );
+    
+    menuToggles.forEach(menuToggle => {
+      // Since JavaScript is available add popup semantics to toggles
+      menuToggle.setAttribute('aria-haspopup', 'true');
 
-      nodeListToArray(menuToggles)
-        .forEach(menuToggle => {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          // Since JavaScript is available add popup semantics to toggles
-          menuToggle.setAttribute('aria-haspopup', 'true');
-        });
-
-      nodeListToArray(childMenus)
-        .forEach(childMenu => childMenu.setAttribute('hidden', ''));
+      // If the user has set openAllOnInit to false, set up aria-semantics
+      if (!this.openAllOnInit) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // If openAllOnInit is set to false, hide all child menus
+    if (!this.openAllOnInit) {
+      childMenus.forEach(childMenu => childMenu.setAttribute('hidden', ''));
     }
 
     // Add click handlers
