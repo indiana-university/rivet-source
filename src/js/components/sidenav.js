@@ -4,12 +4,12 @@
  */
 
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
-import { nodeListToArray } from '../utilities/domHelpers';
+import { nodeListToArray, isNode } from '../utilities/domHelpers';
 
 export default class Sidenav {
   constructor(element, options) {
     const defaultOptions = {
-      openAllOnInit: false,
+      openAllOnInit: false
     };
 
     const settings = {
