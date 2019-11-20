@@ -74,30 +74,35 @@ export default class Sidenav {
     toggleButton.setAttribute('aria-expanded', 'false');
     targetList.setAttribute('hidden', '');
   }
-
-  destroy() {
-    this.element.removeEventListener('click', this._handleClick, false);
+  
+  _getDOMElements() {
+    return {
+      menuToggles: this.element.querySelectorAll('[data-sidenav-toggle]'),
+      childMenus: this.element.querySelectorAll('[data-sidenav-list]')
+    }
   }
   
   init() {
     // Handle open/closed folds on load
     if (this.openAllOnInit === false) {
-      const menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
-      const childMenus = this.element.querySelectorAll('[data-sidenav-list]');
+      const elements = this._getDOMElements();
 
-      nodeListToArray(menuToggles)
+      nodeListToArray(elements.menuToggles)
         .forEach(function(menuToggle) {
           menuToggle.setAttribute('aria-expanded', 'false');
         });
 
-      nodeListToArray(childMenus)
+      nodeListToArray(elements.childMenus)
         .forEach(function(childMenu) {
           childMenu.setAttribute('hidden', '');
         });
     }
-    
+
     // Add click handlers
-    // this.element.addEventListener('click', event => this._handleClick(event), false);
     this.element.addEventListener('click', this._handleClick, false);
+  }
+  
+  destroy() {
+    this.element.removeEventListener('click', this._handleClick, false);
   }
 }
