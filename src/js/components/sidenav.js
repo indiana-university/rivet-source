@@ -24,7 +24,7 @@ export default class Sidenav {
     // bind methods
     this._handleClick = this._handleClick.bind(this);
 
-    this._init();
+    this.init();
   }
 
   _handleClick(event) {
@@ -78,7 +78,7 @@ export default class Sidenav {
     this.element.removeEventListener('click', this._handleClick, false);
   }
 
-  _init() { 
+  init() { 
     // Handle open/closed folds on load
     if (this.openAllOnInit === false) {
       this.menuToggles.forEach(function(menuToggle) {
