@@ -88,16 +88,14 @@ export default class Sidenav {
       const childMenus = this.element.querySelectorAll(this.listSelector);
 
       nodeListToArray(menuToggles)
-        .forEach(function(menuToggle) {
+        .forEach(menuToggle => {
           menuToggle.setAttribute('aria-expanded', 'false');
           // Since JavaScript is available add popup semantics to toggles
           menuToggle.setAttribute('aria-haspopup', 'true');
         });
 
       nodeListToArray(childMenus)
-        .forEach(function(childMenu) {
-          childMenu.setAttribute('hidden', '');
-        });
+        .forEach(childMenu => childMenu.setAttribute('hidden', ''));
     }
 
     // Add click handlers
