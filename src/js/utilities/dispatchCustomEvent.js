@@ -1,4 +1,9 @@
 /**
+ * Copyright (C) 2019 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
  * Helper for creating and dispatching a CustomEvent.
  * @param {String} eventName The name of the event to emit
  * @param {HTMLElement} element The element from which the event should
