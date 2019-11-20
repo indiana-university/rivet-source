@@ -118,5 +118,12 @@
 
 <script>
   const sidenavElement = document.querySelector('[data-sidenav]');
-  const newSidenav = new Rivet.Sidenav(sidenavElement);
+  const newSidenav = new Rivet.Sidenav(sidenavElement, {
+    openAllOnInit: false
+  });
+  
+  document.addEventListener('rvt:sidenavFoldClose', event => {
+    // event.preventDefault();
+    console.log(event.detail.foldValue);
+  });
 </script>
