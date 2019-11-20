@@ -29,14 +29,12 @@ export default class Sidenav {
 
   _handleClick(event) {
     const toggleButton = event.target.closest('[data-sidenav-toggle]');
+    // Exit if toggle button doesn't exist
+    if (!toggleButton) return;
+    
     const toggleId = toggleButton.dataset.sidenavToggle;
     const targetList = this.element.querySelector(`[data-sidenav-list="${toggleId}"]`);
 
-    // Exit if toggle button doesn't exist
-    if (!toggleButton) {
-      return;
-    }
-    
     // Exit if the target list isn't linked with a button
     if (!targetList || targetList.getAttribute('data-sidenav-list') === '') {
       return;
