@@ -9,7 +9,7 @@ import { nodeListToArray } from '../utilities/domHelpers';
 export default class Sidenav {
   constructor(element, options) {
     const defaultOptions = {
-      openAllOnInit: false
+      openAllOnInit: false,
     };
 
     const settings = {
@@ -17,8 +17,13 @@ export default class Sidenav {
       ...options
     };
 
+    // Instance properties
     this.element = element;
     this.openAllOnInit = settings.openAllOnInit;
+    this.toggleAttribute = 'data-sidenav-toggle',
+    this.toggleSelector = `[${this.toggleAttribute}]`
+    this.listAttribute = 'data-sidenav-list'
+    this.listSelector = `[${this.listAttribute}]`;
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -27,15 +32,17 @@ export default class Sidenav {
   }
 
   _handleClick(event) {
-    const toggleButton = event.target.closest('[data-sidenav-toggle]');
+    const toggleButton = event.target.closest(this.toggleSelector);
     // Exit if toggle button doesn't exist
     if (!toggleButton) return;
     
     const toggleId = toggleButton.dataset.sidenavToggle;
-    const targetList = this.element.querySelector(`[data-sidenav-list="${toggleId}"]`);
+    const targetList = this.element.querySelector(
+      `[${this.listAttribute}="${toggleId}"]`
+    );
 
     // Exit if the target list isn't linked with a button
-    if (!targetList || targetList.getAttribute('data-sidenav-list') === '') {
+    if (!targetList || targetList.getAttribute(this.listAttribute) === '') {
       return;
     }
 
@@ -77,9 +84,9 @@ export default class Sidenav {
   init() {
     // Handle open/closed lists on load
     if (this.openAllOnInit === false) {
-      const menuToggles = this.element.querySelectorAll('[data-sidenav-toggle]');
-      const childMenus = this.element.querySelectorAll('[data-sidenav-list]');
-      
+      const menuToggles = this.element.querySelectorAll(this.toggleSelector);
+      const childMenus = this.element.querySelectorAll(this.listSelector);
+
       nodeListToArray(menuToggles)
         .forEach(function(menuToggle) {
           menuToggle.setAttribute('aria-expanded', 'false');
