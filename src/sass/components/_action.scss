@@ -1,50 +1,32 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-action-link {
+.rvt-action {
   align-items: center;
-  color: $color-blue;
   display: inline-flex;
-  line-height: 1.2;
   text-decoration: none;
 
-  // Experimenting with a new :focus style here
-
-  &:focus {
-    outline: $xxs/2 dotted $color-crimson;
-    outline-offset: $xxs/2;
-  }
-
-  &__icon {
-    display: flex;
-    flex-shrink: 0;
-  }
-
-  &__text {
-    font-size: $ts-20;
-    font-weight: 700;
-    margin-left: $sm;
-  }
-
-  &:hover &__text {
-    color: $color-blue;
+  &:hover {
     text-decoration: underline;
   }
 
-  &:hover &__icon {
-    color: $color-blue;
+  &__icon {
+    align-items: center;
+    display: inline-flex;
+    flex-shrink: 0;
+    height: $md;
+    width: $md;
   }
 
-  /* stylelint-disable */
   &--reverse,
   &--reverse &__icon,
-  &--reverse:hover &__text,
-  &--reverse:hover &__icon {
+  &--reverse:hover {
     color: $color-white;
   }
-  /* stylelint-enable */
 
-  &--reverse:focus {
-    outline: $xxs/2 dotted $color-white;
+  &__text {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-left: $xs;
   }
 }
