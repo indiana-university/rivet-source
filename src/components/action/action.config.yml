@@ -1,0 +1,10 @@
+title: Action link
+status: "ready"
+collated: true
+context:
+    link: "#0"
+    text: "Read more about Admissions"
+variants:
+    - name: "reverse"
+      context:
+          reverse: true
