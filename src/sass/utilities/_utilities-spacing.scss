@@ -69,7 +69,9 @@ $spacing-sizes: (
       }
 
       // Otherwise create individual direction utilities.
-    } @else {
+    }
+
+    @else {
       .#{$prefix}-m#{$direction}#{$size} {
         margin#{$direction}: $value !important;
       }
@@ -121,7 +123,9 @@ $spacing-sizes: (
           }
 
           // Otherwise create individual direction utilities.
-        } @else {
+        }
+
+        @else {
           .#{$prefix}-m#{$direction}#{$size}-#{$bp-name}-up {
             margin#{$direction}: $value !important;
           }
@@ -148,12 +152,14 @@ $spacing-sizes: (
       margin: 0 !important;
     }
 
-    .#{$prefix}-p-all-remove, 
+    .#{$prefix}-p-all-remove,
     .#{$prefix}-p-all-none {
       padding: 0 !important;
     }
-  } @else {
-    .#{$prefix}-m#{$direction}-remove, 
+  }
+
+  @else {
+    .#{$prefix}-m#{$direction}-remove,
     .#{$prefix}-m#{$direction}-none {
       margin#{$direction}: 0 !important;
     }
@@ -175,35 +181,37 @@ $spacing-sizes: (
         .#{$prefix}-m-all-none-#{$bp-name}-up {
           margin: 0 !important;
         }
-        
+
         .#{$prefix}-p-all-none-#{$bp-name}-up {
           padding: 0 !important;
         }
-        
+
         .#{$prefix}-m-tb-none-#{$bp-name}-up {
           margin-top: 0 !important;
           margin-bottom: 0 !important;
         }
-        
+
         .#{$prefix}-p-tb-none-#{$bp-name}-up {
           padding-top: 0 !important;
           padding-bottom: 0 !important;
         }
-        
+
         .#{$prefix}-m-lr-none-#{$bp-name}-up {
           margin-right: 0 !important;
           margin-left: 0 !important;
         }
-        
+
         .#{$prefix}-p-lr-none-#{$bp-name}-up {
           padding-right: 0 !important;
           padding-left: 0 !important;
         }
-      } @else {
+      }
+
+      @else {
         .#{$prefix}-m#{$direction}-none-#{$bp-name}-up {
           margin#{$direction}: 0 !important;
         }
-        
+
         .#{$prefix}-p#{$direction}-none-#{$bp-name}-up {
           padding#{$direction}: 0 !important;
         }

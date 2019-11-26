@@ -39,8 +39,9 @@
 
     &:focus {
       /* stylelint-disable */
-      box-shadow: 0 0 0 $xxs/2 $color-white,
-                  0 0 0 $xxs $color-blue--600;
+      box-shadow:
+        0 0 0 $xxs/2 $color-white,
+        0 0 0 $xxs $color-blue--600;
       /* stylelint-enable */
       outline: none;
       z-index: map-get($z-index, z-1000);

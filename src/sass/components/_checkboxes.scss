@@ -62,11 +62,13 @@ input[type='checkbox']:checked + label,
 }
 
 /* stylelint-disable */
+
 input[type='checkbox']:focus + label::before,
 .#{$prefix}-checkbox-wrapper input[type='checkbox']:focus ~ label::before {
-  box-shadow: 0 0 0 .08rem $color-black--700,
-              0 0 0 .1875rem $color-white,
-              0 0 0 .3125rem $color-blue--600;
+  box-shadow:
+    0 0 0 .08rem $color-black--700,
+    0 0 0 .1875rem $color-white,
+    0 0 0 .3125rem $color-blue--600;
 }
 
 /* stylelint-enable */
@@ -79,16 +81,16 @@ input[type='checkbox']:disabled + label::before,
 
 /* stylelint-disable */
 
-input[type='checkbox']:checked:focus + label:before,
-input[type='checkbox']:indeterminate:focus + label:before,
-.#{$prefix}-checkbox-wrapper input[type='checkbox']:checked:focus ~ label:before,
-.#{$prefix}-checkbox-wrapper
-  input[type='checkbox']:indeterminate:focus
-  ~ label:before {
-  box-shadow: 0 0 0 .08rem $color-blue--600,
-              0 0 0 .1875rem $color-white,
-              0 0 0 .3125rem $color-blue--500;
+input[type='checkbox']:checked:focus + label::before,
+input[type='checkbox']:indeterminate:focus + label::before,
+.#{$prefix}-checkbox-wrapper input[type='checkbox']:checked:focus ~ label::before,
+.#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate:focus ~ label::before {
+  box-shadow:
+    0 0 0 .08rem $color-blue--600,
+    0 0 0 .1875rem $color-white,
+    0 0 0 .3125rem $color-blue--500;
 }
+
 /* stylelint-enable */
 
 input[type='checkbox']:disabled + label,
@@ -101,12 +103,16 @@ input[type='checkbox']:disabled + label,
  * Indeterminate state
  */
 
+/* stylelint-disable */
+
 input[type='checkbox']:indeterminate + label::before,
 .#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate ~ label::before {
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=');
   background-color: $color-blue--600;
   box-shadow: 0 0 0 .08rem $color-blue--600;
 }
+
+/* stylelint-enable */
 
 input[type='checkbox']:indeterminate:disabled + label::before,
 .#{$prefix}-checkbox-wrapper input[type='checkbox']:indeterminate:disabled ~ label::before {

@@ -105,7 +105,8 @@
 
         &:focus {
           /* stylelint-disable */
-          box-shadow: inset $xxs 0 0 $color-blue--600,
+          box-shadow:
+            inset $xxs 0 0 $color-blue--600,
             inset 0 0 0 $xxs/2 $color-blue--600 !important;
           /* stylelint-enable */
         }
