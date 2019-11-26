@@ -189,6 +189,7 @@
 }
 
 /* stylelint-disable */
+
 .#{$prefix}-drawer-button[aria-expanded='true'] {
   > .#{$prefix}-drawer-button-close {
     display: flex;
@@ -281,6 +282,7 @@
     content: none;
   }
   /* stylelint-disable */
+
   ul li {
     ul {
       display: block;
@@ -433,9 +435,10 @@
 
       &:focus {
         /* stylelint-disable */
-        box-shadow: inset $xxs 0 0 $color-blue--600,
-                          0 0 0 $xxs/2 $color-white,
-                          0 0 0 $xxs $color-blue--600;
+        box-shadow:
+          inset $xxs 0 0 $color-blue--600,
+          0 0 0 $xxs/2 $color-white,
+          0 0 0 $xxs $color-blue--600;
         /* stylelint-enable */
       }
     }
