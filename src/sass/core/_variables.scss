@@ -199,17 +199,94 @@ $color-orange--900: #2f1407 !default;
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
 
-// TODO: Should we keep all colors in a map so that we can iterate
-// through them to make utility classes?
-
 $color-map: (
-  "cream": $color-cream,
-  "crimson": $color-crimson,
-  "gray": $color-black--400,
-  "green": $color-green--500,
-  "blue": $color-blue--600,
-  "yellow": $color-yellow--200,
-  "orange": $color-orange--500
+  cream: $color-cream,
+  crimson: $color-crimson,
+  gray: $color-black--400,
+  green: $color-green--500,
+  blue: $color-blue--600,
+  yellow: $color-yellow--200,
+  orange: $color-orange--500
+) !default;
+
+$color-base: (
+  white: $color-white
+) !default;
+
+$color-brand: (
+  cream: $color-cream,
+  crimson: $color-crimson
+) !default;
+
+$color-black: (
+  black: $color-black,
+  black--050: $color-black--050,
+  black--100: $color-black--100,
+  black--150: $color-black--150,
+  black--200: $color-black--200,
+  black--300: $color-black--300,
+  black--400: $color-black--400,
+  black--500: $color-black--500,
+  black--600: $color-black--600,
+  black--700: $color-black--700,
+  black--800: $color-black--800,
+  black--900: $color-black--900,
+) !default;
+
+$color-blue: (
+  blue: $color-blue,
+  blue--050: $color-blue--050,
+  blue--100: $color-blue--100,
+  blue--200: $color-blue--200,
+  blue--300: $color-blue--300,
+  blue--400: $color-blue--400,
+  blue--500: $color-blue--500,
+  blue--600: $color-blue,
+  blue--700: $color-blue--700,
+  blue--800: $color-blue--800,
+  blue--900: $color-blue--900
+) !default;
+
+$color-green: (
+  green: $color-green,
+  green-050: $color-green--050,
+  green-100: $color-green--100,
+  green-200: $color-green--200,
+  green-300: $color-green--300,
+  green-400: $color-green--400,
+  green-500: $color-green,
+  green-600: $color-green--600,
+  green-700: $color-green--700,
+  green-800: $color-green--800,
+  green-900: $color-green--900
+) !default;
+
+$color-yellow: (
+  yellow: $color-yellow,
+  yellow-050: $color-yellow--050,
+  yellow-100: $color-yellow--100,
+  yellow-200: $color-yellow--200,
+  yellow-300: $color-yellow--300,
+  yellow-400: $color-yellow--400,
+  yellow-500: $color-yellow,
+  yellow-600: $color-yellow--600,
+  yellow-700: $color-yellow--700,
+  yellow-800: $color-yellow--800,
+  yellow-900: $color-yellow--900
+) !default;
+
+$color-orange: (
+  orange: $color-orange,
+  orange-050: $color-orange--050,
+  orange-100: $color-orange--100,
+  orange-200: $color-orange--200,
+  orange-300: $color-orange--300,
+  orange-400: $color-orange--400,
+  orange-500: $color-orange,
+  orange-600: $color-orange--600,
+  orange-700: $color-orange--700,
+  orange-800: $color-orange--800,
+  orange-900: $color-orange--900
 ) !default;
 
 // Global spacing units
