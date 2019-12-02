@@ -73,18 +73,17 @@ $colors: (
   white: #ffffff,
   cream: #edebeb,
   crimson: #990000,
-  black: #333333,
-  black--050: #fafafa,
-  black--100: #eeeeee,
-  black--150: #eaeaea,
-  black--200: #dddddd,
-  black--300: #cccccc,
-  black--400: #aaaaaa,
-  black--500: #999999,
-  black--600: #777777,
-  black--700: #666666,
-  black--800: #555555,
-  black--900: #444444,
+  black: #243142,
+  black--050: #f7f7f8,
+  black--100: #ebecee,
+  black--200: #c4c7cc,
+  black--300: #a7abb3,
+  black--400: #8b919b,
+  black--500: #707784,
+  black--600: #565f6d,
+  black--700: #3d4757,
+  black--800: #243142, //color-black
+  black--900: #161c24,
   blue: #006298,
   blue--050: #edf1f6,
   blue--100: #dce3ee,
@@ -139,30 +138,18 @@ $color-cream: map-get($colors, cream) !default;
 $color-crimson: map-get($colors, crimson) !default;
 
 // Black variants
+
 $color-black: map-get($colors, black) !default;
-
-// NOTE: Standardize the way we are using variants less than 100.
-$color-black--050: map-get($colors, black--050) !default;
-$color-black--100: map-get($colors, black--100) !default;
-
-// NOTE: This black variant is an outlier. We don't include a "--150"
-// variant with the other colors, but this color has worked really well
-// for border colors on components like the header, etc.
-// We could revisit and see if it makes sense to remove and replace any
-// references moving forward.
-
-$color-black--150: map-get($colors, black--150) !default;
+$color-black--050: map-get($colors, black--050) !default; // Lightened slightly to use for backgrounds
+$color-black--100: map-get($colors, black--100) !default; // Lightened slightly
 $color-black--200: map-get($colors, black--200) !default;
 $color-black--300: map-get($colors, black--300) !default;
-$color-black--400: map-get($colors, black--400) !default;
+$color-black--400: map-get($colors, black--400) !default; //Meets 3.5 contrast ratio for non-text interactive elements (form borders)
 $color-black--500: map-get($colors, black--500) !default;
 $color-black--600: map-get($colors, black--600) !default;
 $color-black--700: map-get($colors, black--700) !default;
 $color-black--800: map-get($colors, black--800) !default;
 $color-black--900: map-get($colors, black--900) !default;
-
-// Use this when you need a default (darkest) black.
-$color-black--rich: #000000 !default;
 
 // Blue variants (See note above about "Midnight") $color-blue--600 = new Midnight
 
@@ -321,4 +308,4 @@ $z-index: (
 
 // Standard shadow(s)
 
-$shadow-base: 0 1px 3px 2px rgba(0, 0, 0, .07);
+$shadow-base: 0 1px 3px 2px rgba(36, 49, 66, .1);

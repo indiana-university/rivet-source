@@ -34,7 +34,7 @@ input[type='checkbox'] + label,
      *  make radios and checkboxes look optically closer the 1px border
      * used on other inputs like text inputs, textareas, and selects.
      */
-    box-shadow: 0 0 0 .08rem $color-black--700;
+    box-shadow: 0 0 0 .08rem $color-black--400;
 
     /**
      * This helps visually center the label with the pseudo
