@@ -80,31 +80,18 @@ $color-crimson: #990000 !default;
 
 // Black variants
 
-$color-black: #333333 !default;
+$color-black: #243142 !default;
 
-// NOTE: Standardize the way we are using variants less than 100.
-
-$color-black--050: #fafafa !default;
-$color-black--100: #eeeeee !default;
-
-// NOTE: This black variant is an outlier. We don't include a "--150"
-// variant with the other colors, but this color has worked really well
-// for border colors on components like the header, etc.
-// We could revisit and see if it makes sense to remove and replace any
-// references moving forward.
-
-$color-black--150: #eaeaea !default;
-$color-black--200: #dddddd !default;
-$color-black--300: #cccccc !default;
-$color-black--400: #aaaaaa !default;
-$color-black--500: #999999 !default;
-$color-black--600: #777777 !default;
-$color-black--700: #666666 !default;
-$color-black--800: #555555 !default;
-$color-black--900: #444444 !default;
-
-// Use this when you need a default (darkest) black.
-$color-black--rich: #000000 !default;
+$color-black--050: #f7f7f8 !default; // Lightened slightly to use for backgrounds
+$color-black--100: #ebecee !default; // Lightened slightly
+$color-black--200: #c4c7cc !default;
+$color-black--300: #a7abb3 !default;
+$color-black--400: #8b919b !default; //Meets 3.5 contrast ratio for non-text interactive elements (form borders)
+$color-black--500: #707784 !default;
+$color-black--600: #565f6d !default;
+$color-black--700: #3d4757 !default;
+$color-black--800: $color-black !default;
+$color-black--900: #161c24 !default;
 
 // Blue variants (See note above about "Midnight") $color-blue--600 = new Midnight
 
@@ -285,4 +272,4 @@ $z-index: (
 
 // Standard shadow(s)
 
-$shadow-base: 0 1px 3px 2px rgba(0, 0, 0, .07);
+$shadow-base: 0 1px 3px 2px rgba(36, 49, 66, .1);

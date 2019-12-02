@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .#{$prefix}-badge {
-  background-color: $color-black--300;
-  border: 2px solid $color-black--300;
+  background-color: $color-black--200;
+  border: 2px solid $color-black--200;
   border-radius: 999px;
   color: $color-black;
   display: inline-block;
@@ -100,12 +100,12 @@ a.#{$prefix}-badge {
 .#{$prefix}-badge--warning {
   background-color: $color-yellow--200;
   border-color: $color-yellow--200;
-  color: $color-black--rich;
+  color: $color-black--900;
 
   &-secondary {
     background-color: transparent;
     border-color: $color-yellow--200;
-    color: $color-black--rich;
+    color: $color-black--900;
   }
 }
 

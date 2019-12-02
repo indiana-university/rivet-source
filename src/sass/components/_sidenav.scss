@@ -104,7 +104,7 @@ $level-styles: (
   // Set border-top color per nested level
   #{$indent-selector} {
     @if $index == 1 {
-      border-color: $color-black--150;
+      border-color: $color-black--100;
     } @else if $index == 2 {
       border-color: $color-black--200;
     } @else if $index == 3 {
