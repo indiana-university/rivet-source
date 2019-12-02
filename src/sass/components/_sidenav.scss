@@ -83,7 +83,7 @@ $shade-selector: '.#{$item} > .#{$list}';
 
 // Set up level indent/background shade map
 $level-styles: (
-  20: $color-black--050,
+  20: $color-black--000,
   40: $color-black--100,
   60: $color-black--200
 );
@@ -104,7 +104,7 @@ $level-styles: (
   // Set border-top color per nested level
   #{$indent-selector} {
     @if $index == 1 {
-      border-color: $color-black--150;
+      border-color: $color-black--100;
     } @else if $index == 2 {
       border-color: $color-black--200;
     } @else if $index == 3 {

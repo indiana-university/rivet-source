@@ -11,7 +11,7 @@
   }
 
   &__row {
-    border-top: 1px solid $color-black--150;
+    border-top: 1px solid $color-black--100;
     margin-top: -1px;
     padding: $sm;
 
@@ -22,7 +22,7 @@
 
   &__row--selected,
   &__row[aria-current] {
-    background-color: $color-black--050;
+    background-color: $color-black--000;
     box-shadow: $xxs 0 0 0 $color-blue--600 inset;
   }
 
@@ -51,7 +51,7 @@
   }
 
   &__footer {
-    background-color: $color-black--050;
+    background-color: $color-black--000;
     border-top: 1px solid $color-black--200;
     border-bottom-right-radius: $xxs; // Gets rid of border clipping
     border-bottom-left-radius: $xxs; // Gets rid of border clipping
@@ -60,7 +60,7 @@
 
   &__header {
     align-items: center;
-    background-color: $color-black--050;
+    background-color: $color-black--000;
     border-top: none;
     border-right: none;
     border-bottom: 1px solid $color-black--200;

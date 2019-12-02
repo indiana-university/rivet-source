@@ -15,14 +15,14 @@
 .#{$prefix}-header {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $color-black--150;
-  background-color: $color-black--050;
+  border-bottom: 1px solid $color-black--100;
+  background-color: $color-black--000;
   width: 100%;
 }
 
 .#{$prefix}-header--light {
   background-color: $color-white;
-  border-bottom: 1px solid $color-black--150;
+  border-bottom: 1px solid $color-black--100;
 }
 
 .#{$prefix}-header__trident {
@@ -534,7 +534,7 @@
     padding-top: .35rem;
     font-size: .75rem;
     font-weight: $font-weight-bold;
-    color: $color-black--050;
+    color: $color-black--000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
