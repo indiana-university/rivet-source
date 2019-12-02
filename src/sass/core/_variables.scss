@@ -199,26 +199,10 @@ $color-orange--900: #2f1407 !default;
 // Alert text colors generated via this handy tool:
 // https://codepen.io/basham/pen/OpNybO
 
-$color-map: (
+$colors: (
+  white: $color-white,
   cream: $color-cream,
   crimson: $color-crimson,
-  gray: $color-black--400,
-  green: $color-green--500,
-  blue: $color-blue--600,
-  yellow: $color-yellow--200,
-  orange: $color-orange--500
-) !default;
-
-$color-base: (
-  white: $color-white
-) !default;
-
-$color-brand: (
-  cream: $color-cream,
-  crimson: $color-crimson
-) !default;
-
-$color-black: (
   black: $color-black,
   black--050: $color-black--050,
   black--100: $color-black--100,
@@ -231,9 +215,6 @@ $color-black: (
   black--700: $color-black--700,
   black--800: $color-black--800,
   black--900: $color-black--900,
-) !default;
-
-$color-blue: (
   blue: $color-blue,
   blue--050: $color-blue--050,
   blue--100: $color-blue--100,
@@ -244,10 +225,7 @@ $color-blue: (
   blue--600: $color-blue,
   blue--700: $color-blue--700,
   blue--800: $color-blue--800,
-  blue--900: $color-blue--900
-) !default;
-
-$color-green: (
+  blue--900: $color-blue--900,
   green: $color-green,
   green-050: $color-green--050,
   green-100: $color-green--100,
@@ -258,10 +236,7 @@ $color-green: (
   green-600: $color-green--600,
   green-700: $color-green--700,
   green-800: $color-green--800,
-  green-900: $color-green--900
-) !default;
-
-$color-yellow: (
+  green-900: $color-green--900,
   yellow: $color-yellow,
   yellow-050: $color-yellow--050,
   yellow-100: $color-yellow--100,
@@ -272,10 +247,7 @@ $color-yellow: (
   yellow-600: $color-yellow--600,
   yellow-700: $color-yellow--700,
   yellow-800: $color-yellow--800,
-  yellow-900: $color-yellow--900
-) !default;
-
-$color-orange: (
+  yellow-900: $color-yellow--900,
   orange: $color-orange,
   orange-050: $color-orange--050,
   orange-100: $color-orange--100,
