@@ -69,23 +69,81 @@ $ts-xxl: $ts-52 !default;
 $font-weight-bold: 700;
 $font-weight-regular: 400;
 
-// Base colors
+$colors: (
+  white: #ffffff,
+  cream: #edebeb,
+  crimson: #990000,
+  black: #333333,
+  black--050: #fafafa,
+  black--100: #eeeeee,
+  black--150: #eaeaea,
+  black--200: #dddddd,
+  black--300: #cccccc,
+  black--400: #aaaaaa,
+  black--500: #999999,
+  black--600: #777777,
+  black--700: #666666,
+  black--800: #555555,
+  black--900: #444444,
+  blue: #006298,
+  blue--050: #edf1f6,
+  blue--100: #dce3ee,
+  blue--200: #b8c8dc,
+  blue--300: #95adcb,
+  blue--400: #7194ba,
+  blue--500: #497ba9,
+  blue--600: #006298, // color-blue
+  blue--700: #134a71,
+  blue--800: #16324b,
+  blue--900: #121c28,
+  green: #008a28,
+  green-050: #eaf3e8,
+  green-100: #d4e8d2,
+  green-200: #aad1a7,
+  green-300: #7eb97c,
+  green-400: #50a253,
+  green-500: #008a28, // color-green
+  green-600: #116d23,
+  green-700: #16521d,
+  green-800: #153717,
+  green-900: #111f0f,
+  yellow: #f5bb17,
+  yellow-050: #ffeecd,
+  yellow-100: #ffdd9b,
+  yellow-200: #d6a31a,
+  yellow-300: #b58a1b,
+  yellow-400: #94721b,
+  yellow-500: #f5bb17, //color-yellow
+  yellow-600: #765a19,
+  yellow-700: #584416,
+  yellow-800: #3c2e13,
+  yellow-900: #221b0c,
+  orange: #df3603,
+  orange-050: #ffece5,
+  orange-100: #ffd9cc,
+  orange-200: #ffb49a,
+  orange-300: #fa8e6b,
+  orange-400: #ef663c,
+  orange-500: #df3603, //color-orange
+  orange-600: #b02f0a,
+  orange-700: #82270d,
+  orange-800: #571e0c,
+  orange-900: #2f1407
+) !default;
 
-$color-white: #ffffff !default;
+// Base colors
+$color-white: map-get($colors, white) !default;
 
 // Brand Colors
-
-$color-cream: #edebeb !default;
-$color-crimson: #990000 !default;
+$color-cream: map-get($colors, cream) !default;
+$color-crimson: map-get($colors, crimson) !default;
 
 // Black variants
-
-$color-black: #333333 !default;
+$color-black: map-get($colors, black) !default;
 
 // NOTE: Standardize the way we are using variants less than 100.
-
-$color-black--050: #fafafa !default;
-$color-black--100: #eeeeee !default;
+$color-black--050: map-get($colors, black--050) !default;
+$color-black--100: map-get($colors, black--100) !default;
 
 // NOTE: This black variant is an outlier. We don't include a "--150"
 // variant with the other colors, but this color has worked really well
@@ -93,15 +151,15 @@ $color-black--100: #eeeeee !default;
 // We could revisit and see if it makes sense to remove and replace any
 // references moving forward.
 
-$color-black--150: #eaeaea !default;
-$color-black--200: #dddddd !default;
-$color-black--300: #cccccc !default;
-$color-black--400: #aaaaaa !default;
-$color-black--500: #999999 !default;
-$color-black--600: #777777 !default;
-$color-black--700: #666666 !default;
-$color-black--800: #555555 !default;
-$color-black--900: #444444 !default;
+$color-black--150: map-get($colors, black--150) !default;
+$color-black--200: map-get($colors, black--200) !default;
+$color-black--300: map-get($colors, black--300) !default;
+$color-black--400: map-get($colors, black--400) !default;
+$color-black--500: map-get($colors, black--500) !default;
+$color-black--600: map-get($colors, black--600) !default;
+$color-black--700: map-get($colors, black--700) !default;
+$color-black--800: map-get($colors, black--800) !default;
+$color-black--900: map-get($colors, black--900) !default;
 
 // Use this when you need a default (darkest) black.
 $color-black--rich: #000000 !default;
@@ -112,20 +170,20 @@ $color-black--rich: #000000 !default;
 // Internal use only: Use $color-blue--600 in all components to reference
 // the base blue.
 
-$color-blue: #006298; // Luminosity 604
+$color-blue: map-get($colors, blue) !default; // Luminosity 604
 
-$color-blue--050: #edf1f6 !default;
-$color-blue--100: #dce3ee !default;
-$color-blue--200: #b8c8dc !default;
-$color-blue--300: #95adcb !default;
-$color-blue--400: #7194ba !default;
-$color-blue--500: #497ba9 !default;
+$color-blue--050:  map-get($colors, blue--050) !default;
+$color-blue--100:  map-get($colors, blue--100) !default;
+$color-blue--200:  map-get($colors, blue--200) !default;
+$color-blue--300:  map-get($colors, blue--300) !default;
+$color-blue--400:  map-get($colors, blue--400) !default;
+$color-blue--500:  map-get($colors, blue--500) !default;
 // Replacing generated color here with base brand color since they are
 // perceivably the same. Generated value was #076399
-$color-blue--600: $color-blue !default;
-$color-blue--700: #134a71 !default;
-$color-blue--800: #16324b !default;
-$color-blue--900: #121c28 !default;
+$color-blue--600:  map-get($colors, blue--600) !default;
+$color-blue--700: map-get($colors, blue--700) !default;
+$color-blue--800: map-get($colors, blue--800) !default;
+$color-blue--900: map-get($colors, blue--900) !default;
 
 // Green variants
 
@@ -133,20 +191,20 @@ $color-blue--900: #121c28 !default;
 // Internal use only: Use $color-green--500 in all components to reference
 // the base green.
 
-$color-green: #008a28 !default; // Luminosity 501
+$color-green: map-get($colors, green) !default; // Luminosity 501
 
-$color-green--050: #eaf3e8 !default;
-$color-green--100: #d4e8d2 !default;
-$color-green--200: #aad1a7 !default;
-$color-green--300: #7eb97c !default;
-$color-green--400: #50a253 !default;
+$color-green--050: map-get($colors, green--050) !default;
+$color-green--100: map-get($colors, green--100) !default;
+$color-green--200: map-get($colors, green--200) !default;
+$color-green--300: map-get($colors, green--300) !default;
+$color-green--400: map-get($colors, green--400) !default;
 // Replacing generated color here with base brand color since they are
 // perceivably the same. Generated value was #028a28
-$color-green--500: $color-green !default;
-$color-green--600: #116d23 !default;
-$color-green--700: #16521d !default;
-$color-green--800: #153717 !default;
-$color-green--900: #111f0f !default;
+$color-green--500: map-get($colors, green) !default;
+$color-green--600: map-get($colors, green--600) !default;
+$color-green--700: map-get($colors, green--700) !default;
+$color-green--800: map-get($colors, green--800) !default;
+$color-green--900: map-get($colors, green--900) !default;
 
 // Yellow variants
 
@@ -154,20 +212,20 @@ $color-green--900: #111f0f !default;
 // Internal use only: Use $color-yellow--200 in all components to reference
 // the base yellow.
 
-$color-yellow: #f5bb17 !default; // Luminosity 209
+$color-yellow: map-get($colors, yellow) !default; // Luminosity 209
 
-$color-yellow--050: #ffeecd !default;
-$color-yellow--100: #ffdd9b !default;
+$color-yellow--050: map-get($colors, yellow--050) !default;
+$color-yellow--100: map-get($colors, yellow--100) !default;
 // Replacing generated color here with base brand color since they are
 // perceivably the same. Generated value was #f7be29
-$color-yellow--200: $color-yellow !default;
-$color-yellow--300: #d6a31a !default;
-$color-yellow--400: #b58a1b !default;
-$color-yellow--500: #94721b !default;
-$color-yellow--600: #765a19 !default;
-$color-yellow--700: #584416 !default;
-$color-yellow--800: #3c2e13 !default;
-$color-yellow--900: #221b0c !default;
+$color-yellow--200: map-get($colors, yellow--200) !default;
+$color-yellow--300: map-get($colors, yellow--300) !default;
+$color-yellow--400: map-get($colors, yellow--400) !default;
+$color-yellow--500: map-get($colors, yellow--500) !default;
+$color-yellow--600: map-get($colors, yellow--600) !default;
+$color-yellow--700: map-get($colors, yellow--700) !default;
+$color-yellow--800: map-get($colors, yellow--800) !default;
+$color-yellow--900: map-get($colors, yellow--900) !default;
 
 // Orange variants
 
@@ -175,91 +233,20 @@ $color-yellow--900: #221b0c !default;
 // Internal use only: Use $color-orange--500 in all components to reference
 // the base orange.
 
-$color-orange: #df3603 !default; // Luminosity 501
+$color-orange: map-get($colors, orange) !default; // Luminosity 501
 
-$color-orange--050: #ffece5 !default;
-$color-orange--100: #ffd9cc !default;
-$color-orange--200: #ffb49a !default;
-$color-orange--300: #fa8e6b !default;
-$color-orange--400: #ef663c !default;
+$color-orange--050: map-get($colors, orange--050) !default;
+$color-orange--100: map-get($colors, orange--100) !default;
+$color-orange--200: map-get($colors, orange--200) !default;
+$color-orange--300: map-get($colors, orange--300) !default;
+$color-orange--400: map-get($colors, orange--400) !default;
 // Replacing generated color here with base brand color since they are
 // perceivably the same. Generated value was #df3704
-$color-orange--500: $color-orange !default;
-$color-orange--600: #b02f0a !default;
-$color-orange--700: #82270d !default;
-$color-orange--800: #571e0c !default;
-$color-orange--900: #2f1407 !default;
-
-// Alert colors
-// https://styleguide.iu.edu/visual-style/colors.html
-
-// Some of these alert colors have been slightly altered to meet WCAG 2.0
-// Standards for sufficient contrast ration against white.
-
-// Alert text colors generated via this handy tool:
-// https://codepen.io/basham/pen/OpNybO
-
-$colors: (
-  white: $color-white,
-  cream: $color-cream,
-  crimson: $color-crimson,
-  black: $color-black,
-  black--050: $color-black--050,
-  black--100: $color-black--100,
-  black--150: $color-black--150,
-  black--200: $color-black--200,
-  black--300: $color-black--300,
-  black--400: $color-black--400,
-  black--500: $color-black--500,
-  black--600: $color-black--600,
-  black--700: $color-black--700,
-  black--800: $color-black--800,
-  black--900: $color-black--900,
-  blue: $color-blue,
-  blue--050: $color-blue--050,
-  blue--100: $color-blue--100,
-  blue--200: $color-blue--200,
-  blue--300: $color-blue--300,
-  blue--400: $color-blue--400,
-  blue--500: $color-blue--500,
-  blue--600: $color-blue,
-  blue--700: $color-blue--700,
-  blue--800: $color-blue--800,
-  blue--900: $color-blue--900,
-  green: $color-green,
-  green-050: $color-green--050,
-  green-100: $color-green--100,
-  green-200: $color-green--200,
-  green-300: $color-green--300,
-  green-400: $color-green--400,
-  green-500: $color-green,
-  green-600: $color-green--600,
-  green-700: $color-green--700,
-  green-800: $color-green--800,
-  green-900: $color-green--900,
-  yellow: $color-yellow,
-  yellow-050: $color-yellow--050,
-  yellow-100: $color-yellow--100,
-  yellow-200: $color-yellow--200,
-  yellow-300: $color-yellow--300,
-  yellow-400: $color-yellow--400,
-  yellow-500: $color-yellow,
-  yellow-600: $color-yellow--600,
-  yellow-700: $color-yellow--700,
-  yellow-800: $color-yellow--800,
-  yellow-900: $color-yellow--900,
-  orange: $color-orange,
-  orange-050: $color-orange--050,
-  orange-100: $color-orange--100,
-  orange-200: $color-orange--200,
-  orange-300: $color-orange--300,
-  orange-400: $color-orange--400,
-  orange-500: $color-orange,
-  orange-600: $color-orange--600,
-  orange-700: $color-orange--700,
-  orange-800: $color-orange--800,
-  orange-900: $color-orange--900
-) !default;
+$color-orange--500: map-get($colors, orange) !default;
+$color-orange--600: map-get($colors, orange--600) !default;
+$color-orange--700: map-get($colors, orange--700) !default;
+$color-orange--800: map-get($colors, orange--800) !default;
+$color-orange--900: map-get($colors, orange--900) !default;
 
 // Global spacing units
 
