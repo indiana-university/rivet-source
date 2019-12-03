@@ -5,8 +5,8 @@
   align-items: center;
   font-size: ts(12);
   padding: $xs $md;
-  background-color: $color-black--050;
-  border-top: 1px solid $color-black--100;
+  background-color: $color-black-000;
+  border-top: 1px solid $color-black-100;
   width: 100%;
 
   a {
@@ -39,7 +39,7 @@
 
     &:first-child::after {
       content: "|";
-      color: $color-black--500;
+      color: $color-black-500;
       margin: 0 $xs;
     }
 
@@ -57,7 +57,7 @@
   .#{$prefix}-footer {
     &__aux-item::after {
       content: "|";
-      color: $color-black--500;
+      color: $color-black-500;
       margin: 0 $xs;
     }
 

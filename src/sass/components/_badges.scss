@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .#{$prefix}-badge {
-  background-color: $color-black--200;
-  border: 2px solid $color-black--200;
+  background-color: $color-black-200;
+  border: 2px solid $color-black-200;
   border-radius: 999px;
   color: $color-black;
   display: inline-block;
@@ -36,35 +36,35 @@ a.#{$prefix}-badge {
 
   &:hover {
     color: $color-black;
-    background-color: $color-black--400;
-    border-color: $color-black--400;
+    background-color: $color-black-400;
+    border-color: $color-black-400;
   }
 
   &--info:hover,
   &--info-secondary:hover {
-    background-color: $color-blue--700;
-    border-color: $color-blue--700;
+    background-color: $color-blue-700;
+    border-color: $color-blue-700;
     color: $color-white;
   }
 
   &--success:hover,
   &--success-secondary:hover {
-    background-color: $color-green--700;
-    border-color: $color-green--700;
+    background-color: $color-green-700;
+    border-color: $color-green-700;
     color: $color-white;
   }
 
   &--warning:hover,
   &--warning-secondary:hover {
-    background-color: $color-yellow--700;
-    border-color: $color-yellow--700;
+    background-color: $color-yellow-700;
+    border-color: $color-yellow-700;
     color: $color-white;
   }
 
   &--danger:hover,
   &--danger-secondary:hover {
-    background-color: $color-orange--700;
-    border-color: $color-orange--700;
+    background-color: $color-orange-700;
+    border-color: $color-orange-700;
     color: $color-white;
   }
 
@@ -74,49 +74,49 @@ a.#{$prefix}-badge {
 }
 
 .#{$prefix}-badge--info {
-  background-color: $color-blue--600;
-  border-color: $color-blue--600;
+  background-color: $color-blue-600;
+  border-color: $color-blue-600;
   color: $color-white;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-blue--600;
-    color: $color-blue--600;
+    border-color: $color-blue-600;
+    color: $color-blue-600;
   }
 }
 
 .#{$prefix}-badge--success {
-  background-color: $color-green--500;
-  border-color: $color-green--500;
+  background-color: $color-green-500;
+  border-color: $color-green-500;
   color: $color-white;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-green--500;
-    color: $color-green--500;
+    border-color: $color-green-500;
+    color: $color-green-500;
   }
 }
 
 .#{$prefix}-badge--warning {
-  background-color: $color-yellow--200;
-  border-color: $color-yellow--200;
-  color: $color-black--900;
+  background-color: $color-yellow-200;
+  border-color: $color-yellow-200;
+  color: $color-black-900;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-yellow--200;
-    color: $color-black--900;
+    border-color: $color-yellow-200;
+    color: $color-black-900;
   }
 }
 
 .#{$prefix}-badge--danger {
-  background-color: $color-orange--500;
-  border-color: $color-orange--500;
+  background-color: $color-orange-500;
+  border-color: $color-orange-500;
   color: $color-white;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-orange--500;
-    color: $color-orange--500;
+    border-color: $color-orange-500;
+    color: $color-orange-500;
   }
 }

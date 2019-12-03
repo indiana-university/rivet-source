@@ -12,7 +12,7 @@
 
   &__item {
     align-items: center;
-    border-top: 1px solid $color-black--100;
+    border-top: 1px solid $color-black-100;
     display: flex;
     flex-wrap: wrap;
     margin-top: 0; // resets Rivet default margin-top
@@ -83,9 +83,9 @@ $shade-selector: '.#{$item} > .#{$list}';
 
 // Set up level indent/background shade map
 $level-styles: (
-  20: $color-black--050,
-  40: $color-black--100,
-  60: $color-black--200
+  20: $color-black-000,
+  40: $color-black-100,
+  60: $color-black-200
 );
 
 /* TODO: Adjust stylelint rules to handle nested Sass */
@@ -104,11 +104,11 @@ $level-styles: (
   // Set border-top color per nested level
   #{$indent-selector} {
     @if $index == 1 {
-      border-color: $color-black--100;
+      border-color: $color-black-100;
     } @else if $index == 2 {
-      border-color: $color-black--200;
+      border-color: $color-black-200;
     } @else if $index == 3 {
-      border-color: $color-black--300;
+      border-color: $color-black-300;
     }
   }
 

@@ -22,7 +22,7 @@
   }
 
   &__item a[aria-current] {
-    background-color: $color-black--100;
+    background-color: $color-black-100;
   }
 
   &__item a[aria-current]::after,
@@ -32,7 +32,7 @@
     display: block;
     width: $xxs;
     height: 100%;
-    background-color: $color-blue--600;
+    background-color: $color-blue-600;
     position: absolute;
     left: 0;
     top: 0;
@@ -42,7 +42,7 @@
 @mixin horizontal-menu($selector) {
   .#{$prefix}-menu {
     #{$selector} {
-      border-bottom: 1px solid $color-black--200;
+      border-bottom: 1px solid $color-black-200;
     }
 
     #{$selector} &__list {
@@ -73,7 +73,7 @@
 
     #{$selector} &__item a:hover::after,
     #{$selector} &__item button:hover::after {
-      background-color: $color-black--200;
+      background-color: $color-black-200;
     }
   }
 }

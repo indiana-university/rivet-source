@@ -19,7 +19,7 @@
       content: "";
       display: block;
       width: 100%;
-      box-shadow: 0 $sm*2.75 0 $xxs/2 $color-black--100;
+      box-shadow: 0 $sm*2.75 0 $xxs/2 $color-black-100;
       z-index: 0;
     }
 
@@ -56,7 +56,7 @@
   }
 
   &__item-content:focus &__indicator {
-    box-shadow: 0 0 0 $xxs $color-blue--300;
+    box-shadow: 0 0 0 $xxs $color-blue-300;
   }
 
   &__label {
@@ -71,7 +71,7 @@
   &__indicator {
     align-items: center;
     background-color: $color-white;
-    border: $xxs solid $color-black--200;
+    border: $xxs solid $color-black-200;
     border-radius: 999rem;
     box-shadow: 0 0 0 $xxs $color-white;
     display: inline-flex;
@@ -83,20 +83,20 @@
   }
 
   &__indicator--success {
-    background-color: $color-green--500;
-    border-color: $color-green--400;
+    background-color: $color-green-500;
+    border-color: $color-green-400;
     color: $color-white;
   }
 
   &__indicator--warning {
-    background-color: $color-yellow--200;
-    border-color: $color-yellow--100;
-    color: $color-black--900;
+    background-color: $color-yellow-200;
+    border-color: $color-yellow-100;
+    color: $color-black-900;
   }
 
   &__indicator--danger {
-    background-color: $color-orange--500;
-    border-color: $color-orange--400;
+    background-color: $color-orange-500;
+    border-color: $color-orange-400;
     color: $color-white;
   }
 
@@ -120,7 +120,7 @@
   }
 
   &--vertical &__item::before {
-    box-shadow: -$xxs 0 0 0 $color-black--100;
+    box-shadow: -$xxs 0 0 0 $color-black-100;
     height: 100%;
     position: absolute;
     top: 0;

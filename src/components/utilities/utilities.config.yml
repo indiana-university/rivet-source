@@ -102,113 +102,113 @@ context:
           hex: "990000"
         - variable: black
           hex: "243142"
-        - variable: black--050
+        - variable: black-000
           hex: "f7f7f8"
-        - variable: black--100
+        - variable: black-100
           hex: "ebecee"
-        - variable: black--200
+        - variable: black-200
           hex: "c4c7cc"
-        - variable: black--300
+        - variable: black-300
           hex: "a7abb3"
-        - variable: black--400
+        - variable: black-400
           hex: "8b919b"
-        - variable: black--500
+        - variable: black-500
           hex: "707784"
-        - variable: black--600
+        - variable: black-600
           hex: "565f6d"
-        - variable: black--700
+        - variable: black-700
           hex: "3d4757"
-        - variable: black--800
+        - variable: black-800
           hex: "243142"
-        - variable: black--900
+        - variable: black-900
           hex: "161c24"
         - variable: blue
           hex: "006298"
-        - variable: blue--050
+        - variable: blue-000
           hex: "edf1f6"
-        - variable: blue--100
+        - variable: blue-100
           hex: "dce3ee"
-        - variable: blue--200
+        - variable: blue-200
           hex: "b8c8dc"
-        - variable: blue--300
+        - variable: blue-300
           hex: "95adcb"
-        - variable: blue--400
+        - variable: blue-400
           hex: "7194ba"
-        - variable: blue--500
+        - variable: blue-500
           hex: "497ba9"
-        - variable: blue--600
+        - variable: blue-600
           hex: "006298"
-        - variable: blue--700
+        - variable: blue-700
           hex: "134a71"
-        - variable: blue--800
+        - variable: blue-800
           hex: "16324b"
-        - variable: blue--900
+        - variable: blue-900
           hex: "121c28"
         - variable: green
           hex: "008a28"
-        - variable: green--050
+        - variable: green-000
           hex: "eaf3e8"
-        - variable: green--100
+        - variable: green-100
           hex: "d4e8d2"
-        - variable: green--200
+        - variable: green-200
           hex: "aad1a7"
-        - variable: green--300
+        - variable: green-300
           hex: "7eb97c"
-        - variable: green--400
+        - variable: green-400
           hex: "50a253"
-        - variable: green--500
+        - variable: green-500
           hex: "008a28"
-        - variable: green--600
+        - variable: green-600
           hex: "116d23"
-        - variable: green--700
+        - variable: green-700
           hex: "16521d"
-        - variable: green--800
+        - variable: green-800
           hex: "153717"
-        - variable: green--900
+        - variable: green-900
           hex: "111f0f"
         - variable: yellow
           hex: "f5bb17"
-        - variable: yellow--050
+        - variable: yellow-000
           hex: "ffeecd"
-        - variable: yellow--100
+        - variable: yellow-100
           hex: "ffdd9b"
-        - variable: yellow--200
+        - variable: yellow-200
           hex: "d6a31a"
-        - variable: yellow--300
+        - variable: yellow-300
           hex: "b58a1b"
-        - variable: yellow--400
+        - variable: yellow-400
           hex: "94721b"
-        - variable: yellow--500
+        - variable: yellow-500
           hex: "f5bb17"
-        - variable: yellow--600
+        - variable: yellow-600
           hex: "765a19"
-        - variable: yellow--700
+        - variable: yellow-700
           hex: "584416"
-        - variable: yellow--800
+        - variable: yellow-800
           hex: "3c2e13"
-        - variable: yellow--900
+        - variable: yellow-900
           hex: "221b0c"
         - variable: orange
           hex: "df3603"
-        - variable: orange--050
+        - variable: orange-000
           hex: "ffece5"
-        - variable: orange--100
+        - variable: orange-100
           hex: "ffd9cc"
-        - variable: orange--200
+        - variable: orange-200
           hex: "ffb49a"
-        - variable: orange--300
+        - variable: orange-300
           hex: "fa8e6b"
-        - variable: orange--400
+        - variable: orange-400
           hex: "ef663c"
-        - variable: orange--500
+        - variable: orange-500
           hex: "df3603"
-        - variable: orange--600
+        - variable: orange-600
           hex: "b02f0a"
-        - variable: orange--700
+        - variable: orange-700
           hex: "82270d"
-        - variable: orange--800
+        - variable: orange-800
           hex: "571e0c"
-        - variable: orange--900
+        - variable: orange-900
           hex: "2f1407"
     zIndexes:
         - number: 1000
