@@ -6,14 +6,14 @@
 // Generate color utility classes
 @each $key, $value in $colors {
   .#{$prefix}-color-#{$key} {
-    color: #{$value};
+    color: #{$value} !important;
   }
 }
 
 // Generate background-color utility classes
 @each $key, $value in $colors {
   .#{$prefix}-bg-#{$key} {
-    background-color: #{$value};
+    background-color: #{$value} !important;
   }
 }
 
