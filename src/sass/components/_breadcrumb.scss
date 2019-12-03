@@ -30,7 +30,7 @@
   }
 
   li:first-child {
-    color: $color-black--600;
+    color: $color-black-600;
 
     &::before {
       content: none;
@@ -38,16 +38,16 @@
   }
 
   li:last-child {
-    color: $color-black--700;
+    color: $color-black-700;
   }
 
   &--call-out {
-    background-color: $color-black--100;
+    background-color: $color-black-100;
     padding: $sm;
     border-radius: $xxs;
 
     li:last-child {
-      color: $color-black--700;
+      color: $color-black-700;
     }
   }
 }

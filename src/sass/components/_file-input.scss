@@ -31,14 +31,14 @@
   input[type='file']:focus + label {
     outline: none;
     /* stylelint-disable */
-    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600 !important;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600 !important;
     /* stylelint-enable */
   }
 
   input[type='file']:disabled + label {
-    background-color: $color-black--100;
-    color: $color-black--700;
-    border-color: $color-black--400;
+    background-color: $color-black-100;
+    color: $color-black-700;
+    border-color: $color-black-400;
     cursor: not-allowed;
   }
 

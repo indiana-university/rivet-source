@@ -52,21 +52,21 @@
     color: $color-black;
 
     &:hover {
-      background-color: $color-blue--600;
+      background-color: $color-blue-600;
       color: $color-white;
     }
 
     &:focus {
       outline: none;
       /* stylelint-disable */
-      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
       /* stylelint-enable */
     }
   }
 
   &__header {
     padding: $md $sm;
-    border-bottom: 1px solid $color-black--100;
+    border-bottom: 1px solid $color-black-100;
   }
 
   &--confirmation &__header {
@@ -90,8 +90,8 @@
   &__controls {
     padding: $sm;
     display: flex;
-    border-top: 1px solid $color-black--100;
-    background-color: $color-black--050;
+    border-top: 1px solid $color-black-100;
+    background-color: $color-black-050;
     flex-wrap: wrap;
 
     .#{$prefix}-button {

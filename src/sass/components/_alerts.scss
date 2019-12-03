@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .#{$prefix}-alert {
-  background-color: $color-black--100;
-  border-left: $xxs solid $color-black--400;
+  background-color: $color-black-100;
+  border-left: $xxs solid $color-black-400;
   padding: $sm;
   position: relative;
 
@@ -52,7 +52,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 $xxs/2 $color-blue--600 !important;
+      box-shadow: 0 0 0 $xxs/2 $color-blue-600 !important;
     }
   }
 }
@@ -68,29 +68,29 @@
  */
 
 .#{$prefix}-alert--info {
-  background-color: $color-blue--050;
-  border-left-color: $color-blue--600;
-  color: $color-blue--700;
+  background-color: $color-blue-050;
+  border-left-color: $color-blue-600;
+  color: $color-blue-700;
 }
 
 .#{$prefix}-alert--success {
-  background-color: $color-green--050;
-  border-left-color: $color-green--500;
-  color: $color-green--700;
+  background-color: $color-green-050;
+  border-left-color: $color-green-500;
+  color: $color-green-700;
 }
 
 .#{$prefix}-alert--message,
 .#{$prefix}-alert--warning {
-  background-color: $color-yellow--050;
-  border-left-color: $color-yellow--200;
-  color: $color-yellow--700;
+  background-color: $color-yellow-050;
+  border-left-color: $color-yellow-200;
+  color: $color-yellow-700;
 }
 
 .#{$prefix}-alert--error,
 .#{$prefix}-alert--danger {
-  background-color: $color-orange--050;
-  border-left-color: $color-orange--500;
-  color: $color-orange--700;
+  background-color: $color-orange-050;
+  border-left-color: $color-orange-500;
+  color: $color-orange-700;
 }
 
 /**
@@ -142,7 +142,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 $xxs/2 $color-orange--500;
-    border-color: $color-orange--500;
+    box-shadow: 0 0 0 $xxs/2 $color-orange-500;
+    border-color: $color-orange-500;
   }
 }

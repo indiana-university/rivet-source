@@ -3,7 +3,7 @@
 
 .#{$prefix}-box {
   background-color: $color-white;
-  border: 1px solid $color-black--200;
+  border: 1px solid $color-black-200;
   border-radius: $xxs;
 
   &__body {
@@ -11,7 +11,7 @@
   }
 
   &__row {
-    border-top: 1px solid $color-black--100;
+    border-top: 1px solid $color-black-100;
     margin-top: -1px;
     padding: $sm;
 
@@ -22,37 +22,37 @@
 
   &__row--selected,
   &__row[aria-current] {
-    background-color: $color-black--050;
-    box-shadow: $xxs 0 0 0 $color-blue--600 inset;
+    background-color: $color-black-050;
+    box-shadow: $xxs 0 0 0 $color-blue-600 inset;
   }
 
   &__row--info {
-    background-color: $color-blue--050;
-    box-shadow: $xxs 0 0 0 $color-blue--600 inset;
-    color: $color-blue--700;
+    background-color: $color-blue-050;
+    box-shadow: $xxs 0 0 0 $color-blue-600 inset;
+    color: $color-blue-700;
   }
 
   &__row--success {
-    background-color: $color-green--050;
-    color: $color-green--700;
-    box-shadow: $xxs 0 0 0 $color-green--500 inset;
+    background-color: $color-green-050;
+    color: $color-green-700;
+    box-shadow: $xxs 0 0 0 $color-green-500 inset;
   }
 
   &__row--warning {
-    background-color: $color-yellow--050;
-    box-shadow: $xxs 0 0 0 $color-yellow--200 inset;
-    color: $color-yellow--700;
+    background-color: $color-yellow-050;
+    box-shadow: $xxs 0 0 0 $color-yellow-200 inset;
+    color: $color-yellow-700;
   }
 
   &__row--danger {
-    background-color: $color-orange--050;
-    box-shadow: $xxs 0 0 0 $color-orange--500 inset;
-    color: $color-orange--700;
+    background-color: $color-orange-050;
+    box-shadow: $xxs 0 0 0 $color-orange-500 inset;
+    color: $color-orange-700;
   }
 
   &__footer {
-    background-color: $color-black--050;
-    border-top: 1px solid $color-black--200;
+    background-color: $color-black-050;
+    border-top: 1px solid $color-black-200;
     border-bottom-right-radius: $xxs; // Gets rid of border clipping
     border-bottom-left-radius: $xxs; // Gets rid of border clipping
     padding: $xxs $sm;
@@ -60,10 +60,10 @@
 
   &__header {
     align-items: center;
-    background-color: $color-black--050;
+    background-color: $color-black-050;
     border-top: none;
     border-right: none;
-    border-bottom: 1px solid $color-black--200;
+    border-bottom: 1px solid $color-black-200;
     border-top-right-radius: $xxs; // Gets rid of border clipping
     border-top-left-radius: $xxs; // Gets rid of border clipping
     border-left: none;
@@ -82,7 +82,7 @@
      */
 
     &:focus {
-      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-blue--600;
+      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-blue-600;
       outline: none;
     }
   }
@@ -114,63 +114,63 @@
    */
 
   &--info {
-    border-color: $color-blue--200;
+    border-color: $color-blue-200;
   }
 
   &--info &__header,
   &--info &__footer {
-    background-color: $color-blue--050;
-    border-color: $color-blue--200;
-    color: $color-blue--700;
+    background-color: $color-blue-050;
+    border-color: $color-blue-200;
+    color: $color-blue-700;
   }
 
   &--info &__row {
-    border-color: $color-blue--200;
+    border-color: $color-blue-200;
   }
 
   &--success {
-    border-color: $color-green--200;
+    border-color: $color-green-200;
   }
 
   &--success &__header,
   &--success &__footer {
-    background-color: $color-green--050;
-    border-color: $color-green--200;
-    color: $color-green--700;
+    background-color: $color-green-050;
+    border-color: $color-green-200;
+    color: $color-green-700;
   }
 
   &--success &__row {
-    border-color: $color-green--200;
+    border-color: $color-green-200;
   }
 
   &--warning {
-    border-color: $color-yellow--100;
+    border-color: $color-yellow-100;
   }
 
   &--warning &__header,
   &--warning &__footer {
-    background-color: $color-yellow--050;
-    border-color: $color-yellow--100;
-    color: $color-yellow--700;
+    background-color: $color-yellow-050;
+    border-color: $color-yellow-100;
+    color: $color-yellow-700;
   }
 
   &--warning &__row {
-    border-color: $color-yellow--100;
+    border-color: $color-yellow-100;
   }
 
   &--danger {
-    border-color: $color-orange--200;
+    border-color: $color-orange-200;
   }
 
   &--danger &__header,
   &--danger &__footer {
-    background-color: $color-orange--050;
-    border-color: $color-orange--200;
-    color: $color-orange--700;
+    background-color: $color-orange-050;
+    border-color: $color-orange-200;
+    color: $color-orange-700;
   }
 
   &--danger &__row {
-    border-color: $color-orange--200;
+    border-color: $color-orange-200;
   }
 
   &--card {
@@ -179,6 +179,6 @@
   }
 
   &--card &__footer {
-    border-top-color: $color-black--200;
+    border-top-color: $color-black-200;
   }
 }

@@ -13,7 +13,7 @@
     left: 0;
     height: 100%;
     width: $xxs;
-    background: $color-black--100;
+    background: $color-black-100;
   }
 
   &__item::after {
@@ -24,7 +24,7 @@
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-right-color: $color-black--100;
+    border-right-color: $color-black-100;
     border-width: $sm;
     top: .4rem;
   }
@@ -43,9 +43,9 @@
     height: $sm*.75;
     position: absolute;
     color: $color-white;
-    background: $color-blue--600;
+    background: $color-blue-600;
     border-radius: 50%;
-    box-shadow: 0 0 0 $xxs $color-black--100;
+    box-shadow: 0 0 0 $xxs $color-black-100;
     margin-top: $sm;
   }
 
@@ -65,7 +65,7 @@
 
   &__date {
     font-size: $ts-14;
-    color: $color-black--700;
+    color: $color-black-700;
   }
 }
 
@@ -78,7 +78,7 @@
   .#{$prefix}-timeline__item::after {
     margin-left: 0;
     right: 0;
-    border-left-color: $color-black--100;
+    border-left-color: $color-black-100;
     border-right-color: transparent;
   }
 
@@ -151,14 +151,14 @@
     .#{$prefix}-timeline__item::after {
       margin-left: -$md;
       left: 100%;
-      border-left-color: $color-black--100;
+      border-left-color: $color-black-100;
       border-right-color: transparent;
     }
 
     .#{$prefix}-timeline__item--right::after {
       margin-left: -$sm;
       left: auto;
-      border-right-color: $color-black--100;
+      border-right-color: $color-black-100;
       border-left-color: transparent;
     }
 
