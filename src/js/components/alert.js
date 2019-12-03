@@ -3,15 +3,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import { nodeListToArray } from '../utilities/domHelpers';
-
 export default class Alert {
 
   constructor(element) {
 
     // Instance properties
     this.element = element;
-    this.elementArray = nodeListToArray(this.element);
     this.closeAttribute = ['data-alert-close'];
     this.closeSelector = `[${this.closeAttribute}]`;
     this.ariaAttribute = ['aria-labelledby'];
@@ -21,9 +18,9 @@ export default class Alert {
     this._handleClick = this._handleClick.bind(this);
 
     // Check to make sure that a DOM element was passed in for initialization
-    if (!(this.element instanceof NodeList)) {
+    if (!(Array.isArray(this.element))) {
       throw new TypeError(
-        'A DOM element should be passed as the first argument to initialize the alert'
+        'A DOM element should be passed as the first argument to initialize the /alert'
       );
     }
 
@@ -58,14 +55,14 @@ export default class Alert {
 
   init() {
     // Add click handlers
-    this.elementArray.forEach((item) => {
+    this.element.forEach((item) => {
       let dismissButton = item.querySelector(this.closeSelector);
       dismissButton.addEventListener('click', this._handleClick, false);
     })
   }
 
   destroy() {
-    this.elementArray.forEach((item) => {
+    this.element.forEach((item) => {
       let dismissButton = item.querySelector(this.closeSelector);
       dismissButton.removeEventListener('click', this._handleClick, false);
     })

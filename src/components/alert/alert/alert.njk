@@ -4,6 +4,11 @@
     {% render "@includes--alert-close-button" %}
 </div>
 <script>
-  const close{{ type }}Element = document.querySelectorAll('[aria-labelledby]');
-  const new{{ type }}Alert = new Rivet.Alert(close{{type}}Element);
+  let close{{ type }}Element = document.querySelectorAll('[data-alert-close]');
+  let parent{{ type }}Elements = [];
+  close{{ type }}Element.forEach((item) => {
+    const parent = item.parentElement;
+    parent{{ type }}Elements.push(parent);
+  });
+  const new{{ type }}Alert = new Rivet.Alert(parent{{ type }}Elements);
 </script>
