@@ -68,27 +68,27 @@
  */
 
 .#{$prefix}-alert--info {
-  background-color: $color-blue-050;
+  background-color: $color-blue-000;
   border-left-color: $color-blue-600;
   color: $color-blue-700;
 }
 
 .#{$prefix}-alert--success {
-  background-color: $color-green-050;
+  background-color: $color-green-000;
   border-left-color: $color-green-500;
   color: $color-green-700;
 }
 
 .#{$prefix}-alert--message,
 .#{$prefix}-alert--warning {
-  background-color: $color-yellow-050;
+  background-color: $color-yellow-000;
   border-left-color: $color-yellow-200;
   color: $color-yellow-700;
 }
 
 .#{$prefix}-alert--error,
 .#{$prefix}-alert--danger {
-  background-color: $color-orange-050;
+  background-color: $color-orange-000;
   border-left-color: $color-orange-500;
   color: $color-orange-700;
 }

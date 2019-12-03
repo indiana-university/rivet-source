@@ -22,36 +22,36 @@
 
   &__row--selected,
   &__row[aria-current] {
-    background-color: $color-black-050;
+    background-color: $color-black-000;
     box-shadow: $xxs 0 0 0 $color-blue-600 inset;
   }
 
   &__row--info {
-    background-color: $color-blue-050;
+    background-color: $color-blue-000;
     box-shadow: $xxs 0 0 0 $color-blue-600 inset;
     color: $color-blue-700;
   }
 
   &__row--success {
-    background-color: $color-green-050;
+    background-color: $color-green-000;
     color: $color-green-700;
     box-shadow: $xxs 0 0 0 $color-green-500 inset;
   }
 
   &__row--warning {
-    background-color: $color-yellow-050;
+    background-color: $color-yellow-000;
     box-shadow: $xxs 0 0 0 $color-yellow-200 inset;
     color: $color-yellow-700;
   }
 
   &__row--danger {
-    background-color: $color-orange-050;
+    background-color: $color-orange-000;
     box-shadow: $xxs 0 0 0 $color-orange-500 inset;
     color: $color-orange-700;
   }
 
   &__footer {
-    background-color: $color-black-050;
+    background-color: $color-black-000;
     border-top: 1px solid $color-black-200;
     border-bottom-right-radius: $xxs; // Gets rid of border clipping
     border-bottom-left-radius: $xxs; // Gets rid of border clipping
@@ -60,7 +60,7 @@
 
   &__header {
     align-items: center;
-    background-color: $color-black-050;
+    background-color: $color-black-000;
     border-top: none;
     border-right: none;
     border-bottom: 1px solid $color-black-200;
@@ -119,7 +119,7 @@
 
   &--info &__header,
   &--info &__footer {
-    background-color: $color-blue-050;
+    background-color: $color-blue-000;
     border-color: $color-blue-200;
     color: $color-blue-700;
   }
@@ -134,7 +134,7 @@
 
   &--success &__header,
   &--success &__footer {
-    background-color: $color-green-050;
+    background-color: $color-green-000;
     border-color: $color-green-200;
     color: $color-green-700;
   }
@@ -149,7 +149,7 @@
 
   &--warning &__header,
   &--warning &__footer {
-    background-color: $color-yellow-050;
+    background-color: $color-yellow-000;
     border-color: $color-yellow-100;
     color: $color-yellow-700;
   }
@@ -164,7 +164,7 @@
 
   &--danger &__header,
   &--danger &__footer {
-    background-color: $color-orange-050;
+    background-color: $color-orange-000;
     border-color: $color-orange-200;
     color: $color-orange-700;
   }

@@ -102,7 +102,7 @@ context:
           hex: "990000"
         - variable: black
           hex: "243142"
-        - variable: black-050
+        - variable: black-000
           hex: "f7f7f8"
         - variable: black-100
           hex: "ebecee"
@@ -124,7 +124,7 @@ context:
           hex: "161c24"
         - variable: blue
           hex: "006298"
-        - variable: blue-050
+        - variable: blue-000
           hex: "edf1f6"
         - variable: blue-100
           hex: "dce3ee"
@@ -146,7 +146,7 @@ context:
           hex: "121c28"
         - variable: green
           hex: "008a28"
-        - variable: green-050
+        - variable: green-000
           hex: "eaf3e8"
         - variable: green-100
           hex: "d4e8d2"
@@ -168,7 +168,7 @@ context:
           hex: "111f0f"
         - variable: yellow
           hex: "f5bb17"
-        - variable: yellow-050
+        - variable: yellow-000
           hex: "ffeecd"
         - variable: yellow-100
           hex: "ffdd9b"
@@ -190,7 +190,7 @@ context:
           hex: "221b0c"
         - variable: orange
           hex: "df3603"
-        - variable: orange-050
+        - variable: orange-000
           hex: "ffece5"
         - variable: orange-100
           hex: "ffd9cc"

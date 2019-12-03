@@ -115,7 +115,7 @@
     &.#{$prefix}-inline-alert--is-invalid,
     &.#{$prefix}-inline-alert--danger {
       border-left: $xxs solid $color-orange-500;
-      background-color: $color-orange-050;
+      background-color: $color-orange-000;
 
       .#{$prefix}-inline-alert__message {
         color: $color-orange-700;
@@ -124,7 +124,7 @@
 
     &.#{$prefix}-inline-alert--success {
       border-left: $xxs solid $color-green-500;
-      background-color: $color-green-050;
+      background-color: $color-green-000;
 
       .#{$prefix}-inline-alert__message {
         color: $color-green-700;
@@ -133,7 +133,7 @@
 
     &.#{$prefix}-inline-alert--warning {
       border-left: $xxs solid $color-yellow-200;
-      background-color: $color-yellow-050;
+      background-color: $color-yellow-000;
 
       .#{$prefix}-inline-alert__message {
         color: $color-yellow-700;
@@ -143,7 +143,7 @@
     &.#{$prefix}-inline-alert--has-info,
     &.#{$prefix}-inline-alert--info {
       border-left: $xxs solid $color-blue-600;
-      background-color: $color-blue-050;
+      background-color: $color-blue-000;
 
       .#{$prefix}-inline-alert__message {
         color: $color-blue-700;
