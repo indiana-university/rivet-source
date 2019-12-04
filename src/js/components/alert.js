@@ -2,70 +2,60 @@
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
  */
+import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
+import { isNode } from '../utilities/domHelpers';
 
 export default class Alert {
-
   constructor(element) {
 
     // Instance properties
     this.element = element;
-    this.closeAttribute = ['data-alert-close'];
+    this.closeAttribute = 'data-alert-close';
     this.closeSelector = `[${this.closeAttribute}]`;
-    this.ariaAttribute = ['aria-labelledby'];
-    this.ariaSelector = `[${this.ariaAttribute}]`;
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
 
     // Check to make sure that a DOM element was passed in for initialization
-    if (!(Array.isArray(this.element))) {
+    if (!isNode(this.element)) {
       throw new TypeError(
-        'A DOM element should be passed as the first argument to initialize the /alert'
+        'A DOM element should be passed as the first argument to initialize the sidenav'
       );
     }
 
     this.init();
   }
 
-  _handleClick(event) {
-    const dismissAria = event.target.closest(this.ariaSelector);
-
-    // If the target wasn't the Aria element bail.
-    if (!dismissAria) {
-      throw new Error(
-        'Couldn\'t locate the Aria selector for the element.'
-      );
-    }
-
-    this.dismissAlert(dismissAria);
-
+  _handleClick() {
+    this.dismiss();
   }
 
-  dismissAlert(dismissAria) {
-    let alert = dismissAria;
+  /**
+   * Custom event for handling removal of alerts from a page.
+   */
+  dismiss() {
+    const dismissEvent = dispatchCustomEvent(
+      'alertDismiss',
+      this.element,
+      {
+        id: this.element.dataset.alert
+      }
+    );
 
-    if (!alert) {
-      throw new Error(
-        'Could not find an alert attached to the close selector to dismiss.'
-      );
-    }
+    if (!dismissEvent) return;
 
-    alert.remove();
+    this.element.remove();
   }
 
   init() {
     // Add click handlers
-    this.element.forEach((item) => {
-      let dismissButton = item.querySelector(this.closeSelector);
-      dismissButton.addEventListener('click', this._handleClick, false);
-    })
+    const dismissButton = this.element.querySelector(this.closeSelector);
+    dismissButton.addEventListener('click', this._handleClick, false);
   }
 
   destroy() {
-    this.element.forEach((item) => {
-      let dismissButton = item.querySelector(this.closeSelector);
-      dismissButton.removeEventListener('click', this._handleClick, false);
-    })
+    const dismissButton = this.element.querySelector(this.closeSelector);
+    dismissButton.addEventListener('click', this._handleClick, false);
   }
 
 }
