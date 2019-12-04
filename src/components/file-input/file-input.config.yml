@@ -3,14 +3,14 @@ label: File Input
 status: "ready"
 collated: true
 context:
-    id: "my-file-input"
+    id: "singleFileInput"
     buttonText: Upload a file
     previewText: No file selected
     fileDescription: "file-description"
 variants:
   - name: "secondary"
     context:
-        id: "my-file-input-two"
+        id: "multipleFilesInput"
         buttonText: Upload multiple files
         multiple: true
         secondary: true

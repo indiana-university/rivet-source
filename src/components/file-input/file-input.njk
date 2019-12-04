@@ -1,5 +1,5 @@
-<div class="rvt-file" data-upload="{{ id }}">
-    <input type="file" id="{{ id }}" aria-describedby="{{ fileDescription }}" {% if multiple %} multiple{% endif %}>
+<div class="rvt-file" data-upload-wrapper="{{ id }}">
+    <input type="file" data-upload-input="{{ id }}" id="{{ id }}" aria-describedby="{{ fileDescription }}" {% if multiple %} multiple{% endif %}>
     <label for="{{ id }}" class="rvt-button{% if secondary %} rvt-button--secondary{% endif %}">
         <span>{{ buttonText }}</span>
         {% include "@includes--file-upload" %}
@@ -10,9 +10,6 @@
 </div>
 
 <script>
-    document.addEventListener('fileAttached', function(event) {
-        if (event.detail.name() == 'my-file-input-two') {
-            alert('File was attached! 💌');
-        }
-    });
+  const fileInputWrapper{{ id }} = document.querySelector('[data-upload-wrapper="{{ id }}"]');
+  const newFileInput{{ id }} = new Rivet.FileInput(fileInputWrapper{{ id }});
 </script>

@@ -8,6 +8,7 @@ import './polyfills/CustomEvent';
 
 // Components
 import Alert from './components/alert';
+import FileInput from './components/fileInput';
 import Sidenav from './components/sidenav';
 
-export default { Alert, Sidenav };
+export default { Alert, FileInput, Sidenav };
