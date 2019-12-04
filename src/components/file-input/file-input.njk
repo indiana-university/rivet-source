@@ -12,4 +12,14 @@
 <script>
   const fileInputWrapper{{ id }} = document.querySelector('[data-upload-wrapper="{{ id }}"]');
   const newFileInput{{ id }} = new Rivet.FileInput(fileInputWrapper{{ id }});
+
+  document.addEventListener('rvt:buildSingleFile', function(event) {
+    // event.preventDefault();
+    console.log(event.detail);
+  });
+
+  document.addEventListener('rvt:buildMultipleFiles', function(event) {
+    // event.preventDefault();
+    console.log(event.detail);
+  });
 </script>
