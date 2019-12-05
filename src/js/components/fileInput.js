@@ -19,7 +19,7 @@ export default class FileInput {
     this.element = element;
     this.wrapperAttribute = 'data-upload-wrapper';
     this.inputAttribute = 'data-upload-input';
-    this.previewAttribute = 'data-file-preview';
+    this.previewAttribute = 'data-upload-preview';
     this.previewText = settings.previewText;
 
     this._handleChange = this._handleChange.bind(this);
