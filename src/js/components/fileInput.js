@@ -105,17 +105,11 @@ export default class FileInput {
    * file(s) are attached to the file input
    */
   _handleChange() {
-    // Store a reference to the file input wrapper (data-upload) element
-    const uploadWrapper = event.target.closest(`[${ this.wrapperAttribute }]`);
-
-    // If the change event was on the file input, bail.
-    if (!uploadWrapper) return;
-
     // The actual input element
-    const uploadInput = uploadWrapper.querySelector(`[${ this.inputAttribute }]`);
+    const uploadInput = this.element.querySelector(`[${ this.inputAttribute }]`);
 
     // The preview element where we'll inject file count, etc.
-    const uploadPreview = uploadWrapper.querySelector(`[${ this.previewAttribute }]`);
+    const uploadPreview = this.element.querySelector(`[${ this.previewAttribute }]`);
 
     // Check to make sure that at least one file was attached
     if (uploadInput.files.length > 0) {
