@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
-
 export default class FileInput {
   constructor(element, options) {
     const defaultOptions = {
@@ -58,18 +56,6 @@ export default class FileInput {
     // Add the file name as the text content
     singleFileItem.textContent = singleFileName;
 
-    const singleFileEvent = dispatchCustomEvent(
-      'buildSingleFile',
-      this.element,
-      {
-        type: 'single',
-        fileName: singleFileName,
-        fileInputWrapper: this.element.dataset.uploadWrapper
-      }
-    );
-
-    if (!singleFileEvent) return;
-
     // Returns our built <span> element.
     return singleFileItem;
   }
@@ -83,18 +69,6 @@ export default class FileInput {
   _buildMultipleFiles(input) {
     const fileCount = document.createElement('span');
     fileCount.textContent = input.files.length + ' files selected';
-
-    const multipleFilesEvent = dispatchCustomEvent(
-      'buildMultipleFiles',
-      this.element,
-      {
-        type: 'multiple',
-        numberOfFiles: input.files.length,
-        fileInputWrapper: this.element.dataset.uploadWrapper
-      }
-    );
-
-    if (!multipleFilesEvent) return;
 
     return fileCount;
   }
