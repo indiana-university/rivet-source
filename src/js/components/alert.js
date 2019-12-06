@@ -2,46 +2,60 @@
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
  */
+import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
+import { isNode } from '../utilities/domHelpers';
 
 export default class Alert {
+  constructor(element) {
 
-  constructor(options) {
-    this.handleClick = this.handleClick.bind(this);
+    // Instance properties
+    this.element = element;
+    this.closeAttribute = 'data-alert-close';
+    this.closeSelector = `[${this.closeAttribute}]`;
+    this.closeButton = null;
 
-    this.init(options);
-  }
+    // bind methods
+    this._handleClick = this._handleClick.bind(this);
 
-  init(options) {
-    document.getElementById(options.id).closest('[aria-labelledby]').querySelector('[data-alert-close]').addEventListener('click', () => { this.handleClick(options.id); }, false);
-  }
-
-  handleClick(id) {
-    const dismissButton = event.target.closest('[data-alert-close]');
-
-    // If the target wasn't the dismiss button bail.
-    if (!dismissButton) return;
-
-    this.dismissAlert(id);
-  }
-
-  dismissAlert(id, callback) {
-    let alert = document.querySelector('[aria-labelledby="' + id + '"]');
-
-    if (!alert) {
-      alert = document.getElementById(id);
-    }
-
-    if (!alert) {
-      throw new Error(
-        'Could not find an alert with the id of ' + id + ' to dismiss.'
+    // Check to make sure that a DOM element was passed in for initialization
+    if (!isNode(this.element)) {
+      throw new TypeError(
+        'A DOM element should be passed as the first argument to initialize the alert'
       );
     }
 
-    alert.remove();
+    this.init();
+  }
 
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
+  _handleClick() {
+    this.dismiss();
+  }
+  dismiss() {
+    /**
+   * Custom event for handling removal of alerts from a page.
+   */
+    const dismissEvent = dispatchCustomEvent(
+      'alertDismiss',
+      this.element,
+      {
+        id: this.element.dataset.alert
+      }
+    );
+
+    if (!dismissEvent) return;
+
+    this.destroy();
+    this.element.remove();
+  }
+
+  init() {
+    // Add click handlers
+    this.closeButton = this.element.querySelector(this.closeSelector);
+    this.closeButton.addEventListener('click', this._handleClick, false);
+  }
+
+  destroy() {
+    this.closeButton.addEventListener('click', this._handleClick, false);
   }
 
 }

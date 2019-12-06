@@ -5,6 +5,7 @@
 // Polyfills
 import './polyfills/closest';
 import './polyfills/CustomEvent';
+import './polyfills/remove';
 
 // Components
 import Alert from './components/alert';
