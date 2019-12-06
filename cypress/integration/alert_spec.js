@@ -1,44 +1,39 @@
-const ALERT_INFO = '[data-alert="info"]';
-const ALERT_WARNING = '[data-alert="warning"]';
-const WARNING_CLOSE = ALERT_WARNING + '>.rvt-alert__dismiss';
-const ALERT_CLOSE = ALERT_INFO + '>.rvt-alert__dismiss';
 const DEV_SERVER = 'http://localhost:3000';
 
-describe('Rivet alert interactions', function () {
-  it('Visits the info alert page', function () {
-    cy.visit(DEV_SERVER + '/components/preview/alert');
-  });
+beforeEach(function () {
+  cy.visit(`${DEV_SERVER}/components/preview/alert`);
+  /**
+   * Use cypress aliases to share the context of the list and toggle
+   * elements across different assertions.
+   */
+  cy.get('[data-alert="info"]').as('infoAlert');
+  cy.get('[data-alert="info"] >.rvt-alert__dismiss').as('infoAlertClose');
+  cy.get('[data-alert="warning"]').as('warningAlert');
+});
 
+describe('Rivet alert interactions', function () {
   it('Should see the info alert page', function () {
-    cy.get(ALERT_INFO)
+    cy.get('@infoAlert')
       .should('have.attr', 'data-alert', 'info')
       .and('be.visible');
 
-    cy.get(ALERT_CLOSE).should('be.visible');
+    cy.get('@infoAlertClose').should('be.visible');
   });
 
   it('Should be able to close the alert', function () {
-    cy.get(ALERT_CLOSE).click();
+    cy.get('@infoAlertClose').click();
 
-    cy.get(ALERT_INFO).should('not.exist');
+    cy.get('@infoAlert').should('not.exist');
   });
 
-  /*
   it('Should be able to dismiss with .dismiss() method', function () {
     cy.window().then(win => {
-      cy.spy(console, 'log');
 
-      win.addEventListener(win.Rivet.Alert.prototype.dismiss.name, function () {
-        console.log('You did it?');
-      });
+      win.newwarningAlert.dismiss();
 
-      cy.get(WARNING_CLOSE).click();
-
-      expect(console.log).to.be.called;
     });
 
-    cy.get(ALERT_WARNING).should('not.exist');
+    cy.get('@warningAlert').should('not.exist');
   });
-  */
 
 });
