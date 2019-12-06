@@ -48,7 +48,7 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-stylelint": "^9.0.0",
     "gulp-uglify": "^3.0.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.0",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",
     "postcss": "^7.0.21",
