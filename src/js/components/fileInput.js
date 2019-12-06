@@ -73,11 +73,6 @@ export default class FileInput {
     return fileCount;
   }
 
-  /**
-   *
-   * @param {Event} event - Handles the main 'change' event emitted when
-   * file(s) are attached to the file input
-   */
   _handleChange() {
     // The actual input element
     const uploadInput = this.element.querySelector(`[${ this.inputAttribute }]`);
@@ -107,23 +102,10 @@ export default class FileInput {
     }
   }
 
-  /**
-   * @param {HTMLElement} context - An optional DOM element that the
-   * file input can be initialized on. All event listeners will be attached
-   * to this element. Usually best to just leave it to default
-   * to the document.
-   */
   init() {
     this.element.addEventListener('change', this._handleChange, false);
   }
 
-  /**
-   * @param {HTMLElement} context - An optional DOM element. This only
-   * needs to be passed in if a DOM element was passed to the init()
-   * function. If so, the element passed in must be the same element
-   * that was passed in at initialization so that the event listeners can
-   * be properly removed.
-   */
   destroy() {
     this.element.removeEventListener('change', this._handleChange, false);
   }
