@@ -44,6 +44,7 @@ export default class Alert {
 
     if (!dismissEvent) return;
 
+    this.destroy();
     this.element.remove();
   }
 
