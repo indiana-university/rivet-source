@@ -28,9 +28,7 @@ describe('Rivet alert interactions', function () {
 
   it('Should be able to dismiss with .dismiss() method', function () {
     cy.window().then(win => {
-
       win.newwarningAlert.dismiss();
-
     });
 
     cy.get('@warningAlert').should('not.exist');
