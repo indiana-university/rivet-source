@@ -3,12 +3,17 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import keyCodes from '../utilities/keyCodes';
+
 export default class Dropdown {
   constructor(element) {
     this.element = element;
     this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
     this.toggleAttribute = '[data-dropdown-toggle]';
     this.menuSelector = '[data-dropdown-menu]';
+
+    // Keyboard Codes
+    this.keys = keyCodes;
 
     // Bind methods
     this._handleClick = this._handleClick.bind(this);
