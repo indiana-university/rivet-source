@@ -4,7 +4,7 @@ status: "ready"
 collated: true
 context:
     title: "Navigation menu"
-    id: "dropdown-navigation"
+    id: "dropdownNavigation"
     items:
       - text: "Item one"
       - text: "Item two"
@@ -19,17 +19,17 @@ variants:
   - name: "secondary"
     context:
         title: "Secondary menu"
-        id: "dropdown-secondary"
+        id: "dropdownSecondary"
         modifier: "-secondary"
   - name: "right-align"
     context:
         title: "Right-aligned menu"
-        id: "dropdown-right"
+        id: "dropdownRight"
         class: "rvt-dropdown__menu--right"
   - name: "buttons"
     context:
         title: "Dropdown with buttons"
-        id: "dropdown-buttons"
+        id: "dropdownButtons"
         buttons: true
         items:
           - text: "Notify all"
@@ -52,7 +52,7 @@ variants:
   - name: "heading"
     context:
         title: "Dropdown with heading"
-        id: "dropdown-heading"
+        id: "dropdownHeading"
         items:
           - text: "Notify all"
             attributes:
@@ -75,7 +75,7 @@ variants:
   - name: "heading"
     context:
         title: "Heading and buttons"
-        id: "dropdown-heading-buttons"
+        id: "dropdownHeadingButtons"
         buttons: true
         items:
           - text: "Notify all"

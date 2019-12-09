@@ -1,4 +1,4 @@
-<div class="rvt-dropdown">
+<div class="rvt-dropdown" data-dropdown="{{ id }}">
   {% if not special %}
     {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% elif identityModule %}
@@ -47,11 +47,6 @@
 </div>
 
 <script>
-    // Callback function that puts focus on the button that was toggled.
-    function focusTheToggle(id) {
-        document
-            .querySelector('[data-dropdown-toggle="' + id + '"]')
-            .focus();
-    }
-
+  const dropdownWrapper{{ id }} = document.querySelector('[data-dropdown="{{ id }}"]');
+  window.newDropdown{{ id }} = new Rivet.Dropdown(dropdownWrapper{{ id }});
 </script>
