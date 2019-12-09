@@ -120,6 +120,10 @@
     }
   }
 
+  .#{$prefix}-button[data-modal-close] > * {
+    pointer-events: none;
+  }
+
   &--small &__inner {
     max-width: 500px;
   }
