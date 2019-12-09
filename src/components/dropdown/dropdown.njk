@@ -6,7 +6,7 @@
   {% else %}
     {% render '@button--dropdown', { special: "true", content: title, initials: initials, username: username, attributes: [{ label: "class", value: "rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% endif %}
-  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} aria-hidden="true">
+  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} aria-hidden="true" data-dropdown-menu>
   {% if buttons %}
     {% for item in items %}
       {% if item.relatedLinks %}
