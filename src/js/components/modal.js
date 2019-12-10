@@ -103,6 +103,7 @@ export default class Modal {
     if (!openEvent) return;
 
     this.element.setAttribute('aria-hidden', 'false');
+    this.element.classList.add('rvt-modal-open');
 
     if (callback && typeof callback === 'function') {
       callback();
@@ -124,6 +125,7 @@ export default class Modal {
     if (!closeEvent) return;
 
     this.element.setAttribute('aria-hidden', 'true');
+    this.element.classList.remove('rvt-modal-open');
 
     if (callback && typeof callback === 'function') {
       callback();
