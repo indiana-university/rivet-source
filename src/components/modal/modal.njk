@@ -10,7 +10,7 @@
   {% for attribute in attributes %}
     {{ attribute.label }}="{{ attribute.value }}"
   {% endfor %}>
-  <div class="rvt-modal__inner">
+  <div class="rvt-modal__inner" data-modal-inner>
     <header class="rvt-modal__header">
         <h1 class="rvt-modal__title" id="{{ modalTitledId }}">{{ modalTitle }}</h1>
     </header>

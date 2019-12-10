@@ -19,7 +19,12 @@ export default class Modal {
     // Instance properties
     this.element = element;
     this.openOnInit = settings.openOnInit;
+    this.modalAttribute = 'data-modal';
+    this.modalSelector = `[${this.modalAttribute}]`;
     this.modalDataValue = this.element.getAttribute('data-modal');
+    this.innerModalAttribute = 'data-modal-inner';
+    this.innerModalSelector = `[${this.innerModalAttribute}]`;
+    this.dialogAttribute = 'data-modal-dialog';
     this.openAttribute = 'data-modal-trigger';
     this.openSelector = `[${this.openAttribute}]`;
     this.openButton = document.querySelector(`[${this.openAttribute}="${this.modalDataValue}"]`);
@@ -44,17 +49,44 @@ export default class Modal {
   }
 
   _handleClick(event) {
-    let triggerSelectors = this.openSelector + ', ' + this.closeSelector;
+    event.target.closest(this.innerModalSelector) !== null ? event.clickedInModal = true : event.clickedInModal = false;
+
+    if (event.clickedInModal) {
+      event.stopPropagation();
+    }
+
+    let triggerSelectors = this.openSelector + ', ' + this.closeSelector + ', ' + this.modalSelector;
     const trigger = event.target.closest(triggerSelectors);
     // Exit if trigger button doesn't exist
-    console.log(this.closeButtons);
     if (!trigger) return;
 
-    const triggerContent = trigger.getAttribute(this.openAttribute) || (trigger.getAttribute(this.closeAttribute) && trigger.getAttribute(this.closeAttribute) !== 'close' ? trigger.getAttribute(this.closeAttribute) : false);
+    const triggerContent = trigger.getAttribute(this.openAttribute) || (trigger.getAttribute(this.closeAttribute) && trigger.getAttribute(this.closeAttribute) !== 'close' ? trigger.getAttribute(this.closeAttribute) : false) || event.target.closest(this.modalSelector);
     // Exit if trigger doesn't contain the open or close button
     if (!triggerContent) return;
 
-    trigger.hasAttribute(this.openAttribute) ? this.open() : this.close();
+    console.log('trigger: ' + trigger);
+    console.log('triggerContent: ' + triggerContent);
+
+    switch (trigger != null) {
+      case trigger.hasAttribute(this.openAttribute):
+        this.open();
+
+        break;
+      case trigger.hasAttribute(this.closeAttribute):
+        event.preventDefault();
+
+        this.close();
+
+        break;
+      case trigger === triggerContent && !event.clickedInModal:
+        if (trigger.hasAttribute(this.dialogAttribute)) return;
+
+        this.close();
+
+        break;
+      default:
+        return;
+    }
   }
   open(callback) {
     /**
@@ -105,11 +137,13 @@ export default class Modal {
 
     // Add click handlers
     this.openButton.addEventListener('click', this._handleClick, false);
+    this.element.addEventListener('click', this._handleClick, false);
     this.closeButtons.forEach(closeButton => closeButton.addEventListener('click', this._handleClick, false));
   }
 
   destroy() {
     this.openButton.removeEventListener('click', this._handleClick, false);
+    this.element.removeEventListener('click', this._handleClick, false);
     this.closeButtons.forEach(closeButton => closeButton.removeEventListener('click', this._handleClick, false));
   }
 
