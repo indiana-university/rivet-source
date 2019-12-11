@@ -4,6 +4,7 @@
 */
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
 import { isNode, nodeListToArray } from '../utilities/domHelpers';
+import keyCodes from '../utilities/keyCodes';
 
 export default class Modal {
   constructor(element, options) {
@@ -34,9 +35,12 @@ export default class Modal {
       this.element.querySelectorAll(this.closeSelector)
     );
 
+    // Anything that is focus-able
+    this.focusElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
+    this._handleKeydown = this._handleKeydown.bind(this);
 
     // Check to make sure that a DOM element was passed in for initialization
     if (!isNode(this.element)) {
@@ -64,30 +68,84 @@ export default class Modal {
     // Exit if trigger doesn't contain the open or close button
     if (!triggerContent) return;
 
-    console.log('trigger: ' + trigger);
-    console.log('triggerContent: ' + triggerContent);
-
     switch (trigger != null) {
-      case trigger.hasAttribute(this.openAttribute):
+      case trigger.hasAttribute(this.openAttribute): {
         this.open();
 
+        this.element.focus();
+
         break;
-      case trigger.hasAttribute(this.closeAttribute):
+      }
+      case trigger.hasAttribute(this.closeAttribute): {
         event.preventDefault();
 
         this.close();
 
+        if (this.openButton !== null) this.openButton.focus();
+
         break;
-      case trigger === triggerContent && !event.clickedInModal:
+      }
+      case trigger === triggerContent && !event.clickedInModal: {
         if (trigger.hasAttribute(this.dialogAttribute)) return;
 
         this.close();
 
+        this.openButton.focus();
+
         break;
-      default:
+      }
+      default: {
         return;
+      }
     }
   }
+
+  _handleBackwardTab(first, last, event) {
+    if (document.activeElement === first || document.activeElement === this.element) {
+      event.preventDefault();
+      last.focus();
+    }
+  }
+
+  _handleForwardTab(first, last, event) {
+    if (document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  _handleKeydown(event) {
+    const currentModal = event.target.closest(this.modalSelector);
+
+    if (!currentModal) return;
+
+    switch (event.keyCode) {
+      case keyCodes.tab: {
+
+        const focusList = Array.prototype.slice.call(currentModal.querySelectorAll(this.focusElements));
+        const firstFocus = focusList[0];
+        const finalFocus = focusList[focusList.length - 1];
+
+        event.shiftKey ? this._handleBackwardTab(firstFocus, finalFocus, event) : this._handleForwardTab(firstFocus, finalFocus, event);
+
+        break;
+      }
+      case keyCodes.escape: {
+
+        if (this.element.hasAttribute(this.dialogAttribute)) return;
+
+        this.close();
+
+        if (this.openButton !== null) this.openButton.focus();
+
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+
   open(callback) {
     /**
   * Custom event for opening the modal.
@@ -132,21 +190,43 @@ export default class Modal {
     }
   }
 
+  focusTrigger() {
+    if (!this.openButton) {
+      throw new Error(`Could not find a modal trigger with the value of ${this.modalDataValue}`);
+    }
+
+    this.openButton.focus();
+  }
+
+  focusModal() {
+    if (!this.element) {
+      throw new Error(`Could not find a modal with the value of ${this.modalDataValue}`);
+    }
+
+    this.element.focus();
+  }
+
   init() {
     if (!this.openOnInit) {
       this.element.setAttribute('aria-hidden', 'true');
     }
 
+    this.destroy();
+
     // Add click handlers
     this.openButton.addEventListener('click', this._handleClick, false);
     this.element.addEventListener('click', this._handleClick, false);
     this.closeButtons.forEach(closeButton => closeButton.addEventListener('click', this._handleClick, false));
+
+    document.addEventListener('keydown', this._handleKeydown, false);
   }
 
   destroy() {
     this.openButton.removeEventListener('click', this._handleClick, false);
     this.element.removeEventListener('click', this._handleClick, false);
     this.closeButtons.forEach(closeButton => closeButton.removeEventListener('click', this._handleClick, false));
+
+    document.removeEventListener('keydown', this._handleKeydown, false);
   }
 
 }
