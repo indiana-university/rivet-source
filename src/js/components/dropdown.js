@@ -10,6 +10,8 @@ export default class Dropdown {
     this.element = element;
     this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
+    this.dropdownAttribute = '[data-dropdown]';
+
     this.toggleAttribute = '[data-dropdown-toggle]';
     this.toggleElement = this.element.querySelector(this.toggleAttribute);
 
@@ -28,32 +30,38 @@ export default class Dropdown {
     this.init();
   }
 
-  openMenu() {
+  openMenu(toggle, menu) {
+    const toggleButton = toggle || this.toggleElement;
+    const menuList = menu || this.menuElement;
+
     // Return if disabled dropdown is being opened programmatically
-    if (this.toggleElement.hasAttribute('disabled')) {
+    if (toggleButton.hasAttribute('disabled')) {
       return;
     }
 
     // If the menu was opened by clicking an associated toggle
-    if (this.toggleElement && this.toggleElement !== null) {
-      this.toggleElement.setAttribute('aria-expanded', 'true');
+    if (toggleButton && toggleButton !== null) {
+      toggleButton.setAttribute('aria-expanded', 'true');
     }
 
     // Remove the 'hidden' attribute to show the menu
-    this.menuElement.setAttribute('aria-hidden', 'false');
+    menuList.setAttribute('aria-hidden', 'false');
   }
 
-  closeMenu() {
+  closeMenu(toggle, menu) {
+    const toggleButton = toggle || this.toggleElement;
+    const menuList = menu || this.menuElement;
+
     // Return if disabled dropdown is being closed programmatically
-    if (this.toggleElement.hasAttribute('disabled')) {
+    if (toggleButton.hasAttribute('disabled')) {
       return;
     }
 
-    if (this.toggleElement && this.toggleElement !== undefined) {
-      this.toggleElement.setAttribute('aria-expanded', 'false');
+    if (toggleButton && toggleButton !== undefined) {
+      toggleButton.setAttribute('aria-expanded', 'false');
     }
 
-    this.menuElement.setAttribute('aria-hidden', 'true');
+    menuList.setAttribute('aria-hidden', 'true');
   }
 
   _setUpMenu() {
@@ -61,28 +69,35 @@ export default class Dropdown {
   }
 
   _handleClick(event) {
-    const menu = event.target.closest(this.menuAttribute);
+    const dropdown = event.target.closest(this.dropdownAttribute);
+    if (!dropdown) return;
 
-    // Use this boolean on the event object in place of stopPropagation()
-    if (menu && menu !== null) {
-      event.clickedWithinMenu = true;
-    }
+    // Delegate event to only this instance of the dropdown
+    if (dropdown === this.element) {
+      const menuTarget = event.target.closest(this.menuAttribute);
 
-    if (!this.toggleElement || this.toggleElement.getAttribute('aria-expanded') === 'true') {
-      /**
-       * Otherwise close the currently open menu unless the click
-       * happened inside of it.
-       */
-      if (!event.clickedWithinMenu) {
-        this.closeMenu();
+      // Use this boolean on the event object in place of stopPropagation()
+      if (menuTarget && menuTarget !== null) {
+        event.clickedWithinMenu = true;
       }
-
-      return;
+  
+      const toggleButton = dropdown.querySelector(this.toggleAttribute);
+      const menuList = dropdown.querySelector(this.menuAttribute);
+  
+      if (!toggleButton || toggleButton.getAttribute('aria-expanded') === 'true') {
+        /**
+         * Otherwise close the currently open menu unless the click
+         * happened inside of it.
+         */
+        if (!event.clickedWithinMenu) {
+          this.closeMenu(toggleButton, menuList);
+        }
+  
+        return;
+      }
+  
+      this.openMenu(toggleButton, menuList);
     }
-
-    const dropdownId = this.element;
-
-    this.openMenu(dropdownId);
   }
 
   _handleKeydown() {
@@ -90,10 +105,10 @@ export default class Dropdown {
   }
 
   init() {
-    this.element.addEventListener('click', this._handleClick, false);
+    document.addEventListener('click', this._handleClick, false);
   }
 
   destroy() {
-    this.element.removeEventListener('click', this._handleClick, false);
+    document.removeEventListener('click', this._handleClick, false);
   }
 }
