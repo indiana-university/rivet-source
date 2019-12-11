@@ -70,7 +70,11 @@ export default class Dropdown {
 
   _handleClick(event) {
     const dropdown = event.target.closest(this.dropdownAttribute);
+
     if (!dropdown) return;
+
+    const toggleButton = dropdown.querySelector(this.toggleAttribute);
+    const menuList = dropdown.querySelector(this.menuAttribute);
 
     // Delegate event to only this instance of the dropdown
     if (dropdown === this.element) {
@@ -80,10 +84,7 @@ export default class Dropdown {
       if (menuTarget && menuTarget !== null) {
         event.clickedWithinMenu = true;
       }
-  
-      const toggleButton = dropdown.querySelector(this.toggleAttribute);
-      const menuList = dropdown.querySelector(this.menuAttribute);
-  
+
       if (!toggleButton || toggleButton.getAttribute('aria-expanded') === 'true') {
         /**
          * Otherwise close the currently open menu unless the click
@@ -97,6 +98,8 @@ export default class Dropdown {
       }
   
       this.openMenu(toggleButton, menuList);
+    } else {
+      this.closeMenu();
     }
   }
 
