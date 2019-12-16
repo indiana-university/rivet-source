@@ -70,6 +70,8 @@ export default class Modal {
 
     switch (trigger != null) {
       case trigger.hasAttribute(this.openAttribute): {
+
+        if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) return;
         this.open();
 
         this.element.focus();
@@ -79,6 +81,7 @@ export default class Modal {
       case trigger.hasAttribute(this.closeAttribute): {
         event.preventDefault();
 
+        if (trigger.getAttribute(this.closeAttribute) !== this.modalDataValue) return;
         this.close();
 
         if (this.openButton !== null) this.openButton.focus();
@@ -88,6 +91,7 @@ export default class Modal {
       case trigger === triggerContent && !event.clickedInModal: {
         if (trigger.hasAttribute(this.dialogAttribute)) return;
 
+        if (triggerContent.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
         this.close();
 
         this.openButton.focus();
@@ -214,18 +218,12 @@ export default class Modal {
     this.destroy();
 
     // Add click handlers
-    this.openButton.addEventListener('click', this._handleClick, false);
-    this.element.addEventListener('click', this._handleClick, false);
-    this.closeButtons.forEach(closeButton => closeButton.addEventListener('click', this._handleClick, false));
-
+    document.addEventListener('click', this._handleClick, false);
     document.addEventListener('keydown', this._handleKeydown, false);
   }
 
   destroy() {
-    this.openButton.removeEventListener('click', this._handleClick, false);
-    this.element.removeEventListener('click', this._handleClick, false);
-    this.closeButtons.forEach(closeButton => closeButton.removeEventListener('click', this._handleClick, false));
-
+    document.removeEventListener('click', this._handleClick, false);
     document.removeEventListener('keydown', this._handleKeydown, false);
   }
 
