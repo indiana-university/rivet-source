@@ -3,7 +3,7 @@
 * SPDX-License-Identifier: BSD-3-Clause
 */
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
-import { isNode, nodeListToArray } from '../utilities/domHelpers';
+import { isNode } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
 
 export default class Modal {
@@ -31,9 +31,6 @@ export default class Modal {
     this.openButton = document.querySelector(`[${this.openAttribute}="${this.modalDataValue}"]`);
     this.closeAttribute = 'data-modal-close';
     this.closeSelector = `[${this.closeAttribute}]`;
-    this.closeButtons = nodeListToArray(
-      this.element.querySelectorAll(this.closeSelector)
-    );
 
     // Anything that is focus-able
     this.focusElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
