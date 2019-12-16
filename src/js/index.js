@@ -9,7 +9,8 @@ import './polyfills/remove';
 
 // Components
 import Alert from './components/alert';
+import FileInput from './components/fileInput';
 import Modal from './components/modal';
 import Sidenav from './components/sidenav';
 
-export default { Alert, Modal, Sidenav };
+export default { Alert, FileInput, Modal, Sidenav };
