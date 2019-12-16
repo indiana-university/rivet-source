@@ -53,12 +53,12 @@ export default class Modal {
   }
 
   /**
-   * 
-   * @param {Event} event - This function is used to handle all click events on
+   * This function is used to handle all click events on
    * the document. It accepts the Event object, checks target to see if it came
    * from within the modal. It then checks to see whether the target matches
    * the open, close, or modal Selector. From there, it determines if the click
    * target attribute value matches the instance's modal-data-value.
+   * @param {Event} event
    */
   _handleClick(event) {
     event.target.closest(this.innerModalSelector) !== null ? event.clickedInModal = true : event.clickedInModal = false;
@@ -122,6 +122,13 @@ export default class Modal {
     }
   }
 
+  /**
+   * This function is used to trap the backward tab within the active modal,
+   * and prevent it from escaping while the modal remains active.
+   * @param {Object} first - The first focusable element in the modal
+   * @param {Object} last - The last focusable element in the modal
+   * @param {Event} event 
+   */
   _handleBackwardTab(first, last, event) {
     if (document.activeElement === first || document.activeElement === this.element) {
       event.preventDefault();
@@ -129,6 +136,13 @@ export default class Modal {
     }
   }
 
+  /**
+   * This function is used to trap the forward tab within the active modal,
+   * and prevent it from escaping while the modal remains active.
+   * @param {Object} first - The first focusable element in the modal
+   * @param {Object} last - The last focusable element in the modal
+   * @param {Event} event 
+   */
   _handleForwardTab(first, last, event) {
     if (document.activeElement === last) {
       event.preventDefault();
@@ -136,24 +150,37 @@ export default class Modal {
     }
   }
 
+  /**
+   * This function is used to handle all keydown events on
+   * the document. It ignores keydown events which occur outside an active
+   * modal. It checks for the use of tabs, then triggers the appropriate
+   * tab event handler based on whether it is a backward or forward tab. It
+   * also listens for usage of the escape button, which triggers the close
+   * method.
+   * @param {Event} event
+   */
   _handleKeydown(event) {
+    // Determine if keydown is occurring within the modal
     const currentModal = event.target.closest(this.modalSelector);
-
+    // If not in the modal, ignore
     if (!currentModal) return;
 
     switch (event.keyCode) {
       case keyCodes.tab: {
 
+        // Create an array of all the focusable elements within the modal
         const focusList = Array.prototype.slice.call(currentModal.querySelectorAll(this.focusElements));
         const firstFocus = focusList[0];
         const finalFocus = focusList[focusList.length - 1];
 
+        // If they shift tab, trigger the backward tab handler, otherwise use the forward tab handler
         event.shiftKey ? this._handleBackwardTab(firstFocus, finalFocus, event) : this._handleForwardTab(firstFocus, finalFocus, event);
 
         break;
       }
       case keyCodes.escape: {
 
+        // Check that the modal is not a dialog because the user needs to make a choice to proceed
         if (this.element.hasAttribute(this.dialogAttribute)) return;
 
         this.close();
@@ -168,28 +195,38 @@ export default class Modal {
     }
   }
 
+  /**
+   * This function is used to handle byproducts of the open method. When the
+   * modalOpen custom event is heard, this handler determines which previously
+   * open modals (if any) need to be closed.
+   * @param {Event} event 
+   */
   _handleOpenEvent(event) {
     const currentModal = event.detail.id;
 
-    // If a modal opens, close any open modals
-    if (currentModal !== this.element && this.element.getAttribute('aria-hidden') === 'false') {
+    // Close any open modals that don't match the data-modal value of the modal which triggered the modalOpen event
+    if (currentModal !== this.modalDataValue && this.element.getAttribute('aria-hidden') === 'false') {
       this.close();
     } else {
       return;
     }
   }
 
+  /**
+   * This function is used to open a modal by triggering the modalOpen custom
+   * event, setting the modal's aria-hidden to false, and adding the
+   * rvt-modal-open class to it. It also allows developers to setup a custom
+   * callback function.
+   * @param {Function} callback 
+   */
   open(callback) {
-    /**
-     * Custom event for opening the modal.
-     */
+    // Trigger modalOpen custom event. This event is used to control the process of closing other open modals.
     const openEvent = dispatchCustomEvent(
       'modalOpen',
       this.element,
       {
         bubbles: true,
         id: this.element.dataset.modal,
-        element: this.element
       }
     );
 
@@ -204,10 +241,15 @@ export default class Modal {
     }
   }
 
+  /**
+   * This function is used to close a modal by triggering the modalClose custom
+   * event, setting the modal's aria-hidden to true, and removing the
+   * rvt-modal-open class from it. It also allows developers to setup a custom
+   * callback function.
+   * @param {Function} callback 
+   */
   close(modal, callback) {
-    /**
-  * Custom event for closing the modal.
-  */
+    // Trigger modalClose custom event.
     const closeEvent = dispatchCustomEvent(
       'modalClose',
       this.element,
