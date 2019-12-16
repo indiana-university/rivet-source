@@ -38,6 +38,9 @@ export default class Modal {
     // bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
+    this._handleBackwardTab = this._handleBackwardTab.bind(this);
+    this._handleForwardTab = this._handleForwardTab.bind(this);
+    this._handleOpenEvent = this._handleOpenEvent.bind(this);
 
     // Check to make sure that a DOM element was passed in for initialization
     if (!isNode(this.element)) {
@@ -49,6 +52,14 @@ export default class Modal {
     this.init();
   }
 
+  /**
+   * 
+   * @param {Event} event - This function is used to handle all click events on
+   * the document. It accepts the Event object, checks target to see if it came
+   * from within the modal. It then checks to see whether the target matches
+   * the open, close, or modal Selector. From there, it determines if the click
+   * target attribute value matches the instance's modal-data-value.
+   */
   _handleClick(event) {
     event.target.closest(this.innerModalSelector) !== null ? event.clickedInModal = true : event.clickedInModal = false;
 
@@ -56,28 +67,35 @@ export default class Modal {
       event.stopPropagation();
     }
 
+    // The event trigger should involve the open, close, or modal selector
     let triggerSelectors = this.openSelector + ', ' + this.closeSelector + ', ' + this.modalSelector;
     const trigger = event.target.closest(triggerSelectors);
     // Exit if trigger button doesn't exist
     if (!trigger) return;
 
+    // Set the triggerContent to the value of the trigger open or close attribute. If neither exist, get the nearest modal selector to the event
     const triggerContent = trigger.getAttribute(this.openAttribute) || (trigger.getAttribute(this.closeAttribute) && trigger.getAttribute(this.closeAttribute) !== 'close' ? trigger.getAttribute(this.closeAttribute) : false) || event.target.closest(this.modalSelector);
     // Exit if trigger doesn't contain the open or close button
     if (!triggerContent) return;
 
     switch (trigger != null) {
+      // If the trigger has an open attribute
       case trigger.hasAttribute(this.openAttribute): {
 
+        // Check that the data-modal-trigger value matches the instance's data-modal value
         if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) return;
-        this.open();
+
+        this.open(this.element);
 
         this.element.focus();
 
         break;
       }
+      // If the trigger has a close attribute
       case trigger.hasAttribute(this.closeAttribute): {
         event.preventDefault();
 
+        // Check that the data-modal-close value matches the instance's data-modal value
         if (trigger.getAttribute(this.closeAttribute) !== this.modalDataValue) return;
         this.close();
 
@@ -85,13 +103,16 @@ export default class Modal {
 
         break;
       }
+      // If the trigger was clicking outside of the modal
       case trigger === triggerContent && !event.clickedInModal: {
+        // Check that the trigger is not a dialog because the user needs to make a choice to proceed
         if (trigger.hasAttribute(this.dialogAttribute)) return;
 
+        // Check that the trigger content data-modal value matches the instance's data-modal value
         if (triggerContent.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
         this.close();
 
-        this.openButton.focus();
+        if (this.openButton !== null) this.openButton.focus();
 
         break;
       }
@@ -147,15 +168,28 @@ export default class Modal {
     }
   }
 
+  _handleOpenEvent(event) {
+    const currentModal = event.detail.id;
+
+    // If a modal opens, close any open modals
+    if (currentModal !== this.element && this.element.getAttribute('aria-hidden') === 'false') {
+      this.close();
+    } else {
+      return;
+    }
+  }
+
   open(callback) {
     /**
-  * Custom event for opening the modal.
-  */
+     * Custom event for opening the modal.
+     */
     const openEvent = dispatchCustomEvent(
       'modalOpen',
       this.element,
       {
-        id: this.element.dataset.modal
+        bubbles: true,
+        id: this.element.dataset.modal,
+        element: this.element
       }
     );
 
@@ -164,12 +198,13 @@ export default class Modal {
     this.element.setAttribute('aria-hidden', 'false');
     this.element.classList.add('rvt-modal-open');
 
+
     if (callback && typeof callback === 'function') {
       callback();
     }
   }
 
-  close(callback) {
+  close(modal, callback) {
     /**
   * Custom event for closing the modal.
   */
@@ -177,6 +212,7 @@ export default class Modal {
       'modalClose',
       this.element,
       {
+        bubbles: true,
         id: this.element.dataset.modal
       }
     );
@@ -217,11 +253,13 @@ export default class Modal {
     // Add click handlers
     document.addEventListener('click', this._handleClick, false);
     document.addEventListener('keydown', this._handleKeydown, false);
+    document.addEventListener('rvt:modalOpen', this._handleOpenEvent, false);
   }
 
   destroy() {
     document.removeEventListener('click', this._handleClick, false);
     document.removeEventListener('keydown', this._handleKeydown, false);
+    document.removeEventListener('rvt:modalOpen', this._handleOpenEvent, false);
   }
 
 }
