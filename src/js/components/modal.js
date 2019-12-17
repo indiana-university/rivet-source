@@ -183,6 +183,9 @@ export default class Modal {
         // Check that the modal is not a dialog because the user needs to make a choice to proceed
         if (this.element.hasAttribute(this.dialogAttribute)) return;
 
+        // Check that the current modal matches the instance's
+        if (currentModal.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
+
         this.close();
 
         if (this.openButton !== null) this.openButton.focus();
