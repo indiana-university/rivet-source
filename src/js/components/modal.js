@@ -40,7 +40,6 @@ export default class Modal {
     this._handleKeydown = this._handleKeydown.bind(this);
     this._handleBackwardTab = this._handleBackwardTab.bind(this);
     this._handleForwardTab = this._handleForwardTab.bind(this);
-    this._handleOpenEvent = this._handleOpenEvent.bind(this);
 
     // Check to make sure that a DOM element was passed in for initialization
     if (!isNode(this.element)) {
@@ -83,7 +82,16 @@ export default class Modal {
       case trigger.hasAttribute(this.openAttribute): {
 
         // Check that the data-modal-trigger value matches the instance's data-modal value
-        if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) return;
+        if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) {
+          // If it doesn't match, and is currently open then close it
+          if (this.element.getAttribute('aria-hidden') === 'false') {
+            this.close();
+          } else {
+            return;
+          }
+          // If it doesn't match and is currently closed then bail
+          return;
+        }
 
         this.open(this.element);
 
@@ -199,23 +207,6 @@ export default class Modal {
   }
 
   /**
-   * This function is used to handle byproducts of the open method. When the
-   * modalOpen custom event is heard, this handler determines which previously
-   * open modals (if any) need to be closed.
-   * @param {Event} event 
-   */
-  _handleOpenEvent(event) {
-    const currentModal = event.detail.id;
-
-    // Close any open modals that don't match the data-modal value of the modal which triggered the modalOpen event
-    if (currentModal !== this.modalDataValue && this.element.getAttribute('aria-hidden') === 'false') {
-      this.close();
-    } else {
-      return;
-    }
-  }
-
-  /**
    * This function is used to open a modal by triggering the modalOpen custom
    * event, setting the modal's aria-hidden to false, and adding the
    * rvt-modal-open class to it. It also allows developers to setup a custom
@@ -228,7 +219,6 @@ export default class Modal {
       'modalOpen',
       this.element,
       {
-        bubbles: true,
         id: this.element.dataset.modal,
       }
     );
@@ -257,7 +247,6 @@ export default class Modal {
       'modalClose',
       this.element,
       {
-        bubbles: true,
         id: this.element.dataset.modal
       }
     );
@@ -298,13 +287,11 @@ export default class Modal {
     // Add click handlers
     document.addEventListener('click', this._handleClick, false);
     document.addEventListener('keydown', this._handleKeydown, false);
-    document.addEventListener('rvt:modalOpen', this._handleOpenEvent, false);
   }
 
   destroy() {
     document.removeEventListener('click', this._handleClick, false);
     document.removeEventListener('keydown', this._handleKeydown, false);
-    document.removeEventListener('rvt:modalOpen', this._handleOpenEvent, false);
   }
 
 }
