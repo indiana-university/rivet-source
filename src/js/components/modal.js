@@ -9,7 +9,8 @@ import keyCodes from '../utilities/keyCodes';
 export default class Modal {
   constructor(element, options) {
     const defaultOptions = {
-      openOnInit: false
+      openOnInit: false,
+      dialog: false
     };
 
     const settings = {
@@ -20,12 +21,12 @@ export default class Modal {
     // Instance properties
     this.element = element;
     this.openOnInit = settings.openOnInit;
+    this.dialog = settings.dialog;
     this.modalAttribute = 'data-modal';
     this.modalSelector = `[${this.modalAttribute}]`;
     this.modalDataValue = this.element.getAttribute('data-modal');
     this.innerModalAttribute = 'data-modal-inner';
     this.innerModalSelector = `[${this.innerModalAttribute}]`;
-    this.dialogAttribute = 'data-modal-dialog';
     this.openAttribute = 'data-modal-trigger';
     this.openSelector = `[${this.openAttribute}]`;
     this.openButton = document.querySelector(`[${this.openAttribute}="${this.modalDataValue}"]`);
@@ -114,7 +115,7 @@ export default class Modal {
       // If the trigger was clicking outside of the modal
       case trigger === triggerContent && !event.clickedInModal: {
         // Check that the trigger is not a dialog because the user needs to make a choice to proceed
-        if (trigger.hasAttribute(this.dialogAttribute)) return;
+        if (this.dialog) return;
 
         // Check that the trigger content data-modal value matches the instance's data-modal value
         if (triggerContent.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
@@ -189,7 +190,7 @@ export default class Modal {
       case keyCodes.escape: {
 
         // Check that the modal is not a dialog because the user needs to make a choice to proceed
-        if (this.element.hasAttribute(this.dialogAttribute)) return;
+        if (this.dialog) return;
 
         // Check that the current modal matches the instance's
         if (currentModal.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
