@@ -44,6 +44,8 @@ export default class Dropdown {
 
     // Remove the 'hidden' attribute to show the menu
     menuList.setAttribute('aria-hidden', 'false');
+
+    this.activeDropdown = this.element;
   }
 
   closeMenu(toggle, menu) {
@@ -215,6 +217,21 @@ export default class Dropdown {
         }
   
         case keyCodes.escape: {
+          // If there's an open menu, close it.
+          if (this.activeDropdown) {
+            this.closeMenu(this.toggleElement, this.menuElement);
+          }
+
+          if (this.toggleElement && this.toggleElement !== null) {
+            this.toggleElement.focus();
+          }
+
+          /**
+           * Resets the state variables so as not to interfere with other
+           * Escape key handlers/interactions
+           */
+          this.activeDropdown = null;
+
           break;
         }
   
