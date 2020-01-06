@@ -180,6 +180,37 @@ export default class Dropdown {
         }
   
         case keyCodes.up: {
+          event.preventDefault();
+
+          /**
+           * Handle up arrow key when inside the open menu.
+           */
+
+          if (event.target.closest(this.menuAttribute) !== null) {
+            const currentMenu = this._setUpMenu(this.menuElement);
+
+            let currentIndex;
+
+            /**
+             * This keeps track of which button/focusable is focused in the open menu
+             */
+            for (let i = 0; i < currentMenu.all.length; i++) {
+              if (event.target == currentMenu.all[i]) {
+                currentIndex = i;
+              }
+            }
+
+            const previousItem = currentMenu.all[currentIndex - 1];
+
+            if (!previousItem && currentMenu.last !== undefined) {
+              currentMenu.last.focus();
+
+              return;
+            }
+
+            previousItem.focus();
+          }
+  
           break;
         }
   
