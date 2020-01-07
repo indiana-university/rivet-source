@@ -11,5 +11,6 @@ import './polyfills/remove';
 import Alert from './components/alert';
 import FileInput from './components/fileInput';
 import Sidenav from './components/sidenav';
+import Tabs from './components/tabs';
 
-export default { Alert, FileInput, Sidenav };
+export default { Alert, FileInput, Sidenav, Tabs };
