@@ -114,7 +114,11 @@ export default class Dropdown {
   _handleClick(event) {
     const dropdown = event.target.closest(this.dropdownAttribute);
 
-    if (!dropdown) return;
+    // If click didn't come from within dropdown component, close all open menus
+    if (!dropdown) {
+      this.closeMenu();
+      return;
+    }
 
     const toggleButton = dropdown.querySelector(this.toggleAttribute);
     const menuList = dropdown.querySelector(this.menuAttribute);
@@ -130,13 +134,13 @@ export default class Dropdown {
 
       if (!toggleButton || toggleButton.getAttribute('aria-expanded') === 'true') {
         /**
-         * Otherwise close the currently open menu unless the click
-         * happened inside of it.
+         * Close the menu if there is a click outside of the menu, but within 
+         * the dropdown component
          */
         if (!event.clickedWithinMenu) {
           this.closeMenu(toggleButton, menuList);
         }
-  
+
         return;
       }
   
