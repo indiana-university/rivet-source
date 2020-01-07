@@ -40,6 +40,11 @@ export default class Dropdown {
     this.init();
   }
 
+  /**
+   * Opens a dropdown menu
+   * @param {HTMLButtonElement} toggle - a button element which toggles the dropdown
+   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
+   */
   openMenu(toggle, menu) {
     const toggleButton = toggle || this.toggleElement;
     const menuList = menu || this.menuElement;
@@ -60,6 +65,11 @@ export default class Dropdown {
     this.activeDropdown = this.element;
   }
 
+  /**
+   * Closes a dropdown menu
+   * @param {HTMLButtonElement} toggle - a button element which toggles the dropdown
+   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
+   */
   closeMenu(toggle, menu) {
     const toggleButton = toggle || this.toggleElement;
     const menuList = menu || this.menuElement;
@@ -76,6 +86,11 @@ export default class Dropdown {
     menuList.setAttribute('aria-hidden', 'true');
   }
 
+  /**
+   * Creates an object of menu items within a dropdown
+   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
+   * @returns {Object} An object of menu item anchor elements
+   */
   _setUpMenu(menu) {
     const menuObject = {};
 
