@@ -6,16 +6,7 @@
 import keyCodes from '../utilities/keyCodes';
 
 export default class Dropdown {
-  constructor(element, options) {
-    const defaultOptions = {
-      preventPageScrollOnArrow: true
-    };
-
-    const settings = {
-      ...defaultOptions,
-      ...options
-    };
-
+  constructor(element) {
     this.element = element;
     this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
@@ -33,9 +24,6 @@ export default class Dropdown {
     // Bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
-
-    // Bind default and imported settings
-    this.preventPageScrollOnArrow = settings.preventPageScrollOnArrow;
 
     this.init();
   }
@@ -162,9 +150,7 @@ export default class Dropdown {
     if (dropdown === this.element) {
       switch (event.keyCode) {
         case keyCodes.down: {
-          if (this.preventPageScrollOnArrow) {
-            event.preventDefault();
-          }
+          event.preventDefault();
 
           const toggle = event.target.closest(this.toggleAttribute);
 
@@ -215,9 +201,7 @@ export default class Dropdown {
         }
   
         case keyCodes.up: {
-          if (this.preventPageScrollOnArrow) {
-            event.preventDefault();
-          }
+          event.preventDefault();
 
           /**
            * Handle up arrow key when inside the open menu.
