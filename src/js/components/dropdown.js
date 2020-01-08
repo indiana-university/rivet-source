@@ -28,50 +28,29 @@ export default class Dropdown {
     this.init();
   }
 
-  /**
-   * Opens a dropdown menu
-   * @param {HTMLButtonElement} toggle - a button element which toggles the dropdown
-   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
-   */
-  open(toggle, menu) {
-    const toggleButton = toggle || this.toggleElement;
-    const menuList = menu || this.menuElement;
-
+  open() {
     // Return if disabled dropdown is being opened programmatically
-    if (toggleButton.hasAttribute('disabled')) {
+    if (this.toggleElement.hasAttribute('disabled')) {
       return;
     }
 
-    // If the menu was opened by clicking an associated toggle
-    if (toggleButton && toggleButton !== null) {
-      toggleButton.setAttribute('aria-expanded', 'true');
-    }
+    this.toggleElement.setAttribute('aria-expanded', 'true');
 
     // Remove the 'hidden' attribute to show the menu
-    menuList.removeAttribute('hidden');
+    this.menuElement.removeAttribute('hidden');
 
     this.activeDropdown = this.element;
   }
 
-  /**
-   * Closes a dropdown menu
-   * @param {HTMLButtonElement} toggle - a button element which toggles the dropdown
-   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
-   */
-  close(toggle, menu) {
-    const toggleButton = toggle || this.toggleElement;
-    const menuList = menu || this.menuElement;
-
+  close() {
     // Return if disabled dropdown is being closed programmatically
-    if (toggleButton.hasAttribute('disabled')) {
+    if (this.toggleElement.hasAttribute('disabled')) {
       return;
     }
 
-    if (toggleButton && toggleButton !== undefined) {
-      toggleButton.setAttribute('aria-expanded', 'false');
-    }
+    this.toggleElement.setAttribute('aria-expanded', 'false');
 
-    menuList.setAttribute('hidden', '');
+    this.menuElement.setAttribute('hidden', '');
   }
 
   /**
