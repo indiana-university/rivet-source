@@ -87,9 +87,6 @@ export default class Dropdown {
       return;
     }
 
-    const toggleButton = dropdown.querySelector(this.toggleAttribute);
-    const menuList = dropdown.querySelector(this.menuAttribute);
-
     // Delegate event to only this instance of the dropdown
     if (dropdown === this.element) {
       const menuTarget = event.target.closest(this.menuAttribute);
@@ -99,19 +96,19 @@ export default class Dropdown {
         event.clickedWithinMenu = true;
       }
 
-      if (!toggleButton || toggleButton.getAttribute('aria-expanded') === 'true') {
+      if (!this.toggleElement || this.toggleElement.getAttribute('aria-expanded') === 'true') {
         /**
          * Close the menu if there is a click outside of the menu, but within 
          * the dropdown component
          */
         if (!event.clickedWithinMenu) {
-          this.close(toggleButton, menuList);
+          this.close(this.toggleElement, this.menuElement);
         }
 
         return;
       }
   
-      this.open(toggleButton, menuList);
+      this.open();
     } else {
       this.close();
     }
@@ -122,30 +119,20 @@ export default class Dropdown {
 
     if (!dropdown) return;
 
-    const toggleButton = dropdown.querySelector(this.toggleAttribute);
-    const menuList = dropdown.querySelector(this.menuAttribute);
-
     // Delegate event to only this instance of the dropdown
     if (dropdown === this.element) {
       switch (event.keyCode) {
         case keyCodes.down: {
           event.preventDefault();
 
-          const toggle = event.target.closest(this.toggleAttribute);
+          // If you're focused on the toggle button and the menu is open.
+          if (this.toggleElement.getAttribute('aria-expanded') === 'true') {
+            const currentMenu = this._setUpMenu(this.menuElement);
 
-          /**
-           * If you were focused on the dropdown toggle
-           */
-          if (toggle && toggle !== null) {
-            // If you're focused on the toggle button and the menu is open.
-            if (toggle.getAttribute('aria-expanded') === 'true') {
-              const currentMenu = this._setUpMenu(this.menuElement);
-  
-              currentMenu.first.focus();
-            }
-  
-            this.open(toggleButton, menuList);
+            currentMenu.first.focus();
           }
+
+          this.open();
 
           /**
            * Handle down arrow key when inside the open menu.
@@ -219,9 +206,7 @@ export default class Dropdown {
             this.close(this.toggleElement, this.menuElement);
           }
 
-          if (this.toggleElement && this.toggleElement !== null) {
-            this.toggleElement.focus();
-          }
+          this.toggleElement.focus();
 
           /**
            * Resets the state variables so as not to interfere with other
