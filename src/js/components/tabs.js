@@ -25,6 +25,10 @@ export default class Tabs {
     this.panels.map((panel, index) => {
       if (this.panels[index].hasAttribute('data-tab-init') === true) {
         initialPanel = this.element.querySelector(`[${this.panelAttribute}="${panel.dataset.tabPanel}"]`);
+      } else {
+        const currentTab = this.element.querySelector(`[${this.tabAttribute}="${panel.dataset.tabPanel}"]`);
+
+        currentTab.setAttribute('tabindex', '-1');
       }
     })
 
@@ -158,6 +162,7 @@ export default class Tabs {
     tab.removeAttribute('hidden');
     tab.classList.add('rvt-tab-open');
     trigger.setAttribute('aria-selected', 'true');
+    trigger.removeAttribute('tabindex');
 
     if (callback && typeof callback === 'function') {
       callback();
@@ -190,6 +195,7 @@ export default class Tabs {
     tab.setAttribute('hidden', '');
     tab.classList.remove('rvt-tab-open');
     trigger.setAttribute('aria-selected', 'false');
+    trigger.setAttribute('tabindex', '-1');
 
     if (callback && typeof callback === 'function') {
       callback();
