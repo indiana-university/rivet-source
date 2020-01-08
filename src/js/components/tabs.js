@@ -17,18 +17,19 @@ export default class Tabs {
     this.tabs = this.element.querySelectorAll(this.tabSelector);
     this.panelAttribute = 'data-tab-panel';
     this.panelSelector = `[${this.panelAttribute}]`;
-    this.panels = this.element.querySelectorAll(this.panelSelector);
-    this.panelsArray = nodeListToArray(this.panels);
+    this.panels = nodeListToArray(this.element.querySelectorAll(this.panelSelector));
+
 
     // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
-    for (const panel in this.panelsArray) {
-      const initState = this.panels[panel].hasAttribute('data-tab-init');
-      const openInit = initState ? this.element.querySelector(`[${this.panelAttribute}="${this.panels[panel].dataset.tabPanel}"]`) : false;
-      const firstPanelAttribute = this.panels[0].getAttribute(this.panelAttribute);
+    let initialPanel = {}
+    this.panels.map((panel, index) => {
+      if (this.panels[index].hasAttribute('data-tab-init') === true) {
+        initialPanel = this.element.querySelector(`[${this.panelAttribute}="${panel.dataset.tabPanel}"]`);
+      }
+    })
 
-      // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-      openInit ? this.openOnInit = openInit : this.openOnInit = this.element.querySelector(`[${this.panelAttribute}="${firstPanelAttribute}"]`);
-    }
+    // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
+    initialPanel ? this.openOnInit = initialPanel : this.openOnInit = this.element.querySelector(`[${this.panelAttribute}="${this.panels[0].getAttribute(this.panelAttribute)}"]`);
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -147,21 +148,11 @@ export default class Tabs {
 
     const trigger = this.element.querySelector(`[${this.tabAttribute}="${tab.dataset.tabPanel}"]`);
 
-    // Create an array of the panels which should not be active
-    const inactivePanels = [];
-
-    for (const panel in this.panelsArray) {
-      if (this.panelsArray[panel].getAttribute(this.panelAttribute) !== tab.dataset.tabPanel) {
-        inactivePanels.push(this.panels[panel]);
+    this.panels.forEach(panel => {
+      if (panel.getAttribute(this.panelAttribute) !== tab.dataset.tabPanel && !panel.hasAttribute('hidden')) {
+        this.deactivateTab(panel);
       }
-    }
-
-    // If a panel in the array is currently active, deactivate it
-    for (const inactivePanel in inactivePanels) {
-      if (!inactivePanels[inactivePanel].hasAttribute('hidden')) {
-        this.deactivateTab(this.element.querySelector(`[${this.panelAttribute}="${inactivePanels[inactivePanel].dataset.tabPanel}"]`))
-      }
-    }
+    });
 
     // Activate the appropriate tab/panel pair
     tab.removeAttribute('hidden');
