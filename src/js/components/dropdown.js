@@ -48,7 +48,7 @@ export default class Dropdown {
     }
 
     // Remove the 'hidden' attribute to show the menu
-    menuList.setAttribute('aria-hidden', 'false');
+    menuList.removeAttribute('hidden');
 
     this.activeDropdown = this.element;
   }
@@ -71,7 +71,7 @@ export default class Dropdown {
       toggleButton.setAttribute('aria-expanded', 'false');
     }
 
-    menuList.setAttribute('aria-hidden', 'true');
+    menuList.setAttribute('hidden', '');
   }
 
   /**
