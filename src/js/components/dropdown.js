@@ -33,7 +33,7 @@ export default class Dropdown {
    * @param {HTMLButtonElement} toggle - a button element which toggles the dropdown
    * @param {HTMLDivElement} menu - a div containing the dropdown menu items
    */
-  openMenu(toggle, menu) {
+  open(toggle, menu) {
     const toggleButton = toggle || this.toggleElement;
     const menuList = menu || this.menuElement;
 
@@ -58,7 +58,7 @@ export default class Dropdown {
    * @param {HTMLButtonElement} toggle - a button element which toggles the dropdown
    * @param {HTMLDivElement} menu - a div containing the dropdown menu items
    */
-  closeMenu(toggle, menu) {
+  close(toggle, menu) {
     const toggleButton = toggle || this.toggleElement;
     const menuList = menu || this.menuElement;
 
@@ -104,7 +104,7 @@ export default class Dropdown {
 
     // If click didn't come from within dropdown component, close all open menus
     if (!dropdown) {
-      this.closeMenu();
+      this.close();
       return;
     }
 
@@ -126,15 +126,15 @@ export default class Dropdown {
          * the dropdown component
          */
         if (!event.clickedWithinMenu) {
-          this.closeMenu(toggleButton, menuList);
+          this.close(toggleButton, menuList);
         }
 
         return;
       }
   
-      this.openMenu(toggleButton, menuList);
+      this.open(toggleButton, menuList);
     } else {
-      this.closeMenu();
+      this.close();
     }
   }
 
@@ -165,7 +165,7 @@ export default class Dropdown {
               currentMenu.first.focus();
             }
   
-            this.openMenu(toggleButton, menuList);
+            this.open(toggleButton, menuList);
           }
 
           /**
@@ -237,7 +237,7 @@ export default class Dropdown {
         case keyCodes.escape: {
           // If there's an open menu, close it.
           if (this.activeDropdown) {
-            this.closeMenu(this.toggleElement, this.menuElement);
+            this.close(this.toggleElement, this.menuElement);
           }
 
           if (this.toggleElement && this.toggleElement !== null) {
@@ -262,7 +262,7 @@ export default class Dropdown {
 
             // Close the dropdown when the user tabs out of the menu.
             if (document.activeElement == currentMenu.last && !event.shiftKey) {
-              this.closeMenu(this.toggleElement, this.menuElement);
+              this.close(this.toggleElement, this.menuElement);
 
               return;
             }

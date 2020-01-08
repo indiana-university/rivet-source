@@ -15,7 +15,7 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'aria-hidden', 'true')
+      .should('have.attr', 'hidden')
       .and('not.be.visible');
   });
 
@@ -26,7 +26,7 @@ describe('Dropdown Interaction', function() {
 
     cy.get(DROPDOWN_MENU)
       .should('be.visible')
-      .and('have.attr', 'aria-hidden', 'false');
+      .and('not.have.attr', 'hidden');
   });
 
   it('Should be able to close the dropdown', function() {
@@ -36,7 +36,7 @@ describe('Dropdown Interaction', function() {
 
     cy.get(DROPDOWN_MENU)
       .should('not.be.visible')
-      .and('have.attr', 'aria-hidden', 'true');
+      .and('have.attr', 'hidden');
   });
 
   it('Should be able to open the dropdown with keys', function() {
@@ -59,27 +59,27 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_MENU).should('not.be.visible');
   });
 
-  it('Should be able to close with .closeMenu() method', function() {
+  it('Should be able to close with .close() method', function() {
     cy.window().then(win => {
-      win.newdropdownNavigation.closeMenu();
+      win.newdropdownNavigation.close();
     });
 
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'aria-hidden', 'true')
+      .should('have.attr', 'hidden')
       .and('not.be.visible');
   });
 
   it('Should be able to open with .open() method', function() {
     cy.window().then(win => {
-      win.newdropdownNavigation.openMenu();
+      win.newdropdownNavigation.open();
     });
 
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'true');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'aria-hidden', 'false')
-      .and('be.visible');
+      .should('be.visible')
+      .and('not.have.attr', 'hidden');
   });
 });
