@@ -54,6 +54,8 @@ export default class Dropdown {
     this.toggleElement.setAttribute('aria-expanded', 'false');
 
     this.menuElement.setAttribute('hidden', '');
+
+    this.activeDropdown = null;
   }
 
   /**
