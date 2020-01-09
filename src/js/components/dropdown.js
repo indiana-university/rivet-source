@@ -100,11 +100,11 @@ export default class Dropdown {
   }
 
   _handleKeydown(event) {
-    const dropdown = event.target.closest(this.dropdownAttribute);
-
-    if (!dropdown) return;
+    // If the keydown didn't come from within dropdown component, then bail.
+    if (!this.element.contains(event.target)) return;
 
     // Delegate event to only this instance of the dropdown
+    const dropdown = event.target.closest(this.dropdownAttribute);
     if (dropdown !== this.element) return;
 
     switch (event.keyCode) {
@@ -127,12 +127,10 @@ export default class Dropdown {
         // If the event didn't come from within the menu, then bail.
         if (!this.menuElement.contains(event.target)) break;
 
-        const currentMenu = this._setUpMenu(this.menuElement);
-
         /**
          * This keeps track of which button/focusable is focused in the open menu
          */
-
+        const currentMenu = this._setUpMenu(this.menuElement);
         let currentIndex;
 
         for (let i = 0; i < currentMenu.all.length; i++) {
@@ -164,13 +162,12 @@ export default class Dropdown {
         // If the event didn't come from within the menu, then bail.
         if (!this.menuElement.contains(event.target)) break;
 
-        const currentMenu = this._setUpMenu(this.menuElement);
-
-        let currentIndex;
-
         /**
          * This keeps track of which button/focusable is focused in the open menu
          */
+        const currentMenu = this._setUpMenu(this.menuElement);
+        let currentIndex;
+
         for (let i = 0; i < currentMenu.all.length; i++) {
           if (event.target == currentMenu.all[i]) {
             currentIndex = i;
