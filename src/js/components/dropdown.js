@@ -20,12 +20,14 @@ export default class Dropdown {
 
     // Keeps track of the currently active dropdown and helps with focus management
     this.activeDropdown = null;
-
     this.isOpen = false;
 
     // Bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
+
+    // Make sure icons don't receive focus
+    this.element.querySelector('svg').setAttribute('focusable', 'false');
 
     this.init();
   }
