@@ -39,8 +39,6 @@ export default class Modal {
     // bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
-    this._handleBackwardTab = this._handleBackwardTab.bind(this);
-    this._handleForwardTab = this._handleForwardTab.bind(this);
 
     // Check to make sure that a DOM element was passed in for initialization
     if (!isNode(this.element)) {
@@ -68,13 +66,22 @@ export default class Modal {
     }
 
     // The event trigger should involve the open, close, or modal selector
-    let triggerSelectors = this.openSelector + ', ' + this.closeSelector + ', ' + this.modalSelector;
+    let triggerSelectors = `${this.openSelector}, ${this.closeSelector}, ${this.modalSelector}`;
     const trigger = event.target.closest(triggerSelectors);
     // Exit if trigger button doesn't exist
     if (!trigger) return;
 
     // Set the triggerContent to the value of the trigger open or close attribute. If neither exist, get the nearest modal selector to the event
-    const triggerContent = trigger.getAttribute(this.openAttribute) || (trigger.getAttribute(this.closeAttribute) && trigger.getAttribute(this.closeAttribute) !== 'close' ? trigger.getAttribute(this.closeAttribute) : false) || event.target.closest(this.modalSelector);
+    let triggerContent;
+
+    if (trigger.getAttribute(this.openAttribute)) {
+      triggerContent = trigger.getAttribute(this.openAttribute);
+    } else if (trigger.getAttribute(this.closeAttribute) && trigger.getAttribute(this.closeAttribute) !== 'close') {
+      triggerContent = trigger.getAttribute(this.closeAttribute);
+    } else {
+      triggerContent = event.target.closest(this.modalSelector);
+    }
+
     // Exit if trigger doesn't contain the open or close button
     if (!triggerContent) return;
 
@@ -87,14 +94,12 @@ export default class Modal {
           // If it doesn't match, and is currently open then close it
           if (this.element.getAttribute('aria-hidden') === 'false') {
             this.close();
-          } else {
-            return;
           }
           // If it doesn't match and is currently closed then bail
           return;
         }
 
-        this.open(this.element);
+        this.open();
 
         this.element.focus();
 
@@ -227,7 +232,7 @@ export default class Modal {
     if (!openEvent) return;
 
     this.element.setAttribute('aria-hidden', 'false');
-    this.element.classList.add('rvt-modal-open');
+    document.body.classList.add('rvt-modal-open');
 
 
     if (callback && typeof callback === 'function') {
@@ -242,7 +247,7 @@ export default class Modal {
    * callback function.
    * @param {Function} callback 
    */
-  close(modal, callback) {
+  close(callback) {
     // Trigger modalClose custom event.
     const closeEvent = dispatchCustomEvent(
       'modalClose',
@@ -255,7 +260,7 @@ export default class Modal {
     if (!closeEvent) return;
 
     this.element.setAttribute('aria-hidden', 'true');
-    this.element.classList.remove('rvt-modal-open');
+    document.body.classList.remove('rvt-modal-open');
 
     if (callback && typeof callback === 'function') {
       callback();
