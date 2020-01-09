@@ -21,6 +21,8 @@ export default class Dropdown {
     // Keeps track of the currently active dropdown and helps with focus management
     this.activeDropdown = null;
 
+    this.isOpen = false;
+
     // Bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
@@ -34,6 +36,8 @@ export default class Dropdown {
       return;
     }
 
+    this.isOpen = true;
+
     this.toggleElement.setAttribute('aria-expanded', 'true');
 
     // Remove the 'hidden' attribute to show the menu
@@ -43,10 +47,7 @@ export default class Dropdown {
   }
 
   close() {
-    // Return if disabled dropdown is being closed programmatically
-    if (this.toggleElement.hasAttribute('disabled')) {
-      return;
-    }
+    this.isOpen = false;
 
     this.toggleElement.setAttribute('aria-expanded', 'false');
 
@@ -79,38 +80,22 @@ export default class Dropdown {
   }
 
   _handleClick(event) {
-    const dropdown = event.target.closest(this.dropdownAttribute);
+    const toggle = event.target.closest(this.toggleAttribute);
 
-    // If click didn't come from within dropdown component, close all open menus
-    if (!dropdown) {
+    // Did it come from inside open menu?
+    if (this.menuElement.contains(event.target)) return;
+
+    // If it came from outside component, close all open dropdowns
+    if (!toggle) {
       this.close();
       return;
     }
 
-    // Delegate event to only this instance of the dropdown
-    if (dropdown === this.element) {
-      const menuTarget = event.target.closest(this.menuAttribute);
-
-      // Use this boolean on the event object in place of stopPropagation()
-      if (menuTarget && menuTarget !== null) {
-        event.clickedWithinMenu = true;
-      }
-
-      if (!this.toggleElement || this.toggleElement.getAttribute('aria-expanded') === 'true') {
-        /**
-         * Close the menu if there is a click outside of the menu, but within 
-         * the dropdown component
-         */
-        if (!event.clickedWithinMenu) {
-          this.close(this.toggleElement, this.menuElement);
-        }
-
-        return;
-      }
-  
-      this.open();
-    } else {
+    // Check which toggle the click came from, and whether it's already opened
+    if (toggle !== this.toggleElement || this.isOpen) {
       this.close();
+    } else {
+      this.open();
     }
   }
 
