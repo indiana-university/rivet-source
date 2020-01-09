@@ -83,34 +83,6 @@ describe('Rivet basic modal interactions', function () {
 });
 
 describe('Rivet dialog modal interactions', function () {
-  it('Should see the modal page', function () {
-    cy.get('@modalDialogTrigger')
-      .should('have.attr', 'data-modal-trigger', 'modalDialogExample')
-      .and('be.visible');
-
-    cy.get('@modalDialog').should('not.be.visible');
-  });
-
-  it('Should be able to open the modal', function () {
-    cy.get('@modalDialog').should('not.be.visible');
-
-    cy.get('@modalDialogTrigger').click();
-
-    cy.get('@modalDialog').should('be.visible');
-  });
-
-  it('Should be able to close the modal with a close button', function () {
-    cy.get('@modalDialog').should('not.be.visible');
-
-    cy.get('@modalDialogTrigger').click();
-
-    cy.get('@modalDialog').should('be.visible');
-
-    cy.get('@modalDialogClose').click();
-
-    cy.get('@modalDialog').should('not.be.visible');
-  });
-
   it('Should not be able to close the modal by clicking outside', function () {
     cy.get('@modalDialog').should('not.be.visible');
 
@@ -122,29 +94,4 @@ describe('Rivet dialog modal interactions', function () {
 
     cy.get('@modalDialog').should('be.visible');
   });
-
-  it('Should be able to open the modal with the .open() method', function () {
-    cy.get('@modalDialog').should('not.be.visible');
-
-    cy.window().then(win => {
-      win.newmodalDialogExampleModal.open();
-    });
-
-    cy.get('@modalDialog').should('be.visible');
-  });
-
-  it('Should be able to close the modal with the .close() method', function () {
-    cy.get('@modalDialog').should('not.be.visible');
-
-    cy.get('@modalDialogTrigger').click();
-
-    cy.get('@modalDialog').should('be.visible');
-
-    cy.window().then(win => {
-      win.newmodalDialogExampleModal.close();
-    });
-
-    cy.get('@modalDialog').should('not.be.visible');
-  });
-
 });
