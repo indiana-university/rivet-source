@@ -105,120 +105,125 @@ export default class Dropdown {
     if (!dropdown) return;
 
     // Delegate event to only this instance of the dropdown
-    if (dropdown === this.element) {
-      switch (event.keyCode) {
-        case keyCodes.down: {
-          event.preventDefault();
+    if (dropdown !== this.element) return;
 
-          // If you're focused on the toggle button and the menu is open.
-          if (this.toggleElement.getAttribute('aria-expanded') === 'true') {
-            const currentMenu = this._setUpMenu(this.menuElement);
+    switch (event.keyCode) {
+      case keyCodes.down: {
+        event.preventDefault();
 
-            currentMenu.first.focus();
-          }
+        // The menu is open when the down arrow is pressed.
+        if (this.isOpen) {
+          const currentMenu = this._setUpMenu(this.menuElement);
 
-          this.open();
-
-          /**
-           * Handle down arrow key when inside the open menu.
-           */
-
-          if (event.target.closest(this.menuAttribute) !== null) {
-            const currentMenu = this._setUpMenu(this.menuElement);
-
-            let currentIndex;
-
-            /**
-             * This keeps track of which button/focusable is focused in the open menu
-             */
-            for (let i = 0; i < currentMenu.all.length; i++) {
-              if (event.target == currentMenu.all[i]) {
-                currentIndex = i;
-              }
-            }
-
-            const nextItem = currentMenu.all[currentIndex + 1];
-
-            if (!nextItem) {
-              currentMenu.first.focus();
-
-              return;
-            }
-
-            nextItem.focus();
-          }
-  
-          break;
+          currentMenu.first.focus();
         }
-  
-        case keyCodes.up: {
-          event.preventDefault();
 
-          /**
-           * Handle up arrow key when inside the open menu.
-           */
-          if (event.target.closest(this.menuAttribute) !== null) {
-            const currentMenu = this._setUpMenu(this.menuElement);
+        this.open();
 
-            let currentIndex;
+        /**
+         * Handle down arrow key when inside the open menu.
+         */
 
-            /**
-             * This keeps track of which button/focusable is focused in the open menu
-             */
-            for (let i = 0; i < currentMenu.all.length; i++) {
-              if (event.target == currentMenu.all[i]) {
-                currentIndex = i;
-              }
-            }
+        // If the event didn't come from within the menu, then bail.
+        if (!this.menuElement.contains(event.target)) break;
 
-            const previousItem = currentMenu.all[currentIndex - 1];
+        const currentMenu = this._setUpMenu(this.menuElement);
 
-            if (!previousItem && currentMenu.last !== undefined) {
-              currentMenu.last.focus();
+        /**
+         * This keeps track of which button/focusable is focused in the open menu
+         */
 
-              return;
-            }
+        let currentIndex;
 
-            previousItem.focus();
+        for (let i = 0; i < currentMenu.all.length; i++) {
+          if (event.target == currentMenu.all[i]) {
+            currentIndex = i;
           }
-  
-          break;
         }
-  
-        case keyCodes.escape: {
-          // If there's an open menu, close it.
-          if (this.activeDropdown) {
-            this.close(this.toggleElement, this.menuElement);
+
+        const nextItem = currentMenu.all[currentIndex + 1];
+
+        if (!nextItem) {
+          currentMenu.first.focus();
+
+          return;
+        }
+
+        nextItem.focus();
+
+        break;
+      }
+
+      case keyCodes.up: {
+        event.preventDefault();
+
+        /**
+         * Handle up arrow key when inside the open menu.
+         */
+
+        // If the event didn't come from within the menu, then bail.
+        if (!this.menuElement.contains(event.target)) break;
+
+        const currentMenu = this._setUpMenu(this.menuElement);
+
+        let currentIndex;
+
+        /**
+         * This keeps track of which button/focusable is focused in the open menu
+         */
+        for (let i = 0; i < currentMenu.all.length; i++) {
+          if (event.target == currentMenu.all[i]) {
+            currentIndex = i;
           }
-
-          this.toggleElement.focus();
-
-          /**
-           * Resets the state variables so as not to interfere with other
-           * Escape key handlers/interactions
-           */
-          this.activeDropdown = null;
-
-          break;
         }
-  
-        case keyCodes.tab: {
-          /**
-           * Handle tab key when inside the open menu.
-           */
-          if (event.target.closest(this.menuAttribute) !== null) {
-            const currentMenu = this._setUpMenu(this.menuElement);
 
-            // Close the dropdown when the user tabs out of the menu.
-            if (document.activeElement == currentMenu.last && !event.shiftKey) {
-              this.close(this.toggleElement, this.menuElement);
+        const previousItem = currentMenu.all[currentIndex - 1];
 
-              return;
-            }
-          }
+        if (!previousItem && currentMenu.last !== undefined) {
+          currentMenu.last.focus();
 
-          break;
+          return;
         }
+
+        previousItem.focus();
+
+        break;
+      }
+
+      case keyCodes.escape: {
+        // If there's an open menu, close it.
+        if (this.activeDropdown) {
+          this.close();
+        }
+
+        this.toggleElement.focus();
+
+        /**
+         * Resets the state variables so as not to interfere with other
+         * Escape key handlers/interactions
+         */
+        this.activeDropdown = null;
+
+        break;
+      }
+
+      case keyCodes.tab: {
+        /**
+         * Handle tab key when inside the open menu.
+         */
+
+        if (!this.menuElement.contains(event.target)) break;
+
+        const currentMenu = this._setUpMenu(this.menuElement);
+
+        // Close the dropdown when the user tabs out of the menu.
+        if (document.activeElement == currentMenu.last && !event.shiftKey) {
+          this.close();
+
+          return;
+        }
+
+        break;
       }
     }
   }
