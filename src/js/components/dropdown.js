@@ -4,6 +4,7 @@
  */
 
 import keyCodes from '../utilities/keyCodes';
+import { nodeListToArray } from '../utilities/domHelpers';
 
 export default class Dropdown {
   constructor(element) {
@@ -67,9 +68,7 @@ export default class Dropdown {
     const menuObject = {};
 
     // Create a real Array of all the focusable elements in the menu
-    const menuFocusables = Array.prototype.slice.call(
-      menu.querySelectorAll(this.focusableElements)
-    );
+    const menuFocusables = nodeListToArray(menu.querySelectorAll(this.focusableElements));
 
     // Create a property to hold an array of all focusables
     menuObject.all = menuFocusables;
