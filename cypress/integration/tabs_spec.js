@@ -1,7 +1,7 @@
 const DEV_SERVER = 'http://localhost:3000';
 
 beforeEach(function () {
-  cy.visit(`${DEV_SERVER}/components/preview/tab--default`);
+  cy.visit(`${DEV_SERVER}/components/preview/tabs--default`);
   /**
    * Use cypress aliases to share the context of the tab and panel
    * elements across different assertions.
