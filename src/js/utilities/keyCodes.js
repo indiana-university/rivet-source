@@ -8,11 +8,9 @@ const keyCodes = {
   down: 40,
   left: 37,
   right: 39,
-
   tab: 9,
   enter: 13,
   escape: 27,
-
   home: 36,
   end: 35,
   pageUp: 33,

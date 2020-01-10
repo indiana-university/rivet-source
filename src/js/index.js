@@ -12,5 +12,6 @@ import Alert from './components/alert';
 import Dropdown from './components/dropdown';
 import FileInput from './components/fileInput';
 import Sidenav from './components/sidenav';
+import Tabs from './components/tabs';
 
-export default { Alert, Dropdown, FileInput, Sidenav };
+export default { Alert, Dropdown, FileInput, Sidenav, Tabs };
