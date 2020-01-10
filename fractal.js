@@ -65,7 +65,12 @@ fractal.components.set('statuses', {
     deprecated: {
         label: "Deprecated",
         description: "Don't use this in new projects. This component will be removed in the next major version of Rivet.",
-        color: '#F25B19'
+        color: '#FF0000'
+    },
+    wip: {
+        label: "Work in Progress",
+        description: "This component is a work in progress.",
+        color: '#FF8C00'
     },
     alpha: {
         label: "Alpha",
@@ -75,7 +80,7 @@ fractal.components.set('statuses', {
     beta: {
         label: "Beta",
         description: "This component is stable, but could still change slightly.",
-        color: '#49AFC7'
+        color: '#006298'
     },
     ready: {
         label: "Ready",

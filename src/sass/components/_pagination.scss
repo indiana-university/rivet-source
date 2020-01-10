@@ -20,7 +20,7 @@
     margin-top: 0;
 
     a {
-      border: 1px solid $color-black--300;
+      border: 1px solid $color-black-300;
       display: inline-block;
 
       /**
@@ -42,13 +42,13 @@
     }
 
     a:hover {
-      background-color: $color-black--100;
+      background-color: $color-black-100;
     }
 
     a:focus {
       border-radius: inherit;
       /* stylelint-disable */
-      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
       /* stylelint-enable */
       outline: none;
       z-index: map-get($z-index, z-1000);
@@ -80,8 +80,8 @@
    */
 
   &__item.is-active a {
-    background-color: $color-blue--600;
-    border-color: $color-blue--600;
+    background-color: $color-blue-600;
+    border-color: $color-blue-600;
     color: $color-white;
 
     /**
@@ -95,11 +95,11 @@
    */
 
   &__item.is-disabled a {
-    color: $color-black--700;
-    background-color: $color-black--100;
+    color: $color-black-700;
+    background-color: $color-black-100;
 
     &:hover {
-      border-color: $color-black--200;
+      border-color: $color-black-200;
       cursor: default;
     }
 

@@ -1,33 +1,41 @@
 const { dest, series, src, watch } = require("gulp");
+const { eslint } = require("rollup-plugin-eslint");
 const autoprefixer = require("autoprefixer");
+const babel = require("rollup-plugin-babel");
 const cssnano = require("gulp-cssnano");
-const eslint = require("gulp-eslint");
-const concat = require("gulp-concat");
 const header = require("gulp-header");
 const postcss = require("gulp-postcss");
-const pump = require("pump");
 const rename = require("gulp-rename");
-const reporter = require("postcss-reporter");
-const requireDir = require("require-dir");
+const rollup = require("rollup");
 const sass = require("gulp-sass");
-const scss = require("postcss-scss");
+const strip = require('gulp-strip-comments');
 const stylelint = require("gulp-stylelint");
 const uglify = require("gulp-uglify");
 
-const bannerPackage = require("./config/banner");
 const fractal = require("./fractal");
-const package = require("./package.json");
-const sassBannerPackage = require("./config/sass-banner");
+const pkg = require("./package.json");
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
 
-// Include everything in the "tasks" folder
-requireDir("./config");
-
 /**
  * Sass tasks
  */
+
+// Create the string for the version number banner.
+var sassBannerText = `// ${pkg.name} - @version ${pkg.version}
+
+`;
+
+// Create the string for the version number banner.
+var bannerText = `/*!
+ * ${pkg.name} - @version ${pkg.version}
+
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+`;
 
 function compileSass() {
   return src("src/sass/**/*.scss")
@@ -69,7 +77,7 @@ function releaseCopySass() {
 // Add version number header to all .scss files.
 function headerSass() {
   return src(["./sass/**/*.scss", "!./sass/libs/*"])
-    .pipe(header(sassBannerPackage, { package: package }))
+    .pipe(header(sassBannerText, { package: pkg }))
     .pipe(dest("./sass/"));
 }
 
@@ -83,7 +91,7 @@ function compileCSS() {
 
 function headerCSS() {
   return src("./css/rivet.css")
-    .pipe(header(bannerPackage, { package: package }))
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./css/"));
 }
 
@@ -115,34 +123,23 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-function lintJSWatch() {
-  return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
-    .pipe(eslint())
-    .pipe(eslint.format());
-}
+async function compileJS() {
+  const bundle = await rollup.rollup({
+    input: './src/js/index.js',
+    plugins: [ eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
+  });
 
-function lintJSBuild() {
-  return src(["src/js/**/*.js", "!node_modules/**", "!src/js/vendor.js"])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
+  await bundle.write({
+    file: './static/js/rivet-iife.js',
+    format: 'iife',
+    name: 'Rivet'
+  });
 
-function concatJS() {
-  return src([
-    "src/js/polyfills/closest.js",
-    "src/js/polyfills/CustomEvent.js",
-    "src/js/utilities/fireCustomEvent.js",
-    "src/js/components/alert.js",
-    "src/js/components/drawer.js",
-    "src/js/components/dropdown.js",
-    "src/js/components/modal.js",
-    "src/js/components/tabs.js",
-    "src/js/components/fileInput.js",
-    "src/js/index.js"
-  ])
-    .pipe(concat("rivet.js"))
-    .pipe(dest("./static/js"));
+  await bundle.write({
+    file: './static/js/rivet-esm.js',
+    format: 'es',
+    name: 'Rivet'
+  });
 }
 
 function vendorJS() {
@@ -150,31 +147,47 @@ function vendorJS() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(lintJSWatch, concatJS, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, vendorJS));
+  callback();
+}
+
+function stripJS(callback) {
+  src('./js/rivet-iife.js')
+    .pipe(strip())
+    .pipe(dest('./js'));
+
+  src('./js/rivet-esm.js')
+  .pipe(strip())
+  .pipe(dest('./js'));
+
   callback();
 }
 
 function distJS() {
-  return src("static/js/rivet.js").pipe(dest("./js"));
+  return src("static/js/rivet*.js").pipe(dest("./js"));
 }
 
 function headerJS(callback) {
-  src("./js/rivet.js")
-    .pipe(header(bannerPackage, { package: package }))
+  src("./js/rivet-iife.js")
+    .pipe(header(bannerText, { package: pkg }))
+    .pipe(dest("./js/"));
+
+  src("./js/rivet-esm.js")
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./js/"));
 
   src("./js/rivet.min.js")
-    .pipe(header(bannerPackage, { package: package }))
+    .pipe(header(bannerText, { package: pkg }))
     .pipe(dest("./js/"));
 
   callback();
 }
 
-function minifyJS(callback) {
-  pump(
-    [src("./js/rivet.js"), uglify(), rename({ suffix: ".min" }), dest("./js")],
-    callback
-  );
+function minifyJS() {
+  return src('./js/rivet-iife.js')
+    .pipe(uglify())
+    .pipe(rename({ basename: 'rivet', suffix: '.min' }))
+    .pipe(dest('./js'));
 }
 
 /**
@@ -215,14 +228,6 @@ function fractalBuild() {
   });
 }
 
-/**
- * Default development task
- */
-
-/**
- * Build dist directory
- */
-
 function example(callback) {
   src("./src/components/_extras/_index-example.html")
     .pipe(rename("index.html"))
@@ -233,13 +238,13 @@ function example(callback) {
 exports.release = series(
   lintSassBuild,
   compileSass,
-  lintJSBuild,
-  concatJS,
   compileCSS,
   prefixReleaseCSS,
   headerCSS,
   minifyCSS,
+  compileJS,
   distJS,
+  stripJS,
   minifyJS,
   headerJS,
   releaseCopySass,
@@ -250,8 +255,11 @@ exports.release = series(
 exports.build = series(
   lintSassBuild,
   compileSass,
-  lintJSBuild,
-  concatJS,
+  compileJS,
+  distJS,
+  stripJS,
+  minifyJS,
+  headerJS,
   vendorJS,
   fractalBuild,
   prefixFractalCSS
@@ -261,8 +269,7 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
-  lintJSWatch,
-  concatJS,
+  compileJS,
   fractalHeadless,
   watchSass,
   watchJS
@@ -271,8 +278,7 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSassWatch,
-  lintJSWatch,
-  concatJS,
+  compileJS,
   fractalStart,
   watchSass,
   watchJS

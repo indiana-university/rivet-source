@@ -1,44 +1,37 @@
-const ALERT_INFO = '[aria-labelledby="information-alert-title"]';
-const ALERT_WARNING = '[aria-labelledby="warning-alert-title"]';
-const ALERT_SUCCESS = '[aria-labelledby="success-alert-title"]';
-const ALERT_CLOSE = ALERT_INFO + '>.rvt-alert__dismiss';
-const DEV_SERVER = "http://localhost:3000";
+const DEV_SERVER = 'http://localhost:3000';
 
-describe('Rivet alert interactions', function() {
-  it('Visits the info alert page', function() {
-    cy.visit(DEV_SERVER + '/components/preview/alert');
-  });
+beforeEach(function () {
+  cy.visit(`${DEV_SERVER}/components/preview/alert`);
+  /**
+   * Use cypress aliases to share the context of the list and toggle
+   * elements across different assertions.
+   */
+  cy.get('[data-alert="info"]').as('infoAlert');
+  cy.get('[data-alert="info"] >.rvt-alert__dismiss').as('infoAlertClose');
+  cy.get('[data-alert="warning"]').as('warningAlert');
+});
 
-  it('Should see the info alert page', function() {
-    cy.get(ALERT_INFO)
-      .should('have.attr', 'aria-labelledby', 'information-alert-title')
+describe('Rivet alert interactions', function () {
+  it('Should see the info alert page', function () {
+    cy.get('@infoAlert')
+      .should('have.attr', 'data-alert', 'info')
       .and('be.visible');
 
-    cy.get(ALERT_CLOSE).should('be.visible');
+    cy.get('@infoAlertClose').should('be.visible');
   });
 
-  it('Should be able to close the alert', function() {
-    cy.get(ALERT_CLOSE).click();
+  it('Should be able to close the alert', function () {
+    cy.get('@infoAlertClose').click();
 
-    cy.get(ALERT_INFO).should('not.exist');
+    cy.get('@infoAlert').should('not.exist');
   });
 
-  it('Should be able to dismiss with .dismiss() method', function() {
+  it('Should be able to dismiss with .dismiss() method', function () {
     cy.window().then(win => {
-      win.Alert.dismiss('warning-alert-title');
+      win.newwarningAlert.dismiss();
     });
 
-    cy.get(ALERT_WARNING).should('not.exist');
+    cy.get('@warningAlert').should('not.exist');
   });
 
-  it('Should be able to dismiss with .dismiss() method with DOM element', function() {
-    cy.window().then(win => {
-      var alert = win.document.querySelector(
-        '[aria-labelledby="success-alert-title"]'
-      );
-      win.Alert.dismiss(alert);
-    });
-
-    cy.get(ALERT_SUCCESS).should('not.exist');
-  });
 });

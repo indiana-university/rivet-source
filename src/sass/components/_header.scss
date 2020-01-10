@@ -15,14 +15,14 @@
 .#{$prefix}-header {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $color-black--150;
-  background-color: $color-black--050;
+  border-bottom: 1px solid $color-black-100;
+  background-color: $color-black-000;
   width: 100%;
 }
 
 .#{$prefix}-header--light {
   background-color: $color-white;
-  border-bottom: 1px solid $color-black--150;
+  border-bottom: 1px solid $color-black-100;
 }
 
 .#{$prefix}-header__trident {
@@ -98,7 +98,7 @@
   height: 47px;
   padding: 0;
   border-radius: 0;
-  border-left: 1px solid $color-black--200;
+  border-left: 1px solid $color-black-200;
   vertical-align: middle;
   display: flex;
   align-items: center;
@@ -106,8 +106,8 @@
   color: $color-black;
 
   &:hover {
-    background-color: $color-black--200;
-    border-color: $color-black--200;
+    background-color: $color-black-200;
+    border-color: $color-black-200;
     color: $color-black;
   }
 
@@ -116,17 +116,17 @@
   }
 
   &:active:hover {
-    background-color: $color-blue--800;
+    background-color: $color-blue-800;
     color: $color-white;
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 $xxs/2 $color-blue--600;
+    box-shadow: inset 0 0 0 $xxs/2 $color-blue-600;
     outline: none;
   }
 
   &[aria-expanded='true'] {
-    background-color: $color-black--100;
+    background-color: $color-black-100;
 
     &:hover {
       color: $color-black;
@@ -134,11 +134,11 @@
 
     &:active:hover {
       padding-top: 0;
-      background-color: $color-blue--800;
+      background-color: $color-blue-800;
     }
 
     &:focus {
-      background-color: $color-blue--600;
+      background-color: $color-blue-600;
       box-shadow: none;
       color: $color-white;
     }
@@ -189,6 +189,7 @@
 }
 
 /* stylelint-disable */
+
 .#{$prefix}-drawer-button[aria-expanded='true'] {
   > .#{$prefix}-drawer-button-close {
     display: flex;
@@ -232,7 +233,7 @@
     position: relative;
 
     &:focus {
-      outline: $xxs/2 solid $color-blue--600;
+      outline: $xxs/2 solid $color-blue-600;
       outline-offset: $xxs/2;
     }
 
@@ -248,7 +249,7 @@
     &::after {
       content: ' ';
       position: absolute;
-      background-color: $color-blue--600;
+      background-color: $color-blue-600;
       height: $xxs;
       width: 100%;
       top: 2.75rem;
@@ -261,7 +262,6 @@
    * How can one of them be refactored to fix this?
    */
 
-  ul li .dropdown__menu a:hover,
   ul li .#{$prefix}-dropdown__menu a:hover {
     text-decoration: none;
   }
@@ -282,6 +282,7 @@
     content: none;
   }
   /* stylelint-disable */
+
   ul li {
     ul {
       display: block;
@@ -323,11 +324,11 @@
   position: absolute;
   right: 0;
   top: 47px;
-  background-color: $color-black--100;
+  background-color: $color-black-100;
   width: 85%;
   max-width: 400px;
   min-height: 100%;
-  border-left: 1px solid $color-black--200;
+  border-left: 1px solid $color-black-200;
   padding: $sm;
   z-index: map-get($z-index, z-1000);
 
@@ -340,7 +341,7 @@
     }
 
     ul li {
-      border-bottom: 2px solid $color-black--100;
+      border-bottom: 2px solid $color-black-100;
       line-height: 1.5;
       margin-top: 0;
     }
@@ -350,7 +351,7 @@
     }
 
     ul li ul {
-      background-color: $color-black--200;
+      background-color: $color-black-200;
       margin: 0;
     }
 
@@ -382,14 +383,14 @@
       display: flex;
       width: inherit;
       margin-left: 0;
-      color: $color-blue--600;
+      color: $color-blue-600;
 
       &:hover {
-        color: $color-blue--900;
+        color: $color-blue-900;
       }
 
       &:focus {
-        outline: $xxs/2 solid $color-blue--600;
+        outline: $xxs/2 solid $color-blue-600;
         outline-offset: $xxs/2;
       }
     }
@@ -420,7 +421,7 @@
 
     ul li ul li a {
       padding: $sm;
-      background-color: $color-black--200;
+      background-color: $color-black-200;
     }
 
     /**
@@ -430,26 +431,27 @@
     ul li a[aria-current],
     ul li button[aria-current],
     ul li ul li a[aria-current] {
-      box-shadow: inset $xxs 0 0 $color-blue--600;
+      box-shadow: inset $xxs 0 0 $color-blue-600;
 
       &:focus {
         /* stylelint-disable */
-        box-shadow: inset $xxs 0 0 $color-blue--600,
-                          0 0 0 $xxs/2 $color-white,
-                          0 0 0 $xxs $color-blue--600;
+        box-shadow:
+          inset $xxs 0 0 $color-blue-600,
+          0 0 0 $xxs/2 $color-white,
+          0 0 0 $xxs $color-blue-600;
         /* stylelint-enable */
       }
     }
   }
 
   &__nav--accent {
-    border-top: 1px solid $color-black--200;
+    border-top: 1px solid $color-black-200;
   }
 
   &__bottom-close {
     background-color: transparent;
     border: none;
-    color: $color-link;
+    color: $color-blue-600;
     padding: 0;
     height: 1px;
     width: 1px;
@@ -459,7 +461,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 .125rem $color-blue--600;
+      box-shadow: 0 0 0 .125rem $color-blue-600;
       display: block;
       margin-top: $xs;
       width: 100%;
@@ -495,7 +497,7 @@
     display: flex;
     align-items: center;
     color: $color-black;
-    border-right: 1px solid $color-black--300;
+    border-right: 1px solid $color-black-300;
     padding-right: $sm;
   }
 
@@ -532,7 +534,7 @@
     padding-top: .35rem;
     font-size: .75rem;
     font-weight: $font-weight-bold;
-    color: $color-black--050;
+    color: $color-black-000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -550,7 +552,7 @@
   }
 
   &__profile--drawer &__user {
-    border-right: 1px solid $color-black--200;
+    border-right: 1px solid $color-black-200;
     padding-right: $sm;
   }
 

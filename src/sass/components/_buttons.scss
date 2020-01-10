@@ -2,16 +2,16 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 /* stylelint-disable */
+
 %button-focus {
   outline: none;
-  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
 }
 /* stylelint-enable */
 
-.button,
 .#{$prefix}-button {
-  background-color: $color-blue--600;
-  border: $xxs/2 solid $color-blue--600;
+  background-color: $color-blue-600;
+  border: $xxs/2 solid $color-blue-600;
   border-radius: $xxs;
   color: $color-white;
   cursor: pointer;
@@ -38,30 +38,29 @@
 
   &:hover,
   &--hover {
-    background-color: $color-blue--700;
-    border-color: $color-blue--700;
+    background-color: $color-blue-700;
+    border-color: $color-blue-700;
     color: $color-white;
   }
 
   &:active,
   &--active {
-    background-color: $color-blue--800;
-    border-color: $color-blue--800;
+    background-color: $color-blue-800;
+    border-color: $color-blue-800;
   }
 
   &:disabled,
   &:disabled:hover {
-    background-color: $color-black--100;
-    color: $color-black--700;
-    border-color: $color-black--400;
+    background-color: $color-black-100;
+    color: $color-black-700;
+    border-color: $color-black-400;
     cursor: not-allowed;
   }
 }
 
-.button--secondary,
 .#{$prefix}-button--secondary {
   background-color: transparent;
-  color: $color-blue--600;
+  color: $color-blue-600;
 
   &:focus,
   &-focus {
@@ -70,22 +69,21 @@
 
   &:hover,
   &-hover {
-    background-color: $color-blue--100;
-    border-color: $color-blue--600;
-    color: $color-blue--800;
+    background-color: $color-blue-100;
+    border-color: $color-blue-600;
+    color: $color-blue-800;
   }
 
   &:active,
   &-active {
-    background-color: $color-blue--200;
-    color: $color-blue--800;
+    background-color: $color-blue-200;
+    color: $color-blue-800;
   }
 }
 
-.button--success,
 .#{$prefix}-button--success {
-  background-color: $color-green--500;
-  border-color: $color-green--500;
+  background-color: $color-green-500;
+  border-color: $color-green-500;
 
   &:focus,
   &-focus {
@@ -94,23 +92,22 @@
 
   &:hover,
   &-hover {
-    background-color: $color-green--700;
-    border-color: $color-green--700;
+    background-color: $color-green-700;
+    border-color: $color-green-700;
     color: $color-white;
   }
 
   &:active,
   &-active {
-    background-color: $color-green--800;
-    border-color: $color-green--800;
+    background-color: $color-green-800;
+    border-color: $color-green-800;
   }
 }
 
-.button--success-secondary,
 .#{$prefix}-button--success-secondary {
   background-color: transparent;
-  border-color: $color-green--500;
-  color: $color-green--500;
+  border-color: $color-green-500;
+  color: $color-green-500;
 
   &:focus,
   &-focus {
@@ -119,23 +116,22 @@
 
   &:hover,
   &-hover {
-    background-color: $color-green--050;
-    border-color: $color-green--500;
-    color: $color-green--700;
+    background-color: $color-green-000;
+    border-color: $color-green-500;
+    color: $color-green-700;
   }
 
   &:active,
   &-active {
-    background-color: $color-green--100;
-    border-color: $color-green--500;
-    color: $color-green--800;
+    background-color: $color-green-100;
+    border-color: $color-green-500;
+    color: $color-green-800;
   }
 }
 
-.button--danger,
 .#{$prefix}-button--danger {
-  background-color: $color-orange--500;
-  border-color: $color-orange--500;
+  background-color: $color-orange-500;
+  border-color: $color-orange-500;
 
   &:focus,
   &-focus {
@@ -144,23 +140,22 @@
 
   &:hover,
   &-hover {
-    background-color: $color-orange--700;
-    border-color: $color-orange--700;
+    background-color: $color-orange-700;
+    border-color: $color-orange-700;
     color: $color-white;
   }
 
   &:active,
   &-active {
-    background-color: $color-orange--800;
-    border-color: $color-orange--800;
+    background-color: $color-orange-800;
+    border-color: $color-orange-800;
   }
 }
 
-.button--danger-secondary,
 .#{$prefix}-button--danger-secondary {
   background-color: transparent;
-  border-color: $color-orange--500;
-  color: $color-orange--500;
+  border-color: $color-orange-500;
+  color: $color-orange-500;
 
   &:focus,
   &-focus {
@@ -169,20 +164,19 @@
 
   &:hover,
   &-hover {
-    background-color: $color-orange--050;
-    border-color: $color-orange--500;
-    color: $color-orange--700;
+    background-color: $color-orange-000;
+    border-color: $color-orange-500;
+    color: $color-orange-700;
   }
 
   &:active,
   &-active {
-    background-color: $color-orange--100;
-    border-color: $color-orange--500;
-    color: $color-orange--800;
+    background-color: $color-orange-100;
+    border-color: $color-orange-500;
+    color: $color-orange-800;
   }
 }
 
-.button--small,
 .#{$prefix}-button--small {
   height: $md;
   line-height: 1.1;
@@ -195,22 +189,21 @@
   }
 
   &-hover {
-    background-color: $color-blue--700;
-    border-color: $color-blue--700;
+    background-color: $color-blue-700;
+    border-color: $color-blue-700;
     color: $color-white;
   }
 
   &-active,
   &:active {
-    border-color: $color-blue--800;
+    border-color: $color-blue-800;
   }
 }
 
-.button--plain,
 .#{$prefix}-button--plain {
   border-color: transparent;
   background-color: transparent;
-  color: $color-blue--600;
+  color: $color-blue-600;
 
   &:focus,
   &-focus,
@@ -220,25 +213,24 @@
 
   &:hover,
   &-hover {
-    background-color: $color-blue--100;
+    background-color: $color-blue-100;
     border-color: transparent;
-    color: $color-blue--800;
+    color: $color-blue-800;
   }
 
   &:active,
   &-active {
-    background-color: $color-blue--200;
+    background-color: $color-blue-200;
     border-color: transparent;
-    color: $color-blue--800;
+    color: $color-blue-800;
   }
 
   &:disabled,
   &:disabled:hover {
-    border-color: $color-black--100;
+    border-color: $color-black-100;
   }
 }
 
-.button-group,
 .#{$prefix}-button-group {
   display: flex;
 
@@ -251,7 +243,6 @@
  * Right align buttons.
  */
 
-.button-group--right,
 .#{$prefix}-button-group--right {
   justify-content: flex-end;
 }
@@ -273,44 +264,26 @@
 
 .#{$prefix}-button--loading,
 .#{$prefix}-button--loading[disabled] {
-  background-color: $color-black--100;
-  border-color: $color-black--400;
-  color: $color-black--700;
+  background-color: $color-black-100;
+  border-color: $color-black-400;
+  color: $color-black-700;
   justify-content: center;
   position: relative;
 
   &:hover {
-    background-color: $color-black--100;
-    border-color: $color-black--400;
-    color: $color-black--700;
+    background-color: $color-black-100;
+    border-color: $color-black-400;
+    color: $color-black-700;
   }
 
-  /**
-   * DEPRECATED
-   *
-   * .#{$prefix}-button__text was the original version of the wrapper class for button
-   * content. We've updated the class language to be more clear and better
-   * represent its purpose. Please use .#{$prefix}-button__content going forward.
-   *
-   * See the following for more info:
-   *
-   * - /src/components/24-loading-indicator/loading-indicator.hbs
-   *
-   */
-
-  .#{$prefix}-button__content,
-  .#{$prefix}-button__text {
+  .#{$prefix}-button__content {
     color: transparent;
   }
 
-  /**
-   * End deprecated input validation
-   */
-
   .#{$prefix}-loader {
-    border-bottom-color: $color-black--400;
-    border-right-color: $color-black--400;
-    border-top-color: $color-black--400;
+    border-bottom-color: $color-black-400;
+    border-right-color: $color-black-400;
+    border-top-color: $color-black-400;
     display: block;
     position: absolute;
     left: 50%;

@@ -189,7 +189,9 @@ $gutter: $md / 2;
         max-width: $width * 1%;
       }
     }
-  } @else {
+  }
+
+  @else {
     @include mq($bp-size) {
       @each $columns, $width in $grid-columns {
         .#{$prefix}-grid__item-#{$columns}-#{$bp-name}-up {
@@ -232,13 +234,16 @@ $gutter: $md / 2;
         right: $width * 1%;
       }
     }
-  } @else {
+  }
+
+  @else {
     @include mq($bp-size) {
       @each $columns, $width in $grid-columns {
         .#{$prefix}-grid__item-push-#{$columns}-#{$bp-name} {
           left: $width * 1%;
         }
       }
+
       @each $columns, $width in $grid-columns {
         .#{$prefix}-grid__item-pull-#{$columns}-#{$bp-name} {
           right: $width * 1%;

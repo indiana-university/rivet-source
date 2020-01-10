@@ -35,7 +35,7 @@ select {
    *
    * https://github.com/w3c/wcag21/issues/10
    */
-  border: 1px solid $color-black--700;
+  border: 1px solid $color-black-400;
   padding: $xs;
   height: $xl;
   line-height: 1;
@@ -93,7 +93,7 @@ input[type='week']:disabled,
 input:not([type]):disabled,
 textarea:disabled,
 select:disabled {
-  background-color: $color-black--100;
+  background-color: $color-black-100;
   cursor: not-allowed;
 }
 
@@ -116,7 +116,7 @@ textarea:focus,
 select:focus {
   outline: none;
   /* stylelint-disable */
-  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
   /* stylelint-enable */
   transition: box-shadow .2s ease;
 }

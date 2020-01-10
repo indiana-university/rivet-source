@@ -7,12 +7,10 @@
  * It's removed when the modal is closed making the body scrollable again.
  */
 
-.modal-open,
 .#{$prefix}-modal-open {
   overflow: hidden;
 }
 
-.modal,
 .#{$prefix}-modal {
   z-index: map-get($z-index, z-1000);
   position: fixed;
@@ -51,24 +49,24 @@
      */
     line-height: .5;
     display: inline-block;
-    color: $color-text;
+    color: $color-black;
 
     &:hover {
-      background-color: $color-blue--600;
+      background-color: $color-blue-600;
       color: $color-white;
     }
 
     &:focus {
       outline: none;
       /* stylelint-disable */
-      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
+      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
       /* stylelint-enable */
     }
   }
 
   &__header {
     padding: $md $sm;
-    border-bottom: 1px solid $color-black--100;
+    border-bottom: 1px solid $color-black-100;
   }
 
   &--confirmation &__header {
@@ -92,8 +90,8 @@
   &__controls {
     padding: $sm;
     display: flex;
-    border-top: 1px solid $color-black--100;
-    background-color: $color-black--050;
+    border-top: 1px solid $color-black-100;
+    background-color: $color-black-000;
     flex-wrap: wrap;
 
     .#{$prefix}-button {
@@ -135,12 +133,10 @@
   }
 }
 
-.modal[aria-hidden='true'],
 .#{$prefix}-modal[aria-hidden='true'] {
   display: none;
 }
 
-.modal:not([aria-hidden='true']),
 .#{$prefix}-modal:not([aria-hidden='true']) {
   display: block;
 }

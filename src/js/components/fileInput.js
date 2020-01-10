@@ -3,15 +3,27 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-// eslint-disable-next-line no-unused-vars
-var FileInput = (function() {
-  'use strict';
+export default class FileInput {
+  constructor(element, options) {
+    const defaultOptions = {
+      previewText: 'No file selected'
+    };
 
-  /**
-   * Sets up some text we'll need to reuse throughout.
-   */
-  var DEFAULT_TEXT = 'No file selected';
-  var UPLOAD_ATTR = 'data-upload';
+    const settings = {
+      ...defaultOptions,
+      ...options
+    };
+
+    this.element = element;
+    this.wrapperAttribute = 'data-upload-wrapper';
+    this.inputAttribute = 'data-upload-input';
+    this.previewAttribute = 'data-upload-preview';
+    this.previewText = settings.previewText;
+
+    this._handleChange = this._handleChange.bind(this);
+
+    this.init();
+  }
 
   /*!
    * Sanitize and encode all HTML in a user-submitted string
@@ -19,22 +31,10 @@ var FileInput = (function() {
    * @param  {String} str  The user-submitted string
    * @return {String} str  The sanitized string
    */
-  function sanitizeHTML(str) {
-    var temp = document.createElement('div');
+  _sanitizeHTML(str) {
+    const temp = document.createElement('div');
     temp.textContent = str;
     return temp.innerHTML;
-  }
-
-  /**
-   *
-   * @param {HTMLInputElement} input - HTML file input
-   * @return {HTMLSpanElement} - A span containing the a description
-   * of the number of files attached to file input
-   */
-  function _buildMultipleFiles(input) {
-    var fileCount = document.createElement('span');
-    fileCount.textContent = input.files.length + ' files selected';
-    return fileCount;
   }
 
   /**
@@ -43,15 +43,15 @@ var FileInput = (function() {
    * @return {HTMLSpanElement} - A span containing the file name that was
    * attached to the file input
    */
-  function _buildSingleFile(input) {
+  _buildSingleFile(input) {
     // Create <span> element to display our file name
-    var singleFileItem = document.createElement('span');
+    const singleFileItem = document.createElement('span');
 
     /**
      * Sanitize use input here just incase someone would make the
      * name of their file a malicious script.
      */
-    var singleFileName = sanitizeHTML(input.files[0].name);
+    const singleFileName = this._sanitizeHTML(input.files[0].name);
 
     // Add the file name as the text content
     singleFileItem.textContent = singleFileName;
@@ -62,24 +62,23 @@ var FileInput = (function() {
 
   /**
    *
-   * @param {Event} event - Handles the main 'change' event emitted when
-   * file(s) are attached to the file input
+   * @param {HTMLInputElement} input - HTML file input
+   * @return {HTMLSpanElement} - A span containing the a description
+   * of the number of files attached to file input
    */
-  function _handleChange(event) {
-    // Store a reference to the file input wrapper (data-upload) element
-    var uploadElement = event.target.closest('[' + UPLOAD_ATTR + ']');
+  _buildMultipleFiles(input) {
+    const fileCount = document.createElement('span');
+    fileCount.textContent = input.files.length + ' files selected';
 
-    // If the change event was on the file input, bail.
-    if (!uploadElement) return;
+    return fileCount;
+  }
 
-    // The unique id of the file input, wrapper, and preview elements
-    var uploadId = uploadElement.getAttribute(UPLOAD_ATTR);
-
+  _handleChange() {
     // The actual input element
-    var uploadInput = document.getElementById(uploadId);
+    const uploadInput = this.element.querySelector(`[${ this.inputAttribute }]`);
 
     // The preview element where we'll inject file count, etc.
-    var uploadPreview = uploadElement.querySelector('[data-file-preview]');
+    const uploadPreview = this.element.querySelector(`[${ this.previewAttribute }]`);
 
     // Check to make sure that at least one file was attached
     if (uploadInput.files.length > 0) {
@@ -92,56 +91,22 @@ var FileInput = (function() {
        * otherwise show the file name that was uploaded.
        */
       uploadInput.files.length > 1 ?
-        uploadPreview.appendChild(_buildMultipleFiles(uploadInput)) :
-        uploadPreview.appendChild(_buildSingleFile(uploadInput));
-
-      // Fire a custom event as a hook for other scripts
-      // eslint-disable-next-line no-undef
-      fireCustomEvent(uploadElement, UPLOAD_ATTR, 'fileAttached');
+        uploadPreview.appendChild(this._buildMultipleFiles(uploadInput)) :
+        uploadPreview.appendChild(this._buildSingleFile(uploadInput));
     } else {
       /**
        * If no files were attached set the placeholder text back
        * to the default
        */
-      uploadPreview.innerHTML = DEFAULT_TEXT;
+      uploadPreview.innerHTML = this.previewText;
     }
   }
 
-  /**
-   * @param {HTMLElement} context - An optional DOM element. This only
-   * needs to be passed in if a DOM element was passed to the init()
-   * function. If so, the element passed in must be the same element
-   * that was passed in at initialization so that the event listeners can
-   * be properly removed.
-   */
-  function destroy(context) {
-    if (context === undefined) {
-      context = document;
-    }
-
-    context.removeEventListener('change', _handleChange, false);
+  init() {
+    this.element.addEventListener('change', this._handleChange, false);
   }
 
-  /**
-   * @param {HTMLElement} context - An optional DOM element that the
-   * file input can be initialized on. All event listeners will be attached
-   * to this element. Usually best to just leave it to default
-   * to the document.
-   */
-  function init(context) {
-    if (context === undefined) {
-      context = document;
-    }
-
-    // Destroy any currently initialized file inputs
-    destroy(context);
-
-    context.addEventListener('change', _handleChange, false);
+  destroy() {
+    this.element.removeEventListener('change', this._handleChange, false);
   }
-
-  // Expose public API here
-  return {
-    init: init,
-    destroy: destroy
-  };
-})();
+}

@@ -5,8 +5,8 @@
   align-items: center;
   font-size: ts(12);
   padding: $xs $md;
-  background-color: $color-black--050;
-  border-top: 1px solid $color-black--150;
+  background-color: $color-black-000;
+  border-top: 1px solid $color-black-100;
   width: 100%;
 
   a {
@@ -17,28 +17,6 @@
       text-decoration: underline;
     }
   }
-
-  /**
-   * DEPRECATED
-   *
-   * With the updates to the footer lockup, the div that the
-   * `.#{$prefix}-footer__copyright-lockup` class is unncessary. We are deprecating
-   * the class and removing the div from the code snippet.
-   *
-   * See the following for more info:
-   *
-   * - /src/components/14-footer/footer.hbs
-   *
-   */
-
-  &__copyright-lockup {
-    display: flex;
-    align-items: center;
-  }
-
-  /**
-   * End deprecated input validation
-   */
 
   &__trident > svg {
     display: block;
@@ -61,7 +39,7 @@
 
     &:first-child::after {
       content: "|";
-      color: $color-black--500;
+      color: $color-black-500;
       margin: 0 $xs;
     }
 
@@ -79,7 +57,7 @@
   .#{$prefix}-footer {
     &__aux-item::after {
       content: "|";
-      color: $color-black--500;
+      color: $color-black-500;
       margin: 0 $xs;
     }
 

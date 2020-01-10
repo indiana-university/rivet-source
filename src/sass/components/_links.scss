@@ -3,14 +3,14 @@
 
 a,
 .#{$prefix}-link {
-  color: $color-blue--600;
+  color: $color-blue-600;
 
   &:hover {
-    color: $color-blue--900;
+    color: $color-blue-900;
   }
 
   &:focus {
-    outline: $xxs/2 solid $color-blue--600;
+    outline: $xxs/2 solid $color-blue-600;
     outline-offset: $xxs/2;
   }
 
@@ -18,7 +18,7 @@ a,
     /**
      * TODO: Come up with a better color for the :visited state.
      */
-    color: $color-blue--900;
+    color: $color-blue-900;
   }
 }
 

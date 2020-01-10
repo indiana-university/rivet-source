@@ -1,0 +1,19 @@
+<table>
+    <caption class="rvt-sr-only">Rivet color utilities</caption>
+    <thead>
+        <th>Variable</th>
+        <th>Hex</th>
+        <th>Color</th>
+        <th>Background-color</th>
+    </thead>
+    <tbody>
+        {% for color in colors %}
+            <tr>
+                <td><code>${{ color.variable }}</code></td>
+                <td><code>#{{ color.hex }}</code></td>
+                <td><span class="rvt-color-{{ color.variable }}">Example text</span></td>
+                <td class="rvt-bg-{{ color.variable }}"></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

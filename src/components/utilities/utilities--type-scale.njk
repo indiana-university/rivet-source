@@ -1,0 +1,19 @@
+<table>
+    <caption class="rvt-sr-only">Rivet type scale</caption>
+    <thead>
+        <th>Helper Class</th>
+        <th>rem</th>
+        <th>px</th>
+        <th>Actual size</th>
+    </thead>
+    <tbody>
+        {% for type in typeScale %}
+            <tr>
+                <td><code>.rvt-ts-{{ type.pixels }}</code>{% if type.abbr %}, <code>.rvt-ts{{ type.abbr }}</code>{% endif %}</td>
+                <td>{{ type.rem }}rem</td>
+                <td>{{ type.pixels }}px</td>
+                <td class="rvt-ts-{{ type.pixels }}">{{ typeScaleText }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

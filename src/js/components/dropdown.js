@@ -3,206 +3,72 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-// eslint-disable-next-line no-unused-vars
-var Dropdown = (function() {
-  'use strict';
+import keyCodes from '../utilities/keyCodes';
+import { nodeListToArray } from '../utilities/domHelpers';
 
-  /**
-   * Global references
-   */
+export default class Dropdown {
+  constructor(element) {
+    this.element = element;
+    this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
-  // Keeps track of the currently active toggle. Helps with focus management
-  var activeToggle;
-  var activeMenu;
+    this.dropdownAttribute = '[data-dropdown]';
 
-  /**
-   * Global constants
-   */
+    this.toggleAttribute = '[data-dropdown-toggle]';
+    this.toggleElement = this.element.querySelector(this.toggleAttribute);
 
-  // For easy reference
-  var KEYS = {
-    up: 38,
-    down: 40,
-    tab: 9,
-    escape: 27
-  };
+    this.menuAttribute = '[data-dropdown-menu]';
+    this.menuElement = this.element.querySelector(this.menuAttribute);
 
-  // Anything that is focusable
-  var ALL_FOCUSABLE_ELS = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+    // Keeps track of the currently active dropdown and helps with focus management
+    this.activeDropdown = null;
+    this.isOpen = false;
 
-  var MENU_SELECTOR = '.rvt-dropdown__menu';
+    // Bind methods
+    this._handleClick = this._handleClick.bind(this);
+    this._handleKeydown = this._handleKeydown.bind(this);
 
-  var TOGGLE_ATTR = 'data-dropdown-toggle';
+    // Make sure icons don't receive focus
+    this.element.querySelector('svg').setAttribute('focusable', 'false');
 
-  /**
-   * @param {String} id - A unique string used for the dropdown toggle
-   * element's data-dropdown-toggle attribute and the corresponding menu's
-   * "id" attribute.
-   * @param {Function} callback - An optional callback function that gets
-   * emmitted after the menu is opened.
-   */
-  function openMenu(id, callback) {
-    if (!id) {
-      throw new Error('You must provide a unique id for the menu you\'re trying to open.');
-    }
-    // If there's an open menu, close it.
-    if (activeMenu) {
-      closeMenu(activeMenu);
-    }
+    this.init();
+  }
 
-    // Set the current active menu the menu we're about to open
-    activeMenu = id;
-
-    var toggleSelector = '[' + TOGGLE_ATTR + '="' + id + '"]';
-
-    var toggle = document.querySelector(toggleSelector);
-
+  open() {
     // Return if disabled dropdown is being opened programmatically
-    if (toggle.hasAttribute('disabled')) {
+    if (this.toggleElement.hasAttribute('disabled')) {
       return;
     }
 
-    // If the menu was opened by clicking an associated toggle
-    if (toggle && toggle !== null) {
-      toggle.setAttribute('aria-expanded', 'true');
+    this.isOpen = true;
 
-      activeToggle = toggle;
-    }
-
-    // Get the menu to be opened by id
-    var menu = document.getElementById(id);
-
-    if (!menu) {
-      throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
-    }
+    this.toggleElement.setAttribute('aria-expanded', 'true');
 
     // Remove the 'hidden' attribute to show the menu
-    menu.setAttribute('aria-hidden', 'false');
+    this.menuElement.removeAttribute('hidden');
 
-    // Emit a custom event that can be used as a hook for other actions
-    // eslint-disable-next-line no-undef
-    fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
+    this.activeDropdown = this.element;
+  }
 
-    // Execute supplied callback function if it exists
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
+  close() {
+    this.isOpen = false;
+
+    this.toggleElement.setAttribute('aria-expanded', 'false');
+
+    this.menuElement.setAttribute('hidden', '');
+
+    this.activeDropdown = null;
   }
 
   /**
-   * @param {String} id - A unique string associate with the dropdown's
-   * "data-dropdown-toggle" and "id" attributes.
-   * @param {Function} callback - An optional callback function that is
-   * executed after the closeMenu method is called.
+   * Creates an object of menu items within a dropdown
+   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
+   * @returns {Object} An object of menu item anchor elements
    */
-  function closeMenu(id, callback) {
-    if (!id) {
-      throw new Error('You must provide a unique id for the menu you\'re trying to close.');
-    }
-
-    var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
-
-    // Return if disabled dropdown is being closed programmatically
-    if (toggle.hasAttribute('disabled')) {
-      return;
-    }
-
-    if (toggle && toggle !== undefined) {
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-
-    var menu = document.getElementById(id);
-
-    if (!menu) {
-      // If the menu has been removed from the DOM as a result of some other action in the menu then bail
-      if(id) {
-        return 
-      } else {
-      // Otherwise throw an error
-        throw new Error('There was no menu found with an id attribute that matches the "data-dropdown-toggle" attribute on the dropdown toggle.');
-      }
-    }
-
-    menu.setAttribute('aria-hidden', 'true');
-
-    // Emmit a custom event that can be used as a hook for other actions
-    // eslint-disable-next-line no-undef
-    fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownClose');
-
-    // Execute supplied callback function if it exists
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
-  }
-
-  /**
-   * DEPRECATED: This adds backward compatibility for the closeAll() method
-   * in before and including 1.0.0. This should be marked as deprecated
-   * moving forward and removed in the next major version.
-   */
-  function closeAll() {
-    // Find all the dropdown toggles and convert them to an array
-    var allDropdownToggles =
-      Array.prototype.slice.call(
-        document.querySelectorAll('[' + TOGGLE_ATTR + ']')
-      );
-
-    // Find all the dropdown menus and convert them to an array
-    var allDropdownMenus =
-      Array.prototype.slice.call(
-        document.querySelectorAll(MENU_SELECTOR)
-      );
-
-    allDropdownToggles.forEach(function(toggle) {
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-
-    allDropdownMenus.forEach(function (menu) {
-      menu.setAttribute('aria-hidden', 'true');
-    });
-  }
-
-  /**
-   * A helper function that toggles a dropdown to the opposite of it's
-   * current state (opened or closed). The .toggle() method was part
-   * of the original API, so we're keeping it here for backwards
-   * compatibility.
-   *
-   * @param {String} id - A unique string associate with the dropdown's
-   * "data-dropdown-toggle" and "id" attributes.
-   * @param {Function} callback - An optional callback that get's executed
-   * after the dropdown is either opened or closed.
-   */
-  function toggle(id, callback) {
-    if (!id) {
-      throw new Error('You must provide a unique id for the menu you\'re trying to toggle.');
-    }
-
-    var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
-
-    // Check the state of the dropdown toggle button
-    var isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
-
-    /**
-     * If the button is expanded/the menu is open run the close method,
-     * otherwise open the menu.
-     */
-    isExpanded ? closeMenu(id, callback) : openMenu(id, callback);
-  }
-
-  /**
-   * @param {HTMLElement} menu - An HTMLElement that contains the dropdown
-   * menu options. This function returns an object that holds a reference
-   * to all focusable element in the menu, the first focusable, and the
-   * last focusable element
-   */
-  function _setUpMenu(menu) {
-    var menuObject = {};
+  _setUpMenu(menu) {
+    const menuObject = {};
 
     // Create a real Array of all the focusable elements in the menu
-    var menuFocusables = Array.prototype.slice.call(
-      menu.querySelectorAll(ALL_FOCUSABLE_ELS)
-    );
+    const menuFocusables = nodeListToArray(menu.querySelectorAll(this.focusableElements));
 
     // Create a property to hold an array of all focusables
     menuObject.all = menuFocusables;
@@ -216,241 +82,159 @@ var Dropdown = (function() {
     return menuObject;
   }
 
-  /**
-   * Event handlers
-   */
+  _handleClick(event) {
+    const toggle = event.target.closest(this.toggleAttribute);
 
-  /**
-   * @param {Event} event - This is function is used to handle all click
-   * events on the document. It accepts the Event object, checks the target
-   * to see if it is a dropdown toggle. If so, it opens the menu otherwise
-   * it closes any open/active dropdown.
-   */
-  function _handleClick(event) {
-    var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
+    // Did it come from inside open menu?
+    if (this.menuElement.contains(event.target)) return;
 
-    var menu = event.target.closest('#' + activeMenu);
-
-    // Use this boolean on the event object in place of stopPropagation()
-    if (menu && menu !== null) {
-      event.clickedWithinMenu = true;
-    }
-
-    if (!toggle || toggle.getAttribute('aria-expanded') === 'true') {
-      // No menu has been opened yet and the event target was not a toggle, so bail.
-      if (!activeMenu) return;
-
-      /**
-       * Otherwise close the currently open menu unless the click
-       * happened inside of it.
-       */
-      if (!event.clickedWithinMenu) {
-        closeMenu(activeMenu);
-      }
-
+    // If it came from outside component, close all open dropdowns
+    if (!toggle) {
+      this.close();
       return;
     }
 
-    var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
-
-    openMenu(dropdownId);
+    // Check which toggle the click came from, and whether it's already opened
+    if (toggle !== this.toggleElement || this.isOpen) {
+      this.close();
+    } else {
+      this.open();
+    }
   }
 
-  /**
-   *
-   * @param {Event} event - This functions handles all keydown events on
-   * the document. It accepts the event object, determines which keys were
-   * pressed and preforms the appropriate actions. Used to handle
-   * keyboard navigation.
-   */
-  function _handleKeydown(event) {
+  _handleKeydown(event) {
+    // If the keydown didn't come from within dropdown component, then bail.
+    if (!this.element.contains(event.target)) return;
+
+    // Delegate event to only this instance of the dropdown
+    const dropdown = event.target.closest(this.dropdownAttribute);
+    if (dropdown !== this.element) return;
+
     switch (event.keyCode) {
-      // Handle down key
-      case KEYS.down:
-        var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
+      case keyCodes.down: {
+        event.preventDefault();
 
-        /**
-         * If you were focused on the dropdown toggle
-         */
-        if (toggle && toggle !== null) {
-          var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
+        // The menu is open when the down arrow is pressed.
+        if (this.isOpen) {
+          const currentMenu = this._setUpMenu(this.menuElement);
 
-          var menu = document.getElementById(dropdownId);
-
-          // If your focused on the toggle button and the menu is open.
-          if (toggle.getAttribute('aria-expanded') === 'true') {
-            var currentMenu = _setUpMenu(menu);
-
-            currentMenu.first.focus();
-          }
-
-          openMenu(dropdownId);
+          currentMenu.first.focus();
         }
+
+        this.open();
 
         /**
          * Handle down arrow key when inside the open menu.
          */
-        if (event.target.closest('#' + activeMenu) !== null) {
-          var theMenu = event.target.closest('#' + activeMenu);
 
-          currentMenu = _setUpMenu(theMenu);
+        // If the event didn't come from within the menu, then bail.
+        if (!this.menuElement.contains(event.target)) break;
 
-          var currentIndex;
+        /**
+         * This keeps track of which button/focusable is focused in the open menu
+         */
+        const currentMenu = this._setUpMenu(this.menuElement);
+        let currentIndex;
 
-          /**
-           * This keeps track of which button/focusable is focused in the open menu
-           */
-          for (var i = 0; i < currentMenu.all.length; i++) {
-            if (event.target == currentMenu.all[i]) {
-              currentIndex = i;
-            }
+        for (let i = 0; i < currentMenu.all.length; i++) {
+          if (event.target == currentMenu.all[i]) {
+            currentIndex = i;
           }
-
-          var nextItem = currentMenu.all[currentIndex + 1];
-
-          if (!nextItem) {
-            currentMenu.first.focus();
-
-            return;
-          }
-
-          nextItem.focus();
         }
 
-        break;
+        const nextItem = currentMenu.all[currentIndex + 1];
 
-      case KEYS.up:
+        if (!nextItem) {
+          currentMenu.first.focus();
+
+          return;
+        }
+
+        nextItem.focus();
+
+        break;
+      }
+
+      case keyCodes.up: {
+        event.preventDefault();
+
         /**
-         * TODO: This needs to be refactored into something reusable - lots of
-         * repetition here.
+         * Handle up arrow key when inside the open menu.
          */
 
-        // Handle up arrow key when inside the open menu.
-        if (event.target.closest('#' + activeMenu) !== null) {
-          theMenu = event.target.closest('#' + activeMenu);
+        // If the event didn't come from within the menu, then bail.
+        if (!this.menuElement.contains(event.target)) break;
 
-          currentMenu = _setUpMenu(theMenu);
+        /**
+         * This keeps track of which button/focusable is focused in the open menu
+         */
+        const currentMenu = this._setUpMenu(this.menuElement);
+        let currentIndex;
 
-          currentIndex;
-
-          // This keeps track of which button/focusable is focused in the open menu
-          for (i = 0; i < currentMenu.all.length; i++) {
-            if (event.target == currentMenu.all[i]) {
-              currentIndex = i;
-            }
+        for (let i = 0; i < currentMenu.all.length; i++) {
+          if (event.target == currentMenu.all[i]) {
+            currentIndex = i;
           }
-
-          var previousItem = currentMenu.all[currentIndex - 1];
-
-          if (!previousItem && currentMenu.last !== undefined) {
-            currentMenu.last.focus();
-            return;
-          }
-
-          previousItem.focus();
         }
+
+        const previousItem = currentMenu.all[currentIndex - 1];
+
+        if (!previousItem && currentMenu.last !== undefined) {
+          currentMenu.last.focus();
+
+          return;
+        }
+
+        previousItem.focus();
 
         break;
+      }
 
-      case KEYS.escape:
+      case keyCodes.escape: {
         // If there's an open menu, close it.
-        if (activeMenu) {
-          closeMenu(activeMenu);
+        if (this.activeDropdown) {
+          this.close();
         }
 
-        if (activeToggle && activeToggle !== null) {
-          activeToggle.focus();
-        }
+        this.toggleElement.focus();
 
         /**
          * Resets the state variables so as not to interfere with other
          * Escape key handlers/interactions
          */
-        activeMenu = null;
-        activeToggle = null;
+        this.activeDropdown = null;
 
         break;
+      }
 
-      case KEYS.tab:
-        // Handle tab key when inside the open menu.
-        if (event.target.closest('#' + activeMenu) !== null || undefined) {
-          theMenu = event.target.closest('#' + activeMenu);
+      case keyCodes.tab: {
+        /**
+         * Handle tab key when inside the open menu.
+         */
 
-          currentMenu = _setUpMenu(theMenu);
+        if (!this.menuElement.contains(event.target)) break;
 
-          currentIndex;
+        const currentMenu = this._setUpMenu(this.menuElement);
 
-          // This keeps track of which button/focusable is focused in the open menu
-          for (i = 0; i < currentMenu.all.length; i++) {
-            if (event.target == currentMenu.all[i]) {
-              currentIndex = i;
-            }
-          }
+        // Close the dropdown when the user tabs out of the menu.
+        if (document.activeElement == currentMenu.last && !event.shiftKey) {
+          this.close();
 
-          // Close the dropdown when the user tabs out of the menu.
-          if (document.activeElement == currentMenu.last && !event.shiftKey) {
-            closeMenu(activeMenu);
-
-            return;
-          }
+          return;
         }
 
         break;
+      }
     }
   }
 
-  /**
-   *
-   * @param {HTMLElement} context - An optional DOM element. This only
-   * needs to be passed in if a DOM element was passed to the init()
-   * function. If so, the element passed in must be the same element
-   * that was passed in at initialization so that the event listeners can
-   * be properly removed.
-   */
-  function destroy(context) {
-    // Optional element to bind the event listeners to
-    if (context === undefined) {
-      context = document;
-    }
-    /**
-     * Clean up event listeners
-     */
-    context.removeEventListener('click', _handleClick, false);
-    context.removeEventListener('keydown', _handleKeydown, false);
+  init() {
+    document.addEventListener('click', this._handleClick, false);
+    document.addEventListener('keydown', this._handleKeydown, false);
   }
 
-  /**
-   *
-   * @param {HTMLElement} context - An optional DOM element that the
-   * dropdown can be initialized on. All event listeners will be attached
-   * to this element. Usually best to just leave it to default
-   * to the document.
-   */
-  function init(context) {
-    // Optional element to bind the event listeners to
-    if (context === undefined) {
-      context = document;
-    }
-
-    // Destroy any currently initialized dropdowns
-    destroy(context);
-
-    /**
-     * Attach all event listeners to the document
-     */
-    context.addEventListener('click', _handleClick, false);
-    context.addEventListener('keydown', _handleKeydown, false);
+  destroy() {
+    document.removeEventListener('click', this._handleClick, false);
+    document.removeEventListener('keydown', this._handleKeydown, false);
   }
-
-  /**
-   * Return public APIs
-   */
-  return {
-    open: openMenu,
-    close: closeMenu,
-    closeAll: closeAll,
-    init: init,
-    destroy: destroy,
-    toggle: toggle
-  };
-})();
+}

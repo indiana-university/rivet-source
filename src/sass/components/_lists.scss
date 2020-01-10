@@ -51,12 +51,10 @@ dl dd {
   }
 }
 
-.plain-list,
 .#{$prefix}-plain-list {
   @include plain-list;
 }
 
-.inline-list,
 .#{$prefix}-inline-list {
   @include inline-list;
 }

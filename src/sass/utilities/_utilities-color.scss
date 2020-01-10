@@ -3,30 +3,17 @@
 
 /* stylelint-disable */
 
-@each $key, $value in $color-map {
-  .color-#{$key},
+// Generate color utility classes
+@each $key, $value in $colors {
   .#{$prefix}-color-#{$key} {
-    color: #{$value};
+    color: #{$value} !important;
   }
 }
 
-// @example - CSS output
-// .bg-midnight {
-//     background-color: #006298;
-// }
-@each $key, $value in $color-map {
-  .bg-#{$key},
+// Generate background-color utility classes
+@each $key, $value in $colors {
   .#{$prefix}-bg-#{$key} {
-    background-color: #{$value};
-    color: $color-white;
-
-    a {
-      color: rgba($color-white, 0.9);
-    }
-
-    a:hover {
-      color: $color-white;
-    }
+    background-color: #{$value} !important;
   }
 }
 
