@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import keyCodes from '../utilities/keyCodes';
+import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
 import { nodeListToArray } from '../utilities/domHelpers';
+import keyCodes from '../utilities/keyCodes';
 
 export default class Dropdown {
   constructor(element) {
@@ -19,9 +20,10 @@ export default class Dropdown {
     this.menuAttribute = '[data-dropdown-menu]';
     this.menuElement = this.element.querySelector(this.menuAttribute);
 
-    // Keeps track of the currently active dropdown and helps with focus management
-    this.activeDropdown = null;
+    // Keeps track of the currently active dropdown
     this.isOpen = false;
+    this.activeToggle = null;
+    this.activeMenu = null;
 
     // Bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -39,6 +41,16 @@ export default class Dropdown {
       return;
     }
 
+    const openEvent = dispatchCustomEvent(
+      'dropdownOpen',
+      this.toggleElement,
+      {
+        id: this.toggleElement.dataset.dropdownToggle
+      }
+    );
+
+    if (!openEvent) return;
+
     this.isOpen = true;
 
     this.toggleElement.setAttribute('aria-expanded', 'true');
@@ -46,17 +58,36 @@ export default class Dropdown {
     // Remove the 'hidden' attribute to show the menu
     this.menuElement.removeAttribute('hidden');
 
-    this.activeDropdown = this.element;
+    // Set currently active toggle and menu
+    this.activeToggle = this.toggleElement;
+    this.activeMenu = this.menuElement;
   }
 
   close() {
+    /**
+     * If there isn't a currently active dropdown, then bail so close() isn't 
+     * fired multiple times.
+     */
+    if (!this.activeToggle) return;
+
+    const closeEvent = dispatchCustomEvent(
+      'dropdownClose',
+      this.toggleElement,
+      {
+        id: this.toggleElement.dataset.dropdownToggle
+      }
+    );
+
+    if (!closeEvent) return;
+
     this.isOpen = false;
 
-    this.toggleElement.setAttribute('aria-expanded', 'false');
+    this.activeToggle.setAttribute('aria-expanded', 'false');
+    this.activeMenu.setAttribute('hidden', '');
 
-    this.menuElement.setAttribute('hidden', '');
-
-    this.activeDropdown = null;
+    // Unset currently active elements
+    this.activeToggle = null;
+    this.activeMenu = null;
   }
 
   /**
@@ -89,7 +120,7 @@ export default class Dropdown {
     if (this.menuElement.contains(event.target)) return;
 
     // If it came from outside component, close all open dropdowns
-    if (!toggle) {
+    if (!toggle && this.activeToggle !== null) {
       this.close();
       return;
     }
@@ -114,20 +145,21 @@ export default class Dropdown {
       case keyCodes.down: {
         event.preventDefault();
 
-        // The menu is open when the down arrow is pressed.
-        if (this.isOpen) {
+        /**
+         * Open the menu if it hasn't been opened yet.
+         * Move the focus to the first item if the menu has been opened.
+         */
+        if (!this.isOpen) {
+          this.open();
+        } else {
           const currentMenu = this._setUpMenu(this.menuElement);
-
           currentMenu.first.focus();
         }
 
-        this.open();
-
         /**
          * Handle down arrow key when inside the open menu.
+         * If the event didn't come from within the menu, then bail.
          */
-
-        // If the event didn't come from within the menu, then bail.
         if (!this.menuElement.contains(event.target)) break;
 
         /**
@@ -160,9 +192,8 @@ export default class Dropdown {
 
         /**
          * Handle up arrow key when inside the open menu.
+         * If the event didn't come from within the menu, then bail.
          */
-
-        // If the event didn't come from within the menu, then bail.
         if (!this.menuElement.contains(event.target)) break;
 
         /**
@@ -192,7 +223,7 @@ export default class Dropdown {
 
       case keyCodes.escape: {
         // If there's an open menu, close it.
-        if (this.activeDropdown) {
+        if (this.activeToggle) {
           this.close();
         }
 
@@ -202,7 +233,7 @@ export default class Dropdown {
          * Resets the state variables so as not to interfere with other
          * Escape key handlers/interactions
          */
-        this.activeDropdown = null;
+        this.activeToggle = null;
 
         break;
       }
@@ -211,7 +242,6 @@ export default class Dropdown {
         /**
          * Handle tab key when inside the open menu.
          */
-
         if (!this.menuElement.contains(event.target)) break;
 
         const currentMenu = this._setUpMenu(this.menuElement);
