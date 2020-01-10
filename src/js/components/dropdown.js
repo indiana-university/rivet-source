@@ -85,7 +85,7 @@ export default class Dropdown {
     this.activeToggle.setAttribute('aria-expanded', 'false');
     this.activeMenu.setAttribute('hidden', '');
 
-    // Unset currently active elements
+    // Resets the state variables
     this.activeToggle = null;
     this.activeMenu = null;
   }
@@ -222,10 +222,10 @@ export default class Dropdown {
       }
 
       case keyCodes.escape: {
+        if (!this.activeToggle) return;
+
         // If there's an open menu, close it.
-        if (this.activeToggle) {
-          this.close();
-        }
+        this.close();
 
         this.toggleElement.focus();
 
