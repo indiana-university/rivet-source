@@ -11,6 +11,14 @@ export default class Tabs {
 
     // Instance properties
     this.element = element;
+
+    // Check to make sure that a DOM element was passed in for initialization
+    if (!isNode(this.element)) {
+      throw new TypeError(
+        'A DOM element should be passed as the first argument to initialize the modal.'
+      );
+    }
+
     this.tablist = this.element.querySelector('[role="tablist"]');
     this.tabAttribute = 'data-tab';
     this.tabSelector = `[${this.tabAttribute}]`;
@@ -18,7 +26,6 @@ export default class Tabs {
     this.panelAttribute = 'data-tab-panel';
     this.panelSelector = `[${this.panelAttribute}]`;
     this.panels = nodeListToArray(this.element.querySelectorAll(this.panelSelector));
-
 
     // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
     let initialPanel;
@@ -36,13 +43,6 @@ export default class Tabs {
     // bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
-
-    // Check to make sure that a DOM element was passed in for initialization
-    if (!isNode(this.element)) {
-      throw new TypeError(
-        'A DOM element should be passed as the first argument to initialize the modal.'
-      );
-    }
 
     this.init();
   }
@@ -66,7 +66,6 @@ export default class Tabs {
 
     // Activate tab
     this.activateTab(currentPanel);
-
   }
 
   /**
@@ -85,41 +84,35 @@ export default class Tabs {
 
     switch (event.keyCode) {
       case keyCodes.right || keyCodes.down: {
-
         !this.tabs[nextTab] ? this.tabs[0].focus() : this.tabs[nextTab].focus();
-
         break;
       }
+
       case keyCodes.down: {
-
         !this.tabs[nextTab] ? this.tabs[0].focus() : this.tabs[nextTab].focus();
-
         break;
       }
+
       case keyCodes.left: {
-
         !this.tabs[prevTab] ? this.tabs[this.tabs.length - 1].focus() : this.tabs[prevTab].focus();
-
         break;
       }
+
       case keyCodes.up: {
-
         !this.tabs[prevTab] ? this.tabs[this.tabs.length - 1].focus() : this.tabs[prevTab].focus();
-
         break;
       }
+
       case keyCodes.end: {
-
         this.tabs[this.tabs.length - 1].focus();
-
         break;
       }
+
       case keyCodes.home: {
-
         this.tabs[0].focus();
-
         break;
       }
+
       default: {
         break;
       }
@@ -150,7 +143,7 @@ export default class Tabs {
     const trigger = this.element.querySelector(`[${this.tabAttribute}="${tab.dataset.tabPanel}"]`);
 
     this.panels.forEach((panel, index) => {
-      if (panel.getAttribute(this.panelAttribute) !== tab.dataset.tabPanel && !panel.hasAttribute('hidden')) {
+      if (panel.getAttribute(this.panelAttribute) !== tab.dataset.tabPanel) {
         // Deactivate the appropriate tab/panel pair
         panel.setAttribute('hidden', '');
         this.tabs[index].setAttribute('aria-selected', 'false');
@@ -170,7 +163,6 @@ export default class Tabs {
 
   init() {
     this.activateTab(this.openOnInit);
-
     this.destroy();
 
     // Add click handlers
@@ -182,5 +174,4 @@ export default class Tabs {
     this.tablist.removeEventListener('click', this._handleClick, false);
     this.tablist.removeEventListener('keydown', this._handleKeydown, false);
   }
-
 }
