@@ -9,8 +9,9 @@ import './polyfills/remove';
 
 // Components
 import Alert from './components/alert';
+import Dropdown from './components/dropdown';
 import FileInput from './components/fileInput';
 import Sidenav from './components/sidenav';
 import Tabs from './components/tabs';
 
-export default { Alert, FileInput, Sidenav, Tabs };
+export default { Alert, Dropdown, FileInput, Sidenav, Tabs };
