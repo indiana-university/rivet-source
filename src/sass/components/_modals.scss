@@ -137,10 +137,10 @@
   }
 }
 
-.#{$prefix}-modal[aria-hidden='true'] {
+.#{$prefix}-modal[hidden] {
   display: none;
 }
 
-.#{$prefix}-modal:not([aria-hidden='true']) {
+.#{$prefix}-modal:not([hidden]) {
   display: block;
 }

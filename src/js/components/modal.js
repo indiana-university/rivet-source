@@ -3,7 +3,7 @@
 * SPDX-License-Identifier: BSD-3-Clause
 */
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
-import { isNode } from '../utilities/domHelpers';
+import { isNode, nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
 
 export default class Modal {
@@ -20,6 +20,14 @@ export default class Modal {
 
     // Instance properties
     this.element = element;
+
+    // Check to make sure that a DOM element was passed in for initialization
+    if (!isNode(this.element)) {
+      throw new TypeError(
+        'A DOM element should be passed as the first argument to initialize the modal.'
+      );
+    }
+
     this.openOnInit = settings.openOnInit;
     this.dialog = settings.dialog;
     this.modalAttribute = 'data-modal';
@@ -39,13 +47,6 @@ export default class Modal {
     // bind methods
     this._handleClick = this._handleClick.bind(this);
     this._handleKeydown = this._handleKeydown.bind(this);
-
-    // Check to make sure that a DOM element was passed in for initialization
-    if (!isNode(this.element)) {
-      throw new TypeError(
-        'A DOM element should be passed as the first argument to initialize the modal.'
-      );
-    }
 
     this.init();
   }
@@ -91,10 +92,8 @@ export default class Modal {
 
         // Check that the data-modal-trigger value matches the instance's data-modal value
         if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) {
-          // If it doesn't match, and is currently open then close it
-          if (this.element.getAttribute('aria-hidden') === 'false') {
-            this.close();
-          }
+          // If it doesn't match
+          this.close();
           // If it doesn't match and is currently closed then bail
           return;
         }
@@ -118,7 +117,7 @@ export default class Modal {
         break;
       }
       // If the trigger was clicking outside of the modal
-      case trigger === triggerContent && !event.clickedInModal: {
+      case !event.clickedInModal: {
         // Check that the trigger is not a dialog because the user needs to make a choice to proceed
         if (this.dialog) return;
 
@@ -183,7 +182,7 @@ export default class Modal {
       case keyCodes.tab: {
 
         // Create an array of all the focusable elements within the modal
-        const focusList = Array.prototype.slice.call(currentModal.querySelectorAll(this.focusElements));
+        const focusList = nodeListToArray(currentModal.querySelectorAll(this.focusElements));
         const firstFocus = focusList[0];
         const finalFocus = focusList[focusList.length - 1];
 
@@ -214,7 +213,7 @@ export default class Modal {
 
   /**
    * This function is used to open a modal by triggering the modalOpen custom
-   * event, setting the modal's aria-hidden to false, and adding the
+   * event, setting the modal's hidden to false, and adding the
    * rvt-modal-open class to it. It also allows developers to setup a custom
    * callback function.
    * @param {Function} callback 
@@ -231,7 +230,7 @@ export default class Modal {
 
     if (!openEvent) return;
 
-    this.element.setAttribute('aria-hidden', 'false');
+    this.element.removeAttribute('hidden');
     document.body.classList.add('rvt-modal-open');
 
 
@@ -242,7 +241,7 @@ export default class Modal {
 
   /**
    * This function is used to close a modal by triggering the modalClose custom
-   * event, setting the modal's aria-hidden to true, and removing the
+   * event, setting the modal's hidden to true, and removing the
    * rvt-modal-open class from it. It also allows developers to setup a custom
    * callback function.
    * @param {Function} callback 
@@ -259,7 +258,7 @@ export default class Modal {
 
     if (!closeEvent) return;
 
-    this.element.setAttribute('aria-hidden', 'true');
+    this.element.setAttribute('hidden', '');
     document.body.classList.remove('rvt-modal-open');
 
     if (callback && typeof callback === 'function') {
@@ -285,7 +284,7 @@ export default class Modal {
 
   init() {
     if (!this.openOnInit) {
-      this.element.setAttribute('aria-hidden', 'true');
+      this.element.setAttribute('hidden', '');
     }
 
     this.destroy();
