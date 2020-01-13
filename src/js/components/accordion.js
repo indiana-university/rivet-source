@@ -53,40 +53,41 @@ export default class Accordion {
   /**
    * This function is used to handle all click events on
    * the document. It accepts the Event object, checks target to see if it came
-   * from a tab. From there, it gets the related panel and activates it.
+   * from an accordion trigger. From there, it gets the related panel and opens
+   * it.
    * @param {Event} event
    */
   _handleClick(event) {
     const currentTrigger = event.target.closest(this.triggerSelector);
-    // If not a tab, ignore
+    // If not an accordion trigger, ignore
     if (!currentTrigger) return;
 
-    // Get the data-tab value
+    // Get the data-accordion-trigger value
     const currentTriggerValue = currentTrigger.getAttribute(this.triggerAttribute);
 
     // Get the associated panel
     const currentPanel = this.element.querySelector(`[${this.panelAttribute}="${currentTriggerValue}"]`);
 
-    // Activate tab
+    // Open or close accordion
     currentTrigger.getAttribute('aria-expanded') === 'true' ? this.close(currentPanel) : this.open(currentPanel);
 
   }
 
   /**
    * This function is used to handle all keydown events on the document. It
-   * sets up handling for arrows, end, and home.
+   * sets up handling for up and down arrows.
    * @param {Event} event
    */
   _handleKeydown(event) {
     if (event.keyCode === keyCodes.up || event.keyCode === keyCodes.down) {
       const accordionParent = event.target.closest('[data-accordion]');
-      // If not a tab, ignore
+      // If not an accordion, ignore
       if (!accordionParent) return;
 
       const currentTrigger = event.target.closest(this.triggerSelector);
       if (!currentTrigger) return;
 
-      // Create an array of all the focusable elements within the modal
+      // Create an array of all the focusable elements within the accordion
       const nextTrigger = this.triggers.indexOf(currentTrigger) + 1;
       const prevTrigger = this.triggers.indexOf(currentTrigger) - 1;
 
@@ -117,15 +118,14 @@ export default class Accordion {
   }
 
   /**
-   * This function is used to trigger the 'tabActivated' custom event,
-   * deactivate any other tab, and activate a tab/panel pair. It removes the
-   * panel's hidden attribute, sets the tab's
-   * aria-selected attribute to true. It also allows developers to setup a
-   * custom callback function.
+   * This function is used to trigger the 'accordionOpened' custom event, and
+   * open an accordion/panel pair. It removes the panel's hidden attribute,
+   * and sets the trigger's aria-expanded attribute to true. It also allows
+   * developers to setup a custom callback function.
    * @param {Function} callback 
    */
   open(accordion, callback) {
-    // Trigger tabActivated custom event. This event is used to control the process of switching between tabs.
+    // Trigger accordionOpened custom event. This event is used open accordion panels.
 
     const activationEvent = dispatchCustomEvent(
       'accordionOpened',
@@ -139,7 +139,7 @@ export default class Accordion {
 
     const trigger = this.element.querySelector(`[${this.triggerAttribute}="${accordion.dataset.accordionPanel}"]`);
 
-    // Activate the appropriate tab/panel pair
+    // Open the appropriate accordion trigger/panel pair
     accordion.removeAttribute('hidden');
     trigger.setAttribute('aria-expanded', 'true');
 
@@ -148,8 +148,15 @@ export default class Accordion {
     }
   }
 
+  /**
+   * This function is used to trigger the 'accordionClosed' custom event, and
+   * close an accordion/panel pair. It adds the hidden attribute to the panel,
+   * and sets the trigger's aria-expanded attribute to false. It also allows
+   * developers to setup a custom callback function.
+   * @param {Function} callback 
+   */
   close(accordion, callback) {
-    // Trigger tabActivated custom event. This event is used to control the process of switching between tabs.
+    // Trigger accordionClosed custom event. This event is used to control the process of closing accordion panels.
 
     const activationEvent = dispatchCustomEvent(
       'accordionClosed',
@@ -163,7 +170,7 @@ export default class Accordion {
 
     const trigger = this.element.querySelector(`[${this.triggerAttribute}="${accordion.dataset.accordionPanel}"]`);
 
-    // Activate the appropriate tab/panel pair
+    // Close the appropriate accordion trigger/panel pair
     accordion.setAttribute('hidden', '');
     trigger.setAttribute('aria-expanded', 'false');
 
