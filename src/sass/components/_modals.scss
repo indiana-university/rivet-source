@@ -120,6 +120,10 @@
     }
   }
 
+  .#{$prefix}-button[data-modal-close] > * {
+    pointer-events: none;
+  }
+
   &--small &__inner {
     max-width: 500px;
   }
@@ -133,10 +137,10 @@
   }
 }
 
-.#{$prefix}-modal[aria-hidden='true'] {
+.#{$prefix}-modal[hidden] {
   display: none;
 }
 
-.#{$prefix}-modal:not([aria-hidden='true']) {
+.#{$prefix}-modal:not([hidden]) {
   display: block;
 }
