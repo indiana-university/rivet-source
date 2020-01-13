@@ -77,7 +77,7 @@ export default class Modal {
 
     if (trigger.getAttribute(this.openAttribute)) {
       triggerContent = trigger.getAttribute(this.openAttribute);
-    } else if (trigger.getAttribute(this.closeAttribute) && trigger.getAttribute(this.closeAttribute) !== 'close') {
+    } else if (trigger.getAttribute(this.closeAttribute)) {
       triggerContent = trigger.getAttribute(this.closeAttribute);
     } else {
       triggerContent = event.target.closest(this.modalSelector);
@@ -233,7 +233,6 @@ export default class Modal {
     this.element.removeAttribute('hidden');
     document.body.classList.add('rvt-modal-open');
 
-
     if (callback && typeof callback === 'function') {
       callback();
     }
@@ -298,5 +297,4 @@ export default class Modal {
     document.removeEventListener('click', this._handleClick, false);
     document.removeEventListener('keydown', this._handleKeydown, false);
   }
-
 }
