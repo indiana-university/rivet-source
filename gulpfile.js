@@ -142,15 +142,12 @@ async function compileJS() {
   });
 }
 
-function vendorJS() {
-  return src("src/js/vendor.js").pipe(dest("./static/js"));
-}
-
 function watchJS(callback) {
   watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, vendorJS));
   callback();
 }
 
+// Copy JS files from 'static' to 'js'
 function distJS() {
   return src([
     './static/js/rivet-esm.js',
@@ -171,6 +168,13 @@ function stripJS(callback) {
   callback();
 }
 
+function minifyJS() {
+  return src('./js/rivet-iife.js')
+    .pipe(uglify())
+    .pipe(rename({ basename: 'rivet', suffix: '.min' }))
+    .pipe(dest('./js'));
+}
+
 function headerJS(callback) {
   src("./js/rivet-iife.js")
     .pipe(header(bannerText, { package: pkg }))
@@ -187,11 +191,9 @@ function headerJS(callback) {
   callback();
 }
 
-function minifyJS() {
-  return src('./js/rivet-iife.js')
-    .pipe(uglify())
-    .pipe(rename({ basename: 'rivet', suffix: '.min' }))
-    .pipe(dest('./js'));
+// Copy vendor.js from 'src/js' to 'static/js' for Fractal to use
+function vendorJS() {
+  return src("src/js/vendor.js").pipe(dest("./static/js"));
 }
 
 /**
