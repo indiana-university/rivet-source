@@ -130,6 +130,19 @@ async function compileJS() {
   });
 
   await bundle.write({
+    file: './js/rivet.js',
+    format: 'iife',
+    name: 'Rivet'
+  });
+}
+
+async function compileDevJS() {
+  const bundle = await rollup.rollup({
+    input: './src/js/index.js',
+    plugins: [ eslint({ throwOnError: false })]
+  });
+
+  await bundle.write({
     file: './static/js/rivet-iife.js',
     format: 'iife',
     name: 'Rivet'
@@ -143,7 +156,7 @@ async function compileJS() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, compileDevJS, vendorJS));
   callback();
 }
 
@@ -157,6 +170,10 @@ function distJS() {
 }
 
 function stripJS(callback) {
+  src('./js/rivet.js')
+    .pipe(strip())
+    .pipe(dest('./js'));
+
   src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
@@ -169,7 +186,7 @@ function stripJS(callback) {
 }
 
 function minifyJS() {
-  return src('./js/rivet-iife.js')
+  return src('./js/rivet.js')
     .pipe(uglify())
     .pipe(rename({ basename: 'rivet', suffix: '.min' }))
     .pipe(dest('./js'));
@@ -249,6 +266,7 @@ exports.release = series(
   headerCSS,
   minifyCSS,
   compileJS,
+  compileDevJS,
   distJS,
   stripJS,
   minifyJS,
@@ -262,6 +280,7 @@ exports.build = series(
   lintSassBuild,
   compileSass,
   compileJS,
+  compileDevJS,
   distJS,
   stripJS,
   minifyJS,
@@ -276,6 +295,7 @@ exports.fractalBuild = fractalBuild;
 exports.headless = series(compileSass,
   lintSassWatch,
   compileJS,
+  compileDevJS,
   fractalHeadless,
   watchSass,
   watchJS
@@ -285,6 +305,7 @@ exports.default = series(
   compileSass,
   lintSassWatch,
   compileJS,
+  compileDevJS,
   fractalStart,
   watchSass,
   watchJS
