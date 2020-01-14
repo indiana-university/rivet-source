@@ -151,20 +151,24 @@ function watchJS(callback) {
   callback();
 }
 
+function distJS() {
+  return src([
+    './static/js/rivet-esm.js',
+    './static/js/rivet-iife.js'
+  ], {base: './static/js'})
+    .pipe(dest('./js'));
+}
+
 function stripJS(callback) {
   src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
 
   src('./js/rivet-esm.js')
-  .pipe(strip())
-  .pipe(dest('./js'));
+    .pipe(strip())
+    .pipe(dest('./js'));
 
   callback();
-}
-
-function distJS() {
-  return src("static/js/rivet*.js").pipe(dest("./js"));
 }
 
 function headerJS(callback) {
