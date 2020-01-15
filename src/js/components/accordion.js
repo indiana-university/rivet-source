@@ -30,18 +30,12 @@ export default class Accordion {
     this.panelSelector = `[${this.panelAttribute}]`;
     this.panels = nodeListToArray(this.element.querySelectorAll(this.panelSelector));
 
-    // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
-    let initialPanel;
-    this.panels.forEach((panel, index) => {
-      if (panel.hasAttribute('data-accordion-init')) {
-        initialPanel = panel;
-      } else {
-        this.panels[index].setAttribute('hidden', '');
-      }
-    })
-
-    // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-    this.openOnInit = initialPanel;
+    try {
+      this._setOpenOnInit(`[${'data-accordion-init'}]`);
+    }
+    catch (e) {
+      console.warn('Only one accordion panel should have the data-accordion-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-accordion element');
+    }
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -115,6 +109,36 @@ export default class Accordion {
         }
       }
     }
+  }
+
+  /**
+   * This function is used to determine whether an allowable number of accordion
+   * panels has been set to open on initialization.
+   * @param {string} selector - an element selector 
+   * @param {*} max - the maximum number of a given selector allowed
+   */
+  _setOpenOnInit(selector, max = 1) {
+    let excess;
+
+    this.element.querySelectorAll(selector).length > max ? excess = true : excess = false;
+
+    if (excess === true) {
+      throw new TypeError('Caught');
+    }
+
+    // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
+    let initialPanel;
+
+    this.panels.forEach((panel, index) => {
+      if (panel.hasAttribute('data-accordion-init')) {
+        initialPanel = panel;
+      } else {
+        this.panels[index].setAttribute('hidden', '');
+      }
+    });
+
+    // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
+    this.openOnInit = initialPanel;
   }
 
   /**
