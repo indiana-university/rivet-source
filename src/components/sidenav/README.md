@@ -17,3 +17,6 @@ individually.
 ## When to consider something else
 - When the links do not direct to other pages within the site
 - When the nested lists within the navigation exceeds four levels deep
+
+## Implementation notes
+- Avoid nesting site sections deeper than four levels deep
