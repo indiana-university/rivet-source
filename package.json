@@ -12,6 +12,8 @@
     "url": "https://github.com/indiana-university/rivet-source/issues",
     "email": "rivet@iu.edu"
   },
+  "main": "js/rivet-esm.js",
+  "module": "js/rivet-esm.js",
   "scripts": {
     "start": "gulp",
     "build": "npm run clean && gulp release && zip -r rivet.zip css js sass index.html",
