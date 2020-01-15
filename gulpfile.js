@@ -123,29 +123,23 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-async function compileJS() {
+async function compileIife() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
     plugins: [ eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
   });
 
   await bundle.write({
-    file: './js/rivet.js',
+    file: './static/js/rivet-iife.js',
     format: 'iife',
     name: 'Rivet'
   });
 }
 
-async function compileDevJS() {
+async function compileESM() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
     plugins: [ eslint({ throwOnError: false })]
-  });
-
-  await bundle.write({
-    file: './static/js/rivet-iife.js',
-    format: 'iife',
-    name: 'Rivet'
   });
 
   await bundle.write({
@@ -156,7 +150,7 @@ async function compileDevJS() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, compileDevJS, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileIife, compileESM, vendorJS));
   callback();
 }
 
@@ -169,11 +163,8 @@ function distJS() {
     .pipe(dest('./js'));
 }
 
+// Strip out comments from JS files
 function stripJS(callback) {
-  src('./js/rivet.js')
-    .pipe(strip())
-    .pipe(dest('./js'));
-
   src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
@@ -186,7 +177,7 @@ function stripJS(callback) {
 }
 
 function minifyJS() {
-  return src('./js/rivet.js')
+  return src('./js/rivet-iife.js')
     .pipe(uglify())
     .pipe(rename({ basename: 'rivet', suffix: '.min' }))
     .pipe(dest('./js'));
@@ -265,8 +256,8 @@ exports.release = series(
   prefixReleaseCSS,
   headerCSS,
   minifyCSS,
-  compileJS,
-  compileDevJS,
+  compileIife,
+  compileESM,
   distJS,
   stripJS,
   minifyJS,
@@ -279,8 +270,8 @@ exports.release = series(
 exports.build = series(
   lintSassBuild,
   compileSass,
-  compileJS,
-  compileDevJS,
+  compileIife,
+  compileESM,
   distJS,
   stripJS,
   minifyJS,
@@ -294,8 +285,8 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
-  compileJS,
-  compileDevJS,
+  compileIife,
+  compileESM,
   fractalHeadless,
   watchSass,
   watchJS
@@ -304,8 +295,8 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSassWatch,
-  compileJS,
-  compileDevJS,
+  compileIife,
+  compileESM,
   fractalStart,
   watchSass,
   watchJS
