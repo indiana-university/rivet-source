@@ -123,7 +123,7 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-async function compileIife() {
+async function compileIIFE() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
     plugins: [ eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
@@ -150,7 +150,7 @@ async function compileESM() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileIife, compileESM, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileIIFE, compileESM, vendorJS));
   callback();
 }
 
@@ -256,7 +256,7 @@ exports.release = series(
   prefixReleaseCSS,
   headerCSS,
   minifyCSS,
-  compileIife,
+  compileIIFE,
   compileESM,
   distJS,
   stripJS,
@@ -270,7 +270,7 @@ exports.release = series(
 exports.build = series(
   lintSassBuild,
   compileSass,
-  compileIife,
+  compileIIFE,
   compileESM,
   distJS,
   stripJS,
@@ -285,7 +285,7 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
-  compileIife,
+  compileIIFE,
   compileESM,
   fractalHeadless,
   watchSass,
@@ -295,7 +295,7 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSassWatch,
-  compileIife,
+  compileIIFE,
   compileESM,
   fractalStart,
   watchSass,
