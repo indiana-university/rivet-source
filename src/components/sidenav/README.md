@@ -18,7 +18,18 @@ individually.
 - When the links do not direct to other pages within the site
 - When the nested lists within the navigation exceeds four levels deep
 
-## Using the Sidenav component
+## Initializing
+
+To initialize the sidenav component, use JavaScript to select the data attribute `[data-sidenav]`, then create a new instance using `Rivet.Sidenav()`. Options can be passed within an object in the second argument.
+
+```
+  var sidenavElement = document.querySelector('[data-sidenav]');
+  var newSidenav = new Rivet.Sidenav(sidenavElement, {
+    openAllOnInit: false
+  });
+```
+
+## Using the sidenav
 
 ### Setting up the toggling for sections folds
 
