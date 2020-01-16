@@ -7,8 +7,8 @@ nested sections and links relative to where the user is currently at on the
 site.
 
 The sidenav is useful to allow the user to quickly navigate to a page nested
-deeply within a section, without having to navigate to each page along the way 
-individually.
+deeply within a section, without having to navigate to each page individually 
+along the way.
 
 ## When to use
 - To provide links for navigating sections and pages within another section
@@ -18,84 +18,15 @@ individually.
 - When the links do not direct to other pages within the site
 - When the nested lists within the navigation exceeds four levels deep
 
-## Initializing
+## Adding the markup
 
-To initialize the sidenav component, use JavaScript to select the data attribute `[data-sidenav]`, then create a new instance using `Rivet.Sidenav()`. Options can be passed within an object in the second argument.
+### Section fold toggling functionality
 
-```
-  var sidenavElement = document.querySelector('[data-sidenav]');
-  var newSidenav = new Rivet.Sidenav(sidenavElement, {
-    openAllOnInit: false
-  });
-```
-
-## Public methods
-
-The following public methods are available to use within your project: `init`, `open`, `close`, and `destroy`.
-
-**Method:**
-
-`Sidenav.init()`
-
-**Description**
-- Initializes an instance of the sidenav
-
----
-
-**Method:**
-
-`Sidenav.open(toggleButton, targetList)`
-
-**Description**
-- Opens a specific fold
-- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
-
----
-
-**Method**
-
-`Sidenav.close(toggleButton, targetList)`
-
-**Description**
-- Closes a specific fold
-- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
-
----
-
-**Method**
-
-`Sidenav.destroy()`
-
-**Description**
-- Destroys a specific instance of the sidenav by removing the event listener from the component
-
-## Custom events
-
-**Event**
-
-`openEvent`
-
-**Description**
-
-- Emitted after a user clicks on the toggle button and opens a fold
-- Emitted after a fold is programmatically opened using `Sidenav.open()`
-
----
-
-**Event**
-
-`closeEvent`
-
-**Description**
-
-- Emitted after a user clicks on the toggle button and closes a fold
-- Emitted after a fold is programmatically closed using `Sidenav.close()`
-
-## Using the sidenav
-
-### Setting up the toggling for sections folds
-
-The primary functionality of the sidenav consists of openable folds, which reveal nested section navigation matching the structure of a section's page hierarchy. In order for the folds to open and close, a toggle button is required, and the values for the attribute `data-sidenav-toggle` on the button and the attribute `data-sidenav-list` on the nested list must match. In this instance, the values are both `toggle-1`.
+The primary functionality of the sidenav consists of openable folds, which reveal 
+nested section navigation matching the structure of a section's page hierarchy. 
+In order for the folds to open and close, a toggle button is required, and the 
+values for the attribute `data-sidenav-toggle` on the button and the attribute `data-sidenav-list` on the nested list must match. In this instance, the values 
+are both `toggle-1`.
 
 ```
 <nav class="rvt-sidenav" aria-label="Sidenav" data-sidenav>
@@ -186,6 +117,79 @@ To designate a specific page the user is currently viewing, set the attribute ` 
   </ul>
 </nav>
 ```
+
+## Initializing the component
+
+To initialize the sidenav component, use JavaScript to select the data attribute `[data-sidenav]`, then create a new instance using `Rivet.Sidenav()`. Options can be passed within an object in the second argument.
+
+```
+  var sidenavElement = document.querySelector('[data-sidenav]');
+  var newSidenav = new Rivet.Sidenav(sidenavElement, {
+    openAllOnInit: false
+  });
+```
+
+## Using public methods
+
+The following public methods are available to use within your project: `init`, `open`, `close`, and `destroy`.
+
+**Method:**
+
+`Sidenav.init()`
+
+**Description**
+- Initializes an instance of the sidenav
+
+---
+
+**Method:**
+
+`Sidenav.open(toggleButton, targetList)`
+
+**Description**
+- Opens a specific fold
+- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
+
+---
+
+**Method**
+
+`Sidenav.close(toggleButton, targetList)`
+
+**Description**
+- Closes a specific fold
+- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
+
+---
+
+**Method**
+
+`Sidenav.destroy()`
+
+**Description**
+- Destroys a specific instance of the sidenav by removing the event listener from the component
+
+## Custom events
+
+**Event**
+
+`openEvent`
+
+**Description**
+
+- Emitted after a user clicks on the toggle button and opens a fold
+- Emitted after a fold is programmatically opened using `Sidenav.open()`
+
+---
+
+**Event**
+
+`closeEvent`
+
+**Description**
+
+- Emitted after a user clicks on the toggle button and closes a fold
+- Emitted after a fold is programmatically closed using `Sidenav.close()`
 
 ## Implementation notes
 - Avoid nesting site sections deeper than four levels deep
