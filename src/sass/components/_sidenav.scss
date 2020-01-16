@@ -44,11 +44,16 @@
     align-items: center;
     background: transparent;
     border: none;
+    display: none; // Hide by default if JS doesn't load
     justify-content: center;
     padding: $sm*.875;
 
     svg {
       vertical-align: middle;
+    }
+
+    &[aria-expanded] {
+      display: block;
     }
 
     &[aria-expanded="true"] {
