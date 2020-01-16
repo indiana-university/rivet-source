@@ -69,6 +69,28 @@ The following public methods are available to use within your project: `init`, `
 **Description**
 - Destroys a specific instance of the sidenav by removing the event listener from the component
 
+## Custom events
+
+**Event**
+
+`openEvent`
+
+**Description**
+
+- Emitted after a user clicks on the toggle button and opens a fold
+- Emitted after a fold is programmatically opened using `Sidenav.open()`
+
+---
+
+**Event**
+
+`closeEvent`
+
+**Description**
+
+- Emitted after a user clicks on the toggle button and closes a fold
+- Emitted after a fold is programmatically closed using `Sidenav.close()`
+
 ## Using the sidenav
 
 ### Setting up the toggling for sections folds
