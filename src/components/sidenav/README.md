@@ -29,6 +29,46 @@ To initialize the sidenav component, use JavaScript to select the data attribute
   });
 ```
 
+## Public methods
+
+The following public methods are available to use within your project: `init`, `open`, `close`, and `destroy`.
+
+**Method:**
+
+`Sidenav.init()`
+
+**Description**
+- Initializes an instance of the sidenav
+
+---
+
+**Method:**
+
+`Sidenav.open(toggleButton, targetList)`
+
+**Description**
+- Opens a specific fold
+- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
+
+---
+
+**Method**
+
+`Sidenav.close(toggleButton, targetList)`
+
+**Description**
+- Closes a specific fold
+- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
+
+---
+
+**Method**
+
+`Sidenav.destroy()`
+
+**Description**
+- Destroys a specific instance of the sidenav by removing the event listener from the component
+
 ## Using the sidenav
 
 ### Setting up the toggling for sections folds
