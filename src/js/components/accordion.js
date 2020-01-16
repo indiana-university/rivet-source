@@ -8,7 +8,6 @@ import keyCodes from '../utilities/keyCodes';
 
 export default class Accordion {
   constructor(element) {
-
     // Instance properties
     this.element = element;
 
@@ -126,10 +125,40 @@ export default class Accordion {
   }
 
   /**
+   * This function is used to initialize accordions on load. It also adds the
+   * appropriate aria-expanded, and hidden attributes to remove some burden
+   * from the develop.
+   */
+  _openOnInit() {
+    if (this.element.hasAttribute('data-accordion-init')) {
+      this.panels.forEach((panel) => {
+        this.open(panel);
+      });
+    } else if (this.openOnInit) {
+      this.open(this.openOnInit);
+      this.panels.forEach((panel, index) => {
+        if (panel !== this.openOnInit) {
+          this.panels[index].setAttribute('hidden', '');
+          let trigger = this.element.querySelector(`[${this.triggerAttribute}="${panel.dataset.accordionPanel}"]`);
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    } else {
+      this.panels.forEach((panel, index) => {
+        this.panels[index].setAttribute('hidden', '');
+        let trigger = this.element.querySelector(`[${this.triggerAttribute}="${panel.dataset.accordionPanel}"]`);
+        trigger.setAttribute('aria-expanded', 'false');
+      });
+    }
+  }
+
+  /**
    * This function is used to determine whether an allowable number of accordion
    * panels has been set to open on initialization.
-   * @param {element} entity - 
-   * @param {string} selector - an element selector 
+   * @param {Node} entity - the Node in which the given selector should be found
+   * @param {string} selector - an element selector
+   * @param {Function} callback - a function the user wishes to trigger if the
+   * selector is below the maximum allowed number
    * @param {number} max - the maximum number of a given selector allowed
    */
   _quantifySelector(entity, selector, callback, max = 1) {
@@ -207,12 +236,7 @@ export default class Accordion {
   }
 
   init() {
-    if (this.element.hasAttribute('data-accordion-init')) {
-      this.panels.forEach((panel) => {
-        this.open(panel);
-      })
-    } else if (this.openOnInit) { this.open(this.openOnInit); }
-
+    this._openOnInit();
     this.destroy();
 
     // Add click handlers
