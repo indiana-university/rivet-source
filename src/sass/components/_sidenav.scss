@@ -18,6 +18,11 @@
     margin-top: 0; // resets Rivet default margin-top
   }
 
+  &__item-wrapper {
+    display: flex;
+    flex-basis: 100%;
+  }
+
   &__link {
     color: $color-black;
     flex-grow: 1;
@@ -39,11 +44,16 @@
     align-items: center;
     background: transparent;
     border: none;
+    display: none; // Hide by default if JS doesn't load
     justify-content: center;
     padding: $sm*.875;
 
     svg {
       vertical-align: middle;
+    }
+
+    &[aria-expanded] {
+      display: block;
     }
 
     &[aria-expanded="true"] {
@@ -97,6 +107,7 @@ $level-styles: (
   $index: index(($level-styles), ($indent $shade));
 
   // Indent the link text
+  #{$indent-selector} > .rvt-sidenav__item-wrapper > .rvt-sidenav__link,
   #{$indent-selector} > .rvt-sidenav__link {
     text-indent: $indent + px;
   }

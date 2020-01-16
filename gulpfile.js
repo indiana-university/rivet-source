@@ -123,7 +123,7 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-async function compileJS() {
+async function compileIIFE() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
     plugins: [ eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
@@ -134,6 +134,13 @@ async function compileJS() {
     format: 'iife',
     name: 'Rivet'
   });
+}
+
+async function compileESM() {
+  const bundle = await rollup.rollup({
+    input: './src/js/index.js',
+    plugins: [ eslint({ throwOnError: false })]
+  });
 
   await bundle.write({
     file: './static/js/rivet-esm.js',
@@ -142,29 +149,38 @@ async function compileJS() {
   });
 }
 
-function vendorJS() {
-  return src("src/js/vendor.js").pipe(dest("./static/js"));
-}
-
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileJS, vendorJS));
+  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileIIFE, compileESM, vendorJS));
   callback();
 }
 
+// Copy JS files from 'static' to 'js'
+function distJS() {
+  return src([
+    './static/js/rivet-esm.js',
+    './static/js/rivet-iife.js'
+  ], {base: './static/js'})
+    .pipe(dest('./js'));
+}
+
+// Strip out comments from JS files
 function stripJS(callback) {
   src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
 
   src('./js/rivet-esm.js')
-  .pipe(strip())
-  .pipe(dest('./js'));
+    .pipe(strip())
+    .pipe(dest('./js'));
 
   callback();
 }
 
-function distJS() {
-  return src("static/js/rivet*.js").pipe(dest("./js"));
+function minifyJS() {
+  return src('./js/rivet-iife.js')
+    .pipe(uglify())
+    .pipe(rename({ basename: 'rivet', suffix: '.min' }))
+    .pipe(dest('./js'));
 }
 
 function headerJS(callback) {
@@ -183,11 +199,9 @@ function headerJS(callback) {
   callback();
 }
 
-function minifyJS() {
-  return src('./js/rivet-iife.js')
-    .pipe(uglify())
-    .pipe(rename({ basename: 'rivet', suffix: '.min' }))
-    .pipe(dest('./js'));
+// Copy vendor.js from 'src/js' to 'static/js' for Fractal to use
+function vendorJS() {
+  return src("src/js/vendor.js").pipe(dest("./static/js"));
 }
 
 /**
@@ -242,7 +256,8 @@ exports.release = series(
   prefixReleaseCSS,
   headerCSS,
   minifyCSS,
-  compileJS,
+  compileIIFE,
+  compileESM,
   distJS,
   stripJS,
   minifyJS,
@@ -255,7 +270,8 @@ exports.release = series(
 exports.build = series(
   lintSassBuild,
   compileSass,
-  compileJS,
+  compileIIFE,
+  compileESM,
   distJS,
   stripJS,
   minifyJS,
@@ -269,7 +285,8 @@ exports.fractalBuild = fractalBuild;
 
 exports.headless = series(compileSass,
   lintSassWatch,
-  compileJS,
+  compileIIFE,
+  compileESM,
   fractalHeadless,
   watchSass,
   watchJS
@@ -278,7 +295,8 @@ exports.headless = series(compileSass,
 exports.default = series(
   compileSass,
   lintSassWatch,
-  compileJS,
+  compileIIFE,
+  compileESM,
   fractalStart,
   watchSass,
   watchJS
