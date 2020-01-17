@@ -87,7 +87,7 @@ export default class Sidenav {
     toggleButton.setAttribute('aria-expanded', 'false');
     targetList.setAttribute('hidden', '');
   }
-  
+
   init() {
     // Add click handler
     this.element.addEventListener('click', this._handleClick, false);
@@ -100,30 +100,38 @@ export default class Sidenav {
       this.element.querySelectorAll(this.listSelector)
     );
 
-    // Expand all if openAllOnInit option is set
-    if (this.openAllOnInit) {
-      menuToggles.forEach(menuToggle => menuToggle.setAttribute('aria-expanded', 'true'));
-      childMenus.forEach(childMenu => childMenu.removeAttribute('hidden', ''));
+    childMenus.forEach((element) => {
+      // Display all child menus if everything is open on init
+      if (this.openAllOnInit) {
+        element.removeAttribute('hidden');
 
-      return;
-    }
+        return;
+      }
 
-    // Hide all child menus
-    childMenus.forEach(childMenu => childMenu.setAttribute('hidden', ''));
+      // Hide all child menus
+      element.setAttribute('hidden', '');
+    });
 
-    menuToggles.forEach(menuToggle => {
+    menuToggles.forEach((element) => {
       // Since JavaScript is available add popup semantics to toggles
-      menuToggle.setAttribute('aria-haspopup', 'true');
+      element.setAttribute('aria-haspopup', 'true');
 
-      // Check if any toggles have been set to expanded in markup
-      if (menuToggle.getAttribute('aria-expanded') === 'true') {
-        const toggleValue = menuToggle.getAttribute('data-sidenav-toggle');
+      // Aria-expand all toggles if everything is open on init
+      if (this.openAllOnInit) {
+        element.setAttribute('aria-expanded', 'true');
+
+        return;
+      }
+
+      // Check if this toggle been manually set to expanded in markup
+      if (element.getAttribute('aria-expanded') === 'true') {
+        const toggleValue = element.getAttribute('data-sidenav-toggle');
         const list = this.element.querySelector(`[data-sidenav-list="${toggleValue}"]`);
 
         // Open list matching this toggle
         list.removeAttribute('hidden');
       } else {
-        menuToggle.setAttribute('aria-expanded', 'false');
+        element.setAttribute('aria-expanded', 'false');
       }
     });
   }
