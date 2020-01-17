@@ -92,14 +92,6 @@ export default class Sidenav {
     // Add click handler
     this.element.addEventListener('click', this._handleClick, false);
 
-    // Expand all if openAllOnInit option is set
-    if (this.openAllOnInit) {
-      menuToggles.forEach(menuToggle => menuToggle.setAttribute('aria-expanded', 'true'));
-      childMenus.forEach(childMenu => childMenu.removeAttribute('hidden', ''));
-
-      return;
-    }
-
     // Get all the necessary DOM elements and convert to Arrays.
     const menuToggles = nodeListToArray(
       this.element.querySelectorAll(this.toggleSelector)
@@ -107,6 +99,14 @@ export default class Sidenav {
     const childMenus = nodeListToArray(
       this.element.querySelectorAll(this.listSelector)
     );
+
+    // Expand all if openAllOnInit option is set
+    if (this.openAllOnInit) {
+      menuToggles.forEach(menuToggle => menuToggle.setAttribute('aria-expanded', 'true'));
+      childMenus.forEach(childMenu => childMenu.removeAttribute('hidden', ''));
+
+      return;
+    }
 
     // Hide all child menus
     childMenus.forEach(childMenu => childMenu.setAttribute('hidden', ''));
