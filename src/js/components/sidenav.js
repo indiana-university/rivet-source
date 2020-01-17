@@ -89,6 +89,17 @@ export default class Sidenav {
   }
   
   init() {
+    // Add click handler
+    this.element.addEventListener('click', this._handleClick, false);
+
+    // Expand all if openAllOnInit option is set
+    if (this.openAllOnInit) {
+      menuToggles.forEach(menuToggle => menuToggle.setAttribute('aria-expanded', 'true'));
+      childMenus.forEach(childMenu => childMenu.removeAttribute('hidden', ''));
+
+      return;
+    }
+
     // Get all the necessary DOM elements and convert to Arrays.
     const menuToggles = nodeListToArray(
       this.element.querySelectorAll(this.toggleSelector)
@@ -96,24 +107,25 @@ export default class Sidenav {
     const childMenus = nodeListToArray(
       this.element.querySelectorAll(this.listSelector)
     );
-    
+
+    // Hide all child menus
+    childMenus.forEach(childMenu => childMenu.setAttribute('hidden', ''));
+
     menuToggles.forEach(menuToggle => {
       // Since JavaScript is available add popup semantics to toggles
       menuToggle.setAttribute('aria-haspopup', 'true');
 
-      // If the user has set openAllOnInit to false, set up aria-semantics
-      if (!this.openAllOnInit) {
+      // Check if any toggles have been set to expanded in markup
+      if (menuToggle.getAttribute('aria-expanded') === 'true') {
+        const toggleValue = menuToggle.getAttribute('data-sidenav-toggle');
+        const list = this.element.querySelector(`[data-sidenav-list="${toggleValue}"]`);
+
+        // Open list matching this toggle
+        list.removeAttribute('hidden');
+      } else {
         menuToggle.setAttribute('aria-expanded', 'false');
       }
     });
-    
-    // If openAllOnInit is set to false, hide all child menus
-    if (!this.openAllOnInit) {
-      childMenus.forEach(childMenu => childMenu.setAttribute('hidden', ''));
-    }
-
-    // Add click handlers
-    this.element.addEventListener('click', this._handleClick, false);
   }
   
   destroy() {
