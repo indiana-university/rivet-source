@@ -29,6 +29,7 @@ export default class Accordion {
     this.panelSelector = `[${this.panelAttribute}]`;
     this.panels = nodeListToArray(this.element.querySelectorAll(this.panelSelector));
 
+    // Set this.openOnInit if needed
     try {
       this._quantifySelector(this.element, `[${'data-accordion-panel-init'}]`, () => {
         let initialPanel;
@@ -86,7 +87,7 @@ export default class Accordion {
    * @param {Event} event
    */
   _handleKeydown(event) {
-    if (event.keyCode === keyCodes.up || event.keyCode === keyCodes.down) {
+    if (event.keyCode === keyCodes.up || event.keyCode === keyCodes.down || event.keyCode === keyCodes.end || event.keyCode === keyCodes.home) {
       const accordionParent = event.target.closest('[data-accordion]');
       // If not an accordion, ignore
       if (!accordionParent) return;
@@ -101,7 +102,7 @@ export default class Accordion {
       switch (event.keyCode) {
         case keyCodes.up: {
           if (this.triggers[prevTrigger] === undefined) {
-            return
+            this.triggers[this.triggers.length - 1].focus();
           } else {
             this.triggers[prevTrigger].focus();
           }
@@ -110,10 +111,20 @@ export default class Accordion {
 
         case keyCodes.down: {
           if (this.triggers[nextTrigger] === undefined) {
-            return
+            this.triggers[0].focus();
           } else {
             this.triggers[nextTrigger].focus();
           }
+          break;
+        }
+
+        case keyCodes.end: {
+          this.triggers[this.triggers.length - 1].focus();
+          break;
+        }
+
+        case keyCodes.home: {
+          this.triggers[0].focus();
           break;
         }
 
@@ -161,14 +172,14 @@ export default class Accordion {
   }
 
   /**
- * This function is used to determine whether an allowable number of accordion
- * panels has been set to open on initialization.
- * @param {Node} entity - the Node in which the given selector should be found
- * @param {string} selector - an element selector
- * @param {Function} callback - a function the user wishes to trigger if the
- * selector is below the maximum allowed number
- * @param {number} max - the maximum number of a given selector allowed
- */
+  * This function is used to determine whether an allowable number of accordion
+  * panels has been set to open on initialization.
+  * @param {Node} entity - the Node in which the given selector should be found
+  * @param {string} selector - an element selector
+  * @param {Function} callback - a function the user wishes to trigger if the
+  * selector is below the maximum allowed number
+  * @param {number} max - the maximum number of a given selector allowed
+  */
   _quantifySelector(entity, selector, callback, max = 1) {
     let excess;
 
@@ -182,12 +193,12 @@ export default class Accordion {
   }
 
   /**
- * This function is used to trigger the 'accordionOpened' custom event, and
- * open an accordion/panel pair. It removes the panel's hidden attribute,
- * and sets the trigger's aria-expanded attribute to true. It also allows
- * developers to setup a custom callback function.
- * @param {Function} callback 
- */
+  * This function is used to trigger the 'accordionOpened' custom event, and
+  * open an accordion/panel pair. It removes the panel's hidden attribute,
+  * and sets the trigger's aria-expanded attribute to true. It also allows
+  * developers to setup a custom callback function.
+  * @param {Function} callback 
+  */
   open(accordion, callback) {
     // Trigger accordionOpened custom event. This event is used open accordion panels.
 
@@ -213,12 +224,12 @@ export default class Accordion {
   }
 
   /**
- * This function is used to trigger the 'accordionClosed' custom event, and
- * close an accordion/panel pair. It adds the hidden attribute to the panel,
- * and sets the trigger's aria-expanded attribute to false. It also allows
- * developers to setup a custom callback function.
- * @param {Function} callback 
- */
+  * This function is used to trigger the 'accordionClosed' custom event, and
+  * close an accordion/panel pair. It adds the hidden attribute to the panel,
+  * and sets the trigger's aria-expanded attribute to false. It also allows
+  * developers to setup a custom callback function.
+  * @param {Function} callback 
+  */
   close(accordion, callback) {
     // Trigger accordionClosed custom event. This event is used to control the process of closing accordion panels.
 
