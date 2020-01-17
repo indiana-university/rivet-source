@@ -20,13 +20,9 @@ along the way.
 
 ## Adding the markup
 
-### Section fold toggling functionality
+### Section menu toggling functionality
 
-The primary functionality of the sidenav consists of openable folds, which reveal 
-nested section navigation matching the structure of a section's page hierarchy. 
-In order for the folds to open and close, a toggle button is required, and the 
-values for the attribute `data-sidenav-toggle` on the button and the attribute `data-sidenav-list` on the nested list must match. In this instance, the values 
-are both `toggle-1`.
+The primary functionality of the sidenav consists of openable menus, which reveal nested section navigation matching the structure of a section's page hierarchy. In order for the menus to open and close, a toggle button is required, and the values for the attribute `data-sidenav-toggle` on the button and the attribute `data-sidenav-list` on the nested list must match. In this instance, the values are both `toggle-1`.
 
 ```
 <nav class="rvt-sidenav" aria-label="Sidenav" data-sidenav>
@@ -147,7 +143,7 @@ The following public methods are available to use within your project: `init`, `
 `Sidenav.open(toggleButton, targetList)`
 
 **Description**
-- Opens a specific fold
+- Opens a specific menu
 - Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
 
 ---
@@ -157,7 +153,7 @@ The following public methods are available to use within your project: `init`, `
 `Sidenav.close(toggleButton, targetList)`
 
 **Description**
-- Closes a specific fold
+- Closes a specific menu
 - Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
 
 ---
@@ -177,8 +173,8 @@ The following public methods are available to use within your project: `init`, `
 
 **Description**
 
-- Emitted after a user clicks on the toggle button and opens a fold
-- Emitted after a fold is programmatically opened using `Sidenav.open()`
+- Emitted after a user clicks on the toggle button and opens a menu
+- Emitted after a menu is programmatically opened using `Sidenav.open()`
 
 ---
 
@@ -188,8 +184,8 @@ The following public methods are available to use within your project: `init`, `
 
 **Description**
 
-- Emitted after a user clicks on the toggle button and closes a fold
-- Emitted after a fold is programmatically closed using `Sidenav.close()`
+- Emitted after a user clicks on the toggle button and closes a menu
+- Emitted after a menu is programmatically closed using `Sidenav.close()`
 
 ## Implementation notes
 - Avoid nesting site sections deeper than four levels deep
