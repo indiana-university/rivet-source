@@ -87,33 +87,46 @@ export default class Sidenav {
     toggleButton.setAttribute('aria-expanded', 'false');
     targetList.setAttribute('hidden', '');
   }
-  
+
   init() {
-    // Get all the necessary DOM elements and convert to Arrays.
+    // Add click handler
+    this.element.addEventListener('click', this._handleClick, false);
+
+    // Get all of the toggle buttons and menu lists and convert to Arrays.
     const menuToggles = nodeListToArray(
       this.element.querySelectorAll(this.toggleSelector)
     );
     const childMenus = nodeListToArray(
       this.element.querySelectorAll(this.listSelector)
     );
-    
-    menuToggles.forEach(menuToggle => {
-      // Since JavaScript is available add popup semantics to toggles
-      menuToggle.setAttribute('aria-haspopup', 'true');
 
-      // If the user has set openAllOnInit to false, set up aria-semantics
-      if (!this.openAllOnInit) {
-        menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggles.forEach((element, index) => {
+      /**
+       * Toggle button/menu list pairings
+       * element: toggle button
+       * childMenus[index]: menu list
+       */
+
+      // Since JavaScript is available add popup semantics to toggles
+      element.setAttribute('aria-haspopup', 'true');
+
+      // Aria-expand all toggles if everything is open on init
+      if (this.openAllOnInit) {
+        element.setAttribute('aria-expanded', 'true');
+        childMenus[index].removeAttribute('hidden');
+
+        return;
+      }
+
+      // Check if this toggle been manually set to expanded in markup
+      if (element.getAttribute('aria-expanded') === 'true') {
+        // Open list matching this toggle
+        childMenus[index].removeAttribute('hidden');
+      } else {
+        element.setAttribute('aria-expanded', 'false');
+        childMenus[index].setAttribute('hidden', '');
       }
     });
-    
-    // If openAllOnInit is set to false, hide all child menus
-    if (!this.openAllOnInit) {
-      childMenus.forEach(childMenu => childMenu.setAttribute('hidden', ''));
-    }
-
-    // Add click handlers
-    this.element.addEventListener('click', this._handleClick, false);
   }
   
   destroy() {
