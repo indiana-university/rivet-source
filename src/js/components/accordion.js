@@ -282,12 +282,12 @@ export default class Accordion {
     this.destroy();
 
     // Add click handlers
-    document.addEventListener('click', this._handleClick, false);
-    document.addEventListener('keydown', this._handleKeydown, false);
+    this.element.addEventListener('click', this._handleClick, false);
+    this.element.addEventListener('keydown', this._handleKeydown, false);
   }
 
   destroy() {
-    document.removeEventListener('click', this._handleClick, false);
-    document.removeEventListener('keydown', this._handleKeydown, false);
+    this.element.removeEventListener('click', this._handleClick, false);
+    this.element.removeEventListener('keydown', this._handleKeydown, false);
   }
 }
