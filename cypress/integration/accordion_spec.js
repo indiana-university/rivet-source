@@ -17,7 +17,7 @@ beforeEach(function () {
 });
 
 describe('Rivet accordion interactions', function () {
-  it('Should see the info alert page', function () {
+  it('Should see the accordion page', function () {
     cy.get('@panel3')
       .should('be.visible')
       .should('not.have.attr', 'hidden');
