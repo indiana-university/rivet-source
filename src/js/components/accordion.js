@@ -7,8 +7,18 @@ import { isNode, nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
 
 export default class Accordion {
-  constructor(element) {
+  constructor(element, options) {
+    const defaultOptions = {
+      openAllOnInit: false
+    };
+
+    const settings = {
+      ...defaultOptions,
+      ...options
+    };
+
     // Instance properties
+    this.openAllOnInit = settings.openAllOnInit;
     this.element = element;
 
     // Check to make sure that a DOM element was passed in for initialization
@@ -163,7 +173,7 @@ export default class Accordion {
    */
   _openOnInit() {
     // If accordion is set to open all panels on init, open them
-    if (this.element.hasAttribute('data-accordion-init')) {
+    if (this.openAllOnInit === true) {
       this.panels.forEach(panel => {
         this.open(panel);
       });
