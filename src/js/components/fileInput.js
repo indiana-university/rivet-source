@@ -75,10 +75,12 @@ export default class FileInput {
 
   _handleChange() {
     // The actual input element
-    const uploadInput = this.element.querySelector(`[${ this.inputAttribute }]`);
+    const uploadInput = this.element.querySelector(`[${this.inputAttribute}]`);
 
     // The preview element where we'll inject file count, etc.
-    const uploadPreview = this.element.querySelector(`[${ this.previewAttribute }]`);
+    const uploadPreview = this.element.querySelector(
+      `[${this.previewAttribute}]`
+    );
 
     // Check to make sure that at least one file was attached
     if (uploadInput.files.length > 0) {
@@ -90,9 +92,9 @@ export default class FileInput {
        * that shows the file count to insert into the preview element,
        * otherwise show the file name that was uploaded.
        */
-      uploadInput.files.length > 1 ?
-        uploadPreview.appendChild(this._buildMultipleFiles(uploadInput)) :
-        uploadPreview.appendChild(this._buildSingleFile(uploadInput));
+      uploadInput.files.length > 1
+        ? uploadPreview.appendChild(this._buildMultipleFiles(uploadInput))
+        : uploadPreview.appendChild(this._buildSingleFile(uploadInput));
     } else {
       /**
        * If no files were attached set the placeholder text back
