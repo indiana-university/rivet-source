@@ -1,19 +1,19 @@
-const { dest, series, src, watch } = require("gulp");
-const { eslint } = require("rollup-plugin-eslint");
-const autoprefixer = require("autoprefixer");
-const babel = require("rollup-plugin-babel");
-const cssnano = require("gulp-cssnano");
-const header = require("gulp-header");
-const postcss = require("gulp-postcss");
-const rename = require("gulp-rename");
-const rollup = require("rollup");
-const sass = require("gulp-sass");
+const { dest, series, src, watch } = require('gulp');
+const { eslint } = require('rollup-plugin-eslint');
+const autoprefixer = require('autoprefixer');
+const babel = require('rollup-plugin-babel');
+const cssnano = require('gulp-cssnano');
+const header = require('gulp-header');
+const postcss = require('gulp-postcss');
+const rename = require('gulp-rename');
+const rollup = require('rollup');
+const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
-const stylelint = require("gulp-stylelint");
-const uglify = require("gulp-uglify");
+const stylelint = require('gulp-stylelint');
+const uglify = require('gulp-uglify');
 
-const fractal = require("./fractal");
-const pkg = require("./package.json");
+const fractal = require('./fractal');
+const pkg = require('./package.json');
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
@@ -38,47 +38,45 @@ var bannerText = `/*!
 `;
 
 function compileSass() {
-  return src("src/sass/**/*.scss")
-    .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
-    .pipe(dest("static/css/"));
+  return src('src/sass/**/*.scss')
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+    .pipe(dest('static/css/'));
 }
 
 // List .scss files. See .stylelintrc for config
 function lintSassWatch() {
-  return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"])
-  .pipe(stylelint({
-    failAfterError: false,
-    reporters: [
-      {formatter: 'string', console: true}
-    ]
-  }));
+  return src(['src/sass/**/*.scss', '!src/sass/libs/**/*.scss']).pipe(
+    stylelint({
+      failAfterError: false,
+      reporters: [{ formatter: 'string', console: true }]
+    })
+  );
 }
 
 function lintSassBuild() {
-  return src(["src/sass/**/*.scss", "!src/sass/libs/**/*.scss"])
-  .pipe(stylelint({
-    failAfterError: true,
-    reporters: [
-      {formatter: 'string', console: true}
-    ]
-  }));
+  return src(['src/sass/**/*.scss', '!src/sass/libs/**/*.scss']).pipe(
+    stylelint({
+      failAfterError: true,
+      reporters: [{ formatter: 'string', console: true }]
+    })
+  );
 }
 
 function watchSass(callback) {
-  watch("src/sass/**/*.scss", series(compileSass, lintSassWatch));
+  watch('src/sass/**/*.scss', series(compileSass, lintSassWatch));
   callback();
 }
 
 // Copy all .scss files to dist folder.
 function releaseCopySass() {
-  return src("src/sass/**/*.scss").pipe(dest("./sass"));
+  return src('src/sass/**/*.scss').pipe(dest('./sass'));
 }
 
 // Add version number header to all .scss files.
 function headerSass() {
-  return src(["./sass/**/*.scss", "!./sass/libs/*"])
+  return src(['./sass/**/*.scss', '!./sass/libs/*'])
     .pipe(header(sassBannerText, { package: pkg }))
-    .pipe(dest("./sass/"));
+    .pipe(dest('./sass/'));
 }
 
 /**
@@ -86,37 +84,37 @@ function headerSass() {
  */
 
 function compileCSS() {
-  return src("static/css/rivet.css").pipe(dest("./css"));
+  return src('static/css/rivet.css').pipe(dest('./css'));
 }
 
 function headerCSS() {
-  return src("./css/rivet.css")
+  return src('./css/rivet.css')
     .pipe(header(bannerText, { package: pkg }))
-    .pipe(dest("./css/"));
+    .pipe(dest('./css/'));
 }
 
 function minifyCSS(callback) {
-  src("./css/rivet.css")
+  src('./css/rivet.css')
     .pipe(cssnano())
     .pipe(
       rename({
-        suffix: ".min"
+        suffix: '.min'
       })
     )
-    .pipe(dest("./css/"));
+    .pipe(dest('./css/'));
   callback();
 }
 
 function prefixFractalCSS() {
-  return src("_build/css/*.css")
-    .pipe(postcss([autoprefixer({ browsers: ["last 2 versions"] })]))
-    .pipe(dest("_build/css/"));
+  return src('_build/css/*.css')
+    .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
+    .pipe(dest('_build/css/'));
 }
 
 function prefixReleaseCSS() {
-  return src("./css/rivet.css")
-    .pipe(postcss([autoprefixer({ browsers: ["last 2 versions"] })]))
-    .pipe(dest("./css/"));
+  return src('./css/rivet.css')
+    .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
+    .pipe(dest('./css/'));
 }
 
 /**
@@ -126,7 +124,7 @@ function prefixReleaseCSS() {
 async function compileIIFE() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [ eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
+    plugins: [eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
   });
 
   await bundle.write({
@@ -139,7 +137,7 @@ async function compileIIFE() {
 async function compileESM() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [ eslint({ throwOnError: false })]
+    plugins: [eslint({ throwOnError: false })]
   });
 
   await bundle.write({
@@ -150,17 +148,19 @@ async function compileESM() {
 }
 
 function watchJS(callback) {
-  watch("src/js/**/*.js", { ignoreInitial: false }, series(compileIIFE, compileESM, vendorJS));
+  watch(
+    'src/js/**/*.js',
+    { ignoreInitial: false },
+    series(compileIIFE, compileESM, vendorJS)
+  );
   callback();
 }
 
 // Copy JS files from 'static' to 'js'
 function distJS() {
-  return src([
-    './static/js/rivet-esm.js',
-    './static/js/rivet-iife.js'
-  ], {base: './static/js'})
-    .pipe(dest('./js'));
+  return src(['./static/js/rivet-esm.js', './static/js/rivet-iife.js'], {
+    base: './static/js'
+  }).pipe(dest('./js'));
 }
 
 // Strip out comments from JS files
@@ -184,24 +184,24 @@ function minifyJS() {
 }
 
 function headerJS(callback) {
-  src("./js/rivet-iife.js")
+  src('./js/rivet-iife.js')
     .pipe(header(bannerText, { package: pkg }))
-    .pipe(dest("./js/"));
+    .pipe(dest('./js/'));
 
-  src("./js/rivet-esm.js")
+  src('./js/rivet-esm.js')
     .pipe(header(bannerText, { package: pkg }))
-    .pipe(dest("./js/"));
+    .pipe(dest('./js/'));
 
-  src("./js/rivet.min.js")
+  src('./js/rivet.min.js')
     .pipe(header(bannerText, { package: pkg }))
-    .pipe(dest("./js/"));
+    .pipe(dest('./js/'));
 
   callback();
 }
 
 // Copy vendor.js from 'src/js' to 'static/js' for Fractal to use
 function vendorJS() {
-  return src("src/js/vendor.js").pipe(dest("./static/js"));
+  return src('src/js/vendor.js').pipe(dest('./static/js'));
 }
 
 /**
@@ -212,7 +212,7 @@ function fractalStart() {
   const server = fractal.web.server({
     sync: true
   });
-  server.on("error", err => logger.error(err.message));
+  server.on('error', err => logger.error(err.message));
   return server.start().then(() => {
     logger.success(`Fractal server is now running at ${server.url}`);
   });
@@ -225,7 +225,7 @@ function fractalHeadless() {
   fractal.web.set('server.syncOptions', {
     open: false
   });
-  server.on("error", err => logger.error(err.message));
+  server.on('error', err => logger.error(err.message));
   return server.start().then(() => {
     logger.success(`Fractal server is now running at ${server.url}`);
   });
@@ -233,19 +233,19 @@ function fractalHeadless() {
 
 function fractalBuild() {
   const builder = fractal.web.builder();
-  builder.on("progress", (completed, total) =>
-    logger.update(`Exported ${completed} of ${total} items`, "info")
+  builder.on('progress', (completed, total) =>
+    logger.update(`Exported ${completed} of ${total} items`, 'info')
   );
-  builder.on("error", err => logger.error(err.message));
+  builder.on('error', err => logger.error(err.message));
   return builder.build().then(() => {
-    logger.success("Fractal build completed!");
+    logger.success('Fractal build completed!');
   });
 }
 
 function example(callback) {
-  src("./src/components/_extras/_index-example.html")
-    .pipe(rename("index.html"))
-    .pipe(dest("."));
+  src('./src/components/_extras/_index-example.html')
+    .pipe(rename('index.html'))
+    .pipe(dest('.'));
   callback();
 }
 
@@ -283,7 +283,8 @@ exports.build = series(
 
 exports.fractalBuild = fractalBuild;
 
-exports.headless = series(compileSass,
+exports.headless = series(
+  compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,

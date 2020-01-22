@@ -1,6 +1,3 @@
 module.exports = {
-  'extends': 'eslint-config-rivet',
-  'parserOptions': {
-    'ecmaVersion': 2018
-  }
+  'extends': 'eslint-config-rivet'
 }

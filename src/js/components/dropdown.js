@@ -10,7 +10,8 @@ import keyCodes from '../utilities/keyCodes';
 export default class Dropdown {
   constructor(element) {
     this.element = element;
-    this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+    this.focusableElements =
+      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
 
     this.dropdownAttribute = '[data-dropdown]';
 
@@ -41,13 +42,9 @@ export default class Dropdown {
       return;
     }
 
-    const openEvent = dispatchCustomEvent(
-      'dropdownOpen',
-      this.toggleElement,
-      {
-        id: this.toggleElement.dataset.dropdownToggle
-      }
-    );
+    const openEvent = dispatchCustomEvent('dropdownOpen', this.toggleElement, {
+      id: this.toggleElement.dataset.dropdownToggle
+    });
 
     if (!openEvent) return;
 
@@ -65,7 +62,7 @@ export default class Dropdown {
 
   close() {
     /**
-     * If there isn't a currently active dropdown, then bail so close() isn't 
+     * If there isn't a currently active dropdown, then bail so close() isn't
      * fired multiple times.
      */
     if (!this.activeToggle) return;
@@ -99,7 +96,9 @@ export default class Dropdown {
     const menuObject = {};
 
     // Create a real Array of all the focusable elements in the menu
-    const menuFocusables = nodeListToArray(menu.querySelectorAll(this.focusableElements));
+    const menuFocusables = nodeListToArray(
+      menu.querySelectorAll(this.focusableElements)
+    );
 
     // Create a property to hold an array of all focusables
     menuObject.all = menuFocusables;

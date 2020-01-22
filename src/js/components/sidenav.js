@@ -20,9 +20,9 @@ export default class Sidenav {
     // Instance properties
     this.element = element;
     this.openAllOnInit = settings.openAllOnInit;
-    this.toggleAttribute = 'data-sidenav-toggle',
-    this.toggleSelector = `[${this.toggleAttribute}]`
-    this.listAttribute = 'data-sidenav-list'
+    this.toggleAttribute = 'data-sidenav-toggle';
+    this.toggleSelector = `[${this.toggleAttribute}]`;
+    this.listAttribute = 'data-sidenav-list';
     this.listSelector = `[${this.listAttribute}]`;
 
     // bind methods
@@ -42,7 +42,7 @@ export default class Sidenav {
     const toggleButton = event.target.closest(this.toggleSelector);
     // Exit if toggle button doesn't exist
     if (!toggleButton) return;
-    
+
     const toggleId = toggleButton.dataset.sidenavToggle;
     const targetList = this.element.querySelector(
       `[${this.listAttribute}="${toggleId}"]`
@@ -53,19 +53,15 @@ export default class Sidenav {
       return;
     }
 
-    targetList.hasAttribute('hidden') ?
-      this.open(toggleButton, targetList) :
-      this.close(toggleButton, targetList);
+    targetList.hasAttribute('hidden')
+      ? this.open(toggleButton, targetList)
+      : this.close(toggleButton, targetList);
   }
 
   open(toggleButton, targetList) {
-    const openEvent = dispatchCustomEvent(
-      'sidenavListOpen',
-      toggleButton,
-      {
-        id: toggleButton.dataset.sidenavToggle
-      }
-    );
+    const openEvent = dispatchCustomEvent('sidenavListOpen', toggleButton, {
+      id: toggleButton.dataset.sidenavToggle
+    });
 
     if (!openEvent) return;
 
@@ -74,13 +70,9 @@ export default class Sidenav {
   }
 
   close(toggleButton, targetList) {
-    const closeEvent = dispatchCustomEvent(
-      'sidenavListClose',
-      toggleButton,
-      {
-        id: toggleButton.dataset.sidenavToggle
-      }
-    );
+    const closeEvent = dispatchCustomEvent('sidenavListClose', toggleButton, {
+      id: toggleButton.dataset.sidenavToggle
+    });
 
     if (!closeEvent) return;
 
@@ -128,7 +120,7 @@ export default class Sidenav {
       }
     });
   }
-  
+
   destroy() {
     this.element.removeEventListener('click', this._handleClick, false);
   }

@@ -15,6 +15,6 @@ const keyCodes = {
   end: 35,
   pageUp: 33,
   pageDown: 34
-}
+};
 
 export default keyCodes;

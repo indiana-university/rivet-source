@@ -33,6 +33,27 @@ If you don't have Node and NPM installed, go to the Node.js website for instruct
 
 [Node.js](https://nodejs.org/en/download/)
 
+### Integrating ESLint with VS Code
+
+The Rivet team uses VS Code for development. If you wish to integrate our ESLint configuration with a different IDE, please understand that the following instructions are intended for VS Code.
+
+1. Navigate to the VS Code settings (`Code/File` -> `Preferences` -> `Settings`)
+2. Click on the `{}` icon in the top right corner to open the `settings.json` file
+
+```
+"editor.formatOnSave": true,
+// turn it off for JS, we will do this via eslint
+"[javascript]": {
+  "editor.formatOnSave": false
+},
+// tell the ESLint plugin to run on save
+"editor.codeActionsOnSave": {
+  "source.fixAll": true
+},
+// Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through ESLint already
+"prettier.disableLanguages": ["javascript"]
+```
+
 ### Working with the components
 To get started working locally on your computer first clone or download this repo.
 
