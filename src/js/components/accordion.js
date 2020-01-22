@@ -47,25 +47,30 @@ export default class Accordion {
 
     // Set this.openOnInit if needed
     try {
-      this._quantifySelector(
-        this.element,
-        `[${'data-accordion-panel-init'}]`,
-        () => {
-          let initialPanel;
+      let excess;
 
-          // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
-          this.panels.forEach((panel, index) => {
-            if (panel.hasAttribute('data-accordion-panel-init')) {
-              initialPanel = panel;
-            } else {
-              this.panels[index].setAttribute('hidden', '');
-            }
-          });
+      this.element.querySelectorAll(`[${'data-accordion-panel-init'}]`).length >
+      1
+        ? (excess = true)
+        : (excess = false);
 
-          // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-          this.openOnInit = initialPanel;
+      if (excess === true) {
+        throw new TypeError('Caught');
+      }
+
+      let initialPanel;
+
+      // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
+      this.panels.forEach((panel, index) => {
+        if (panel.hasAttribute('data-accordion-panel-init')) {
+          initialPanel = panel;
+        } else {
+          this.panels[index].setAttribute('hidden', '');
         }
-      );
+      });
+
+      // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
+      this.openOnInit = initialPanel;
     } catch (e) {
       console.warn(
         'Only one accordion panel should have the data-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-accordion element'
@@ -194,29 +199,6 @@ export default class Accordion {
         }
       });
     }
-  }
-
-  /**
-   * This function is used to determine whether an allowable number of accordion
-   * panels has been set to open on initialization.
-   * @param {Node} entity - the Node in which the given selector should be found
-   * @param {string} selector - an element selector
-   * @param {Function} callback - a function the user wishes to trigger if the
-   * selector is below the maximum allowed number
-   * @param {number} max - the maximum number of a given selector allowed
-   */
-  _quantifySelector(entity, selector, callback, max = 1) {
-    let excess;
-
-    entity.querySelectorAll(selector).length > max
-      ? (excess = true)
-      : (excess = false);
-
-    if (excess === true) {
-      throw new TypeError('Caught');
-    }
-
-    callback();
   }
 
   /**
