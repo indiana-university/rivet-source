@@ -1,7 +1,7 @@
 /**
-* Copyright (C) 2018 The Trustees of Indiana University
-* SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
 import { isNode, nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
@@ -20,35 +20,46 @@ export default class Accordion {
 
     this.triggerAttribute = 'data-accordion-trigger';
     this.triggerSelector = `[${this.triggerAttribute}]`;
-    this.triggers = nodeListToArray(this.element.querySelectorAll(this.triggerSelector));
+    this.triggers = nodeListToArray(
+      this.element.querySelectorAll(this.triggerSelector)
+    );
     if (this.triggers.length < 2) {
       // eslint-disable-next-line no-console
-      throw new TypeError('An accordion should contain *at least two* accordion triggers with the "data-accordion-trigger" attribute');
+      throw new TypeError(
+        'An accordion should contain *at least two* accordion triggers with the "data-accordion-trigger" attribute'
+      );
     }
     this.panelAttribute = 'data-accordion-panel';
     this.panelSelector = `[${this.panelAttribute}]`;
-    this.panels = nodeListToArray(this.element.querySelectorAll(this.panelSelector));
+    this.panels = nodeListToArray(
+      this.element.querySelectorAll(this.panelSelector)
+    );
 
     // Set this.openOnInit if needed
     try {
-      this._quantifySelector(this.element, `[${'data-accordion-panel-init'}]`, () => {
-        let initialPanel;
+      this._quantifySelector(
+        this.element,
+        `[${'data-accordion-panel-init'}]`,
+        () => {
+          let initialPanel;
 
-        // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
-        this.panels.forEach((panel, index) => {
-          if (panel.hasAttribute('data-accordion-panel-init')) {
-            initialPanel = panel;
-          } else {
-            this.panels[index].setAttribute('hidden', '');
-          }
-        });
+          // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
+          this.panels.forEach((panel, index) => {
+            if (panel.hasAttribute('data-accordion-panel-init')) {
+              initialPanel = panel;
+            } else {
+              this.panels[index].setAttribute('hidden', '');
+            }
+          });
 
-        // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-        this.openOnInit = initialPanel;
-      });
-    }
-    catch (e) {
-      console.warn('Only one accordion panel should have the data-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-accordion element');
+          // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
+          this.openOnInit = initialPanel;
+        }
+      );
+    } catch (e) {
+      console.warn(
+        'Only one accordion panel should have the data-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-accordion element'
+      );
     }
 
     // bind methods
@@ -71,14 +82,19 @@ export default class Accordion {
     if (!currentTrigger) return;
 
     // Get the data-accordion-trigger value
-    const currentTriggerValue = currentTrigger.getAttribute(this.triggerAttribute);
+    const currentTriggerValue = currentTrigger.getAttribute(
+      this.triggerAttribute
+    );
 
     // Get the associated panel
-    const currentPanel = this.element.querySelector(`[${this.panelAttribute}="${currentTriggerValue}"]`);
+    const currentPanel = this.element.querySelector(
+      `[${this.panelAttribute}="${currentTriggerValue}"]`
+    );
 
     // Open or close accordion
-    currentTrigger.getAttribute('aria-expanded') === 'true' ? this.close(currentPanel) : this.open(currentPanel);
-
+    currentTrigger.getAttribute('aria-expanded') === 'true'
+      ? this.close(currentPanel)
+      : this.open(currentPanel);
   }
 
   /**
@@ -87,7 +103,12 @@ export default class Accordion {
    * @param {Event} event
    */
   _handleKeydown(event) {
-    if (event.keyCode === keyCodes.up || event.keyCode === keyCodes.down || event.keyCode === keyCodes.end || event.keyCode === keyCodes.home) {
+    if (
+      event.keyCode === keyCodes.up ||
+      event.keyCode === keyCodes.down ||
+      event.keyCode === keyCodes.end ||
+      event.keyCode === keyCodes.home
+    ) {
       const accordionParent = event.target.closest('[data-accordion]');
       // If not an accordion, ignore
       if (!accordionParent) return;
@@ -143,47 +164,43 @@ export default class Accordion {
   _openOnInit() {
     // If accordion is set to open all panels on init, open them
     if (this.element.hasAttribute('data-accordion-init')) {
-      this.panels.forEach((panel) => {
+      this.panels.forEach(panel => {
         this.open(panel);
       });
-    } else if (this.openOnInit) {
-      // If this.openOnInit has been set, open it on initialization
-      this.open(this.openOnInit);
+    } else {
       // Keep all other accordions closed by setting their initial states
       this.panels.forEach((panel, index) => {
         if (panel !== this.openOnInit) {
           // Set non-initialized accordion panels to hidden
           this.panels[index].setAttribute('hidden', '');
-          let trigger = this.element.querySelector(`[${this.triggerAttribute}="${panel.dataset.accordionPanel}"]`);
+          const trigger = this.element.querySelector(
+            `[${this.triggerAttribute}="${panel.dataset.accordionPanel}"]`
+          );
           // Set 'aria-expanded' for all non-initialized accordion triggers to 'false'
           trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          // If this.openOnInit has been set, open it on initialization
+          this.open(this.openOnInit);
         }
-      });
-    } else {
-      // Otherwise, keep all accordions closed to start
-      this.panels.forEach((panel, index) => {
-        // Set all of the accordion panels to hidden
-        this.panels[index].setAttribute('hidden', '');
-        let trigger = this.element.querySelector(`[${this.triggerAttribute}="${panel.dataset.accordionPanel}"]`);
-        // Set 'aria-expanded' for all of the accordion triggers to 'false'
-        trigger.setAttribute('aria-expanded', 'false');
       });
     }
   }
 
   /**
-  * This function is used to determine whether an allowable number of accordion
-  * panels has been set to open on initialization.
-  * @param {Node} entity - the Node in which the given selector should be found
-  * @param {string} selector - an element selector
-  * @param {Function} callback - a function the user wishes to trigger if the
-  * selector is below the maximum allowed number
-  * @param {number} max - the maximum number of a given selector allowed
-  */
+   * This function is used to determine whether an allowable number of accordion
+   * panels has been set to open on initialization.
+   * @param {Node} entity - the Node in which the given selector should be found
+   * @param {string} selector - an element selector
+   * @param {Function} callback - a function the user wishes to trigger if the
+   * selector is below the maximum allowed number
+   * @param {number} max - the maximum number of a given selector allowed
+   */
   _quantifySelector(entity, selector, callback, max = 1) {
     let excess;
 
-    entity.querySelectorAll(selector).length > max ? excess = true : excess = false;
+    entity.querySelectorAll(selector).length > max
+      ? (excess = true)
+      : (excess = false);
 
     if (excess === true) {
       throw new TypeError('Caught');
@@ -193,26 +210,24 @@ export default class Accordion {
   }
 
   /**
-  * This function is used to trigger the 'accordionOpened' custom event, and
-  * open an accordion/panel pair. It removes the panel's hidden attribute,
-  * and sets the trigger's aria-expanded attribute to true. It also allows
-  * developers to setup a custom callback function.
-  * @param {Function} callback 
-  */
+   * This function is used to trigger the 'accordionOpened' custom event, and
+   * open an accordion/panel pair. It removes the panel's hidden attribute,
+   * and sets the trigger's aria-expanded attribute to true. It also allows
+   * developers to setup a custom callback function.
+   * @param {Function} callback
+   */
   open(accordion, callback) {
     // Trigger accordionOpened custom event. This event is used open accordion panels.
 
-    const activationEvent = dispatchCustomEvent(
-      'accordionOpened',
-      accordion,
-      {
-        id: accordion.dataset.accordionPanel,
-      }
-    );
+    const activationEvent = dispatchCustomEvent('accordionOpened', accordion, {
+      id: accordion.dataset.accordionPanel
+    });
 
     if (!activationEvent) return;
 
-    const trigger = this.element.querySelector(`[${this.triggerAttribute} = "${accordion.dataset.accordionPanel}"]`);
+    const trigger = this.element.querySelector(
+      `[${this.triggerAttribute} = "${accordion.dataset.accordionPanel}"]`
+    );
 
     // Open the appropriate accordion trigger/panel pair
     accordion.removeAttribute('hidden');
@@ -224,26 +239,24 @@ export default class Accordion {
   }
 
   /**
-  * This function is used to trigger the 'accordionClosed' custom event, and
-  * close an accordion/panel pair. It adds the hidden attribute to the panel,
-  * and sets the trigger's aria-expanded attribute to false. It also allows
-  * developers to setup a custom callback function.
-  * @param {Function} callback 
-  */
+   * This function is used to trigger the 'accordionClosed' custom event, and
+   * close an accordion/panel pair. It adds the hidden attribute to the panel,
+   * and sets the trigger's aria-expanded attribute to false. It also allows
+   * developers to setup a custom callback function.
+   * @param {Function} callback
+   */
   close(accordion, callback) {
     // Trigger accordionClosed custom event. This event is used to control the process of closing accordion panels.
 
-    const activationEvent = dispatchCustomEvent(
-      'accordionClosed',
-      accordion,
-      {
-        id: accordion.dataset.accordionPanel,
-      }
-    );
+    const activationEvent = dispatchCustomEvent('accordionClosed', accordion, {
+      id: accordion.dataset.accordionPanel
+    });
 
     if (!activationEvent) return;
 
-    const trigger = this.element.querySelector(`[${this.triggerAttribute} = "${accordion.dataset.accordionPanel}"]`);
+    const trigger = this.element.querySelector(
+      `[${this.triggerAttribute} = "${accordion.dataset.accordionPanel}"]`
+    );
 
     // Close the appropriate accordion trigger/panel pair
     accordion.setAttribute('hidden', '');
