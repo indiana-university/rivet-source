@@ -37,6 +37,14 @@ var bannerText = `/*!
 
 `;
 
+function setDevNodeEnv() {
+  return (process.env.NODE_ENV = 'development');
+}
+
+function setProdNodeEnv() {
+  return (process.env.NODE_ENV = 'production');
+}
+
 function compileSass() {
   return src('src/sass/**/*.scss')
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
@@ -121,10 +129,32 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
+let IIFEpluginOptions, ESMpluginOptions;
+
+// Set compile options for IIFE and ESM based on current environment
+switch (process.env.NODE_ENV) {
+  case 'development':
+    IIFEpluginOptions = [
+      eslint({ throwOnError: false }),
+      babel({ runtimeHelpers: true })
+    ];
+    ESMpluginOptions = [eslint({ throwOnError: false })];
+
+    break;
+  case 'production':
+    IIFEpluginOptions = [
+      eslint({ throwOnError: true }),
+      babel({ runtimeHelpers: true })
+    ];
+    ESMpluginOptions = [eslint({ throwOnError: true })];
+
+    break;
+}
+
 async function compileIIFE() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [eslint({ throwOnError: false }), babel({ runtimeHelpers: true })]
+    plugins: IIFEpluginOptions
   });
 
   await bundle.write({
@@ -137,7 +167,7 @@ async function compileIIFE() {
 async function compileESM() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [eslint({ throwOnError: false })]
+    plugins: ESMpluginOptions
   });
 
   await bundle.write({
@@ -250,6 +280,7 @@ function example(callback) {
 }
 
 exports.release = series(
+  setProdNodeEnv,
   lintSassBuild,
   compileSass,
   compileCSS,
@@ -268,6 +299,7 @@ exports.release = series(
 );
 
 exports.build = series(
+  setDevNodeEnv,
   lintSassBuild,
   compileSass,
   compileIIFE,
@@ -284,6 +316,7 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(
+  setDevNodeEnv,
   compileSass,
   lintSassWatch,
   compileIIFE,
@@ -294,6 +327,7 @@ exports.headless = series(
 );
 
 exports.default = series(
+  setDevNodeEnv,
   compileSass,
   lintSassWatch,
   compileIIFE,
