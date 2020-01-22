@@ -1,14 +1,14 @@
 'use strict';
 
 /*
-* Require the path module
-*/
+ * Require the path module
+ */
 const path = require('path');
 
 /**
  * Require the Fractal module
  */
-const fractal = module.exports = require('@frctl/fractal').create();
+const fractal = (module.exports = require('@frctl/fractal').create());
 
 /**
  * Use the default mandelbrot theme.
@@ -19,26 +19,18 @@ const mandelbrot = require('@frctl/mandelbrot'); // require the Mandelbrot theme
  * Use this to customize the default theme
  */
 const myCustomizedTheme = mandelbrot({
-    lang: 'en-US',
-    skin: 'white',
-    format: 'yaml',
-    // which panels to show
-    // http://fractal.build/guide/web/default-theme#panels
-    panels: [
-      'notes',
-      'html',
-      'resources',
-      'info',
-    ],
-    /**
-     * Show Docs before Components
-     * http://fractal.build/guide/web/default-theme#nav
-     */
-    nav: ["docs", "components"],
-    scripts: [
-        'default',
-        '/js/vendor.js'
-    ]
+  lang: 'en-US',
+  skin: 'white',
+  format: 'yaml',
+  // which panels to show
+  // http://fractal.build/guide/web/default-theme#panels
+  panels: ['notes', 'html', 'resources', 'info'],
+  /**
+   * Show Docs before Components
+   * http://fractal.build/guide/web/default-theme#nav
+   */
+  nav: ['docs', 'components'],
+  scripts: ['default', '/js/vendor.js']
 });
 
 /**
@@ -62,31 +54,32 @@ fractal.components.set('ext', '.njk');
 fractal.components.set('path', path.join(__dirname, 'src/components'));
 
 fractal.components.set('statuses', {
-    deprecated: {
-        label: "Deprecated",
-        description: "Don't use this in new projects. This component will be removed in the next major version of Rivet.",
-        color: '#FF0000'
-    },
-    wip: {
-        label: "Work in Progress",
-        description: "This component is a work in progress.",
-        color: '#FF8C00'
-    },
-    alpha: {
-        label: "Alpha",
-        description: "Use with caution. This component will change.",
-        color: '#F5BB17'
-    },
-    beta: {
-        label: "Beta",
-        description: "This component is stable, but could still change slightly.",
-        color: '#006298'
-    },
-    ready: {
-        label: "Ready",
-        description: "This component is ready to use in production.",
-        color: '#009933'
-    }
+  deprecated: {
+    label: 'Deprecated',
+    description:
+      "Don't use this in new projects. This component will be removed in the next major version of Rivet.",
+    color: '#FF0000'
+  },
+  wip: {
+    label: 'Work in Progress',
+    description: 'This component is a work in progress.',
+    color: '#FF8C00'
+  },
+  alpha: {
+    label: 'Alpha',
+    description: 'Use with caution. This component will change.',
+    color: '#F5BB17'
+  },
+  beta: {
+    label: 'Beta',
+    description: 'This component is stable, but could still change slightly.',
+    color: '#006298'
+  },
+  ready: {
+    label: 'Ready',
+    description: 'This component is ready to use in production.',
+    color: '#009933'
+  }
 });
 
 /**
@@ -115,6 +108,5 @@ fractal.web.set('static.path', path.join(__dirname, 'static'));
  */
 fractal.web.set('builder.dest', '_build');
 
-
-
+// eslint-disable-next-line no-unused-vars
 const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility

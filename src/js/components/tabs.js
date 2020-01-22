@@ -1,14 +1,13 @@
 /**
-* Copyright (C) 2018 The Trustees of Indiana University
-* SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
 import { isNode, nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
 
 export default class Tabs {
   constructor(element) {
-
     // Instance properties
     this.element = element;
 
@@ -22,10 +21,14 @@ export default class Tabs {
     this.tablist = this.element.querySelector('[role="tablist"]');
     this.tabAttribute = 'data-tab';
     this.tabSelector = `[${this.tabAttribute}]`;
-    this.tabs = nodeListToArray(this.element.querySelectorAll(this.tabSelector));
+    this.tabs = nodeListToArray(
+      this.element.querySelectorAll(this.tabSelector)
+    );
     this.panelAttribute = 'data-tab-panel';
     this.panelSelector = `[${this.panelAttribute}]`;
-    this.panels = nodeListToArray(this.element.querySelectorAll(this.panelSelector));
+    this.panels = nodeListToArray(
+      this.element.querySelectorAll(this.panelSelector)
+    );
 
     // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
     let initialPanel;
@@ -35,7 +38,7 @@ export default class Tabs {
       } else {
         this.tabs[index].setAttribute('tabindex', '-1');
       }
-    })
+    });
 
     // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
     this.openOnInit = initialPanel || this.panels[0];
@@ -62,7 +65,9 @@ export default class Tabs {
     const currentTabValue = currentTab.getAttribute(this.tabAttribute);
 
     // Get the associated panel
-    const currentPanel = this.element.querySelector(`[${this.panelAttribute}="${currentTabValue}"]`);
+    const currentPanel = this.element.querySelector(
+      `[${this.panelAttribute}="${currentTabValue}"]`
+    );
 
     // Activate tab
     this.activateTab(currentPanel);
@@ -94,12 +99,16 @@ export default class Tabs {
       }
 
       case keyCodes.left: {
-        !this.tabs[prevTab] ? this.tabs[this.tabs.length - 1].focus() : this.tabs[prevTab].focus();
+        !this.tabs[prevTab]
+          ? this.tabs[this.tabs.length - 1].focus()
+          : this.tabs[prevTab].focus();
         break;
       }
 
       case keyCodes.up: {
-        !this.tabs[prevTab] ? this.tabs[this.tabs.length - 1].focus() : this.tabs[prevTab].focus();
+        !this.tabs[prevTab]
+          ? this.tabs[this.tabs.length - 1].focus()
+          : this.tabs[prevTab].focus();
         break;
       }
 
@@ -125,22 +134,20 @@ export default class Tabs {
    * panel's hidden attribute, sets the tab's
    * aria-selected attribute to true. It also allows developers to setup a
    * custom callback function.
-   * @param {Function} callback 
+   * @param {Function} callback
    */
   activateTab(tab, callback) {
     // Trigger tabActivated custom event. This event is used to control the process of switching between tabs.
 
-    const activationEvent = dispatchCustomEvent(
-      'tabActivated',
-      tab,
-      {
-        id: tab.dataset.tabPanel,
-      }
-    );
+    const activationEvent = dispatchCustomEvent('tabActivated', tab, {
+      id: tab.dataset.tabPanel
+    });
 
     if (!activationEvent) return;
 
-    const trigger = this.element.querySelector(`[${this.tabAttribute}="${tab.dataset.tabPanel}"]`);
+    const trigger = this.element.querySelector(
+      `[${this.tabAttribute}="${tab.dataset.tabPanel}"]`
+    );
 
     this.panels.forEach((panel, index) => {
       if (panel.getAttribute(this.panelAttribute) !== tab.dataset.tabPanel) {

@@ -93,9 +93,9 @@ $shade-selector: '.#{$item} > .#{$list}';
 
 // Set up level indent/background shade map
 $level-styles: (
-  20: $color-black-000,
-  40: $color-black-100,
-  60: $color-black-200
+  32: $color-black-000,
+  52: $color-black-100,
+  72: $color-black-200
 );
 
 /* TODO: Adjust stylelint rules to handle nested Sass */
@@ -106,10 +106,13 @@ $level-styles: (
   // Get current @each index
   $index: index(($level-styles), ($indent $shade));
 
+  // Calculate indent in rem (using base value 16)
+  $indent-rem: $indent / 16;
+
   // Indent the link text
   #{$indent-selector} > .rvt-sidenav__item-wrapper > .rvt-sidenav__link,
   #{$indent-selector} > .rvt-sidenav__link {
-    text-indent: $indent + px;
+    padding-left: $indent-rem + rem;
   }
 
   // Set border-top color per nested level

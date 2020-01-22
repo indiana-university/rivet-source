@@ -1,7 +1,7 @@
 /**
-* Copyright (C) 2018 The Trustees of Indiana University
-* SPDX-License-Identifier: BSD-3-Clause
-*/
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
 import { isNode, nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
@@ -37,12 +37,15 @@ export default class Modal {
     this.innerModalSelector = `[${this.innerModalAttribute}]`;
     this.openAttribute = 'data-modal-trigger';
     this.openSelector = `[${this.openAttribute}]`;
-    this.openButton = document.querySelector(`[${this.openAttribute}="${this.modalDataValue}"]`);
+    this.openButton = document.querySelector(
+      `[${this.openAttribute}="${this.modalDataValue}"]`
+    );
     this.closeAttribute = 'data-modal-close';
     this.closeSelector = `[${this.closeAttribute}]`;
 
     // Anything that is focus-able
-    this.focusElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
+    this.focusElements =
+      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
 
     // bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -60,14 +63,16 @@ export default class Modal {
    * @param {Event} event
    */
   _handleClick(event) {
-    event.target.closest(this.innerModalSelector) !== null ? event.clickedInModal = true : event.clickedInModal = false;
+    event.target.closest(this.innerModalSelector) !== null
+      ? (event.clickedInModal = true)
+      : (event.clickedInModal = false);
 
     if (event.clickedInModal) {
       event.stopPropagation();
     }
 
     // The event trigger should involve the open, close, or modal selector
-    let triggerSelectors = `${this.openSelector}, ${this.closeSelector}, ${this.modalSelector}`;
+    const triggerSelectors = `${this.openSelector}, ${this.closeSelector}, ${this.modalSelector}`;
     const trigger = event.target.closest(triggerSelectors);
     // Exit if trigger button doesn't exist
     if (!trigger) return;
@@ -89,7 +94,6 @@ export default class Modal {
     switch (trigger != null) {
       // If the trigger has an open attribute
       case trigger.hasAttribute(this.openAttribute): {
-
         // Check that the data-modal-trigger value matches the instance's data-modal value
         if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) {
           // If it doesn't match
@@ -109,7 +113,8 @@ export default class Modal {
         event.preventDefault();
 
         // Check that the data-modal-close value matches the instance's data-modal value
-        if (trigger.getAttribute(this.closeAttribute) !== this.modalDataValue) return;
+        if (trigger.getAttribute(this.closeAttribute) !== this.modalDataValue)
+          return;
         this.close();
 
         if (this.openButton !== null) this.openButton.focus();
@@ -122,7 +127,11 @@ export default class Modal {
         if (this.dialog) return;
 
         // Check that the trigger content data-modal value matches the instance's data-modal value
-        if (triggerContent.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
+        if (
+          triggerContent.getAttribute(this.modalAttribute) !==
+          this.modalDataValue
+        )
+          return;
         this.close();
 
         if (this.openButton !== null) this.openButton.focus();
@@ -140,10 +149,13 @@ export default class Modal {
    * and prevent it from escaping while the modal remains active.
    * @param {Object} first - The first focusable element in the modal
    * @param {Object} last - The last focusable element in the modal
-   * @param {Event} event 
+   * @param {Event} event
    */
   _handleBackwardTab(first, last, event) {
-    if (document.activeElement === first || document.activeElement === this.element) {
+    if (
+      document.activeElement === first ||
+      document.activeElement === this.element
+    ) {
       event.preventDefault();
       last.focus();
     }
@@ -154,7 +166,7 @@ export default class Modal {
    * and prevent it from escaping while the modal remains active.
    * @param {Object} first - The first focusable element in the modal
    * @param {Object} last - The last focusable element in the modal
-   * @param {Event} event 
+   * @param {Event} event
    */
   _handleForwardTab(first, last, event) {
     if (document.activeElement === last) {
@@ -180,24 +192,29 @@ export default class Modal {
 
     switch (event.keyCode) {
       case keyCodes.tab: {
-
         // Create an array of all the focusable elements within the modal
-        const focusList = nodeListToArray(currentModal.querySelectorAll(this.focusElements));
+        const focusList = nodeListToArray(
+          currentModal.querySelectorAll(this.focusElements)
+        );
         const firstFocus = focusList[0];
         const finalFocus = focusList[focusList.length - 1];
 
         // If they shift tab, trigger the backward tab handler, otherwise use the forward tab handler
-        event.shiftKey ? this._handleBackwardTab(firstFocus, finalFocus, event) : this._handleForwardTab(firstFocus, finalFocus, event);
+        event.shiftKey
+          ? this._handleBackwardTab(firstFocus, finalFocus, event)
+          : this._handleForwardTab(firstFocus, finalFocus, event);
 
         break;
       }
       case keyCodes.escape: {
-
         // Check that the modal is not a dialog because the user needs to make a choice to proceed
         if (this.dialog) return;
 
         // Check that the current modal matches the instance's
-        if (currentModal.getAttribute(this.modalAttribute) !== this.modalDataValue) return;
+        if (
+          currentModal.getAttribute(this.modalAttribute) !== this.modalDataValue
+        )
+          return;
 
         this.close();
 
@@ -216,17 +233,13 @@ export default class Modal {
    * event, setting the modal's hidden to false, and adding the
    * rvt-modal-open class to it. It also allows developers to setup a custom
    * callback function.
-   * @param {Function} callback 
+   * @param {Function} callback
    */
   open(callback) {
     // Trigger modalOpen custom event. This event is used to control the process of closing other open modals.
-    const openEvent = dispatchCustomEvent(
-      'modalOpen',
-      this.element,
-      {
-        id: this.element.dataset.modal,
-      }
-    );
+    const openEvent = dispatchCustomEvent('modalOpen', this.element, {
+      id: this.element.dataset.modal
+    });
 
     if (!openEvent) return;
 
@@ -243,17 +256,13 @@ export default class Modal {
    * event, setting the modal's hidden to true, and removing the
    * rvt-modal-open class from it. It also allows developers to setup a custom
    * callback function.
-   * @param {Function} callback 
+   * @param {Function} callback
    */
   close(callback) {
     // Trigger modalClose custom event.
-    const closeEvent = dispatchCustomEvent(
-      'modalClose',
-      this.element,
-      {
-        id: this.element.dataset.modal
-      }
-    );
+    const closeEvent = dispatchCustomEvent('modalClose', this.element, {
+      id: this.element.dataset.modal
+    });
 
     if (!closeEvent) return;
 
@@ -267,7 +276,9 @@ export default class Modal {
 
   focusTrigger() {
     if (!this.openButton) {
-      throw new Error(`Could not find a modal trigger with the value of ${this.modalDataValue}`);
+      throw new Error(
+        `Could not find a modal trigger with the value of ${this.modalDataValue}`
+      );
     }
 
     this.openButton.focus();
@@ -275,7 +286,9 @@ export default class Modal {
 
   focusModal() {
     if (!this.element) {
-      throw new Error(`Could not find a modal with the value of ${this.modalDataValue}`);
+      throw new Error(
+        `Could not find a modal with the value of ${this.modalDataValue}`
+      );
     }
 
     this.element.focus();
