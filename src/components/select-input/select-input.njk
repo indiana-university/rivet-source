@@ -1,5 +1,5 @@
-<label for="select-input-{{ id }}">Select Input:</label>
-<select id="select-input-{{ id }}" {% if class %} class="rvt-validation-{{ class }}"{% endif %} {{ modifier }}>
+<label for="select-input-{{ id }}" class="rvt-label">Select Input:</label>
+<select id="select-input-{{ id }}" class="rvt-select {% if class %} rvt-validation-{{ class }}{% endif %}" {{ modifier }}>
   {% if options %}
     {% for option in options %}
       <option value="{{ this }}">{{ this }}</option>
