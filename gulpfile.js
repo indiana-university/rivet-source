@@ -127,29 +127,22 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-let eslintOptionsIIFE, eslintOptionsESM;
+// Set default eslint options for compiling IIFE/ESM
+let eslintOptionsIIFE = { throwOnError: false },
+  eslintOptionsESM = { throwOnError: false };
 
 /**
- * Set eslint options for IIFE and ESM if environment is set to 'production'
+ * Set new eslint options for compiling IIFE/ESM if env is set to 'production'
  */
-switch (process.env.NODE_ENV) {
-  case 'production':
-    eslintOptionsIIFE = eslint({ throwOnError: true });
-    eslintOptionsESM = eslint({ throwOnError: true });
-
-    break;
-
-  default:
-    eslintOptionsIIFE = eslint({ throwOnError: false });
-    eslintOptionsESM = eslint({ throwOnError: false });
-
-    break;
+if (process.env.NODE_ENV === 'production') {
+  eslintOptionsIIFE = { throwOnError: true };
+  eslintOptionsESM = { throwOnError: true };
 }
 
 async function compileIIFE() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [eslintOptionsIIFE, babel({ runtimeHelpers: true })]
+    plugins: [eslint(eslintOptionsIIFE), babel({ runtimeHelpers: true })]
   });
 
   await bundle.write({
@@ -162,7 +155,7 @@ async function compileIIFE() {
 async function compileESM() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: [eslintOptionsESM]
+    plugins: [eslint(eslintOptionsESM)]
   });
 
   await bundle.write({
