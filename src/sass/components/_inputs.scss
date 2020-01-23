@@ -1,152 +1,154 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-input[type='color'],
-input[type='date'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='email'],
-input[type='month'],
-input[type='number'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='text'],
-input[type='time'],
-input[type='url'],
-input[type='week'],
-input:not([type]),
-textarea,
-select {
-  display: block;
-  width: 100%;
-  border-radius: $xxs;
-  background-color: inherit;
+.#{$prefix} {
+  &-input[type='color'],
+  &-input[type='date'],
+  &-input[type='datetime'],
+  &-input[type='datetime-local'],
+  &-input[type='email'],
+  &-input[type='month'],
+  &-input[type='number'],
+  &-input[type='password'],
+  &-input[type='search'],
+  &-input[type='tel'],
+  &-input[type='text'],
+  &-input[type='time'],
+  &-input[type='url'],
+  &-input[type='week'],
+  &-input:not([type]),
+  &-textarea,
+  &-select {
+    display: block;
+    width: 100%;
+    border-radius: $xxs;
+    background-color: inherit;
 
-  /**
-   * Making the decision here to stay with 1px border on form element,
-   * but increasing the color contrast to meet WCAG requirements.
-   *
-   * See the WCAG requirement explanation here:
-   * https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)#SC_Text
-   *
-   * Also, refer to Github issue for new WCAG 2.0 requirements for
-   * non-text interactive element:
-   *
-   * https://github.com/w3c/wcag21/issues/10
-   */
-  border: 1px solid $color-black-400;
-  padding: $xs;
-  height: $xl;
-  line-height: 1;
+    /**
+     * Making the decision here to stay with 1px border on form element,
+     * but increasing the color contrast to meet WCAG requirements.
+     *
+     * See the WCAG requirement explanation here:
+     * https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)#SC_Text
+     *
+     * Also, refer to Github issue for new WCAG 2.0 requirements for
+     * non-text interactive element:
+     *
+     * https://github.com/w3c/wcag21/issues/10
+     */
+    border: 1px solid $color-black-400;
+    padding: $xs;
+    height: $xl;
+    line-height: 1;
 
-  /**
-   * Prefixes get rid of browser default select element styles.
-   */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-}
+    /**
+     * Prefixes get rid of browser default select element styles.
+     */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+  }
 
-textarea {
-  height: $spacing-unit * 15;
-  line-height: 1.5;
-}
+  &-textarea {
+    height: $spacing-unit * 15;
+    line-height: 1.5;
+  }
 
-input[type='search'] {
-  height: auto;
-  -webkit-appearance: none;
-}
+  &-input[type='search'] {
+    height: auto;
+    -webkit-appearance: none;
+  }
 
-select {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik04LDEyLjQ2YTIsMiwwLDAsMS0xLjUyLS43TDEuMjQsNS42NWExLDEsMCwxLDEsMS41Mi0xLjNMOCwxMC40Nmw1LjI0LTYuMTFhMSwxLDAsMCwxLDEuNTIsMS4zTDkuNTIsMTEuNzZBMiwyLDAsMCwxLDgsMTIuNDZaIi8+Cjwvc3ZnPg==');
-  background-position: right $sm center;
-  background-size: $sm $sm;
-  background-repeat: no-repeat;
-  padding-right: $xl;
-  padding-left: $xs;
+  &-select {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik04LDEyLjQ2YTIsMiwwLDAsMS0xLjUyLS43TDEuMjQsNS42NWExLDEsMCwxLDEsMS41Mi0xLjNMOCwxMC40Nmw1LjI0LTYuMTFhMSwxLDAsMCwxLDEuNTIsMS4zTDkuNTIsMTEuNzZBMiwyLDAsMCwxLDgsMTIuNDZaIi8+Cjwvc3ZnPg==');
+    background-position: right $sm center;
+    background-size: $sm $sm;
+    background-repeat: no-repeat;
+    padding-right: $xl;
+    padding-left: $xs;
 
-  /**
-   * Prefixes get rid of browser default select element styles.
-   */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-}
+    /**
+     * Prefixes get rid of browser default select element styles.
+     */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+  }
 
-input[type='color']:disabled,
-input[type='date']:disabled,
-input[type='datetime']:disabled,
-input[type='datetime-local']:disabled,
-input[type='email']:disabled,
-input[type='month']:disabled,
-input[type='number']:disabled,
-input[type='password']:disabled,
-input[type='search']:disabled,
-input[type='tel']:disabled,
-input[type='text']:disabled,
-input[type='time']:disabled,
-input[type='url']:disabled,
-input[type='week']:disabled,
-input:not([type]):disabled,
-textarea:disabled,
-select:disabled {
-  background-color: $color-black-100;
-  cursor: not-allowed;
-}
+  &-input[type='color']:disabled,
+  &-input[type='date']:disabled,
+  &-input[type='datetime']:disabled,
+  &-input[type='datetime-local']:disabled,
+  &-input[type='email']:disabled,
+  &-input[type='month']:disabled,
+  &-input[type='number']:disabled,
+  &-input[type='password']:disabled,
+  &-input[type='search']:disabled,
+  &-input[type='tel']:disabled,
+  &-input[type='text']:disabled,
+  &-input[type='time']:disabled,
+  &-input[type='url']:disabled,
+  &-input[type='week']:disabled,
+  &-input:not([type]):disabled,
+  &-textarea:disabled,
+  &-select:disabled {
+    background-color: $color-black-100;
+    cursor: not-allowed;
+  }
 
-input[type='color']:focus,
-input[type='date']:focus,
-input[type='datetime']:focus,
-input[type='datetime-local']:focus,
-input[type='email']:focus,
-input[type='month']:focus,
-input[type='number']:focus,
-input[type='password']:focus,
-input[type='search']:focus,
-input[type='tel']:focus,
-input[type='text']:focus,
-input[type='time']:focus,
-input[type='url']:focus,
-input[type='week']:focus,
-input:not([type]):focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  /* stylelint-disable */
-  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
-  /* stylelint-enable */
-  transition: box-shadow .2s ease;
-}
+  &-input[type='color']:focus,
+  &-input[type='date']:focus,
+  &-input[type='datetime']:focus,
+  &-input[type='datetime-local']:focus,
+  &-input[type='email']:focus,
+  &-input[type='month']:focus,
+  &-input[type='number']:focus,
+  &-input[type='password']:focus,
+  &-input[type='search']:focus,
+  &-input[type='tel']:focus,
+  &-input[type='text']:focus,
+  &-input[type='time']:focus,
+  &-input[type='url']:focus,
+  &-input[type='week']:focus,
+  &-input:not([type]):focus,
+  &-textarea:focus,
+  &-select:focus {
+    outline: none;
+    /* stylelint-disable */
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
+    /* stylelint-enable */
+    transition: box-shadow .2s ease;
+  }
 
-label {
-  display: inline-block;
-  font-size: $ts-14;
-  line-height: 1;
-  font-weight: $font-weight-bold;
-  margin-bottom: $xs;
-}
+  &-label {
+    display: inline-block;
+    font-size: $ts-14;
+    line-height: 1;
+    font-weight: $font-weight-bold;
+    margin-bottom: $xs;
+  }
 
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
+  &-fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 
-legend {
-  margin: 0;
-  font-weight: $font-weight-regular;
-  display: block;
-}
+  &-legend {
+    margin: 0;
+    font-weight: $font-weight-regular;
+    display: block;
+  }
 
-select[multiple] {
-  height: $xxl * 2;
-  background-image: none;
-  padding-right: $xs;
-}
+  &-select[multiple] {
+    height: $xxl * 2;
+    background-image: none;
+    padding-right: $xs;
+  }
 
-select::-ms-expand {
-  display: none;
+  &-select::-ms-expand {
+    display: none;
+  }
 }
