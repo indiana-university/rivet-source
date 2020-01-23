@@ -129,7 +129,9 @@ function prefixReleaseCSS() {
 
 let eslintOptionsIIFE, eslintOptionsESM;
 
-// Set compile options for IIFE and ESM based on current environment
+/**
+ * Set eslint options for IIFE and ESM if environment is set to 'production'
+ */
 switch (process.env.NODE_ENV) {
   case 'production':
     eslintOptionsIIFE = eslint({ throwOnError: true });
