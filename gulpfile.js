@@ -37,11 +37,7 @@ var bannerText = `/*!
 
 `;
 
-function setDevNodeEnv(callback) {
-  process.env.NODE_ENV = 'development';
-  callback();
-}
-
+// Set Node environment to 'production' for build and release exports
 function setProdNodeEnv(callback) {
   process.env.NODE_ENV = 'production';
   callback();
@@ -296,7 +292,7 @@ exports.release = series(
 );
 
 exports.build = series(
-  setDevNodeEnv,
+  setProdNodeEnv,
   lintSassBuild,
   compileSass,
   compileIIFE,
@@ -313,7 +309,6 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(
-  setDevNodeEnv,
   compileSass,
   lintSassWatch,
   compileIIFE,
@@ -324,7 +319,6 @@ exports.headless = series(
 );
 
 exports.default = series(
-  setDevNodeEnv,
   compileSass,
   lintSassWatch,
   compileIIFE,
