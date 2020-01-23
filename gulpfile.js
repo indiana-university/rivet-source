@@ -37,12 +37,14 @@ var bannerText = `/*!
 
 `;
 
-function setDevNodeEnv() {
-  return (process.env.NODE_ENV = 'development');
+function setDevNodeEnv(callback) {
+  process.env.NODE_ENV = 'development';
+  callback();
 }
 
-function setProdNodeEnv() {
-  return (process.env.NODE_ENV = 'production');
+function setProdNodeEnv(callback) {
+  process.env.NODE_ENV = 'production';
+  callback();
 }
 
 function compileSass() {
@@ -129,24 +131,19 @@ function prefixReleaseCSS() {
  * JS tasks
  */
 
-let IIFEpluginOptions, ESMpluginOptions;
+let eslintOptionsIIFE, eslintOptionsESM;
 
 // Set compile options for IIFE and ESM based on current environment
 switch (process.env.NODE_ENV) {
-  case 'development':
-    IIFEpluginOptions = [
-      eslint({ throwOnError: false }),
-      babel({ runtimeHelpers: true })
-    ];
-    ESMpluginOptions = [eslint({ throwOnError: false })];
+  case 'production':
+    eslintOptionsIIFE = eslint({ throwOnError: true });
+    eslintOptionsESM = eslint({ throwOnError: false });
 
     break;
-  case 'production':
-    IIFEpluginOptions = [
-      eslint({ throwOnError: true }),
-      babel({ runtimeHelpers: true })
-    ];
-    ESMpluginOptions = [eslint({ throwOnError: true })];
+
+  default:
+    eslintOptionsIIFE = eslint({ throwOnError: false });
+    eslintOptionsESM = eslint({ throwOnError: false });
 
     break;
 }
@@ -154,7 +151,7 @@ switch (process.env.NODE_ENV) {
 async function compileIIFE() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: IIFEpluginOptions
+    plugins: [eslintOptionsIIFE, babel({ runtimeHelpers: true })]
   });
 
   await bundle.write({
@@ -167,7 +164,7 @@ async function compileIIFE() {
 async function compileESM() {
   const bundle = await rollup.rollup({
     input: './src/js/index.js',
-    plugins: ESMpluginOptions
+    plugins: [eslintOptionsESM]
   });
 
   await bundle.write({
