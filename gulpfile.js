@@ -135,7 +135,7 @@ let eslintOptionsIIFE, eslintOptionsESM;
 switch (process.env.NODE_ENV) {
   case 'production':
     eslintOptionsIIFE = eslint({ throwOnError: true });
-    eslintOptionsESM = eslint({ throwOnError: false });
+    eslintOptionsESM = eslint({ throwOnError: true });
 
     break;
 
