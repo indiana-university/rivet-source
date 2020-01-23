@@ -1,5 +1,5 @@
-<label for="text-input-{{ id }}">Text Input</label>
-<input type="text" id="text-input-{{ id }}" {% if class %} class="rvt-validation-{{ class }}"{% endif %} {{ modifier }}>
+<label for="text-input-{{ id }}" class="rvt-label">Text Input</label>
+<input type="text" id="text-input-{{ id }}" class="rvt-text-input{% if class %} rvt-validation-{{ class }}{% endif %}" {{ modifier }}>
 {% if alert %}
   {% set variant = "@alert-inline" %}
   {% if alertVariant %}
