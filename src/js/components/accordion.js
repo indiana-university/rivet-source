@@ -44,17 +44,14 @@ export default class Accordion {
     this.panels = nodeListToArray(
       this.element.querySelectorAll(this.panelSelector)
     );
+    const initializedPanels = this.element.querySelectorAll(
+      `[data-accordion-panel-init]`
+    );
 
     // Set this.openOnInit if needed
     try {
-      let excess;
 
-      this.element.querySelectorAll(`[${'data-accordion-panel-init'}]`).length >
-      1
-        ? (excess = true)
-        : (excess = false);
-
-      if (excess === true) {
+      if (initializedPanels.length > 1) {
         throw new TypeError('Caught');
       }
 
@@ -261,7 +258,6 @@ export default class Accordion {
 
   init() {
     this._openOnInit();
-    this.destroy();
 
     // Add click handlers
     this.element.addEventListener('click', this._handleClick, false);
