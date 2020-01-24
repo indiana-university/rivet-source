@@ -2,21 +2,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .#{$prefix} {
-  &-input[type='color'],
-  &-input[type='date'],
-  &-input[type='datetime'],
-  &-input[type='datetime-local'],
-  &-input[type='email'],
-  &-input[type='month'],
-  &-input[type='number'],
-  &-input[type='password'],
-  &-input[type='search'],
-  &-input[type='tel'],
-  &-text-input,
-  &-input[type='time'],
-  &-input[type='url'],
-  &-input[type='week'],
+  &-input[type],
   &-input:not([type]),
+  &-text-input,
   &-textarea,
   &-select {
     display: block;
@@ -77,42 +65,18 @@
     appearance: none;
   }
 
-  &-input[type='color']:disabled,
-  &-input[type='date']:disabled,
-  &-input[type='datetime']:disabled,
-  &-input[type='datetime-local']:disabled,
-  &-input[type='email']:disabled,
-  &-input[type='month']:disabled,
-  &-input[type='number']:disabled,
-  &-input[type='password']:disabled,
-  &-input[type='search']:disabled,
-  &-input[type='tel']:disabled,
-  &-text-input:disabled,
-  &-input[type='time']:disabled,
-  &-input[type='url']:disabled,
-  &-input[type='week']:disabled,
+  &-input[type]:disabled,
   &-input:not([type]):disabled,
+  &-text-input:disabled,
   &-textarea:disabled,
   &-select:disabled {
     background-color: $color-black-100;
     cursor: not-allowed;
   }
 
-  &-input[type='color']:focus,
-  &-input[type='date']:focus,
-  &-input[type='datetime']:focus,
-  &-input[type='datetime-local']:focus,
-  &-input[type='email']:focus,
-  &-input[type='month']:focus,
-  &-input[type='number']:focus,
-  &-input[type='password']:focus,
-  &-input[type='search']:focus,
-  &-input[type='tel']:focus,
-  &-text-input:focus,
-  &-input[type='time']:focus,
-  &-input[type='url']:focus,
-  &-input[type='week']:focus,
+  &-input[type]:focus,
   &-input:not([type]):focus,
+  &-text-input:focus,
   &-textarea:focus,
   &-select:focus {
     outline: none;
