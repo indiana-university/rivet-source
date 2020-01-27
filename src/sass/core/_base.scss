@@ -60,3 +60,9 @@ abbr[title] {
   border: none;
   text-decoration: none;
 }
+
+// Set button margins to zero to override Safari user agent stylesheet
+
+button {
+  margin: 0;
+}
