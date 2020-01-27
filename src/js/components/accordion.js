@@ -16,6 +16,7 @@ export default class Accordion {
       ...defaultOptions,
       ...options
     };
+    
 
     // Instance properties
     this.openAllOnInit = settings.openAllOnInit;
@@ -50,7 +51,6 @@ export default class Accordion {
 
     // Set this.openOnInit if needed
     try {
-
       if (initializedPanels.length > 1) {
         throw new TypeError('Caught');
       }
