@@ -2,12 +2,12 @@ name: Publish alpha release
 
 on:
   push:
-    tags: 
-      - 'v**-alpha**'
+    tags:
+      - "v**-alpha**"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -20,7 +20,7 @@ jobs:
 
   publish-npm:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -34,7 +34,7 @@ jobs:
 
   create-release:
     needs: publish-npm
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
