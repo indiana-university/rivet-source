@@ -134,35 +134,50 @@ let eslintOptionsIIFE = { throwOnError: false },
 /**
  * Set new eslint options for compiling IIFE/ESM if env is set to 'production'
  */
-if (process.env.NODE_ENV === 'production') {
-  eslintOptionsIIFE = { throwOnError: true };
-  eslintOptionsESM = { throwOnError: true };
+
+function checkEnv() {
+  if (process.env.NODE_ENV === 'production') {
+    eslintOptionsIIFE = { throwOnError: true };
+    eslintOptionsESM = { throwOnError: true };
+  }
 }
 
 async function compileIIFE() {
-  const bundle = await rollup.rollup({
-    input: './src/js/index.js',
-    plugins: [eslint(eslintOptionsIIFE), babel({ runtimeHelpers: true })]
-  });
+  checkEnv();
 
-  await bundle.write({
-    file: './static/js/rivet-iife.js',
-    format: 'iife',
-    name: 'Rivet'
-  });
+  try {
+    const bundle = await rollup.rollup({
+      input: './src/js/index.js',
+      plugins: [eslint(eslintOptionsIIFE), babel({ runtimeHelpers: true })]
+    });
+
+    await bundle.write({
+      file: './static/js/rivet-iife.js',
+      format: 'iife',
+      name: 'Rivet'
+    });
+  } catch (error) {
+    throw new Error('Error: this is probably a linting issue.');
+  }
 }
 
 async function compileESM() {
-  const bundle = await rollup.rollup({
-    input: './src/js/index.js',
-    plugins: [eslint(eslintOptionsESM)]
-  });
+  checkEnv();
 
-  await bundle.write({
-    file: './static/js/rivet-esm.js',
-    format: 'es',
-    name: 'Rivet'
-  });
+  try {
+    const bundle = await rollup.rollup({
+      input: './src/js/index.js',
+      plugins: [eslint(eslintOptionsESM)]
+    });
+
+    await bundle.write({
+      file: './static/js/rivet-esm.js',
+      format: 'es',
+      name: 'Rivet'
+    });
+  } catch (error) {
+    throw new Error('Error: this is probably a linting issue.');
+  }
 }
 
 function watchJS(callback) {

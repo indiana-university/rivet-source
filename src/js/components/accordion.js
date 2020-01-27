@@ -16,7 +16,6 @@ export default class Accordion {
       ...defaultOptions,
       ...options
     };
-    
 
     // Instance properties
     this.openAllOnInit = settings.openAllOnInit;
