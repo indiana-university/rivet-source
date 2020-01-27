@@ -61,8 +61,15 @@ abbr[title] {
   text-decoration: none;
 }
 
-// Set button margins to zero to override Safari user agent stylesheet
+/**
+ * Set button margins to zero to override Safari user agent stylesheet
+ * Remove inner focus from buttons in Firefox
+ */
 
 button {
   margin: 0;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
