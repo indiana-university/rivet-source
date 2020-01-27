@@ -3,9 +3,9 @@ name: Test build
 on:
   push:
     branches:
-      - "feature/**"
-      - "2.0.0-dev"
-      - "!2.0.0-master"
+      - 'feature/**'
+      - '2.0.0-dev'
+      - '!2.0.0-master'
 
 jobs:
   build:
