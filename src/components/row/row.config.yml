@@ -89,8 +89,10 @@ variants:
     context:
       gutter: "--loose"
       gridItems:
-        - content: <span>Loose gutter</span>
-        - content: <span>Loose gutter</span>
+        - modifier: "-4-md"
+          content: <span>Loose gutter</span>
+        - modifier: "-4-md"
+          content: <span>Loose gutter</span>
         - content: <span>Loose gutter</span>
         - content: <span>Loose gutter</span>
   - name: "tight"

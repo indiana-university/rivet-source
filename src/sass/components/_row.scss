@@ -40,9 +40,9 @@ $gutter: $md;
 // source files in their app.
 
 @mixin container($width: 100%) {
-  max-width: $width;
-  margin-right: auto !important;
   margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: $width;
 }
 
 @mixin row {
@@ -71,9 +71,9 @@ $gutter: $md;
 // that want to use the Sass source in their app.
 
 @mixin cols {
-  max-width: 100%;
   flex-basis: 0;
   flex-grow: 1;
+  max-width: 100%;
   padding: 0 $gutter;
   position: relative;
 }
@@ -124,9 +124,9 @@ $gutter: $md;
 }
 
 %auto-row-props {
-  width: 100%;
-  position: relative;
   padding: 0 $gutter;
+  position: relative;
+  width: 100%;
 }
 
 @each $bp-name, $bp-size in $breakpoints {
@@ -138,9 +138,9 @@ $gutter: $md;
 @each $bp-name, $bp-size in $breakpoints {
   @include mq($bp-size) {
     .#{$prefix}-cols-#{$bp-name} {
-      max-width: 100%;
       flex-basis: 0;
       flex-grow: 1;
+      max-width: 100%;
     }
   }
 }
@@ -158,8 +158,8 @@ $gutter: $md;
  */
 
 %cols-properties {
-  position: relative;
   padding: 0 $gutter;
+  position: relative;
   width: 100%;
 }
 
@@ -193,7 +193,9 @@ $gutter: $md;
         max-width: $width * 1%;
       }
     }
-  } @else {
+  }
+
+  @else {
     @include mq($bp-size) {
       @each $columns, $width in $row-columns {
         .#{$prefix}-cols-#{$columns}-#{$bp-name} {
@@ -236,7 +238,9 @@ $gutter: $md;
         right: $width * 1%;
       }
     }
-  } @else {
+  }
+
+  @else {
     @include mq($bp-size) {
       @each $columns, $width in $row-columns {
         .#{$prefix}-cols-push-#{$columns}-#{$bp-name} {
