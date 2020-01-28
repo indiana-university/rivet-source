@@ -47,7 +47,7 @@
 </div>
 
 <script>
-  setTimeout(function() {
+  window.addEventListener('load', function() {
     const dropdownWrapper{{ id }} = document.querySelector('[data-dropdown="{{ id }}"]');
     window.new{{ id }} = new Rivet.Dropdown(dropdownWrapper{{ id }});
 
@@ -60,5 +60,5 @@
       // event.preventDefault();
       // console.log('Closed:', event.detail.id);
     });
-  }, 500);
+  });
 </script>
