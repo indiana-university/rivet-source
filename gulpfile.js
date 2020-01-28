@@ -18,6 +18,8 @@ const pkg = require('./package.json');
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
 
+sass.compiler = require('sass');
+
 /**
  * Sass tasks
  */
