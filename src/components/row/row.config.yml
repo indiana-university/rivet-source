@@ -85,3 +85,19 @@ variants:
           content: <span>7 columns (right-aligned)</span>
           orders:
             - modifier: "rvt-cols--last"
+  - name: "loose"
+    context:
+      gutter: "--loose"
+      gridItems:
+        - content: <span>Loose gutter</span>
+        - content: <span>Loose gutter</span>
+        - content: <span>Loose gutter</span>
+        - content: <span>Loose gutter</span>
+  - name: "tight"
+    context:
+      gutter: "--tight"
+      gridItems:
+        - content: <span>Tight gutter</span>
+        - content: <span>Tight gutter</span>
+        - content: <span>Tight gutter</span>
+        - content: <span>Tight gutter</span>

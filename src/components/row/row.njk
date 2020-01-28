@@ -1,12 +1,14 @@
-<div class="{% for class in classes %} rvt-container--{{class}}{% endfor %}">
-  <div class="rvt-row">
+{% if classes %}<div class="{% for class in classes %}rvt-container--{{class}}{% endfor %}">{% endif %}
+  <div class="rvt-row{% if gutter %} rvt-row{{gutter}}{% endif %}">
     {% for gridItem in gridItems %}
       <div class="rvt-cols{% if gridItem.modifier -%}{{gridItem.modifier}}{%- endif %}{% for order in gridItem.orders %} {{order.modifier}}{% endfor %}">
         {{ gridItem.content | safe }}
       </div>
     {% endfor %}
   </div>
+{% if classes %}
 </div>
+{% endif %}
 
 <style scoped>
     [class^="rvt-cols"] span {

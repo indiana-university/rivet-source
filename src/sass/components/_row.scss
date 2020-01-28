@@ -48,7 +48,7 @@ $gutter: $md;
 @mixin row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 ($gutter * -1);
+  margin: 0 ($gutter/-1);
 }
 
 /**
@@ -68,9 +68,9 @@ $gutter: $md;
  */
 
 // TODO: refactor the other row__cols-* classes into mixins for those
-// that want ot use the Sass source in their app.
+// that want to use the Sass source in their app.
 
-@mixin row-cols {
+@mixin cols {
   max-width: 100%;
   flex-basis: 0;
   flex-grow: 1;
@@ -85,8 +85,12 @@ $gutter: $md;
     margin: 0 ($gutter * -1.66);
   }
 
+  &--tight {
+    margin: 0 ($gutter/-2);
+  }
+
   .#{$prefix}-cols {
-    @include row-cols;
+    @include cols;
   }
 
   .#{$prefix}-cols--last {
@@ -102,7 +106,11 @@ $gutter: $md;
   }
 
   &--loose > [class^="#{$prefix}-cols"] {
-    margin: 0 ($gutter * -1.66);
+    padding: 0 ($gutter * 1.66);
+  }
+
+  &--tight > [class^="#{$prefix}-cols"] {
+    padding: 0 ($gutter/2);
   }
 }
 
