@@ -1,0 +1,7 @@
+// Media query helper function
+
+@mixin mq($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}

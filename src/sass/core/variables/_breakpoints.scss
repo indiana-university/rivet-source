@@ -1,0 +1,15 @@
+// Global breakpoints
+
+$breakpoints: (
+  sm: (480em/16),
+  md: (740em/16),
+  lg: (1080em/16),
+  xl: (1260em/16),
+  xxl: (1400em/16)
+) !default;
+
+$breakpoint-sm: map-get($breakpoints, 'sm');
+$breakpoint-md: map-get($breakpoints, 'md');
+$breakpoint-lg: map-get($breakpoints, 'lg');
+$breakpoint-xl: map-get($breakpoints, 'xl');
+$breakpoint-xxl: map-get($breakpoints, 'xxl');

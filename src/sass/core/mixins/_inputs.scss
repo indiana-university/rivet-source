@@ -1,27 +1,3 @@
-// Copyright (C) 2018 The Trustees of Indiana University
-// SPDX-License-Identifier: BSD-3-Clause
-
-/* stylelint-disable */
-
-// These are some helpful mixins and functions that are used in other
-// parts of the codebase. Nothing in this file should generate CSS
-// on it's own only return CSS properties or values.
-
-// This little function makes it easier to get values out
-// of the type-sizes map. see "core/_varibales.scss".
-
-@function ts($key) {
-  @return map-get($type-sizes, $key);
-}
-
-// Media query helper function
-
-@mixin mq($size) {
-  @media screen and (min-width: $size) {
-    @content;
-  }
-}
-
 @mixin all-inputs($class) {
   @if $class == null {
     input[type='date'],
@@ -63,5 +39,3 @@
     }
   }
 }
-
-/* stylelint-enable */

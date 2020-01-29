@@ -1,10 +1,12 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'variables';
+
 @font-face {
   font-family: 'BentonSans';
   font-style: normal;
-  font-weight: $font-weight-regular;
+  font-weight: variables.$font-weight-regular;
   src: url('https://fonts.iu.edu/fonts/benton-sans-regular.eot');
   src:
     url('https://fonts.iu.edu/fonts/benton-sans-regular.eot?#iefix') format('embedded-opentype'),
@@ -16,7 +18,7 @@
 @font-face {
   font-family: 'BentonSans';
   font-style: normal;
-  font-weight: $font-weight-bold;
+  font-weight: variables.$font-weight-bold;
   src: url('https://fonts.iu.edu/fonts/benton-sans-bold.eot');
   src:
     url('https://fonts.iu.edu/fonts/benton-sans-bold.eot?#iefix') format('embedded-opentype'),
