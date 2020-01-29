@@ -27,7 +27,7 @@
   flex-direction: column-reverse !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
+@each $bp-name, $bp-value in mixins.$breakpoints {
   @include mq($bp-value) {
     .#{$prefix}-flex-#{$bp-name}-up {
       display: flex !important;
