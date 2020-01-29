@@ -1,11 +1,11 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "libs/normalize";
-@use "core";
-@use "utilities";
-@use "accordion";
-@import "components/action";
+@use 'libs/normalize';
+@use 'utilities';
+@use 'accordion';
+@use 'action';
+
 @import "components/alerts";
 @import "components/badges";
 @import "components/box";

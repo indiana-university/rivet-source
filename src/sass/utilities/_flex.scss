@@ -1,6 +1,8 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'core' as *;
+
 // Display flex
 
 .#{$prefix}-flex {
@@ -27,7 +29,7 @@
   flex-direction: column-reverse !important;
 }
 
-@each $bp-name, $bp-value in mixins.$breakpoints {
+@each $bp-name, $bp-value in $breakpoints {
   @include mq($bp-value) {
     .#{$prefix}-flex-#{$bp-name}-up {
       display: flex !important;

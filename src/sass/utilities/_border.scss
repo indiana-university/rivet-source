@@ -1,6 +1,8 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'core' as *;
+
 .#{$prefix}-border-all {
   border: 1px solid $color-black-200 !important;
 }

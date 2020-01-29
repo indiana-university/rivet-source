@@ -1,8 +1,7 @@
-@use 'global' as *;
-
 @forward 'breakpoints';
 @forward 'colors';
 @forward 'fonts';
+@forward 'global';
 @forward 'spacing';
 @forward 'type-scale';
 @forward 'z-index';
