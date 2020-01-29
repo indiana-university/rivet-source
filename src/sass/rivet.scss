@@ -1,24 +1,11 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@import "libs/normalize";
-@import "core/variables";
-@import "core/tools";
-@import "core/fonts";
-@import "core/base";
-@import "utilities/utilities-border";
-@import "utilities/utilities-color";
-@import "utilities/utilities-display";
-@import "utilities/utilities-flex";
-@import "utilities/utilities-spacing";
-@import "utilities/utilities-text";
-@import "utilities/utilities-type-scale";
-@import "utilities/utilities-visibility";
-@import "utilities/utilities-width";
-@import "utilities/utilities-wysiwyg";
-@import "utilities/utilities-z-index";
+@use "libs/normalize";
+@use "core";
+@use "utilities";
+@use "accordion";
 @import "components/action";
-@import "components/accordion";
 @import "components/alerts";
 @import "components/badges";
 @import "components/box";
