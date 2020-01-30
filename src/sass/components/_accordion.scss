@@ -7,17 +7,18 @@
   }
 
   &__title button {
-    margin: 0;
-    display: flex;
     align-items: center;
     background-color: transparent;
     border: none;
-    width: 100%;
+    cursor: pointer;
+    display: flex;
+    margin: 0;
     padding: 0;
+    width: 100%;
 
     &:focus {
-      outline: none;
       box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
+      outline: none;
     }
 
     &:hover {
@@ -59,13 +60,13 @@
   }
 
   &--panel &__title button[aria-expanded="true"] {
-    border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   &--panel &__content {
-    padding: $sm;
     border-top: 1px solid $color-black-200;
+    padding: $sm;
   }
 }
 
