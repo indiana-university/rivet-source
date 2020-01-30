@@ -50,7 +50,6 @@ export default class Accordion {
 
     // Set this.openOnInit if needed
     try {
-
       if (initializedPanels.length > 1) {
         throw new TypeError('Caught');
       }
