@@ -1,6 +1,8 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'core' as *;
+
 .#{$prefix}-timeline {
   position: relative;
   padding: $lg 0;
@@ -19,7 +21,7 @@
   &__item::after {
     margin-left: 0;
     border: solid transparent;
-    content: " ";
+    content: ' ';
     height: 0;
     width: 0;
     position: absolute;
