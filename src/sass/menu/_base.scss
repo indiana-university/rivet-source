@@ -1,3 +1,8 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
 .#{$prefix}-menu {
   &__list {
     list-style: none;
@@ -28,7 +33,7 @@
   &__item a[aria-current]::after,
   &__item a:hover::after,
   &__item button:hover::after {
-    content: "";
+    content: '';
     display: block;
     width: $xxs;
     height: 100%;
