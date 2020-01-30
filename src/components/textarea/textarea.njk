@@ -1,5 +1,5 @@
-<label for="textarea-{{ id }}">Textarea</label>
-<textarea id="textarea-{{ id }}" {% if class -%} class="rvt-validation-{{ class }}"{%- endif %} {{ modifier }}></textarea>
+<label for="textarea-{{ id }}" class="rvt-label">Textarea</label>
+<textarea id="textarea-{{ id }}" class="rvt-textarea{% if class %} rvt-validation-{{ class }}{%- endif %}" {{ modifier }}></textarea>
 {% if alert %}
   {% set variant = "@alert-inline" %}
   {% if alertVariant %}
