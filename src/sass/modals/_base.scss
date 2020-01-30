@@ -1,6 +1,8 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'core' as *;
+
 /**
  * This class gets applied to the body of the document when the modal
  * is open so that the modal scrolls but not the content of the body.
