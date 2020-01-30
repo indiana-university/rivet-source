@@ -23,8 +23,8 @@
 @use 'inputs';
 @use 'links';
 @use 'lists';
+@use 'loading-indicator';
 
-@import 'components/loading-indicator';
 @import 'components/media-object';
 @import 'components/menu';
 @import 'components/modals';
