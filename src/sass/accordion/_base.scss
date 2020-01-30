@@ -31,7 +31,7 @@
     }
   }
 
-  &__title button[aria-expanded="true"] {
+  &__title button[aria-expanded='true'] {
     svg {
       transform: rotate(90deg);
     }
@@ -60,7 +60,7 @@
     }
   }
 
-  &--panel &__title button[aria-expanded="true"] {
+  &--panel &__title button[aria-expanded='true'] {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
