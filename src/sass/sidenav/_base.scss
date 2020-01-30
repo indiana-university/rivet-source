@@ -49,6 +49,7 @@
     align-items: center;
     background: transparent;
     border: none;
+    cursor: pointer;
     display: none; // Hide by default if JS doesn't load
     justify-content: center;
     padding: $sm*.875;
