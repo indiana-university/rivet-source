@@ -30,8 +30,8 @@
 @use 'pagination';
 @use 'radios';
 @use 'sidenav';
+@use 'step-indicator';
 
-@import 'components/step-indicator';
 @import 'components/tables';
 @import 'components/tabs';
 @import 'components/timeline';
