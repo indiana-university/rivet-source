@@ -28,6 +28,7 @@
   &-textarea {
     height: $spacing-unit * 15;
     line-height: 1.5;
+    overflow: auto; // Remove scrollbar in IE
   }
 
   &-input[type='search'] {
