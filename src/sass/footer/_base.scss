@@ -1,6 +1,8 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'core' as *;
+
 .#{$prefix}-footer {
   align-items: center;
   font-size: ts(12);
@@ -38,7 +40,7 @@
     margin-top: 0;
 
     &:first-child::after {
-      content: "|";
+      content: '|';
       color: $color-black-500;
       margin: 0 $xs;
     }
@@ -56,7 +58,7 @@
 @include mq(519px) {
   .#{$prefix}-footer {
     &__aux-item::after {
-      content: "|";
+      content: '|';
       color: $color-black-500;
       margin: 0 $xs;
     }
