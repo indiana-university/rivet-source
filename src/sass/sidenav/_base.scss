@@ -1,3 +1,8 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
 .#{$prefix}-sidenav {
   &__list {
     flex-basis: 100%;
@@ -56,7 +61,7 @@
       display: block;
     }
 
-    &[aria-expanded="true"] {
+    &[aria-expanded='true'] {
       transform: rotate(180deg);
     }
 
@@ -110,23 +115,30 @@ $level-styles: (
   $indent-rem: $indent / 16;
 
   // Indent the link text
+
   #{$indent-selector} > .rvt-sidenav__item-wrapper > .rvt-sidenav__link,
   #{$indent-selector} > .rvt-sidenav__link {
     padding-left: $indent-rem + rem;
   }
 
   // Set border-top color per nested level
+
   #{$indent-selector} {
     @if $index == 1 {
       border-color: $color-black-100;
-    } @else if $index == 2 {
+    }
+
+    @else if $index == 2 {
       border-color: $color-black-200;
-    } @else if $index == 3 {
+    }
+
+    @else if $index == 3 {
       border-color: $color-black-300;
     }
   }
 
   // Set the background shade
+
   #{$shade-selector} {
     background-color: $shade;
   }
