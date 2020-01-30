@@ -11,19 +11,6 @@
     width: 100%;
     border-radius: $xxs;
     background-color: inherit;
-
-    /**
-     * Making the decision here to stay with 1px border on form element,
-     * but increasing the color contrast to meet WCAG requirements.
-     *
-     * See the WCAG requirement explanation here:
-     * https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)#SC_Text
-     *
-     * Also, refer to Github issue for new WCAG 2.0 requirements for
-     * non-text interactive element:
-     *
-     * https://github.com/w3c/wcag21/issues/10
-     */
     border: 1px solid $color-black-400;
     padding: $xs;
     height: $xl;
