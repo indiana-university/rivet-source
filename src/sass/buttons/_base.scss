@@ -1,13 +1,12 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-/* stylelint-disable */
+@use 'core' as *;
 
 %button-focus {
   outline: none;
   box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
 }
-/* stylelint-enable */
 
 .#{$prefix}-button {
   background-color: $color-blue-600;
