@@ -4,6 +4,7 @@
   "rules": {
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": null,
+    "string-quotes": single,
     "color-hex-length": "long",
     "selector-type-no-unknown": [true, {
       ignore: ["custom-elements"]
