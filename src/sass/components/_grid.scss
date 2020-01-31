@@ -59,9 +59,7 @@ $gutter: $md/2;
 
 @each $key, $value in $row-widths {
   .#{$prefix}-container-#{$key} {
-    @include container();
-
-    max-width: $value;
+    @include container($value);
   }
 }
 
