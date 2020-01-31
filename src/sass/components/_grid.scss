@@ -33,7 +33,7 @@ $row-widths: (
 );
 
 // Global row gutter. Set this to half of what you want the final gutter to be.
-$gutter: $md;
+$gutter: $md/2;
 
 // Starting on some mixins to build row classes and to make
 // available for those who want to use the Sass source
@@ -43,8 +43,8 @@ $gutter: $md;
   margin-left: auto !important;
   margin-right: auto !important;
   max-width: $width;
-  padding-left: $gutter;
-  padding-right: $gutter;
+  padding-left: $gutter * 2;
+  padding-right: $gutter * 2;
 }
 
 @mixin row {
@@ -88,7 +88,7 @@ $gutter: $md;
   }
 
   &--tight {
-    margin: 0 ($gutter/-2);
+    margin: 0 ($gutter/-1);
   }
 
   .#{$prefix}-cols {
@@ -112,7 +112,7 @@ $gutter: $md;
   }
 
   &--tight > [class^="#{$prefix}-cols"] {
-    padding: 0 ($gutter/2);
+    padding: 0 ($gutter);
   }
 }
 
