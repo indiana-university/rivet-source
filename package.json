@@ -65,10 +65,11 @@
     "rollup": "^1.26.5",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-eslint": "^7.0.0",
+    "sass": "^1.25.0",
     "start-server-and-test": "^1.10.6",
     "stylelint": "^10.0.1",
     "stylelint-config-rivet": "^1.0.0",
-    "stylelint-scss": "^3.6.1"
+    "stylelint-scss": "^3.14.2"
   },
   "dependencies": {}
 }

@@ -1,0 +1,8 @@
+// This little function makes it easier to get values out
+// of the type-scale map. see "variables/type-scale".
+
+@use 'core/variables/type-scale' as *;
+
+@function ts($key) {
+  @return map-get($type-sizes, $key);
+}

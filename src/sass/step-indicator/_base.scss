@@ -1,0 +1,173 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix}-steps {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /**
+   * Allows content to be scrollable on smaller screens
+   */
+  overflow-x: scroll;
+
+  &__item {
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      box-shadow: 0 $sm*2.75 0 $xxs/2 $color-black-100;
+      z-index: 0;
+    }
+
+    &:last-child::before {
+      width: 50%;
+    }
+
+    &:first-child::before {
+      position: absolute;
+      left: 50%;
+    }
+  }
+
+  &__item-content {
+    color: $color-black;
+
+    /**
+     * If we set the link to display flex, we can use
+     * flex-direction: column-reverse to add a variant where the label
+     * is on the bottom.
+     */
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__item-content[aria-current] &__indicator {
+    font-weight: 700;
+  }
+
+  &__item-content:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &__item-content:focus &__indicator {
+    box-shadow: 0 0 0 $xxs $color-blue-300;
+  }
+
+  &__label {
+    display: block;
+    color: $color-black;
+    margin-bottom: $xs;
+    font-size: $ts-14;
+    padding-right: $xs;
+    padding-left: $xs;
+  }
+
+  &__indicator {
+    align-items: center;
+    background-color: $color-white;
+    border: $xxs solid $color-black-200;
+    border-radius: 999rem;
+    box-shadow: 0 0 0 $xxs $color-white;
+    display: inline-flex;
+    height: $lg;
+    justify-content: center;
+    position: relative;
+    width: $lg;
+    z-index: map-get($z-index, z-100);
+  }
+
+  &__indicator--success {
+    background-color: $color-green-500;
+    border-color: $color-green-400;
+    color: $color-white;
+  }
+
+  &__indicator--warning {
+    background-color: $color-yellow-200;
+    border-color: $color-yellow-100;
+    color: $color-black-900;
+  }
+
+  &__indicator--danger {
+    background-color: $color-orange-500;
+    border-color: $color-orange-400;
+    color: $color-white;
+  }
+
+  /**
+   * Start vertical variant
+   */
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--vertical &__item {
+    text-align: left;
+    margin-top: 0;
+    padding-top: $md;
+    position: relative;
+  }
+
+  &--vertical &__item:first-child::before {
+    content: none;
+  }
+
+  &--vertical &__item::before {
+    box-shadow: -$xxs 0 0 0 $color-black-100;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: $sm*1.125;
+  }
+
+  &--vertical &__item-content {
+    flex-direction: row-reverse;
+    align-items: center;
+    position: relative;
+  }
+
+  &--vertical &__label {
+    margin-bottom: 0;
+    padding-left: $sm;
+  }
+}
+
+/**
+ * Alternate styles used when wrapper element is a link. For instance,
+ * when user can click through all steps of a multi-page flow.
+ */
+
+a.#{$prefix}-steps__item-content {
+  text-decoration: none;
+}
+
+a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__label,
+a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__label {
+  text-decoration: underline;
+}
+
+a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
+a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
+a.#{$prefix}-steps__item-content[aria-current] .#{$prefix}-steps__indicator {
+  background-color: $color-blue;
+  color: $color-white;
+  border-color: $color-blue;
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-steps {
+    overflow-x: visible;
+  }
+}

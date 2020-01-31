@@ -1,0 +1,22 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+/* stylelint-disable */
+
+// Generate color utility classes
+@each $key, $value in $colors {
+  .#{$prefix}-color-#{$key} {
+    color: #{$value} !important;
+  }
+}
+
+// Generate background-color utility classes
+@each $key, $value in $colors {
+  .#{$prefix}-bg-#{$key} {
+    background-color: #{$value} !important;
+  }
+}
+
+/* stylelint-enable */

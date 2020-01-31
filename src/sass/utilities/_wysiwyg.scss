@@ -1,0 +1,15 @@
+@use 'core' as *;
+
+.#{$prefix}-wysiwyg {
+  * + * {
+    margin-top: $sm;
+  }
+
+  *:empty { // Hides any empty elements (as well as <br />)
+    display: none;
+  }
+
+  code + code {
+    margin-top: 0;
+  }
+}
