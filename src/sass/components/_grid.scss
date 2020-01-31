@@ -43,6 +43,8 @@ $gutter: $md;
   margin-left: auto !important;
   margin-right: auto !important;
   max-width: $width;
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 @mixin row {
@@ -56,7 +58,7 @@ $gutter: $md;
  */
 
 @each $key, $value in $row-widths {
-  .#{$prefix}-container--#{$key} {
+  .#{$prefix}-container-#{$key} {
     @include container();
 
     max-width: $value;

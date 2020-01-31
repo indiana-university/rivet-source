@@ -1,5 +1,6 @@
 title: "Grid"
 status: "ready"
+preview: "@preview-no-padding"
 collated: true
 context:
   gridItems:
