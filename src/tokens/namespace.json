@@ -1,0 +1,6 @@
+{
+  "prefix": {
+    "value": "rvt",
+    "comment": "Global class name prefix"
+  }
+}
