@@ -9,6 +9,9 @@ const rename = require('gulp-rename');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
+const StyleDictionary = require('style-dictionary').extend(
+  './tokens-config.json'
+);
 const stylelint = require('gulp-stylelint');
 const uglify = require('gulp-uglify');
 
@@ -42,6 +45,11 @@ var bannerText = `/*!
 // Set Node environment to 'production' for build and release exports
 function setProdNodeEnv(callback) {
   process.env.NODE_ENV = 'production';
+  callback();
+}
+
+function compileTokens(callback) {
+  StyleDictionary.buildAllPlatforms();
   callback();
 }
 
@@ -286,6 +294,7 @@ function example(callback) {
 
 exports.release = series(
   setProdNodeEnv,
+  compileTokens,
   lintSassBuild,
   compileSass,
   compileCSS,

@@ -1,0 +1,25 @@
+{
+  "source": ["src/tokens/**/*.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "fakesrc/sass/core/",
+      "files": [
+        {
+          "destination": "variables.scss",
+          "format": "scss/map-deep"
+        }
+      ]
+    },
+    "less": {
+      "transformGroup": "less",
+      "buildPath": "fakesrc/less/",
+      "files": [
+        {
+          "destination": "variables.less",
+          "format": "less/variables"
+        }
+      ]
+    }
+  }
+}
