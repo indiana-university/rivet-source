@@ -67,6 +67,7 @@
     "rollup-plugin-eslint": "^7.0.0",
     "sass": "^1.25.0",
     "start-server-and-test": "^1.10.6",
+    "style-dictionary": "^2.8.3",
     "stylelint": "^10.0.1",
     "stylelint-config-rivet": "^1.0.0",
     "stylelint-scss": "^3.14.2"
