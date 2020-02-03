@@ -1,0 +1,36 @@
+{
+  "width": {
+    "base": {
+      "value": "{xxl.value}",
+      "comment": "64px"
+    },
+    "xxs": {
+      "value": "{width.base.value}",
+      "comment": "64px"
+    },
+    "xs": {
+      "value": "({width.base.value} * 2)",
+      "comment": "128px"
+    },
+    "sm": {
+      "value": "({width.base.value} * 3)",
+      "comment": "192px"
+    },
+    "md": {
+      "value": "({width.base.value} * 4)",
+      "comment": "256px"
+    },
+    "lg": {
+      "value": "({width.base.value} * 5)",
+      "comment": "320px"
+    },
+    "xl": {
+      "value": "({width.base.value} * 6)",
+      "comment": "384px"
+    },
+    "xxl": {
+      "value": "({width.base.value} * 8)",
+      "comment": "512px"
+    }
+  }
+}
