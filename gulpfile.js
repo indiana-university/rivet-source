@@ -53,6 +53,11 @@ function compileTokens(callback) {
   callback();
 }
 
+function watchTokens(callback) {
+  watch('src/tokens/**/*.json', series(compileTokens));
+  callback();
+}
+
 function compileSass() {
   return src('src/sass/**/*.scss')
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
@@ -314,6 +319,7 @@ exports.release = series(
 
 exports.build = series(
   setProdNodeEnv,
+  compileTokens,
   lintSassBuild,
   compileSass,
   compileIIFE,
@@ -330,21 +336,25 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(
+  compileTokens,
   compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,
   fractalHeadless,
+  watchTokens,
   watchSass,
   watchJS
 );
 
 exports.default = series(
+  compileTokens,
   compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,
   fractalStart,
+  watchTokens,
   watchSass,
   watchJS
 );
