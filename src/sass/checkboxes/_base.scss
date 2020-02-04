@@ -53,7 +53,7 @@
   &:checked + .#{$prefix}-label,
   .#{$prefix}-checkbox-wrapper &:checked ~ .#{$prefix}-label {
     &::before {
-      color: $color-white;
+      color: $color-white-base;
       background-color: $color-blue-600;
       box-shadow: 0 0 0 .08rem $color-blue-600;
       background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=');
@@ -68,7 +68,7 @@
   .#{$prefix}-checkbox-wrapper &:focus ~ .#{$prefix}-label::before {
     box-shadow:
       0 0 0 .08rem $color-black-700,
-      0 0 0 .1875rem $color-white,
+      0 0 0 .1875rem $color-white-base,
       0 0 0 .3125rem $color-blue-600;
   }
 
@@ -88,7 +88,7 @@
   .#{$prefix}-checkbox-wrapper &:indeterminate:focus ~ .#{$prefix}-label::before {
     box-shadow:
       0 0 0 .08rem $color-blue-600,
-      0 0 0 .1875rem $color-white,
+      0 0 0 .1875rem $color-white-base,
       0 0 0 .3125rem $color-blue-500;
   }
 

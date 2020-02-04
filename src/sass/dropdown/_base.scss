@@ -78,7 +78,7 @@
     button {
       display: block;
       text-decoration: none;
-      color: $color-black;
+      color: $color-black-base;
 
       /**
              * This padding-top and bottom value is a magic number. Sorry,
@@ -92,7 +92,7 @@
 
       &:hover {
         background-color: $color-blue-600;
-        color: $color-white;
+        color: $color-white-base;
         text-decoration: none;
       }
 

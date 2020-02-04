@@ -5,14 +5,14 @@
 
 %button-focus {
   outline: none;
-  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
+  box-shadow: 0 0 0 $xxs/2 $color-white-base, 0 0 0 $xxs $color-blue-600;
 }
 
 .#{$prefix}-button {
   background-color: $color-blue-600;
   border: $xxs/2 solid $color-blue-600;
   border-radius: $xxs;
-  color: $color-white;
+  color: $color-white-base;
   cursor: pointer;
   font-weight: bold;
   line-height: 1;
@@ -39,7 +39,7 @@
   &--hover {
     background-color: $color-blue-700;
     border-color: $color-blue-700;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &:active,
@@ -93,7 +93,7 @@
   &-hover {
     background-color: $color-green-700;
     border-color: $color-green-700;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &:active,
@@ -141,7 +141,7 @@
   &-hover {
     background-color: $color-orange-700;
     border-color: $color-orange-700;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &:active,
@@ -190,7 +190,7 @@
   &-hover {
     background-color: $color-blue-700;
     border-color: $color-blue-700;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &-active,

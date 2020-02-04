@@ -39,7 +39,7 @@
   }
 
   &__item-content {
-    color: $color-black;
+    color: $color-black-base;
 
     /**
      * If we set the link to display flex, we can use
@@ -66,7 +66,7 @@
 
   &__label {
     display: block;
-    color: $color-black;
+    color: $color-black-base;
     margin-bottom: $xs;
     font-size: $ts-14;
     padding-right: $xs;
@@ -75,10 +75,10 @@
 
   &__indicator {
     align-items: center;
-    background-color: $color-white;
+    background-color: $color-white-base;
     border: $xxs solid $color-black-200;
     border-radius: 999rem;
-    box-shadow: 0 0 0 $xxs $color-white;
+    box-shadow: 0 0 0 $xxs $color-white-base;
     display: inline-flex;
     height: $lg;
     justify-content: center;
@@ -90,7 +90,7 @@
   &__indicator--success {
     background-color: $color-green-500;
     border-color: $color-green-400;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &__indicator--warning {
@@ -102,7 +102,7 @@
   &__indicator--danger {
     background-color: $color-orange-500;
     border-color: $color-orange-400;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   /**
@@ -161,9 +161,9 @@ a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__label {
 a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content[aria-current] .#{$prefix}-steps__indicator {
-  background-color: $color-blue;
-  color: $color-white;
-  border-color: $color-blue;
+  background-color: $color-blue-base;
+  color: $color-white-base;
+  border-color: $color-blue-base;
 }
 
 @include mq($breakpoint-md) {

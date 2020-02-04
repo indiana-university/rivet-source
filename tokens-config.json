@@ -3,7 +3,7 @@
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "buildPath": "fakesrc/sass/core/",
+      "buildPath": "src/sass/core/",
       "files": [
         {
           "destination": "variables.scss",
@@ -13,7 +13,7 @@
     },
     "less": {
       "transformGroup": "less",
-      "buildPath": "fakesrc/less/",
+      "buildPath": "less/",
       "files": [
         {
           "destination": "variables.less",

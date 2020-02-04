@@ -12,7 +12,7 @@
     border-color: $color-black-700;
     /* stylelint-disable */
     box-shadow:
-      0 0 0 .125rem $color-white,
+      0 0 0 .125rem $color-white-base,
       0 0 0 .2875rem $color-blue-600;
     /* stylelint-enable */
   }
@@ -27,7 +27,7 @@
     border-color: $color-black-700;
     /* stylelint-disable */
     box-shadow:
-      0 0 0 .125rem $color-white,
+      0 0 0 .125rem $color-white-base,
       0 0 0 .2875rem $color-yellow-200;
     /* stylelint-enable */
   }
@@ -42,7 +42,7 @@
     border-color: $color-black-700;
     /* stylelint-disable */
     box-shadow:
-      0 0 0 .125rem $color-white,
+      0 0 0 .125rem $color-white-base,
       0 0 0 .2875rem $color-orange-500;
     /* stylelint-enable */
   }
@@ -57,7 +57,7 @@
     border-color: $color-black-700;
     /* stylelint-disable */
     box-shadow:
-      0 0 0 .125rem $color-white,
+      0 0 0 .125rem $color-white-base,
       0 0 0 .2875rem $color-green-500;
     /* stylelint-enable */
   }

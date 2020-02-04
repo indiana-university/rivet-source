@@ -5,17 +5,32 @@
 
 /* stylelint-disable */
 
-// Generate color utility classes
-@each $key, $value in $colors {
-  .#{$prefix}-color-#{$key} {
-    color: #{$value} !important;
+// Did this work?
+
+@each $key, $value in $tokens {
+  @if $key == 'color' {
+    @each $item, $entity in $value {
+      @each $shade, $hex in $entity {
+        .#{$prefix}-#{$item}-#{$shade} {
+          color: #{$hex} !important;
+        }
+      }
+    }
   }
 }
 
 // Generate background-color utility classes
-@each $key, $value in $colors {
-  .#{$prefix}-bg-#{$key} {
-    background-color: #{$value} !important;
+@each $key, $value in $tokens {
+  @if $key == 'color' {
+    @each $item, $entity in $value {
+      @each $shade, $hex in $entity {
+        @if $shade == 'base' {
+          .#{$prefix}-bg-#{$item} {
+            background-color: #{$hex} !important;
+          }
+        }
+      }
+    }
   }
 }
 

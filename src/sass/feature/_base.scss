@@ -14,7 +14,7 @@
   }
 
   &__tag {
-    color: $color-blue;
+    color: $color-blue-base;
     font-size: $ts-12;
     margin: 0;
     text-transform: uppercase;
@@ -48,7 +48,7 @@
   &__title a:hover,
   &__tag a:hover,
   &__meta a:hover {
-    color: $color-blue;
+    color: $color-blue-base;
     text-decoration: underline;
   }
 }

@@ -1,0 +1,249 @@
+
+/*
+  Do not edit directly
+  Generated on Tue, 04 Feb 2020 19:34:55 GMT
+*/
+
+$breakpoint-sm: (480em/16) !default;
+$breakpoint-md: (740em/16) !default;
+$breakpoint-lg: (1080em/16) !default;
+$breakpoint-xl: (1260em/16) !default;
+$breakpoint-xxl: (1400em/16) !default;
+$color-black-100: #ebecee !default;
+$color-black-200: #c4c7cc !default;
+$color-black-300: #a7abb3 !default;
+$color-black-400: #8b919b !default;
+$color-black-500: #707784 !default;
+$color-black-600: #565f6d !default;
+$color-black-700: #3d4757 !default;
+$color-black-800: #243142 !default;
+$color-black-900: #161c24 !default;
+$color-black-base: #243142 !default;
+$color-black-000: #f7f7f8 !default;
+$color-blue-100: #dce3ee !default;
+$color-blue-200: #b8c8dc !default;
+$color-blue-300: #95adcb !default;
+$color-blue-400: #7194ba !default;
+$color-blue-500: #497ba9 !default;
+$color-blue-600: #006298 !default;
+$color-blue-700: #134a71 !default;
+$color-blue-800: #16324b !default;
+$color-blue-900: #121c28 !default;
+$color-blue-base: #006298 !default;
+$color-blue-000: #edf1f6 !default;
+$color-cream-base: #edebeb !default;
+$color-crimson-base: #990000 !default;
+$color-green-100: #d4e8d2 !default;
+$color-green-200: #aad1a7 !default;
+$color-green-300: #7eb97c !default;
+$color-green-400: #50a253 !default;
+$color-green-500: #008a28 !default;
+$color-green-600: #116d23 !default;
+$color-green-700: #16521d !default;
+$color-green-800: #153717 !default;
+$color-green-900: #111f0f !default;
+$color-green-base: #008a28 !default;
+$color-green-000: #eaf3e8 !default;
+$color-orange-100: #ffd9cc !default;
+$color-orange-200: #ffb49a !default;
+$color-orange-300: #fa8e6b !default;
+$color-orange-400: #ef663c !default;
+$color-orange-500: #df3603 !default;
+$color-orange-600: #b02f0a !default;
+$color-orange-700: #82270d !default;
+$color-orange-800: #571e0c !default;
+$color-orange-900: #2f1407 !default;
+$color-orange-base: #df3603 !default;
+$color-orange-000: #ffece5 !default;
+$color-white-base: #ffffff !default;
+$color-yellow-100: #ffdd9b !default;
+$color-yellow-200: #f5bb17 !default;
+$color-yellow-300: #d6a31a !default;
+$color-yellow-400: #b58a1b !default;
+$color-yellow-500: #94721b !default;
+$color-yellow-600: #765a19 !default;
+$color-yellow-700: #584416 !default;
+$color-yellow-800: #3c2e13 !default;
+$color-yellow-900: #221b0c !default;
+$color-yellow-base: #f5bb17 !default;
+$color-yellow-000: #ffeecd !default;
+$font-base: 'BentonSans', 'Helvetica Neue', 'Helvetica', sans-serif !default;
+$font-weight-bold: 700 !default;
+$font-weight-regular: 400 !default;
+$prefix: rvt !default; // Global class name prefix
+$shadow-base: 0 1px 3px 2px rgba(36, 49, 66, .1) !default;
+$spacing-unit: .5rem !default; // 8px
+$xxs: (.5rem / 2) !default; // 4px
+$xs: .5rem !default; // 8px
+$sm: (.5rem * 2) !default; // 16px
+$md: (.5rem * 3) !default; // 24px
+$lg: (.5rem * 4) !default; // 32px
+$xl: (.5rem * 5) !default; // 40px
+$xxl: (.5rem * 8) !default; // 64px
+$ts-12: .75rem !default;
+$ts-14: .875rem !default;
+$ts-16: 1rem !default;
+$ts-18: 1.125rem !default;
+$ts-20: 1.25rem !default;
+$ts-23: 1.4375rem !default;
+$ts-26: 1.625rem !default;
+$ts-29: 1.8125rem !default;
+$ts-32: 2rem !default;
+$ts-36: 2.25rem !default;
+$ts-41: 2.5625rem !default;
+$ts-46: 2.875rem !default;
+$ts-52: 3.25rem !default;
+$ts-xxs: .75rem !default;
+$ts-xs: .875rem !default;
+$ts-base: 1rem !default;
+$ts-sm: 1.25rem !default;
+$ts-md: 1.625rem !default;
+$ts-lg: 2rem !default;
+$ts-xl: 2.5625rem !default;
+$ts-xxl: 3.25rem !default;
+$width-base: (.5rem * 8) !default; // 64px
+$width-xxs: (.5rem * 8) !default; // 64px
+$width-xs: ((.5rem * 8) * 2) !default; // 128px
+$width-sm: ((.5rem * 8) * 3) !default; // 192px
+$width-md: ((.5rem * 8) * 4) !default; // 256px
+$width-lg: ((.5rem * 8) * 5) !default; // 320px
+$width-xl: ((.5rem * 8) * 6) !default; // 384px
+$width-xxl: ((.5rem * 8) * 8) !default; // 512px
+
+$tokens: (
+  'breakpoint': (
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    'xxl': $breakpoint-xxl
+  ),
+  'color': (
+    'black': (
+      '100': $color-black-100,
+      '200': $color-black-200,
+      '300': $color-black-300,
+      '400': $color-black-400,
+      '500': $color-black-500,
+      '600': $color-black-600,
+      '700': $color-black-700,
+      '800': $color-black-800,
+      '900': $color-black-900,
+      'base': $color-black-base,
+      '000': $color-black-000
+    ),
+    'blue': (
+      '100': $color-blue-100,
+      '200': $color-blue-200,
+      '300': $color-blue-300,
+      '400': $color-blue-400,
+      '500': $color-blue-500,
+      '600': $color-blue-600,
+      '700': $color-blue-700,
+      '800': $color-blue-800,
+      '900': $color-blue-900,
+      'base': $color-blue-base,
+      '000': $color-blue-000
+    ),
+    'cream': (
+      'base': $color-cream-base
+    ),
+    'crimson': (
+      'base': $color-crimson-base
+    ),
+    'green': (
+      '100': $color-green-100,
+      '200': $color-green-200,
+      '300': $color-green-300,
+      '400': $color-green-400,
+      '500': $color-green-500,
+      '600': $color-green-600,
+      '700': $color-green-700,
+      '800': $color-green-800,
+      '900': $color-green-900,
+      'base': $color-green-base,
+      '000': $color-green-000
+    ),
+    'orange': (
+      '100': $color-orange-100,
+      '200': $color-orange-200,
+      '300': $color-orange-300,
+      '400': $color-orange-400,
+      '500': $color-orange-500,
+      '600': $color-orange-600,
+      '700': $color-orange-700,
+      '800': $color-orange-800,
+      '900': $color-orange-900,
+      'base': $color-orange-base,
+      '000': $color-orange-000
+    ),
+    'white': (
+      'base': $color-white-base
+    ),
+    'yellow': (
+      '100': $color-yellow-100,
+      '200': $color-yellow-200,
+      '300': $color-yellow-300,
+      '400': $color-yellow-400,
+      '500': $color-yellow-500,
+      '600': $color-yellow-600,
+      '700': $color-yellow-700,
+      '800': $color-yellow-800,
+      '900': $color-yellow-900,
+      'base': $color-yellow-base,
+      '000': $color-yellow-000
+    )
+  ),
+  'font': (
+    'base': $font-base,
+    'weight': (
+      'bold': $font-weight-bold,
+      'regular': $font-weight-regular
+    )
+  ),
+  'prefix': $prefix,
+  'shadow': (
+    'base': $shadow-base
+  ),
+  'spacing-unit': $spacing-unit,
+  'xxs': $xxs,
+  'xs': $xs,
+  'sm': $sm,
+  'md': $md,
+  'lg': $lg,
+  'xl': $xl,
+  'xxl': $xxl,
+  'ts': (
+    '12': $ts-12,
+    '14': $ts-14,
+    '16': $ts-16,
+    '18': $ts-18,
+    '20': $ts-20,
+    '23': $ts-23,
+    '26': $ts-26,
+    '29': $ts-29,
+    '32': $ts-32,
+    '36': $ts-36,
+    '41': $ts-41,
+    '46': $ts-46,
+    '52': $ts-52,
+    'xxs': $ts-xxs,
+    'xs': $ts-xs,
+    'base': $ts-base,
+    'sm': $ts-sm,
+    'md': $ts-md,
+    'lg': $ts-lg,
+    'xl': $ts-xl,
+    'xxl': $ts-xxl
+  ),
+  'width': (
+    'base': $width-base,
+    'xxs': $width-xxs,
+    'xs': $width-xs,
+    'sm': $width-sm,
+    'md': $width-md,
+    'lg': $width-lg,
+    'xl': $width-xl,
+    'xxl': $width-xxl
+  )
+);

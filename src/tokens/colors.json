@@ -71,10 +71,14 @@
       }
     },
     "cream": {
-      "value": "#edebeb"
+      "base": {
+        "value": "#edebeb"
+      }
     },
     "crimson": {
-      "value": "#990000"
+      "base": {
+        "value": "#990000"
+      }
     },
     "green": {
       "base": {
@@ -147,7 +151,9 @@
       }
     },
     "white": {
-      "value": "#ffffff"
+      "base": {
+        "value": "#ffffff"
+      }
     },
     "yellow": {
       "base": {

@@ -19,7 +19,7 @@
     width: 100%;
 
     &:focus {
-      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
+      box-shadow: 0 0 0 $xxs/2 $color-white-base, 0 0 0 $xxs $color-blue-600;
       outline: none;
     }
 

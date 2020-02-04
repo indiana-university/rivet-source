@@ -26,10 +26,10 @@ a,
 
 .#{$prefix}-link--reverse,
 .#{$prefix}-link-reverse {
-  color: rgba($color-white, .8);
+  color: rgba($color-white-base, .8);
 
   &:hover {
-    color: $color-white;
+    color: $color-white-base;
   }
 }
 

@@ -13,6 +13,7 @@ cypress/screenshots
 
 # Built files
 /css
+/less
 /sass
 /js
 /index.html

@@ -11,7 +11,7 @@
 
   &:focus {
     top: 0;
-    background-color: $color-white;
+    background-color: $color-white-base;
   }
 }
 
@@ -24,7 +24,7 @@
 }
 
 .#{$prefix}-header--light {
-  background-color: $color-white;
+  background-color: $color-white-base;
   border-bottom: 1px solid $color-black-100;
 }
 
@@ -68,7 +68,7 @@
   line-height: 1;
 
   a {
-    color: $color-black;
+    color: $color-black-base;
     text-decoration: none;
 
     &:hover {
@@ -83,7 +83,7 @@
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-header__title {
-    font-size: ts(23);
+    font-size: $ts-23;
   }
 }
 
@@ -106,12 +106,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-black;
+  color: $color-black-base;
 
   &:hover {
     background-color: $color-black-200;
     border-color: $color-black-200;
-    color: $color-black;
+    color: $color-black-base;
   }
 
   &:active {
@@ -120,7 +120,7 @@
 
   &:active:hover {
     background-color: $color-blue-800;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &:focus {
@@ -132,7 +132,7 @@
     background-color: $color-black-100;
 
     &:hover {
-      color: $color-black;
+      color: $color-black-base;
     }
 
     &:active:hover {
@@ -143,11 +143,11 @@
     &:focus {
       background-color: $color-blue-600;
       box-shadow: none;
-      color: $color-white;
+      color: $color-white-base;
     }
 
     &:focus:hover {
-      color: $color-white;
+      color: $color-white-base;
     }
   }
 }
@@ -311,7 +311,7 @@
 
   a {
     text-decoration: none;
-    color: $color-black;
+    color: $color-black-base;
 
     &:hover {
       text-decoration: underline;
@@ -340,7 +340,7 @@
       list-style: none;
       margin-bottom: $md;
       padding: 0;
-      background-color: $color-white;
+      background-color: $color-white-base;
     }
 
     ul li {
@@ -367,13 +367,13 @@
     ul li button {
       display: block;
       text-decoration: none;
-      color: $color-black;
+      color: $color-black-base;
       padding: $sm;
       position: relative;
       width: 100%;
       text-align: left;
       border: none;
-      background-color: $color-white;
+      background-color: $color-white-base;
 
       &:focus {
         @extend %button-focus;
@@ -440,7 +440,7 @@
         /* stylelint-disable */
         box-shadow:
           inset $xxs 0 0 $color-blue-600,
-          0 0 0 $xxs/2 $color-white,
+          0 0 0 $xxs/2 $color-white-base,
           0 0 0 $xxs $color-blue-600;
         /* stylelint-enable */
       }
@@ -499,7 +499,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: $color-black;
+    color: $color-black-base;
     border-right: 1px solid $color-black-300;
     padding-right: $sm;
   }
@@ -525,7 +525,7 @@
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: $color-black;
+    background-color: $color-black-base;
     border-radius: 50%;
     margin-right: $xs;
 
@@ -551,7 +551,7 @@
     display: flex;
     border-right: none;
     padding: $xxs $sm;
-    background-color: $color-white;
+    background-color: $color-white-base;
   }
 
   &__profile--drawer &__user {
