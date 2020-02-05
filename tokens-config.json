@@ -21,7 +21,7 @@
           "destination": "maps/color.scss",
           "filter": "isColor",
           "format": "scss/map-flat",
-          "mapName": "color"
+          "mapName": "colors"
         },
         {
           "destination": "maps/type-scale.scss",
@@ -33,7 +33,7 @@
           "destination": "maps/width.scss",
           "filter": "isWidth",
           "format": "scss/map-flat",
-          "mapName": "width"
+          "mapName": "widths"
         },
         {
           "destination": "maps/z-index.scss",

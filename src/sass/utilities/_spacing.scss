@@ -89,61 +89,57 @@ $spacing-sizes: (
 
 // TODO: This can be refactored to use fewer nested loops
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        @each $direction in $spacing-directions {
-          @each $abbr, $refs in $spacing-sizes {
-            // NOTE: We use !important here because we want these utilities to always
-            // produced the same result.
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $direction in $spacing-directions {
+      @each $suffix, $refs in $spacing-sizes {
+        // NOTE: We use !important here because we want these utilities to always
+        // produced the same result.
 
-            // If the direction is "null", add margin to all directions.
-            @if $direction == null {
-              .#{$prefix}-m-all#{$abbr}-#{$size}-up {
-                margin: $refs !important;
-              }
+        // If the direction is "null", add margin to all directions.
+        @if $direction == null {
+          .#{$prefix}-m-all#{$suffix}-#{$variable}-up {
+            margin: $refs !important;
+          }
 
-              .#{$prefix}-p-all#{$abbr}-#{$size}-up {
-                padding: $refs !important;
-              }
+          .#{$prefix}-p-all#{$suffix}-#{$variable}-up {
+            padding: $refs !important;
+          }
 
-              .#{$prefix}-m-tb#{$abbr}-#{$size}-up {
-                margin-bottom: $refs !important;
-                margin-top: $refs !important;
-              }
+          .#{$prefix}-m-tb#{$suffix}-#{$variable}-up {
+            margin-bottom: $refs !important;
+            margin-top: $refs !important;
+          }
 
-              .#{$prefix}-m-lr#{$abbr}-#{$size}-up {
-                margin-left: $refs !important;
-                margin-right: $refs !important;
-              }
+          .#{$prefix}-m-lr#{$suffix}-#{$variable}-up {
+            margin-left: $refs !important;
+            margin-right: $refs !important;
+          }
 
-              .#{$prefix}-p-tb#{$abbr}-#{$size}-up {
-                padding-bottom: $refs !important;
-                padding-top: $refs !important;
-              }
+          .#{$prefix}-p-tb#{$suffix}-#{$variable}-up {
+            padding-bottom: $refs !important;
+            padding-top: $refs !important;
+          }
 
-              .#{$prefix}-p-lr#{$abbr}-#{$size}-up {
-                padding-left: $refs !important;
-                padding-right: $refs !important;
-              }
+          .#{$prefix}-p-lr#{$suffix}-#{$variable}-up {
+            padding-left: $refs !important;
+            padding-right: $refs !important;
+          }
 
-              // Otherwise create individual direction utilities.
-            }
+          // Otherwise create individual direction utilities.
+        }
 
-            @else {
-              .#{$prefix}-m#{$direction}#{$abbr}-#{$size}-up {
-                margin#{$direction}: $refs !important;
-              }
+        @else {
+          .#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+            margin#{$direction}: $refs !important;
+          }
 
-              .#{$prefix}-p#{$direction}#{$abbr}-#{$size}-up {
-                padding#{$direction}: $refs !important;
-              }
-            }
-          } // End $spacing-sizes loop
-        } // End $spacing-directions loop
-      }
-    }
+          .#{$prefix}-p#{$direction}#{$suffix}-#{$variable}-up {
+            padding#{$direction}: $refs !important;
+          }
+        }
+      } // End $spacing-sizes loop
+    } // End $spacing-directions loop
   }
 }
 
@@ -182,50 +178,46 @@ $spacing-sizes: (
 // NOTE: Adding the "-none" alias to the responsive classes without
 // un-prefixed version because the "-none" alias is totally new. We will
 // always prefix every class with "rvt-" moving forward.
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        @each $direction in $spacing-directions {
-          @if $direction == null {
-            .#{$prefix}-m-all-none-#{$size}-up {
-              margin: 0 !important;
-            }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $direction in $spacing-directions {
+      @if $direction == null {
+        .#{$prefix}-m-all-none-#{$variable}-up {
+          margin: 0 !important;
+        }
 
-            .#{$prefix}-p-all-none-#{$size}-up {
-              padding: 0 !important;
-            }
+        .#{$prefix}-p-all-none-#{$variable}-up {
+          padding: 0 !important;
+        }
 
-            .#{$prefix}-m-tb-none-#{$size}-up {
-              margin-top: 0 !important;
-              margin-bottom: 0 !important;
-            }
+        .#{$prefix}-m-tb-none-#{$variable}-up {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+        }
 
-            .#{$prefix}-p-tb-none-#{$size}-up {
-              padding-top: 0 !important;
-              padding-bottom: 0 !important;
-            }
+        .#{$prefix}-p-tb-none-#{$variable}-up {
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+        }
 
-            .#{$prefix}-m-lr-none-#{$size}-up {
-              margin-right: 0 !important;
-              margin-left: 0 !important;
-            }
+        .#{$prefix}-m-lr-none-#{$variable}-up {
+          margin-right: 0 !important;
+          margin-left: 0 !important;
+        }
 
-            .#{$prefix}-p-lr-none-#{$size}-up {
-              padding-right: 0 !important;
-              padding-left: 0 !important;
-            }
-          }
+        .#{$prefix}-p-lr-none-#{$variable}-up {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+        }
+      }
 
-          @else {
-            .#{$prefix}-m#{$direction}-none-#{$size}-up {
-              margin#{$direction}: 0 !important;
-            }
+      @else {
+        .#{$prefix}-m#{$direction}-none-#{$variable}-up {
+          margin#{$direction}: 0 !important;
+        }
 
-            .#{$prefix}-p#{$direction}-none-#{$size}-up {
-              padding#{$direction}: 0 !important;
-            }
-          }
+        .#{$prefix}-p#{$direction}-none-#{$variable}-up {
+          padding#{$direction}: 0 !important;
         }
       }
     }

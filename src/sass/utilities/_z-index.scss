@@ -4,9 +4,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 /* stylelint-disable */
-@each $key, $value in $z-index {
-  .#{$prefix}-#{$key} {
-    z-index: $value !important;
+@each $index, $level in $z-index {
+  .#{$prefix}-#{$index} {
+    z-index: $level !important;
   }
 }
 /* stylelint-enable */

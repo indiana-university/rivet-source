@@ -127,26 +127,18 @@ $gutter: $md / 2;
   padding: 0 $gutter;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      .#{$prefix}-grid__item-#{$size} {
-        @extend %auto-grid-props;
-      }
-    }
+@each $variable, $size in $breakpoints {
+  .#{$prefix}-grid__item-#{$variable} {
+    @extend %auto-grid-props;
   }
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-grid__item-#{$size} {
-          max-width: 100%;
-          flex-basis: 0;
-          flex-grow: 1;
-        }
-      }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-grid__item-#{$variable} {
+      max-width: 100%;
+      flex-basis: 0;
+      flex-grow: 1;
     }
   }
 }
@@ -185,38 +177,30 @@ $gutter: $md / 2;
 /* stylelint-disable */
 
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @each $columns, $width in $grid-columns {
-        .#{$prefix}-grid__item-#{$columns}-#{$size}-up {
-          @extend %item-properties;
-        }
-      }
+@each $variable, $size in $breakpoints {
+  @each $columns, $width in $grid-columns {
+    .#{$prefix}-grid__item-#{$columns}-#{$variable}-up {
+      @extend %item-properties;
     }
   }
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @if $size == 'sm' {
-        @each $columns, $width in $grid-columns {
-          .#{$prefix}-grid__item-#{$columns}-sm-up {
-            flex-basis: $width * 1%;
-            max-width: $width * 1%;
-          }
-        }
+@each $variable, $size in $breakpoints {
+  @if $variable == 'breakpoint-sm' {
+    @each $columns, $width in $grid-columns {
+      .#{$prefix}-grid__item-#{$columns}-sm-up {
+        flex-basis: $width * 1%;
+        max-width: $width * 1%;
       }
+    }
+  }
 
-      @else {
-        @include mq($variable) {
-          @each $columns, $width in $grid-columns {
-            .#{$prefix}-grid__item-#{$columns}-#{$size}-up {
-              flex-basis: $width * 1%;
-              max-width: $width * 1%;
-            }
-          }
+  @else {
+    @include mq($size) {
+      @each $columns, $width in $grid-columns {
+        .#{$prefix}-grid__item-#{$columns}-#{$variable}-up {
+          flex-basis: $width * 1%;
+          max-width: $width * 1%;
         }
       }
     }
@@ -242,36 +226,32 @@ $gutter: $md / 2;
 // but it seems like both should have the same behavior
 // as a convenience.
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @if $size == 'sm' {
-        @each $columns, $width in $grid-columns {
-          .#{$prefix}-grid__item-push-#{$columns}-#{$size} {
-            left: $width * 1%;
-          }
-        }
+@each $variable, $size in $breakpoints {
+  @if $size == 'breakpoint-sm' {
+    @each $columns, $width in $grid-columns {
+      .#{$prefix}-grid__item-push-#{$columns}-#{$variable} {
+        left: $width * 1%;
+      }
+    }
 
-        @each $columns, $width in $grid-columns {
-          .#{$prefix}-grid__item-pull-#{$columns}-#{$size} {
-            right: $width * 1%;
-          }
+    @each $columns, $width in $grid-columns {
+      .#{$prefix}-grid__item-pull-#{$columns}-#{$variable} {
+        right: $width * 1%;
+      }
+    }
+  }
+
+  @else {
+    @include mq($size) {
+      @each $columns, $width in $grid-columns {
+        .#{$prefix}-grid__item-push-#{$columns}-#{$variable} {
+          left: $width * 1%;
         }
       }
 
-      @else {
-        @include mq($variable) {
-          @each $columns, $width in $grid-columns {
-            .#{$prefix}-grid__item-push-#{$columns}-#{$size} {
-              left: $width * 1%;
-            }
-          }
-
-          @each $columns, $width in $grid-columns {
-            .#{$prefix}-grid__item-pull-#{$columns}-#{$size} {
-              right: $width * 1%;
-            }
-          }
+      @each $columns, $width in $grid-columns {
+        .#{$prefix}-grid__item-pull-#{$columns}-#{$variable} {
+          right: $width * 1%;
         }
       }
     }

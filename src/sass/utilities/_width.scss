@@ -5,8 +5,8 @@
 
 // Builds non-responsive width utility classes
 
-@each $size, $width in 'width' {
-  .#{$prefix}-width-#{$size} {
+@each $token, $width in $widths {
+  .#{$prefix}-#{$token} {
     width: 100%;
     max-width: $width;
   }
@@ -14,20 +14,12 @@
 
 // Builds responsive utility classes
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        @each $item, $entity in $tokens {
-          @if $key == 'width' {
-            @each $pixels, $rems in $entity {
-              .#{$prefix}-width-#{$item}-#{$pixels}-up {
-                width: 100%;
-                max-width: $width;
-              }
-            }
-          }
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $token, $width in $widths {
+      .#{$prefix}-#{$token}-#{$variable}-up {
+        width: 100%;
+        max-width: $width;
       }
     }
   }

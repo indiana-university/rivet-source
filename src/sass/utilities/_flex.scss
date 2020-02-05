@@ -29,34 +29,30 @@
   flex-direction: column-reverse !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-flex-#{$size}-up {
-          display: flex !important;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-flex-#{$variable}-up {
+      display: flex !important;
+    }
 
-        .#{$prefix}-inline-flex-#{$size}-up {
-          display: inline-flex !important;
-        }
+    .#{$prefix}-inline-flex-#{$variable}-up {
+      display: inline-flex !important;
+    }
 
-        .#{$prefix}-row-#{$size}-up {
-          flex-direction: row !important;
-        }
+    .#{$prefix}-row-#{$variable}-up {
+      flex-direction: row !important;
+    }
 
-        .#{$prefix}-row-reverse-#{$size}-up {
-          flex-direction: row-reverse !important;
-        }
+    .#{$prefix}-row-reverse-#{$variable}-up {
+      flex-direction: row-reverse !important;
+    }
 
-        .#{$prefix}-column-#{$size}-up {
-          flex-direction: column !important;
-        }
+    .#{$prefix}-column-#{$variable}-up {
+      flex-direction: column !important;
+    }
 
-        .#{$prefix}-column-reverse-#{$size}-up {
-          flex-direction: column-reverse !important;
-        }
-      }
+    .#{$prefix}-column-reverse-#{$variable}-up {
+      flex-direction: column-reverse !important;
     }
   }
 }
@@ -75,22 +71,18 @@
   flex-wrap: wrap-reverse !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-wrap-#{$size}-up {
-          flex-wrap: wrap !important;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-wrap-#{$variable}-up {
+      flex-wrap: wrap !important;
+    }
 
-        .#{$prefix}-no-wrap-#{$size}-up {
-          flex-wrap: nowrap !important;
-        }
+    .#{$prefix}-no-wrap-#{$variable}-up {
+      flex-wrap: nowrap !important;
+    }
 
-        .#{$prefix}-wrap-reverse-#{$size}-up {
-          flex-wrap: wrap-reverse !important;
-        }
-      }
+    .#{$prefix}-wrap-reverse-#{$variable}-up {
+      flex-wrap: wrap-reverse !important;
     }
   }
 }
@@ -105,18 +97,14 @@
   flex-shrink: 0 !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-shrink-1-#{$size}-up {
-          flex-shrink: 1 !important;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-shrink-1-#{$variable}-up {
+      flex-shrink: 1 !important;
+    }
 
-        .#{$prefix}-shrink-0-#{$size}-up {
-          flex-shrink: 0 !important;
-        }
-      }
+    .#{$prefix}-shrink-0-#{$variable}-up {
+      flex-shrink: 0 !important;
     }
   }
 }
@@ -131,18 +119,14 @@
   flex-grow: 0 !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-grow-1-#{$size}-up {
-          flex-grow: 1 !important;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-grow-1-#{$variable}-up {
+      flex-grow: 1 !important;
+    }
 
-        .#{$prefix}-grow-0-#{$size}-up {
-          flex-grow: 0 !important;
-        }
-      }
+    .#{$prefix}-grow-0-#{$variable}-up {
+      flex-grow: 0 !important;
     }
   }
 }
@@ -169,30 +153,26 @@
   align-items: stretch !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-items-start-#{$size}-up {
-          align-items: flex-start !important;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-items-start-#{$variable}-up {
+      align-items: flex-start !important;
+    }
 
-        .#{$prefix}-items-end-#{$size}-up {
-          align-items: flex-end !important;
-        }
+    .#{$prefix}-items-end-#{$variable}-up {
+      align-items: flex-end !important;
+    }
 
-        .#{$prefix}-items-center-#{$size}-up {
-          align-items: center !important;
-        }
+    .#{$prefix}-items-center-#{$variable}-up {
+      align-items: center !important;
+    }
 
-        .#{$prefix}-items-baseline-#{$size}-up {
-          align-items: baseline !important;
-        }
+    .#{$prefix}-items-baseline-#{$variable}-up {
+      align-items: baseline !important;
+    }
 
-        .#{$prefix}-items-stretch-#{$size}-up {
-          align-items: stretch !important;
-        }
-      }
+    .#{$prefix}-items-stretch-#{$variable}-up {
+      align-items: stretch !important;
     }
   }
 }
@@ -219,30 +199,26 @@
   align-content: baseline !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-content-start-#{$size}-up {
-          align-content: flex-start !important;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-content-start-#{$variable}-up {
+      align-content: flex-start !important;
+    }
 
-        .#{$prefix}-content-end-#{$size}-up {
-          align-content: flex-end !important;
-        }
+    .#{$prefix}-content-end-#{$variable}-up {
+      align-content: flex-end !important;
+    }
 
-        .#{$prefix}-content-center-#{$size}-up {
-          align-content: center !important;
-        }
+    .#{$prefix}-content-center-#{$variable}-up {
+      align-content: center !important;
+    }
 
-        .#{$prefix}-content-stretch-#{$size}-up {
-          align-content: stretch !important;
-        }
+    .#{$prefix}-content-stretch-#{$variable}-up {
+      align-content: stretch !important;
+    }
 
-        .#{$prefix}-content-baseline-#{$size}-up {
-          align-content: baseline !important;
-        }
-      }
+    .#{$prefix}-content-baseline-#{$variable}-up {
+      align-content: baseline !important;
     }
   }
 }
@@ -273,34 +249,30 @@
   justify-content: space-evenly;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-justify-start-#{$size}-up {
-          justify-content: flex-start;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-justify-start-#{$variable}-up {
+      justify-content: flex-start;
+    }
 
-        .#{$prefix}-justify-end-#{$size}-up {
-          justify-content: flex-end;
-        }
+    .#{$prefix}-justify-end-#{$variable}-up {
+      justify-content: flex-end;
+    }
 
-        .#{$prefix}-justify-center-#{$size}-up {
-          justify-content: center;
-        }
+    .#{$prefix}-justify-center-#{$variable}-up {
+      justify-content: center;
+    }
 
-        .#{$prefix}-justify-space-between-#{$size}-up {
-          justify-content: space-between;
-        }
+    .#{$prefix}-justify-space-between-#{$variable}-up {
+      justify-content: space-between;
+    }
 
-        .#{$prefix}-justify-space-around-#{$size}-up {
-          justify-content: space-around;
-        }
+    .#{$prefix}-justify-space-around-#{$variable}-up {
+      justify-content: space-around;
+    }
 
-        .#{$prefix}-justify-space-evenly-#{$size}-up {
-          justify-content: space-evenly;
-        }
-      }
+    .#{$prefix}-justify-space-evenly-#{$variable}-up {
+      justify-content: space-evenly;
     }
   }
 }
@@ -327,30 +299,26 @@
   align-self: stretch !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        .#{$prefix}-self-start-#{$size}-up {
-          align-self: flex-start;
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-self-start-#{$variable}-up {
+      align-self: flex-start;
+    }
 
-        .#{$prefix}-self-end-#{$size}-up {
-          align-self: flex-end;
-        }
+    .#{$prefix}-self-end-#{$variable}-up {
+      align-self: flex-end;
+    }
 
-        .#{$prefix}-self-center-#{$size}-up {
-          align-self: center;
-        }
+    .#{$prefix}-self-center-#{$variable}-up {
+      align-self: center;
+    }
 
-        .#{$prefix}-self-baseline-#{$size}-up {
-          align-self: baseline;
-        }
+    .#{$prefix}-self-baseline-#{$variable}-up {
+      align-self: baseline;
+    }
 
-        .#{$prefix}-self-stretch-#{$size}-up {
-          align-self: stretch;
-        }
-      }
+    .#{$prefix}-self-stretch-#{$variable}-up {
+      align-self: stretch;
     }
   }
 }

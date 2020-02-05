@@ -11,13 +11,9 @@
  * apply different font sizes based on screen size.
  */
 
-@each $key, $value in $tokens {
-  @if $key == 'ts' {
-    @each $pixels, $rems in $value {
-      .#{$prefix}-ts-#{$pixels} {
-        font-size: $rems !important;
-      }
-    }
+@each $pixels, $rems in $type-scale {
+  .#{$prefix}-ts-#{$pixels} {
+    font-size: $rems !important;
   }
 }
 
@@ -31,19 +27,11 @@
  * 20px on medium screens and up, and 32px on large screens and up.
  */
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      @include mq($variable) {
-        @each $key, $value in $tokens {
-          @if $key == 'ts' {
-            @each $pixels, $rems in $value {
-              .#{$prefix}-ts-#{$pixels}-#{$size}-up {
-                font-size: $rems !important;
-              }
-            }
-          }
-        }
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $pixels, $rems in $type-scale {
+      .#{$prefix}-ts-#{$pixels}-#{$variable}-up {
+        font-size: $rems !important;
       }
     }
   }

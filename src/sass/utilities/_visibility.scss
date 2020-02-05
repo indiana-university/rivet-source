@@ -7,24 +7,20 @@
   display: none !important;
 }
 
-@each $key, $value in $tokens {
-  @if $key == 'breakpoint' {
-    @each $size, $variable in $value {
-      .#{$prefix}-hide-#{$size}-down {
-        @extend %start-hidden;
-      }
+@each $variable, $size in $breakpoints {
+  .#{$prefix}-hide-#{$variable}-down {
+    @extend %start-hidden;
+  }
 
-      @include mq($variable) {
-        .#{$prefix}-hide-#{$size}-down {
-          display: block !important;
-        }
-      }
+  @include mq($size) {
+    .#{$prefix}-hide-#{$variable}-down {
+      display: block !important;
+    }
+  }
 
-      @include mq($variable) {
-        .#{$prefix}-hide-#{$size}-up {
-          display: none !important;
-        }
-      }
+  @include mq($size) {
+    .#{$prefix}-hide-#{$variable}-up {
+      display: none !important;
     }
   }
 }
