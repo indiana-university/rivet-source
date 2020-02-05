@@ -1,5 +1,7 @@
 {
-  "source": ["src/tokens/**/*.json"],
+  "source": [
+    "src/tokens/**/*.json"
+  ],
   "platforms": {
     "scss": {
       "transformGroup": "scss",
@@ -7,7 +9,37 @@
       "files": [
         {
           "destination": "variables.scss",
-          "format": "scss/map-deep"
+          "format": "scss/variables"
+        },
+        {
+          "destination": "maps/breakpoints.scss",
+          "filter": "isBreakpoint",
+          "format": "scss/map-flat",
+          "mapName": "breakpoints"
+        },
+        {
+          "destination": "maps/color.scss",
+          "filter": "isColor",
+          "format": "scss/map-flat",
+          "mapName": "color"
+        },
+        {
+          "destination": "maps/type-scale.scss",
+          "filter": "isTypeScale",
+          "format": "scss/map-flat",
+          "mapName": "type-scale"
+        },
+        {
+          "destination": "maps/width.scss",
+          "filter": "isWidth",
+          "format": "scss/map-flat",
+          "mapName": "width"
+        },
+        {
+          "destination": "maps/z-index.scss",
+          "filter": "isZIndex",
+          "format": "scss/map-flat",
+          "mapName": "z-index"
         }
       ]
     },

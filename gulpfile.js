@@ -49,6 +49,36 @@ function setProdNodeEnv(callback) {
 }
 
 function compileTokens(callback) {
+  StyleDictionary.registerFilter({
+    name: 'isBreakpoint',
+    matcher: function(prop) {
+      return prop.attributes.category === 'breakpoint';
+    }
+  });
+  StyleDictionary.registerFilter({
+    name: 'isColor',
+    matcher: function(prop) {
+      return prop.attributes.category === 'color';
+    }
+  });
+  StyleDictionary.registerFilter({
+    name: 'isTypeScale',
+    matcher: function(prop) {
+      return prop.attributes.category === 'ts';
+    }
+  });
+  StyleDictionary.registerFilter({
+    name: 'isWidth',
+    matcher: function(prop) {
+      return prop.attributes.category === 'width';
+    }
+  });
+  StyleDictionary.registerFilter({
+    name: 'isZIndex',
+    matcher: function(prop) {
+      return prop.attributes.category === 'z';
+    }
+  });
   StyleDictionary.buildAllPlatforms();
   callback();
 }
