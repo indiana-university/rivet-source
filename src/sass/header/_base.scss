@@ -333,7 +333,7 @@
   min-height: 100%;
   border-left: 1px solid $color-black-200;
   padding: $spacing-sm;
-  z-index: map-get($z-index, z-1000);
+  z-index: map-get($z-index, '1000');
 
   &__nav {
     ul {
@@ -378,7 +378,7 @@
       &:focus {
         @extend %button-focus;
 
-        z-index: map-get($z-index, z-1000);
+        z-index: map-get($z-index, '1000');
       }
     }
 

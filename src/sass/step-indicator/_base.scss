@@ -84,7 +84,7 @@
     justify-content: center;
     position: relative;
     width: $spacing-lg;
-    z-index: map-get($z-index, z-100);
+    z-index: map-get($z-index, '100');
   }
 
   &__indicator--success {

@@ -54,7 +54,7 @@
     min-width: 12.5rem;
     padding-top: $spacing-xs;
     padding-bottom: $spacing-xs;
-    z-index: map-get($z-index, z-1000);
+    z-index: map-get($z-index, '1000');
 
     /**
          * Align the dropdown menu to the right edge of the button.

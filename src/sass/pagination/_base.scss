@@ -40,7 +40,7 @@
       position: relative;
       text-decoration: none;
       transition: box-shadow .2s ease;
-      z-index: map-get($z-index, z-100);
+      z-index: map-get($z-index, '100');
     }
 
     a:hover {
@@ -53,7 +53,7 @@
       box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
       /* stylelint-enable */
       outline: none;
-      z-index: map-get($z-index, z-1000);
+      z-index: map-get($z-index, '1000');
     }
   }
 
@@ -89,7 +89,7 @@
     /**
      * z-index hides the border overlap
      */
-    z-index: map-get($z-index, z-200);
+    z-index: map-get($z-index, '200');
   }
 
   /**
