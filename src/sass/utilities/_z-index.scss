@@ -5,7 +5,7 @@
 
 /* stylelint-disable */
 @each $index, $level in $z-index {
-  .#{$prefix}-#{$index} {
+  .#{$prefix}-z-#{$index} {
     z-index: $level !important;
   }
 }
