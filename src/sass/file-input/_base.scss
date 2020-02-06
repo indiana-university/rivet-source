@@ -26,14 +26,14 @@
     display: flex;
 
     span {
-      margin-right: $xs;
+      margin-right: $spacing-xs;
     }
   }
 
   input[type='file']:focus + label {
     outline: none;
     /* stylelint-disable */
-    box-shadow: 0 0 0 $xxs/2 $color-white-base, 0 0 0 $xxs $color-blue-600 !important;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600 !important;
     /* stylelint-enable */
   }
 
@@ -45,12 +45,12 @@
   }
 
   &__preview {
-    margin-left: $sm;
+    margin-left: $spacing-sm;
 
     span {
       font-weight: $font-weight-bold;
       line-height: 1.5;
-      margin-right: $sm;
+      margin-right: $spacing-sm;
       display: inline-block;
     }
   }

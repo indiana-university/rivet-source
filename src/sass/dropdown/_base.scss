@@ -8,7 +8,7 @@
   display: inline-block;
 
   .button__text {
-    margin-right: $xs;
+    margin-right: $spacing-xs;
   }
 
   /**
@@ -24,8 +24,8 @@
     padding: 0;
 
     &:focus {
-      outline: $xxs/2 solid $color-blue-600;
-      outline-offset: $xxs/2;
+      outline: $spacing-xxs/2 solid $color-blue-600;
+      outline-offset: $spacing-xxs/2;
     }
 
     &:hover {
@@ -33,7 +33,7 @@
     }
 
     &-text {
-      margin-right: $xs;
+      margin-right: $spacing-xs;
     }
 
     &[aria-expanded='true'] > svg {
@@ -47,13 +47,13 @@
 
   &__menu {
     position: absolute;
-    margin-top: $xs;
+    margin-top: $spacing-xs;
     background-color: #ffffff;
     border: 1px solid #dddddd;
-    border-radius: $xxs;
+    border-radius: $spacing-xxs;
     min-width: 12.5rem;
-    padding-top: $xs;
-    padding-bottom: $xs;
+    padding-top: $spacing-xs;
+    padding-bottom: $spacing-xs;
     z-index: map-get($z-index, z-1000);
 
     /**
@@ -84,7 +84,7 @@
              * This padding-top and bottom value is a magic number. Sorry,
              * it just looks better. :)
              */
-      padding: .375rem $sm;
+      padding: .375rem $spacing-sm;
       background-color: transparent;
       border: none;
       width: 100%;
@@ -98,19 +98,19 @@
 
       &:focus {
         outline: none;
-        box-shadow: inset 0 0 0 $xxs/2 $color-blue-600;
+        box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-600;
       }
 
       &.#{$prefix}-is-selected,
       &[aria-current],
       &[aria-checked='true'] {
-        box-shadow: inset $xxs 0 0 $color-blue-600;
+        box-shadow: inset $spacing-xxs 0 0 $color-blue-600;
 
         &:focus {
           /* stylelint-disable */
           box-shadow:
-            inset $xxs 0 0 $color-blue-600,
-            inset 0 0 0 $xxs/2 $color-blue-600 !important;
+            inset $spacing-xxs 0 0 $color-blue-600,
+            inset 0 0 0 $spacing-xxs/2 $color-blue-600 !important;
           /* stylelint-enable */
         }
       }
@@ -124,7 +124,7 @@
 
   &__menu-heading {
     color: $color-black-700;
-    padding: $sm $sm $xxs;
+    padding: $spacing-sm $spacing-sm $spacing-xxs;
     font-weight: $font-weight-bold;
     font-size: $ts-14;
 
@@ -136,14 +136,14 @@
   &__menu-divider,
   &__menu-separator {
     border-top: 1px solid $color-black-200;
-    margin-top: $xs;
-    margin-bottom: $xs;
+    margin-top: $spacing-xs;
+    margin-bottom: $spacing-xs;
   }
 
   [role='group'] {
     border-top: 1px solid $color-black-200;
-    margin-top: $xs;
-    padding-top: $xs;
+    margin-top: $spacing-xs;
+    padding-top: $spacing-xs;
 
     &:first-child {
       border-top: none;

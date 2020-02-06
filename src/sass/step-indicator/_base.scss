@@ -24,7 +24,7 @@
       content: '';
       display: block;
       width: 100%;
-      box-shadow: 0 $sm*2.75 0 $xxs/2 $color-black-100;
+      box-shadow: 0 $spacing-sm*2.75 0 $spacing-xxs/2 $color-black-100;
       z-index: 0;
     }
 
@@ -61,29 +61,29 @@
   }
 
   &__item-content:focus &__indicator {
-    box-shadow: 0 0 0 $xxs $color-blue-300;
+    box-shadow: 0 0 0 $spacing-xxs $color-blue-300;
   }
 
   &__label {
     display: block;
     color: $color-black-base;
-    margin-bottom: $xs;
+    margin-bottom: $spacing-xs;
     font-size: $ts-14;
-    padding-right: $xs;
-    padding-left: $xs;
+    padding-right: $spacing-xs;
+    padding-left: $spacing-xs;
   }
 
   &__indicator {
     align-items: center;
     background-color: $color-white-base;
-    border: $xxs solid $color-black-200;
+    border: $spacing-xxs solid $color-black-200;
     border-radius: 999rem;
-    box-shadow: 0 0 0 $xxs $color-white-base;
+    box-shadow: 0 0 0 $spacing-xxs $color-white-base;
     display: inline-flex;
-    height: $lg;
+    height: $spacing-lg;
     justify-content: center;
     position: relative;
-    width: $lg;
+    width: $spacing-lg;
     z-index: map-get($z-index, z-100);
   }
 
@@ -116,7 +116,7 @@
   &--vertical &__item {
     text-align: left;
     margin-top: 0;
-    padding-top: $md;
+    padding-top: $spacing-md;
     position: relative;
   }
 
@@ -125,11 +125,11 @@
   }
 
   &--vertical &__item::before {
-    box-shadow: -$xxs 0 0 0 $color-black-100;
+    box-shadow: -$spacing-xxs 0 0 0 $color-black-100;
     height: 100%;
     position: absolute;
     top: 0;
-    left: $sm*1.125;
+    left: $spacing-sm*1.125;
   }
 
   &--vertical &__item-content {
@@ -140,7 +140,7 @@
 
   &--vertical &__label {
     margin-bottom: 0;
-    padding-left: $sm;
+    padding-left: $spacing-sm;
   }
 }
 

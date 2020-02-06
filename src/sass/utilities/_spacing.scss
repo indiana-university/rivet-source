@@ -21,13 +21,13 @@ $spacing-directions: (
 // NOTE you can reference these sizes in core/_variables.scss
 
 $spacing-sizes: (
-  -xxs: $xxs,
-  -xs: $xs,
-  -sm: $sm,
-  -md: $md,
-  -lg: $lg,
-  -xl: $xl,
-  -xxl: $xxl
+  -xxs: $spacing-xxs,
+  -xs: $spacing-xs,
+  -sm: $spacing-sm,
+  -md: $spacing-md,
+  -lg: $spacing-lg,
+  -xl: $spacing-xl,
+  -xxl: $spacing-xxl
 );
 
 // Super gnarly loop here, but it save sooo much time

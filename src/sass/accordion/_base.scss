@@ -19,7 +19,7 @@
     width: 100%;
 
     &:focus {
-      box-shadow: 0 0 0 $xxs/2 $color-white-base, 0 0 0 $xxs $color-blue-600;
+      box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
       outline: none;
     }
 
@@ -28,7 +28,7 @@
     }
 
     svg {
-      margin-right: $xs;
+      margin-right: $spacing-xs;
     }
   }
 
@@ -44,17 +44,17 @@
 
   &--panel {
     border: 1px solid $color-black-200;
-    border-radius: $xxs;
+    border-radius: $spacing-xxs;
   }
 
   &--panel &__title {
     background-color: $color-black-000;
-    border-radius: $xxs;
+    border-radius: $spacing-xxs;
   }
 
   &--panel &__title button {
-    border-radius: $xxs;
-    padding: $sm*.75;
+    border-radius: $spacing-xxs;
+    padding: $spacing-sm*.75;
 
     &:hover {
       background-color: $color-black-100;
@@ -68,12 +68,12 @@
 
   &--panel &__content {
     border-top: 1px solid $color-black-200;
-    padding: $sm;
+    padding: $spacing-sm;
   }
 }
 
 .rvt-collapsible-accordion {
   .rvt-collapsible:not(:first-child) {
-    margin-top: $sm;
+    margin-top: $spacing-sm;
   }
 }

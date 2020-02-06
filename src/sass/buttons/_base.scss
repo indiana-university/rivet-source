@@ -5,21 +5,21 @@
 
 %button-focus {
   outline: none;
-  box-shadow: 0 0 0 $xxs/2 $color-white-base, 0 0 0 $xxs $color-blue-600;
+  box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
 }
 
 .#{$prefix}-button {
   background-color: $color-blue-600;
-  border: $xxs/2 solid $color-blue-600;
-  border-radius: $xxs;
+  border: $spacing-xxs/2 solid $color-blue-600;
+  border-radius: $spacing-xxs;
   color: $color-white-base;
   cursor: pointer;
   font-weight: bold;
   line-height: 1;
   text-decoration: none;
   position: relative;
-  height: $xl;
-  padding: 0 $sm * .75;
+  height: $spacing-xl;
+  padding: 0 $spacing-sm * .75;
   display: inline-flex;
   align-items: center;
   transition: box-shadow .2s ease;
@@ -177,11 +177,11 @@
 }
 
 .#{$prefix}-button--small {
-  height: $md;
+  height: $spacing-md;
   line-height: 1.1;
   vertical-align: bottom;
-  padding-right: $xs;
-  padding-left: $xs;
+  padding-right: $spacing-xs;
+  padding-left: $spacing-xs;
 
   &-focus {
     @extend %button-focus;
@@ -234,7 +234,7 @@
   display: flex;
 
   > *:not(:last-child) {
-    margin-right: $sm;
+    margin-right: $spacing-sm;
   }
 }
 
@@ -293,6 +293,6 @@
          * default loading indicator above.
          */
     margin-top: -.65rem;
-    margin-left: -$xs;
+    margin-left: -$spacing-xs;
   }
 }

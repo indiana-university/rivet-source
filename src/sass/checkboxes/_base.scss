@@ -5,12 +5,12 @@
 
 .#{$prefix}-checkbox {
   position: absolute;
-  left: -$sm;
+  left: -$spacing-sm;
   opacity: 0;
 
   & + .#{$prefix}-label,
   .#{$prefix}-checkbox-wrapper & ~ .#{$prefix}-label {
-    font-size: $sm;
+    font-size: $spacing-sm;
 
     /**
      * Helps visually align checkbox lists
@@ -23,8 +23,8 @@
       content: ' ';
       border-radius: .125rem;
       margin-right: .75rem;
-      width: $sm;
-      height: $sm;
+      width: $spacing-sm;
+      height: $spacing-sm;
       transition: all .2s ease;
 
       /**

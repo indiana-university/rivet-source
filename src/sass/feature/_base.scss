@@ -10,7 +10,7 @@
   }
 
   &__body {
-    margin-top: $md;
+    margin-top: $spacing-md;
   }
 
   &__tag {
@@ -24,7 +24,7 @@
     font-size: $ts-26;
     font-weight: 700;
     line-height: 1.1;
-    margin-top: $xxs;
+    margin-top: $spacing-xxs;
   }
 
   &__byline,
@@ -34,7 +34,7 @@
   }
 
   &__meta {
-    margin-top: $md;
+    margin-top: $spacing-md;
     color: $color-black-700;
   }
 

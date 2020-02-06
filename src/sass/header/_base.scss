@@ -7,7 +7,7 @@
 .#{$prefix}-skip-link {
   position: fixed;
   top: -6rem;
-  padding: $xs;
+  padding: $spacing-xs;
 
   &:focus {
     top: 0;
@@ -32,7 +32,7 @@
   min-width: 41px;
   flex-basis: 41px;
   height: 47px;
-  margin-right: $xs;
+  margin-right: $spacing-xs;
   background-color: inherit;
   color: inherit;
 
@@ -46,7 +46,7 @@
     min-width: 60px;
     flex-basis: 60px;
     height: 70px;
-    margin-right: $sm;
+    margin-right: $spacing-sm;
 
     &-large {
       display: block;
@@ -124,7 +124,7 @@
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 $xxs/2 $color-blue-600;
+    box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-600;
     outline: none;
   }
 
@@ -206,7 +206,7 @@
 
 .#{$prefix}-header__main-nav {
   display: none;
-  margin-right: $xxl;
+  margin-right: $spacing-xxl;
 
   ul {
     list-style: none;
@@ -216,7 +216,7 @@
   }
 
   ul li {
-    margin-right: $lg;
+    margin-right: $spacing-lg;
     line-height: 1.5;
 
     /**
@@ -236,8 +236,8 @@
     position: relative;
 
     &:focus {
-      outline: $xxs/2 solid $color-blue-600;
-      outline-offset: $xxs/2;
+      outline: $spacing-xxs/2 solid $color-blue-600;
+      outline-offset: $spacing-xxs/2;
     }
 
     /**
@@ -253,7 +253,7 @@
       content: ' ';
       position: absolute;
       background-color: $color-blue-600;
-      height: $xxs;
+      height: $spacing-xxs;
       width: 100%;
       top: 2.75rem;
       left: 0;
@@ -332,13 +332,13 @@
   max-width: 400px;
   min-height: 100%;
   border-left: 1px solid $color-black-200;
-  padding: $sm;
+  padding: $spacing-sm;
   z-index: map-get($z-index, z-1000);
 
   &__nav {
     ul {
       list-style: none;
-      margin-bottom: $md;
+      margin-bottom: $spacing-md;
       padding: 0;
       background-color: $color-white-base;
     }
@@ -368,7 +368,7 @@
       display: block;
       text-decoration: none;
       color: $color-black-base;
-      padding: $sm;
+      padding: $spacing-sm;
       position: relative;
       width: 100%;
       text-align: left;
@@ -393,16 +393,16 @@
       }
 
       &:focus {
-        outline: $xxs/2 solid $color-blue-600;
-        outline-offset: $xxs/2;
+        outline: $spacing-xxs/2 solid $color-blue-600;
+        outline-offset: $spacing-xxs/2;
       }
     }
 
     ul li.has-children > a::after,
     ul li.has-children > button::after {
       position: absolute;
-      top: $md;
-      right: $md;
+      top: $spacing-md;
+      right: $spacing-md;
       content: ' ';
       display: inline-block;
       width: 1rem;
@@ -415,7 +415,7 @@
       /**
              * Magic number - Use this to optically center by juuuust a smidge.
              */
-      margin-top: -$xxs;
+      margin-top: -$spacing-xxs;
     }
 
     ul li.has-children > a[aria-expanded='true']::after {
@@ -423,7 +423,7 @@
     }
 
     ul li ul li a {
-      padding: $sm;
+      padding: $spacing-sm;
       background-color: $color-black-200;
     }
 
@@ -434,14 +434,14 @@
     ul li a[aria-current],
     ul li button[aria-current],
     ul li ul li a[aria-current] {
-      box-shadow: inset $xxs 0 0 $color-blue-600;
+      box-shadow: inset $spacing-xxs 0 0 $color-blue-600;
 
       &:focus {
         /* stylelint-disable */
         box-shadow:
-          inset $xxs 0 0 $color-blue-600,
-          0 0 0 $xxs/2 $color-white-base,
-          0 0 0 $xxs $color-blue-600;
+          inset $spacing-xxs 0 0 $color-blue-600,
+          0 0 0 $spacing-xxs/2 $color-white-base,
+          0 0 0 $spacing-xxs $color-blue-600;
         /* stylelint-enable */
       }
     }
@@ -466,13 +466,13 @@
       outline: none;
       box-shadow: 0 0 0 .125rem $color-blue-600;
       display: block;
-      margin-top: $xs;
+      margin-top: $spacing-xs;
       width: 100%;
-      border-radius: $xxs;
-      height: $xl;
+      border-radius: $spacing-xxs;
+      height: $spacing-xl;
       line-height: 1;
-      padding-right: $xs;
-      padding-left: $xs;
+      padding-right: $spacing-xs;
+      padding-left: $spacing-xs;
     }
   }
 }
@@ -501,24 +501,24 @@
     align-items: center;
     color: $color-black-base;
     border-right: 1px solid $color-black-300;
-    padding-right: $sm;
+    padding-right: $spacing-sm;
   }
 
   &__profile--has-dropdown {
     border-right: none;
-    margin-right: $sm;
+    margin-right: $spacing-sm;
   }
 
   &__menu {
-    right: $sm;
+    right: $spacing-sm;
   }
 
   &__log-out {
     text-decoration: none;
-    margin-right: $lg;
+    margin-right: $spacing-lg;
     display: flex;
     align-items: center;
-    margin-left: $sm;
+    margin-left: $spacing-sm;
   }
 
   &__avatar {
@@ -527,7 +527,7 @@
     height: 30px;
     background-color: $color-black-base;
     border-radius: 50%;
-    margin-right: $xs;
+    margin-right: $spacing-xs;
 
     /**
      * First and last initial stuff
@@ -550,13 +550,13 @@
   &__profile--drawer {
     display: flex;
     border-right: none;
-    padding: $xxs $sm;
+    padding: $spacing-xxs $spacing-sm;
     background-color: $color-white-base;
   }
 
   &__profile--drawer &__user {
     border-right: 1px solid $color-black-200;
-    padding-right: $sm;
+    padding-right: $spacing-sm;
   }
 
   &__profile--drawer > &__user--has-dropdown {
@@ -572,7 +572,7 @@
 
 button.#{$prefix}-header-id__profile.#{$prefix}-header-id__profile--drawer {
   height: 3.5rem;
-  padding: $xs $sm;
+  padding: $spacing-xs $spacing-sm;
 }
 
 @include mq($breakpoint-lg) {

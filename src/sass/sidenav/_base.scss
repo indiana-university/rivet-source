@@ -31,11 +31,11 @@
   &__link {
     color: $color-black-base;
     flex-grow: 1;
-    padding: $sm*.875;
+    padding: $spacing-sm*.875;
     text-decoration: none;
 
     &[aria-current] {
-      box-shadow: inset $xxs 0 0 $color-blue-base;
+      box-shadow: inset $spacing-xxs 0 0 $color-blue-base;
     }
 
     &:focus,
@@ -52,7 +52,7 @@
     cursor: pointer;
     display: none; // Hide by default if JS doesn't load
     justify-content: center;
-    padding: $sm*.875;
+    padding: $spacing-sm*.875;
 
     svg {
       vertical-align: middle;
@@ -67,8 +67,8 @@
     }
 
     &:focus {
-      outline: $xxs/2 solid $color-blue-base;
-      outline-offset: $xxs/2;
+      outline: $spacing-xxs/2 solid $color-blue-base;
+      outline-offset: $spacing-xxs/2;
     }
 
     &:focus,

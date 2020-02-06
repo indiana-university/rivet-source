@@ -152,7 +152,7 @@ function compileTokens(callback) {
   StyleDictionary.registerFilter({
     name: 'isZIndex',
     matcher: function(prop) {
-      return prop.attributes.category === 'z';
+      return prop.attributes.category === 'z-index';
     }
   });
   StyleDictionary.buildAllPlatforms();

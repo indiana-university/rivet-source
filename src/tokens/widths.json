@@ -1,7 +1,7 @@
 {
   "width": {
     "base": {
-      "value": "{xxl.value}",
+      "value": "{spacing.xxl.value}",
       "comment": "64px"
     },
     "xxs": {

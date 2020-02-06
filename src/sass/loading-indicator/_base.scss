@@ -6,8 +6,8 @@
 .#{$prefix}-loader {
   animation: .8s linear infinite loader;
   display: inline-block;
-  width: $sm * 1.25;
-  height: $sm * 1.25;
+  width: $spacing-sm * 1.25;
+  height: $spacing-sm * 1.25;
   border: .2rem solid transparent;
   border-top-color: $color-blue-600;
   border-right-color: $color-blue-600;
@@ -22,45 +22,45 @@
   }
 
   &--xxs {
-    width: $sm;
-    height: $sm;
-    border-width: $sm * .125;
+    width: $spacing-sm;
+    height: $spacing-sm;
+    border-width: $spacing-sm * .125;
   }
 
   &--xs {
-    width: $sm * 1.25;
-    height: $sm * 1.25;
-    border-width: $sm * (.125 * 1.25);
+    width: $spacing-sm * 1.25;
+    height: $spacing-sm * 1.25;
+    border-width: $spacing-sm * (.125 * 1.25);
   }
 
   &--sm {
-    width: $sm * 1.75;
-    height: $sm * 1.75;
-    border-width: $sm * (.125 * 1.75);
+    width: $spacing-sm * 1.75;
+    height: $spacing-sm * 1.75;
+    border-width: $spacing-sm * (.125 * 1.75);
   }
 
   &--md {
-    width: $sm * 2;
-    height: $sm * 2;
-    border-width: $sm * (.125 * 2);
+    width: $spacing-sm * 2;
+    height: $spacing-sm * 2;
+    border-width: $spacing-sm * (.125 * 2);
   }
 
   &--lg {
-    width: $sm * 2.75;
-    height: $sm * 2.75;
-    border-width: $sm * (.125 * 2.75);
+    width: $spacing-sm * 2.75;
+    height: $spacing-sm * 2.75;
+    border-width: $spacing-sm * (.125 * 2.75);
   }
 
   &--xl {
-    width: $sm * 3.25;
-    height: $sm * 3.25;
-    border-width: $sm * (.125 * 3.25);
+    width: $spacing-sm * 3.25;
+    height: $spacing-sm * 3.25;
+    border-width: $spacing-sm * (.125 * 3.25);
   }
 
   &--xxl {
-    width: $sm * 4;
-    height: $sm * 4;
-    border-width: $sm * (.125 * 4);
+    width: $spacing-sm * 4;
+    height: $spacing-sm * 4;
+    border-width: $spacing-sm * (.125 * 4);
   }
 }
 

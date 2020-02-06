@@ -17,7 +17,7 @@
   &__item a,
   &__item button {
     text-decoration: none;
-    padding: $xxs $sm;
+    padding: $spacing-xxs $spacing-sm;
     position: relative;
     color: $color-black-base;
     display: flex;
@@ -35,7 +35,7 @@
   &__item button:hover::after {
     content: '';
     display: block;
-    width: $xxs;
+    width: $spacing-xxs;
     height: 100%;
     background-color: $color-blue-600;
     position: absolute;
@@ -60,7 +60,7 @@
 
     #{$selector} &__item a,
     #{$selector} &__item button {
-      padding: $sm $sm*1.25;
+      padding: $spacing-sm $spacing-sm*1.25;
     }
 
     #{$selector} &__item a[aria-current] {
@@ -71,7 +71,7 @@
     #{$selector} &__item a:hover::after,
     #{$selector} &__item button:hover::after {
       width: 100%;
-      height: $xxs;
+      height: $spacing-xxs;
       bottom: 0;
       top: auto;
     }

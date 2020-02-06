@@ -35,7 +35,7 @@ $grid-widths: (
 );
 
 // Global grid gutter. Set this to half of what you want the final gutter to be.
-$gutter: $md / 2;
+$gutter: $spacing-md / 2;
 
 // Starting on some mixins to build grid classes and to make
 // available for those who want to use the Sass source

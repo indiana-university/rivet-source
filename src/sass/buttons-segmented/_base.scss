@@ -58,8 +58,8 @@
 
   .dropdown:first-child > .#{$prefix}-button:first-of-type,
   .#{$prefix}-dropdown:first-child > .#{$prefix}-button:first-of-type {
-    border-top-left-radius: $xxs;
-    border-bottom-left-radius: $xxs;
+    border-top-left-radius: $spacing-xxs;
+    border-bottom-left-radius: $spacing-xxs;
   }
 
   .dropdown:last-child > .#{$prefix}-button:only-of-type,
@@ -71,8 +71,8 @@
 
   .dropdown:last-child > .#{$prefix}-button:last-of-type,
   .#{$prefix}-dropdown:last-child > .#{$prefix}-button:last-of-type {
-    border-top-right-radius: $xxs;
-    border-bottom-right-radius: $xxs;
+    border-top-right-radius: $spacing-xxs;
+    border-bottom-right-radius: $spacing-xxs;
   }
 
   .dropdown:not(:first-child):not(:last-child) > .#{$prefix}-button:only-of-type,

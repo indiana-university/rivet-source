@@ -6,16 +6,16 @@
 .#{$prefix}-box {
   background-color: $color-white-base;
   border: 1px solid $color-black-200;
-  border-radius: $xxs;
+  border-radius: $spacing-xxs;
 
   &__body {
-    padding: $sm;
+    padding: $spacing-sm;
   }
 
   &__row {
     border-top: 1px solid $color-black-100;
     margin-top: -1px;
-    padding: $sm;
+    padding: $spacing-sm;
 
     &:first-child {
       border-top: none;
@@ -25,39 +25,39 @@
   &__row--selected,
   &__row[aria-current] {
     background-color: $color-black-000;
-    box-shadow: $xxs 0 0 0 $color-blue-600 inset;
+    box-shadow: $spacing-xxs 0 0 0 $color-blue-600 inset;
   }
 
   &__row--info {
     background-color: $color-blue-000;
-    box-shadow: $xxs 0 0 0 $color-blue-600 inset;
+    box-shadow: $spacing-xxs 0 0 0 $color-blue-600 inset;
     color: $color-blue-700;
   }
 
   &__row--success {
     background-color: $color-green-000;
     color: $color-green-700;
-    box-shadow: $xxs 0 0 0 $color-green-500 inset;
+    box-shadow: $spacing-xxs 0 0 0 $color-green-500 inset;
   }
 
   &__row--warning {
     background-color: $color-yellow-000;
-    box-shadow: $xxs 0 0 0 $color-yellow-200 inset;
+    box-shadow: $spacing-xxs 0 0 0 $color-yellow-200 inset;
     color: $color-yellow-700;
   }
 
   &__row--danger {
     background-color: $color-orange-000;
-    box-shadow: $xxs 0 0 0 $color-orange-500 inset;
+    box-shadow: $spacing-xxs 0 0 0 $color-orange-500 inset;
     color: $color-orange-700;
   }
 
   &__footer {
     background-color: $color-black-000;
     border-top: 1px solid $color-black-200;
-    border-bottom-right-radius: $xxs; // Gets rid of border clipping
-    border-bottom-left-radius: $xxs; // Gets rid of border clipping
-    padding: $xxs $sm;
+    border-bottom-right-radius: $spacing-xxs; // Gets rid of border clipping
+    border-bottom-left-radius: $spacing-xxs; // Gets rid of border clipping
+    padding: $spacing-xxs $spacing-sm;
   }
 
   &__header {
@@ -66,14 +66,14 @@
     border-top: none;
     border-right: none;
     border-bottom: 1px solid $color-black-200;
-    border-top-right-radius: $xxs; // Gets rid of border clipping
-    border-top-left-radius: $xxs; // Gets rid of border clipping
+    border-top-right-radius: $spacing-xxs; // Gets rid of border clipping
+    border-top-left-radius: $spacing-xxs; // Gets rid of border clipping
     border-left: none;
     font-weight: $font-weight-bold;
-    font-size: $sm;
+    font-size: $spacing-sm;
     display: flex;
     position: relative;
-    padding: $sm;
+    padding: $spacing-sm;
     text-align: left;
     width: 100%;
 
@@ -84,14 +84,14 @@
      */
 
     &:focus {
-      box-shadow: 0 0 0 $xxs/2 #ffffff, 0 0 0 $xxs $color-blue-600;
+      box-shadow: 0 0 0 $spacing-xxs/2 #ffffff, 0 0 0 $spacing-xxs $color-blue-600;
       outline: none;
     }
   }
 
   &__image {
-    border-top-right-radius: $xxs;
-    border-top-left-radius: $xxs;
+    border-top-right-radius: $spacing-xxs;
+    border-top-left-radius: $spacing-xxs;
     overflow: hidden;
 
     img {
@@ -108,7 +108,7 @@
   &--compact &__header,
   &--compact &__body,
   &--compact &__row {
-    padding: $xs;
+    padding: $spacing-xs;
   }
 
   /**

@@ -2,7 +2,7 @@
 
 .#{$prefix}-wysiwyg {
   * + * {
-    margin-top: $sm;
+    margin-top: $spacing-sm;
   }
 
   *:empty { // Hides any empty elements (as well as <br />)

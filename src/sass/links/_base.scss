@@ -12,8 +12,8 @@ a,
   }
 
   &:focus {
-    outline: $xxs/2 solid $color-blue-600;
-    outline-offset: $xxs/2;
+    outline: $spacing-xxs/2 solid $color-blue-600;
+    outline-offset: $spacing-xxs/2;
   }
 
   a:visited {
