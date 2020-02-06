@@ -8,17 +8,18 @@
 // Did this work?
 
 @each $variable, $hex in $colors {
-  @if str-index($variable,'base') {
-    .#{$prefix}-#{$variable} {
-      color: #{$hex} !important;
-    }
+  .#{$prefix}-color-#{$variable} {
+    color: #{$hex} !important;
   }
 }
 
 // Generate background-color utility classes
 @each $variable, $hex in $colors {
   @if str-index($variable,'base') {
-    .#{$prefix}-bg-#{$variable} {
+    $initial: str-index($variable, '-base');
+    $bgVar: str-slice($variable, 0, ($initial - 1));
+
+    .#{$prefix}-bg-#{$bgVar} {
       background-color: #{$hex} !important;
     }
   }
