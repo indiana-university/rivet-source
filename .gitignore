@@ -13,8 +13,8 @@ cypress/screenshots
 
 # Built files
 /css
-/less
 /sass
 /js
 /index.html
 /rivet.zip
+/tokens
