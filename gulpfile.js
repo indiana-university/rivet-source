@@ -10,7 +10,7 @@ const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
 const StyleDictionary = require('style-dictionary').extend(
-  './tokens-config.json'
+  './.tokensconfig.json'
 );
 const stylelint = require('gulp-stylelint');
 const uglify = require('gulp-uglify');
