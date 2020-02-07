@@ -16,7 +16,7 @@
   "module": "js/rivet-esm.js",
   "scripts": {
     "start": "gulp",
-    "build": "npm run clean && gulp release && zip -r rivet.zip css js sass index.html",
+    "build": "npm run clean && gulp release && zip -r rivet.zip css js sass tokens index.html",
     "fix": "stylelint 'src/sass/**/*.scss' --fix",
     "test": "start-server-and-test cypress:serve http://localhost:3000 cypress:test",
     "cypress:browser": "cypress open",
@@ -31,6 +31,7 @@
     "css/**/*",
     "sass/**/*",
     "js/**/*",
+    "tokens/**/*",
     "index.html"
   ],
   "devDependencies": {
