@@ -66,14 +66,14 @@ function setProdNodeEnv(callback) {
 }
 
 function compileTokens(callback) {
-  StyleDictionary.registerFormat(mapSimple);
-  StyleDictionary.registerFormat(mapSimpleDesc);
-  StyleDictionary.registerFormat(variables);
   StyleDictionary.registerFilter(isBreakpoint);
   StyleDictionary.registerFilter(isColor);
   StyleDictionary.registerFilter(isTypeScale);
   StyleDictionary.registerFilter(isWidth);
   StyleDictionary.registerFilter(isZIndex);
+  StyleDictionary.registerFormat(mapSimple);
+  StyleDictionary.registerFormat(mapSimpleDesc);
+  StyleDictionary.registerFormat(variables);
   StyleDictionary.buildAllPlatforms();
   callback();
 }
