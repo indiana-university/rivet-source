@@ -59,13 +59,13 @@ function compileTokens(callback) {
         .map(function(prop) {
           let line = '';
           if (prop.comment) {
-            line += '  // ' + prop.comment + '\n';
+            line += `  // ${prop.comment}\n`;
           }
-          line += "  '" + prop.attributes.type + "': " + prop.value;
+          line += `  '${prop.attributes.type}': ${prop.value}`;
           return line;
         })
-        .join(',\n');
-      output += '\n);\n';
+        .join(`,\n`);
+      output += `\n);\n`;
       return output;
     }
   });
@@ -79,19 +79,13 @@ function compileTokens(callback) {
         .map(function(prop) {
           let line = '';
           if (prop.comment) {
-            line += '  // ' + prop.comment + '\n';
+            line += `  // ${prop.comment}\n`;
           }
-          line +=
-            "  '" +
-            prop.attributes.type +
-            '-' +
-            prop.attributes.item +
-            "': " +
-            prop.value;
+          line += `  '${prop.attributes.type}-${prop.attributes.item}': ${prop.value}`;
           return line;
         })
-        .join(',\n');
-      output += '\n);\n';
+        .join(`,\n`);
+      output += `\n);\n`;
       return output;
     }
   });
@@ -103,16 +97,14 @@ function compileTokens(callback) {
       output += properties
         .map(function(prop) {
           var to_ret_prop =
-            '$' +
-            prop.name +
-            ': ' +
+            `$${prop.name}: ` +
             (prop.attributes.category === 'asset'
               ? '"' + prop.value + '"'
               : prop.value) +
             ';';
 
           if (prop.comment) {
-            to_ret_prop = to_ret_prop.concat(' // ' + prop.comment);
+            to_ret_prop = to_ret_prop.concat(` // ${prop.comment}`);
           }
 
           return to_ret_prop;
