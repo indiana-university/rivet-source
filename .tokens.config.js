@@ -5,17 +5,12 @@ module.exports = {
     "src/tokens/**/*.json"
   ],
   "platforms": {
-    "src/sass": {
+    "src/sass/core": {
       transformGroup: 'scss',
       buildPath: 'src/sass/core/',
       files: sassFileOutput
     },
-    "tokens/sass": {
-      transformGroup: 'scss',
-      buildPath: 'tokens/sass/',
-      files: sassFileOutput
-    },
-    "commonjs": {
+    "tokens/commonjs": {
       "buildPath": "tokens/commonjs/",
       "transformGroup": "js",
       "files": [
@@ -28,7 +23,7 @@ module.exports = {
         }
       ]
     },
-    "css": {
+    "tokens/css": {
       "buildPath": "tokens/css/",
       "transformGroup": "js",
       "files": [
@@ -41,7 +36,7 @@ module.exports = {
         }
       ]
     },
-    "es6": {
+    "tokens/es6": {
       "buildPath": "tokens/es6/",
       "transformGroup": "js",
       "files": [
@@ -54,7 +49,7 @@ module.exports = {
         }
       ]
     },
-    "javascript-object": {
+    "tokens/javascript-object": {
       "buildPath": "tokens/javascript/",
       "transformGroup": "js",
       "files": [
@@ -67,7 +62,7 @@ module.exports = {
         }
       ]
     },
-    "json": {
+    "tokens/json": {
       "buildPath": "tokens/json/",
       "transformGroup": "js",
       "files": [
@@ -80,7 +75,7 @@ module.exports = {
         }
       ]
     },
-    "less": {
+    "tokens/less": {
       "buildPath": "tokens/less/",
       "transformGroup": "less",
       "files": [
@@ -92,6 +87,11 @@ module.exports = {
           }
         }
       ]
+    },
+    "tokens/sass": {
+      transformGroup: 'scss',
+      buildPath: 'tokens/sass/',
+      files: sassFileOutput
     }
   }
 }
