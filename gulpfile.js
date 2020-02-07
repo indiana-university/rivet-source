@@ -14,7 +14,7 @@ const strip = require('gulp-strip-comments');
  * Style Dictionary
  */
 const StyleDictionary = require('style-dictionary').extend(
-  './.tokens.config.json'
+  './.tokens.config.js'
 );
 
 // Pull in Style Dictionary custom formats
