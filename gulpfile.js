@@ -9,9 +9,26 @@ const rename = require('gulp-rename');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
+
+/**
+ * Style Dictionary
+ */
 const StyleDictionary = require('style-dictionary').extend(
   './.tokens.config.json'
 );
+
+// Pull in Style Dictionary custom formats
+const mapSimple = require('./src/tokens/formats/map-simple');
+const mapSimpleDesc = require('./src/tokens/formats/map-simple-desc');
+const variables = require('./src/tokens/formats/variables');
+
+// Pull in Style Dictionary custom filters
+const isBreakpoint = require('./src/tokens/filters/is-breakpoint');
+const isColor = require('./src/tokens/filters/is-color');
+const isTypeScale = require('./src/tokens/filters/is-type-scale');
+const isWidth = require('./src/tokens/filters/is-width');
+const isZIndex = require('./src/tokens/filters/is-z-index');
+
 const stylelint = require('gulp-stylelint');
 const uglify = require('gulp-uglify');
 
@@ -49,104 +66,14 @@ function setProdNodeEnv(callback) {
 }
 
 function compileTokens(callback) {
-  StyleDictionary.registerFormat({
-    name: 'rvt/scss/map-simple',
-    formatter: function(dictionary) {
-      const allProperties = dictionary.allProperties;
-      let output = '';
-      output += `$${this.mapName || 'tokens'}: (\n`;
-      output += allProperties
-        .map(function(prop) {
-          let line = '';
-          if (prop.comment) {
-            line += `  // ${prop.comment}\n`;
-          }
-          line += `  '${prop.attributes.type}': ${prop.value}`;
-          return line;
-        })
-        .join(`,\n`);
-      output += `\n);\n`;
-      return output;
-    }
-  });
-  StyleDictionary.registerFormat({
-    name: 'rvt/scss/map-simple-desc',
-    formatter: function(dictionary) {
-      const allProperties = dictionary.allProperties;
-      let output = '';
-      output += `$${this.mapName || 'tokens'}: (\n`;
-      output += allProperties
-        .map(function(prop) {
-          let line = '';
-          if (prop.comment) {
-            line += `  // ${prop.comment}\n`;
-          }
-          line += `  '${prop.attributes.type}-${prop.attributes.item}': ${prop.value}`;
-          return line;
-        })
-        .join(`,\n`);
-      output += `\n);\n`;
-      return output;
-    }
-  });
-  StyleDictionary.registerFormat({
-    name: 'rvt/scss/variables',
-    formatter: function variablesWithPrefix(dictionary) {
-      const properties = dictionary.allProperties;
-      let output = '';
-      output += properties
-        .map(function(prop) {
-          var to_ret_prop =
-            `$${prop.name}: ` +
-            (prop.attributes.category === 'asset'
-              ? '"' + prop.value + '"'
-              : prop.value) +
-            ';';
-
-          if (prop.comment) {
-            to_ret_prop = to_ret_prop.concat(` // ${prop.comment}`);
-          }
-
-          return to_ret_prop;
-        })
-        .filter(function(strVal) {
-          return !!strVal;
-        })
-        .join('\n');
-      output += '\n';
-      return output;
-    }
-  });
-  StyleDictionary.registerFilter({
-    name: 'isBreakpoint',
-    matcher: function(prop) {
-      return prop.attributes.category === 'breakpoint';
-    }
-  });
-  StyleDictionary.registerFilter({
-    name: 'isColor',
-    matcher: function(prop) {
-      return prop.attributes.category === 'color';
-    }
-  });
-  StyleDictionary.registerFilter({
-    name: 'isTypeScale',
-    matcher: function(prop) {
-      return prop.attributes.category === 'ts';
-    }
-  });
-  StyleDictionary.registerFilter({
-    name: 'isWidth',
-    matcher: function(prop) {
-      return prop.attributes.category === 'width';
-    }
-  });
-  StyleDictionary.registerFilter({
-    name: 'isZIndex',
-    matcher: function(prop) {
-      return prop.attributes.category === 'z-index';
-    }
-  });
+  StyleDictionary.registerFormat(mapSimple);
+  StyleDictionary.registerFormat(mapSimpleDesc);
+  StyleDictionary.registerFormat(variables);
+  StyleDictionary.registerFilter(isBreakpoint);
+  StyleDictionary.registerFilter(isColor);
+  StyleDictionary.registerFilter(isTypeScale);
+  StyleDictionary.registerFilter(isWidth);
+  StyleDictionary.registerFilter(isZIndex);
   StyleDictionary.buildAllPlatforms();
   callback();
 }
