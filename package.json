@@ -22,7 +22,7 @@
     "cypress:browser": "cypress open",
     "cypress:serve": "gulp headless",
     "cypress:test": "cypress run",
-    "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
+    "clean": "rm -rf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run build"
