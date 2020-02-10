@@ -16,7 +16,7 @@
                 {% if not navItem.relatedLinks %}
                   {% render '@link', { link: navItem.link, text: navItem.text }, true %}
                 {% else %}
-                {% set navItemId = "subnavDropdown-"+ loop.index %}
+                {% set navItemId = "subnavDropdown"+ loop.index %}
                   {% render '@dropdown', { special: true, id: navItemId, title: navItem.text, items: navItem.relatedLinks }, true %}
                 {% endif %}
               </li>
@@ -27,7 +27,7 @@
       {% if identityModule %}
         <div class="rvt-header-id">
           {% if dropdown %}
-            {% set dropdownId = "dropdown-"+ id %}
+            {% set dropdownId = "dropdown"+ id %}
             {% render '@dropdown', { special: "true", identityModule: "true", initials: user.initials, username: user.username, items: userFunctions, id: dropdownId, class: "rvt-header-id__menu" }, true %}
           {% else %}
             <div href="#0" class="rvt-header-id__profile">

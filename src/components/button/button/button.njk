@@ -9,7 +9,7 @@
     {% endif %}
   {% elif icon %}
     {% set img = "@includes--" + icon %}
-    {% if srContent %}<span class="sr-only">{{ srContent }}</span>{% endif %}
+    {% if srContent %}<span class="rvt-sr-only">{{ srContent }}</span>{% endif %}
     {% include img %}
     {% if not srContent %}
       <span class="rvt-m-left-xs">{{ content }}</span>
