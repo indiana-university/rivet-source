@@ -67,13 +67,13 @@ $font-weight-regular: 400;
 $prefix: rvt; // Global class name prefix
 $shadow-base: 0 1px 3px 2px rgba(36, 49, 66, .1);
 $spacing-base: .5rem; // 8px
-$spacing-xxs: (.5rem / 2); // 4px
+$spacing-xxs: .25rem; // 4px
 $spacing-xs: .5rem; // 8px
-$spacing-sm: (.5rem * 2); // 16px
-$spacing-md: (.5rem * 3); // 24px
-$spacing-lg: (.5rem * 4); // 32px
-$spacing-xl: (.5rem * 5); // 40px
-$spacing-xxl: (.5rem * 8); // 64px
+$spacing-sm: 1rem; // 16px
+$spacing-md: 1.5rem; // 24px
+$spacing-lg: 2rem; // 32px
+$spacing-xl: 2.5rem; // 40px
+$spacing-xxl: 4rem; // 64px
 $ts-12: .75rem;
 $ts-14: .875rem;
 $ts-16: 1rem;
@@ -95,14 +95,14 @@ $ts-md: 1.625rem;
 $ts-lg: 2rem;
 $ts-xl: 2.5625rem;
 $ts-xxl: 3.25rem;
-$width-base: (.5rem * 8); // 64px
-$width-xxs: (.5rem * 8); // 64px
-$width-xs: ((.5rem * 8) * 2); // 128px
-$width-sm: ((.5rem * 8) * 3); // 192px
-$width-md: ((.5rem * 8) * 4); // 256px
-$width-lg: ((.5rem * 8) * 5); // 320px
-$width-xl: ((.5rem * 8) * 6); // 384px
-$width-xxl: ((.5rem * 8) * 8); // 512px
+$width-base: 4rem; // 64px
+$width-xxs: 4rem; // 64px
+$width-xs: (4rem * 2); // 128px
+$width-sm: (4rem * 3); // 192px
+$width-md: (4rem * 4); // 256px
+$width-lg: (4rem * 5); // 320px
+$width-xl: (4rem * 6); // 384px
+$width-xxl: (4rem * 8); // 512px
 $z-index-0: 0;
 $z-index-100: 100;
 $z-index-200: 200;

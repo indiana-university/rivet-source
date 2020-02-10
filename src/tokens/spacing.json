@@ -5,31 +5,31 @@
       "comment": "8px"
     },
     "xxs": {
-      "value": "({spacing.base.value} / 2)",
+      "value": ".25rem",
       "comment": "4px"
     },
     "xs": {
-      "value": "{spacing.base.value}",
+      "value": ".5rem",
       "comment": "8px"
     },
     "sm": {
-      "value": "({spacing.base.value} * 2)",
+      "value": "1rem",
       "comment": "16px"
     },
     "md": {
-      "value": "({spacing.base.value} * 3)",
+      "value": "1.5rem",
       "comment": "24px"
     },
     "lg": {
-      "value": "({spacing.base.value} * 4)",
+      "value": "2rem",
       "comment": "32px"
     },
     "xl": {
-      "value": "({spacing.base.value} * 5)",
+      "value": "2.5rem",
       "comment": "40px"
     },
     "xxl": {
-      "value": "({spacing.base.value} * 8)",
+      "value": "4rem",
       "comment": "64px"
     }
   }
