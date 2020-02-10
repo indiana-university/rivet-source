@@ -86,7 +86,7 @@ $gutter: $md/2;
   }
 
   &--tight {
-    margin: 0 ($gutter/-1);
+    margin: 0 ($gutter * -.75);
   }
 
   .#{$prefix}-cols {
@@ -110,7 +110,7 @@ $gutter: $md/2;
   }
 
   &--tight > [class^="#{$prefix}-cols"] {
-    padding: 0 ($gutter);
+    padding: 0 ($gutter * .75);
   }
 }
 
