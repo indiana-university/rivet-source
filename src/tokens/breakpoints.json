@@ -1,19 +1,19 @@
 {
   "breakpoint": {
     "sm": {
-      "value": "(480em/16)"
+      "value": "30em"
     },
     "md": {
-      "value": "(740em/16)"
+      "value": "46.25em"
     },
     "lg": {
-      "value": "(1080em/16)"
+      "value": "67.5em"
     },
     "xl": {
-      "value": "(1260em/16)"
+      "value": "78.75em"
     },
     "xxl": {
-      "value": "(1400em/16)"
+      "value": "87.5em"
     }
   }
 }
