@@ -74,7 +74,9 @@ function compileTokens(callback) {
   StyleDictionary.registerFormat(mapSimple);
   StyleDictionary.registerFormat(mapSimpleDesc);
   StyleDictionary.registerFormat(variables);
-  StyleDictionary.buildAllPlatforms();
+  process.env.NODE_ENV === 'production'
+    ? StyleDictionary.buildAllPlatforms()
+    : StyleDictionary.buildPlatform('src/sass/core');
   callback();
 }
 
