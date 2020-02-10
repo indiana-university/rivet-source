@@ -87,8 +87,16 @@ $gutter: $md / 2;
     margin: 0 ($gutter * -1.66);
   }
 
+  &--loose > [class^='#{$prefix}-cols'] {
+    padding: 0 ($gutter * 1.66);
+  }
+
   &--tight {
     margin: 0 ($gutter * -.75);
+  }
+
+  &--tight > [class^='#{$prefix}-cols'] {
+    padding: 0 ($gutter * .75);
   }
 
   .#{$prefix}-cols {
@@ -105,14 +113,6 @@ $gutter: $md / 2;
      * big for their parent .#{$prefix}-row__cols.
      */
     min-width: 0;
-  }
-
-  &--loose > [class^='#{$prefix}-cols'] {
-    padding: 0 ($gutter * 1.66);
-  }
-
-  &--tight > [class^='#{$prefix}-cols'] {
-    padding: 0 ($gutter * .75);
   }
 }
 
