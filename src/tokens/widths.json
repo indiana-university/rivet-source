@@ -1,35 +1,35 @@
 {
   "width": {
     "base": {
-      "value": "{spacing.xxl.value}",
+      "value": "4rem",
       "comment": "64px"
     },
     "xxs": {
-      "value": "{width.base.value}",
+      "value": "4rem",
       "comment": "64px"
     },
     "xs": {
-      "value": "({width.base.value} * 2)",
+      "value": "8rem",
       "comment": "128px"
     },
     "sm": {
-      "value": "({width.base.value} * 3)",
+      "value": "12rem",
       "comment": "192px"
     },
     "md": {
-      "value": "({width.base.value} * 4)",
+      "value": "16rem",
       "comment": "256px"
     },
     "lg": {
-      "value": "({width.base.value} * 5)",
+      "value": "20rem",
       "comment": "320px"
     },
     "xl": {
-      "value": "({width.base.value} * 6)",
+      "value": "24rem",
       "comment": "384px"
     },
     "xxl": {
-      "value": "({width.base.value} * 8)",
+      "value": "32rem",
       "comment": "512px"
     }
   }
