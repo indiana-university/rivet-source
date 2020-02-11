@@ -83,6 +83,14 @@ $gutter: $spacing-md / 2;
 .#{$prefix}-row {
   @include row;
 
+  .#{$prefix}-cols {
+    @include cols;
+  }
+
+  .#{$prefix}-cols--last {
+    margin-left: auto;
+  }
+
   &--loose {
     margin: 0 ($gutter * -1.66);
   }
@@ -97,14 +105,6 @@ $gutter: $spacing-md / 2;
 
   &--tight > [class^='#{$prefix}-cols'] {
     padding: 0 ($gutter * .75);
-  }
-
-  .#{$prefix}-cols {
-    @include cols;
-  }
-
-  .#{$prefix}-cols--last {
-    margin-left: auto;
   }
 
   [class^='#{$prefix}-cols'] {
@@ -181,14 +181,14 @@ $gutter: $spacing-md / 2;
 /* stylelint-disable */
 @each $variable, $size in $breakpoints {
   @each $columns, $width in $row-columns {
-    .#{$prefix}-cols-#{$columns}-#{$variable}-up {
+    .#{$prefix}-cols-#{$columns}-#{$variable} {
       @extend %cols-properties;
     }
   }
 }
 
 @each $variable, $size in $breakpoints {
-  @if $variable == 'breakpoint-sm' {
+  @if $variable == 'sm' {
     @each $columns, $width in $row-columns {
       .#{$prefix}-cols-#{$columns}-sm {
         flex-basis: $width * 1%;
@@ -200,7 +200,7 @@ $gutter: $spacing-md / 2;
   @else {
     @include mq($size) {
       @each $columns, $width in $row-columns {
-        .#{$prefix}-cols-#{$columns}-#{$variable}-up {
+        .#{$prefix}-cols-#{$columns}-#{$variable} {
           flex-basis: $width * 1%;
           max-width: $width * 1%;
         }
@@ -229,7 +229,7 @@ $gutter: $spacing-md / 2;
 // as a convenience.
 
 @each $variable, $size in $breakpoints {
-  @if $size == 'breakpoint-sm' {
+  @if $size == 'sm' {
     @each $columns, $width in $row-columns {
       .#{$prefix}-cols-push-#{$columns}-#{$variable} {
         left: $width * 1%;
