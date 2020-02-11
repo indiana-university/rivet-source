@@ -6,7 +6,7 @@
 // Builds non-responsive width utility classes
 
 @each $token, $width in $widths {
-  .#{$prefix}-#{$token} {
+  .#{$prefix}-width-#{$token} {
     width: 100%;
     max-width: $width;
   }
@@ -17,7 +17,7 @@
 @each $variable, $size in $breakpoints {
   @include mq($size) {
     @each $token, $width in $widths {
-      .#{$prefix}-#{$token}-#{$variable}-up {
+      .#{$prefix}-width-#{$token}-#{$variable}-up {
         width: 100%;
         max-width: $width;
       }
