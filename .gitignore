@@ -17,4 +17,9 @@ cypress/screenshots
 /js
 /index.html
 /rivet.zip
+
+# Design tokens
 /tokens
+/src/sass/core/maps/*.scss
+!/src/sass/core/maps/_index.scss
+/src/sass/core/variables.scss
