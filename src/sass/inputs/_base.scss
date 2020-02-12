@@ -1,0 +1,108 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix} {
+  &-input[type],
+  &-input:not([type]),
+  &-text-input,
+  &-textarea,
+  &-select {
+    display: block;
+    width: 100%;
+    border-radius: $spacing-xxs;
+    background-color: inherit;
+    border: 1px solid $color-black-400;
+    padding: $spacing-xs;
+    height: $spacing-xl;
+    line-height: 1;
+
+    /**
+     * Prefixes get rid of browser default select element styles.
+     */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+  }
+
+  &-textarea {
+    height: $spacing-base * 15;
+    line-height: 1.5;
+    overflow: auto; // Remove scrollbar in IE
+  }
+
+  &-input[type='search'] {
+    height: auto;
+    -webkit-appearance: none;
+  }
+
+  &-select {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik04LDEyLjQ2YTIsMiwwLDAsMS0xLjUyLS43TDEuMjQsNS42NWExLDEsMCwxLDEsMS41Mi0xLjNMOCwxMC40Nmw1LjI0LTYuMTFhMSwxLDAsMCwxLDEuNTIsMS4zTDkuNTIsMTEuNzZBMiwyLDAsMCwxLDgsMTIuNDZaIi8+Cjwvc3ZnPg==');
+    background-position: right $spacing-sm center;
+    background-size: $spacing-sm $spacing-sm;
+    background-repeat: no-repeat;
+    padding-right: $spacing-xl;
+    padding-left: $spacing-xs;
+
+    /**
+     * Prefixes get rid of browser default select element styles.
+     */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+  }
+
+  &-input[type]:disabled,
+  &-input:not([type]):disabled,
+  &-text-input:disabled,
+  &-textarea:disabled,
+  &-select:disabled {
+    background-color: $color-black-100;
+    cursor: not-allowed;
+  }
+
+  &-input[type]:focus,
+  &-input:not([type]):focus,
+  &-text-input:focus,
+  &-textarea:focus,
+  &-select:focus {
+    outline: none;
+    /* stylelint-disable */
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
+    /* stylelint-enable */
+    transition: box-shadow .2s ease;
+  }
+
+  &-label {
+    display: inline-block;
+    font-size: $ts-14;
+    line-height: 1;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xs;
+  }
+
+  &-fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-legend {
+    margin: 0;
+    font-weight: $font-weight-regular;
+    display: block;
+  }
+
+  &-select[multiple] {
+    height: $spacing-xxl * 2;
+    background-image: none;
+    padding-right: $spacing-xs;
+  }
+
+  &-select::-ms-expand {
+    display: none;
+  }
+}

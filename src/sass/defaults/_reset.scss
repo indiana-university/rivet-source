@@ -1,0 +1,77 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+html {
+  font-size: 100%;
+}
+
+html * {
+  box-sizing: border-box;
+  font: inherit;
+}
+
+body {
+  color: $color-black-base;
+  font-family: $font-base;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/**
+ * Normalize Heading sizes since we're dealing with applications not
+ * Editorial/article-like content. We'll make them slightly bigger than the
+ * base font size.
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.125rem;
+  font-weight: $font-weight-regular;
+  margin: 0;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+hr {
+  border-top: 1px solid $color-black-100;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+}
+
+code {
+  font-family: monospace;
+  background-color: $color-black-100;
+  display: inline-block;
+  padding: .125rem .25rem;
+  color: $color-blue-600;
+  border-radius: $spacing-xxs;
+}
+
+abbr,
+abbr[title] {
+  border: none;
+  text-decoration: none;
+}
+
+/**
+ * Set button margins to zero to override Safari user agent stylesheet
+ * Remove inner focus from buttons in Firefox
+ */
+
+button {
+  margin: 0;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}

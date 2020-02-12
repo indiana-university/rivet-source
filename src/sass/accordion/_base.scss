@@ -1,0 +1,79 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix}-accordion {
+  &__title {
+    font-size: $ts-16;
+  }
+
+  &__title button {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    &:focus {
+      box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-black-100;
+    }
+
+    svg {
+      margin-right: $spacing-xs;
+    }
+  }
+
+  &__title button[aria-expanded='true'] {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__content[hidden] {
+    display: none;
+  }
+
+  &--panel {
+    border: 1px solid $color-black-200;
+    border-radius: $spacing-xxs;
+  }
+
+  &--panel &__title {
+    background-color: $color-black-000;
+    border-radius: $spacing-xxs;
+  }
+
+  &--panel &__title button {
+    border-radius: $spacing-xxs;
+    padding: $spacing-sm*.75;
+
+    &:hover {
+      background-color: $color-black-100;
+    }
+  }
+
+  &--panel &__title button[aria-expanded='true'] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &--panel &__content {
+    border-top: 1px solid $color-black-200;
+    padding: $spacing-sm;
+  }
+}
+
+.rvt-collapsible-accordion {
+  .rvt-collapsible:not(:first-child) {
+    margin-top: $spacing-sm;
+  }
+}

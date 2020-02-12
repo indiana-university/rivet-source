@@ -1,4 +1,4 @@
-<div class="rvt-dropdown">
+<div class="rvt-dropdown" data-dropdown="{{ id }}">
   {% if not special %}
     {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% elif identityModule %}
@@ -6,7 +6,7 @@
   {% else %}
     {% render '@button--dropdown', { special: "true", content: title, initials: initials, username: username, attributes: [{ label: "class", value: "rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% endif %}
-  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} aria-hidden="true">
+  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} hidden data-dropdown-menu>
   {% if buttons %}
     {% for item in items %}
       {% if item.relatedLinks %}
@@ -47,11 +47,16 @@
 </div>
 
 <script>
-    // Callback function that puts focus on the button that was toggled.
-    function focusTheToggle(id) {
-        document
-            .querySelector('[data-dropdown-toggle="' + id + '"]')
-            .focus();
-    }
+  const dropdownWrapper{{ id }} = document.querySelector('[data-dropdown="{{ id }}"]');
+  window.new{{ id }} = new Rivet.Dropdown(dropdownWrapper{{ id }});
 
+  dropdownWrapper{{ id }}.querySelector('button').addEventListener('rvt:dropdownOpen', function(event) {
+    // event.preventDefault();
+    // console.log('Opened:', event.detail.id);
+  });
+
+  dropdownWrapper{{ id }}.querySelector('button').addEventListener('rvt:dropdownClose', function(event) {
+    // event.preventDefault();
+    // console.log('Closed:', event.detail.id);
+  });
 </script>

@@ -7,7 +7,6 @@ import { isNode } from '../utilities/domHelpers';
 
 export default class Alert {
   constructor(element) {
-
     // Instance properties
     this.element = element;
     this.closeAttribute = 'data-alert-close';
@@ -30,17 +29,14 @@ export default class Alert {
   _handleClick() {
     this.dismiss();
   }
+
   dismiss() {
     /**
-   * Custom event for handling removal of alerts from a page.
-   */
-    const dismissEvent = dispatchCustomEvent(
-      'alertDismiss',
-      this.element,
-      {
-        id: this.element.dataset.alert
-      }
-    );
+     * Custom event for handling removal of alerts from a page.
+     */
+    const dismissEvent = dispatchCustomEvent('alertDismiss', this.element, {
+      id: this.element.dataset.alert
+    });
 
     if (!dismissEvent) return;
 
@@ -57,5 +53,4 @@ export default class Alert {
   destroy() {
     this.closeButton.addEventListener('click', this._handleClick, false);
   }
-
 }

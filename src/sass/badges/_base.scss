@@ -1,0 +1,124 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix}-badge {
+  background-color: $color-black-200;
+  border: 2px solid $color-black-200;
+  border-radius: 999px;
+  color: $color-black-base;
+  display: inline-block;
+
+  /**
+   * We set the type size to a percent here so that if the bade is used
+   * inside another element that uses a "ts-*" type scale utility,
+   * the badge will inherit that size.
+   */
+  font-size: 88%;
+  font-weight: $font-weight-bold;
+  letter-spacing: .02rem;
+  line-height: 1.6;
+
+  /**
+   * Use ems here so that padding stays proportional if parent
+   * element font size changes.
+   */
+  padding: .03125em .5rem;
+  -webkit-font-smoothing: antialiased;
+  -osx-font-smoothing: grayscale;
+
+  &--secondary {
+    background-color: transparent;
+  }
+}
+
+a.#{$prefix}-badge {
+  text-decoration: none;
+
+  &:hover {
+    color: $color-black-base;
+    background-color: $color-black-400;
+    border-color: $color-black-400;
+  }
+
+  &--info:hover,
+  &--info-secondary:hover {
+    background-color: $color-blue-700;
+    border-color: $color-blue-700;
+    color: $color-white-base;
+  }
+
+  &--success:hover,
+  &--success-secondary:hover {
+    background-color: $color-green-700;
+    border-color: $color-green-700;
+    color: $color-white-base;
+  }
+
+  &--warning:hover,
+  &--warning-secondary:hover {
+    background-color: $color-yellow-700;
+    border-color: $color-yellow-700;
+    color: $color-white-base;
+  }
+
+  &--danger:hover,
+  &--danger-secondary:hover {
+    background-color: $color-orange-700;
+    border-color: $color-orange-700;
+    color: $color-white-base;
+  }
+
+  &:focus {
+    border-radius: 999px;
+  }
+}
+
+.#{$prefix}-badge--info {
+  background-color: $color-blue-600;
+  border-color: $color-blue-600;
+  color: $color-white-base;
+
+  &-secondary {
+    background-color: transparent;
+    border-color: $color-blue-600;
+    color: $color-blue-600;
+  }
+}
+
+.#{$prefix}-badge--success {
+  background-color: $color-green-500;
+  border-color: $color-green-500;
+  color: $color-white-base;
+
+  &-secondary {
+    background-color: transparent;
+    border-color: $color-green-500;
+    color: $color-green-500;
+  }
+}
+
+.#{$prefix}-badge--warning {
+  background-color: $color-yellow-200;
+  border-color: $color-yellow-200;
+  color: $color-black-900;
+
+  &-secondary {
+    background-color: transparent;
+    border-color: $color-yellow-200;
+    color: $color-black-900;
+  }
+}
+
+.#{$prefix}-badge--danger {
+  background-color: $color-orange-500;
+  border-color: $color-orange-500;
+  color: $color-white-base;
+
+  &-secondary {
+    background-color: transparent;
+    border-color: $color-orange-500;
+    color: $color-orange-500;
+  }
+}

@@ -1,0 +1,26 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+// Builds non-responsive width utility classes
+
+@each $token, $width in $widths {
+  .#{$prefix}-width-#{$token} {
+    width: 100%;
+    max-width: $width;
+  }
+}
+
+// Builds responsive utility classes
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $token, $width in $widths {
+      .#{$prefix}-width-#{$token}-#{$variable}-up {
+        width: 100%;
+        max-width: $width;
+      }
+    }
+  }
+}

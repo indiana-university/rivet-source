@@ -1,0 +1,324 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+// Display flex
+
+.#{$prefix}-flex {
+  display: flex !important;
+}
+
+.#{$prefix}-inline-flex {
+  display: inline-flex !important;
+}
+
+.#{$prefix}-row {
+  flex-direction: row !important;
+}
+
+.#{$prefix}-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.#{$prefix}-column {
+  flex-direction: column !important;
+}
+
+.#{$prefix}-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-flex-#{$variable}-up {
+      display: flex !important;
+    }
+
+    .#{$prefix}-inline-flex-#{$variable}-up {
+      display: inline-flex !important;
+    }
+
+    .#{$prefix}-row-#{$variable}-up {
+      flex-direction: row !important;
+    }
+
+    .#{$prefix}-row-reverse-#{$variable}-up {
+      flex-direction: row-reverse !important;
+    }
+
+    .#{$prefix}-column-#{$variable}-up {
+      flex-direction: column !important;
+    }
+
+    .#{$prefix}-column-reverse-#{$variable}-up {
+      flex-direction: column-reverse !important;
+    }
+  }
+}
+
+// Wrap
+
+.#{$prefix}-wrap {
+  flex-wrap: wrap !important;
+}
+
+.#{$prefix}-no-wrap {
+  flex-wrap: nowrap !important;
+}
+
+.#{$prefix}-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-wrap-#{$variable}-up {
+      flex-wrap: wrap !important;
+    }
+
+    .#{$prefix}-no-wrap-#{$variable}-up {
+      flex-wrap: nowrap !important;
+    }
+
+    .#{$prefix}-wrap-reverse-#{$variable}-up {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+// Shrink
+
+.#{$prefix}-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+.#{$prefix}-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-shrink-1-#{$variable}-up {
+      flex-shrink: 1 !important;
+    }
+
+    .#{$prefix}-shrink-0-#{$variable}-up {
+      flex-shrink: 0 !important;
+    }
+  }
+}
+
+// Grow
+
+.#{$prefix}-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.#{$prefix}-grow-0 {
+  flex-grow: 0 !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-grow-1-#{$variable}-up {
+      flex-grow: 1 !important;
+    }
+
+    .#{$prefix}-grow-0-#{$variable}-up {
+      flex-grow: 0 !important;
+    }
+  }
+}
+
+// Align items
+
+.#{$prefix}-items-start {
+  align-items: flex-start !important;
+}
+
+.#{$prefix}-items-end {
+  align-items: flex-end !important;
+}
+
+.#{$prefix}-items-center {
+  align-items: center !important;
+}
+
+.#{$prefix}-items-baseline {
+  align-items: baseline !important;
+}
+
+.#{$prefix}-items-stretch {
+  align-items: stretch !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-items-start-#{$variable}-up {
+      align-items: flex-start !important;
+    }
+
+    .#{$prefix}-items-end-#{$variable}-up {
+      align-items: flex-end !important;
+    }
+
+    .#{$prefix}-items-center-#{$variable}-up {
+      align-items: center !important;
+    }
+
+    .#{$prefix}-items-baseline-#{$variable}-up {
+      align-items: baseline !important;
+    }
+
+    .#{$prefix}-items-stretch-#{$variable}-up {
+      align-items: stretch !important;
+    }
+  }
+}
+
+// Align content
+
+.#{$prefix}-content-start {
+  align-content: flex-start !important;
+}
+
+.#{$prefix}-content-end {
+  align-content: flex-end !important;
+}
+
+.#{$prefix}-content-center {
+  align-content: center !important;
+}
+
+.#{$prefix}-content-stretch {
+  align-content: stretch !important;
+}
+
+.#{$prefix}-content-baseline {
+  align-content: baseline !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-content-start-#{$variable}-up {
+      align-content: flex-start !important;
+    }
+
+    .#{$prefix}-content-end-#{$variable}-up {
+      align-content: flex-end !important;
+    }
+
+    .#{$prefix}-content-center-#{$variable}-up {
+      align-content: center !important;
+    }
+
+    .#{$prefix}-content-stretch-#{$variable}-up {
+      align-content: stretch !important;
+    }
+
+    .#{$prefix}-content-baseline-#{$variable}-up {
+      align-content: baseline !important;
+    }
+  }
+}
+
+//Flex justify-content
+
+.#{$prefix}-justify-start {
+  justify-content: flex-start;
+}
+
+.#{$prefix}-justify-end {
+  justify-content: flex-end;
+}
+
+.#{$prefix}-justify-center {
+  justify-content: center;
+}
+
+.#{$prefix}-justify-space-between {
+  justify-content: space-between;
+}
+
+.#{$prefix}-justify-space-around {
+  justify-content: space-around;
+}
+
+.#{$prefix}-justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-justify-start-#{$variable}-up {
+      justify-content: flex-start;
+    }
+
+    .#{$prefix}-justify-end-#{$variable}-up {
+      justify-content: flex-end;
+    }
+
+    .#{$prefix}-justify-center-#{$variable}-up {
+      justify-content: center;
+    }
+
+    .#{$prefix}-justify-space-between-#{$variable}-up {
+      justify-content: space-between;
+    }
+
+    .#{$prefix}-justify-space-around-#{$variable}-up {
+      justify-content: space-around;
+    }
+
+    .#{$prefix}-justify-space-evenly-#{$variable}-up {
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// self
+
+.#{$prefix}-self-start {
+  align-self: flex-start !important;
+}
+
+.#{$prefix}-self-end {
+  align-self: flex-end !important;
+}
+
+.#{$prefix}-self-center {
+  align-self: center !important;
+}
+
+.#{$prefix}-self-baseline {
+  align-self: baseline !important;
+}
+
+.#{$prefix}-self-stretch {
+  align-self: stretch !important;
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-self-start-#{$variable}-up {
+      align-self: flex-start;
+    }
+
+    .#{$prefix}-self-end-#{$variable}-up {
+      align-self: flex-end;
+    }
+
+    .#{$prefix}-self-center-#{$variable}-up {
+      align-self: center;
+    }
+
+    .#{$prefix}-self-baseline-#{$variable}-up {
+      align-self: baseline;
+    }
+
+    .#{$prefix}-self-stretch-#{$variable}-up {
+      align-self: stretch;
+    }
+  }
+}

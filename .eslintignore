@@ -1,0 +1,6 @@
+/_build/
+/cypress/
+/js/
+/node_modules/
+/src/js/vendor.js
+/static/

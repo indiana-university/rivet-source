@@ -1,18 +1,18 @@
-<legend class="sr-only">{{ legend }}</legend>
+<legend class="rvt-sr-only">{{ legend }}</legend>
 <ul{% if list %} class="rvt-plain-list"{% else %} class="rvt-inline-list"{% endif %}>
   {% for box in boxes %}
     <li{% if box.hidden %} class="rvt-checkbox-wrapper"{% endif %}>
-      <input type="checkbox" name="checkbox-{{ box.id }}" id="{{ box.id }}"{% if box.modifiers %}{% for modifier in box.modifiers %} {{ modifier.status }}{% endfor %}{% endif %}>
+      <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ box.id }}" id="{{ box.id }}"{% if box.modifiers %}{% for modifier in box.modifiers %} {{ modifier.status }}{% endfor %}{% endif %}>
       {% if box.hidden %}
         <input type="hidden">
       {% endif %}
-      <label for="{{ box.id }}">{{ box.checkboxLabel }}</label>
+      <label class="rvt-label" for="{{ box.id }}">{{ box.checkboxLabel }}</label>
       {% if (box.id === "checkbox-indeterminate") %}
         <ul class="rvt-plain-list rvt-p-left-lg">
           {% for item in box.items %}
             <li>
-              <input type="checkbox" name="checkbox-{{ item.id }}" id="{{ item.id }}"{% if loop.index === 1 %} checked{% endif %}>
-              <label for="{{ item.id }}">{{ item.checkboxLabel }}</label>
+              <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ item.id }}" id="{{ item.id }}"{% if loop.index === 1 %} checked{% endif %}>
+              <label class="rvt-label" for="{{ item.id }}">{{ item.checkboxLabel }}</label>
             </li>
           {% endfor %}
         </ul>

@@ -1,0 +1,83 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix}-button-segmented {
+  display: inline-flex;
+
+  &--fitted {
+    display: flex;
+    width: 100%;
+
+    .#{$prefix}-button {
+      flex-grow: 1;
+      justify-content: center;
+    }
+  }
+
+  .#{$prefix}-button {
+    position: relative;
+
+    &:focus {
+      z-index: 1000;
+    }
+  }
+
+  a.#{$prefix}-button {
+    text-align: center;
+  }
+
+  .#{$prefix}-button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .#{$prefix}-button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -2px;
+  }
+
+  .#{$prefix}-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    margin-left: -2px;
+  }
+
+  /*
+   * The following helpers handle dropdowns which are nested inside of a
+   * segmented button.
+   */
+
+  .dropdown:first-child > .#{$prefix}-button:only-of-type,
+  .#{$prefix}-dropdown:first-child > .#{$prefix}-button:only-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-left: -2px;
+  }
+
+  .dropdown:first-child > .#{$prefix}-button:first-of-type,
+  .#{$prefix}-dropdown:first-child > .#{$prefix}-button:first-of-type {
+    border-top-left-radius: $spacing-xxs;
+    border-bottom-left-radius: $spacing-xxs;
+  }
+
+  .dropdown:last-child > .#{$prefix}-button:only-of-type,
+  .#{$prefix}-dropdown:last-child > .#{$prefix}-button:only-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -2px;
+  }
+
+  .dropdown:last-child > .#{$prefix}-button:last-of-type,
+  .#{$prefix}-dropdown:last-child > .#{$prefix}-button:last-of-type {
+    border-top-right-radius: $spacing-xxs;
+    border-bottom-right-radius: $spacing-xxs;
+  }
+
+  .dropdown:not(:first-child):not(:last-child) > .#{$prefix}-button:only-of-type,
+  .#{$prefix}-dropdown:not(:first-child):not(:last-child) > .#{$prefix}-button:only-of-type {
+    border-radius: 0;
+    margin-left: -2px;
+  }
+}

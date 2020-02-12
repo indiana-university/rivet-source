@@ -1,0 +1,45 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+/* stylelint-disable */
+
+// Did this work?
+
+@each $variable, $hex in $colors {
+  @if str-index($variable,'base') {
+    $initial: str-index($variable, '-base');
+    $colorVar: str-slice($variable, 0, ($initial - 1));
+
+    .#{$prefix}-color-#{$colorVar} {
+      color: #{$hex} !important;
+    }
+  }
+
+  @else {
+    .#{$prefix}-color-#{$variable} {
+      color: #{$hex} !important;
+    }
+  }
+}
+
+// Generate background-color utility classes
+@each $variable, $hex in $colors {
+  @if str-index($variable,'base') {
+    $initial: str-index($variable, '-base');
+    $bgVar: str-slice($variable, 0, ($initial - 1));
+
+    .#{$prefix}-bg-#{$bgVar} {
+      background-color: #{$hex} !important;
+    }
+  }
+
+  @else {
+    .#{$prefix}-bg-#{$variable} {
+      background-color: #{$hex} !important;
+    }
+  }
+}
+
+/* stylelint-enable */

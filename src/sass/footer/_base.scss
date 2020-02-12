@@ -1,0 +1,81 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix}-footer {
+  align-items: center;
+  font-size: $ts-12;
+  padding: $spacing-xs $spacing-md;
+  background-color: $color-black-000;
+  border-top: 1px solid $color-black-100;
+  width: 100%;
+
+  a {
+    color: $color-crimson-base;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__trident > svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $spacing-xxs;
+  }
+
+  &__aux-links {
+    list-style: none;
+    margin-top: $spacing-xs;
+    margin-bottom: 0;
+    padding-inline-start: 0;
+    text-align: center;
+  }
+
+  &__aux-item {
+    display: inline-block;
+    margin-top: 0;
+
+    &:first-child::after {
+      content: '|';
+      color: $color-black-500;
+      margin: 0 $spacing-xs;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+/**
+ * Pixels for breakpoint chosen due to margins in default footer lockup
+ */
+
+@include mq(519px) {
+  .#{$prefix}-footer {
+    &__aux-item::after {
+      content: '|';
+      color: $color-black-500;
+      margin: 0 $spacing-xs;
+    }
+
+    &__aux-item:last-child::after {
+      content: none;
+    }
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-footer {
+    display: flex;
+
+    &__aux-links {
+      margin-left: auto;
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.#{$prefix}-checkbox {
+  position: absolute;
+  left: -$spacing-sm;
+  opacity: 0;
+
+  & + .#{$prefix}-label,
+  .#{$prefix}-checkbox-wrapper & ~ .#{$prefix}-label {
+    font-size: $spacing-sm;
+
+    /**
+     * Helps visually align checkbox lists
+     */
+    margin-left: .2rem;
+    font-weight: $font-weight-regular;
+
+    &::before {
+      display: inline-block;
+      content: ' ';
+      border-radius: .125rem;
+      margin-right: .75rem;
+      width: $spacing-sm;
+      height: $spacing-sm;
+      transition: all .2s ease;
+
+      /**
+       * There are some magic numbers here that help improve rendering
+       * of box-shadows in Firefox and IE. Making them just a smidge
+       * wider (.08rem instead of .0625rem/1px) than one pixel compensates
+       * for some weird aliasing that is happening. As a bonus it seem to
+       *  make radios and checkboxes look optically closer the 1px border
+       * used on other inputs like text inputs, textareas, and selects.
+       */
+      box-shadow: 0 0 0 .08rem $color-black-400;
+
+      /**
+       * This helps visually center the label with the pseudo
+       * element checkbox.
+       */
+      vertical-align: middle;
+      margin-top: -.1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:checked + .#{$prefix}-label,
+  .#{$prefix}-checkbox-wrapper &:checked ~ .#{$prefix}-label {
+    &::before {
+      color: $color-white-base;
+      background-color: $color-blue-600;
+      box-shadow: 0 0 0 .08rem $color-blue-600;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=');
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  /* stylelint-disable */
+
+  &:focus + .#{$prefix}-label::before,
+  .#{$prefix}-checkbox-wrapper &:focus ~ .#{$prefix}-label::before {
+    box-shadow:
+      0 0 0 .08rem $color-black-700,
+      0 0 0 .1875rem $color-white-base,
+      0 0 0 .3125rem $color-blue-600;
+  }
+
+  /* stylelint-enable */
+
+  &:disabled + .#{$prefix}-label::before,
+  .#{$prefix}-checkbox-wrapper &:disabled ~ .#{$prefix}-label::before {
+    background-color: $color-black-200;
+    box-shadow: 0 0 0 .08rem $color-black-300;
+  }
+
+  /* stylelint-disable */
+
+  &:checked:focus + .#{$prefix}-label::before,
+  &:indeterminate:focus + .#{$prefix}-label::before,
+  .#{$prefix}-checkbox-wrapper &:checked:focus ~ .#{$prefix}-label::before,
+  .#{$prefix}-checkbox-wrapper &:indeterminate:focus ~ .#{$prefix}-label::before {
+    box-shadow:
+      0 0 0 .08rem $color-blue-600,
+      0 0 0 .1875rem $color-white-base,
+      0 0 0 .3125rem $color-blue-500;
+  }
+
+  /* stylelint-enable */
+
+  &:disabled + .#{$prefix}-label,
+  .#{$prefix}-checkbox-wrapper &:disabled ~ .#{$prefix}-label {
+    color: $color-black-700;
+    cursor: default;
+  }
+
+  /* stylelint-disable */
+
+  /**
+   * Indeterminate state
+   */
+
+  &:indeterminate + .#{$prefix}-label::before,
+  .#{$prefix}-checkbox-wrapper &:indeterminate ~ .#{$prefix}-label::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xNCw5SDJBMSwxLDAsMCwxLDIsN0gxNGExLDEsMCwwLDEsMCwyWiIvPgo8L3N2Zz4=');
+    background-color: $color-blue-600;
+    box-shadow: 0 0 0 .08rem $color-blue-600;
+  }
+
+  /* stylelint-enable */
+
+  &:indeterminate:disabled + .#{$prefix}-label::before,
+  .#{$prefix}-checkbox-wrapper &:indeterminate:disabled ~ .#{$prefix}-label::before {
+    background-color: $color-black-200;
+    box-shadow: 0 0 0 .08rem $color-black-300;
+  }
+}
