@@ -7,19 +7,19 @@
   display: none !important;
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  .#{$prefix}-hide-#{$bp-name}-down {
+@each $variable, $size in $breakpoints {
+  .#{$prefix}-hide-#{$variable}-down {
     @extend %start-hidden;
   }
 
-  @include mq($bp-size) {
-    .#{$prefix}-hide-#{$bp-name}-down {
+  @include mq($size) {
+    .#{$prefix}-hide-#{$variable}-down {
       display: block !important;
     }
   }
 
-  @include mq($bp-size) {
-    .#{$prefix}-hide-#{$bp-name}-up {
+  @include mq($size) {
+    .#{$prefix}-hide-#{$variable}-up {
       display: none !important;
     }
   }

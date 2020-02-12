@@ -16,7 +16,7 @@ table {
 
 tr th {
   font-weight: $font-weight-regular;
-  padding: $sm;
+  padding: $spacing-sm;
 }
 
 thead {
@@ -25,7 +25,7 @@ thead {
 
   th,
   tr th {
-    padding: $sm;
+    padding: $spacing-sm;
     line-height: 1;
     font-weight: $font-weight-bold;
   }
@@ -36,7 +36,7 @@ tr {
 }
 
 tr td {
-  padding: $sm;
+  padding: $spacing-sm;
 }
 
 .#{$prefix}-table-plain {

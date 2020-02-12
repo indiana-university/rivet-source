@@ -30,17 +30,17 @@
        * bump up against each other.
        */
       margin-left: -1px;
-      min-width: $lg;
+      min-width: $spacing-lg;
 
       /**
        * .75rem here makes the pagination the same height as text inputs
        * for consistency's sake.
        */
-      padding: .75rem $sm;
+      padding: .75rem $spacing-sm;
       position: relative;
       text-decoration: none;
       transition: box-shadow .2s ease;
-      z-index: map-get($z-index, z-100);
+      z-index: map-get($z-index, '100');
     }
 
     a:hover {
@@ -50,10 +50,10 @@
     a:focus {
       border-radius: inherit;
       /* stylelint-disable */
-      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
+      box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
       /* stylelint-enable */
       outline: none;
-      z-index: map-get($z-index, z-1000);
+      z-index: map-get($z-index, '1000');
     }
   }
 
@@ -68,13 +68,13 @@
   }
 
   &__item:first-child a {
-    border-top-left-radius: $xxs;
-    border-bottom-left-radius: $xxs;
+    border-top-left-radius: $spacing-xxs;
+    border-bottom-left-radius: $spacing-xxs;
   }
 
   &__item:last-child a {
-    border-top-right-radius: $xxs;
-    border-bottom-right-radius: $xxs;
+    border-top-right-radius: $spacing-xxs;
+    border-bottom-right-radius: $spacing-xxs;
   }
 
   /**
@@ -84,12 +84,12 @@
   &__item.is-active a {
     background-color: $color-blue-600;
     border-color: $color-blue-600;
-    color: $color-white;
+    color: $color-white-base;
 
     /**
      * z-index hides the border overlap
      */
-    z-index: map-get($z-index, z-200);
+    z-index: map-get($z-index, '200');
   }
 
   /**

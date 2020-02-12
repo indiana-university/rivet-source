@@ -16,19 +16,19 @@
     align-items: center;
     display: inline-flex;
     flex-shrink: 0;
-    height: $md;
-    width: $md;
+    height: $spacing-md;
+    width: $spacing-md;
   }
 
   &--reverse,
   &--reverse &__icon,
   &--reverse:hover {
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &__text {
     font-weight: 700;
     line-height: 1.2;
-    margin-left: $xs;
+    margin-left: $spacing-xs;
   }
 }

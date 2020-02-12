@@ -5,8 +5,8 @@
 
 .#{$prefix}-alert {
   background-color: $color-black-100;
-  border-left: $xxs solid $color-black-400;
-  padding: $sm;
+  border-left: $spacing-xxs solid $color-black-400;
+  padding: $spacing-sm;
   position: relative;
 
   &__title {
@@ -18,36 +18,36 @@
      * be used with the __message only and still get the proper padding
      * around all sides.
      */
-    margin-bottom: $xxs;
+    margin-bottom: $spacing-xxs;
 
     /**
      * Add a little padding on the right so that the title won't end up
      * showing underneath the "X" button if it's used.
      */
-    padding-right: $md;
+    padding-right: $spacing-md;
   }
 
   &__message {
     margin-top: 0;
     margin-bottom: 0;
     font-size: $ts-14;
-    padding-right: $md;
+    padding-right: $spacing-md;
   }
 
   &__dismiss {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    border-radius: $xxs;
-    color: $color-black;
+    border-radius: $spacing-xxs;
+    color: $color-black-base;
     cursor: pointer;
     line-height: 1;
     padding: 0;
     position: absolute;
-    top: $sm;
-    right: $sm;
-    width: $md;
-    height: $md;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    width: $spacing-md;
+    height: $spacing-md;
 
     &:hover {
       background-color: rgba(0, 0, 0, .15);
@@ -55,7 +55,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 $xxs/2 $color-blue-600 !important;
+      box-shadow: 0 0 0 $spacing-xxs/2 $color-blue-600 !important;
     }
   }
 }
@@ -110,7 +110,7 @@
   }
 
   &__item:not(first-child) {
-    margin-top: $xs;
+    margin-top: $spacing-xs;
   }
 }
 
@@ -145,7 +145,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 $xxs/2 $color-orange-500;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-orange-500;
     border-color: $color-orange-500;
   }
 }

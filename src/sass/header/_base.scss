@@ -7,11 +7,11 @@
 .#{$prefix}-skip-link {
   position: fixed;
   top: -6rem;
-  padding: $xs;
+  padding: $spacing-xs;
 
   &:focus {
     top: 0;
-    background-color: $color-white;
+    background-color: $color-white-base;
   }
 }
 
@@ -24,7 +24,7 @@
 }
 
 .#{$prefix}-header--light {
-  background-color: $color-white;
+  background-color: $color-white-base;
   border-bottom: 1px solid $color-black-100;
 }
 
@@ -32,7 +32,7 @@
   min-width: 41px;
   flex-basis: 41px;
   height: 47px;
-  margin-right: $xs;
+  margin-right: $spacing-xs;
   background-color: inherit;
   color: inherit;
 
@@ -46,7 +46,7 @@
     min-width: 60px;
     flex-basis: 60px;
     height: 70px;
-    margin-right: $sm;
+    margin-right: $spacing-sm;
 
     &-large {
       display: block;
@@ -68,7 +68,7 @@
   line-height: 1;
 
   a {
-    color: $color-black;
+    color: $color-black-base;
     text-decoration: none;
 
     &:hover {
@@ -83,7 +83,7 @@
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-header__title {
-    font-size: ts(23);
+    font-size: $ts-23;
   }
 }
 
@@ -106,12 +106,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-black;
+  color: $color-black-base;
 
   &:hover {
     background-color: $color-black-200;
     border-color: $color-black-200;
-    color: $color-black;
+    color: $color-black-base;
   }
 
   &:active {
@@ -120,11 +120,11 @@
 
   &:active:hover {
     background-color: $color-blue-800;
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 $xxs/2 $color-blue-600;
+    box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-600;
     outline: none;
   }
 
@@ -132,7 +132,7 @@
     background-color: $color-black-100;
 
     &:hover {
-      color: $color-black;
+      color: $color-black-base;
     }
 
     &:active:hover {
@@ -143,11 +143,11 @@
     &:focus {
       background-color: $color-blue-600;
       box-shadow: none;
-      color: $color-white;
+      color: $color-white-base;
     }
 
     &:focus:hover {
-      color: $color-white;
+      color: $color-white-base;
     }
   }
 }
@@ -206,7 +206,7 @@
 
 .#{$prefix}-header__main-nav {
   display: none;
-  margin-right: $xxl;
+  margin-right: $spacing-xxl;
 
   ul {
     list-style: none;
@@ -216,7 +216,7 @@
   }
 
   ul li {
-    margin-right: $lg;
+    margin-right: $spacing-lg;
     line-height: 1.5;
 
     /**
@@ -236,8 +236,8 @@
     position: relative;
 
     &:focus {
-      outline: $xxs/2 solid $color-blue-600;
-      outline-offset: $xxs/2;
+      outline: $spacing-xxs/2 solid $color-blue-600;
+      outline-offset: $spacing-xxs/2;
     }
 
     /**
@@ -253,7 +253,7 @@
       content: ' ';
       position: absolute;
       background-color: $color-blue-600;
-      height: $xxs;
+      height: $spacing-xxs;
       width: 100%;
       top: 2.75rem;
       left: 0;
@@ -311,7 +311,7 @@
 
   a {
     text-decoration: none;
-    color: $color-black;
+    color: $color-black-base;
 
     &:hover {
       text-decoration: underline;
@@ -332,15 +332,15 @@
   max-width: 400px;
   min-height: 100%;
   border-left: 1px solid $color-black-200;
-  padding: $sm;
-  z-index: map-get($z-index, z-1000);
+  padding: $spacing-sm;
+  z-index: map-get($z-index, '1000');
 
   &__nav {
     ul {
       list-style: none;
-      margin-bottom: $md;
+      margin-bottom: $spacing-md;
       padding: 0;
-      background-color: $color-white;
+      background-color: $color-white-base;
     }
 
     ul li {
@@ -367,18 +367,18 @@
     ul li button {
       display: block;
       text-decoration: none;
-      color: $color-black;
-      padding: $sm;
+      color: $color-black-base;
+      padding: $spacing-sm;
       position: relative;
       width: 100%;
       text-align: left;
       border: none;
-      background-color: $color-white;
+      background-color: $color-white-base;
 
       &:focus {
         @extend %button-focus;
 
-        z-index: map-get($z-index, z-1000);
+        z-index: map-get($z-index, '1000');
       }
     }
 
@@ -393,16 +393,16 @@
       }
 
       &:focus {
-        outline: $xxs/2 solid $color-blue-600;
-        outline-offset: $xxs/2;
+        outline: $spacing-xxs/2 solid $color-blue-600;
+        outline-offset: $spacing-xxs/2;
       }
     }
 
     ul li.has-children > a::after,
     ul li.has-children > button::after {
       position: absolute;
-      top: $md;
-      right: $md;
+      top: $spacing-md;
+      right: $spacing-md;
       content: ' ';
       display: inline-block;
       width: 1rem;
@@ -415,7 +415,7 @@
       /**
              * Magic number - Use this to optically center by juuuust a smidge.
              */
-      margin-top: -$xxs;
+      margin-top: -$spacing-xxs;
     }
 
     ul li.has-children > a[aria-expanded='true']::after {
@@ -423,7 +423,7 @@
     }
 
     ul li ul li a {
-      padding: $sm;
+      padding: $spacing-sm;
       background-color: $color-black-200;
     }
 
@@ -434,14 +434,14 @@
     ul li a[aria-current],
     ul li button[aria-current],
     ul li ul li a[aria-current] {
-      box-shadow: inset $xxs 0 0 $color-blue-600;
+      box-shadow: inset $spacing-xxs 0 0 $color-blue-600;
 
       &:focus {
         /* stylelint-disable */
         box-shadow:
-          inset $xxs 0 0 $color-blue-600,
-          0 0 0 $xxs/2 $color-white,
-          0 0 0 $xxs $color-blue-600;
+          inset $spacing-xxs 0 0 $color-blue-600,
+          0 0 0 $spacing-xxs/2 $color-white-base,
+          0 0 0 $spacing-xxs $color-blue-600;
         /* stylelint-enable */
       }
     }
@@ -466,13 +466,13 @@
       outline: none;
       box-shadow: 0 0 0 .125rem $color-blue-600;
       display: block;
-      margin-top: $xs;
+      margin-top: $spacing-xs;
       width: 100%;
-      border-radius: $xxs;
-      height: $xl;
+      border-radius: $spacing-xxs;
+      height: $spacing-xl;
       line-height: 1;
-      padding-right: $xs;
-      padding-left: $xs;
+      padding-right: $spacing-xs;
+      padding-left: $spacing-xs;
     }
   }
 }
@@ -499,35 +499,35 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: $color-black;
+    color: $color-black-base;
     border-right: 1px solid $color-black-300;
-    padding-right: $sm;
+    padding-right: $spacing-sm;
   }
 
   &__profile--has-dropdown {
     border-right: none;
-    margin-right: $sm;
+    margin-right: $spacing-sm;
   }
 
   &__menu {
-    right: $sm;
+    right: $spacing-sm;
   }
 
   &__log-out {
     text-decoration: none;
-    margin-right: $lg;
+    margin-right: $spacing-lg;
     display: flex;
     align-items: center;
-    margin-left: $sm;
+    margin-left: $spacing-sm;
   }
 
   &__avatar {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: $color-black;
+    background-color: $color-black-base;
     border-radius: 50%;
-    margin-right: $xs;
+    margin-right: $spacing-xs;
 
     /**
      * First and last initial stuff
@@ -550,13 +550,13 @@
   &__profile--drawer {
     display: flex;
     border-right: none;
-    padding: $xxs $sm;
-    background-color: $color-white;
+    padding: $spacing-xxs $spacing-sm;
+    background-color: $color-white-base;
   }
 
   &__profile--drawer &__user {
     border-right: 1px solid $color-black-200;
-    padding-right: $sm;
+    padding-right: $spacing-sm;
   }
 
   &__profile--drawer > &__user--has-dropdown {
@@ -572,7 +572,7 @@
 
 button.#{$prefix}-header-id__profile.#{$prefix}-header-id__profile--drawer {
   height: 3.5rem;
-  padding: $xs $sm;
+  padding: $spacing-xs $spacing-sm;
 }
 
 @include mq($breakpoint-lg) {

@@ -9,6 +9,26 @@ const rename = require('gulp-rename');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
+
+/**
+ * Style Dictionary
+ */
+const StyleDictionary = require('style-dictionary').extend(
+  './.tokens.config.js'
+);
+
+// Pull in Style Dictionary custom formats
+const mapSimple = require('./src/tokens/formats/map-simple');
+const mapSimpleDesc = require('./src/tokens/formats/map-simple-desc');
+const variables = require('./src/tokens/formats/variables');
+
+// Pull in Style Dictionary custom filters
+const isBreakpoint = require('./src/tokens/filters/is-breakpoint');
+const isColor = require('./src/tokens/filters/is-color');
+const isTypeScale = require('./src/tokens/filters/is-type-scale');
+const isWidth = require('./src/tokens/filters/is-width');
+const isZIndex = require('./src/tokens/filters/is-z-index');
+
 const stylelint = require('gulp-stylelint');
 const minify = require('gulp-terser');
 
@@ -42,6 +62,26 @@ var bannerText = `/*!
 // Set Node environment to 'production' for build and release exports
 function setProdNodeEnv(callback) {
   process.env.NODE_ENV = 'production';
+  callback();
+}
+
+function compileTokens(callback) {
+  StyleDictionary.registerFilter(isBreakpoint);
+  StyleDictionary.registerFilter(isColor);
+  StyleDictionary.registerFilter(isTypeScale);
+  StyleDictionary.registerFilter(isWidth);
+  StyleDictionary.registerFilter(isZIndex);
+  StyleDictionary.registerFormat(mapSimple);
+  StyleDictionary.registerFormat(mapSimpleDesc);
+  StyleDictionary.registerFormat(variables);
+  process.env.NODE_ENV === 'production'
+    ? StyleDictionary.buildAllPlatforms()
+    : StyleDictionary.buildPlatform('src/sass/core');
+  callback();
+}
+
+function watchTokens(callback) {
+  watch('src/tokens/**/*.json', series(compileTokens));
   callback();
 }
 
@@ -286,6 +326,7 @@ function example(callback) {
 
 exports.release = series(
   setProdNodeEnv,
+  compileTokens,
   lintSassBuild,
   compileSass,
   compileCSS,
@@ -305,6 +346,7 @@ exports.release = series(
 
 exports.build = series(
   setProdNodeEnv,
+  compileTokens,
   lintSassBuild,
   compileSass,
   compileIIFE,
@@ -321,21 +363,25 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(
+  compileTokens,
   compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,
   fractalHeadless,
+  watchTokens,
   watchSass,
   watchJS
 );
 
 exports.default = series(
+  compileTokens,
   compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,
   fractalStart,
+  watchTokens,
   watchSass,
   watchJS
 );

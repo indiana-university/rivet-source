@@ -34,8 +34,8 @@ $row-widths: (
   'xl': 1380px
 );
 
-// Global row gutter. Set this to half of what you want the final gutter to be.
-$gutter: $md / 2;
+// Global grid gutter. Set this to half of what you want the final gutter to be.
+$gutter: $spacing-md / 2;
 
 // Starting on some mixins to build row classes and to make
 // available for those who want to use the Sass source
@@ -83,6 +83,14 @@ $gutter: $md / 2;
 .#{$prefix}-row {
   @include row;
 
+  .#{$prefix}-cols {
+    @include cols;
+  }
+
+  .#{$prefix}-cols--last {
+    margin-left: auto;
+  }
+
   &--loose {
     margin: 0 ($gutter * -1.66);
   }
@@ -97,14 +105,6 @@ $gutter: $md / 2;
 
   &--tight > [class^='#{$prefix}-cols'] {
     padding: 0 ($gutter * .75);
-  }
-
-  .#{$prefix}-cols {
-    @include cols;
-  }
-
-  .#{$prefix}-cols--last {
-    margin-left: auto;
   }
 
   [class^='#{$prefix}-cols'] {
@@ -131,15 +131,15 @@ $gutter: $md / 2;
   width: 100%;
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  .#{$prefix}-cols-#{$bp-name} {
+@each $variable, $size in $breakpoints {
+  .#{$prefix}-cols-#{$variable} {
     @extend %auto-row-props;
   }
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  @include mq($bp-size) {
-    .#{$prefix}-cols-#{$bp-name} {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-cols-#{$variable} {
       flex-basis: 0;
       flex-grow: 1;
       max-width: 100%;
@@ -179,16 +179,16 @@ $gutter: $md / 2;
  */
 
 /* stylelint-disable */
-@each $bp-name, $bp-size in $breakpoints {
+@each $variable, $size in $breakpoints {
   @each $columns, $width in $row-columns {
-    .#{$prefix}-cols-#{$columns}-#{$bp-name} {
+    .#{$prefix}-cols-#{$columns}-#{$variable} {
       @extend %cols-properties;
     }
   }
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  @if $bp-name == 'sm' {
+@each $variable, $size in $breakpoints {
+  @if $variable == 'sm' {
     @each $columns, $width in $row-columns {
       .#{$prefix}-cols-#{$columns}-sm {
         flex-basis: $width * 1%;
@@ -198,9 +198,9 @@ $gutter: $md / 2;
   }
 
   @else {
-    @include mq($bp-size) {
+    @include mq($size) {
       @each $columns, $width in $row-columns {
-        .#{$prefix}-cols-#{$columns}-#{$bp-name} {
+        .#{$prefix}-cols-#{$columns}-#{$variable} {
           flex-basis: $width * 1%;
           max-width: $width * 1%;
         }
@@ -223,35 +223,36 @@ $gutter: $md / 2;
   }
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  // NOTE: This is sort of repetitive because you could use the number
-  // suffix only (see above) to push and pull on small screens,
-  // but it seems like both should have the same behavior
-  // as a convenience.
-  @if $bp-name == 'sm' {
+// NOTE: This is sort of repetitive because you could use the number
+// suffix only (see above) to push and pull on small screens,
+// but it seems like both should have the same behavior
+// as a convenience.
+
+@each $variable, $size in $breakpoints {
+  @if $size == 'sm' {
     @each $columns, $width in $row-columns {
-      .#{$prefix}-cols-push-#{$columns}-#{$bp-name} {
+      .#{$prefix}-cols-push-#{$columns}-#{$variable} {
         left: $width * 1%;
       }
     }
 
     @each $columns, $width in $row-columns {
-      .#{$prefix}-cols-pull-#{$columns}-#{$bp-name} {
+      .#{$prefix}-cols-pull-#{$columns}-#{$variable} {
         right: $width * 1%;
       }
     }
   }
 
   @else {
-    @include mq($bp-size) {
+    @include mq($size) {
       @each $columns, $width in $row-columns {
-        .#{$prefix}-cols-push-#{$columns}-#{$bp-name} {
+        .#{$prefix}-cols-push-#{$columns}-#{$variable} {
           left: $width * 1%;
         }
       }
 
       @each $columns, $width in $row-columns {
-        .#{$prefix}-cols-pull-#{$columns}-#{$bp-name} {
+        .#{$prefix}-cols-pull-#{$columns}-#{$variable} {
           right: $width * 1%;
         }
       }
