@@ -30,7 +30,7 @@ const isWidth = require('./src/tokens/filters/is-width');
 const isZIndex = require('./src/tokens/filters/is-z-index');
 
 const stylelint = require('gulp-stylelint');
-const uglify = require('gulp-uglify');
+const minify = require('gulp-terser');
 
 const fractal = require('./fractal');
 const pkg = require('./package.json');
@@ -253,7 +253,7 @@ function stripJS(callback) {
 
 function minifyJS() {
   return src('./js/rivet-iife.js')
-    .pipe(uglify())
+    .pipe(minify())
     .pipe(rename({ basename: 'rivet', suffix: '.min' }))
     .pipe(dest('./js'));
 }
