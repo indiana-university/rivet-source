@@ -10,7 +10,7 @@ const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
 const stylelint = require('gulp-stylelint');
-const uglify = require('gulp-terser');
+const minify = require('gulp-terser');
 
 const fractal = require('./fractal');
 const pkg = require('./package.json');
@@ -213,7 +213,7 @@ function stripJS(callback) {
 
 function minifyJS() {
   return src('./js/rivet-iife.js')
-    .pipe(uglify())
+    .pipe(minify())
     .pipe(rename({ basename: 'rivet', suffix: '.min' }))
     .pipe(dest('./js'));
 }
