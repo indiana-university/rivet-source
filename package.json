@@ -55,7 +55,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-strip-comments": "^2.5.2",
     "gulp-stylelint": "^9.0.0",
-    "gulp-uglify": "^3.0.0",
+    "gulp-terser": "^1.2.0",
     "node-sass": "^4.13.1",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",
