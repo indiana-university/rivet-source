@@ -42,7 +42,7 @@ jobs:
           node-version: 12
       - run: npm ci
       - name: Create artifact
-        run: npm build
+        run: npm run asset:upload
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
