@@ -1,0 +1,45 @@
+@use 'core' as *;
+
+.#{$prefix}-avatar {
+  align-items: center;
+  background-color: $color-crimson-base;
+  border-radius: 999rem;
+  color: $color-white-base;
+  display: flex;
+  flex-shrink: 0;
+  font-weight: 700;
+  height: $spacing-lg * 2;
+  justify-content: center;
+  overflow: hidden;
+  width: $spacing-lg * 2;
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  &--sm {
+    font-size: $ts-14;
+    height: $spacing-lg;
+    width: $spacing-lg;
+  }
+
+  &--md {
+    font-size: $ts-23;
+    height: $spacing-lg * 3;
+    width: $spacing-lg * 3;
+  }
+
+  &--lg {
+    font-size: $ts-32;
+    height: $spacing-lg * 4;
+    width: $spacing-lg * 4;
+  }
+
+  &--xl {
+    font-size: $ts-41;
+    height: $spacing-lg * 5;
+    width: $spacing-lg * 5;
+  }
+}
