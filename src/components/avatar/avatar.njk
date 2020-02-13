@@ -1,0 +1,7 @@
+<div class="rvt-avatar{% if modifier %} rvt-avatar{{ modifier }}{% endif %}">
+  {% if image %}
+    <img src="{{ image }}" alt="{% if alt %}{{ alt }}{% endif %}">
+  {% elif text %}
+    <span class="rvt-avatar__text">{{ text }}</span>
+  {% endif %}
+</div>

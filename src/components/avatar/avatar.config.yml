@@ -1,0 +1,43 @@
+title: 'Avatar'
+status: 'ready'
+collated: 'true'
+variants:
+  - name: 'small'
+    context:
+      text: 'SM'
+      modifier: '--sm'
+  - name: 'regular'
+    context:
+      text: 'RG'
+      modifier: '--rg'
+  - name: 'medium'
+    context:
+      text: 'MD'
+      modifier: '--md'
+  - name: 'large'
+    context:
+      text: 'LG'
+      modifier: '--lg'
+  - name: 'extra-large'
+    context:
+      text: 'XL'
+      modifier: '--xl'
+  - name: 'small-image'
+    context:
+      image: 'http://www.fillmurray.com/300/300'
+      modifier: '--sm'
+  - name: 'regular-image'
+    context:
+      image: 'http://www.fillmurray.com/300/300'
+  - name: 'medium-image'
+    context:
+      image: 'http://www.fillmurray.com/300/300'
+      modifier: '--md'
+  - name: 'large-image'
+    context:
+      image: 'http://www.fillmurray.com/300/300'
+      modifier: '--lg'
+  - name: 'extra-large-image'
+    context:
+      image: 'http://www.fillmurray.com/300/300'
+      modifier: '--xl'
