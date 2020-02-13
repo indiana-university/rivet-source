@@ -16,4 +16,4 @@ import Modal from './components/modal';
 import Sidenav from './components/sidenav';
 import Tabs from './components/tabs';
 
-export default { Accordion, Alert, Dropdown, FileInput, Modal, Sidenav, Tabs };
+export { Accordion, Alert, Dropdown, FileInput, Modal, Sidenav, Tabs };
