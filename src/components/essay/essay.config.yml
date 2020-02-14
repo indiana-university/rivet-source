@@ -1,0 +1,34 @@
+title: "Essay"
+status: "alpha"
+collated: true
+context:
+    columns:
+      - stats:
+        - number: "1496"
+          caption: "Labore occaecat excepteur elit"
+      - stats:
+        - bgColor: "crimson-dark"
+          number: "39"
+          caption: "Years old is old"
+      - stats:
+        - bgColor: "crimson"
+          number: "38"
+          caption: "Years old is old"
+variants:
+    - name: "images"
+      context:
+          columns:
+            - stats:
+              - image: "https://www.fillmurray.com/400/600"
+                large: true
+            - stats:
+              - number: "1496"
+                caption: "Labore occaecat excepteur elit"
+              - image: "https://www.fillmurray.com/600/400"
+            - stats:
+              - bgColor: "crimson-dark"
+                number: 39
+                caption: "Years old is old"
+              - bgColor: "crimson"
+                number: 38
+                caption: "Years old is old"

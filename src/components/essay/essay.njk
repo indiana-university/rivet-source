@@ -1,0 +1,17 @@
+<div class="rvt-essay">
+  {% for column in columns %}
+  <div class="rvt-essay__column">
+    {% for stat in column.stats %}
+      {% if stat.image %}
+        <div class="rvt-essay__image{% if stat.large %} rvt-essay__image--large{% endif %}" style="background-image: url('{% if stat.image %}{{stat.image | safe }}{% endif %}');">
+        </div>
+      {% else %}
+        <div class="rvt-essay__stat{% if stat.bgColor %} rvt-bg-{{ stat.bgColor }}{% endif %}">
+          <div class="rvt-essay__stat-number">{{ stat.number }}</div>
+          <div class="rvt-essay__stat-caption">{{ stat.caption }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
