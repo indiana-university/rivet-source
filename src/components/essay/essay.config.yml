@@ -31,6 +31,7 @@ variants:
               - bgColor: "crimson-dark"
                 number: 39
                 caption: "Years old is old"
-              - bgColor: "crimson"
+              - link: "#"
+                bgColor: "crimson"
                 number: 38
                 caption: "Years old is old"
