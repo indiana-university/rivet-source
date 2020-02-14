@@ -7,7 +7,8 @@ context:
         - number: "1496"
           caption: "Labore occaecat excepteur elit"
       - stats:
-        - bgColor: "crimson-dark"
+        - link: "#"
+          bgColor: "crimson-dark"
           number: "39"
           caption: "Years old is old"
       - stats:
@@ -24,7 +25,8 @@ variants:
             - stats:
               - number: "1496"
                 caption: "Labore occaecat excepteur elit"
-              - image: "https://www.fillmurray.com/600/400"
+              - link: "#"
+                image: "https://www.fillmurray.com/600/400"
             - stats:
               - bgColor: "crimson-dark"
                 number: 39

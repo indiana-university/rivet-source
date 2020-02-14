@@ -8,14 +8,14 @@
   flex-direction: column;
 
   &__stat {
+    align-items: center;
     background-color: $color-cream-base;
-    height: $width-md;
     display: flex;
     flex-direction: column;
+    height: $width-md;
     justify-content: center;
-    align-items: center;
-    text-decoration: none;
     padding: $spacing-sm;
+    text-decoration: none;
   }
 
   &__stat-number {
@@ -44,6 +44,7 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: block;
     height: $width-md;
   }
 }
