@@ -19,10 +19,15 @@
     width: 100%;
   }
 
-  &--sm {
+  &--xs {
     font-size: $ts-14;
     height: $spacing-lg;
     width: $spacing-lg;
+  }
+
+  &--sm {
+    height: $spacing-lg * 2;
+    width: $spacing-lg * 2;
   }
 
   &--md {

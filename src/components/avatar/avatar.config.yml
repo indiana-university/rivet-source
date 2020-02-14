@@ -2,12 +2,17 @@ title: 'Avatar'
 status: 'ready'
 collated: 'true'
 context:
-  text: 'RG'
+  text: 'XS'
+  modifier: '--xs'
 variants:
   - name: 'small'
     context:
       text: 'SM'
       modifier: '--sm'
+  - name: 'regular'
+    context:
+      text: 'RG'
+      modifier: false
   - name: 'medium'
     context:
       text: 'MD'
@@ -20,14 +25,18 @@ variants:
     context:
       text: 'XL'
       modifier: '--xl'
-  - name: 'regular-image'
+  - name: 'extra-small-image'
     context:
       image: 'http://www.fillmurray.com/300/300'
-      modifier: false
+      modifier: '--xs'
   - name: 'small-image'
     context:
       image: 'http://www.fillmurray.com/300/300'
       modifier: '--sm'
+  - name: 'regular-image'
+    context:
+      image: 'http://www.fillmurray.com/300/300'
+      modifier: false
   - name: 'medium-image'
     context:
       image: 'http://www.fillmurray.com/300/300'
