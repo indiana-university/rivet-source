@@ -68,7 +68,7 @@ $avatar-widths: (
 @each $variable, $size in $breakpoints {
   @include mq($size) {
     @each $pixels, $rems in $avatar-widths {
-      .#{$prefix}-avatar-#{$pixels}-#{$variable}-up {
+      .#{$prefix}-avatar--#{$pixels}-#{$variable}-up {
         font-size: map-get($avatar-fonts, $pixels);
         height: $rems !important;
         width: $rems !important;
