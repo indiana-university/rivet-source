@@ -1,6 +1,6 @@
-title: News Feature
-label: News Feature
-status: "alpha"
+title: News
+label: News
+status: "wip"
 collated: true
 context:
     title: "Lorem ipsum dolor sit amet consectetur adipiscing elit"
