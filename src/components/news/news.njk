@@ -1,0 +1,20 @@
+<div class="rvt-news">
+  {% if image %}
+    <div class="rvt-news__image">
+        <img src="{{ image }}" />
+    </div>
+  {% endif %}
+  <div class="rvt-news__body">
+    {% if tag %}
+      <p class="rvt-news__tag">{% if taglink %}<a href="{{ taglink }}">{% endif %}{{ tag }}{% if taglink %}</a>{% endif %}</p>
+    {% endif %}
+    <h2 class="rvt-news__title">{% if titlelink %}<a href="{{ titlelink }}">{% endif %}{{ title }}{% if titlelink %}</a>{% endif %}</h2>
+    {% if byline %}
+      <p class="rvt-news__byline">{{ byline }}</p>
+    {% endif %}
+    <p class="rvt-news__teaser">{{ teaser }}</p>
+    {% if meta %}
+      <p class="rvt-news__meta">{% if metatextLink %}<a href="{{ metatextLink }}">{% endif %}{{ metatext }}{% if metatextLink %}</a>{% endif %} | {% if metadateLink %}<a href="{{ metadateLink }}">{% endif %}{{ metadate }}{% if metadateLink %}</a>{% endif %}</p>
+    {% endif %}
+  </div>
+</div>
