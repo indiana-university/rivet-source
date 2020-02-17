@@ -23,7 +23,8 @@ variants:
               - image: "https://www.fillmurray.com/400/600"
                 large: true
             - stats:
-              - number: "1496"
+              - link: "#"
+                number: "1496"
                 caption: "Labore occaecat excepteur elit"
               - link: "#"
                 image: "https://www.fillmurray.com/600/400"

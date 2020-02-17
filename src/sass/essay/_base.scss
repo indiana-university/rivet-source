@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
 
+  &__column:focus-within {
+    z-index: $z-index-100;
+  }
+
   &__stat {
     align-items: center;
     background-color: $color-cream-base;
@@ -50,8 +54,10 @@
 }
 
 a.rvt-essay {
-  &__stat:hover {
-    background-color: $color-crimson-base;
+  &__stat:hover,
+  &__image:hover {
+    opacity: .5;
+    transition: all .3s linear;
   }
 }
 
