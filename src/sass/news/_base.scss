@@ -4,23 +4,59 @@
 @use 'core' as *;
 
 .#{$prefix}-news {
-  image {
-    align-items: center;
-    background-color: $color-crimson-base;
-    border-radius: 999rem;
-    color: $color-white-base;
-    display: flex;
-    flex-shrink: 0;
-    font-weight: 700;
-    height: map-get($avatar-widths, 'sm');
-    justify-content: center;
-    overflow: hidden;
-    width: map-get($avatar-widths, 'sm');
+  display: flex;
+  align-items: top;
+
+  &__image {
+    height: $spacing-lg * 3;
+    margin-right: $spacing-sm;
+    width: $spacing-lg * 3;
 
     img {
       display: block;
       height: auto;
       width: 100%;
     }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: $ts-26;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__date {
+    margin-top: $spacing-sm * .75;
+  }
+
+  &__tag {
+    color: $color-blue-base;
+    font-size: $ts-12;
+    text-transform: uppercase;
+    margin-top: $spacing-sm * .75;
+  }
+
+  &__divider {
+    color: $color-black-base;
+  }
+
+  &__title a,
+  &__tag a {
+    text-decoration: none;
+  }
+
+  &__title a:hover,
+  &__tag a:hover {
+    color: $color-blue-base;
+    text-decoration: underline;
+  }
+
+  * + * {
+    margin-bottom: 0;
   }
 }

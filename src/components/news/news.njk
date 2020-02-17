@@ -5,16 +5,22 @@
     </div>
   {% endif %}
   <div class="rvt-news__body">
-    {% if tag %}
-      <p class="rvt-news__tag">{% if taglink %}<a href="{{ taglink }}">{% endif %}{{ tag }}{% if taglink %}</a>{% endif %}</p>
+    <h2 class="rvt-news__title"><a href="{{ titlelink }}">{{ title }}</a></h2>
+    {% if date %}
+      <p class="rvt-news__date">{{ date }}</p>
     {% endif %}
-    <h2 class="rvt-news__title">{% if titlelink %}<a href="{{ titlelink }}">{% endif %}{{ title }}{% if titlelink %}</a>{% endif %}</h2>
     {% if byline %}
       <p class="rvt-news__byline">{{ byline }}</p>
     {% endif %}
-    <p class="rvt-news__teaser">{{ teaser }}</p>
-    {% if meta %}
-      <p class="rvt-news__meta">{% if metatextLink %}<a href="{{ metatextLink }}">{% endif %}{{ metatext }}{% if metatextLink %}</a>{% endif %} | {% if metadateLink %}<a href="{{ metadateLink }}">{% endif %}{{ metadate }}{% if metadateLink %}</a>{% endif %}</p>
+    {% if teaser %}
+      <p class="rvt-news__teaser">{{ teaser }}</p>
+    {% endif %}
+    {% if tags %}
+      <p class="rvt-news__tag">
+        {% for tag in tags -%}
+          {% if not loop.first %}<span class="rvt-news__divider">, </span>{% endif %}<a href="{{ tag.link }}">{{ tag.name }}</a>
+        {%- endfor %}
+      </p>
     {% endif %}
   </div>
 </div>

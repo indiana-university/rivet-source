@@ -4,5 +4,72 @@ status: "alpha"
 collated: true
 context:
     title: "Lorem ipsum dolor sit amet consectetur adipiscing elit"
-    teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
-    image: "http://www.fillmurray.com/300/300"
+variants:
+  - name: "image only"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+  - name: "teaser only"
+    context:
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+  - name: "date only"
+    context:
+      date: "February 17, 2020"
+  - name: "tag only"
+    context:
+      tags:
+        - name: "culture"
+          link: "#"
+        - name: "kaltura"
+          link: "#"
+  - name: "image and teaser"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+  - name: "image and date"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+      date: "February 17, 2020"
+  - name: "image and tag"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+      tags:
+        - name: "culture"
+          link: "#"
+        - name: "kaltura"
+          link: "#"
+  - name: "teaser and date"
+    context:
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+      date: "February 17, 2020"
+  - name: "teaser and tag"
+    context:
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+      tags:
+        - name: "culture"
+          link: "#"
+        - name: "kaltura"
+          link: "#"
+  - name: "image teaser and date"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+      date: "February 17, 2020"
+  - name: "image teaser and tag"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+      tags:
+        - name: "culture"
+          link: "#"
+        - name: "kaltura"
+          link: "#"
+  - name: "image teaser date and tag"
+    context:
+      image: "http://www.fillmurray.com/300/300"
+      teaser: "Vero blanditiis eos aliquam. Magnam voluptatem delectus. Incidunt sed at sit nobis sit earum minima. Temporibus tenetur tempora hic voluptatem tenetur enim consectetur nam neque."
+      date: "February 17, 2020"
+      tags:
+        - name: "culture"
+          link: "#"
+        - name: "kaltura"
+          link: "#"
