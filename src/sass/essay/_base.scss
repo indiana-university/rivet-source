@@ -61,7 +61,7 @@ a.rvt-essay {
   }
 }
 
-@media screen and (min-width: $breakpoint-md) {
+@include mq($breakpoint-md) {
   .rvt-essay {
     flex-direction: row;
 
