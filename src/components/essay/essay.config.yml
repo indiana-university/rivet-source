@@ -5,16 +5,16 @@ context:
     columns:
       - stats:
         - number: "1496"
-          caption: "Labore occaecat excepteur elit"
+          caption: "students"
       - stats:
         - link: "#"
           bgColor: "crimson-dark"
-          number: "39"
-          caption: "Years old is old"
+          number: "1"
+          caption: "program in schools"
       - stats:
         - bgColor: "crimson"
-          number: "38"
-          caption: "Years old is old"
+          number: "1"
+          caption: "best degree"
 variants:
     - name: "images"
       context:
@@ -25,14 +25,14 @@ variants:
             - stats:
               - link: "#"
                 number: "1496"
-                caption: "Labore occaecat excepteur elit"
+                caption: "prestigious program participants"
               - link: "#"
                 image: "https://www.fillmurray.com/600/400"
             - stats:
               - bgColor: "crimson-dark"
-                number: 39
-                caption: "Years old is old"
+                number: "18"
+                caption: "worldwide"
               - link: "#"
                 bgColor: "crimson"
-                number: 38
-                caption: "Years old is old"
+                number: "3"
+                caption: "important degrees"
