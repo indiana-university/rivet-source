@@ -239,16 +239,16 @@ function distJS() {
 }
 
 // Strip out comments from JS files
-function stripJS(callback) {
-  src('./js/rivet-iife.js')
+function stripIIFE() {
+  return src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
+}
 
-  src('./js/rivet-esm.js')
+function stripESM() {
+  return src('./js/rivet-esm.js')
     .pipe(strip())
     .pipe(dest('./js'));
-
-  callback();
 }
 
 function minifyJS() {
@@ -336,7 +336,8 @@ exports.release = series(
   compileIIFE,
   compileESM,
   distJS,
-  stripJS,
+  stripIIFE,
+  stripESM,
   minifyJS,
   headerJS,
   releaseCopySass,
@@ -352,7 +353,8 @@ exports.build = series(
   compileIIFE,
   compileESM,
   distJS,
-  stripJS,
+  stripIIFE,
+  stripESM,
   minifyJS,
   headerJS,
   vendorJS,
