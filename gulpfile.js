@@ -9,6 +9,10 @@ const rename = require('gulp-rename');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
+const stylelint = require('gulp-stylelint');
+const minify = require('gulp-terser');
+const fractal = require('./fractal');
+const pkg = require('./package.json');
 
 /**
  * Style Dictionary
@@ -17,23 +21,20 @@ const StyleDictionary = require('style-dictionary').extend(
   './.tokens.config.js'
 );
 
-// Pull in Style Dictionary custom formats
-const mapSimple = require('./src/tokens/formats/map-simple');
-const mapSimpleDesc = require('./src/tokens/formats/map-simple-desc');
-const variables = require('./src/tokens/formats/variables');
+const {
+  mapSimple,
+  mapSimpleDesc,
+  variables
+} = require('./src/tokens/formats/sassFormats');
 
 // Pull in Style Dictionary custom filters
-const isBreakpoint = require('./src/tokens/filters/is-breakpoint');
-const isColor = require('./src/tokens/filters/is-color');
-const isTypeScale = require('./src/tokens/filters/is-type-scale');
-const isWidth = require('./src/tokens/filters/is-width');
-const isZIndex = require('./src/tokens/filters/is-z-index');
-
-const stylelint = require('gulp-stylelint');
-const minify = require('gulp-terser');
-
-const fractal = require('./fractal');
-const pkg = require('./package.json');
+const {
+  isBreakpoint,
+  isColor,
+  isTypeScale,
+  isWidth,
+  isZIndex
+} = require('./src/tokens/filters/formatFilters');
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
