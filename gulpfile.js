@@ -25,7 +25,7 @@ const {
   mapSimple,
   mapSimpleDesc,
   variables
-} = require('./src/tokens/formats/sassFormats');
+} = require('./src/tokens/formats/sass-formats');
 
 // Pull in Style Dictionary custom filters
 const {
@@ -34,7 +34,7 @@ const {
   isTypeScale,
   isWidth,
   isZIndex
-} = require('./src/tokens/filters/formatFilters');
+} = require('./src/tokens/filters/format-filters');
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
