@@ -11,7 +11,7 @@
     flex-direction: row;
 
     .#{$prefix}-feature__image {
-      margin: $spacing-sm $spacing-sm 0 0;
+      margin-right: $spacing-sm;
     }
   }
 
@@ -21,8 +21,9 @@
   }
 
   &__body {
-    > * {
-      margin: 0;
+    * + * {
+      margin-bottom: 0;
+      margin-top: $spacing-sm;
     }
 
     a {
@@ -30,20 +31,15 @@
     }
   }
 
-  &__detail {
-    margin-top: $spacing-sm;
-
-    a {
-      font-size: $ts-12;
-      text-transform: uppercase;
-    }
+  &__detail a {
+    font-size: $ts-12;
+    text-transform: uppercase;
   }
 
   &__title {
     font-size: $ts-26;
     font-weight: 700;
     line-height: 1.1;
-    margin-top: $spacing-sm;
   }
 
   &__title a,
