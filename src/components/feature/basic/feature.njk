@@ -1,0 +1,34 @@
+<div class="rvt-feature{% if horizontal %} rvt-feature--horizontal{% endif %}">
+  {% if image %}
+    <div class="rvt-feature__image">
+      {% if avatar %}
+        {% set variant = "@avatar--" + type %}
+        {% include variant %}
+      {% else %}
+        <img src="{{ image }}" />
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="rvt-feature__body">
+    {% for detail in details %}
+      {% if detail.top %}
+        {% if detail.links %}
+          <p class="rvt-feature__detail">{% for link in detail.links %}{% if not loop.first %}, {% endif %}<a href="{{ link.url }}">{{ link.text }}</a>{% endfor %}</p>
+        {% else %}
+          <p class="rvt-feature__detail">{{ detail.text }}</p>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <h2 class="rvt-feature__title">{% if titlelink %}<a href="{{ titlelink }}">{% endif %}{{ title }}{% if titlelink %}</a>{% endif %}</h2>
+    {% for detail in details %}
+      {% if detail.bottom %}
+        {% if detail.links %}
+          <p class="rvt-feature__detail">{% for link in detail.links %}{% if not loop.first %}, {% endif %}<a href="{{ link.url }}">{{ link.text }}</a>{% endfor %}</p>
+        {% else %}
+          <p class="rvt-feature__detail">{{ detail.text }}</p>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% if action %}<div class="rvt-m-top-sm">{% render '@action', { text: "Vestibulum eu mollis est"} %}</div>{% endif %}
+  </div>
+</div>
