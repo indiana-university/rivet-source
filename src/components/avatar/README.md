@@ -1,8 +1,49 @@
 # Avatar
 A text or image-based graphic to represent a person or user
 
-## Description
+## When to use
 Use the avatar component to accompany content about a person. This could include:
 
 - A photo avatar of a person who said a quote (such as when used within the `quote` component)
 - A text or image avatar to represent a user who is logged into a system (such as when used within the `header`)
+
+## When to use something else
+The image avatar should be used with raster images. If a vector graphic is desired, consider using something like a SVG instead.
+
+## Adding the markup
+
+The container for an avatar is made up of a `div` with a class of `rvt-avatar`.
+
+```
+<div class="rvt-avatar">
+
+</div>
+```
+
+A modifier class can also be added to determine the size of the avatar. In this example, the size of the avatar has been set to extra small (`xs`).
+
+```
+<div class="rvt-avatar rvt-avatar--xs">
+
+</div>
+```
+
+### Image avatars
+
+Image avatars are made up of an `img` element with a `src` attribute pointing to the image. In this example, an external image has been included within an avatar set to medium size (`md`).
+
+```
+<div class="rvt-avatar rvt-avatar--md">
+    <img src="http://www.fillmurray.com/300/300" alt="">
+</div>
+```
+
+### Text avatars
+
+Text avatars are made up of two letter initials within a span with the class `rvt-avatar__text`. In this example, the letters "XL" have been included within an avatar set to the size extra large (`xl`). The font-size of the text will scale appropriately with the size of the avatar.
+
+```
+<div class="rvt-avatar rvt-avatar--xl">
+    <span class="rvt-avatar__text">XL</span>
+</div>
+```
