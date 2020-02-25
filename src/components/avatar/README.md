@@ -30,11 +30,11 @@ A modifier class can also be added to determine the size of the avatar. In this 
 
 ### Image avatars
 
-Image avatars are made up of an `img` element with a `src` attribute pointing to the image. In this example, an external image has been included within an avatar set to medium size (`md`).
+Image avatars are made up of an `img` element with the class `rvt-avatar__image` and a `src` attribute pointing to the image. In this example, an external image has been included within an avatar set to medium size (`md`).
 
 ```
 <div class="rvt-avatar rvt-avatar--md">
-    <img src="http://www.fillmurray.com/300/300" alt="">
+    <img class="rvt-avatar__image" src="http://www.fillmurray.com/300/300" alt="">
 </div>
 ```
 
