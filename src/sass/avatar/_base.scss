@@ -29,7 +29,7 @@ $avatar-widths: (
   overflow: hidden;
   width: map-get($avatar-widths, 'sm');
 
-  img {
+  &__image {
     display: block;
     height: auto;
     width: 100%;
