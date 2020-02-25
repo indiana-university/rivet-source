@@ -47,3 +47,13 @@ Text avatars are made up of two letter initials within a span with the class `rv
     <span class="rvt-avatar__text">XL</span>
 </div>
 ```
+
+### Responsive avatars
+
+Avatars can be made to resize based on browser viewpoint breakpoints. This is accomplished by adding a responsive modifier class. In this example, the avatar is the default size until the viewport reaches the medium breakpoint size, when it will be resized to extra large.
+
+```
+<div class="rvt-avatar rvt-avatar--xl-md-up">
+    <span class="rvt-avatar__text">XL</span>
+</div>
+```
