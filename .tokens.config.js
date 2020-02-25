@@ -14,6 +14,14 @@ module.exports = {
       transformGroup: 'scss',
       buildPath: 'tokens/sass/',
       files: sassFileOutput
+    },
+    "tokens/css": {
+      buildPath: 'tokens/css/',
+      files: [{
+        destination: 'variables.css',
+        format: 'css/variables'
+      }],
+      transforms: ['name/cti/kebab']
     }
   }
 }
