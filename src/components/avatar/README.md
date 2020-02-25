@@ -30,7 +30,7 @@ A modifier class can also be added to determine the size of the avatar. In this 
 
 ### Image avatars
 
-Image avatars are made up of an `img` element with the class `rvt-avatar__image` and a `src` attribute pointing to the image. In this example, an external image has been included within an avatar set to medium size (`md`).
+Image avatars are made up of an `img` element with the class `rvt-avatar__image` and a `src` attribute pointing to the image. In this example, an external image has been included within an avatar set to medium (`md`).
 
 ```
 <div class="rvt-avatar rvt-avatar--md">
@@ -40,7 +40,7 @@ Image avatars are made up of an `img` element with the class `rvt-avatar__image`
 
 ### Text avatars
 
-Text avatars are made up of two letter initials within a span with the class `rvt-avatar__text`. In this example, the letters "XL" have been included within an avatar set to the size extra large (`xl`). The font-size of the text will scale appropriately with the size of the avatar.
+Text avatars are made up of two letter initials within a span with the class `rvt-avatar__text`. In this example, the letters "XL" have been included within an avatar set to extra large (`xl`). The font-size of the text will scale appropriately with the size of the avatar.
 
 ```
 <div class="rvt-avatar rvt-avatar--xl">
