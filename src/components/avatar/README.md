@@ -2,13 +2,13 @@
 A text or image-based graphic to represent a person or user
 
 ## When to use
-Use the avatar component to visually represent a person within content or a user interface. This could include:
+Use the avatar component to visually reference a person within content or a user interface. This could include:
 
-- A photo avatar of a person who said a quote (such as when used within the `quote` component)
-- A text or image avatar to represent a user who is logged into a system (such as when used within the `identity module` in a `header`)
+- A photo of someone paired with relevant text (such as within the `quote` component)
+- Text or an image which represents a user within an interface (such as in the `identity module` within a `header`)
 
 ## When to use something else
-The image avatar should be used with raster images. If a vector graphic is desired, consider using something like a SVG instead.
+The image avatar should be used with raster image formats like `.jpg` or `.png` that are sized for use on the web. If a scalable graphic is desired, consider using something like a `SVG` instead.
 
 ## Adding the markup
 
