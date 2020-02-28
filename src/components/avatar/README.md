@@ -54,6 +54,6 @@ Avatars can be made to resize based on browser viewpoint breakpoints. This is ac
 
 ```
 <div class="rvt-avatar rvt-avatar--xl-md-up">
-    <span class="rvt-avatar__text">XL</span>
+    <span class="rvt-avatar__text">SM</span>
 </div>
 ```
