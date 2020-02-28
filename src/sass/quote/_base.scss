@@ -1,6 +1,8 @@
 @use 'core' as *;
 
 .#{$prefix}-quote {
+  display: flex;
+
   &__text {
     margin: 0;
     padding-left: $spacing-xxl;
