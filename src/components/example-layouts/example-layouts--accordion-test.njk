@@ -1,0 +1,42 @@
+{%- set panelFormContent -%}
+<form class="rvt-width-lg">
+  <legend class="rvt-ts-20">Form inside a panel</legend>
+  <fieldset class="rvt-fieldset">
+    <div class="rvt-m-top-md">
+      <label class="rvt-label" for="name">First name</label>
+      <input class="rvt-text-input" id="name" type="text">
+    </div>
+    <div class="rvt-m-top-md">
+      <label class="rvt-label" for="name">Last name</label>
+      <input class="rvt-text-input" id="name" type="text">
+    </div>
+  </fieldset>
+  <button class="rvt-button rvt-m-top-md" type="button">Submit</button>
+</form>
+{%- endset -%}
+
+
+{% set demoPanels = [
+  {
+    summary: 'Panel one',
+    content: panelFormContent
+  },
+  {
+    summary: 'Panel two',
+    content: 'A new panel'
+  },
+  {
+    summary: 'Panel three',
+    content: 'A new panel'
+  },
+  {
+    summary: 'Panel four',
+    content: 'A new panel'
+  }
+] %}
+
+{% render '@accordion', {
+  id: 'my-new-accordion',
+  classes: 'rvt-m-all-lg',
+  panels: demoPanels
+} %}
