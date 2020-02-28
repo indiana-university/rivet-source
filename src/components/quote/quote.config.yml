@@ -6,6 +6,12 @@ collated: true
 context:
   utility_class: 'rvt-m-right-sm'
 variants:
+  - name: 'avatar-extra-small'
+    context:
+      avatar: true
+      attributes:
+        text: 'XS'
+        size: '--xs'
   - name: 'avatar-small'
     context:
       avatar: true
