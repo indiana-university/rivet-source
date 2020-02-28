@@ -8,7 +8,7 @@ Use the quote component when you have a quotation that you would like to display
 - A short testimonial from a user about a specific product
 
 ## When to use something else
-If the quote is too long to easily read, consider using the HTML `blockquote` element or general paragraph styles instead.
+If the quote is too long to easily read, consider using the HTML `blockquote` element or HTML paragraph styles instead.
 
 ## Adding the markup
 
@@ -20,7 +20,7 @@ The container for a quote is made up of a `div` with a class of `rvt-quote`.
 </div>
 ```
 
-The visual display of the quote is made up of a `blockquote` element with a class of `rvt-quote__text`, a `p` element with the quote text, and a `cite` element with the author's name.
+The visual display of the quote is made up of a `blockquote` element with a class of `rvt-quote__text`, a `p` element with the quote's text, and a `cite` element with the author's name.
 
 ```
 <div class="rvt-quote">
@@ -35,7 +35,7 @@ If you would like to include an avatar image with the quote, the avatar markup c
 
 ```
 <div class="rvt-quote">
-  <div class="rvt-avatar rvt-avatar--md rvt-m-right-md">
+  <div class="rvt-avatar rvt-avatar--md">
     <img class="rvt-avatar__image" src="http://www.fillmurray.com/300/300" alt="">
   </div>
 
