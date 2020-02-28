@@ -30,6 +30,10 @@
       font-size: $ts-32 * 4;
     }
   }
+
+  .#{$prefix}-avatar {
+    margin-right: $spacing-md;
+  }
 }
 
 @include mq($breakpoint-md) {
