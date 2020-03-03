@@ -3,13 +3,8 @@
   <div class="rvt-essay__column">
     {% for stat in column.stats %}
       {% if stat.image %}
-        {% if stat.link %}
-          <a href="{{ stat.link }}" class="rvt-essay__image{% if stat.large %} rvt-essay__image--large{% endif %}" style="background-image: url('{% if stat.image %}{{stat.image | safe }}{% endif %}');">
-          </a>
-        {% else %}
-          <div class="rvt-essay__image{% if stat.large %} rvt-essay__image--large{% endif %}" style="background-image: url('{% if stat.image %}{{stat.image | safe }}{% endif %}');">
+        <div class="rvt-essay__image{% if stat.large %} rvt-essay__image--large{% endif %}" style="background-image: url('{% if stat.image %}{{stat.image | safe }}{% endif %}');">
           </div>
-        {% endif %}
       {% else %}
         {% if stat.link %}
           <a href="{{ stat.link }}" class="rvt-essay__stat{% if stat.bgColor %} rvt-bg-{{ stat.bgColor }}{% endif %}">

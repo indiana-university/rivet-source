@@ -26,8 +26,7 @@ variants:
               - link: "#"
                 number: "1496"
                 caption: "prestigious program participants"
-              - link: "#"
-                image: "https://www.fillmurray.com/600/400"
+              - image: "https://www.fillmurray.com/600/400"
             - stats:
               - bgColor: "crimson-dark"
                 number: "18"

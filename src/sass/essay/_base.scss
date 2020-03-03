@@ -54,8 +54,7 @@
 }
 
 a.rvt-essay {
-  &__stat:hover,
-  &__image:hover {
+  &__stat:hover {
     opacity: .5;
     transition: all .3s linear;
   }
