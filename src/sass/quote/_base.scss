@@ -1,6 +1,8 @@
 @use 'core' as *;
 
 .#{$prefix}-quote {
+  display: flex;
+
   &__text {
     margin: 0;
     padding-left: $spacing-xxl;
@@ -27,6 +29,10 @@
       line-height: 1;
       font-size: $ts-32 * 4;
     }
+  }
+
+  .#{$prefix}-avatar {
+    margin-right: $spacing-sm;
   }
 }
 
