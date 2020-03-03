@@ -10,8 +10,14 @@
   &--horizontal {
     flex-direction: row;
 
+    .#{$prefix}-feature__body :first-child {
+      margin-top: 0;
+    }
+
     .#{$prefix}-feature__image {
+      flex-shrink: 0;
       margin-right: $spacing-sm;
+      max-width: $spacing-sm * 10;
     }
   }
 
@@ -21,8 +27,8 @@
   }
 
   &__body {
-    * + * {
-      margin-bottom: 0;
+    > * + * {
+      margin: 0;
       margin-top: $spacing-sm;
     }
 
