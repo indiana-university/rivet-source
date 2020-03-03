@@ -19,6 +19,7 @@
     height: $width-md;
     justify-content: center;
     padding: $spacing-sm;
+    position: relative;
     text-decoration: none;
   }
 
@@ -50,13 +51,31 @@
     background-repeat: no-repeat;
     display: block;
     height: $width-md;
+    position: relative;
   }
 }
 
 a.rvt-essay {
   &__stat:hover {
-    opacity: .5;
-    transition: all .3s linear;
+    .rvt-essay__stat-number {
+      color: $color-cream-base;
+      z-index: $z-index-200;
+    }
+
+    .rvt-essay__stat-caption {
+      color: $color-cream-base;
+      z-index: $z-index-200;
+    }
+
+    &::after {
+      background-color: $color-black-500;
+      content: '';
+      height: 100%;
+      opacity: .5;
+      position: absolute;
+      width: 100%;
+      z-index: 0;
+    }
   }
 }
 
