@@ -22,7 +22,6 @@ describe('Rivet accordion interactions', function () {
       .should('be.visible')
       .should('not.have.attr', 'hidden');
 
-    cy.get('@panel1').should('not.be.visible');
     cy.get('@panel2').should('not.be.visible');
     cy.get('@panel3').should('not.be.visible');
     cy.get('@panel4').should('not.be.visible');
