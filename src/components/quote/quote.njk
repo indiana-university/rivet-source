@@ -1,4 +1,7 @@
 <div class="rvt-quote">
+  {% if avatar %}
+    {% render '@avatar', { modifier: attributes.size, text: attributes.text, image: attributes.image, utility_class: utility_class }, true %}
+  {% endif %}
   <blockquote class="rvt-quote__text">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <cite>Author Name</cite>
