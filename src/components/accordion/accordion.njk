@@ -1,64 +1,26 @@
-<div class="rvt-accordion" data-accordion="accordion-1" role="group">
-  <div class="rvt-accordion rvt-accordion--panel">
-    <h3 class="rvt-accordion__title">
-      <button id="accordion-1-label" data-accordion-trigger="accordion-1">
-        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <path fill="currentColor" d="M5.5,15a1,1,0,0,1-.77-1.64L9.2,8,4.73,2.64A1,1,0,0,1,6.27,1.36L11.13,7.2a1.25,1.25,0,0,1,0,1.61L6.27,14.64A1,1,0,0,1,5.5,15ZM9.6,8.48h0Zm0-1h0Z"/>
-        </svg>
-        <span>Personal details</span>
-      </button>
-    </h3>
-    <div class="rvt-accordion__content rvt-p-top-sm" id="accordion-1" aria-labelledby="accordion-1-label" data-accordion-panel="accordion-1">
-      <p class="rvt-m-all-remove">Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem
-        est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam.</p>
-    </div>
-  </div>
-
-  <div class="rvt-accordion rvt-accordion--panel">
-    <h3 class="rvt-accordion__title">
-      <button id="accordion-2-label" data-accordion-trigger="accordion-2">
-        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <path fill="currentColor" d="M5.5,15a1,1,0,0,1-.77-1.64L9.2,8,4.73,2.64A1,1,0,0,1,6.27,1.36L11.13,7.2a1.25,1.25,0,0,1,0,1.61L6.27,14.64A1,1,0,0,1,5.5,15ZM9.6,8.48h0Zm0-1h0Z"/>
-        </svg>
-        <span>Academic history</span>
-      </button>
-    </h3>
-    <div class="rvt-accordion__content rvt-p-top-sm" id="accordion-2" aria-labelledby="accordion-2-label" data-accordion-panel="accordion-2">
-      <p class="rvt-m-all-remove">Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem
-        est. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam.</p>
-      <label for="go-2" class="rvt-sr-only">Search</label>
-      <div class="rvt-input-group">
-        <select name="" id="go-2" class="rvt-input-group__input">
-          <option value="">Option one</option>
-          <option value="">Option two</option>
-          <option value="">Option three</option>
-          <option value="">Option four</option>
-        </select>
-        
-        <div class="rvt-input-group__append">
-            <button class="rvt-button">Go</button>
+<div class="rvt-accordion{% if classes %} {{ classes }}{% endif %}" data-accordion="{{ id }}">
+  {%- for panel in panels -%}
+    <h3 class="rvt-accordion__summary">
+      <button class="rvt-accordion__toggle" id="{{ id }}-{{ loop.index }}-label" data-accordion-trigger="{{ id }}-{{ loop.index }}">
+        <span class="rvt-accordion__toggle-text">{{ panel.summary }}</span>
+        <div class="rvt-accordion__toggle-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <g fill="currentColor">
+              <path class="rvt-accordion__icon-bar" d="M8,15a1,1,0,0,1-1-1V2A1,1,0,0,1,9,2V14A1,1,0,0,1,8,15Z"/>
+              <path d="M14,9H2A1,1,0,0,1,2,7H14a1,1,0,0,1,0,2Z"/>
+            </g>
+          </svg>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="rvt-accordion rvt-accordion--panel">
-    <h3 class="rvt-accordion__title">
-      <button id="accordion-3-label" data-accordion-trigger="accordion-3">
-        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <path fill="currentColor" d="M5.5,15a1,1,0,0,1-.77-1.64L9.2,8,4.73,2.64A1,1,0,0,1,6.27,1.36L11.13,7.2a1.25,1.25,0,0,1,0,1.61L6.27,14.64A1,1,0,0,1,5.5,15ZM9.6,8.48h0Zm0-1h0Z"/>
-        </svg>
-        <span>Payment details</span>
       </button>
     </h3>
-    <div class="rvt-accordion__content rvt-p-top-sm" id="accordion-3" aria-labelledby="accordion-3-label" data-accordion-panel="accordion-3" data-accordion-panel-init>
-      <p class="rvt-m-all-remove">Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem
-        est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam.</p>
+    <div class="rvt-accordion__panel" id="{{ id }}-{{ loop.index }}" aria-labelledby="{{ id }}-{{ loop.index }}-label" data-accordion-panel="{{ id }}-{{ loop.index }}" {% if panel.init %} data-accordion-panel-init{% endif %}>
+      <p class="rvt-m-all-remove">{{ panel.content | safe }}</p>
     </div>
-  </div>
+  {%- endfor -%}
 </div>
 
 <script>
-  let accordionElement = document.querySelector('[data-accordion="accordion-1"]');
-  window.newAccordion = new Rivet.Accordion(accordionElement);
+window.demoAccordion = new Rivet.Accordion(
+  document.querySelector('[data-accordion="{{ id }}"]')
+)
 </script>
