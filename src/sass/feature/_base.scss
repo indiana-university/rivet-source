@@ -33,7 +33,7 @@
     }
 
     a {
-      color: $color-blue-base !important;
+      color: $color-blue-base;
     }
   }
 
@@ -51,7 +51,6 @@
   &__title a,
   &__detail a {
     text-decoration: none;
-    color: inherit;
   }
 
   &__title a:hover,
