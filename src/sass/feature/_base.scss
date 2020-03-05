@@ -10,7 +10,7 @@
   &--horizontal {
     flex-direction: row;
 
-    .#{$prefix}-feature__body :first-child {
+    .#{$prefix}-feature__body > *:first-child {
       margin-top: 0;
     }
 
@@ -35,6 +35,10 @@
     a {
       color: $color-blue-base;
     }
+  }
+
+  &__detail {
+    display: block;
   }
 
   &__detail a {
