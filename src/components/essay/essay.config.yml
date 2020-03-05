@@ -1,0 +1,37 @@
+title: "Essay"
+status: "alpha"
+collated: true
+context:
+    columns:
+      - stats:
+        - number: "1496"
+          caption: "students"
+      - stats:
+        - link: "#"
+          bgColor: "crimson-dark"
+          number: "1"
+          caption: "program in schools"
+      - stats:
+        - bgColor: "crimson"
+          number: "1"
+          caption: "best degree"
+variants:
+    - name: "images"
+      context:
+          columns:
+            - stats:
+              - image: "https://www.fillmurray.com/400/600"
+                large: true
+            - stats:
+              - link: "#"
+                number: "1496"
+                caption: "prestigious program participants"
+              - image: "https://www.fillmurray.com/600/400"
+            - stats:
+              - bgColor: "crimson-dark"
+                number: "18"
+                caption: "worldwide"
+              - link: "#"
+                bgColor: "crimson"
+                number: "3"
+                caption: "important degrees"

@@ -30,20 +30,17 @@
     display: none;
   }
 
-  &:focus,
-  &--focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &--hover {
+  &:hover {
     background-color: $color-blue-700;
     border-color: $color-blue-700;
     color: $color-white-base;
   }
 
-  &:active,
-  &--active {
+  &:active {
     background-color: $color-blue-800;
     border-color: $color-blue-800;
   }
@@ -61,20 +58,17 @@
   background-color: transparent;
   color: $color-blue-600;
 
-  &:focus,
-  &-focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &-hover {
+  &:hover {
     background-color: $color-blue-100;
     border-color: $color-blue-600;
     color: $color-blue-800;
   }
 
-  &:active,
-  &-active {
+  &:active {
     background-color: $color-blue-200;
     color: $color-blue-800;
   }
@@ -84,20 +78,17 @@
   background-color: $color-green-500;
   border-color: $color-green-500;
 
-  &:focus,
-  &-focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &-hover {
+  &:hover {
     background-color: $color-green-700;
     border-color: $color-green-700;
     color: $color-white-base;
   }
 
-  &:active,
-  &-active {
+  &:active {
     background-color: $color-green-800;
     border-color: $color-green-800;
   }
@@ -108,20 +99,17 @@
   border-color: $color-green-500;
   color: $color-green-500;
 
-  &:focus,
-  &-focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &-hover {
+  &:hover {
     background-color: $color-green-000;
     border-color: $color-green-500;
     color: $color-green-700;
   }
 
-  &:active,
-  &-active {
+  &:active {
     background-color: $color-green-100;
     border-color: $color-green-500;
     color: $color-green-800;
@@ -132,20 +120,17 @@
   background-color: $color-orange-500;
   border-color: $color-orange-500;
 
-  &:focus,
-  &-focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &-hover {
+  &:hover {
     background-color: $color-orange-700;
     border-color: $color-orange-700;
     color: $color-white-base;
   }
 
-  &:active,
-  &-active {
+  &:active {
     background-color: $color-orange-800;
     border-color: $color-orange-800;
   }
@@ -156,20 +141,17 @@
   border-color: $color-orange-500;
   color: $color-orange-500;
 
-  &:focus,
-  &-focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &-hover {
+  &:hover {
     background-color: $color-orange-000;
     border-color: $color-orange-500;
     color: $color-orange-700;
   }
 
-  &:active,
-  &-active {
+  &:active {
     background-color: $color-orange-100;
     border-color: $color-orange-500;
     color: $color-orange-800;
@@ -183,17 +165,6 @@
   padding-right: $spacing-xs;
   padding-left: $spacing-xs;
 
-  &-focus {
-    @extend %button-focus;
-  }
-
-  &-hover {
-    background-color: $color-blue-700;
-    border-color: $color-blue-700;
-    color: $color-white-base;
-  }
-
-  &-active,
   &:active {
     border-color: $color-blue-800;
   }
@@ -204,21 +175,17 @@
   background-color: transparent;
   color: $color-blue-600;
 
-  &:focus,
-  &-focus,
-  &--focus {
+  &:focus {
     @extend %button-focus;
   }
 
-  &:hover,
-  &-hover {
+  &:hover {
     background-color: $color-blue-100;
     border-color: transparent;
     color: $color-blue-800;
   }
 
-  &:active,
-  &-active {
+  &:active {
     background-color: $color-blue-200;
     border-color: transparent;
     color: $color-blue-800;

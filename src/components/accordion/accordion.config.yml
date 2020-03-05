@@ -1,3 +1,16 @@
 title: Accordion
 status: "wip"
-collated: false
+collated: true
+context:
+  # This id is used to create unique ids so multiple accordions can be used on a  page
+  id: "test-accordion"
+  # Can pass in a string of utility classes if needed
+  classes: "" 
+  panels:
+    - summary: "Accordion one"
+      content: "Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam."
+    - summary: "Accordion two"
+      content: "Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam."
+    - summary: "Accordion three"
+      content: "Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam."
+      init: "true"

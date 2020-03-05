@@ -1,0 +1,47 @@
+@use 'core' as *;
+
+.#{$prefix}-quote {
+  display: flex;
+
+  &__text {
+    margin: 0;
+    padding-left: $spacing-xxl;
+    position: relative;
+
+    p {
+      font-size: $ts-23;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    cite {
+      color: $color-black-500;
+      display: block;
+      font-size: $ts-16;
+      margin-top: $spacing-md;
+    }
+
+    &::before {
+      content: '\201C';
+      position: absolute;
+      top: -$spacing-xs;
+      left: 0;
+      line-height: 1;
+      font-size: $ts-32 * 4;
+    }
+  }
+
+  .#{$prefix}-avatar {
+    margin-right: $spacing-sm;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-quote {
+    &__text {
+      p {
+        font-size: $ts-32;
+      }
+    }
+  }
+}
