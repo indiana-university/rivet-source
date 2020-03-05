@@ -12,7 +12,7 @@ Use the feature component when you want to display structured information promin
 
 ## When to use something else
 
-If you are writing a full-length article, you may wish to simply use HTML paragraph styles instead.
+If you are writing a full-length article, you may wish to use HTML paragraph styles instead.
 
 ## Basic markup
 
@@ -46,7 +46,7 @@ There are three common patterns for the feature component.
 
 ### Content
 
-The content pattern consists of an image, title, detail, and a call to action (all of which are optional). When simply working with content-based information (such as creating a call out on the homepage for a service, etc.), it is best to consult this pattern.
+The content pattern consists of an image, title, detail, and a call to action (all of which are optional). When working with content-based information (such as creating a call out on the homepage for a service, etc.), it is best to consult this pattern.
 
 #### Adding the markup
 
@@ -118,7 +118,7 @@ Like the event pattern, the news pattern will usually feature a link, most often
 
 ### Additional options
 
-The feature component is by default vertically oriented; however, with the addition of the `rvt-feature--horizontal`, any of the above patterns can be switched to a horizontal orientation.
+The feature component is by default vertically oriented; however, with the addition of the `rvt-feature--horizontal` CSS class, any of the above patterns can be switched to a horizontal orientation.
 
 ```
 <div class="rvt-feature rvt-feature--horizontal">
