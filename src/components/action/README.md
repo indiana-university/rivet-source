@@ -1,6 +1,6 @@
 # Action
 
-Provide visible and concise path forward to a user
+Provide a visible and concise path forward to a user
 
 ## When to use
 
