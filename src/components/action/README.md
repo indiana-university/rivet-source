@@ -4,14 +4,14 @@ Provide visible and concise path forward to a user
 
 ## When to use
 
-Use the action component when you want to spur users on to a desired endpoint. This could include:
+Use the action component when you want to direct users to a desired endpoint. This could include:
 
 - A link at the bottom of a featured event to encourage users to RSVP
 - A link at the bottom of a call out send users to more complete information about something
 
 ## When to use something else
 
-If you need a link within a body of text, consider using HTML links instead.
+If you need a link within a body of text, consider using HTML links instead. If you are triggering dynamic content or interaction, the button component will usually be more appropriate.
 
 ## Adding the markup
 
