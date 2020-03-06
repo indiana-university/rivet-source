@@ -2,3 +2,33 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use 'core' as *;
+
+.#{$prefix}-cal {
+  font-size: $ts-32;
+  font-weight: $font-weight-bold;
+  background-color: $color-black-000;
+  display: inline-flex;
+  padding: .75rem $spacing-sm;
+  line-height: 1.1;
+  position: relative;
+  border-top: $spacing-sm solid $color-crimson-dark-base;
+  flex-direction: column;
+
+  &__month {
+    color: $color-yellow-700;
+    font-size: $ts-14;
+    text-transform: uppercase;
+    padding: 0 $spacing-sm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__date {
+    font-weight: $font-weight-regular;
+    font-size: $ts-16 * 1.5;
+    margin-top: $spacing-xxs;
+    padding: 0 $spacing-sm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
