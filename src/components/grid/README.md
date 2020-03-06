@@ -14,13 +14,85 @@ The Rivet grid consists of containers, rows, and columns.
 
 ### Containers
 
-The container is meant to be a generic wrapper to add enough padding to the content of your application so that it doesn’t bump up against the sides of the viewport. They are centered by default. The container can be used as is without any other grid items inside, but it **is required to wrap all other grid elements**.
+The container is meant to be a generic wrapper to add enough padding to the content of your application so that it doesn’t bump up against the sides of the viewport. They are centered by default.
 
 ```
 <div class="rvt-container-xl">
   <div class="rvt-row">
     <div class="rvt-cols">
       <span>Column</span>
+    </div>
+    <div class="rvt-cols">
+      <span>Column</span>
+    </div>
+  </div>
+</div>
+```
+
+The container can be used as is without any other grid items inside, but it **is required to wrap all other grid elements**.
+
+For example, you can use solely the container if you wish to create a single-column layout:
+
+```
+<div class="rvt-container-md">
+  <p>Some single-column content...</p>
+</div>
+```
+
+Or you can create a visually identical version using the `rvt-row` and `rvt-cols` class:
+
+```
+<div class="rvt-container-md">
+  <div class="rvt-row">
+    <div class="rvt-cols-12">
+      <p>Some single-column content...</p>
+    </div>
+  </div>
+</div>
+```
+
+#### Nesting grids
+
+You only need to use one outer container when nesting grids. When nesting a `rvt-row` inside a `rvt-cols-*`, you should not wrap the new `rvt-row` in another container. This will throw off the alignment of the content in nested grids.
+
+✅ Do this:
+
+```
+<div class="rvt-container-xl">
+  <div class="rvt-row">
+    <div class="rvt-cols-6-md-up">
+      <p>I take up 50% of the space...</p>
+      <div class="rvt-row">
+        <div class="rvt-cols-6-md-up">
+          <p>I'm 25% now...</p>
+        </div>
+        <div class="rvt-cols-6-md-up">
+          <p>Me too, I'm 25%...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+🚫 Don't do this:
+
+```
+<div class="rvt-container-xl">
+  <div class="rvt-row">
+    <div class="rvt-cols-6-md-up">
+      <p>I take up 50% of the space...</p>
+      <!-- This container isn't necessary  and will throw off the alignment of grid content -->
+      <div class="rvt-container">
+        <div class="rvt-row">
+          <div class="rvt-cols-6-md-up">
+            <p>Uh oh, I'm 25% now, but not aligned correctly</p>
+          </div>
+          <div class="rvt-cols-6-md-up">
+            <p>Uh oh, I'm 25% now, but not aligned correctly</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
