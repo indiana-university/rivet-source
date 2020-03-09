@@ -16,4 +16,8 @@
     border-bottom: none;
     border-left: none;
   }
+
+  &-strong {
+    font-weight: $font-weight-bold;
+  }
 }
