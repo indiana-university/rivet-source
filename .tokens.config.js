@@ -17,7 +17,7 @@ module.exports = {
       files: sassFileOutput
     },
     "tokens/json": {
-      transforms: ['attribute/cti'],
+      transforms: ['attribute/cti', 'name/cti/kebab'],
       buildPath: 'tokens/json/',
       files: jsonFileOutput
     },
