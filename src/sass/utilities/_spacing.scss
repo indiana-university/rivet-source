@@ -21,13 +21,13 @@ $spacing-directions: (
 // NOTE you can reference these sizes in core/_variables.scss
 
 $spacing-sizes: (
-  -xxs: $xxs,
-  -xs: $xs,
-  -sm: $sm,
-  -md: $md,
-  -lg: $lg,
-  -xl: $xl,
-  -xxl: $xxl
+  -xxs: $spacing-xxs,
+  -xs: $spacing-xs,
+  -sm: $spacing-sm,
+  -md: $spacing-md,
+  -lg: $spacing-lg,
+  -xl: $spacing-xl,
+  -xxl: $spacing-xxl
 );
 
 // Super gnarly loop here, but it save sooo much time
@@ -87,53 +87,55 @@ $spacing-sizes: (
 
 // Builds responsive spacing classes
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
+// TODO: This can be refactored to use fewer nested loops
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
     @each $direction in $spacing-directions {
-      @each $size, $value in $spacing-sizes {
+      @each $suffix, $refs in $spacing-sizes {
         // NOTE: We use !important here because we want these utilities to always
         // produced the same result.
 
         // If the direction is "null", add margin to all directions.
         @if $direction == null {
-          .#{$prefix}-m-all#{$size}-#{$bp-name}-up {
-            margin: $value !important;
+          .#{$prefix}-m-all#{$suffix}-#{$variable}-up {
+            margin: $refs !important;
           }
 
-          .#{$prefix}-p-all#{$size}-#{$bp-name}-up {
-            padding: $value !important;
+          .#{$prefix}-p-all#{$suffix}-#{$variable}-up {
+            padding: $refs !important;
           }
 
-          .#{$prefix}-m-tb#{$size}-#{$bp-name}-up {
-            margin-bottom: $value !important;
-            margin-top: $value !important;
+          .#{$prefix}-m-tb#{$suffix}-#{$variable}-up {
+            margin-bottom: $refs !important;
+            margin-top: $refs !important;
           }
 
-          .#{$prefix}-m-lr#{$size}-#{$bp-name}-up {
-            margin-left: $value !important;
-            margin-right: $value !important;
+          .#{$prefix}-m-lr#{$suffix}-#{$variable}-up {
+            margin-left: $refs !important;
+            margin-right: $refs !important;
           }
 
-          .#{$prefix}-p-tb#{$size}-#{$bp-name}-up {
-            padding-bottom: $value !important;
-            padding-top: $value !important;
+          .#{$prefix}-p-tb#{$suffix}-#{$variable}-up {
+            padding-bottom: $refs !important;
+            padding-top: $refs !important;
           }
 
-          .#{$prefix}-p-lr#{$size}-#{$bp-name}-up {
-            padding-left: $value !important;
-            padding-right: $value !important;
+          .#{$prefix}-p-lr#{$suffix}-#{$variable}-up {
+            padding-left: $refs !important;
+            padding-right: $refs !important;
           }
 
           // Otherwise create individual direction utilities.
         }
 
         @else {
-          .#{$prefix}-m#{$direction}#{$size}-#{$bp-name}-up {
-            margin#{$direction}: $value !important;
+          .#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+            margin#{$direction}: $refs !important;
           }
 
-          .#{$prefix}-p#{$direction}#{$size}-#{$bp-name}-up {
-            padding#{$direction}: $value !important;
+          .#{$prefix}-p#{$direction}#{$suffix}-#{$variable}-up {
+            padding#{$direction}: $refs !important;
           }
         }
       } // End $spacing-sizes loop
@@ -176,49 +178,50 @@ $spacing-sizes: (
 // NOTE: Adding the "-none" alias to the responsive classes without
 // un-prefixed version because the "-none" alias is totally new. We will
 // always prefix every class with "rvt-" moving forward.
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
     @each $direction in $spacing-directions {
       @if $direction == null {
-        .#{$prefix}-m-all-none-#{$bp-name}-up {
+        .#{$prefix}-m-all-none-#{$variable}-up {
           margin: 0 !important;
         }
 
-        .#{$prefix}-p-all-none-#{$bp-name}-up {
+        .#{$prefix}-p-all-none-#{$variable}-up {
           padding: 0 !important;
         }
 
-        .#{$prefix}-m-tb-none-#{$bp-name}-up {
+        .#{$prefix}-m-tb-none-#{$variable}-up {
           margin-top: 0 !important;
           margin-bottom: 0 !important;
         }
 
-        .#{$prefix}-p-tb-none-#{$bp-name}-up {
+        .#{$prefix}-p-tb-none-#{$variable}-up {
           padding-top: 0 !important;
           padding-bottom: 0 !important;
         }
 
-        .#{$prefix}-m-lr-none-#{$bp-name}-up {
+        .#{$prefix}-m-lr-none-#{$variable}-up {
           margin-right: 0 !important;
           margin-left: 0 !important;
         }
 
-        .#{$prefix}-p-lr-none-#{$bp-name}-up {
+        .#{$prefix}-p-lr-none-#{$variable}-up {
           padding-right: 0 !important;
           padding-left: 0 !important;
         }
       }
 
       @else {
-        .#{$prefix}-m#{$direction}-none-#{$bp-name}-up {
+        .#{$prefix}-m#{$direction}-none-#{$variable}-up {
           margin#{$direction}: 0 !important;
         }
 
-        .#{$prefix}-p#{$direction}-none-#{$bp-name}-up {
+        .#{$prefix}-p#{$direction}-none-#{$variable}-up {
           padding#{$direction}: 0 !important;
         }
       }
     }
   }
 }
+
 /* stylelint-enable */

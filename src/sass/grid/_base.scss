@@ -3,10 +3,10 @@
 
 @use 'core' as *;
 
-// These Sass maps are used for all the basic grid set up.
+// These Sass maps are used for all the basic row set up.
 
-// Grid columns map
-$grid-columns: (
+// Row columns map
+$row-columns: (
   '1': 8.333,
   '2': 16.6667,
   '3': 25,
@@ -21,152 +21,156 @@ $grid-columns: (
   '12': 100
 );
 
-// Grid sizes map.
+// Row sizes map.
 //
-// These are the max-widths of the grid. Feel free to add more
-// sizes/key: value pairs that can then be used on the .grid container
-// like, .grid .grid--yournewsize.
+// These are the max-widths of the row. Feel free to add more
+// sizes/key: value pairs that can then be used on the .row container
+// like, .row--yournewsize.
 
-$grid-widths: (
-  'freshman': 640px,
-  'sophomore': 1024px,
-  'junior': 1140px,
-  'senior': 1380px
+$row-widths: (
+  'sm': 640px,
+  'md': 1024px,
+  'lg': 1140px,
+  'xl': 1380px
 );
 
 // Global grid gutter. Set this to half of what you want the final gutter to be.
-$gutter: $md / 2;
+$gutter: $spacing-md / 2;
 
-// Starting on some mixins to build grid classes and to make
+// Starting on some mixins to build row classes and to make
 // available for those who want to use the Sass source
 // source files in their app.
 
 @mixin container($width: 100%) {
+  margin-left: auto !important;
+  margin-right: auto !important;
   max-width: $width;
-  padding-right: $gutter * 2;
   padding-left: $gutter * 2;
+  padding-right: $gutter * 2;
 }
 
-@mixin grid {
+@mixin row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: ($gutter / -1);
-  margin-left: ($gutter / -1);
-}
-
-.#{$prefix}-container {
-  @include container();
+  margin: 0 ($gutter/-1);
 }
 
 /**
- * Contianer variants
+ * Container variants
  */
 
-.#{$prefix}-container--center {
-  margin-right: auto !important;
-  margin-left: auto !important;
-}
-
-@each $key, $value in $grid-widths {
-  .#{$prefix}-container--#{$key} {
-    max-width: $value;
+@each $key, $value in $row-widths {
+  .#{$prefix}-container-#{$key} {
+    @include container($value);
   }
 }
 
-.#{$prefix}-container--collapse {
-  padding: 0;
-}
-
 /**
- * The main grid container. It's width is fluid by default.
+ * The main row container. It's width is fluid by default.
  */
 
-// TODO: refactor the other grid__item-* classes into mixins for those
-// that want ot use the Sass source in their app.
+// TODO: refactor the other row__cols-* classes into mixins for those
+// that want to use the Sass source in their app.
 
-@mixin grid-item {
-  max-width: 100%;
+@mixin cols {
   flex-basis: 0;
   flex-grow: 1;
+  max-width: 100%;
   padding: 0 $gutter;
   position: relative;
 }
 
-.#{$prefix}-grid {
-  @include grid;
+.#{$prefix}-row {
+  @include row;
 
-  &__item {
-    @include grid-item;
+  .#{$prefix}-cols {
+    @include cols;
   }
 
-  &__item--last {
+  .#{$prefix}-cols--last {
     margin-left: auto;
   }
 
-  [class^='#{$prefix}-grid__item'] {
+  &--loose {
+    margin: 0 ($gutter * -1.66);
+  }
+
+  &--loose > [class^='#{$prefix}-cols'] {
+    padding: 0 ($gutter * 1.66);
+  }
+
+  &--tight {
+    margin: 0 ($gutter * -.75);
+  }
+
+  &--tight > [class^='#{$prefix}-cols'] {
+    padding: 0 ($gutter * .75);
+  }
+
+  [class^='#{$prefix}-cols'] {
     /**
-     * This keeps the grid from collapsing when items inside are too
-     * big for their parent .#{$prefix}-grid__item.
+     * This keeps the row from collapsing when cols inside are too
+     * big for their parent .#{$prefix}-row__cols.
      */
     min-width: 0;
   }
 }
 
 /**
- * This modifier will right align grid__item(s) that add up to less
+ * This modifier will right align row__cols(s) that add up to less
  * than 12 columns in total.
  */
 
-.#{$prefix}-grid--right {
+.#{$prefix}-cols--right {
   justify-content: flex-end;
 }
 
-%auto-grid-props {
-  width: 100%;
-  position: relative;
+%auto-row-props {
   padding: 0 $gutter;
+  position: relative;
+  width: 100%;
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  .#{$prefix}-grid__item-#{$bp-name} {
-    @extend %auto-grid-props;
+@each $variable, $size in $breakpoints {
+  .#{$prefix}-cols-#{$variable} {
+    @extend %auto-row-props;
   }
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  @include mq($bp-size) {
-    .#{$prefix}-grid__item-#{$bp-name} {
-      max-width: 100%;
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-cols-#{$variable} {
       flex-basis: 0;
       flex-grow: 1;
+      max-width: 100%;
     }
   }
 }
 
 /**
- * Build the base grid item classes. These will make
- * grid items span the same number of columns at ALL
+ * Build the base row cols classes. These will make
+ * row cols span the same number of columns at ALL
  * screen sizes.
  */
 
 /**
- * We need to extend these properties on to all of the responsive grid
+ * We need to extend these properties on to all of the responsive row
  * classes on mobile first so we'll define them here in a silent class
  * and let Sass build the comma-separated list of selectors
  */
 
-%item-properties {
-  position: relative;
+%cols-properties {
   padding: 0 $gutter;
+  position: relative;
   width: 100%;
 }
 
-@each $columns, $width in $grid-columns {
-  .#{$prefix}-grid__item-#{$columns} {
+@each $columns, $width in $row-columns {
+  .#{$prefix}-cols-#{$columns} {
     flex-basis: $width * 1%;
     max-width: $width * 1%;
 
-    @extend %item-properties;
+    @extend %cols-properties;
   }
 }
 
@@ -175,18 +179,18 @@ $gutter: $md / 2;
  */
 
 /* stylelint-disable */
-@each $bp-name, $bp-size in $breakpoints {
-  @each $columns, $width in $grid-columns {
-    .#{$prefix}-grid__item-#{$columns}-#{$bp-name}-up {
-      @extend %item-properties;
+@each $variable, $size in $breakpoints {
+  @each $columns, $width in $row-columns {
+    .#{$prefix}-cols-#{$columns}-#{$variable} {
+      @extend %cols-properties;
     }
   }
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  @if $bp-name == 'sm' {
-    @each $columns, $width in $grid-columns {
-      .#{$prefix}-grid__item-#{$columns}-sm-up {
+@each $variable, $size in $breakpoints {
+  @if $variable == 'sm' {
+    @each $columns, $width in $row-columns {
+      .#{$prefix}-cols-#{$columns}-sm {
         flex-basis: $width * 1%;
         max-width: $width * 1%;
       }
@@ -194,9 +198,9 @@ $gutter: $md / 2;
   }
 
   @else {
-    @include mq($bp-size) {
-      @each $columns, $width in $grid-columns {
-        .#{$prefix}-grid__item-#{$columns}-#{$bp-name}-up {
+    @include mq($size) {
+      @each $columns, $width in $row-columns {
+        .#{$prefix}-cols-#{$columns}-#{$variable} {
           flex-basis: $width * 1%;
           max-width: $width * 1%;
         }
@@ -207,47 +211,48 @@ $gutter: $md / 2;
 
 // Push and pull utilities
 
-@each $columns, $width in $grid-columns {
-  .#{$prefix}-grid__item-push-#{$columns} {
+@each $columns, $width in $row-columns {
+  .#{$prefix}-cols-push-#{$columns} {
     left: $width * 1%;
   }
 }
 
-@each $columns, $width in $grid-columns {
-  .#{$prefix}-grid__item-pull-#{$columns} {
+@each $columns, $width in $row-columns {
+  .#{$prefix}-cols-pull-#{$columns} {
     right: $width * 1%;
   }
 }
 
-@each $bp-name, $bp-size in $breakpoints {
-  // NOTE: This is sort of repetitive because you could use the number
-  // suffix only (see above) to push and pull on small screens,
-  // but it seems like both should have the same behavior
-  // as a convenience.
-  @if $bp-name == 'sm' {
-    @each $columns, $width in $grid-columns {
-      .#{$prefix}-grid__item-push-#{$columns}-#{$bp-name} {
+// NOTE: This is sort of repetitive because you could use the number
+// suffix only (see above) to push and pull on small screens,
+// but it seems like both should have the same behavior
+// as a convenience.
+
+@each $variable, $size in $breakpoints {
+  @if $size == 'sm' {
+    @each $columns, $width in $row-columns {
+      .#{$prefix}-cols-push-#{$columns}-#{$variable} {
         left: $width * 1%;
       }
     }
 
-    @each $columns, $width in $grid-columns {
-      .#{$prefix}-grid__item-pull-#{$columns}-#{$bp-name} {
+    @each $columns, $width in $row-columns {
+      .#{$prefix}-cols-pull-#{$columns}-#{$variable} {
         right: $width * 1%;
       }
     }
   }
 
   @else {
-    @include mq($bp-size) {
-      @each $columns, $width in $grid-columns {
-        .#{$prefix}-grid__item-push-#{$columns}-#{$bp-name} {
+    @include mq($size) {
+      @each $columns, $width in $row-columns {
+        .#{$prefix}-cols-push-#{$columns}-#{$variable} {
           left: $width * 1%;
         }
       }
 
-      @each $columns, $width in $grid-columns {
-        .#{$prefix}-grid__item-pull-#{$columns}-#{$bp-name} {
+      @each $columns, $width in $row-columns {
+        .#{$prefix}-cols-pull-#{$columns}-#{$variable} {
           right: $width * 1%;
         }
       }

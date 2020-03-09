@@ -11,18 +11,18 @@
   &__input:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    z-index: map-get($z-index, z-100);
+    z-index: map-get($z-index, '100');
   }
 
   &__input:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    z-index: map-get($z-index, z-100);
+    z-index: map-get($z-index, '100');
   }
 
   &__input:focus:not(:last-child),
   &__input:focus:not(:first-child) {
-    z-index: map-get($z-index, z-300);
+    z-index: map-get($z-index, '300');
   }
 
   &__append {
@@ -31,7 +31,7 @@
 
     .#{$prefix}-button {
       flex-grow: 1;
-      z-index: map-get($z-index, z-200);
+      z-index: map-get($z-index, '200');
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       display: flex;
@@ -46,25 +46,25 @@
     display: flex;
     align-items: center;
     height: 100%;
-    padding-right: $sm * .75;
-    padding-left: $sm * .75;
+    padding-right: $spacing-sm * .75;
+    padding-left: $spacing-sm * .75;
   }
 
   &__append &__text {
-    border-top-right-radius: $xxs;
-    border-bottom-right-radius: $xxs;
+    border-top-right-radius: $spacing-xxs;
+    border-bottom-right-radius: $spacing-xxs;
   }
 
   &__prepend &__text {
-    border-top-left-radius: $xxs;
-    border-bottom-left-radius: $xxs;
+    border-top-left-radius: $spacing-xxs;
+    border-bottom-left-radius: $spacing-xxs;
   }
 
   &__prepend {
     margin-right: -1px;
 
     .#{$prefix}-button {
-      z-index: map-get($z-index, z-200);
+      z-index: map-get($z-index, '200');
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       display: flex;

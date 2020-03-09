@@ -12,13 +12,13 @@
 
   li {
     margin-top: 0;
-    margin-right: $xs;
+    margin-right: $spacing-xs;
     font-size: $ts-14;
     line-height: 1;
 
     &::before {
       content: '/';
-      padding-right: $xs;
+      padding-right: $spacing-xs;
       color: #bbbbbb;
     }
 
@@ -45,8 +45,8 @@
 
   &--call-out {
     background-color: $color-black-100;
-    padding: $sm;
-    border-radius: $xxs;
+    padding: $spacing-sm;
+    border-radius: $spacing-xxs;
 
     li:last-child {
       color: $color-black-700;

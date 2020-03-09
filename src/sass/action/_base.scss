@@ -1,4 +1,4 @@
-// Copyright (C) 2018 The Trustees of Indiana University
+// Copyright (C) 2019 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use 'core' as *;
@@ -16,19 +16,19 @@
     align-items: center;
     display: inline-flex;
     flex-shrink: 0;
-    height: $md;
-    width: $md;
+    height: $spacing-md;
+    width: $spacing-md;
   }
 
   &--reverse,
   &--reverse &__icon,
   &--reverse:hover {
-    color: $color-white;
+    color: $color-white-base;
   }
 
   &__text {
     font-weight: 700;
     line-height: 1.2;
-    margin-left: $xs;
+    margin-left: $spacing-xs;
   }
 }

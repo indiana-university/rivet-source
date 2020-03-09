@@ -1,0 +1,66 @@
+title: Quote
+label: Quote
+status: 'wip'
+preview: '@preview-no-padding'
+collated: true
+variants:
+  - name: 'avatar-extra-small'
+    context:
+      avatar: true
+      attributes:
+        text: 'XS'
+        size: '--xs'
+  - name: 'avatar-small'
+    context:
+      avatar: true
+      attributes:
+        text: 'SM'
+        size: '--sm'
+  - name: 'avatar-medium'
+    context:
+      avatar: true
+      attributes:
+        text: 'MD'
+        size: '--md'
+  - name: 'avatar-large'
+    context:
+      avatar: true
+      attributes:
+        text: 'LG'
+        size: '--lg'
+  - name: 'avatar-extra-large'
+    context:
+      avatar: true
+      attributes:
+        text: 'XL'
+        size: '--xl'
+  - name: 'avatar-image-extra-small'
+    context:
+      avatar: true
+      attributes:
+        image: 'http://www.fillmurray.com/300/300'
+        size: '--xs'
+  - name: 'avatar-image-small'
+    context:
+      avatar: true
+      attributes:
+        image: 'http://www.fillmurray.com/300/300'
+        size: '--sm'
+  - name: 'avatar-image-medium'
+    context:
+      avatar: true
+      attributes:
+        image: 'http://www.fillmurray.com/300/300'
+        size: '--md'
+  - name: 'avatar-image-large'
+    context:
+      avatar: true
+      attributes:
+        image: 'http://www.fillmurray.com/300/300'
+        size: '--lg'
+  - name: 'avatar-image-extra-large'
+    context:
+      avatar: true
+      attributes:
+        image: 'http://www.fillmurray.com/300/300'
+        size: '--xl'

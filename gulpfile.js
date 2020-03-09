@@ -10,10 +10,31 @@ const rollup = require('rollup');
 const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
 const stylelint = require('gulp-stylelint');
-const uglify = require('gulp-uglify');
-
+const minify = require('gulp-terser');
 const fractal = require('./fractal');
 const pkg = require('./package.json');
+
+/**
+ * Style Dictionary
+ */
+const StyleDictionary = require('style-dictionary').extend(
+  './.tokens.config.js'
+);
+
+const {
+  mapSimple,
+  mapSimpleDesc,
+  variables
+} = require('./src/tokens/formats/sass-formats');
+
+// Pull in Style Dictionary custom filters
+const {
+  isBreakpoint,
+  isColor,
+  isTypeScale,
+  isWidth,
+  isZIndex
+} = require('./src/tokens/filters/format-filters');
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
@@ -42,6 +63,26 @@ var bannerText = `/*!
 // Set Node environment to 'production' for build and release exports
 function setProdNodeEnv(callback) {
   process.env.NODE_ENV = 'production';
+  callback();
+}
+
+function compileTokens(callback) {
+  StyleDictionary.registerFilter(isBreakpoint);
+  StyleDictionary.registerFilter(isColor);
+  StyleDictionary.registerFilter(isTypeScale);
+  StyleDictionary.registerFilter(isWidth);
+  StyleDictionary.registerFilter(isZIndex);
+  StyleDictionary.registerFormat(mapSimple);
+  StyleDictionary.registerFormat(mapSimpleDesc);
+  StyleDictionary.registerFormat(variables);
+  process.env.NODE_ENV === 'production'
+    ? StyleDictionary.buildAllPlatforms()
+    : StyleDictionary.buildPlatform('src/sass/core');
+  callback();
+}
+
+function watchTokens(callback) {
+  watch('src/tokens/**/*.json', series(compileTokens));
   callback();
 }
 
@@ -199,21 +240,21 @@ function distJS() {
 }
 
 // Strip out comments from JS files
-function stripJS(callback) {
-  src('./js/rivet-iife.js')
+function stripIIFE() {
+  return src('./js/rivet-iife.js')
     .pipe(strip())
     .pipe(dest('./js'));
+}
 
-  src('./js/rivet-esm.js')
+function stripESM() {
+  return src('./js/rivet-esm.js')
     .pipe(strip())
     .pipe(dest('./js'));
-
-  callback();
 }
 
 function minifyJS() {
   return src('./js/rivet-iife.js')
-    .pipe(uglify())
+    .pipe(minify())
     .pipe(rename({ basename: 'rivet', suffix: '.min' }))
     .pipe(dest('./js'));
 }
@@ -286,6 +327,7 @@ function example(callback) {
 
 exports.release = series(
   setProdNodeEnv,
+  compileTokens,
   lintSassBuild,
   compileSass,
   compileCSS,
@@ -295,7 +337,8 @@ exports.release = series(
   compileIIFE,
   compileESM,
   distJS,
-  stripJS,
+  stripIIFE,
+  stripESM,
   minifyJS,
   headerJS,
   releaseCopySass,
@@ -305,12 +348,14 @@ exports.release = series(
 
 exports.build = series(
   setProdNodeEnv,
+  compileTokens,
   lintSassBuild,
   compileSass,
   compileIIFE,
   compileESM,
   distJS,
-  stripJS,
+  stripIIFE,
+  stripESM,
   minifyJS,
   headerJS,
   vendorJS,
@@ -321,21 +366,25 @@ exports.build = series(
 exports.fractalBuild = fractalBuild;
 
 exports.headless = series(
+  compileTokens,
   compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,
   fractalHeadless,
+  watchTokens,
   watchSass,
   watchJS
 );
 
 exports.default = series(
+  compileTokens,
   compileSass,
   lintSassWatch,
   compileIIFE,
   compileESM,
   fractalStart,
+  watchTokens,
   watchSass,
   watchJS
 );

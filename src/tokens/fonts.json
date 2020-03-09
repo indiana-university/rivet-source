@@ -1,0 +1,15 @@
+{
+  "font": {
+    "base": {
+      "value": "'BentonSans', 'Helvetica Neue', 'Helvetica', sans-serif"
+    },
+    "weight": {
+      "bold": {
+        "value": "700"
+      },
+      "regular": {
+        "value": "400"
+      }
+    }
+  }
+}

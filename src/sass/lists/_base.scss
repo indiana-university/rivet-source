@@ -14,12 +14,12 @@ ol {
 
 ul li,
 ol li {
-  margin-top: $xs;
+  margin-top: $spacing-xs;
 }
 
 dl dt {
   font-weight: $font-weight-bold;
-  margin-top: $sm;
+  margin-top: $spacing-sm;
 
   &:first-child {
     margin-top: 0;
@@ -48,8 +48,8 @@ dl dd {
     display: inline-block;
     line-height: 1;
     font-size: 1rem;
-    margin-right: $sm;
-    margin-bottom: $xs;
+    margin-right: $spacing-sm;
+    margin-bottom: $spacing-xs;
   }
 }
 

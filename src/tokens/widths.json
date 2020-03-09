@@ -1,0 +1,36 @@
+{
+  "width": {
+    "base": {
+      "value": "4rem",
+      "comment": "64px"
+    },
+    "xxs": {
+      "value": "4rem",
+      "comment": "64px"
+    },
+    "xs": {
+      "value": "8rem",
+      "comment": "128px"
+    },
+    "sm": {
+      "value": "12rem",
+      "comment": "192px"
+    },
+    "md": {
+      "value": "16rem",
+      "comment": "256px"
+    },
+    "lg": {
+      "value": "20rem",
+      "comment": "320px"
+    },
+    "xl": {
+      "value": "24rem",
+      "comment": "384px"
+    },
+    "xxl": {
+      "value": "32rem",
+      "comment": "512px"
+    }
+  }
+}

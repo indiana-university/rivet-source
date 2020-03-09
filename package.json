@@ -2,7 +2,7 @@
   "name": "rivet-core",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0-alpha.1",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -16,13 +16,14 @@
   "module": "js/rivet-esm.js",
   "scripts": {
     "start": "gulp",
-    "build": "npm run clean && gulp release && zip -r rivet.zip css js sass index.html",
+    "build": "npm run clean && gulp release",
+    "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
     "fix": "stylelint 'src/sass/**/*.scss' --fix",
     "test": "start-server-and-test cypress:serve http://localhost:3000 cypress:test",
     "cypress:browser": "cypress open",
     "cypress:serve": "gulp headless",
     "cypress:test": "cypress run",
-    "clean": "rm -rf ./css ./js ./sass ./rivet.zip ./index.html",
+    "clean": "rm -rf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run build"
@@ -31,9 +32,12 @@
     "css/**/*",
     "sass/**/*",
     "js/**/*",
+    "tokens/**/*",
     "index.html"
   ],
   "devDependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.1",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@frctl/fractal": "^1.2.1",
@@ -55,7 +59,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-strip-comments": "^2.5.2",
     "gulp-stylelint": "^9.0.0",
-    "gulp-uglify": "^3.0.0",
+    "gulp-terser": "^1.2.0",
     "node-sass": "^4.13.1",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.1",
@@ -67,6 +71,7 @@
     "rollup-plugin-eslint": "^7.0.0",
     "sass": "^1.25.0",
     "start-server-and-test": "^1.10.6",
+    "style-dictionary": "^2.8.3",
     "stylelint": "^10.0.1",
     "stylelint-config-rivet": "^1.0.0",
     "stylelint-scss": "^3.14.2"

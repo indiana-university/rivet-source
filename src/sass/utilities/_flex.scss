@@ -29,29 +29,29 @@
   flex-direction: column-reverse !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-flex-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-flex-#{$variable}-up {
       display: flex !important;
     }
 
-    .#{$prefix}-inline-flex-#{$bp-name}-up {
+    .#{$prefix}-inline-flex-#{$variable}-up {
       display: inline-flex !important;
     }
 
-    .#{$prefix}-row-#{$bp-name}-up {
+    .#{$prefix}-row-#{$variable}-up {
       flex-direction: row !important;
     }
 
-    .#{$prefix}-row-reverse-#{$bp-name}-up {
+    .#{$prefix}-row-reverse-#{$variable}-up {
       flex-direction: row-reverse !important;
     }
 
-    .#{$prefix}-column-#{$bp-name}-up {
+    .#{$prefix}-column-#{$variable}-up {
       flex-direction: column !important;
     }
 
-    .#{$prefix}-column-reverse-#{$bp-name}-up {
+    .#{$prefix}-column-reverse-#{$variable}-up {
       flex-direction: column-reverse !important;
     }
   }
@@ -71,17 +71,17 @@
   flex-wrap: wrap-reverse !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-wrap-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-wrap-#{$variable}-up {
       flex-wrap: wrap !important;
     }
 
-    .#{$prefix}-no-wrap-#{$bp-name}-up {
+    .#{$prefix}-no-wrap-#{$variable}-up {
       flex-wrap: nowrap !important;
     }
 
-    .#{$prefix}-wrap-reverse-#{$bp-name}-up {
+    .#{$prefix}-wrap-reverse-#{$variable}-up {
       flex-wrap: wrap-reverse !important;
     }
   }
@@ -97,13 +97,13 @@
   flex-shrink: 0 !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-shrink-1-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-shrink-1-#{$variable}-up {
       flex-shrink: 1 !important;
     }
 
-    .#{$prefix}-shrink-0-#{$bp-name}-up {
+    .#{$prefix}-shrink-0-#{$variable}-up {
       flex-shrink: 0 !important;
     }
   }
@@ -119,13 +119,13 @@
   flex-grow: 0 !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-grow-1-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-grow-1-#{$variable}-up {
       flex-grow: 1 !important;
     }
 
-    .#{$prefix}-grow-0-#{$bp-name}-up {
+    .#{$prefix}-grow-0-#{$variable}-up {
       flex-grow: 0 !important;
     }
   }
@@ -153,25 +153,25 @@
   align-items: stretch !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-items-start-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-items-start-#{$variable}-up {
       align-items: flex-start !important;
     }
 
-    .#{$prefix}-items-end-#{$bp-name}-up {
+    .#{$prefix}-items-end-#{$variable}-up {
       align-items: flex-end !important;
     }
 
-    .#{$prefix}-items-center-#{$bp-name}-up {
+    .#{$prefix}-items-center-#{$variable}-up {
       align-items: center !important;
     }
 
-    .#{$prefix}-items-baseline-#{$bp-name}-up {
+    .#{$prefix}-items-baseline-#{$variable}-up {
       align-items: baseline !important;
     }
 
-    .#{$prefix}-items-stretch-#{$bp-name}-up {
+    .#{$prefix}-items-stretch-#{$variable}-up {
       align-items: stretch !important;
     }
   }
@@ -199,25 +199,25 @@
   align-content: baseline !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-content-start-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-content-start-#{$variable}-up {
       align-content: flex-start !important;
     }
 
-    .#{$prefix}-content-end-#{$bp-name}-up {
+    .#{$prefix}-content-end-#{$variable}-up {
       align-content: flex-end !important;
     }
 
-    .#{$prefix}-content-center-#{$bp-name}-up {
+    .#{$prefix}-content-center-#{$variable}-up {
       align-content: center !important;
     }
 
-    .#{$prefix}-content-stretch-#{$bp-name}-up {
+    .#{$prefix}-content-stretch-#{$variable}-up {
       align-content: stretch !important;
     }
 
-    .#{$prefix}-content-baseline-#{$bp-name}-up {
+    .#{$prefix}-content-baseline-#{$variable}-up {
       align-content: baseline !important;
     }
   }
@@ -249,29 +249,29 @@
   justify-content: space-evenly;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-justify-start-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-justify-start-#{$variable}-up {
       justify-content: flex-start;
     }
 
-    .#{$prefix}-justify-end-#{$bp-name}-up {
+    .#{$prefix}-justify-end-#{$variable}-up {
       justify-content: flex-end;
     }
 
-    .#{$prefix}-justify-center-#{$bp-name}-up {
+    .#{$prefix}-justify-center-#{$variable}-up {
       justify-content: center;
     }
 
-    .#{$prefix}-justify-space-between-#{$bp-name}-up {
+    .#{$prefix}-justify-space-between-#{$variable}-up {
       justify-content: space-between;
     }
 
-    .#{$prefix}-justify-space-around-#{$bp-name}-up {
+    .#{$prefix}-justify-space-around-#{$variable}-up {
       justify-content: space-around;
     }
 
-    .#{$prefix}-justify-space-evenly-#{$bp-name}-up {
+    .#{$prefix}-justify-space-evenly-#{$variable}-up {
       justify-content: space-evenly;
     }
   }
@@ -299,25 +299,25 @@
   align-self: stretch !important;
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-  @include mq($bp-value) {
-    .#{$prefix}-self-start-#{$bp-name}-up {
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    .#{$prefix}-self-start-#{$variable}-up {
       align-self: flex-start;
     }
 
-    .#{$prefix}-self-end-#{$bp-name}-up {
+    .#{$prefix}-self-end-#{$variable}-up {
       align-self: flex-end;
     }
 
-    .#{$prefix}-self-center-#{$bp-name}-up {
+    .#{$prefix}-self-center-#{$variable}-up {
       align-self: center;
     }
 
-    .#{$prefix}-self-baseline-#{$bp-name}-up {
+    .#{$prefix}-self-baseline-#{$variable}-up {
       align-self: baseline;
     }
 
-    .#{$prefix}-self-stretch-#{$bp-name}-up {
+    .#{$prefix}-self-stretch-#{$variable}-up {
       align-self: stretch;
     }
   }

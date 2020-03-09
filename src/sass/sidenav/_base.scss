@@ -1,4 +1,4 @@
-// Copyright (C) 2018 The Trustees of Indiana University
+// Copyright (C) 2019 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use 'core' as *;
@@ -29,18 +29,18 @@
   }
 
   &__link {
-    color: $color-black;
+    color: $color-black-base;
     flex-grow: 1;
-    padding: $sm*.875;
+    padding: $spacing-sm*.875;
     text-decoration: none;
 
     &[aria-current] {
-      box-shadow: inset $xxs 0 0 $color-blue;
+      box-shadow: inset $spacing-xxs 0 0 $color-blue-base;
     }
 
     &:focus,
     &:hover {
-      color: $color-blue;
+      color: $color-blue-base;
       text-decoration: underline;
     }
   }
@@ -52,7 +52,7 @@
     cursor: pointer;
     display: none; // Hide by default if JS doesn't load
     justify-content: center;
-    padding: $sm*.875;
+    padding: $spacing-sm*.875;
 
     svg {
       vertical-align: middle;
@@ -67,14 +67,14 @@
     }
 
     &:focus {
-      outline: $xxs/2 solid $color-blue;
-      outline-offset: $xxs/2;
+      outline: $spacing-xxs/2 solid $color-blue-base;
+      outline-offset: $spacing-xxs/2;
     }
 
     &:focus,
     &:hover {
-      background: $color-blue;
-      color: $color-white;
+      background: $color-blue-base;
+      color: $color-white-base;
     }
   }
 

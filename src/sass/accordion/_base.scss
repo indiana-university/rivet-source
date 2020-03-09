@@ -1,79 +1,53 @@
-// Copyright (C) 2018 The Trustees of Indiana University
+// Copyright (C) 2020 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use 'core' as *;
 
 .#{$prefix}-accordion {
-  &__title {
-    font-size: $ts-16;
+  border-bottom: 1px solid $color-black-100;
+
+  &__summary {
+    border-top: 1px solid $color-black-100;
   }
 
-  &__title button {
+  &__toggle {
     align-items: center;
     background-color: transparent;
     border: none;
-    cursor: pointer;
     display: flex;
-    margin: 0;
-    padding: 0;
+    padding: $spacing-sm;
+    text-align: left;
+    -webkit-appearance: none;
     width: 100%;
-
-    &:focus {
-      box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue-600;
-      outline: none;
-    }
-
-    &:hover {
-      background-color: $color-black-100;
-    }
-
-    svg {
-      margin-right: $xs;
-    }
   }
 
-  &__title button[aria-expanded='true'] {
-    svg {
-      transform: rotate(90deg);
-    }
-  }
-
-  &__content[hidden] {
+  &__toggle[aria-expanded='true'] &__icon-bar {
     display: none;
   }
 
-  &--panel {
-    border: 1px solid $color-black-200;
-    border-radius: $xxs;
+  &__toggle:hover {
+    background-color: $color-black-100;
+    cursor: pointer;
   }
 
-  &--panel &__title {
-    background-color: $color-black-000;
-    border-radius: $xxs;
+  &__toggle:focus {
+    outline: 2px solid $color-blue-base;
+    outline-offset: $spacing-xxs/2;
   }
 
-  &--panel &__title button {
-    border-radius: $xxs;
-    padding: $sm*.75;
-
-    &:hover {
-      background-color: $color-black-100;
-    }
+  &__toggle-text {
+    font-size: $ts-18;
+    font-weight: $font-weight-bold;
+    line-height: 1.3;
+    padding-right: $spacing-sm;
   }
 
-  &--panel &__title button[aria-expanded='true'] {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  &__toggle-icon {
+    color: $color-black-600;
+    margin-left: auto;
   }
 
-  &--panel &__content {
-    border-top: 1px solid $color-black-200;
-    padding: $sm;
-  }
-}
-
-.rvt-collapsible-accordion {
-  .rvt-collapsible:not(:first-child) {
-    margin-top: $sm;
+  &__panel {
+    padding: $spacing-md;
   }
 }
