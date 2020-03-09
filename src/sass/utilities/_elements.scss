@@ -1,6 +1,12 @@
 @use 'core' as *;
 
 .#{$prefix} {
+  &-abbr,
+  &-abbr[title] {
+    border: none;
+    text-decoration: none;
+  }
+
   &-code {
     font-family: monospace;
     background-color: $color-black-100;
