@@ -1,3 +1,5 @@
+@use 'core' as *;
+
 .#{$prefix} {
   &-code {
     font-family: monospace;
@@ -6,5 +8,12 @@
     padding: .125rem .25rem;
     color: $color-blue-600;
     border-radius: $spacing-xxs;
+  }
+
+  &-hr {
+    border-top: 1px solid $color-black-100;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
   }
 }
