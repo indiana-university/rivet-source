@@ -10,7 +10,7 @@ const jsonVariables = {
     let wrapper = ``;
     categories.forEach(function(item) {
       wrapper += `  ${JSON.stringify(item)}:[\n`;
-      // Get all entries with category and push to new object/array
+      let counter = 0;
       for (const key in Object.entries(allProperties)) {
         const category = allProperties[key].attributes.category;
         const propValue = allProperties[key].value;
@@ -19,16 +19,17 @@ const jsonVariables = {
             ? allProperties[key].path.join('-')
             : allProperties[key].path[0];
         if (category === item) {
+          counter += 1;
           let line = ``;
-          line += `    {\n`;
+          line += counter === 1 ? `    {\n` : `,\n    {\n`;
           line += `      "name": ${JSON.stringify(propPath)},\n`;
           line += `      "value": ${JSON.stringify(propValue)}\n`;
-          // If item index < array length ? `    },\n` : `    }\n`;
-          line += `    },\n`;
+          line += `    }`;
           wrapper += line;
         }
       }
-      wrapper += `  ],\n`;
+      wrapper +=
+        categories[categories.length - 1] === item ? `\n  ]\n` : `\n  ],\n`;
     });
     output += wrapper;
     output += `}`;
