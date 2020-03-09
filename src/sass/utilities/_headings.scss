@@ -1,0 +1,20 @@
+@use 'core' as *;
+
+/**
+ * Normalize Heading sizes since we're dealing with applications not
+ * Editorial/article-like content. We'll make them slightly bigger than the
+ * base font size.
+ */
+
+.#{$prefix} {
+  &-h1,
+  &-h2,
+  &-h3,
+  &-h4,
+  &-h5,
+  &-h6 {
+    font-size: 1.125rem;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+}
