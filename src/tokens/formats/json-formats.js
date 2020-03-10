@@ -9,7 +9,7 @@ const jsonVariables = {
 
     // Output holds the output from each category loop
     let output = ``;
-    Object.keys(dictionary.properties).forEach(item => {
+    Object.keys(dictionary.properties).forEach((item, index) => {
       output += `  ${JSON.stringify(item)}:[\n`;
 
       // Set counter to check for first item in output loop
@@ -54,9 +54,7 @@ const jsonVariables = {
 
       // If last item, do not add final comma
       output +=
-        Object.keys(dictionary.properties)[
-          Object.keys(dictionary.properties).length - 1
-        ] === item
+        Object.keys(dictionary.properties).length - 1 === index
           ? `\n  ]\n`
           : `\n  ],\n`;
     });
