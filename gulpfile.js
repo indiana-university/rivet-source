@@ -21,6 +21,8 @@ const StyleDictionary = require('style-dictionary').extend(
   './.tokens.config.js'
 );
 
+const { jsonVariables } = require('./src/tokens/formats/json-formats');
+
 const {
   mapSimple,
   mapSimpleDesc,
@@ -72,6 +74,7 @@ function compileTokens(callback) {
   StyleDictionary.registerFilter(isTypeScale);
   StyleDictionary.registerFilter(isWidth);
   StyleDictionary.registerFilter(isZIndex);
+  StyleDictionary.registerFormat(jsonVariables);
   StyleDictionary.registerFormat(mapSimple);
   StyleDictionary.registerFormat(mapSimpleDesc);
   StyleDictionary.registerFormat(variables);
