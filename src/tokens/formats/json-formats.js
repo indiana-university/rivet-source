@@ -12,8 +12,8 @@ const jsonVariables = {
     Object.keys(dictionary.properties).forEach((item, index) => {
       output += `  ${JSON.stringify(item)}:[\n`;
 
-      // Set counter to check for first item in output loop
-      let counter = 0;
+      // Set firstItem to true to check for first item in loop
+      let firstItem = true;
 
       // Loop through allProperties to find entries which match the category
       for (const key in Object.entries(allProperties)) {
@@ -29,9 +29,6 @@ const jsonVariables = {
 
         // Check that the category matches the item
         if (category === item) {
-          // Increase counter
-          counter += 1;
-
           /**
            * Build json output string for item
            *
@@ -44,11 +41,14 @@ const jsonVariables = {
           let line = ``;
 
           // If first item, do not add initial comma
-          line += counter === 1 ? `    {\n` : `,\n    {\n`;
+          line += firstItem === true ? `    {\n` : `,\n    {\n`;
           line += `      "name": ${JSON.stringify(path)},\n`;
           line += `      "value": ${JSON.stringify(value)}\n`;
           line += `    }`;
           output += line;
+
+          // Set firstItem to false since loop has advanced beyond first item
+          firstItem = false;
         }
       }
 
