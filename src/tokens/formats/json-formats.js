@@ -2,16 +2,14 @@ const jsonVariables = {
   name: 'rvt/json/variables',
   formatter: function(dictionary) {
     const allProperties = dictionary.allProperties;
-    const properties = dictionary.properties;
     // eslint-disable-next-line prefer-const
-    let categories = Object.keys(properties);
 
     // Wrapper is the string that will be built into the final output
     let wrapper = `{\n`;
 
     // Output holds the output from each category loop
     let output = ``;
-    categories.forEach(function(item) {
+    Object.keys(dictionary.properties).forEach(item => {
       output += `  ${JSON.stringify(item)}:[\n`;
 
       // Set counter to check for first item in output loop
@@ -56,7 +54,11 @@ const jsonVariables = {
 
       // If last item, do not add final comma
       output +=
-        categories[categories.length - 1] === item ? `\n  ]\n` : `\n  ],\n`;
+        Object.keys(dictionary.properties)[
+          Object.keys(dictionary.properties).length - 1
+        ] === item
+          ? `\n  ]\n`
+          : `\n  ],\n`;
     });
     wrapper += output;
     wrapper += `}`;
