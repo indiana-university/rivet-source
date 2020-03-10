@@ -19,9 +19,7 @@ The container for a calendar tile is made up of a `div` with a class of `rvt-cal
 
 ```
 <div class="rvt-cal">
-  <span class="rvt-cal__month">
-  </span>
-  <span class="rvt-cal__day">
-  </span>
+  <span class="rvt-cal__month">Feb</span>
+  <span class="rvt-cal__day">10</span>
 </div>
 ```
