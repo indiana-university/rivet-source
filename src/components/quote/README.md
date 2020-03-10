@@ -4,7 +4,7 @@ Call prominent attention to a quotation using large text and a citation
 ## When to use
 Use the quote component when you have a quotation that you would like to display prominently in your page. This could include:
 
-- A sentence or short phrase quoted by an important person
+- A sentence or short phrase, attributed to a specific person
 - A short testimonial from a user about a specific product
 
 ## When to use something else
@@ -20,7 +20,7 @@ The container for a quote is made up of a `div` with a class of `rvt-quote`.
 </div>
 ```
 
-The visual display of the quote is made up of a `blockquote` element with a class of `rvt-quote__text`, a `p` element with the quote's text, and a `cite` element with the author's name.
+The visual display of the quote is made up of a `blockquote` element with a class of `rvt-quote__text`, a `p` element with the quote's text, and a `cite` element with the attribution.
 
 ```
 <div class="rvt-quote">
