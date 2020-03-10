@@ -7,8 +7,7 @@ const jsonVariables = {
     let categories = Object.keys(properties);
 
     // Wrapper is the string that will be built into the final output
-    let wrapper = ``;
-    wrapper += `{\n`;
+    let wrapper = `{\n`;
 
     // Output holds the output from each category loop
     let output = ``;
