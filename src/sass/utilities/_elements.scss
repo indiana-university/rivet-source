@@ -1,0 +1,29 @@
+@use 'core' as *;
+
+.#{$prefix} {
+  &-abbr,
+  &-abbr[title] {
+    border: none;
+    text-decoration: none;
+  }
+
+  &-code {
+    font-family: monospace;
+    background-color: $color-black-100;
+    display: inline-block;
+    padding: .125rem .25rem;
+    color: $color-blue-600;
+    border-radius: $spacing-xxs;
+  }
+
+  &-hr {
+    border-top: 1px solid $color-black-100;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+  }
+
+  &-strong {
+    font-weight: $font-weight-bold;
+  }
+}

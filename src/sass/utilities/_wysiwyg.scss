@@ -9,7 +9,8 @@
     display: none;
   }
 
-  code + code {
+  code + code,
+  .#{$prefix}-code + .#{$prefix}-code {
     margin-top: 0;
   }
 }
