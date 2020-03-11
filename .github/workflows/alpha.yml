@@ -42,7 +42,13 @@ jobs:
           node-version: 12
       - run: npm ci
       - name: Create artifact
-        run: npm build
+        run: npm run asset:upload
+      - name: Build Changelog
+        uses: ./gh-actions/build-changelog/
+        id: build_changelog
+        with:
+          tag_name: ${{ github.ref }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
@@ -51,6 +57,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          body: ${{ steps.build_changelog.outputs.changelog }}
           draft: true
           prerelease: true
       - name: Upload release asset
@@ -60,6 +67,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./rivet.zip
+          asset_path: ./rivet-gh-release.zip
           asset_name: rivet.zip
           asset_content_type: application/zip

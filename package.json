@@ -2,7 +2,7 @@
   "name": "rivet-core",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
   "module": "js/rivet-esm.js",
   "scripts": {
     "start": "gulp",
-    "build": "npm run clean && gulp release && zip -r rivet.zip css js sass tokens index.html",
+    "build": "npm run clean && gulp release",
+    "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
     "fix": "stylelint 'src/sass/**/*.scss' --fix",
     "test": "start-server-and-test cypress:serve http://localhost:3000 cypress:test",
     "cypress:browser": "cypress open",
@@ -35,6 +36,8 @@
     "index.html"
   ],
   "devDependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.1",
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@frctl/fractal": "^1.2.1",

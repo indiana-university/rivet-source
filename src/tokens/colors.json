@@ -80,6 +80,11 @@
         "value": "#990000"
       }
     },
+    "crimson-dark": {
+      "base": {
+        "value": "#7A1705"
+      }
+    },
     "green": {
       "base": {
         "value": "{color.green.500.value}"

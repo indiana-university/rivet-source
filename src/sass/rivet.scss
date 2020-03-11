@@ -7,13 +7,16 @@
 @use 'accordion';
 @use 'action';
 @use 'alerts';
+@use 'avatar';
 @use 'badges';
 @use 'box';
 @use 'breadcrumb';
 @use 'buttons';
 @use 'buttons-segmented';
+@use 'calendar-tile';
 @use 'checkboxes';
 @use 'dropdown';
+@use 'essay';
 @use 'feature';
 @use 'file-input';
 @use 'footer';
@@ -28,6 +31,7 @@
 @use 'menu';
 @use 'modals';
 @use 'pagination';
+@use 'quote';
 @use 'radios';
 @use 'sidenav';
 @use 'step-indicator';

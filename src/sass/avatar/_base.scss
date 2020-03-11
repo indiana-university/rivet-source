@@ -1,0 +1,78 @@
+@use 'core' as *;
+
+$avatar-fonts: (
+  'xs': $ts-14,
+  'sm': $ts-16,
+  'md': $ts-23,
+  'lg': $ts-32,
+  'xl': $ts-41
+);
+
+$avatar-widths: (
+  'xs': $spacing-lg,
+  'sm': $spacing-lg * 2,
+  'md': $spacing-lg * 3,
+  'lg': $spacing-lg * 4,
+  'xl': $spacing-lg * 5
+);
+
+.#{$prefix}-avatar {
+  align-items: center;
+  background-color: $color-crimson-base;
+  border-radius: 999rem;
+  color: $color-white-base;
+  display: flex;
+  flex-shrink: 0;
+  font-weight: 700;
+  height: map-get($avatar-widths, 'sm');
+  justify-content: center;
+  overflow: hidden;
+  width: map-get($avatar-widths, 'sm');
+
+  &__image {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  &--xs {
+    font-size: $ts-14;
+    height: map-get($avatar-widths, 'xs');
+    width: map-get($avatar-widths, 'xs');
+  }
+
+  &--sm {
+    height: map-get($avatar-widths, 'sm');
+    width: map-get($avatar-widths, 'sm');
+  }
+
+  &--md {
+    font-size: $ts-23;
+    height: map-get($avatar-widths, 'md');
+    width: map-get($avatar-widths, 'md');
+  }
+
+  &--lg {
+    font-size: $ts-32;
+    height: map-get($avatar-widths, 'lg');
+    width: map-get($avatar-widths, 'lg');
+  }
+
+  &--xl {
+    font-size: $ts-41;
+    height: map-get($avatar-widths, 'xl');
+    width: map-get($avatar-widths, 'xl');
+  }
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $pixels, $rems in $avatar-widths {
+      .#{$prefix}-avatar--#{$pixels}-#{$variable}-up {
+        font-size: map-get($avatar-fonts, $pixels);
+        height: $rems !important;
+        width: $rems !important;
+      }
+    }
+  }
+}
