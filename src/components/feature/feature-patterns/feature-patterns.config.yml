@@ -28,6 +28,7 @@ variants:
       label: "Events (horizontal)"
       context:
           horizontal: true
+          event: true
           title: "Lorem ipsum dolor sit amet consectetur adipiscing elit"
           titleLink: "#"
           image: "http://www.fillmurray.com/315/210"

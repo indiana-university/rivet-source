@@ -4,6 +4,8 @@
       {% if avatar %}
         {% set variant = "@avatar--" + type %}
         {% include variant %}
+      {% elseif event %}
+        {% render '@calendar' %}
       {% else %}
         <img src="{{ image }}" />
       {% endif %}
