@@ -76,6 +76,15 @@ For each file input on the page:
 - Initialize the file input using the selected file input from the previous step (referenced as `selectedFileInput`):
     - `const newFileInput = new Rivet.FileInput(selectedFileInput)`
 
+## "Public" methods
+
+If you use the appropriate data attribute/id combination in your markup, the file input will work without the need for any additional JavaScript. But if you need to control the file input programmatically, there are two methods from the Rivet file input's API you can use:
+
+| Method           | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| .init()  | Adds the built-in event listeners to the file input |
+| .destroy() | Removes all built-in event listeners from the file input |
+
 ## Accessibility Requirements
 
 The Rivet file input is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in rivet.js to implement the keyboard navigation and focus management required to meet the ARIA Authoring Practices standards. If you need to create the file input functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
