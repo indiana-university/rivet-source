@@ -12,6 +12,13 @@ Although similar to a native HTML <select> element, the dropdown component shoul
 
 ## Initialization
 
+In order to initialize the dropdown as an ES6 module, you will need to create a new instance of it, and pass it the element you wish to instantiate as a dropdown.
+
+```
+const dropdownElement = document.querySelector('[data-dropdown="your-data-dropdown-value"]');
+document.newDropdown = new Rivet.Dropdown(dropdownElement);
+```
+
 ## "Public" methods
 
 ## Custom events
