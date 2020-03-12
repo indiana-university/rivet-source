@@ -23,6 +23,14 @@ The file input component is made up of a wrapping `div` with the class `rvt-file
 <input type="file" data-upload-input="fileInputId" id="fileInputId" aria-describedby="file-description">
 ```
 
+**Uploading multiple files**
+
+To set up the file input for uploading multiple files, include the `multiple` attribute on the `input`:
+
+```
+<input type="file" data-upload-input="fileInputId" id="fileInputId" aria-describedby="file-description" multiple>
+```
+
 **`label`**:
 
 ```
