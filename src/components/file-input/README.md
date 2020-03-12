@@ -5,7 +5,7 @@ A custom HTML file input that is styled to look like Rivet buttons
 ## When to use
 Use the file input component when the user is required to upload a file from their local computer.
 
-## Adding the Markup
+## Adding the markup
 
 The file input component is made up of a wrapper which has the following contents: `input`, `label`, and `div`.
 
@@ -62,7 +62,7 @@ If you use the appropriate data attribute/id combination in your markup, the fil
 | .init()  | Adds the built-in event listeners to the file input |
 | .destroy() | Removes all built-in event listeners from the file input |
 
-## Accessibility Requirements
+## Accessibility requirements
 
 Follow these guidelines to ensure that the file input component meets accessibility requirements.
 
