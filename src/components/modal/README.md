@@ -4,7 +4,7 @@ A modal is a small window that is displayed on top of the main application/site 
 
 ## When to use
 
-Modals are very good for allowing users to handle small tasks related to an overarching workflow or goal. This could include:
+Modals are useful for allowing users to handle small tasks related to an overarching workflow or goal. This could include:
 
 - Updating personal information as part of a larger process
 - Determining information needed in their main workflow e.g. calculating a number, looking up a code
@@ -53,7 +53,7 @@ The modal component has two options that can be passed in on initialization - op
 
 ### openOnInit
 
-This option is intended to allow your modal to open on page load. Pass through the `openOnInit` option set to `true` when you instantiate the modal to enable this.
+This option is intended to allow your modal to open on page load. Pass in the `openOnInit` option set to `true` when you instantiate the modal to enable this.
 
 ```
 document.newModal = new Rivet.Modal(modalElement, { openOnInit: true });
@@ -63,7 +63,7 @@ document.newModal = new Rivet.Modal(modalElement, { openOnInit: true });
 
 A modal dialog is similar to a regular modal except that it requires the user to interact with it before continuing any interaction with the main application. The user must select from the available actions in the dialog—they cannot disregard and simply close the window.
 
-Pass through the `dialog` option set to `true` when you instantiate the modal to enable this.
+Pass in the `dialog` option set to `true` when you instantiate the modal to enable this.
 
 ```
 document.newModal = new Rivet.Modal(modalElement, { dialog: true });
