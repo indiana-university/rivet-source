@@ -75,8 +75,10 @@ If you use the appropriate data attribute/id combination in your markup, modals 
 
 | Method           | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
-| .open(callback)  | `callback` - An optional callback function that is executed after the modal is opened. |
 | .close(callback) | `callback` - An optional callback function that is executed after the modal is opened. |
+| .destroy()       | Removes all built-in event listeners from the modal                                    |
+| .init()          | Adds the built-in event listeners to the modal                                         |
+| .open(callback)  | `callback` - An optional callback function that is executed after the modal is opened. |
 
 ## Custom events
 
