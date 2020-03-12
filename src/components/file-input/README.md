@@ -65,5 +65,18 @@ The attribute `input[aria-describedby]` should match `div[id]` for assistive tec
 
 For each file input on the page:
 - Use the `[data-upload-wrapper]` attribute to select the file input.
-- Initialize the file input using the selected file input from the previous step (referenced in these instructions as `selectedFileInput`):
+- Initialize the file input using the selected file input from the previous step (referenced as `selectedFileInput`):
     - `const newFileInput = new Rivet.FileInput(selectedFileInput)`
+
+## Accessibility Requirements
+
+The Rivet file input is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in rivet.js to implement the keyboard navigation and focus management required to meet the ARIA Authoring Practices standards. If you need to create the file input functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
+
+### Focus
+- The file input button should have a visible :focus state
+
+### Labeling
+- The `input` element should have the attribute `aria-describedby`, which should match the `id` on `div.rvt-file__preview`
+
+### Keyboard navigation
+- Enter or Space = Activate file input dialog (when focused)
