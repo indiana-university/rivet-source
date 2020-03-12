@@ -23,8 +23,6 @@ The file input component is made up of a wrapping `div` with the class `rvt-file
 
 The elements `div[data-upload-wrapper]`, `input[data-upload-input]`, `input[id]`, and `div[data-upload-preview]` should all have the same unique `id`.
 
-The attribute `input[aria-describedby]` should match `div[id]` for assistive technology to properly read the file description.
-
 ```
 <div class="rvt-file" data-upload-wrapper="fileInputId">
     <input type="file" data-upload-input="fileInputId" id="fileInputId" aria-describedby="file-description">
@@ -66,7 +64,7 @@ If you use the appropriate data attribute/id combination in your markup, the fil
 
 ## Accessibility Requirements
 
-The Rivet file input is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in rivet.js to implement the keyboard navigation and focus management required to meet the ARIA Authoring Practices standards. If you need to create the file input functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
+Follow these guidelines to ensure that the file input component meets accessibility requirements.
 
 ### Focus
 - The file input button should have a visible :focus state
