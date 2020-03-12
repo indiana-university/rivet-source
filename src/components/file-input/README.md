@@ -1,5 +1,7 @@
 # File input
 
+A custom HTML file input that is styled to look like Rivet buttons
+
 ## When to use
 Use the file input component when the user is required to upload a file from their local computer.
 
