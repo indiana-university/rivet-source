@@ -63,6 +63,7 @@ The attribute `input[aria-describedby]` should match `div[id]` for assistive tec
 
 ## Initialization
 
-- Select the data attribute `[data-upload-wrapper]`
-- Create a new instance of `FileInput`
-    - `new Rivet.FileInput(fileInputWrapper{{ id }})`
+For each file input on the page:
+- Use the `[data-upload-wrapper]` attribute to select the file input.
+- Initialize the file input using the selected file input from the previous step (referenced in these instructions as `selectedFileInput`):
+    - `const newFileInput = new Rivet.FileInput(selectedFileInput)`
