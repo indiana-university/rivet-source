@@ -127,3 +127,15 @@ The Rivet tab component is built to follow the WAI-ARIA authoring standards. It 
 ✅ `enter` or `space`: Activate tab (when focused).
 
 ✅ `<- ->`: Moves focus to previous/next tab.
+
+## Implementation Notes
+
+- Do not stack rows of tabs - only use a small set of tabs in a single row
+- Order tabs in a logical manner
+- Default tab (on page load) should be the first tab. The first tab should be the most frequently viewed or most important tab
+- Tab order should stay the same as the user moves between tabs
+- Label tabs with clear concise categories - 1-2 words is ideal
+- Do not use all capital letters in the tab labels
+- Do not include a ‘More’ tab
+- Page should not reload or refresh when the user switches to a different tab
+- Only the content of the tab and tab bar indicating the user’s location should change. The rest of the page should remain the same.
