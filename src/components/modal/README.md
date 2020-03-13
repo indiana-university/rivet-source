@@ -56,7 +56,9 @@ The modal component has two options that can be passed in on initialization - op
 This option is intended to allow your modal to open on page load. Pass in the `openOnInit` option set to `true` when you instantiate the modal to enable this.
 
 ```
-document.newModal = new Rivet.Modal(modalElement, { openOnInit: true });
+const newModal = new Rivet.Modal(modalElement, {
+  openOnInit: true
+});
 ```
 
 ### dialog
@@ -87,7 +89,7 @@ If you use the appropriate data attribute/id combination in your markup, modals 
 | `modalOpen`  | Emitted when the modal is opened (using the Modal.open() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id()  |
 | `modalClose` | Emitted when the modal is closed (using the Modal.close() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
 
-## A11y requirements
+## Accessibility (a11y) requirements
 
 The Rivet modal is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in `rivet.js` to implement the keyboard navigation and focus management required to meet the [ARIA Authoring Practices standards](http://w3c.github.io/aria-practices/). If you need to create the modal functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
 
