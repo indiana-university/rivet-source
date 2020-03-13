@@ -112,7 +112,7 @@ If you use the appropriate data attribute/id combination in your markup, the dro
 
 ## Accessibility requirements
 
-The Rivet dropdown is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in `rivet.js` to implement the keyboard navigation and focus management required to meet the [ARIA Authoring Practices standards](http://w3c.github.io/aria-practices/). If you need to create the dropdown functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
+The Rivet dropdown is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in `rivet.min.js`, `rivet-iife.js`, and `rivet-esm.js` to implement the keyboard navigation and focus management required to meet the [ARIA Authoring Practices standards](http://w3c.github.io/aria-practices/). If you need to create the dropdown functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
 
 ### Focus
 
@@ -126,7 +126,6 @@ The Rivet dropdown is built to follow the WAI-ARIA authoring standards. It is ma
 - Dropdown button has [aria-haspopup](https://w3c.github.io/aria/#aria-haspopup) set to `true`.
 - Menu has role [menu](https://w3c.github.io/aria/#menu).
 - When menu is visible, button has [aria-expanded](https://w3c.github.io/aria/#aria-expanded) set to `true`. When menu is hidden, it is set to `false`.
-🚫 (Optional) Dropdown button has [aria-controls](https://w3c.github.io/aria/#aria-controls) attribute that refers to the Menu
 - Menu visibility should be toggled using the `aria-hidden` attribute.
 - Menu items should use the appropriate roles, states, and properties depending their functionality. [More on that here](https://w3c.github.io/aria-practices/#menu).
 
