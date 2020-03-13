@@ -45,6 +45,32 @@ Each button element has a `data-tab` attribute, which is given a value correspon
 </div>
 ```
 
+### Fitted tabs variant
+
+In the fitted tabs variant, the width of the tabs container is distributed equally across each tab. This variant is created by adding the `rvt-tabs--fitted` modifier class to the `rvt-tabs` wrapper `div`.
+
+```
+<div class="rvt-tabs rvt-tabs--fitted" data-tabset="tabset-1">
+  <div class="rvt-tabs__tablist" role="tablist" aria-label="Rivet tabs">
+    <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-1" id="t-one">Tab one</button>
+    <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-2" id="t-two">Tab two</button>
+    <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-3" id="t-three">Tab three</button>
+  </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-1" aria-labelledby="t-one" data-tab-panel="tab-1" hidden>
+    <span class="rvt-ts-23 rvt-text-bold">Panel 1</span>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-2" aria-labelledby="t-two" data-tab-panel="tab-2" hidden>
+    <span class="rvt-ts-23 rvt-text-bold">Panel 2</span>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-3" aria-labelledby="t-three" data-tab-panel="tab-3" hidden data-tab-init>
+    <span class="rvt-ts-23 rvt-text-bold">A grid inside a tab panel</span>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+```
+
 ## Initialization
 
 In order to initialize the modal as an ES6 module, you will need to create a new instance of it, and pass it the element you wish to instantiate as a set of tabs.
