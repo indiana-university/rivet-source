@@ -68,7 +68,9 @@ A modal dialog is similar to a regular modal except that it requires the user to
 Pass in the `dialog` option set to `true` when you instantiate the modal to enable this.
 
 ```
-document.newModal = new Rivet.Modal(modalElement, { dialog: true });
+const newModal = new Rivet.Modal(modalElement, {
+  dialog: true
+});
 ```
 
 ## "Public" methods
@@ -84,10 +86,10 @@ If you use the appropriate data attribute/id combination in your markup, modals 
 
 ## Custom events
 
-| Event        | Description                                                                                                                                                                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `modalOpen`  | Emitted when the modal is opened (using the Modal.open() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id()  |
-| `modalClose` | Emitted when the modal is closed (using the Modal.close() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
+| Event            | Description                                                                                                                                                                                                                                                          |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rvt:modalOpen`  | Emitted when the modal is opened (using the Modal.open() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id()  |
+| `rvt:modalClose` | Emitted when the modal is closed (using the Modal.close() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
 
 ## Accessibility (a11y) requirements
 
