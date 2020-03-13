@@ -7,6 +7,16 @@ Use badges to call out or label important information in your UI.
 
     Because badges are intended to call attention to information, it is important to keep badge text concise. It should not span multiple lines.
 
+## When to use
+
+- To label new content on a page
+- To help users discover important information changes in your UI
+
+## When to consider something else
+
+- When there is a critical error that requires the users attention to fix, use a page-level alert instead
+- Avoid using lots of badges on one page when possible as it will diminish the effect of calling out important parts of the UI
+
 ## Adding the markup
 
 ### Default badges
