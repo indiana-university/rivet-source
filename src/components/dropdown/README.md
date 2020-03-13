@@ -32,4 +32,9 @@ If you use the appropriate data attribute/id combination in your markup, the dro
 
 ## Custom events
 
+| Event        | Description                                                                                                                                                                                                                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dropdownOpen`  | Emitted when the dropdown is opened (using the Dropdown.open() method). The value of the dropdown id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id()  |
+| `dropdownClose` | Emitted when the dropdown is closed (using the Dropdown.close() method). The value of the dropdown id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
+
 ## Accessibility requirements
