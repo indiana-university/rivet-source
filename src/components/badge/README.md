@@ -38,3 +38,7 @@ Use badges to call out or label important information in your UI.
 <span class="rvt-badge rvt-badge--warning-secondary">Warning</span>
 <span class="rvt-badge rvt-badge--danger-secondary">Danger</span>
 ```
+
+### Accessibility requirements
+
+Badges are visual indicators that the information is important, but visual cues are insufficient for those using assistive technologies, such as screen readers. The colors of the badge alone will not be enough to convey meaning to screen readers. Use the `.sr-only` utility class to add sufficient information with the text of the badge. Adding additional text to the badge and visually hiding the additional text is a good user experience.
