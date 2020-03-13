@@ -8,7 +8,7 @@ Use a dropdown menu when you need to give users a list of actions or links to ch
 
 ## When to use something else
 
-Although similar to a native HTML <select> element, the dropdown component should not be used as a replacement inside forms. Use the select element instead when you need to give users a list of mutually exclusive choices while filling out a form.
+Although similar to a native HTML `select` element, the dropdown component should not be used as a replacement inside forms. Use the `select` element instead when you need to give users a list of mutually exclusive choices while filling out a form.
 
 ## Initialization
 
@@ -20,6 +20,15 @@ document.newDropdown = new Rivet.Dropdown(dropdownElement);
 ```
 
 ## "Public" methods
+
+If you use the appropriate data attribute/id combination in your markup, the dropdown will work without the need for any additional JavaScript. But if you need to control the dropdown programmatically, there are several methods from the Rivet dropdown's API you can use:
+
+| Method           | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| .open()  | Opens the dropdown menu list |
+| .close() | Closes the dropdown menu list |
+| .init()  | Adds the built-in event listeners to the dropdown |
+| .destroy() | Removes all built-in event listeners from the dropdown |
 
 ## Custom events
 
