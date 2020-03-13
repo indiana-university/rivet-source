@@ -3,6 +3,7 @@
 A custom HTML file input that is styled to look like Rivet buttons
 
 ## When to use
+
 Use the file input component when the user is required to upload a file from their local computer.
 
 ## Adding the markup
@@ -67,10 +68,13 @@ If you use the appropriate data attribute/id combination in your markup, the fil
 Follow these guidelines to ensure that the file input component meets accessibility requirements.
 
 ### Focus
-- The file input button should have a visible :focus state
+
+- The file input button should have a visible `:focus` state
 
 ### Labeling
+
 - The `input` element should have the attribute `aria-describedby`, which should match the `id` on `div.rvt-file__preview`
 
 ### Keyboard navigation
-- Enter or Space = Activate file input dialog (when focused)
+
+- `enter` or `space` = Activate file input dialog (when focused)
