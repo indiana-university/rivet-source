@@ -38,3 +38,28 @@ If you use the appropriate data attribute/id combination in your markup, the dro
 | `dropdownClose` | Emitted when the dropdown is closed (using the Dropdown.close() method). The value of the dropdown id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
 
 ## Accessibility requirements
+
+The Rivet dropdown is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes and uses the JavaScript included in `rivet.js` to implement the keyboard navigation and focus management required to meet the [ARIA Authoring Practices standards](http://w3c.github.io/aria-practices/). If you need to create the dropdown functionality in another framework/library like React, Angular, etc., please ensure that it meets the following accessibility requirements.
+
+### Focus
+
+- Dropdown button and Menu options should have a visible keyboard `:focus` state
+- When `escape` key is pressed and the menu is active/open, focus should be returned to the Dropdown button associated with that menu.
+- (Optional) When focused on the last menu item, the `down` arrow key should move focus to the first menu item.
+- (Optional) When focused on the first menu item, the `up` arrow key should move focus to the last menu item.
+
+### Labeling
+
+- Dropdown button has [aria-haspopup](https://w3c.github.io/aria/#aria-haspopup) set to `true`.
+- Menu has role [menu](https://w3c.github.io/aria/#menu).
+- When menu is visible, button has [aria-expanded](https://w3c.github.io/aria/#aria-expanded) set to `true`. When menu is hidden, it is set to `false`.
+🚫 (Optional) Dropdown button has [aria-controls](https://w3c.github.io/aria/#aria-controls) attribute that refers to the Menu
+- Menu visibility should be toggled using the `aria-hidden` attribute.
+- Menu items should use the appropriate roles, states, and properties depending their functionality. [More on that here](https://w3c.github.io/aria-practices/#menu).
+
+### Keyboard navigation
+
+- `enter` or `space` = Open Menu
+- `escape` = Close Active Menu
+- `down` arrow = Open Menu (when button focused)
+- `up`/`down` arrows = Moves focus to previous/next menu option
