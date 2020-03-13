@@ -92,7 +92,7 @@ const dropdownElement = document.querySelector('[data-dropdown="your-data-dropdo
 document.newDropdown = new Rivet.Dropdown(dropdownElement);
 ```
 
-## "Public" methods
+## JavaScript API
 
 If you use the appropriate data attribute/id combination in your markup, the dropdown will work without the need for any additional JavaScript. But if you need to control the dropdown programmatically, there are several methods from the Rivet dropdown's API you can use:
 
