@@ -10,6 +10,79 @@ Use a dropdown menu when you need to give users a list of actions or links to ch
 
 Although similar to a native HTML `select` element, the dropdown component should not be used as a replacement inside forms. Use the `select` element instead when you need to give users a list of mutually exclusive choices while filling out a form.
 
+## Adding the markup
+
+### Using the default dropdown and menu list configuration
+
+```
+<div class="rvt-dropdown" data-dropdown="dropdownNavigation">
+  <button type="button" class="rvt-button" data-dropdown-toggle="dropdownNavigation" aria-haspopup="true"
+    aria-expanded="false">
+    <span class="rvt-dropdown__toggle-text">Navigation menu</span><svg role="img" alt="" class="rvt-m-left-xs"
+      xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor"
+        d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
+    </svg>
+  </button>
+
+  <div class="rvt-dropdown__menu" id="dropdownNavigation" role="menu" hidden data-dropdown-menu>
+    <a href="#">Item one</a>
+    <a href="#">Item two</a>
+    <a href="#" aria-current="page">Item three</a>
+    <div role="group" aria-label="Related">
+      <a href="#">Related item one</a>
+      <a href="#">Related item two</a>
+    </div>
+  </div>
+</div>
+```
+
+### Right-aligning the menu list element
+
+To right-align the menu list element with the right side of the dropdown button, add the class `rvt-dropdown__menu--right` to the dropdown menu:
+
+```
+<div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdownNavigation" role="menu" hidden data-dropdown-menu>
+```
+
+### Using buttons in the menu list
+
+If the links within the menu list are not navigating the user to another page, the `button` element can be used instead of anchor links.
+
+```
+<button type="button" role="menuitemradio">...</button>
+<button type="button" aria-checked="true" role="menuitemradio">...</button>
+<button type="button" role="menuitemradio">...</button>
+<div role="group" aria-label="Related">
+    <button type="button" role="menuitem">...</button>
+    <button type="button" role="menuitem">...</button>
+</div>
+```
+
+### Using a heading within the menu list
+
+To add a heading within the menu list, add the following heading markup:
+
+```
+<div class="rvt-dropdown__menu-heading" aria-hidden="true">Menu list heading</div>
+```
+
+Within the menu list markup:
+
+```
+<div class="rvt-dropdown__menu" id="dropdownHeading" role="menu" hidden data-dropdown-menu>
+  <a href="#" role="menuitemradio">Item One</a>
+  <a href="#" aria-checked="true" role="menuitemradio">Item Two</a>
+  <a href="#" role="menuitemradio">Item Three</a>
+  <div class="rvt-dropdown__menu-heading" aria-hidden="true">Menu list heading</div>
+    <div role="group" aria-label="Related">
+        <a href="#">Nested item one</a>
+        <a href="#">Nested item two</a>
+    </div>
+  </div>
+</div>
+```
+
 ## Initialization
 
 In order to initialize the dropdown as an ES6 module, you will need to create a new instance of it, and pass it the element you wish to instantiate as a dropdown.
