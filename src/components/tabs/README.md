@@ -92,9 +92,9 @@ If you use the appropriate data attribute/id combination in your markup, modals 
 
 ## Custom events
 
-| Event          | Description                                                                                                                                                                                                                                                                                                                        |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tabActivated` | Emitted when an individual tab panel is activated (using the `Tabs.activateTab()` method, or via a click on a button with the `data-tab` attribute). The value of the `data-tab` attribute is also passed along (if it exists) via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
+| Event          | Description                                                                                                                                                                                                                                                                                                                      |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tabActivated` | Emitted when an individual tab panel is activated (using the `Tabs.activateTab()` method, or via a click on a button with the `data-tab` attribute). The value of the `data-tab` attribute is also passed along (if it exists) via the custom event’s detail property and is available to use in your scripts as event.detail.id |
 
 ## A11y requirements
 
