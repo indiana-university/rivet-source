@@ -73,14 +73,14 @@ In the fitted tabs variant, the width of the tabs container is distributed equal
 
 ## Initialization
 
-In order to initialize the modal as an ES6 module, you will need to create a new instance of it, and pass it the element you wish to instantiate as a set of tabs.
+In order to initialize the modal, you will need to create a new instance of it, and pass it the element you wish to instantiate as a set of tabs.
 
 ```
 const tabsElement = document.querySelector('[data-tabset="tabset-1"]');
-document.newTabs = new Rivet.Tabs(tabsElement);
+const newTabs = new Rivet.Tabs(tabsElement);
 ```
 
-## "Public" methods
+## JavaScript API
 
 If you use the appropriate data attribute/id combination in your markup, modals will work without the need for any additional JavaScript. But if you need to control the modal programmatically, there are a handful of methods from the Rivet modal’s API you can use:
 
@@ -110,11 +110,11 @@ The Rivet tab component is built to follow the WAI-ARIA authoring standards. It 
 
 ### Labeling
 
-✅ Tabs should be wrapped in an element with a role of tablist.
+✅ Tabs should be wrapped in an element with a `role` of tablist.
 
-✅ Each tab (button) should have a role of tab.
+✅ Each tab (button) should have a `role` of tab.
 
-✅ Each tab panel should have a role of tabpanel.
+✅ Each tab panel should have a `role` of tabpanel.
 
 ✅ The active tab should have the attribute `aria-selected` set to `true`. All inactive tabs should have `aria-selected` set to `false`.
 
