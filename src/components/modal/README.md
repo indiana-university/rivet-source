@@ -15,6 +15,8 @@ Please consider using the alert component if you are in need of a way to display
 
 If you need to display large amounts of information for multiple tasks consider using a dedicated page instead.
 
+Overlays for signing users up for an email newsletter are not considered a good use of the modal.
+
 ## Adding the markup
 
 ```
@@ -40,7 +42,7 @@ If you need to display large amounts of information for multiple tasks consider 
 
 ## Initialization
 
-In order to initialize the modal as an ES6 module, you will need to create a new instance of it, and pass it the element you wish to instantiate as a modal.
+In order to initialize the modal, you will need to create a new instance of it, and pass it the element you wish to instantiate as a modal.
 
 ```
 const modalElement = document.querySelector('[data-modal="your-data-modal-value"]');
@@ -73,7 +75,7 @@ const newModal = new Rivet.Modal(modalElement, {
 });
 ```
 
-## "Public" methods
+## JavaScript API
 
 If you use the appropriate data attribute/id combination in your markup, modals will work without the need for any additional JavaScript. But if you need to control the modal programmatically, there are a handful of methods from the Rivet modal’s API you can use:
 
