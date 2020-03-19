@@ -1,10 +1,10 @@
 # Textarea
 
-Textarea are a multiline text input. They allow users to enter various types of data into web-based forms.
+A multiline text input field that allows users to enter various types of data into web-based forms
 
 ## When to use
 
-Use textareas for information that includes multiple sentences or lines. This can include:
+Use textareas for input fields that require multiple sentences or lines. This can include items such as:
 
 - Descriptions
 - Issues
@@ -12,7 +12,7 @@ Use textareas for information that includes multiple sentences or lines. This ca
 
 ## When to use something else
 
-If the information you require takes only one line, a text input is more appropriate.
+If the input field requires only one line, a text input is more appropriate.
 
 ## Adding the markup
 
