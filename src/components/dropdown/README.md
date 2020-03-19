@@ -89,7 +89,7 @@ In order to initialize the dropdown as an ES6 module, you will need to create a 
 
 ```
 const dropdownElement = document.querySelector('[data-dropdown="your-data-dropdown-value"]');
-document.newDropdown = new Rivet.Dropdown(dropdownElement);
+const newDropdown = new Rivet.Dropdown(dropdownElement);
 ```
 
 ## JavaScript API
