@@ -14,20 +14,36 @@ Use badges to call out or label important information in your UI.
 
 ## Adding the markup
 
-### Default badges
+Rivet badges consist of a `span` element with the class `rvt-badge`.
 
 ```
 <span class="rvt-badge">Base</span>
+```
+
+### Additional options
+
+#### Secondary
+
+By default, Rivet badges are black text on a grey background. The addition of the `rvt-badge--secondary` modifier class produces a badge with a grey border, white background, and black text.
+
+```
+<span class="rvt-badge rvt-badge--secondary">Base</span>
+```
+
+#### Information
+
+Rivet provides additional options that allow you to convey information via badges.
+
+```
 <span class="rvt-badge rvt-badge--info">Info</span>
 <span class="rvt-badge rvt-badge--success">Success</span>
 <span class="rvt-badge rvt-badge--warning">Warning</span>
 <span class="rvt-badge rvt-badge--danger">Danger</span>
 ```
 
-### Secondary badges
+These are stackable with secondary badges as well.
 
 ```
-<span class="rvt-badge rvt-badge--secondary">Base</span>
 <span class="rvt-badge rvt-badge--info-secondary">Info</span>
 <span class="rvt-badge rvt-badge--success-secondary">Success</span>
 <span class="rvt-badge rvt-badge--warning-secondary">Warning</span>
