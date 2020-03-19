@@ -2,11 +2,9 @@
 
 An accordion is a combination of interactive titles and panels, which are stacked vertically.
 
-## When to use
+## Things to consider
 
-## When to use something else
-
-If you are using an accordion because your page has a lot of content or you wish to cut down how much a user needs to scroll, please consider reworking your content instead. It may be that your content needs to be divided between multiple pages, or can be edited to remove superfluous text.
+Before using the accordion, consider why you wish to use it. If you are using an accordion because your page has a lot of content or you wish to cut down how much a user needs to scroll, please consider reworking your content instead. It may be that your content needs to be divided between multiple pages, or can be edited to remove superfluous text.
 
 ## Adding the markup
 
