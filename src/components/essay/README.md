@@ -4,14 +4,15 @@ Prominently display meaningful statistics and relevant imagery.
 
 ## When to use
 
-Use the essay component when you want to display data relevant to your webpage. This could include:
+Use the essay component when you want to display data relevant to your webpage, such as:
 
 - The number of students in a program
 - A number related to the rank of a program
 
 ## When to use something else
 
-If you need to share more than 2-6 pieces of information, an ordered list might be more appropriate.
+- If you need to share more than 2-6 pieces of information, consider using an ordered list.
+- If each piece of information contains a paragraph or more of text, consider using an ordered list.
 
 ## Adding the markup
 
