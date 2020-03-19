@@ -4,9 +4,7 @@ Show users chronologically ordered information
 
 ## When to use
 
-The timeline component should be used to structure chronologically relevant information in a visually meaningful way. This can include:
-
-- Displaying a series of time-related events/activities that require further explanation
+The timeline component should be used to structure chronologically relevant information in a visually meaningful way, such as displaying a series of time-related events/activities that require further explanation.
 
 ## When to use something else
 
@@ -95,7 +93,7 @@ You can adjust the functionality of the timeline so that the timeline itself app
 
 The `rvt-timeline__date--label` class can be added to labels to make them appear on the opposite side of the timeline from the main pieces of content. This only works for certain screen sizes, but is compatible with all three alignment options.
 
-The external labels are set to a width of 10rem in order to create a uniform appearance. To adjust this, use Rivet width utility classes on the `span` with the `rvt-timeline__date--label` class.
+The external labels are set to a width of `10rem` in order to create a uniform appearance. To adjust this, use Rivet width utility classes on the `span` with the `rvt-timeline__date--label` class.
 
 ```
 <div class="rvt-timeline">
