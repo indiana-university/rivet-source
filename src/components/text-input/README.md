@@ -4,7 +4,7 @@ Text inputs are the basic building blocks of forms. They allow users to enter va
 
 ## When to use
 
-Use text inputs for information that is limited to a single line. This can include:
+Use text inputs for input fields that are limited to a single line. Some examples include:
 
 - Name
 - Phone number
@@ -12,7 +12,7 @@ Use text inputs for information that is limited to a single line. This can inclu
 
 ## When to use something else
 
-If the information you require includes multiple sentences or lines, a textarea is more appropriate.
+If the input field will require multiple sentences or lines, a textarea is more appropriate.
 
 ## Adding the markup
 
