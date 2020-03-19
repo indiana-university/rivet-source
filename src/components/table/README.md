@@ -159,30 +159,6 @@ The `rvt-table-cells` class adds borders to all table cells which can help with 
 </table>
 ```
 
-## Accessibility (a11y) requirements
-
-The Rivet table is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes required to meet the [ARIA Authoring Practices standards](http://w3c.github.io/aria-practices/).
-
-### Labeling
-
-✅ The table container has the `role` of table.
-
-✅ Each row container has the `role` of row and is either a DOM descendant of or owned by the `table` element or an element with `role` rowgroup.
-
-✅ Each cell is either a DOM descendant of or owned by a `row` element and has one of the following roles:
-
-- `columnheader` if the cell contains a title or header information for the column.
-- `rowheader` if the cell contains title or header information for the row.
-- `cell` if the cell does not contain column or row header information.
-
-✅ If there is an element in the user interface that serves as a label for the table, `aria-labelledby` is set on the table element with a value that refers to the labelling element. Otherwise, a label is specified for the table element using `aria-label`.
-
-✅ If the table has a caption or description, `aria-describedby` is set on the table element with a value referring to the element containing the description.
-
-✅ If the table contains sortable columns or rows, `aria-sort` is set to an appropriate value on the header cell element for the sorted column or row as described in the section on grid and table properties.
-
-✅ If the table includes cells that span multiple rows or multiple columns, then `aria-rowspan` or `aria-colspan` is applied.
-
 ### Implementation notes
 
 - Keep labels short. For best scannability, use just two to three words.
