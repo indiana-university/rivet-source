@@ -16,10 +16,11 @@ Use the button component for:
 
 ## Adding the markup
 
-To mark up a link in Rivet, add the `a` HTML element.
+To mark up a link in Rivet, add the `a` HTML element. Optionally, the class `rvt-link` can be added to a link to apply link styles.
 
 ```
 <a href="#">This is a text link</a> on a light background.
+<a href="#" class="rvt-link">This is a text link</a> on a light background, with the class rvt-link.
 ```
 
 To bold the link text, add the class `rvt-link-bold`.
