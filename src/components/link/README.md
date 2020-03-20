@@ -29,7 +29,7 @@ To bold the link text, add the class `rvt-link-bold`.
 
 ## Accessibility requirements
 
-Never use a link to say "click here." A nondescript link forces users to backtrack and read the surrounding text for more context. This is even more problematic for those who rely on screen readers, which can list links for quicker navigation. A list of "click here" isn’t helpful for anyone.
+Never use a link to say "click here." A nondescript link forces users to backtrack and read the surrounding text for more context. This is even more problematic for those who rely on screen readers, which can list links for quicker navigation. A list of links reading "click here" isn’t helpful for anyone.
 
 ## Implementation notes
 
