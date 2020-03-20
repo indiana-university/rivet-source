@@ -2,6 +2,14 @@
 
 The pagination component is used to break up large sets of data across multiple pages.
 
+## When to use
+
+Use when a user's action returns a large data set such as search results, or a large number of rows in a data table to break results into multiple pages to help with load times.
+
+## When to use something else
+
+With smaller amounts of data consider displaying the whole data set in one page that users can scroll through instead of breaking it into pages.
+
 ## Adding the markup
 
 ### Basic pagination
@@ -133,13 +141,79 @@ This examples shows the pagination component once a user has navigated to a set 
 </nav>
 ```
 
-## When to use
+### Positioning
 
-Use when a user's action returns a large data set such as search results, or a large number of rows in a data table to break results into multiple pages to help with load times.
+The pagination component is left-aligned by default, but you can easily center or right-align it using the `rvt-pagination--center` or `rvt-pagination--right modifier` classes.
 
-## When to use something else
+```
+<nav role="navigation" aria-label="Right-aligned pagination">
+  <ul class="rvt-pagination rvt-pagination--right">
+    <li class="rvt-pagination__item is-active">
+      <a href="#" aria-current="page" aria-label="Page 1, current page">1</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 2">2</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 3">3</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 4">4</a>
+    </li>
+    <li class="rvt-pagination__item is-disabled">
+      <a href="#" class="rvt-flex" tabindex="-1" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <g fill="currentColor">
+            <circle cx="8" cy="8" r="2"></circle>
+            <circle cx="14" cy="8" r="2"></circle>
+            <circle cx="2" cy="8" r="2"></circle>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 20, last page">20</a>
+    </li>
+  </ul>
+</nav>
+```
 
-With smaller amounts of data consider displaying the whole data set in one page that users can scroll through instead of breaking it into pages.
+### Small pagination
+
+Add the CSS modifier class `rvt-pagination--small` if you need to display the pagination component at a smaller size.
+
+```
+<nav role="navigation" aria-label="Small pagination">
+  <ul class="rvt-pagination rvt-pagination--small">
+    <li class="rvt-pagination__item is-active">
+      <a href="#" aria-current="page" aria-label="Page 1, current page">1</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 2">2</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 3">3</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 4">4</a>
+    </li>
+    <li class="rvt-pagination__item is-disabled">
+      <a href="#" class="rvt-flex" tabindex="-1" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <g fill="currentColor">
+            <circle cx="8" cy="8" r="2"></circle>
+            <circle cx="14" cy="8" r="2"></circle>
+            <circle cx="2" cy="8" r="2"></circle>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#" aria-label="Page 20, last page">20</a>
+    </li>
+  </ul>
+</nav>
+```
 
 ## Accessibility requirements
 
@@ -148,3 +222,7 @@ The pagination component is wrapped in a `nav` element so that it is announced t
 ### Accessible dynamic pagination
 
 This article on [a11ymatters.com](http://a11ymatters.com) has some really good tips on implementing dynamic `aria-label`(s) on pagination items based on how many pages are returned.
+
+## Implementation notes
+
+When using the `is-disabled` class to create pagination links that appear to be disabled, add a `tabindex="-1"` attribute to the a tag so that it removes the disabled link from the tab order. It's also advisable to use JavaScript to disable the link's default functionality with the `preventDefault()` method.
