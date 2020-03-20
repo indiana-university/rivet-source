@@ -14,6 +14,19 @@ Use the button component for:
 - Triggering a dropdown menu
 - Submitting data to the server
 
+## Adding the markup
+
+To mark up a link in Rivet, add the `a` HTML element.
+
+```
+<a href="#">This is a text link</a> on a light background.
+```
+
+To bold the link text, add the class `rvt-link-bold`.
+
+<p>This is a <a href="#" class="rvt-link-bold">bolded link</a>.</p>
+```
+
 ## Accessibility requirements
 
 Never use a link to say "click here." A nondescript link forces users to backtrack and read the surrounding text for more context. This is even more problematic for those who rely on screen readers, which can list links for quicker navigation. A list of "click here" isn’t helpful for anyone.
