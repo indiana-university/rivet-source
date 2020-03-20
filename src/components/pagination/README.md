@@ -140,3 +140,11 @@ Use when a user's action returns a large data set such as search results, or a l
 ## When to use something else
 
 With smaller amounts of data consider displaying the whole data set in one page that users can scroll through instead of breaking it into pages.
+
+## Accessibility requirements
+
+The pagination component is wrapped in a `nav` element so that it is announced to assistive technologies. Use an `aria-label` attribute to describe the purpose of your pagination. This will help assistive technologies distinguish between navigation sections on pages that use more than one `nav` element.
+
+### Accessible dynamic pagination
+
+This article on [a11ymatters.com](http://a11ymatters.com) has some really good tips on implementing dynamic `aria-label`(s) on pagination items based on how many pages are returned.
