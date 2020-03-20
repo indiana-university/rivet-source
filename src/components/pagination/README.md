@@ -132,3 +132,11 @@ This examples shows the pagination component once a user has navigated to a set 
   </ul>
 </nav>
 ```
+
+## When to use
+
+Use when a user's action returns a large data set such as search results, or a large number of rows in a data table to break results into multiple pages to help with load times.
+
+## When to use something else
+
+With smaller amounts of data consider displaying the whole data set in one page that users can scroll through instead of breaking it into pages.
