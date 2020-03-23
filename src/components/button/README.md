@@ -83,3 +83,27 @@ In some cases it can be helpful for buttons to have a larger click/touch area. I
 ```
 <button class="rvt-button rvt-button--full-width">Full-width button</button>
 ```
+
+### Button groups
+
+When you need to display a group of buttons you can wrap them in a `div` with the class `rvt-button-group` applied to it. The `rvt-button-group` class will add an equal amount of margin to the right side of every button in the group except the last one.
+
+```
+<div class="rvt-button-group">
+    <button type="button" class="rvt-button">Ok</button>
+    <button type="button" class="rvt-button rvt-button--secondary">Cancel</button>
+</div>
+```
+
+#### Right-aligning button groups
+
+If you need to right align your buttons, you can add the `rvt-button-group--right` modifier class to the `.rvt-button-group` div.
+
+In this example, the buttons would be aligned to the right edge of the `.rvt-button-group`'s parent container.
+
+```
+<div class="rvt-button-group rvt-button-group--right">
+    <button type="button" class="rvt-button">Ok</button>
+    <button type="button" class="rvt-button rvt-button--secondary">Cancel</button>
+</div>
+```
