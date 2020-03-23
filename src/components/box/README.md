@@ -171,7 +171,7 @@ There are four colored box variants that follow Rivet’s alert color naming con
 </div>
 ```
 
-#### Colored box row variants
+### Colored box row variants
 
 Colors can also be applied to individual rows to call out state changes or important information:
 
@@ -206,3 +206,36 @@ The row variant modifier classes add a subtle background color and left border t
   </div>
 </div>
 ```
+
+## Card variant
+
+The card variant of the box component can be used along with Rivet’s [type scale utilities](#) and [spacing utilities](#) to create basic card layouts. Adding the `rvt-box--card` modifier class adds a subtle shadow to help visually separate the the box content from the background.
+
+```
+<div class="rvt-box rvt-box--card">
+  <div class="rvt-box__body">
+    This is the card variant of a box with a body element
+  </div>
+</div>
+```
+
+### Card image
+
+The card variant can include an optional image. Nesting an `img` inside an element with the `rvt-box__image` class will apply the proper sizing, cropping, and border radius.
+
+```
+<div class="rvt-box rvt-box--card">
+  <div class="rvt-box__image">
+    <img src="http://www.fillmurray.com/g/800/450" alt="">
+  </div>
+  <div class="rvt-box__body">
+    <h2 class="rvt-ts-20 rvt-text-bold">Card title</h2>
+    <p class="rvt-m-top-xxs">This is the card variant of a box with a body element</p>
+    <a href="#" class="rvt-link-bold">Card link</a>
+  </div>
+</div>
+```
+
+> **Card images must be the first child**
+
+> The element with the `rvt-box__image` class must be the first child of `.rvt-box` so that the image sits flush with the sides of the box (see above example). It should not be used inside elements with the `rvt-box__body` or `rvt-box__row` classes.
