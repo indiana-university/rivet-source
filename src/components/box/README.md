@@ -63,3 +63,51 @@ You can remove the subtle gray header and footer background by using the `rvt-bo
   </div>
 </div>
 ```
+
+### Box rows
+
+The `rvt-box__row` class adds a small amount of padding and a subtle top border. This works particularly well for displaying lists of content within a Box.
+
+#### Box rows with a list
+
+In the following example, we're using Rivet's plain list utility class along with the `rvt-box__row` class to style the list items.
+
+```
+<div class="rvt-box">
+  <ul class="rvt-plain-list">
+    <li class="rvt-box__row">
+      <a href="#" class="rvt-link-bold">A link in a row</a>
+    </li>
+    <li class="rvt-box__row rvt-box__row--selected">
+      Some text in a row
+    </li>
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+  </ul>
+</div>
+```
+
+#### Box rows with generic elements
+
+Box rows can also be created using `div` elements if lists do not make sense semantically.
+
+```
+<div class="rvt-box">
+  <div>
+    <div class="rvt-box__row">
+      Plain box row one
+    </div>
+    <div class="rvt-box__row">
+      Plain box row two
+    </div>
+    <div class="rvt-box__row">
+      Plain box row three
+    </div>
+  </div>
+</div>
+```
+
+> **Box rows must be wrapped in a parent element**
+
+> To ensure correct styling, a series of box rows must be wrapped in a parent element, such as a ul or div. Do not wrap box rows in an element with the .rvt-box__body class applied, as the extra padding will prevent the rows from filling the full width of the box.
