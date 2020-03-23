@@ -28,6 +28,7 @@ A button is made up of a `button` element with the class `rvt-button`.
 ### Additional variations
 
 Modifier classes can be added to set a button's color to a specific status:
+
 ```
 // Success
 <button class="rvt-button rvt-button--success">Success</button>
@@ -55,4 +56,22 @@ The default button and its variations can be inverted using a secondary modifier
 
 // Secondary danger button
 <button class="rvt-button rvt-button--danger-secondary">Danger</button>
+```
+
+#### Small buttons
+
+You can create smaller buttons by adding the `rvt-button--small` modifier class. The small button modifier can be used together with the other button modifier classes to make any variation of small buttons.
+
+```
+// Small default button
+<button class="rvt-button rvt-button--small">Primary</button>
+
+// Small success button
+<button class="rvt-button rvt-button--success rvt-button--small">Success</button>
+
+// Small danger button
+<button class="rvt-button rvt-button--danger rvt-button--small">Danger</button>
+
+// Small plain button
+<button class="rvt-button rvt-button--plain rvt-button--small">Plain</button>
 ```
