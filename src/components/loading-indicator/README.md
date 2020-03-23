@@ -32,3 +32,35 @@ While the button is in the loading state, the `aria-busy="true"` and `disabled` 
   <div class="rvt-loader rvt-loader--xs" aria-label="Content loading"></div>
 </button>
 ```
+
+#### Handling button text display while in the loading state
+
+When using the loading indicator inside buttons, the visible button text should be wrapped in a `rvt-button__content` class (see above example). This class visually hides the button text when the loading indicator is visible while maintaining the display width of the button. This class also hides any other content inside the button, such as SVG icons.
+
+> **Class deprecation**
+
+> In previous versions of Rivet, we used the .rivet-button__text class to wrap a button’s content. However, we realized that the class name implied that non-text button content such as icons did not need to be wrapped to be hidden.
+
+> If you are using .rivet-button__text, please update your application to use the new .rivet-button__content class, as the previous class is now deprecated.
+
+### Loading indicator sizes
+
+The loading indicator comes in multiple sizes that follow the standard Rivet size naming conventions used for [spacing](#) and [typography](#).
+
+- `rvt-loader--xxs`
+- `rvt-loader--xs` - The default size. Same as rvt-loader with no modifier. **NOTE**: This is the **only** size usable inside a button.
+- `rvt-loader--sm`
+- `rvt-loader--md`
+- `rvt-loader--lg`
+- `rvt-loader--xl`
+- `rvt-loader--xxl`
+
+```
+<div class="rvt-loader rvt-loader--xxs" aria-label="Content loading"></div>
+<div class="rvt-loader rvt-loader--xs" aria-label="Content loading"></div>
+<div class="rvt-loader rvt-loader--sm" aria-label="Content loading"></div>
+<div class="rvt-loader rvt-loader--md" aria-label="Content loading"></div>
+<div class="rvt-loader rvt-loader--lg" aria-label="Content loading"></div>
+<div class="rvt-loader rvt-loader--xl" aria-label="Content loading"></div>
+<div class="rvt-loader rvt-loader--xxl" aria-label="Content loading"></div>
+```
