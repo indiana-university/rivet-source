@@ -121,3 +121,57 @@ You can use [icons](#) to emphasize the content of each menu item:
   </ul>
 </nav>
 ```
+
+### Vertical menu
+
+On wider screens, navigation links in a default menu component are arranged horizontally to fill the width of the menu’s container.
+
+To force the menu to always display links vertically (such as when placed in a sidebar), use the `rvt-menu--vertical` modifier class:
+
+```
+<nav class="rvt-menu rvt-menu--vertical" aria-label="Section navigation">
+  <ul class="rvt-menu__list">
+    <li class="rvt-menu__item">
+      <a href="#" aria-current="page">Item one</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item two</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item three</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item four</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item five</a>
+    </li>
+  </ul>
+</nav>
+```
+
+### Horizontal menu
+
+You can force a menu to always display links horizontally regardless of screen size with the `rvt-menu--horizontal` modifier class:
+
+```
+<nav class="rvt-menu rvt-menu--horizontal" aria-label="Section navigation">
+  <ul class="rvt-menu__list">
+    <li class="rvt-menu__item">
+      <a href="#" aria-current="page">Item one</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item two</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item three</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item four</a>
+    </li>
+    <li class="rvt-menu__item">
+      <a href="#">Item five</a>
+    </li>
+  </ul>
+</nav>
+```
