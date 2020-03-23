@@ -175,3 +175,11 @@ You can force a menu to always display links horizontally regardless of screen s
   </ul>
 </nav>
 ```
+
+## Accessibility requirements
+
+Add the `aria-current="page"` attribute to a navigation link to indicate the current page.
+
+## Implementation notes
+
+Keep navigation labels short (1-2 words).
