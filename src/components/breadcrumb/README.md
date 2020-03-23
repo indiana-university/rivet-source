@@ -13,3 +13,11 @@ A navigation component that indicates the user's current location in the nav hie
     </ol>
 </nav>
 ```
+
+## When to use
+
+Use breadcrumbs when your application has multiple levels in the navigation hierarchy. Breadcrumbs can help users navigate quickly between these levels.
+
+## When to use something else
+
+Avoid using the breadcrumb nav when your application only has one level of navigation.
