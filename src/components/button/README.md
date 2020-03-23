@@ -184,4 +184,4 @@ See the example below using the `rvt-sr-only` utility class to visually hide the
 
 ### Link and input buttons
 
-The `rvt-button` `rvt-button--*` classes are meant to be used on the `<button>` elements, but they will work if you need to make an `<a>` tag or an `<input>` look like a button. If you’re not sure whether to use a `<button>` or an `<a>` tag, you can reference the [documentation on links](#).
+The `rvt-button` `rvt-button--*` classes are meant to be used on the `<button>` elements, but they will work if you need to make an `<a>` tag or an `<input>` look like a button. If you’re not sure whether to use a `<button>` or an `<a>` tag, please reference the Rivet [documentation on links](#) and additionally this resource on [links vs. buttons in modern web applications](https://marcysutton.com/links-vs-buttons-in-modern-web-applications/).
