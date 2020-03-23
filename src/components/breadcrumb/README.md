@@ -14,6 +14,20 @@ A navigation component that indicates the user's current location in the nav hie
 </nav>
 ```
 
+### Callout variant
+
+There is also a `rvt-breadcrumbs--call-out` modifier class that adds a small amount of padding and a light gray background. This is useful for when you need to draw more attention to the breadcrumb.
+
+```
+<nav role="navigation" aria-label="Breadcrumbs call out">
+    <ol class="rvt-breadcrumbs rvt-breadcrumbs--call-out">
+        <li><a href="#"> Home </a></li>
+        <li><a href="#"> Files </a></li>
+        <li aria-current="page">my-file.txt</li>
+    </ol>
+</nav>
+```
+
 ## When to use
 
 Use breadcrumbs when your application has multiple levels in the navigation hierarchy. Breadcrumbs can help users navigate quickly between these levels.
