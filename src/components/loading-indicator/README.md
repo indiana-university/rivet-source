@@ -17,3 +17,18 @@ The loading indicator is made up of a `div` with the class `rvt-loader` and an `
 ```
 <div class="rvt-loader" aria-label="Content loading"></div>
 ```
+
+### Using the loading indicator inside buttons
+
+It can be helpful to indicate that the submit button is in an inactive/loading state, such as when a user submits a form and the data is being sent to the server. The loading indicator can be used inside of buttons by applying the `rvt-button--loading` modifier class.
+
+#### Button loading state
+
+While the button is in the loading state, the `aria-busy="true"` and `disabled` attributes should be applied. This helps prevent users from trying to resubmit data while the current form is being submitted.
+
+```
+<button class="rvt-button rvt-button--loading" aria-busy="true" disabled>
+  <span class="rvt-button__content">Update settings</span>
+  <div class="rvt-loader rvt-loader--xs" aria-label="Content loading"></div>
+</button>
+```
