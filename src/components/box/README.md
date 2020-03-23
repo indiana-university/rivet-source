@@ -115,3 +115,94 @@ Box rows can also be created using `div` elements if lists do not make sense sem
 > **Box rows must be wrapped in a parent element**
 
 > To ensure correct styling, a series of box rows must be wrapped in a parent element, such as a ul or div. Do not wrap box rows in an element with the .rvt-box__body class applied, as the extra padding will prevent the rows from filling the full width of the box.
+
+## Compact box
+
+The compact variant of the box component reduces the amount of padding applied to a box's header, footer, and content. This variant can be useful in situations where you are displaying large amounts of data and need to conserve vertical space.
+
+```
+<div class="rvt-box rvt-box--compact">
+  <div class="rvt-box__header">
+    A box with rows
+  </div>
+  <ul class="rvt-plain-list">
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+  </ul>
+</div>
+```
+
+## Colored box
+
+The box component also supports colored variants based on [Rivet’s alert color naming conventions](#).
+
+The colored box variants should be used sparingly and only to indicate some sort of state (error, warning, success, etc.) or call out important information in your application.
+
+There are four colored box variants that follow Rivet’s alert color naming convention:
+
+- `.rvt-box--info`
+- `.rvt-box--success`
+- `.rvt-box--warning`
+- `.rvt-box--danger`
+
+```
+<div class="rvt-box rvt-box--danger">
+  <div class="rvt-box__header">
+    A box with rows
+  </div>
+  <ul class="rvt-plain-list">
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+    <li class="rvt-box__row">
+      Some text in a row
+    </li>
+  </ul>
+</div>
+```
+
+#### Colored box row variants
+
+Colors can also be applied to individual rows to call out state changes or important information:
+
+- `.rvt-box__row--info`
+- `.rvt-box__row--success`
+- `.rvt-box__row--warning`
+- `.rvt-box__row--danger`
+
+The row variant modifier classes add a subtle background color and left border that matches each of Rivet’s alert styles.
+
+```
+<div class="rvt-box">
+  <div class="rvt-box__header">
+    A box with rows
+  </div>
+  <div>
+    <div class="rvt-box__row">
+      Default row
+    </div>
+    <div class="rvt-box__row rvt-box__row--info">
+      Info row variant
+    </div>
+    <div class="rvt-box__row rvt-box__row--success">
+      Success row variant
+    </div>
+    <div class="rvt-box__row rvt-box__row--warning">
+      Warning row variant
+    </div>
+    <div class="rvt-box__row rvt-box__row--danger">
+      Danger row variant
+    </div>
+  </div>
+</div>
+```
