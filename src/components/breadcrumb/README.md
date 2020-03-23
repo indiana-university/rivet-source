@@ -21,3 +21,7 @@ Use breadcrumbs when your application has multiple levels in the navigation hier
 ## When to use something else
 
 Avoid using the breadcrumb nav when your application only has one level of navigation.
+
+## Accessibility requirements
+
+The breadcrumb component is wrapped in a `nav` element so that it is announced to assistive technologies. It is also a good idea to add `aria-label` attributes to the `nav` element and current page `li` that describes the navigation.
