@@ -2,6 +2,10 @@
 
 The box component can be used to help visually group related content
 
+> New in Rivet 1.2.0
+
+> The box is new as of 1.2.0. If you need help moving to 1.2.0, see our instructions for updating Rivet.
+
 ## Adding the markup
 
 The most basic version of the box component is made up of a `div` with the class `rvt-box`. Visually, it includes a subtle rounded border and a white background. Padding and margins should be applied with [Rivet’s spacing utility classes](#).
