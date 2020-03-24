@@ -64,7 +64,7 @@ To output the checkboxes similar to the vertical orientation of a `ul`, use the 
 
 ### Indeterminate State
 
-The indeterminate state is a checkbox attribute that is accessible by JavaScript only. It can be used to indicate a partially checked state. A typical use case would be nested checkboxes/selections like the following example. [This article](#) explains the indeterminate state in greater detail.
+It can be used to indicate a partially checked state. A typical use case would be nested checkboxes/selections like the following example. [This article](#) explains the indeterminate state in greater detail. **You will need to initialize the indeterminate JavaScript in order to use this functionality.**
 
 <fieldset>
     <legend class="rvt-sr-only">Indeterminate state</legend>
@@ -136,7 +136,7 @@ This example includes a hidden input in the markup, as some frameworks require. 
 - For a selection of one or more dependent choices, explain the requirement on the label
         - Example: Pizza toppings (select one or more)
 
-### External resources
+## External resources
 
 - [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
 - [Mozilla Developer Network Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
