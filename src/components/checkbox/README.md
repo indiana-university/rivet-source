@@ -64,7 +64,7 @@ To output the checkboxes similar to the vertical orientation of a `ul`, use the 
 
 ### Indeterminate State
 
-It can be used to indicate a partially checked state. A typical use case would be nested checkboxes/selections like the following example. [This article](#) explains the indeterminate state in greater detail. **You will need to initialize the indeterminate JavaScript in order to use this functionality.**
+It can be used to indicate a partially checked state. A typical use case would be nested checkboxes/selections like the following example. [This article](#) explains the indeterminate state in greater detail. **You will need to initialize the indeterminate JavaScript in order to use this functionality.** [UPDATE LATER WITH INSTRUCTIONS FOR HOW TO DO THIS]
 
 <fieldset>
     <legend class="rvt-sr-only">Indeterminate state</legend>
