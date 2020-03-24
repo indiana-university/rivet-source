@@ -15,19 +15,17 @@ Buttons are intended to signal actions to users.
 
 ## Adding the markup
 
-A button is made up of a `button` element with the class `rvt-button`.
+A button is made up of a `button` element with the class `rvt-button`. Be aware that buttons will automatically submit nearby forms on the page unless they have the type="button" attribute.
 
 ```
 <button class="rvt-button">Primary</button>
 ```
 
-> Button types
+### Additional options
 
-> Be aware that buttons will automatically submit nearby forms on the page unless they have the type="button" attribute.
+#### Status
 
-### Additional variations
-
-Modifier classes can be added to set a button's color to a specific status:
+Modifier classes can be added to set a button's color to a specific status. For information about all available status options, please see [UPDATE LATER](#).
 
 ```
 // Success
@@ -43,7 +41,7 @@ If a transparent background is desired, the plain modifier can be used.
 <button class="rvt-button rvt-button--plain">Plain</button>
 ```
 
-#### Secondary variations
+#### Secondary
 
 The default button and its variations can be inverted using a secondary modifier:
 
@@ -53,9 +51,6 @@ The default button and its variations can be inverted using a secondary modifier
 
 // Secondary success button
 <button class="rvt-button rvt-button--success-secondary">Success</button>
-
-// Secondary danger button
-<button class="rvt-button rvt-button--danger-secondary">Danger</button>
 ```
 
 #### Small buttons
@@ -68,12 +63,6 @@ You can create smaller buttons by adding the `rvt-button--small` modifier class.
 
 // Small success button
 <button class="rvt-button rvt-button--success rvt-button--small">Success</button>
-
-// Small danger button
-<button class="rvt-button rvt-button--danger rvt-button--small">Danger</button>
-
-// Small plain button
-<button class="rvt-button rvt-button--plain rvt-button--small">Plain</button>
 ```
 
 #### Full-width buttons
@@ -110,20 +99,11 @@ In this example, the buttons would be aligned to the right edge of the `.rvt-but
 
 ## Implementation notes
 
-There are a number of button styles and sizes that can be achieved using a handful of modifier CSS classes.
-
 The actions that buttons describe should be informative and concise. With few exceptions, button text should not wrap onto multiple lines.
 
 ### Contextual button modifiers
 
-Certain contexts may require alternate button styles. For example, when a user is about to take a destructive action it may be advisable to use a different color button to alert them. In this case, adding the class `rvt-button--danger` will create an orange button that matches the [error alert color](#).
-
-The available button color modifiers are:
-
-- `.rvt-button--success`
-- `.rvt-button--success-secondary`
-- `.rvt-button--danger`
-- `.rvt-button--danger-secondary`
+Certain contexts may require alternate button styles. For example, when a user is about to take a destructive action it may be advisable to use a different color button to alert them. In this case, adding the class `rvt-button--danger` will create a red button that matches the [error alert color](#).
 
 ### Using icons inside buttons
 
