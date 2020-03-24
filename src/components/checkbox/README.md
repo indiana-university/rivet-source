@@ -34,7 +34,7 @@ The checkbox component is made up of a `form` element wrapping a `fieldset`. Ins
 
 ### Checkbox list
 
-To output the checkboxes similar to a `ul` list's vertical orientation, use the `rvt-plain-list` class on the `ul`.
+To output the checkboxes similar to the vertical orientation of a `ul`, use the `rvt-plain-list` class on the `ul`.
 
 ```
 <form>
@@ -60,4 +60,58 @@ To output the checkboxes similar to a `ul` list's vertical orientation, use the 
         </ul>
     </fieldset>
 </form>
+```
+
+### Indeterminate State
+
+The indeterminate state is a checkbox attribute that is accessible by JavaScript only. It can be used to indicate a partially checked state. A typical use case would be nested checkboxes/selections like the following example. [This article](#) explains the indeterminate state in greater detail.
+
+<fieldset>
+    <legend class="rvt-sr-only">Indeterminate state</legend>
+    <ul class="rvt-plain-list">
+        <li>
+            <input type="checkbox" name="checkbox-demo" id="checkbox-indeterminate">
+            <label for="checkbox-indeterminate">Parent option one</label>
+            <ul class="rvt-plain-list rvt-p-left-lg">
+                <li>
+                    <input type="checkbox" name="checkbox-demo" id="checkbox-6-1" checked>
+                    <label for="checkbox-6-1">Child option one</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="checkbox-demo" id="checkbox-6-2">
+                    <label for="checkbox-6-2">Child option two</label>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <input type="checkbox" name="checkbox-demo" id="checkbox-7">
+            <label for="checkbox-7">Parent option two</label>
+        </li>
+        <li>
+            <input type="checkbox" name="checkbox-demo" id="checkbox-8">
+            <label for="checkbox-8">Parent option three</label>
+        </li>
+    </ul>
+</fieldset>
+
+### Alternate markup with hidden fields
+
+This example includes a hidden input in the markup, as some frameworks require. It requires that the input and label be wrapped in a `.rvt-checkbox-wrapper`. Here we are using the wrapper class on a `li`, but it will also work with generic elements like a `div` and `span`.
+
+```
+<fieldset>
+    <legend class="rvt-ts-23 rvt-m-bottom-lg">Alternate markup (visually identical)</legend>
+    <ul class="rvt-inline-list">
+        <li class="rvt-checkbox-wrapper">
+            <input type="checkbox" name="checkbox-demo" id="checkbox-9">
+            <input type="hidden">
+            <label for="checkbox-9">Option one</label>
+        </li>
+        <li class="rvt-checkbox-wrapper">
+            <input type="checkbox" name="checkbox-demo" id="checkbox-10">
+            <input type="hidden">
+            <label for="checkbox-10">Option two</label>
+        </li>
+    </ul>
+</fieldset>
 ```
