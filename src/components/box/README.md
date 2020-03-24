@@ -2,10 +2,6 @@
 
 The box component can be used to help visually group related content
 
-> New in Rivet 1.2.0
-
-> The box is new as of 1.2.0. If you need help moving to 1.2.0, see our instructions for updating Rivet.
-
 ## Adding the markup
 
 The most basic version of the box component is made up of a `div` with the class `rvt-box`. Visually, it includes a subtle rounded border and a white background. Padding and margins should be applied with [Rivet’s spacing utility classes](#).
@@ -145,13 +141,6 @@ The box component also supports colored variants based on [Rivet’s alert color
 
 The colored box variants should be used sparingly and only to indicate some sort of state (error, warning, success, etc.) or call out important information in your application.
 
-There are four colored box variants that follow Rivet’s alert color naming convention:
-
-- `.rvt-box--info`
-- `.rvt-box--success`
-- `.rvt-box--warning`
-- `.rvt-box--danger`
-
 ```
 <div class="rvt-box rvt-box--danger">
   <div class="rvt-box__header">
@@ -173,14 +162,7 @@ There are four colored box variants that follow Rivet’s alert color naming con
 
 ### Colored box row variants
 
-Colors can also be applied to individual rows to call out state changes or important information:
-
-- `.rvt-box__row--info`
-- `.rvt-box__row--success`
-- `.rvt-box__row--warning`
-- `.rvt-box__row--danger`
-
-The row variant modifier classes add a subtle background color and left border that matches each of Rivet’s alert styles.
+Colors can also be applied to individual rows to call out state changes or important information. The row variant modifier classes add a subtle background color and left border that matches each of Rivet's alert styles.
 
 ```
 <div class="rvt-box">
@@ -223,6 +205,10 @@ The card variant of the box component can be used along with Rivet’s [type sca
 
 The card variant can include an optional image. Nesting an `img` inside an element with the `rvt-box__image` class will apply the proper sizing, cropping, and border radius.
 
+**Card images must be the first child**
+
+The element with the `rvt-box__image` class must be the first child of `.rvt-box` so that the image sits flush with the sides of the box (see the example below). It should not be used inside elements with the `rvt-box__body` or `rvt-box__row` classes.
+
 ```
 <div class="rvt-box rvt-box--card">
   <div class="rvt-box__image">
@@ -235,7 +221,3 @@ The card variant can include an optional image. Nesting an `img` inside an eleme
   </div>
 </div>
 ```
-
-> **Card images must be the first child**
-
-> The element with the `rvt-box__image` class must be the first child of `.rvt-box` so that the image sits flush with the sides of the box (see above example). It should not be used inside elements with the `rvt-box__body` or `rvt-box__row` classes.
