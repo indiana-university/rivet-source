@@ -2,10 +2,6 @@
 
 Provide additional navigation outside of the main header
 
-> New in Rivet 1.6.0
-
-> The menu component is new as of 1.6.0. If you need help updating to 1.6.0, see our [instructions for updating Rivet](#).
-
 ## When to use
 
 - To allow users to move between pages in a specific subsection of your application
