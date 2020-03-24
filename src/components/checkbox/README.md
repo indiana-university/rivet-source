@@ -115,3 +115,23 @@ This example includes a hidden input in the markup, as some frameworks require. 
     </ul>
 </fieldset>
 ```
+
+## Implementation notes
+
+### Checkbox labels
+
+- Write the label so that it describes the selected state of the checkbox
+- Write the label as a phrase or an imperative sentence, and use no ending punctuation
+        - **Exception:** If a checkbox label also labels a subordinate control that follows it, end the label with a colon
+- Use sentence-style capitalization
+- For a group of checkboxes, use parallel phrasing and try to keep the length about the same for all labels
+- For a group of checkboxes, focus the label text on the differences among the options. If all the options have the same introductory text, move that text to the group label.
+- Use positive phrasing. Don't phrase a label so that selecting a checkbox means not to perform an action.
+        - **Exception: Don't show this again** checkboxes
+
+### Checkbox group labels
+
+- Use the group label to explain the purpose of the group, not how to make the selection. Assume that users know how to use checkboxes. For example, don't say, "Select any of the following choices."
+- End each label with a colon
+- For a selection of one or more dependent choices, explain the requirement on the label
+        - Example: Pizza toppings (select one or more)
