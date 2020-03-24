@@ -2,6 +2,14 @@
 
 A navigation component that indicates the user's current location in the nav hierarchy
 
+## When to use
+
+Use breadcrumbs when your application has multiple levels in the navigation hierarchy. Breadcrumbs can help users navigate quickly between these levels.
+
+## When to use something else
+
+Avoid using the breadcrumb nav when your application only has one level of navigation.
+
 ## Adding the markup
 
 ```
@@ -27,14 +35,6 @@ There is also a `rvt-breadcrumbs--call-out` modifier class that adds a small amo
     </ol>
 </nav>
 ```
-
-## When to use
-
-Use breadcrumbs when your application has multiple levels in the navigation hierarchy. Breadcrumbs can help users navigate quickly between these levels.
-
-## When to use something else
-
-Avoid using the breadcrumb nav when your application only has one level of navigation.
 
 ## Accessibility requirements
 
