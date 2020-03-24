@@ -135,3 +135,10 @@ This example includes a hidden input in the markup, as some frameworks require. 
 - End each label with a colon
 - For a selection of one or more dependent choices, explain the requirement on the label
         - Example: Pizza toppings (select one or more)
+
+### External resources
+
+- [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
+- [Mozilla Developer Network Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+- [MSDN Design Documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742401.aspx)
+- [Indeterminate Checkboxes](https://css-tricks.com/indeterminate-checkboxes/)
