@@ -4,7 +4,7 @@ Use input groups to combine a text input with an action button or dropdown menu.
 
 ## Adding the markup
 
-An input group is composed of several elements. Like other inputs, the input group must have a standalone `label` element. Next is `div` wrapper with the class `rvt-input-group` which encases the remaining elements. Within the `div` is an `input` element with the class `rvt-input-group__input`.
+An input group is composed of several elements. Like other inputs, the input group must have a standalone `label` element. Next is a `div` wrapper with the class `rvt-input-group` which encases the remaining elements. Within the `div` is an `input` element with the class `rvt-input-group__input`.
 
 Finally, there are two options for how to display the action button or dropdown menu. If the component is within a `div` element with the class `rvt-input-group__append`, and is placed after the `input` element, it will appear to the right of the text input. If the component is within a `div` element with the class `rvt-input-group__prepend`, and is placed before the `input` element, it will appear to the left of the text input.
 
