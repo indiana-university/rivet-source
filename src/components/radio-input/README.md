@@ -100,3 +100,9 @@ This example includes a hidden input in the markup, as some frameworks require. 
 
 - Use the group label to explain the purpose of the group, not how to make the selection. Assume that users know how to use radio buttons.
 - All radio button groups need labels. Write the label as a word or phrase, not as a sentence, ending with a colon using static text or a <legend>, when using a fieldset to group radios.
+
+## Resources
+
+- [Checkboxes vs. Radio Buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
+- [Mozilla Developer Network Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+- [MSDN Design Documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742436.aspx)
