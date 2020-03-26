@@ -132,6 +132,6 @@ You can combine the media object component with the [box component](#) to create
 
 Each of the three media object areas (`.rvt-mo__prepend`, `.rvt-mo__main`, `.rvt-mo__append`) will expand to fit the content you put inside of them, but you should try to maintain an approximate ratio where the the main content area (`.rvt-mo__main`) takes up the majority of the width of the row, and the two supplemental areas (`.rvt-mo__prepend` and `.rvt-mo__append`) fill the remaining space.
 
-#### Media objects and the grid
+### Media objects and the grid
 
 The media object is designed to be a simple layout aid used for displaying lists of non-tabular items with similar content. You should not use [the Rivet grid](#) inside any of the media object content areas shown in [the previous example](#).
