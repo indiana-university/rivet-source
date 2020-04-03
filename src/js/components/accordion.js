@@ -35,7 +35,7 @@ export default class Accordion {
     );
     if (this.triggers.length < 2) {
       // eslint-disable-next-line no-console
-      throw new TypeError(
+      console.warn(
         'An accordion should contain *at least two* accordion triggers with the "data-accordion-trigger" attribute'
       );
     }
@@ -51,7 +51,7 @@ export default class Accordion {
     // Set this.openOnInit if needed
     try {
       if (initializedPanels.length > 1) {
-        throw new TypeError('Caught');
+        console.warn('Caught');
       }
 
       let initialPanel;
