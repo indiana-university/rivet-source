@@ -1,354 +1,162 @@
-{% set navItems = ["Academics", "Admissions", "Cost &amp; Financial Aid"] %}
+{%- set navItems = [
+  {
+    title: "Nav Item One",
+    subnavs: [
+      { title: "Sub Item One" },
+      { title: "Sub Item Two" },
+      { title: "Sub Item Three" }
+    ]
+  },
+  {
+    title: "Nav Item Two",
+    subnavs: [
+      { title: "Sub Item One" },
+      { title: "Sub Item Two" },
+      { title: "Sub Item Three" }
+    ]
+  },
+  {
+    title: "Nav Item Three"
+  },
+  {
+    title: "Nav Item Four",
+    subnavs: [
+      { title: "Sub Item One" },
+      { title: "Sub Item Two" },
+      { title: "Sub Item Three" }
+    ]
+  },
+  {
+    title: "Nav Item Five",
+    subnavs: [
+      { title: "Sub Item One" },
+      { title: "Sub Item Two" },
+      { title: "Sub Item Three" },
+      { title: "Sub Item Three" },
+      { title: "Sub Item Three" },
+      { title: "Sub Item Three" },
+      { title: "Sub Item Three" },
+      { title: "Sub Item Three" }
+    ]
+  }
+] -%}
 
 <header class="rvt-header-wrapper">
-    
-    <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
-    
-    <div class="rvt-header-global">
-        <div class="rvt-container-xl">
-            <div class="rvt-header-global__inner">
-                
-                
-    <div class="rvt-header-global__logo-slot">
-        <a class="rvt-lockup" href="/">
-
+  <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+  <div class="rvt-header-global">
+    <div class="rvt-container-xl">
+      <div class="rvt-header-global__inner">
+        <div class="rvt-header-global__logo-slot">
+          <a class="rvt-lockup" href="/">
             <div class="rvt-lockup__tab">
-                    
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
-            <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
-        </svg>
-    
-    
+              <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+                  <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+              </svg>
             </div>
-
             <div class="rvt-lockup__body">
-                <span class="rvt-lockup__title">Indiana University</span>
+              <span class="rvt-lockup__title">Indiana University</span>
+              <span class="rvt-lockup__subtitle">Design System</span>
             </div>
+          </a>
+        </div>
 
-        </a>
-    </div>
-
-                
-                <div class="rvt-header-global__controls">
-                    
-                    
-    <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-disclosure-toggle="menu">
-        <span class="rvt-sr-only">Menu</span>
-            
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">
-            <g fill="currentColor">
+        <div class="rvt-header-global__controls" data-dropdown="menu">
+          <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-dropdown-toggle="menu">
+            <span class="rvt-sr-only">Menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" viewBox="0 0 16 16">
+              <g fill="currentColor">
                 <path d="M15,3H1A1,1,0,0,1,1,1H15a1,1,0,0,1,0,2Z"></path>
                 <path d="M15,9H1A1,1,0,0,1,1,7H15a1,1,0,0,1,0,2Z"></path>
                 <path d="M15,15H1a1,1,0,0,1,0-2H15a1,1,0,0,1,0,2Z"></path>
-            </g>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__close" fill="currentColor" height="16" viewBox="0 0 16 16" width="16">
-            <path d="M8.46954 7.00409L13.7595 1.71409C13.9234 1.52279 14.009 1.27671 13.9993 1.02504C13.9895 0.773362 13.8852 0.534623 13.7071 0.356528C13.529 0.178434 13.2903 0.0741014 13.0386 0.0643803C12.7869 0.0546591 12.5408 0.140265 12.3495 0.304092L7.05954 5.59409L1.76954 0.294092C1.58124 0.105788 1.32585 -3.72428e-09 1.05954 -1.74018e-09C0.793242 2.43924e-10 0.537847 0.105788 0.349544 0.294092C0.16124 0.482395 0.055452 0.73779 0.055452 1.00409C0.055452 1.27039 0.16124 1.52579 0.349544 1.71409L5.64954 7.00409L0.349544 12.2941C0.244862 12.3837 0.159841 12.4941 0.0998179 12.6181C0.0397946 12.7422 0.00606467 12.8773 0.000745174 13.015C-0.00457432 13.1528 0.0186315 13.2901 0.0689061 13.4184C0.119181 13.5467 0.195439 13.6633 0.292893 13.7607C0.390348 13.8582 0.506896 13.9345 0.635221 13.9847C0.763546 14.035 0.900878 14.0582 1.0386 14.0529C1.17632 14.0476 1.31145 14.0138 1.43551 13.9538C1.55958 13.8938 1.6699 13.8088 1.75954 13.7041L7.05954 8.41409L12.3495 13.7041C12.5408 13.8679 12.7869 13.9535 13.0386 13.9438C13.2903 13.9341 13.529 13.8297 13.7071 13.6517C13.8852 13.4736 13.9895 13.2348 13.9993 12.9831C14.009 12.7315 13.9234 12.4854 13.7595 12.2941L8.46954 7.00409Z" fill="currentColor"></path>
-        </svg>
-    
-    
-    </button>
-
-    <nav aria-label="Global navigation" class="rvt-header-global__menu rvt-is-hidden" data-disclosure="menu">
-
-        <ul class="rvt-header-global__menu-list">
-            
-                
-                            
-                                            
-                                            
-                                    
-                                        
-                        <li class="rvt-header-global__menu-item" data-nav-path="/academics/">
-                            <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-academics">
-                                <div class="rvt-header-global__menu-group">
-                                    <a class="rvt-header-global__link" href="/academics">Academics</a>
-                                    
-                                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-academics">
-                                        <span class="rvt-sr-only">Toggle Academics navigation</span>
-                                            
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
-        </svg>
-    
-    
-                                    </button>
-                                </div>
-                                
-                                <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" hidden="" id="primary-nav-academics">
-                                    <ul>
-                                                                                                                                                                                                                                                    <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/academics/degrees/">Degrees and Majors</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/academics/choosing-a-major.html">Choosing a Major </a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/academics/career.html">Career Prep</a>
-                                                </li>
-                                                                                                                                                            </ul>
-                                </div>
-                            </div>
-                        </li>
-                        
-                                        
-                                            
-                                    
-                                        
-                        <li class="rvt-header-global__menu-item" data-nav-path="/admissions/">
-                            <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-admissions">
-                                <div class="rvt-header-global__menu-group">
-                                    <a class="rvt-header-global__link" href="/admissions">Admissions</a>
-                                    
-                                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-admissions">
-                                        <span class="rvt-sr-only">Toggle Admissions navigation</span>
-                                            
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
-        </svg>
-    
-    
-                                    </button>
-                                </div>
-                                
-                                <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" hidden="" id="primary-nav-admissions">
-                                    <ul>
-                                                                                                                                                                                                                                                    <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/admissions/admissions-standards.html">Admission Standards</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/admissions/how-to-apply/">How to Apply</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/admissions/after-admitted.html">After You’re Admitted</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/admissions/visit-campus.html">Visit a Campus</a>
-                                                </li>
-                                                                                                                                                            </ul>
-                                </div>
-                            </div>
-                        </li>
-                        
-                                        
-                                            
-                                    
-                                        
-                        <li class="rvt-header-global__menu-item" data-nav-path="/cost-financial-aid/">
-                            <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-cost-financial-aid">
-                                <div class="rvt-header-global__menu-group">
-                                    <a class="rvt-header-global__link" href="/cost-financial-aid">Cost and Financial Aid</a>
-                                    
-                                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-cost-financial-aid">
-                                        <span class="rvt-sr-only">Toggle Cost and Financial Aid navigation</span>
-                                            
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
-        </svg>
-    
-    
-                                    </button>
-                                </div>
-                                
-                                <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" hidden="" id="primary-nav-cost-financial-aid">
-                                    <ul>
-                                                                                                                                                                                                                                                    <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/cost-financial-aid/tuition.html">Tuition and Fees</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/cost-financial-aid/financial-aid.html">Financial Aid</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/cost-financial-aid/scholarships-awards.html">Scholarships and Awards</a>
-                                                </li>
-                                                                                                                                                            </ul>
-                                </div>
-                            </div>
-                        </li>
-                        
-                                        
-                                            
-                                    
-                                        
-                        <li class="rvt-header-global__menu-item" data-nav-path="/life-at-iu/">
-                            <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-life-at-iu">
-                                <div class="rvt-header-global__menu-group">
-                                    <a class="rvt-header-global__link" href="/life-at-iu">Life at IU</a>
-                                    
-                                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-life-at-iu">
-                                        <span class="rvt-sr-only">Toggle Life at IU navigation</span>
-                                            
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
-        </svg>
-    
-    
-                                    </button>
-                                </div>
-                                
-                                <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" hidden="" id="primary-nav-life-at-iu">
-                                    <ul>
-                                                                                                                                                                                                                                                    <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/bloomington.html">IU Bloomington</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/iupui.html">IUPUI</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/iupuc.html">IUPUC</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/east.html">IU East </a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/fort-wayne.html">Fort Wayne</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/kokomo.html">Kokomo</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/northwest.html">Northwest</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/south-bend.html">South Bend</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/southeast.html">Southeast </a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/life-at-iu/online.html">IU Online</a>
-                                                </li>
-                                                                                                                                                            </ul>
-                                </div>
-                            </div>
-                        </li>
-                        
-                                        
-                                            
-                                    
-                                        
-                        <li class="rvt-header-global__menu-item">
-                            <a class="rvt-header-global__link" data-nav-path="/impact/" href="/impact">Make an Impact</a>
-                        </li>
-                        
-                                        
-                                            
-                                    
-                                        
-                        <li class="rvt-header-global__menu-item" data-nav-path="/about/">
-                            <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-about">
-                                <div class="rvt-header-global__menu-group">
-                                    <a class="rvt-header-global__link" href="/about">About</a>
-                                    
-                                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-about">
-                                        <span class="rvt-sr-only">Toggle About navigation</span>
-                                            
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
-        </svg>
-    
-    
-                                    </button>
-                                </div>
-                                
-                                <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="" hidden="" id="primary-nav-about">
-                                    <ul>
-                                                                                                                                                                                                                                                    <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/about/leadership.html">IU Leadership</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/about/glance.html">IU at a Glance</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/about/locations.html">IU Locations</a>
-                                                </li>
-                                                                                                                                                                                                                                                            <li>
-                                                    <a class="rvt-header-global__submenu-link" href="/about/contact.html">Contact IU</a>
-                                                </li>
-                                                                                                                                                            </ul>
-                                </div>
-                            </div>
-                        </li>
-                        
-                                        
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        
-        </ul>
-        
-    </nav>
-      <div data-dropdown="search">
-        
-          <button class="rvt-global-toggle" data-dropdown-toggle="search" aria-expanded="false">
-          <span class="rvt-sr-only">Search</span> 
-              
-            
-            <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__search" height="16" viewBox="0 0 16 16" width="16">
-                <path d="M15.71,14.29,10.89,9.47a6,6,0,1,0-1.42,1.42l4.82,4.82a1,1,0,0,0,1.42,0A1,1,0,0,0,15.71,14.29ZM6,10a4,4,0,1,1,4-4A4,4,0,0,1,6,10Z" fill="currentColor"></path>
+              </g>
             </svg>
-        
-        
-        </button>
-        <form action="/search" class="rvt-header-global__search" data-dropdown-menu="search" role="search" hidden>
-            <label class="rvt-sr-only" for="search">Search</label>
-            <div class="rvt-input-group">
-              <input class="rvt-input-group__input rvt-text-input" id="search" name="q" type="text">
-              <div class="rvt-input-group__append">
-                  <button class="rvt-button">Search</button>
-              </div>
-            </div>
-        </form>
-      </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__close" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8.46954 7.00409L13.7595 1.71409C13.9234 1.52279 14.009 1.27671 13.9993 1.02504C13.9895 0.773362 13.8852 0.534623 13.7071 0.356528C13.529 0.178434 13.2903 0.0741014 13.0386 0.0643803C12.7869 0.0546591 12.5408 0.140265 12.3495 0.304092L7.05954 5.59409L1.76954 0.294092C1.58124 0.105788 1.32585 -3.72428e-09 1.05954 -1.74018e-09C0.793242 2.43924e-10 0.537847 0.105788 0.349544 0.294092C0.16124 0.482395 0.055452 0.73779 0.055452 1.00409C0.055452 1.27039 0.16124 1.52579 0.349544 1.71409L5.64954 7.00409L0.349544 12.2941C0.244862 12.3837 0.159841 12.4941 0.0998179 12.6181C0.0397946 12.7422 0.00606467 12.8773 0.000745174 13.015C-0.00457432 13.1528 0.0186315 13.2901 0.0689061 13.4184C0.119181 13.5467 0.195439 13.6633 0.292893 13.7607C0.390348 13.8582 0.506896 13.9345 0.635221 13.9847C0.763546 14.035 0.900878 14.0582 1.0386 14.0529C1.17632 14.0476 1.31145 14.0138 1.43551 13.9538C1.55958 13.8938 1.6699 13.8088 1.75954 13.7041L7.05954 8.41409L12.3495 13.7041C12.5408 13.8679 12.7869 13.9535 13.0386 13.9438C13.2903 13.9341 13.529 13.8297 13.7071 13.6517C13.8852 13.4736 13.9895 13.2348 13.9993 12.9831C14.009 12.7315 13.9234 12.4854 13.7595 12.2941L8.46954 7.00409Z" fill="currentColor"></path>
+            </svg>
+          </button>
 
-    
-                    
+          <nav aria-label="Global navigation" class="rvt-header-global__menu" data-dropdown-menu="menu" hidden>
+            <ul class="rvt-header-global__menu-list">
+              {% for nav in navItems %}
+              <li class="rvt-header-global__menu-item">
+                {% if nav.subnavs %}
+                <div class="rvt-header-global__dropdown rvt-dropdown" data-dropdown="primary-nav-{{ loop.index }}">
+                  <div class="rvt-header-global__menu-group">
+                    <a class="rvt-header-global__link" href="#">{{ nav.title }}</a>
+                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-global__toggle" data-dropdown-toggle="primary-nav-{{ loop.index }}">
+                      <span class="rvt-sr-only">Toggle Academics navigation</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">
+                        <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="rvt-dropdown__menu rvt-header-global__submenu rvt-dropdown__menu--right" data-dropdown-menu="primary-nav-{{ loop.index }}" hidden="" id="primary-nav-academics">
+                    <ul>
+                      {% for subnav in nav.subnavs %}
+                      <li>
+                        <a class="rvt-header-global__submenu-link" href="#">{{ subnav.title }}</a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
+                {% else %}
+                <a class="rvt-header-global__link" href="#">{{ nav.title }}</a>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </nav>
+  
+          <div data-dropdown="search">
+            <button class="rvt-global-toggle" data-dropdown-toggle="search" aria-expanded="false">
+              <span class="rvt-sr-only">Search</span> 
+              <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__search" height="16" viewBox="0 0 16 16" width="16">
+                  <path d="M15.71,14.29,10.89,9.47a6,6,0,1,0-1.42,1.42l4.82,4.82a1,1,0,0,0,1.42,0A1,1,0,0,0,15.71,14.29ZM6,10a4,4,0,1,1,4-4A4,4,0,0,1,6,10Z" fill="currentColor"></path>
+              </svg>
+            </button>
+            <form action="/search" class="rvt-header-global__search" data-dropdown-menu="search" role="search" hidden>
+              <label class="rvt-sr-only" for="search">Search</label>
+              <div class="rvt-input-group">
+                <input class="rvt-input-group__input rvt-text-input" id="search" name="q" type="text">
+                <div class="rvt-input-group__append">
+                    <button class="rvt-button">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div><!-- end __controls -->
+      </div><!-- end __inner wrapper -->
+    </div><!-- end -container-xl -->
+  </div><!-- end header-global -->
 </header>
 
 
 <script>
 
 // Main nav dropdowns
-const globalHeader = document.querySelector('.rvt-header-global__menu');
+const globalMenu = document.querySelector('.rvt-header-global__menu');
 
 // Convert to Array first so we can use forEach safely
-var subnavs = Array.prototype.slice.call(
-  globalHeader.querySelectorAll('[data-dropdown]')
+var globalSubnavs = Array.prototype.slice.call(
+  globalMenu.querySelectorAll('[data-dropdown]')
 );
 
-// If there are subnavs on the page instantiate them
-if (subnavs) {
-  subnavs.forEach(function(subnav) {
+// If there are globalSubnavs on the page instantiate them
+if (globalSubnavs) {
+  globalSubnavs.forEach(function(subnav) {
     new Rivet.Dropdown(subnav);
   })
 }
 
 const globalSearch = document.querySelector('[data-dropdown="search"]');
 if (globalSearch) {
-  Set
+  // Second parameter disables up and down arrow key functionality for dropdowns
   new Rivet.Dropdown(globalSearch, false);
+}
+
+const mainNav = document.querySelector('[data-dropdown="menu"]');
+if (mainNav) {
+  new Rivet.Dropdown(mainNav, false);
 }
 </script>
