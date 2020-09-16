@@ -1,20 +1,15 @@
 @use 'core' as *;
 
-// Disclosure component styles
-.#{$prefix}-is-hidden {
-  display: none;
-}
-
 .#{$prefix}-header-wrapper {
   box-shadow: 0 3px 6px rgba($color-black-base, .07);
-  
+
   &__skip-link {
     position: fixed;
     top: -6rem;
     padding: $spacing-xs;
     z-index: 999;
   }
-  
+
   &__skip-link:focus {
     top: 0;
     background-color: $color-white-base;

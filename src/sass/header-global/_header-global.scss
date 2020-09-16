@@ -1,25 +1,24 @@
 @use 'core' as *;
 
 .#{$prefix}-header-global {
-  padding-top: $spacing-xs;
-  padding-bottom: $spacing-xs;
+  padding-top: $spacing-sm;
+  padding-bottom: $spacing-sm;
   position: relative;
   background-color: $color-white-base;
-  
+
   &__inner {
     display: flex;
+    position: relative;
   }
-  
+
   &__controls {
-    // HACK: stops margins from collapsing. Come back and fix.
-    border-top: 1px solid transparent;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
     flex-shrink: 0;
   }
-  
+
   &__controls .#{$prefix}-global-toggle {
     margin-left: $spacing-xs;
   }
@@ -39,9 +38,9 @@
 
   &__controls .#{$prefix}-global-toggle:focus {
     outline: none;
-    box-shadow: 0 0 0 0.125rem #ffffff, 0 0 0 $spacing-xxs #006298;
+    box-shadow: 0 0 0 .125rem $color-white-base, 0 0 0 $spacing-xxs $color-blue-base;
   }
-  
+
   &__menu,
   &__search,
   &__id-menu {
@@ -65,10 +64,24 @@
     flex-direction: row;
   }
 
-  &__menu-item button {
+  &__toggle {
+    margin-left: $spacing-xxs;
+    align-self: center;
+    width: $spacing-md;
+    height: $spacing-md;
     color: $color-black-500;
-    width: $spacing-xl;
     justify-content: center;
+    flex-shrink: 0;
+    padding: 0 $spacing-xs;
+    border-radius: 999rem;
+    background: $color-black-100;
+  }
+
+  &__toggle:hover {
+    background: $color-blue-base;
+    color: $color-white-base;
+    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline-offset: $spacing-xxs/2;
   }
 
   &__menu-list {
@@ -80,7 +93,7 @@
       border-top: 1px solid $color-black-100;
     }
   }
-  
+
   &__menu-item {
     margin: 0;
   }
@@ -88,7 +101,7 @@
   &__dropdown {
     width: 100%;
   }
-  
+
   &__link {
     text-decoration: none;
     color: $color-black-base;
@@ -97,30 +110,13 @@
     margin-right: auto;
     padding: $spacing-xs 0 $spacing-xs $spacing-xxs;
     width: 100%;
-    
+
     &:hover,
     &:focus {
       color: $color-blue-base;
-      outline: .125rem solid #006298;
+      outline: .125rem solid $color-blue-base;
       outline-offset: .125rem;
     }
-  }
-  
-  &__menu-toggle {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    font: inherit;
-    border: none;
-    
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  
-  &__menu-toggle[aria-expanded="true"] svg {
-    transform: rotate(180deg);
   }
 
   &__submenu {
@@ -133,74 +129,34 @@
     position: relative;
   }
 
-  &__submenu a:hover {
-    background-color: transparent;
-    color: $color-black-base;
+  &__submenu ul {
+    border-left: 3px solid $color-black-100;
   }
 
-  &__submenu a {
+  &__submenu-link {
     text-decoration: none;
     font-size: $ts-14;
     display: block;
     padding: $spacing-xs $spacing-sm;
     width: 100%;
     color: $color-black-base;
-    border-left: 3px solid $color-black-100;
   }
 
   &__search {
     background-color: $color-white-base;
+    border-top: 1px solid $color-black-100;
   }
-  
+
   &__logo-slot {
     // Give the toggle buttons some space on mobile. Makes lockup body text wrap
     width: calc(100% - 5rem);
     flex-shrink: 1;
     min-width: fit-content;
   }
-  
-  &__inner {
-    position: relative;
-  }
-  
-  &--crimson {
-    background-color: $color-crimson-base;
-  }
-  
-  &--crimson .#{$prefix}-lockup__tab {
-    background-color: $color-white-base;
-    border-radius: $spacing-xxs;
-  }
-  
-  &--crimson .#{$prefix}-lockup__trident {
-    color: $color-crimson-base;
-  }
-  
-  &--crimson .#{$prefix}-lockup__title,
-  &--crimson .#{$prefix}-lockup__subtitle {
-    color: $color-white-base;
-  }
-  
-  &--crimson &__link {
-    color: $color-white-base;
-  }
-  
-  &--crimson &__menu-item--active::after {
-    background-color: $color-crimson-base;
-    height: $spacing-sm * .5;
-  }
-  
-  &--crimson .#{$prefix}-global-toggle {
-    border-color: $color-white-base;
-    color: $color-white-base;
-  }
 }
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-header-global {
-    padding-top: $spacing-sm;
-    padding-bottom: $spacing-sm;
-
     &__controls .#{$prefix}-global-toggle {
       margin-left: $spacing-sm;
     }
@@ -209,7 +165,7 @@
       // Magic number here to get the menus to line up with bottom of global header
       background-color: $color-white-base;
     }
-    
+
     &__menu,
     &__menu.#{$prefix}-is-hidden {
       display: flex;
@@ -221,7 +177,7 @@
       font-size: $ts-14;
       align-items: center;
     }
-    
+
     &__menu-list {
       display: flex;
       padding: 0;
@@ -230,46 +186,32 @@
         border-top: none;
       }
     }
-    
+
     &__menu-item:not(:first-child) {
       margin-left: $spacing-sm;
     }
-    
+
     &__menu-item {
       position: relative;
     }
 
     &__menu-group {
       align-items: center;
-
-      svg {
-        width: $spacing-sm * .75;
-        height: $spacing-sm * .75;
-      }
     }
 
     &__dropdown {
       width: auto;
     }
-    
+
     &__link {
       display: block;
       margin-right: 0;
-    }
-
-    &__link,
-    &__menu-item button {
       padding: 0;
       position: relative;
     }
 
-    &__menu-item button {
-      margin-left: $spacing-xxs;
-      width: $spacing-sm;
-    }
-    
     &__menu-item--active::after {
-      content: "";
+      content: '';
       display: block;
       background-color: $color-crimson-base;
       width: 100%;
@@ -277,7 +219,7 @@
       position: absolute;
       bottom: -$spacing-md * 1.1;
     }
-    
+
     &__submenu {
       position: absolute;
       top: 3.1rem;
@@ -290,20 +232,23 @@
       list-style: none;
     }
 
+    &__submenu ul {
+      border-left: none;
+    }
+
     &__submenu a:hover {
       background-color: $color-blue-base;
       color: $color-white-base;
     }
-    
+
     &__submenu-item {
       margin-top: 0;
     }
-    
-    &__submenu a {
-      border: none;
+
+    &__submenu-link {
       padding: $spacing-xs $spacing-sm;
     }
-    
+
     &__submenu-link:hover {
       background-color: $color-black-000;
     }
@@ -314,21 +259,19 @@
       width: 20rem;
       right: $spacing-xxs;
       left: unset;
-      background-color: #fff;
+      background-color: $color-white-base;
       box-shadow: 0 1px 3px 2px rgba(36, 49, 66, .1);
       border-radius: $spacing-xxs;
       position: absolute;
-      border-top: 1px solid #ebecee;
-      padding: 1rem 1.5rem;
+      padding: $spacing-sm $spacing-md;
     }
   }
-
-
 }
 
 /**
  * Global header toggle stuff
  */
+
 .#{$prefix}-global-toggle {
   background: none;
   border: $spacing-xxs/2 solid $color-black-200;
@@ -343,36 +286,38 @@
 
   &:hover {
     cursor: pointer;
-    background-color: #006298;
-    color: #fff;
-    outline: 0.125rem solid #006298;
-    outline-offset: 0.125rem;
+    background-color: $color-blue-base;
+    color: $color-white-base;
+    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline-offset: $spacing-xxs/2;
   }
 
+  &__open,
   &__close {
-    margin-left: $spacing-xxs / 2;
-    margin-top: 1px;
-  }
-
-  &__close, &__open {
+    width: $spacing-sm * .75;
+    height: $spacing-sm * .75;
     flex-shrink: 0;
   }
 
-  &__close,
-  &__open,
   &__search {
     flex-shrink: 0;
   }
 
-  &[aria-expanded=false] .#{$prefix}-global-toggle__close, &[aria-expanded=true] .#{$prefix}-global-toggle__open {
+  &[aria-expanded=false] &__close,
+  &[aria-expanded=true] &__open {
     display: none;
   }
 
-  &[aria-expanded=false] .#{$prefix}-global-toggle__open, &[aria-expanded=true] .#{$prefix}-global-toggle__close {
+  &[aria-expanded=false] &__open,
+  &[aria-expanded=true] &__close {
     display: inline-flex;
   }
-
 }
+
+/**
+ * Speculative ID menu stuff. This is from an old prototype, but might be
+ * salvageable.
+ */
 
 .#{$prefix}-global-toggle--id {
   background-color: $color-crimson-base;
@@ -380,7 +325,7 @@
   color: $color-white-base;
   overflow: hidden;
   border: none;
-  
+
   img {
     width: $spacing-lg;
     height: $spacing-lg;
