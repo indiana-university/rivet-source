@@ -1,0 +1,21 @@
+@use 'core' as *;
+
+// override header to make dropdown buttons more prominent
+
+.#{$prefix}-header-global__menu-group .#{$prefix}-header-global__toggle {
+  align-self: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  padding: 0 $spacing-xs;
+  border-radius: 999rem;
+  background: $color-black-100;
+}
+
+.#{$prefix}-header-global__menu-group .#{$prefix}-header-global__toggle:hover,
+.#{$prefix}-header-global__menu-group .#{$prefix}-header-global__toggle:focus {
+  background: $color-blue-base;
+  color: #fff;
+  outline: .125rem solid #006298;
+  outline-offset: .125rem;
+}

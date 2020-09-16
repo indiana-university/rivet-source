@@ -8,7 +8,7 @@ import { nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
 
 export default class Dropdown {
-  constructor(element) {
+  constructor(element, handleArrowKeys = true) {
     this.element = element;
     this.focusableElements =
       'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
@@ -25,6 +25,8 @@ export default class Dropdown {
     this.isOpen = false;
     this.activeToggle = null;
     this.activeMenu = null;
+
+    this.handleArrowKeys = handleArrowKeys;
 
     // Bind methods
     this._handleClick = this._handleClick.bind(this);
@@ -145,6 +147,15 @@ export default class Dropdown {
         event.preventDefault();
 
         /**
+         * Bail out if the handleArrowKeys option is set to false. there are some
+         * use cases where this makes sense. Like the search toggle in the global
+         * header where we need some of the dropdown keyboard handling, but not
+         * all of it.
+         */
+
+        if (!this.handleArrowKeys) return;
+
+        /**
          * Open the menu if it hasn't been opened yet.
          * Move the focus to the first item if the menu has been opened.
          */
@@ -188,6 +199,8 @@ export default class Dropdown {
 
       case keyCodes.up: {
         event.preventDefault();
+
+        if (!this.handleArrowKeys) return;
 
         /**
          * Handle up arrow key when inside the open menu.
