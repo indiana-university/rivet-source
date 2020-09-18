@@ -96,17 +96,14 @@
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-header-menu {
-    &__menu,
-    &__menu.#{$prefix}-is-hidden {
-      display: flex;
-      margin: 0;
-      background-color: transparent;
-      position: relative;
-      top: unset;
-      left: unset;
-      font-size: $ts-14;
-      align-items: center;
-    }
+    display: flex;
+    margin: 0;
+    background-color: transparent;
+    position: relative;
+    top: unset;
+    left: unset;
+    font-size: $ts-14;
+    align-items: center;
 
     &__list {
       display: flex;
