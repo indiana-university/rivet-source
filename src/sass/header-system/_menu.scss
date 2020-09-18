@@ -63,12 +63,11 @@
     padding: $spacing-xs 0 $spacing-xs $spacing-xxs;
     width: 100%;
 
-    &:hover,
-    &:focus {
-      color: $color-blue-base;
-      outline: .125rem solid $color-blue-base;
-      outline-offset: .125rem;
-    }
+  &__link:hover,
+  &__link:focus {
+    color: $color-blue-base;
+    outline: .125rem solid $color-blue-base;
+    outline-offset: .125rem;
   }
 
   &__submenu {
