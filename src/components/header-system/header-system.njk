@@ -91,9 +91,9 @@
                     </button>
                   </div>
                   <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-dropdown-menu="primary-nav-{{ loop.index }}" hidden="" id="primary-nav-academics">
-                    <ul>
+                    <ul class="rvt-header-menu__submenu-list">
                       {% for subnav in nav.subnavs %}
-                      <li>
+                      <li class="rvt-header-menu__submenu-item">
                         <a class="rvt-header-menu__submenu-link" href="#">{{ subnav.title }}</a>
                       </li>
                       {% endfor %}
