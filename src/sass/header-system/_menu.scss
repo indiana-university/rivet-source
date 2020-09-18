@@ -7,7 +7,6 @@
   // Magic number here to get the menus to line up with bottom of global header
   top: 2.75rem;
   background-color: $color-black-100;
-  // padding: $spacing-sm $spacing-md;
   z-index: $z-index-100;
   width: calc(100% + 3rem);
 
@@ -62,6 +61,7 @@
     margin-right: auto;
     padding: $spacing-xs 0 $spacing-xs $spacing-xxs;
     width: 100%;
+  }
 
   &__link:hover,
   &__link:focus {
