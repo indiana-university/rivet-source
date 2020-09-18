@@ -1,0 +1,337 @@
+@use 'core' as *;
+
+.#{$prefix}-header-global {
+  padding-top: $spacing-sm;
+  padding-bottom: $spacing-sm;
+  position: relative;
+  background-color: $color-white-base;
+
+  &__inner {
+    display: flex;
+    position: relative;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  &__controls .#{$prefix}-global-toggle {
+    margin-left: $spacing-xs;
+  }
+
+  &__controls .#{$prefix}-global-toggle:hover,
+  &__controls .#{$prefix}-global-toggle[aria-expanded=false] {
+    background-color: $color-black-100;
+    border: none;
+    color: $color-black-600;
+  }
+
+  &__controls .#{$prefix}-global-toggle[aria-expanded=true] {
+    background-color: $color-blue-base;
+    border-color: $color-blue-base;
+    color: $color-white-base;
+  }
+
+  &__controls .#{$prefix}-global-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 .125rem $color-white-base, 0 0 0 $spacing-xxs $color-blue-base;
+  }
+
+  // &__menu,
+  &__search,
+  &__id-menu {
+    left: -3rem;
+    margin: 0 $spacing-md;
+    position: absolute;
+    // Magic number here to get the menus to line up with bottom of global header
+    top: 2.75rem;
+    background-color: $color-black-100;
+    padding: $spacing-sm $spacing-md;
+    z-index: $z-index-100;
+    width: calc(100% + 3rem);
+  }
+
+  // &__menu {
+  //   padding: 0;
+  // }
+
+  // &__menu-group {
+  //   display: flex;
+  //   flex-direction: row;
+  // }
+
+  // &__toggle {
+  //   margin-left: $spacing-xxs;
+  //   align-self: center;
+  //   width: $spacing-md;
+  //   height: $spacing-md;
+  //   color: $color-black-500;
+  //   justify-content: center;
+  //   flex-shrink: 0;
+  //   padding: 0 $spacing-xs;
+  //   border-radius: 999rem;
+  //   background: $color-black-100;
+  // }
+
+  // &__toggle:hover {
+  //   background: $color-blue-base;
+  //   color: $color-white-base;
+  //   outline: $spacing-xxs/2 solid $color-blue-base;
+  //   outline-offset: $spacing-xxs/2;
+  // }
+
+  // &__menu-list {
+  //   background-color: $color-white-base;
+  //   list-style: none;
+  //   padding: $spacing-xs $spacing-md 0 $spacing-md;
+
+  //   li:not(:first-child) {
+  //     border-top: 1px solid $color-black-100;
+  //   }
+  // }
+
+  // &__menu-item {
+  //   margin: 0;
+  // }
+
+  // &__dropdown {
+  //   width: 100%;
+  // }
+
+  // &__link {
+  //   text-decoration: none;
+  //   color: $color-black-base;
+  //   display: flex;
+  //   font-size: $ts-14;
+  //   margin-right: auto;
+  //   padding: $spacing-xs 0 $spacing-xs $spacing-xxs;
+  //   width: 100%;
+
+  //   &:hover,
+  //   &:focus {
+  //     color: $color-blue-base;
+  //     outline: .125rem solid $color-blue-base;
+  //     outline-offset: .125rem;
+  //   }
+  // }
+
+  // &__submenu {
+  //   background-color: unset;
+  //   border: none;
+  //   padding-top: 0;
+  //   padding-bottom: $spacing-xs;
+  //   margin-top: 0;
+  //   right: unset;
+  //   position: relative;
+  // }
+
+  // &__submenu ul {
+  //   border-left: 3px solid $color-black-100;
+  // }
+
+  // &__submenu-link {
+  //   text-decoration: none;
+  //   font-size: $ts-14;
+  //   display: block;
+  //   padding: $spacing-xs $spacing-sm;
+  //   width: 100%;
+  //   color: $color-black-base;
+  // }
+
+  &__search {
+    background-color: $color-white-base;
+    border-top: 1px solid $color-black-100;
+  }
+
+  &__logo-slot {
+    // Give the toggle buttons some space on mobile. Makes lockup body text wrap
+    width: calc(100% - 5rem);
+    flex-shrink: 1;
+    min-width: fit-content;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-header-global {
+    &__controls .#{$prefix}-global-toggle {
+      margin-left: $spacing-sm;
+    }
+
+    &__id-menu {
+      // Magic number here to get the menus to line up with bottom of global header
+      background-color: $color-white-base;
+    }
+
+    // &__menu,
+    // &__menu.#{$prefix}-is-hidden {
+    //   display: flex;
+    //   margin: 0;
+    //   background-color: transparent;
+    //   position: relative;
+    //   top: unset;
+    //   left: unset;
+    //   font-size: $ts-14;
+    //   align-items: center;
+    // }
+
+    // &__menu-list {
+    //   display: flex;
+    //   padding: 0;
+
+    //   li:not(:first-child) {
+    //     border-top: none;
+    //   }
+    // }
+
+    // &__menu-item:not(:first-child) {
+    //   margin-left: $spacing-sm;
+    // }
+
+    // &__menu-item {
+    //   position: relative;
+    // }
+
+    // &__menu-group {
+    //   align-items: center;
+    // }
+
+    // &__dropdown {
+    //   width: auto;
+    // }
+
+    // &__link {
+    //   display: block;
+    //   margin-right: 0;
+    //   padding: 0;
+    //   position: relative;
+    // }
+
+    // &__menu-item--active::after {
+    //   content: '';
+    //   display: block;
+    //   background-color: $color-crimson-base;
+    //   width: 100%;
+    //   height: $spacing-xxs * 1.2;
+    //   position: absolute;
+    //   bottom: -$spacing-md * 1.1;
+    // }
+
+    // &__submenu {
+    //   position: absolute;
+    //   top: 3.1rem;
+    //   right: 0;
+    //   width: $spacing-xxl * 3.5;
+    //   background-color: $color-white-base;
+    //   border-radius: $spacing-xxs;
+    //   box-shadow: $shadow-base;
+    //   padding: $spacing-xs 0;
+    //   list-style: none;
+    // }
+
+    // &__submenu ul {
+    //   border-left: none;
+    // }
+
+    // &__submenu a:hover {
+    //   background-color: $color-blue-base;
+    //   color: $color-white-base;
+    // }
+
+    // &__submenu-item {
+    //   margin-top: 0;
+    // }
+
+    // &__submenu-link {
+    //   padding: $spacing-xs $spacing-sm;
+    // }
+
+    // &__submenu-link:hover {
+    //   background-color: $color-black-000;
+    // }
+
+    &__search {
+      margin-right: 0;
+      top: 3.75rem;
+      width: 20rem;
+      right: $spacing-xxs;
+      left: unset;
+      background-color: $color-white-base;
+      box-shadow: 0 1px 3px 2px rgba(36, 49, 66, .1);
+      border-radius: $spacing-xxs;
+      position: absolute;
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+}
+
+/**
+ * Global header toggle stuff
+ */
+
+.#{$prefix}-global-toggle {
+  background: none;
+  border: $spacing-xxs/2 solid $color-black-200;
+  border-radius: 999rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-black-500;
+  width: $spacing-lg;
+  height: $spacing-lg;
+  flex-shrink: 0;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-blue-base;
+    color: $color-white-base;
+    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline-offset: $spacing-xxs/2;
+  }
+
+  &__open,
+  &__close {
+    width: $spacing-sm * .75;
+    height: $spacing-sm * .75;
+    flex-shrink: 0;
+  }
+
+  &__search {
+    flex-shrink: 0;
+  }
+
+  &[aria-expanded=false] &__close,
+  &[aria-expanded=true] &__open {
+    display: none;
+  }
+
+  &[aria-expanded=false] &__open,
+  &[aria-expanded=true] &__close {
+    display: inline-flex;
+  }
+}
+
+/**
+ * Speculative ID menu stuff. This is from an old prototype, but might be
+ * salvageable.
+ */
+
+.#{$prefix}-global-toggle--id {
+  background-color: $color-crimson-base;
+  border-color: $color-crimson-base;
+  color: $color-white-base;
+  overflow: hidden;
+  border: none;
+
+  img {
+    width: $spacing-lg;
+    height: $spacing-lg;
+  }
+}
+
+.#{$prefix}-global-search-input {
+  max-width: $width-md;
+}
