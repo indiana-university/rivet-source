@@ -40,14 +40,14 @@
     background-color: $color-white-base;
     list-style: none;
     padding: $spacing-xs $spacing-md 0 $spacing-md;
-
-    li:not(:first-child) {
-      border-top: 1px solid $color-black-100;
-    }
   }
 
   &__item {
     margin: 0;
+  }
+
+  &__item:not(:first-child) {
+    border-top: 1px solid $color-black-100;
   }
 
   &__dropdown {
