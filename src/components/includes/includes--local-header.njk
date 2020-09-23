@@ -41,7 +41,7 @@
             {% if sectionNav.subnavs %}
             <div class="rvt-header-menu__dropdown rvt-dropdown" data-dropdown="secondary-nav-{{ loop.index }}">
               <div class="rvt-header-menu__group">
-                <a class="rvt-header-menu__link" href="#">{{ sectionNav.title }}</a>
+                <a class="rvt-header-menu__link" href="#" {% if sectionNav.current %} aria-current="page"{% endif %}>{{ sectionNav.title }}</a>
                 <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-dropdown-toggle="secondary-nav-{{ loop.index }}">
                   <span class="rvt-sr-only">Toggle Sub-navigation</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">

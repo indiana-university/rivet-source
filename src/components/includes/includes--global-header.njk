@@ -9,6 +9,7 @@
   },
   {
     title: "Nav Item Two",
+    current: true,
     subnavs: [
       { title: "Sub Item One" },
       { title: "Sub Item Two" },
@@ -16,8 +17,7 @@
     ]
   },
   {
-    title: "Nav Item Three",
-    current: true
+    title: "Nav Item Three"
   },
   {
     title: "Nav Item Four",
@@ -80,7 +80,7 @@
               {% if nav.subnavs %}
               <div class="rvt-header-menu__dropdown rvt-dropdown" data-dropdown="primary-nav-{{ loop.index }}">
                 <div class="rvt-header-menu__group">
-                  <a class="rvt-header-menu__link" href="#">{{ nav.title }}</a>
+                  <a class="rvt-header-menu__link" href="#" {% if nav.current %} aria-current="page"{% endif %}>{{ nav.title }}</a>
                   <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-dropdown-toggle="primary-nav-{{ loop.index }}">
                     <span class="rvt-sr-only">Toggle Sub-navigation</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">
@@ -99,7 +99,7 @@
                 </div>
               </div>
               {% else %}
-              <a class="rvt-header-menu__link" href="#">{{ nav.title }}</a>
+              <a class="rvt-header-menu__link" href="#" {% if nav.current %} aria-current="page"{% endif %}>{{ nav.title }}</a>
               {% endif %}
             </li>
             {% endfor %}
