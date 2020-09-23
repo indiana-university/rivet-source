@@ -7,8 +7,10 @@
   z-index: 1;
 
   &__inner {
-    padding-top: $spacing-sm;
-    padding-bottom: $spacing-sm;
+    position: relative;
+    display: flex;
+    padding-top: $spacing-sm * .75;
+    padding-bottom: $spacing-sm * .75;
   }
 
   &__title {
@@ -20,35 +22,25 @@
     flex-shrink: 0;
   }
 
-  &__menu-list {
-    list-style: none;
-    padding-top: $spacing-xxs;
-    padding-bottom: $spacing-sm;
-    padding-left: 0;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    overflow-x: scroll;
-    margin-right: -$spacing-md;
+  /**
+   * NOTE: Side-effects on other/external components. I'm not sure the best way
+   * to handle stuff like this? E.g. when stand-alone components need different
+   * styles based on context.
+   */
+
+  .rvt-header-menu {
+    top: 3.25rem;
   }
 
-  &__menu-item {
-    flex-shrink: 0;
-    margin-top: 0;
+  .rvt-global-toggle {
+    margin-left: auto;
+    background-color: $color-black-100;
+    border: none;
+    color: $color-black-600;
 
-    &:not(:first-child) {
-      margin-left: $spacing-sm;
-    }
-  }
-
-  &__link {
-    color: $color-black-base;
-    text-decoration: none;
-    font-size: $ts-14;
-
-    &:hover {
-      color: $color-blue-base;
-      text-decoration: underline;
+    svg {
+      width: .75rem;
+      height: .75rem;
     }
   }
 }
@@ -66,11 +58,18 @@
       margin-right: $spacing-sm;
     }
 
-    &__menu-list {
-      padding-top: 0;
-      padding-bottom: 0;
-      margin-top: 0;
-      margin-right: 0;
+    /**
+   * NOTE: Side-effects on other/external components. I'm not sure the best way
+   * to handle stuff like this? E.g. when stand-alone components need different
+   * styles based on context.
+   */
+
+    .rvt-header-menu {
+      top: 0;
+    }
+
+    .rvt-header-menu__submenu {
+      top: 2.4rem;
     }
   }
 }
