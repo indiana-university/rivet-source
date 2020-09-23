@@ -43,6 +43,10 @@
       height: .75rem;
     }
   }
+
+  .rvt-header-menu__item--current::after {
+    bottom: -.85rem;
+  }
 }
 
 @include mq($breakpoint-lg) {

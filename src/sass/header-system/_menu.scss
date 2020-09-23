@@ -145,7 +145,7 @@
       position: relative;
     }
 
-    &__item--active::after {
+    &__item--current::after {
       content: '';
       display: block;
       background-color: $color-crimson-base;
