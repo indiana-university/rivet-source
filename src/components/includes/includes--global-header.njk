@@ -88,7 +88,7 @@
                     </svg>
                   </button>
                 </div>
-                <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-dropdown-menu="primary-nav-{{ loop.index }}" hidden="" id="primary-nav-academics">
+                <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-dropdown-menu="primary-nav-{{ loop.index }}" hidden>
                   <ul class="rvt-header-menu__submenu-list">
                     {% for subnav in nav.subnavs %}
                     <li class="rvt-header-menu__submenu-item">
@@ -116,7 +116,7 @@
           <form action="/search" class="rvt-header-global__search" data-dropdown-menu="search" role="search" hidden>
             <label class="rvt-sr-only" for="search">Search</label>
             <div class="rvt-input-group">
-              <input class="rvt-input-group__input rvt-text-input" id="search" name="q" type="text">
+              <input class="rvt-input-group__input rvt-text-input" type="text">
               <div class="rvt-input-group__append">
                 <button class="rvt-button">Search</button>
               </div>
