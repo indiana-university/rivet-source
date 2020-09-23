@@ -48,15 +48,13 @@
   }
 
   &__item {
+    align-items: center;
+    display: flex;
     margin: 0;
   }
 
   &__item:not(:first-child) {
     border-top: 1px solid $color-black-100;
-  }
-
-  &__dropdown {
-    width: 100%;
   }
 
   &__link {
@@ -74,6 +72,10 @@
     color: $color-blue-base;
     outline: .125rem solid $color-blue-base;
     outline-offset: .125rem;
+  }
+
+  &__dropdown {
+    width: 100%;
   }
 
   &__submenu {
