@@ -9,6 +9,7 @@
   &__inner {
     position: relative;
     display: flex;
+    align-items: center;
     padding-top: $spacing-sm * .75;
     padding-bottom: $spacing-sm * .75;
   }
@@ -16,7 +17,7 @@
   &__title {
     color: $color-black-base;
     text-decoration: none;
-    font-size: $ts-18;
+    font-size: $ts-16;
     font-weight: $font-weight-bold;
     display: block;
     flex-shrink: 0;
@@ -51,13 +52,9 @@
 
 @include mq($breakpoint-lg) {
   .rvt-header-local {
-    &__inner {
-      display: flex;
-      align-items: center;
-    }
-
     &__title {
       border-right: 1px solid $color-black-200;
+      font-size: $ts-18;
       padding-right: $spacing-sm;
       margin-right: $spacing-sm;
     }
