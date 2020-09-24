@@ -11,7 +11,7 @@
   margin: 0 $spacing-md;
   position: absolute;
   // Magic number here to get the menus to line up with bottom of global header
-  top: 3.65rem;
+  top: 3rem;
   background-color: $color-black-000;
   border-top: 1px solid $color-black-100;
   z-index: $z-index-100;
@@ -99,6 +99,12 @@
     padding: $spacing-xs $spacing-sm;
     width: 100%;
     color: $color-black-base;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-header-menu {
+    top: 3.65rem;
   }
 }
 
