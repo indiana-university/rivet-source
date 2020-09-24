@@ -1,7 +1,7 @@
 @use 'core' as *;
 
 /**
- * NOTE: This menu has been refactored/extracted to be resuable for when
+ * NOTE: This menu has been refactored/extracted to be reusable for when
  * we want to use it in the "Secondary" header module See this RFC:
  * https://v2.rivet.iu.edu/rfcs/header-system/
  */
@@ -11,8 +11,9 @@
   margin: 0 $spacing-md;
   position: absolute;
   // Magic number here to get the menus to line up with bottom of global header
-  top: 2.75rem;
-  background-color: $color-black-100;
+  top: 3.65rem;
+  background-color: $color-black-000;
+  border-top: 1px solid $color-black-100;
   z-index: $z-index-100;
   width: calc(100% + 3rem);
 
@@ -42,9 +43,8 @@
   }
 
   &__list {
-    background-color: $color-white-base;
     list-style: none;
-    padding: $spacing-xs $spacing-md 0 $spacing-md;
+    padding: $spacing-xs $spacing-md $spacing-xs $spacing-md;
   }
 
   &__item {
@@ -107,6 +107,7 @@
     display: flex;
     margin: 0;
     background-color: transparent;
+    border-top: none;
     position: relative;
     top: unset;
     left: unset;
