@@ -47,16 +47,16 @@
     margin: 0 $spacing-md;
     position: absolute;
     // Magic number here to get the menus to line up with bottom of global header
-    top: 2.75rem;
-    background-color: $color-black-100;
+    top: 3rem;
+    background-color: $color-black-000;
+    border-top: 1px solid $color-black-100;
     padding: $spacing-sm $spacing-md;
     z-index: $z-index-100;
     width: calc(100% + 3rem);
   }
 
-  &__search {
+  &__search input[type] {
     background-color: $color-white-base;
-    border-top: 1px solid $color-black-100;
   }
 
   &__logo-slot {
@@ -64,6 +64,12 @@
     width: calc(100% - 5rem);
     flex-shrink: 1;
     min-width: fit-content;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-header-global__search {
+    top: 3.65rem;
   }
 }
 
