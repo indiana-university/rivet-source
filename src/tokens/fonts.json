@@ -7,6 +7,9 @@
       "bold": {
         "value": "700"
       },
+      "medium": {
+        "value": "500"
+      },
       "regular": {
         "value": "400"
       }
