@@ -58,7 +58,7 @@ var Dropdown = (function() {
     var toggle = document.querySelector(toggleSelector);
 
     // Return if disabled dropdown is being opened programmatically
-    if (toggle.hasAttribute('disabled')) {
+    if (toggle && toggle !== null && toggle.hasAttribute('disabled')) {
       return;
     }
 
@@ -103,7 +103,7 @@ var Dropdown = (function() {
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
     // Return if disabled dropdown is being closed programmatically
-    if (toggle.hasAttribute('disabled')) {
+    if (toggle && toggle !== undefined && toggle.hasAttribute('disabled')) {
       return;
     }
 
