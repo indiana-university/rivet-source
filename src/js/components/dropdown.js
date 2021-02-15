@@ -58,12 +58,12 @@ var Dropdown = (function() {
     var toggle = document.querySelector(toggleSelector);
 
     // Return if disabled dropdown is being opened programmatically
-    if (toggle && toggle !== null && toggle.hasAttribute('disabled')) {
+    if (toggle && toggle.hasAttribute('disabled')) {
       return;
     }
 
     // If the menu was opened by clicking an associated toggle
-    if (toggle && toggle !== null) {
+    if (toggle) {
       toggle.setAttribute('aria-expanded', 'true');
 
       activeToggle = toggle;
@@ -103,11 +103,11 @@ var Dropdown = (function() {
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
     // Return if disabled dropdown is being closed programmatically
-    if (toggle && toggle !== undefined && toggle.hasAttribute('disabled')) {
+    if (toggle && toggle.hasAttribute('disabled')) {
       return;
     }
 
-    if (toggle && toggle !== undefined) {
+    if (toggle) {
       toggle.setAttribute('aria-expanded', 'false');
     }
 
@@ -232,7 +232,7 @@ var Dropdown = (function() {
     var menu = event.target.closest('#' + activeMenu);
 
     // Use this boolean on the event object in place of stopPropagation()
-    if (menu && menu !== null) {
+    if (menu) {
       event.clickedWithinMenu = true;
     }
 
@@ -272,7 +272,7 @@ var Dropdown = (function() {
         /**
          * If you were focused on the dropdown toggle
          */
-        if (toggle && toggle !== null) {
+        if (toggle) {
           var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
 
           var menu = document.getElementById(dropdownId);
@@ -358,7 +358,7 @@ var Dropdown = (function() {
           closeMenu(activeMenu);
         }
 
-        if (activeToggle && activeToggle !== null) {
+        if (activeToggle) {
           activeToggle.focus();
         }
 
