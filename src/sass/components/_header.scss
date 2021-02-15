@@ -372,8 +372,8 @@
       background-color: $color-white;
 
       &:focus {
-        @extend %button-focus;
-
+        outline: none;
+        box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
         z-index: map-get($z-index, z-1000);
       }
     }
