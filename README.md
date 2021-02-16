@@ -10,9 +10,9 @@
 
 To use Rivet on your website or web application, follow the instructions on one of the pages listed below:
 
-- [Install with npm](https://rivet.iu.edu/getting-started/npm/)
-- [Download CSS and JavaScript](https://rivet.iu.edu/components/#download-rivet)
 - [Use hosted CSS and JavaScript](https://rivet.iu.edu/components/#hosted-css-and-javascript)
+- [Download CSS and JavaScript](https://rivet.iu.edu/components/#download-rivet)
+- [Install with npm](https://rivet.iu.edu/getting-started/npm/)
 
 ## Contributing to Rivet
 
