@@ -1,23 +1,34 @@
-# [Rivet](https://rivet.iu.edu/)
+# Rivet
+
+[Rivet](https://rivet.iu.edu/) is Indiana University’s design system. A collection of code and visual assets used to create patterns across software titles, Rivet makes it easier to build and maintain consistent user interfaces.
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause) [![npm version](https://img.shields.io/npm/v/rivet-uits.svg?style=flat)](https://www.npmjs.com/package/rivet-uits) [![CircleCI](https://circleci.com/gh/indiana-university/rivet-source.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/indiana-university/rivet-source)
 
 ![Browserstack logo](./src/components/_extras/Browserstack-logo@2x.png)
 
+## Using Rivet
+
+To use Rivet on your website or web application, follow the instructions on one of the pages listed below:
+
+- [Install with npm](https://rivet.iu.edu/getting-started/npm/)
+- [Download CSS and JavaScript](https://rivet.iu.edu/components/#download-rivet)
+- [Use hosted CSS and JavaScript](https://rivet.iu.edu/components/#hosted-css-and-javascript)
+
 ## Getting started
-We are using [Fractal](http://fractal.build/guide) to generate the UITS design system components. Fractal is super versatile component library generator made by the folks at [Clear Left](https://clearleft.com/). It makes it super easy to create and document components all in one place.
 
-Fractal is built in Node.js so it's a great choice for cross-platform development teams (Windows and Mac).
+This section describes how to start working with Rivet.
 
-To get started working with the UITS design system you'll first need to make sure you have Node.js and NPM installed your system. Check if you have Node.js and NPM installed by running the following in your terminal:
+### Install Node and npm
+
+Before you can start working with Rivet, you'll need to make sure you have Node and npm installed.
+
+To check if you have both installed, run the following command in your terminal:
 
 ```sh
 node -v && npm -v
 ```
 
-If you don't have Node and NPM installed, go to the Node.js website for instructions:
-
-[Node.js](https://nodejs.org/en/download/)
+If both are installed, you should see version numbers for each. If you don't have Node or npm installed, go to the [Node website for installation instructions](https://nodejs.org/en/download/).
 
 ### Working with the components
 To get started working locally on your computer first clone or download this repo.
