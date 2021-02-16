@@ -4,20 +4,6 @@
 
 ![Browserstack logo](./src/components/_extras/Browserstack-logo@2x.png)
 
-## Principles
-Designers and developers can use this system as a foundation for great experiences across all UITS applications. They can also contribute to it—and make the system relevant to any team.
-
-We want to hear about the patterns you need, but we need to make sure all patterns are cohesive. So, we’ve established these principles to help guide the creation process:
-
-**Be clear.**
-Make design decisions based on user needs. Design interfaces that help our users accomplish their goals quickly and easily.
-
-**Be flexible.**
-Our design system is for all types of UITS applications, even ones that have yet to be imagined. We need to design and build for flexibility.
-
-**Be productive.**
-Done is better than perfect. Iteration is only half the battle. Testing with users could reveal issues or questions we didn’t anticipate.
-
 ## Getting started
 We are using [Fractal](http://fractal.build/guide) to generate the UITS design system components. Fractal is super versatile component library generator made by the folks at [Clear Left](https://clearleft.com/). It makes it super easy to create and document components all in one place.
 
