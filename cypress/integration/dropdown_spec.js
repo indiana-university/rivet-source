@@ -106,4 +106,24 @@ describe('Rivet dropdown interactions', function() {
       .should('have.attr', 'aria-hidden', 'false')
       .and('be.visible');
   });
+
+  it('Should not throw an error if removed then opened with .open() method', function() {
+    cy.get(DROPDOWN_TOGGLE).then(dropdown => dropdown.remove());
+
+    cy.window().then(win => {
+      win.Dropdown.open('dropdown-navigation');
+    });
+  });
+
+  it('Should not throw an error if removed then closed with .close() method', function() {
+    cy.window().then(win => {
+      win.Dropdown.close('dropdown-navigation');
+    });
+  });
+
+  it('Should not throw an error if removed then toggled with .toggle() method', function() {
+    cy.window().then(win => {
+      win.Dropdown.toggle('dropdown-navigation');
+    });
+  });
 });
