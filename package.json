@@ -64,5 +64,7 @@
     "stylelint-config-rivet": "^1.0.0",
     "stylelint-scss": "^3.6.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "start-server-and-test": "^1.12.0"
+  }
 }
