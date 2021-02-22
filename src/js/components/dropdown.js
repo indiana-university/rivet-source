@@ -57,17 +57,20 @@ var Dropdown = (function() {
 
     var toggle = document.querySelector(toggleSelector);
 
+    // Return if the dropdown doesn't exist
+    if (!toggle) {
+      return
+    }
+
     // Return if disabled dropdown is being opened programmatically
-    if (toggle && toggle.hasAttribute('disabled')) {
+    if (toggle.hasAttribute('disabled')) {
       return;
     }
 
     // If the menu was opened by clicking an associated toggle
-    if (toggle) {
-      toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-expanded', 'true');
 
-      activeToggle = toggle;
-    }
+    activeToggle = toggle;
 
     // Get the menu to be opened by id
     var menu = document.getElementById(id);
@@ -102,14 +105,17 @@ var Dropdown = (function() {
 
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
+    // Return if the dropdown doesn't exist
+    if (!toggle) {
+      return
+    }
+
     // Return if disabled dropdown is being closed programmatically
-    if (toggle && toggle.hasAttribute('disabled')) {
+    if (toggle.hasAttribute('disabled')) {
       return;
     }
 
-    if (toggle) {
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+    toggle.setAttribute('aria-expanded', 'false');
 
     var menu = document.getElementById(id);
 
@@ -179,6 +185,11 @@ var Dropdown = (function() {
     }
 
     var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
+
+    // Return if the dropdown doesn't exist
+    if (!toggleButton) {
+      return
+    }
 
     // Check the state of the dropdown toggle button
     var isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
