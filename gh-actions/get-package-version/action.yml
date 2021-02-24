@@ -1,0 +1,8 @@
+name: 'Get Package Version'
+description: 'Reads the version number from package.json'
+outputs:
+  version:
+    description: 'Version number read from package.json'
+runs:
+  using: 'node12'
+  main: 'index.js'
