@@ -1,0 +1,61 @@
+name: Publish release v1.x.x
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+
+  create-release:
+    needs: publish-npm
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - name: Get package version
+        uses: ./gh-actions/get-package-version/
+        id: get_package_version
+      - name: Build changelog
+        uses: ./gh-actions/build-changelog/
+        id: build_changelog
+        with:
+          version: ${{ steps.get_package_version.outputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v${{ steps.get_package_version.outputs.version }}
+          release_name: Release v${{ steps.get_package_version.outputs.version }}
+          body: ${{ steps.build_changelog.outputs.changelog }}
+          draft: true
+      - name: Create release asset
+        run: npm run asset:upload
+      - name: Upload release asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./rivet-gh-release.zip
+          asset_name: release.zip
+          asset_content_type: application/zip
