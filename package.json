@@ -37,6 +37,7 @@
     "chai": "^4.1.2",
     "cypress": "^3.4.1",
     "eslint-config-rivet": "^1.0.0",
+    "fs": "0.0.1-security",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
