@@ -1,0 +1,15 @@
+name: 'Build Changelog'
+description: 'Builds a changelog to be attached to a GitHub release'
+inputs:
+  version:
+    description: 'Package version number'
+    required: true
+  GITHUB_TOKEN:
+    description: 'Secret GitHub token'
+    required: true
+outputs:
+  changelog:
+    description: 'Bulleted list of merged pull request titles labeled with the given package version number'
+runs:
+  using: 'node12'
+  main: 'index.js'
