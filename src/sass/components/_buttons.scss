@@ -1,13 +1,6 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-/* stylelint-disable */
-%button-focus {
-  outline: none;
-  box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
-}
-/* stylelint-enable */
-
 .button,
 .#{$prefix}-button {
   background-color: $color-blue--600;
@@ -33,7 +26,8 @@
 
   &:focus,
   &--focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
   }
 
   &:hover,
@@ -65,7 +59,8 @@
 
   &:focus,
   &-focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
   }
 
   &:hover,
@@ -89,7 +84,8 @@
 
   &:focus,
   &-focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-green--500;
   }
 
   &:hover,
@@ -114,7 +110,8 @@
 
   &:focus,
   &-focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-green--500;
   }
 
   &:hover,
@@ -139,7 +136,8 @@
 
   &:focus,
   &-focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-orange--500;
   }
 
   &:hover,
@@ -164,7 +162,8 @@
 
   &:focus,
   &-focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-orange--500;
   }
 
   &:hover,
@@ -189,21 +188,6 @@
   vertical-align: bottom;
   padding-right: $xs;
   padding-left: $xs;
-
-  &-focus {
-    @extend %button-focus;
-  }
-
-  &-hover {
-    background-color: $color-blue--700;
-    border-color: $color-blue--700;
-    color: $color-white;
-  }
-
-  &-active,
-  &:active {
-    border-color: $color-blue--800;
-  }
 }
 
 .button--plain,
@@ -215,7 +199,8 @@
   &:focus,
   &-focus,
   &--focus {
-    @extend %button-focus;
+    outline: none;
+    box-shadow: 0 0 0 $xxs/2 $color-white, 0 0 0 $xxs $color-blue--600;
   }
 
   &:hover,

@@ -57,17 +57,20 @@ var Dropdown = (function() {
 
     var toggle = document.querySelector(toggleSelector);
 
+    // Return if the dropdown doesn't exist
+    if (!toggle) {
+      return
+    }
+
     // Return if disabled dropdown is being opened programmatically
     if (toggle.hasAttribute('disabled')) {
       return;
     }
 
     // If the menu was opened by clicking an associated toggle
-    if (toggle && toggle !== null) {
-      toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-expanded', 'true');
 
-      activeToggle = toggle;
-    }
+    activeToggle = toggle;
 
     // Get the menu to be opened by id
     var menu = document.getElementById(id);
@@ -102,14 +105,17 @@ var Dropdown = (function() {
 
     var toggle = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
+    // Return if the dropdown doesn't exist
+    if (!toggle) {
+      return
+    }
+
     // Return if disabled dropdown is being closed programmatically
     if (toggle.hasAttribute('disabled')) {
       return;
     }
 
-    if (toggle && toggle !== undefined) {
-      toggle.setAttribute('aria-expanded', 'false');
-    }
+    toggle.setAttribute('aria-expanded', 'false');
 
     var menu = document.getElementById(id);
 
@@ -180,6 +186,11 @@ var Dropdown = (function() {
 
     var toggleButton = document.querySelector('[' + TOGGLE_ATTR + '="' + id + '"]');
 
+    // Return if the dropdown doesn't exist
+    if (!toggleButton) {
+      return
+    }
+
     // Check the state of the dropdown toggle button
     var isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
 
@@ -232,7 +243,7 @@ var Dropdown = (function() {
     var menu = event.target.closest('#' + activeMenu);
 
     // Use this boolean on the event object in place of stopPropagation()
-    if (menu && menu !== null) {
+    if (menu) {
       event.clickedWithinMenu = true;
     }
 
@@ -272,7 +283,7 @@ var Dropdown = (function() {
         /**
          * If you were focused on the dropdown toggle
          */
-        if (toggle && toggle !== null) {
+        if (toggle) {
           var dropdownId = toggle.getAttribute(TOGGLE_ATTR);
 
           var menu = document.getElementById(dropdownId);
@@ -358,7 +369,7 @@ var Dropdown = (function() {
           closeMenu(activeMenu);
         }
 
-        if (activeToggle && activeToggle !== null) {
+        if (activeToggle) {
           activeToggle.focus();
         }
 

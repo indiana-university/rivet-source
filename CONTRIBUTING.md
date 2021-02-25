@@ -5,8 +5,7 @@ Information about how to contribute to Rivet can be found on the [Rivet wiki](ht
 The information on the Rivet wiki is intended for people who want to contribute to Rivet by: 
 
 * [Filing bug reports](https://github.com/indiana-university/rivet-source/wiki/Bug-reports)
-* [Requesting new features](https://github.com/indiana-university/rivet-source/wiki/Feature-requests)
-* [Creating add-ons](https://github.com/indiana-university/rivet-source/wiki/Add-ons)
+* [Requesting new features or enhancements](https://github.com/indiana-university/rivet-source/wiki/Feature-requests)
 * [Opening pull requests](https://github.com/indiana-university/rivet-source/wiki/Pull-requests)
 
 ## Outside contributions
