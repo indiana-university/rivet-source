@@ -9,31 +9,29 @@
   const headerElement = document.querySelector('header');
 
   // Convert to Array first so we can use forEach safely
+  
+  const disclosureElements = Array.prototype.slice.call(
+    headerElement.querySelectorAll('[data-disclosure]')
+  );
+  
   const dropdownElements = Array.prototype.slice.call(
     headerElement.querySelectorAll('[data-dropdown]')
   );
 
-  // If there are dropdowns on the page instantiate them
-  if (dropdownElements) {
-    // We need to initiate these without up/down key handlers for a11y reasons.
-    const restrictedList = [
-      'menu',
-      'search',
-      'local-header-menu'
-    ];
+  // If there are disclosures or dropdowns on the page instantiate them
 
-    dropdownElements.forEach(function(subnav) {
-      if (restrictedList.indexOf(subnav.dataset.dropdown) !== -1) {
-        /**
-         * Second argument of 'false' here disables up and down arrow key
-         * handling for dropdowns. Sometimes we just need the show/hide
-         * and escape key functionality, but not the full on dropdown/menu
-         * capabilities for a11y reasons.
-         */
-        new Rivet.Dropdown(subnav, false);
-      } else {
-        new Rivet.Dropdown(subnav);
-      }
+  if (disclosureElements) {
+    disclosureElements.forEach(function(disclosure) {
+      console.log('Creating Disclosure element');
+      new Rivet.Disclosure(disclosure);
     });
   }
+
+  if (dropdownElements) {
+    dropdownElements.forEach(function(dropdown) {
+      console.log('Creating Dropdown element');
+      new Rivet.Dropdown(dropdown);
+    });
+  }
+
 </script>
