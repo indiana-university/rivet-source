@@ -43,11 +43,11 @@
 
   &__search,
   &__id-menu {
-    left: -3rem;
+    left: -3 * $spacing-sm;
     margin: 0 $spacing-md;
     position: absolute;
     // Magic number here to get the menus to line up with bottom of global header
-    top: 3rem;
+    top: 3 * $spacing-sm;
     background-color: $color-black-000;
     border-top: 1px solid $color-black-100;
     padding: $spacing-sm $spacing-md;
@@ -63,13 +63,12 @@
     // Give the toggle buttons some space on mobile. Makes lockup body text wrap
     width: calc(100% - 5rem);
     flex-shrink: 1;
-    min-width: fit-content;
   }
 }
 
 @include mq($breakpoint-md) {
   .#{$prefix}-header-global__search {
-    top: 3.65rem;
+    top: 3.65 * $spacing-sm;
   }
 }
 
@@ -85,8 +84,8 @@
 
     &__search {
       margin-right: 0;
-      top: 3.75rem;
-      width: 20rem;
+      top: 3.75 * $spacing-sm;
+      width: $width-lg;
       right: $spacing-xxs;
       left: unset;
       background-color: $color-white-base;

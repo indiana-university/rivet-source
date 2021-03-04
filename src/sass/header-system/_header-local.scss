@@ -30,7 +30,7 @@
    */
 
   .rvt-header-menu {
-    top: 3.25rem;
+    top: 3.25 * $spacing-sm;
   }
 
   .rvt-global-toggle {
@@ -40,13 +40,14 @@
     color: $color-black-600;
 
     svg {
-      width: .75rem;
-      height: .75rem;
+      width: .75 * $spacing-sm;
+      height: .75 * $spacing-sm;
     }
   }
 
   .rvt-header-menu__item--current::after {
-    bottom: -.85rem;
+    // Magic number to get optical positioning right
+    bottom: -.85 * $spacing-sm;
   }
 }
 
@@ -70,7 +71,8 @@
     }
 
     .rvt-header-menu__submenu {
-      top: 2.4rem;
+      // Magic number to get optical spacing right
+      top: 2.4 * $spacing-sm;
     }
   }
 }
