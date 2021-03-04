@@ -1,10 +1,6 @@
 @use 'core' as *;
 
 /**
- * Need to find a better home for this stuff and/or rename and refactor it.
- */
-
-/**
  * Global header toggle stuff
  * -----------------------------------------------------------------------------
  * This was an attempt to make a generic toggle button (circle design) to use for
@@ -55,23 +51,5 @@
   &[aria-expanded=false] &__open,
   &[aria-expanded=true] &__close {
     display: inline-flex;
-  }
-}
-
-/**
- * Speculative ID menu stuff. This is from an old prototype, but might be
- * salvageable. Not sure if we should approach this separately.
- */
-
-.#{$prefix}-global-toggle--id {
-  background-color: $color-crimson-base;
-  border-color: $color-crimson-base;
-  color: $color-white-base;
-  overflow: hidden;
-  border: none;
-
-  img {
-    width: $spacing-lg;
-    height: $spacing-lg;
   }
 }

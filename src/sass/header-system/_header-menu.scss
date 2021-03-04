@@ -1,9 +1,32 @@
 @use 'core' as *;
 
 /**
+ * FIXME: Speculative ID menu stuff. This is from an old prototype, but might be
+ * salvageable. Not sure if we should approach this separately.
+ */
+
+.#{$prefix}-global-toggle--id {
+  background-color: $color-crimson-base;
+  border-color: $color-crimson-base;
+  color: $color-white-base;
+  overflow: hidden;
+  border: none;
+
+  img {
+    width: $spacing-lg;
+    height: $spacing-lg;
+  }
+}
+
+/**
  * NOTE: This menu has been refactored/extracted to be reusable for when
  * we want to use it in the "Secondary" header module See this RFC:
  * https://v2.rivet.iu.edu/rfcs/header-system/
+ */
+
+/**
+ * TODO: Make a decision on the use of `hidden` vs. a toggled CSS class
+ * for showing/hiding the header menus.
  */
 
 .#{$prefix}-header-menu {
@@ -164,7 +187,8 @@
 
     &__submenu {
       position: absolute;
-      top: 3.1rem;
+      // Magic number to get optical positioning right
+      top: 3.1 * $spacing-sm;
       right: 0;
       width: $spacing-xxl * 3.5;
       background-color: $color-white-base;
