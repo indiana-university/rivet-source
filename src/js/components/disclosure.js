@@ -13,7 +13,6 @@ import keyCodes from '../utilities/keyCodes';
  */
 
 export default class Disclosure {
-
   constructor(element, options) {
     // more parameters than i'd like but we have to maintain backwards
     // compatibility for v1.x.x. these will be unnecessary in version 2.x.x
@@ -29,17 +28,17 @@ export default class Disclosure {
     };
 
     options = Object.assign(defaults, options);
-    
+
     this.element = element;
-    this.disclosureAttribute = options.disclosureAttribute
-    this.toggleAttribute = options.toggleAttribute
-    this.toggleDataProperty = options.toggleDataProperty
-    this.targetAttribute = options.targetAttribute
-    this.openEventName = options.openEventName
-    this.closeEventName = options.closeEventName
+    this.disclosureAttribute = options.disclosureAttribute;
+    this.toggleAttribute = options.toggleAttribute;
+    this.toggleDataProperty = options.toggleDataProperty;
+    this.targetAttribute = options.targetAttribute;
+    this.openEventName = options.openEventName;
+    this.closeEventName = options.closeEventName;
     this.toggleElement = this.element.querySelector(this.toggleAttribute);
     this.targetElement = this.element.querySelector(this.targetAttribute);
-    
+
     // Keeps track of the currently active disclosure
     this.isOpen = false;
     this.activeToggle = null;
@@ -56,18 +55,21 @@ export default class Disclosure {
   }
 
   open() {
-    
     // Return if disabled disclosure is being opened programmatically
-    
+
     if (this.toggleElement.hasAttribute('disabled')) {
       return;
     }
 
     // Fire a disclosureOpen event
 
-    const openEvent = dispatchCustomEvent(this.openEventName, this.toggleElement, {
-      id: this.toggleElement.dataset[this.toggleDataProperty]
-    });
+    const openEvent = dispatchCustomEvent(
+      this.openEventName,
+      this.toggleElement,
+      {
+        id: this.toggleElement.dataset[this.toggleDataProperty]
+      }
+    );
 
     // Bail if the event was suppressed
 
@@ -79,18 +81,16 @@ export default class Disclosure {
     this.toggleElement.setAttribute('aria-expanded', 'true');
 
     // Remove the 'hidden' attribute to show the element to disclose
-    
+
     this.targetElement.removeAttribute('hidden');
 
     // Set currently active toggle and disclosed element
-    
+
     this.activeToggle = this.toggleElement;
     this.activeDisclosure = this.targetElement;
-  
   }
 
   close() {
-
     /**
      * If there isn't a currently active disclosure, then bail so close() isn't
      * fired multiple times.
@@ -149,11 +149,9 @@ export default class Disclosure {
   }
 
   _handleKeydown(event) {
-
     if (!this._shouldHandleKeydown(event)) return;
 
     switch (event.keyCode) {
-      
       case keyCodes.escape: {
         if (!this.activeToggle) return;
 
@@ -170,8 +168,6 @@ export default class Disclosure {
 
         break;
       }
-
-      
     }
   }
 
@@ -184,5 +180,4 @@ export default class Disclosure {
     document.removeEventListener('click', this._handleClick, false);
     document.removeEventListener('keydown', this._handleKeydown, false);
   }
-
 }
