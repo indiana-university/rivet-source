@@ -1,0 +1,78 @@
+@use 'core' as *;
+
+.rvt-header-local {
+  border-top: 1px solid $color-black-100;
+  background-color: $color-white-base;
+  position: relative;
+  z-index: 1;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: $spacing-sm * .75;
+    padding-bottom: $spacing-sm * .75;
+  }
+
+  &__title {
+    color: $color-black-base;
+    text-decoration: none;
+    font-size: $ts-16;
+    font-weight: $font-weight-bold;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  /**
+   * NOTE: Side-effects on other/external components. I'm not sure the best way
+   * to handle stuff like this? E.g. when stand-alone components need different
+   * styles based on context.
+   */
+
+  .rvt-header-menu {
+    top: 3.25 * $spacing-sm;
+  }
+
+  .rvt-global-toggle {
+    margin-left: auto;
+    background-color: $color-black-100;
+    border: none;
+    color: $color-black-600;
+
+    svg {
+      width: .75 * $spacing-sm;
+      height: .75 * $spacing-sm;
+    }
+  }
+
+  .rvt-header-menu__item--current::after {
+    // Magic number to get optical positioning right
+    bottom: -.85 * $spacing-sm;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .rvt-header-local {
+    &__title {
+      border-right: 1px solid $color-black-200;
+      font-size: $ts-18;
+      padding-right: $spacing-sm;
+      margin-right: $spacing-sm;
+    }
+
+    /**
+   * NOTE: Side-effects on other/external components. I'm not sure the best way
+   * to handle stuff like this? E.g. when stand-alone components need different
+   * styles based on context.
+   */
+
+    .rvt-header-menu {
+      top: 0;
+    }
+
+    .rvt-header-menu__submenu {
+      // Magic number to get optical spacing right
+      top: 2.4 * $spacing-sm;
+    }
+  }
+}

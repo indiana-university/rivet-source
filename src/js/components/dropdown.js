@@ -3,88 +3,28 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import dispatchCustomEvent from '../utilities/dispatchCustomEvent';
 import { nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
+import Disclosure from './disclosure';
 
-export default class Dropdown {
+/**
+ * The Dropdown class is a descendant of the Disclosure class with additional
+ * functionality needed to model a dropdown menu of options/links navigable
+ * using the arrow and tab keys.
+ */
+
+export default class Dropdown extends Disclosure {
   constructor(element) {
-    this.element = element;
-    this.focusableElements =
-      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
-
-    this.dropdownAttribute = '[data-dropdown]';
-
-    this.toggleAttribute = '[data-dropdown-toggle]';
-    this.toggleElement = this.element.querySelector(this.toggleAttribute);
-
-    this.menuAttribute = '[data-dropdown-menu]';
-    this.menuElement = this.element.querySelector(this.menuAttribute);
-
-    // Keeps track of the currently active dropdown
-    this.isOpen = false;
-    this.activeToggle = null;
-    this.activeMenu = null;
-
-    // Bind methods
-    this._handleClick = this._handleClick.bind(this);
-    this._handleKeydown = this._handleKeydown.bind(this);
-
-    // Make sure icons don't receive focus
-    this.element.querySelector('svg').setAttribute('focusable', 'false');
-
-    this.init();
-  }
-
-  open() {
-    // Return if disabled dropdown is being opened programmatically
-    if (this.toggleElement.hasAttribute('disabled')) {
-      return;
-    }
-
-    const openEvent = dispatchCustomEvent('dropdownOpen', this.toggleElement, {
-      id: this.toggleElement.dataset.dropdownToggle
+    super(element, {
+      disclosureAttribute: '[data-dropdown]',
+      toggleAttribute: '[data-dropdown-toggle]',
+      toggleDataProperty: 'dropdownToggle',
+      targetAttribute: '[data-dropdown-menu]',
+      openEventName: 'dropdownOpen',
+      closeEventNane: 'dropdownClose'
     });
 
-    if (!openEvent) return;
-
-    this.isOpen = true;
-
-    this.toggleElement.setAttribute('aria-expanded', 'true');
-
-    // Remove the 'hidden' attribute to show the menu
-    this.menuElement.removeAttribute('hidden');
-
-    // Set currently active toggle and menu
-    this.activeToggle = this.toggleElement;
-    this.activeMenu = this.menuElement;
-  }
-
-  close() {
-    /**
-     * If there isn't a currently active dropdown, then bail so close() isn't
-     * fired multiple times.
-     */
-    if (!this.activeToggle) return;
-
-    const closeEvent = dispatchCustomEvent(
-      'dropdownClose',
-      this.toggleElement,
-      {
-        id: this.toggleElement.dataset.dropdownToggle
-      }
-    );
-
-    if (!closeEvent) return;
-
-    this.isOpen = false;
-
-    this.activeToggle.setAttribute('aria-expanded', 'false');
-    this.activeMenu.setAttribute('hidden', '');
-
-    // Resets the state variables
-    this.activeToggle = null;
-    this.activeMenu = null;
+    this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
   }
 
   /**
@@ -112,38 +52,14 @@ export default class Dropdown {
     return menuObject;
   }
 
-  _handleClick(event) {
-    const toggle = event.target.closest(this.toggleAttribute);
-
-    // Did it come from inside open menu?
-    if (this.menuElement.contains(event.target)) return;
-
-    // If it came from outside component, close all open dropdowns
-    if (!toggle && this.activeToggle !== null) {
-      this.close();
-      return;
-    }
-
-    // Check which toggle the click came from, and whether it's already opened
-    if (toggle !== this.toggleElement || this.isOpen) {
-      this.close();
-    } else {
-      this.open();
-    }
-  }
-
   _handleKeydown(event) {
-    // If the keydown didn't come from within dropdown component, then bail.
-    if (!this.element.contains(event.target)) return;
 
-    // Delegate event to only this instance of the dropdown
-    const dropdown = event.target.closest(this.dropdownAttribute);
-    if (dropdown !== this.element) return;
+    super._handleKeydown(event);
+
+    if (!this._shouldHandleKeydown(event)) return;
 
     switch (event.keyCode) {
       case keyCodes.down: {
-        event.preventDefault();
-
         /**
          * Open the menu if it hasn't been opened yet.
          * Move the focus to the first item if the menu has been opened.
@@ -151,7 +67,7 @@ export default class Dropdown {
         if (!this.isOpen) {
           this.open();
         } else {
-          const currentMenu = this._setUpMenu(this.menuElement);
+          const currentMenu = this._setUpMenu(this.targetElement);
           currentMenu.first.focus();
         }
 
@@ -159,12 +75,12 @@ export default class Dropdown {
          * Handle down arrow key when inside the open menu.
          * If the event didn't come from within the menu, then bail.
          */
-        if (!this.menuElement.contains(event.target)) break;
+        if (!this.targetElement.contains(event.target)) break;
 
         /**
          * This keeps track of which button/focusable is focused in the open menu
          */
-        const currentMenu = this._setUpMenu(this.menuElement);
+        const currentMenu = this._setUpMenu(this.targetElement);
         let currentIndex;
 
         for (let i = 0; i < currentMenu.all.length; i++) {
@@ -193,12 +109,12 @@ export default class Dropdown {
          * Handle up arrow key when inside the open menu.
          * If the event didn't come from within the menu, then bail.
          */
-        if (!this.menuElement.contains(event.target)) break;
+        if (!this.targetElement.contains(event.target)) break;
 
         /**
          * This keeps track of which button/focusable is focused in the open menu
          */
-        const currentMenu = this._setUpMenu(this.menuElement);
+        const currentMenu = this._setUpMenu(this.targetElement);
         let currentIndex;
 
         for (let i = 0; i < currentMenu.all.length; i++) {
@@ -220,30 +136,13 @@ export default class Dropdown {
         break;
       }
 
-      case keyCodes.escape: {
-        if (!this.activeToggle) return;
-
-        // If there's an open menu, close it.
-        this.close();
-
-        this.toggleElement.focus();
-
-        /**
-         * Resets the state variables so as not to interfere with other
-         * Escape key handlers/interactions
-         */
-        this.activeToggle = null;
-
-        break;
-      }
-
       case keyCodes.tab: {
         /**
          * Handle tab key when inside the open menu.
          */
-        if (!this.menuElement.contains(event.target)) break;
+        if (!this.targetElement.contains(event.target)) break;
 
-        const currentMenu = this._setUpMenu(this.menuElement);
+        const currentMenu = this._setUpMenu(this.targetElement);
 
         // Close the dropdown when the user tabs out of the menu.
         if (document.activeElement == currentMenu.last && !event.shiftKey) {
@@ -255,15 +154,5 @@ export default class Dropdown {
         break;
       }
     }
-  }
-
-  init() {
-    document.addEventListener('click', this._handleClick, false);
-    document.addEventListener('keydown', this._handleKeydown, false);
-  }
-
-  destroy() {
-    document.removeEventListener('click', this._handleClick, false);
-    document.removeEventListener('keydown', this._handleKeydown, false);
   }
 }

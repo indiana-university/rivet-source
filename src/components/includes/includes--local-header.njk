@@ -1,0 +1,77 @@
+{%- set sectionNavItems = [
+  {
+    title: "Section Item One"
+  },
+  {
+    title: "Section Item Two",
+    subnavs: [
+      { title: "Sub Item One" },
+      { title: "Sub Item Two" },
+      { title: "Sub Item Three" }
+    ]
+  },
+  {
+    title: "Section Item Three"
+  },
+  {
+    title: "Section Item Four",
+     subnavs: [
+      { title: "Sub Item One" },
+      { title: "Sub Item Two" },
+      { title: "Sub Item Three" }
+    ]
+  },
+  {
+    title: "Section Item Five"
+  }
+] -%}
+
+<!-- Start local header element -->
+<div class="rvt-header-local">
+  <div class="rvt-container-xl">  
+    <div class="rvt-header-local__inner" data-disclosure="local-header-menu">
+      <a href="#" class="rvt-header-local__title">Component Library</a>
+      
+      <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-disclosure-toggle="local-header-menu">
+        <span class="rvt-sr-only">Toggle local menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+        </svg>
+      </button>
+      
+      <nav aria-label="Section" class="rvt-header-menu" data-disclosure-target="local-header-menu" hidden>
+        <ul class="rvt-header-menu__list">
+          {% for sectionNav in sectionNavItems %}
+          <li class="rvt-header-menu__item{% if sectionNav.current %} rvt-header-menu__item--current{% endif %}">
+            {% if sectionNav.subnavs %}
+            <div class="rvt-header-menu__dropdown rvt-dropdown" data-dropdown="secondary-nav-{{ loop.index }}">
+              <div class="rvt-header-menu__group">
+                <a class="rvt-header-menu__link" href="#" {% if sectionNav.current %} aria-current="page"{% endif %}>{{ sectionNav.title }}</a>
+                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-dropdown-toggle="secondary-nav-{{ loop.index }}">
+                  <span class="rvt-sr-only">Toggle Sub-navigation</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">
+                    <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-dropdown-menu="secondary-nav-{{ loop.index }}" hidden>
+                <ul class="rvt-header-menu__submenu-list">
+                  {% for subnav in sectionNav.subnavs %}
+                  <li class="rvt-header-menu__submenu-item">
+                    <a class="rvt-header-menu__submenu-link" href="#">{{ subnav.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% else %}
+            <a class="rvt-header-menu__link" href="#">{{ sectionNav.title }}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      
+    </div>
+  </div>
+</div><!-- end local header element -->
