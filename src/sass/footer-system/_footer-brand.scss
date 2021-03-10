@@ -1,0 +1,72 @@
+// Brand section (copyright)
+
+@use 'core' as *;
+
+.#{$prefix}-c-footer-brand {
+  background-color: $color-crimson-base;
+  color: $color-white-base;
+  padding-top: $spacing-sm;
+  padding-bottom: $spacing-md;
+  
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+  }
+  
+  &__logo {
+    margin: 0 auto;
+  }
+  
+  &__list {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  &__item {
+    font-size: $ts-14;
+    margin-top: $spacing-xs;
+  }
+  
+  &__link {
+    color: $color-white-base;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+      color: $color-white-base;
+    }
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-c-footer-brand {
+    &__inner {
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      flex-direction: row;
+      align-items: center;
+      margin-right: 0;
+      justify-content: flex-end;
+      padding-top: $spacing-sm;
+    }
+    
+    &__logo {
+      margin: 0;
+    }
+    
+    &__list {
+      margin-top: 0;
+      margin-left: $spacing-sm;
+      display: flex;
+    }
+    
+    &__item {
+      margin-top: 0;
+    }
+    
+    &__item:not(:first-child) {
+      margin-left: $spacing-sm;
+    }
+  }
+}
