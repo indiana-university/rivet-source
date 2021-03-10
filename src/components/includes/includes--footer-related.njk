@@ -1,0 +1,67 @@
+{%- set buttons = [
+  {
+    title: "Contact us",
+    url: "/about/contact.html"
+  },
+  {
+    title: "Give now",
+    url: "https://www.myiu.org/give-now?utm_source=iu-edu&amp;utm_medium=referral&amp;utm_campaign=gateways&amp;utm_content=give-now-footer"
+  }
+] -%}
+{%- set categories = [
+  {
+    title: "Services",
+    links: [
+      {
+        title: "Canvas",
+        link: "https://canvas.iu.edu"
+      },
+      {
+        title: "One.IU",
+        link: "https://one.iu.edu"
+      }
+    ]
+  },
+  {
+    title: "Email",
+    links: [
+      {
+        title: "Outlook Web Access",
+        link: "https://uits.iu.edu/exchange"
+      },
+      {
+        title: "Gmail at IU",
+        link: "https://google.iu.edu"
+      }
+    ]
+  }
+] -%}
+<div aria-labelledby="resources-heading" class="rvt-c-footer-related" role="complementary">
+  <h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2>
+  <div class="rvt-container-xl">
+    <div class="rvt-row">
+      <div class="rvt-cols-2-md">
+        <h3 class="rvt-c-footer-related__heading">Indiana University</h3>
+        <ul class="rvt-plain-list">
+          {% for button in buttons %}
+            <li>
+              <a class="rvt-c-footer-related__button rvt-button" href="{{ button.url }}">{{ button.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% for category in categories %}
+        <div class="rvt-cols-2-md">
+          <h3 class="rvt-c-footer-related__heading">{{ category.title }}</h3>
+          <ul class="rvt-plain-list">
+            {% for link in category.links %}
+              <li>
+                <a class="rvt-c-footer-related__link" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
