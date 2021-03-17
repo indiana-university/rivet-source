@@ -39,4 +39,16 @@ export default class Component {
     return element.dispatchEvent(event);
   }
 
+  static dispatchComponentAddedEvent(element) {
+    return this.dispatchCustomEvent('componentAdded', element, {
+      component: element
+    });
+  }
+
+  static dispatchComponentRemovedEvent(element) {
+    return this.dispatchCustomEvent('componentRemoved', element, {
+      component: element
+    });
+  }
+
 }
