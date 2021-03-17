@@ -1,14 +1,13 @@
 import globalSettings from '../globalSettings';
-import wickedElements from 'wicked-elements';
+import { define } from 'wicked-elements';
 
 export default class Component {
-
   static initAll() {
     this.init(this.selector);
   }
 
   static init(selector) {
-    wickedElements.define(selector, this.methods);
+    define(selector, this.methods);
 
     return document.querySelector(selector);
   }
@@ -35,7 +34,7 @@ export default class Component {
       cancelable: true,
       detail
     });
-  
+
     return element.dispatchEvent(event);
   }
 
@@ -50,5 +49,4 @@ export default class Component {
       component: element
     });
   }
-
 }
