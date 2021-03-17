@@ -1,4 +1,5 @@
 import { define } from 'wicked-elements';
+import { globalSettings } from '../globalSettings';
 
 export default class Component {
 
@@ -18,6 +19,17 @@ export default class Component {
 
   static get methods() {
     /* Virtual, must be implemented by subclass. */
+  }
+
+  static dispatchCustomEvent(eventName, element, detail) {
+    const prefix = globalSettings.prefix;
+    const event = new CustomEvent(`${prefix}:${eventName}`, {
+      bubbles: true,
+      cancelable: true,
+      detail
+    });
+  
+    return element.dispatchEvent(event);
   }
 
 }
