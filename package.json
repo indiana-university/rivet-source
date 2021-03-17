@@ -78,8 +78,9 @@
     "stylelint": "^13.2.1",
     "stylelint-config-rivet": "^1.0.0",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.14.2",
-    "wicked-elements": "^3.1.1"
+    "stylelint-scss": "^3.14.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "wicked-elements": "^3.1.1"
+  }
 }
