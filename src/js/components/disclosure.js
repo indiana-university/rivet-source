@@ -49,7 +49,10 @@ export default class Disclosure {
     this._handleKeydown = this._handleKeydown.bind(this);
 
     // Make sure icons don't receive focus
-    this.element.querySelector('svg').setAttribute('focusable', 'false');
+    const icon = this.element.querySelector('svg');
+    if (icon) {
+      icon.setAttribute('focusable', 'false');
+    }
 
     this.init();
   }
