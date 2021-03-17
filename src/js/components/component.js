@@ -1,5 +1,5 @@
-import { define } from 'wicked-elements';
-import { globalSettings } from '../globalSettings';
+import globalSettings from '../globalSettings';
+import wickedElements from 'wicked-elements';
 
 export default class Component {
 
@@ -8,7 +8,7 @@ export default class Component {
   }
 
   static init(selector) {
-    define(selector, this.methods);
+    wickedElements.define(selector, this.methods);
 
     return document.querySelector(selector);
   }

@@ -1,5 +1,6 @@
 const { dest, series, src, watch } = require('gulp');
 const { eslint } = require('rollup-plugin-eslint');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const autoprefixer = require('autoprefixer');
 const babel = require('rollup-plugin-babel');
 const cssnano = require('gulp-cssnano');
@@ -203,6 +204,7 @@ async function compileIIFE() {
       name: 'Rivet'
     });
   } catch (error) {
+    console.error(error);
     throw new Error('Error: this is probably a linting issue.');
   }
 }
