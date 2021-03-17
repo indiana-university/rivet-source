@@ -21,6 +21,13 @@ export default class Component {
     /* Virtual, must be implemented by subclass. */
   }
 
+  static bindMethodToDOMElement(element, name, method) {
+    Object.defineProperty(element, name, {
+      value: method.bind(element),
+      writable: false
+    });
+  }
+
   static dispatchCustomEvent(eventName, element, detail) {
     const prefix = globalSettings.prefix;
     const event = new CustomEvent(`${prefix}:${eventName}`, {
