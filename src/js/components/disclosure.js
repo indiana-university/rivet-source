@@ -26,18 +26,21 @@ export default class Disclosure extends Component {
         Component.bindMethodToDOMElement(this.element, 'close', this.close);
 
         this._handleClick = this._handleClick.bind(this);
+        this._handleKeydown = this._handleKeydown.bind(this);
       },
 
       connected() {
         console.log('Disclosure::connected');
         
         document.addEventListener('click', this._handleClick, false);
+        document.addEventListener('keydown', this._handleKeydown, false);
       },
 
       disconnected() {
         console.log('Disclosure::disconnected');
 
         document.removeEventListener('click', this._handleClick, false);
+        document.removeEventListener('keydown', this._handleKeydown, false);
       },
 
       open() {
@@ -119,6 +122,40 @@ export default class Disclosure extends Component {
           this.close();
         } else {
           this.open();
+        }
+      },
+
+      _shouldHandleKeydown(event) {
+        // If the keydown didn't come from within disclosure component, then bail.
+        if (!this.element.contains(event.target)) return false;
+    
+        // Delegate event to only this instance of the disclosure
+        const disclosure = event.target.closest('[data-disclosure]');
+        if (disclosure !== this.element) return false;
+    
+        return true;
+      },
+    
+      _handleKeydown(event) {
+        if (!this._shouldHandleKeydown(event)) return;
+    
+        switch (event.keyCode) {
+          case keyCodes.escape: {
+            if (!this.activeToggle) return;
+    
+            // If there's an open disclosure, close it.
+            this.close();
+    
+            this.toggleElement.focus();
+    
+            /**
+             * Resets the state variables so as not to interfere with other
+             * Escape key handlers/interactions
+             */
+            this.activeToggle = null;
+    
+            break;
+          }
         }
       }
     };
