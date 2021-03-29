@@ -6,14 +6,11 @@
     <link media="all" rel="stylesheet" href="{{ '/css/rivet.css' | path }}">
     <title>Preview Layout</title>
     <script src="{{ '/js/rivet-iife.js' | path }}"></script>
+    <script src="{{ '/js/rivet-init.js' | path }}"></script>
 </head>
 <body>
     <div class="display-wrapper">
         {{ yield | safe }}
     </div>
-    <script>
-        Rivet.Alert.initAll();
-        Rivet.Disclosure.initAll();
-    </script>
 </body>
 </html>
