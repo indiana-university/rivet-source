@@ -3,7 +3,3 @@
     <p class="rvt-alert__message">{{ message }}</p>
     {% render "@includes--alert-close-button" %}
 </div>
-<script>
-  let close{{ type }}Element = document.querySelector('[data-alert="{{ type }}"]');
-  window.new{{ type }}Alert = new Rivet.Alert(close{{ type }}Element);
-</script>
