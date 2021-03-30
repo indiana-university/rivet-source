@@ -7,6 +7,9 @@
   hidden
   aria-labelledby="{{ modalTitleId }}"
   data-modal="{{ id }}"
+  {% if dialog %}
+    data-modal-dialog
+  {% endif %}
   {% for attribute in attributes %}
     {{ attribute.label }}="{{ attribute.value }}"
   {% endfor %}>
@@ -38,15 +41,3 @@
     {% endif %}
   </div>
 </div>
-
-{% if dialog %}
-<script>
-    let modal{{ id }}Element = document.querySelector('[data-modal="{{ id }}"]');
-    window.new{{ id }}Modal = new Rivet.Modal(modal{{ id }}Element, { dialog: true });
-</script>
-{% else %}
-<script>
-    let modal{{ id }}Element = document.querySelector('[data-modal="{{ id }}"]');
-    window.new{{ id }}Modal = new Rivet.Modal(modal{{ id }}Element);
-</script>
-{% endif %}
