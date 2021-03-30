@@ -45,18 +45,3 @@
   {% endif %}
   </div>
 </div>
-
-<script>
-  const dropdownWrapper{{ id }} = document.querySelector('[data-dropdown="{{ id }}"]');
-  window.new{{ id }} = new Rivet.Dropdown(dropdownWrapper{{ id }});
-
-  dropdownWrapper{{ id }}.querySelector('button').addEventListener('rvt:dropdownOpen', function(event) {
-    // event.preventDefault();
-    // console.log('Opened:', event.detail.id);
-  });
-
-  dropdownWrapper{{ id }}.querySelector('button').addEventListener('rvt:dropdownClose', function(event) {
-    // event.preventDefault();
-    // console.log('Closed:', event.detail.id);
-  });
-</script>
