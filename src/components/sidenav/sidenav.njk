@@ -129,15 +129,3 @@
     </li>
   </ul>
 </nav>
-
-<script>
-  const sidenavElement = document.querySelector('[data-sidenav]');
-  const newSidenav = new Rivet.Sidenav(sidenavElement, {
-    openAllOnInit: false
-  });
-  
-  document.addEventListener('rvt:sidenavListOpen', function(event) {
-    // event.preventDefault();
-    console.log(event.detail.id);
-  });
-</script>
