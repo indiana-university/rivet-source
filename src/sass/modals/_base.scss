@@ -122,7 +122,7 @@
     }
   }
 
-  .#{$prefix}-button[data-modal-close] > * {
+  .#{$prefix}-button[data-rvt-modal-close] > * {
     pointer-events: none;
   }
 

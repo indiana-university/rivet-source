@@ -9,7 +9,7 @@ import keyCodes from '../utilities/keyCodes';
 
 export default class Modal extends Component {
   static get selector() {
-    return '[data-modal]';
+    return '[data-rvt-modal]';
   }
 
   static get methods() {
@@ -17,19 +17,19 @@ export default class Modal extends Component {
       init() {
         console.log('Modal::init()');
 
-        this.openOnInit = this.element.hasAttribute('data-modal-open');
-        this.dialog = this.element.hasAttribute('data-modal-dialog');
-        this.modalAttribute = 'data-modal';
+        this.openOnInit = this.element.hasAttribute('data-rvt-modal-open');
+        this.dialog = this.element.hasAttribute('data-rvt-modal-dialog');
+        this.modalAttribute = 'data-rvt-modal';
         this.modalSelector = `[${this.modalAttribute}]`;
-        this.modalDataValue = this.element.getAttribute('data-modal');
-        this.innerModalAttribute = 'data-modal-inner';
+        this.modalDataValue = this.element.getAttribute('data-rvt-modal');
+        this.innerModalAttribute = 'data-rvt-modal-inner';
         this.innerModalSelector = `[${this.innerModalAttribute}]`;
-        this.openAttribute = 'data-modal-trigger';
+        this.openAttribute = 'data-rvt-modal-trigger';
         this.openSelector = `[${this.openAttribute}]`;
         this.openButton = document.querySelector(
           `[${this.openAttribute}="${this.modalDataValue}"]`
         );
-        this.closeAttribute = 'data-modal-close';
+        this.closeAttribute = 'data-rvt-modal-close';
         this.closeSelector = `[${this.closeAttribute}]`;
 
         // Anything that is focus-able
@@ -93,7 +93,7 @@ export default class Modal extends Component {
         switch (trigger != null) {
           // If the trigger has an open attribute
           case trigger.hasAttribute(this.openAttribute): {
-            // Check that the data-modal-trigger value matches the instance's data-modal value
+            // Check that the data-rvt-modal-trigger value matches the instance's data-rvt-modal value
             if (trigger.getAttribute(this.openAttribute) !== this.modalDataValue) {
               // If it doesn't match
               this.close();
@@ -111,7 +111,7 @@ export default class Modal extends Component {
           case trigger.hasAttribute(this.closeAttribute): {
             event.preventDefault();
     
-            // Check that the data-modal-close value matches the instance's data-modal value
+            // Check that the data-rvt-modal-close value matches the instance's data-rvt-modal value
             if (trigger.getAttribute(this.closeAttribute) !== this.modalDataValue)
               return;
             this.close();
@@ -125,7 +125,7 @@ export default class Modal extends Component {
             // Check that the trigger is not a dialog because the user needs to make a choice to proceed
             if (this.dialog) return;
     
-            // Check that the trigger content data-modal value matches the instance's data-modal value
+            // Check that the trigger content data-rvt-modal value matches the instance's data-rvt-modal value
             if (
               triggerContent.getAttribute(this.modalAttribute) !==
               this.modalDataValue
@@ -207,7 +207,7 @@ export default class Modal extends Component {
       open() {
         // Trigger modalOpen custom event. This event is used to control the process of closing other open modals.
         const openEvent = Component.dispatchCustomEvent('modalOpen', this.element, {
-          id: this.element.dataset.modal
+          id: this.element.dataset.rvtModal
         });
     
         if (!openEvent) return;
@@ -219,7 +219,7 @@ export default class Modal extends Component {
       close() {
         // Trigger modalClose custom event.
         const closeEvent = Component.dispatchCustomEvent('modalClose', this.element, {
-          id: this.element.dataset.modal
+          id: this.element.dataset.rvtModal
         });
     
         if (!closeEvent) return;
