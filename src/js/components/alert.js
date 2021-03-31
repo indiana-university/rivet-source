@@ -6,7 +6,7 @@ import Component from './component';
 
 export default class Alert extends Component {
   static get selector() {
-    return '[data-alert]';
+    return '[data-rvt-alert]';
   }
 
   static get methods() {
@@ -14,7 +14,7 @@ export default class Alert extends Component {
       init() {
         console.log('Alert::init()');
 
-        this.closeAttribute = 'data-alert-close';
+        this.closeAttribute = 'data-rvt-alert-close';
         this.closeSelector = `[${this.closeAttribute}]`;
         this.closeButton = null;
 
@@ -45,7 +45,7 @@ export default class Alert extends Component {
           'alertDismiss',
           this.element,
           {
-            id: this.element.dataset.alert
+            id: this.element.dataset.rvtAlert
           }
         );
     
