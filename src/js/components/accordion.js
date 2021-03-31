@@ -47,7 +47,7 @@ export default class Accordion extends Component {
     
           let initialPanel;
     
-          // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
+          // Determine if a specific panel has been initialized with the data-rvt-tab-init attribute, otherwise, use the first tab
           this.panels.forEach((panel, index) => {
             if (panel.hasAttribute('data-rvt-accordion-panel-init')) {
               initialPanel = panel;

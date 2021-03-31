@@ -8,7 +8,7 @@ import keyCodes from '../utilities/keyCodes';
 
 export default class Tabs extends Component {
   static get selector() {
-    return '[data-tabset]';
+    return '[data-rvt-tabs]';
   }
 
   static get methods() {
@@ -17,21 +17,21 @@ export default class Tabs extends Component {
         console.log('Tabs::init()');
         
         this.tablist = this.element.querySelector('[role="tablist"]');
-        this.tabAttribute = 'data-tab';
+        this.tabAttribute = 'data-rvt-tab';
         this.tabSelector = `[${this.tabAttribute}]`;
         this.tabs = nodeListToArray(
           this.element.querySelectorAll(this.tabSelector)
         );
-        this.panelAttribute = 'data-tab-panel';
+        this.panelAttribute = 'data-rvt-tab-panel';
         this.panelSelector = `[${this.panelAttribute}]`;
         this.panels = nodeListToArray(
           this.element.querySelectorAll(this.panelSelector)
         );
 
-        // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
+        // Determine if a specific panel has been initialized with the data-rvt-tab-init attribute, otherwise, use the first tab
         let initialPanel;
         this.panels.forEach((panel, index) => {
-          if (panel.hasAttribute('data-tab-init')) {
+          if (panel.hasAttribute('data-rvt-tab-init')) {
             initialPanel = panel;
           } else {
             this.tabs[index].setAttribute('tabindex', '-1');
@@ -65,7 +65,7 @@ export default class Tabs extends Component {
         // If not a tab, ignore
         if (!currentTab) return;
     
-        // Get the data-tab value
+        // Get the data-rvt-tab value
         const currentTabValue = currentTab.getAttribute(this.tabAttribute);
     
         // Get the associated panel
@@ -134,18 +134,18 @@ export default class Tabs extends Component {
           'tabActivated',
           tab, 
           {
-            id: tab.dataset.tabPanel
+            id: tab.dataset.rvtTabPanel
           }
         );
     
         if (!activationEvent) return;
     
         const trigger = this.element.querySelector(
-          `[${this.tabAttribute}="${tab.dataset.tabPanel}"]`
+          `[${this.tabAttribute}="${tab.dataset.rvtTabPanel}"]`
         );
     
         this.panels.forEach((panel, index) => {
-          if (panel.getAttribute(this.panelAttribute) !== tab.dataset.tabPanel) {
+          if (panel.getAttribute(this.panelAttribute) !== tab.dataset.rvtTabPanel) {
             // Deactivate the appropriate tab/panel pair
             panel.setAttribute('hidden', '');
             this.tabs[index].setAttribute('aria-selected', 'false');
