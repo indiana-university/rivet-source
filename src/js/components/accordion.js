@@ -76,17 +76,18 @@ export default class Accordion extends Component {
         Component.dispatchComponentAddedEvent(this.element);
 
         this._openOnInit();
-
-        // Add click handlers
-        this.element.addEventListener('click', this._handleClick, false);
-        this.element.addEventListener('keydown', this._handleKeydown, false);
       },
 
       disconnected() {
         Component.dispatchComponentRemovedEvent(this.element);
+      },
 
-        this.element.removeEventListener('click', this._handleClick, false);
-        this.element.removeEventListener('keydown', this._handleKeydown, false);
+      onClick(event) {
+        this._handleClick(event);
+      },
+
+      onKeydown(event) {
+        this._handleKeydown(event);
       },
 
       _openOnInit() {
