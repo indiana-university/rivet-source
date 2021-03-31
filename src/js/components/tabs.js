@@ -49,6 +49,8 @@ export default class Tabs extends Component {
       },
 
       connected() {
+        Component.dispatchComponentAddedEvent(this.element);
+        
         this.activateTab(this.openOnInit);
         
         this.tablist.addEventListener('click', this._handleClick, false);

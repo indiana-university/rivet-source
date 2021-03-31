@@ -73,7 +73,7 @@ export default class Accordion extends Component {
       },
 
       connected() {
-        console.log('Accordion::connected()');
+        Component.dispatchComponentAddedEvent(this.element);
 
         this._openOnInit();
 

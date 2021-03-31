@@ -30,7 +30,7 @@ export default class Disclosure extends Component {
       },
 
       connected() {
-        console.log('Disclosure::connected');
+        Component.dispatchComponentAddedEvent(this.element);
         
         document.addEventListener('click', this._handleClick, false);
         document.addEventListener('keydown', this._handleKeydown, false);

@@ -23,6 +23,10 @@ export default class FileInput extends Component {
         this._handleChange = this._handleChange.bind(this);
       },
 
+      connected() {
+        Component.dispatchComponentAddedEvent(this.element);
+      },
+
       _sanitizeHTML(str) {
         const temp = document.createElement('div');
         temp.textContent = str;

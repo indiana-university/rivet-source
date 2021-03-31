@@ -47,6 +47,8 @@ export default class Modal extends Component {
       },
 
       connected() {
+        Component.dispatchComponentAddedEvent(this.element);
+        
         if (!this.openOnInit) {
           this.element.setAttribute('hidden', '');
         }

@@ -64,6 +64,10 @@ export default class Sidenav extends Component {
         this._handleClick = this._handleClick.bind(this);
       },
 
+      connected() {
+        Component.dispatchComponentAddedEvent(this.element);
+      },
+
       onClick(event) {
         this._handleClick(event);
       },

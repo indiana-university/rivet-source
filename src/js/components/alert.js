@@ -24,7 +24,7 @@ export default class Alert extends Component {
       },
 
       connected() {
-        console.log('Alert::connected()');
+        Component.dispatchComponentAddedEvent(this.element);
 
         this.closeButton = this.element.querySelector(this.closeSelector);
         this.closeButton.addEventListener('click', this._handleClick, false);
