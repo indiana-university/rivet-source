@@ -3,7 +3,7 @@ import keyCodes from '../utilities/keyCodes';
 
 export default class Disclosure extends Component {
   static get selector() {
-    return '[data-disclosure]';
+    return '[data-rvt-disclosure]';
   }
 
   static get methods() {
@@ -11,8 +11,8 @@ export default class Disclosure extends Component {
       init() {
         console.log('Disclosure::init');
 
-        this.toggleElement = this.element.querySelector('[data-disclosure-toggle]');
-        this.targetElement = this.element.querySelector('[data-disclosure-target]');
+        this.toggleElement = this.element.querySelector('[data-rvt-disclosure-toggle]');
+        this.targetElement = this.element.querySelector('[data-rvt-disclosure-target]');
         this.isOpen = false;
         this.activeToggle = null;
         this.activeDisclosure = null;
@@ -106,7 +106,7 @@ export default class Disclosure extends Component {
       },
 
       _handleClick(event) {
-        const toggle = event.target.closest('[data-disclosure-toggle]');
+        const toggle = event.target.closest('[data-rvt-disclosure-toggle]');
 
         // Did it come from inside open disclosure?
         if (this.targetElement.contains(event.target)) return;
@@ -130,7 +130,7 @@ export default class Disclosure extends Component {
         if (!this.element.contains(event.target)) return false;
     
         // Delegate event to only this instance of the disclosure
-        const disclosure = event.target.closest('[data-disclosure]');
+        const disclosure = event.target.closest('[data-rvt-disclosure]');
         if (disclosure !== this.element) return false;
     
         return true;

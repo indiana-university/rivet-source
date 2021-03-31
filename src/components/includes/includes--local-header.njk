@@ -29,17 +29,17 @@
 <!-- Start local header element -->
 <div class="rvt-header-local">
   <div class="rvt-container-xl">  
-    <div class="rvt-header-local__inner" data-disclosure="local-header-menu">
+    <div class="rvt-header-local__inner" data-rvt-disclosure="local-header-menu">
       <a href="#" class="rvt-header-local__title">Component Library</a>
       
-      <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-disclosure-toggle="local-header-menu">
+      <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="local-header-menu">
         <span class="rvt-sr-only">Toggle local menu</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
           <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
         </svg>
       </button>
       
-      <nav aria-label="Section" class="rvt-header-menu" data-disclosure-target="local-header-menu" hidden>
+      <nav aria-label="Section" class="rvt-header-menu" data-rvt-disclosure-target="local-header-menu" hidden>
         <ul class="rvt-header-menu__list">
           {% for sectionNav in sectionNavItems %}
           <li class="rvt-header-menu__item{% if sectionNav.current %} rvt-header-menu__item--current{% endif %}">
