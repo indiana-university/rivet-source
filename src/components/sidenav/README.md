@@ -22,23 +22,23 @@ along the way.
 
 ### Section menu toggling functionality
 
-The primary functionality of the sidenav consists of openable menus, which reveal nested section navigation matching the structure of a section's page hierarchy. In order for the menus to open and close, a toggle button is required, and the values for the attribute `data-sidenav-toggle` on the button and the attribute `data-sidenav-list` on the nested list must match. In this instance, the values are both `toggle-1`.
+The primary functionality of the sidenav consists of openable menus, which reveal nested section navigation matching the structure of a section's page hierarchy. In order for the menus to open and close, a toggle button is required, and the values for the attribute `data-rvt-sidenav-toggle` on the button and the attribute `data-rvt-sidenav-list` on the nested list must match. In this instance, the values are both `toggle-1`.
 
 ```
-<nav class="rvt-sidenav" aria-label="Sidenav" data-sidenav>
+<nav class="rvt-sidenav" aria-label="Sidenav" data-rvt-sidenav>
   <ul class="rvt-sidenav__list">
     <li class="rvt-sidenav__item">
       <a href="#" class="rvt-sidenav__link">Section nav</a>
 
       <!-- Toggle button -->
-      <button class="rvt-sidenav__toggle" data-sidenav-toggle="toggle-1">
+      <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-1">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
           <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
         </svg>
       </button>
 
       <!-- Nested list -->
-      <ul class="rvt-sidenav__list" data-sidenav-list="toggle-1" role="menu">
+      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1" role="menu">
 
         <!-- Nested pages -->
         ...
@@ -57,20 +57,20 @@ The primary functionality of the sidenav consists of openable menus, which revea
 Sections can be nested up to four levels deep.
 
 ```
-<nav class="rvt-sidenav" aria-label="Sidenav" data-sidenav>
+<nav class="rvt-sidenav" aria-label="Sidenav" data-rvt-sidenav>
   <ul class="rvt-sidenav__list">
     <li class="rvt-sidenav__item">
       <a href="#" class="rvt-sidenav__link" aria-current="page">Section nav</a>
 
       <!-- Toggle button for nested level 1 -->
-      <button class="rvt-sidenav__toggle" data-sidenav-toggle="toggle-1">
+      <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-1">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
           <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
         </svg>
       </button>
 
       <!-- Nested list 1 -->
-      <ul class="rvt-sidenav__list" data-sidenav-list="toggle-1" role="menu">
+      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1" role="menu">
         <li class="rvt-sidenav__item">
           <a href="#" class="rvt-sidenav__link">Nested level 1 – page 1</a>
         </li>
@@ -78,14 +78,14 @@ Sections can be nested up to four levels deep.
           <a href="#" class="rvt-sidenav__link">Nested level 1 – page 2</a>
 
           <!-- Toggle button for nested level 2 -->
-          <button class="rvt-sidenav__toggle" data-sidenav-toggle="toggle-2">
+          <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
               <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
             </svg>
           </button>
 
           <!-- Nested list 2 -->
-          <ul class="rvt-sidenav__list" data-sidenav-list="toggle-2" role="menu">
+          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-2" role="menu">
             <li class="rvt-sidenav__item">
               <a href="#" class="rvt-sidenav__link">Nested level 2 – page 1</a>
             </li>
@@ -105,7 +105,7 @@ Sections can be nested up to four levels deep.
 To designate a specific page the user is currently viewing, set the attribute ` aria-current="page"` on any section level link (`<a href="#" class="rvt-sidenav__link">`).
 
 ```
-<nav class="rvt-sidenav" aria-label="Sidenav" data-sidenav>
+<nav class="rvt-sidenav" aria-label="Sidenav" data-rvt-sidenav>
   <ul class="rvt-sidenav__list">
     <li class="rvt-sidenav__item">
       <a href="#" class="rvt-sidenav__link" aria-current="page">Section nav</a>
@@ -116,10 +116,10 @@ To designate a specific page the user is currently viewing, set the attribute ` 
 
 ## Initializing the component
 
-To initialize the sidenav component, use JavaScript to select the data attribute `[data-sidenav]`, then create a new instance using `Rivet.Sidenav()`. Options can be passed within an object in the second argument.
+To initialize the sidenav component, use JavaScript to select the data attribute `[data-rvt-sidenav]`, then create a new instance using `Rivet.Sidenav()`. Options can be passed within an object in the second argument.
 
 ```
-  var sidenavElement = document.querySelector('[data-sidenav]');
+  var sidenavElement = document.querySelector('[data-rvt-sidenav]');
   var newSidenav = new Rivet.Sidenav(sidenavElement, {
     openAllOnInit: false
   });
@@ -144,7 +144,7 @@ The following public methods are available to use within your project: `init`, `
 
 **Description**
 - Opens a specific menu
-- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
+- Requires the toggle button (`button.data-rvt-sidenav-toggle`) and target list (`ul.data-rvt-sidenav-list`) elements as arguments
 
 ---
 
@@ -154,7 +154,7 @@ The following public methods are available to use within your project: `init`, `
 
 **Description**
 - Closes a specific menu
-- Requires the toggle button (`button.data-sidenav-toggle`) and target list (`ul.data-sidenav-list`) elements as arguments
+- Requires the toggle button (`button.data-rvt-sidenav-toggle`) and target list (`ul.data-rvt-sidenav-list`) elements as arguments
 
 ---
 

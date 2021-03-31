@@ -8,7 +8,7 @@ import { nodeListToArray } from '../utilities/domHelpers';
 
 export default class Sidenav extends Component {
   static get selector() {
-    return '[data-sidenav]';
+    return '[data-rvt-sidenav]';
   }
 
   static get methods() {
@@ -16,11 +16,11 @@ export default class Sidenav extends Component {
       init() {
         console.log('Sidenav::init');
 
-        this.toggleAttribute = 'data-sidenav-toggle';
+        this.toggleAttribute = 'data-rvt-sidenav-toggle';
         this.toggleSelector = `[${this.toggleAttribute}]`;
-        this.listAttribute = 'data-sidenav-list';
+        this.listAttribute = 'data-rvt-sidenav-list';
         this.listSelector = `[${this.listAttribute}]`;
-        this.openAllOnInit = this.element.hasAttribute('data-sidenav-open-all');
+        this.openAllOnInit = this.element.hasAttribute('data-rvt-sidenav-open-all');
 
         const menuToggles = nodeListToArray(
           this.element.querySelectorAll(this.toggleSelector)
@@ -73,7 +73,7 @@ export default class Sidenav extends Component {
         // Exit if toggle button doesn't exist
         if (!toggleButton) return;
     
-        const toggleId = toggleButton.dataset.sidenavToggle;
+        const toggleId = toggleButton.dataset.rvtSidenavToggle;
         const targetList = this.element.querySelector(
           `[${this.listAttribute}="${toggleId}"]`
         );
@@ -90,7 +90,7 @@ export default class Sidenav extends Component {
 
       open(toggleButton, targetList) {
         const openEvent = Component.dispatchCustomEvent('sidenavListOpen', toggleButton, {
-          id: toggleButton.dataset.sidenavToggle
+          id: toggleButton.dataset.rvtSidenavToggle
         });
     
         if (!openEvent) return;
@@ -102,7 +102,7 @@ export default class Sidenav extends Component {
       close(toggleButton, targetList) {
         // FIXME: Changed to sidenavListClosed to match tense of other events
         const closeEvent = Component.dispatchCustomEvent('sidenavListClose', toggleButton, {
-          id: toggleButton.dataset.sidenavToggle
+          id: toggleButton.dataset.rvtSidenavToggle
         });
     
         if (!closeEvent) return;
