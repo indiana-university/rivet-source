@@ -44,17 +44,17 @@
           {% for sectionNav in sectionNavItems %}
           <li class="rvt-header-menu__item{% if sectionNav.current %} rvt-header-menu__item--current{% endif %}">
             {% if sectionNav.subnavs %}
-            <div class="rvt-header-menu__dropdown rvt-dropdown" data-dropdown="secondary-nav-{{ loop.index }}">
+            <div class="rvt-header-menu__dropdown rvt-dropdown" data-rvt-dropdown="secondary-nav-{{ loop.index }}">
               <div class="rvt-header-menu__group">
                 <a class="rvt-header-menu__link" href="#" {% if sectionNav.current %} aria-current="page"{% endif %}>{{ sectionNav.title }}</a>
-                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-dropdown-toggle="secondary-nav-{{ loop.index }}">
+                <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-rvt-dropdown-toggle="secondary-nav-{{ loop.index }}">
                   <span class="rvt-sr-only">Toggle Sub-navigation</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">
                     <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
                   </svg>
                 </button>
               </div>
-              <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-dropdown-menu="secondary-nav-{{ loop.index }}" hidden>
+              <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-rvt-dropdown-menu="secondary-nav-{{ loop.index }}" hidden>
                 <ul class="rvt-header-menu__submenu-list">
                   {% for subnav in sectionNav.subnavs %}
                   <li class="rvt-header-menu__submenu-item">

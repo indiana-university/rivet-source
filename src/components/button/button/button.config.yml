@@ -64,7 +64,7 @@ variants:
           dropdown: true
           SVG: "down-carat"
           attributes:
-            - label: "data-dropdown-toggle"
+            - label: "data-rvt-dropdown-toggle"
               value: "dropdown-navigation"
             - label: "aria-haspopup"
               value: "true"

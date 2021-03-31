@@ -15,7 +15,7 @@ import keyCodes from '../utilities/keyCodes';
 
 export default class Dropdown extends Component {
   static get selector() {
-    return '[data-dropdown]';
+    return '[data-rvt-dropdown]';
   }
 
   static get methods() {
@@ -23,14 +23,14 @@ export default class Dropdown extends Component {
       init() {
         console.log('Dropdown::init()');
 
-        this.disclosureAttribute = '[data-dropdown]';
-        this.toggleAttribute = '[data-dropdown-toggle]';
+        this.disclosureAttribute = '[data-rvt-dropdown]';
+        this.toggleAttribute = '[data-rvt-dropdown-toggle]';
         this.toggleDataProperty = 'dropdownToggle';
-        this.targetAttribute = '[data-dropdown-menu]';
+        this.targetAttribute = '[data-rvt-dropdown-menu]';
         this.openEventName = 'dropdownOpen';
         this.closeEventNane = 'dropdownClose';
-        this.toggleElement = this.element.querySelector('[data-dropdown-toggle]');
-        this.targetElement = this.element.querySelector('[data-dropdown-menu]');
+        this.toggleElement = this.element.querySelector('[data-rvt-dropdown-toggle]');
+        this.targetElement = this.element.querySelector('[data-rvt-dropdown-menu]');
         this.isOpen = false;
         this.activeToggle = null;
         this.activeDisclosure = null;
@@ -146,7 +146,7 @@ export default class Dropdown extends Component {
       },
 
       _handleClick(event) {
-        const toggle = event.target.closest('[data-dropdown-toggle]');
+        const toggle = event.target.closest('[data-rvt-dropdown-toggle]');
 
         // Did it come from inside open disclosure?
         if (this.targetElement.contains(event.target)) return;
@@ -170,7 +170,7 @@ export default class Dropdown extends Component {
         if (!this.element.contains(event.target)) return false;
     
         // Delegate event to only this instance of the disclosure
-        const disclosure = event.target.closest('[data-dropdown]');
+        const disclosure = event.target.closest('[data-rvt-dropdown]');
         if (disclosure !== this.element) return false;
     
         return true;

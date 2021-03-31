@@ -54,7 +54,7 @@ The example below features a [checkbox](#) in the `.rvt-mo__prepend` area (for r
   </div>
   <div class="rvt-mo__append">
     <div class="rvt-dropdown">
-      <button class="rvt-button rvt-button--small rvt-button--plain" type="button" data-dropdown-toggle="dropdown-1"
+      <button class="rvt-button rvt-button--small rvt-button--plain" type="button" data-rvt-dropdown-toggle="dropdown-1"
         aria-haspopup="true" aria-expanded="false">
         <span class="rvt-sr-only">Application menu</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
