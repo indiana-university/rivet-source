@@ -7,7 +7,7 @@ import Component from './component';
 
 export default class FileInput extends Component {
   static get selector() {
-    return '[data-upload-wrapper]';
+    return '[data-rvt-file-input]';
   }
 
   static get methods() {
@@ -15,9 +15,9 @@ export default class FileInput extends Component {
       init() {
         console.log('FileInput::init()');
 
-        this.wrapperAttribute = 'data-upload-wrapper';
-        this.inputAttribute = 'data-upload-input';
-        this.previewAttribute = 'data-upload-preview';
+        this.wrapperAttribute = 'data-rvt-file-input';
+        this.inputAttribute = 'data-rvt-file-input-button';
+        this.previewAttribute = 'data-rvt-file-input-preview';
         this.previewText = this.element.querySelector(`[${this.previewAttribute}]`).textContent;
     
         this._handleChange = this._handleChange.bind(this);
@@ -73,7 +73,7 @@ export default class FileInput extends Component {
             'fileAttached',
             this.element,
             {
-              id: this.element.dataset.uploadWrapper,
+              id: this.element.dataset.rvtFileInput,
               files: Array.from(uploadInput.files).map(f => f.name)
             }
           );

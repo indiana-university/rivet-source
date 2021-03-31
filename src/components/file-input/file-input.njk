@@ -1,10 +1,10 @@
-<div class="rvt-file" data-upload-wrapper="{{ id }}">
-    <input type="file" data-upload-input="{{ id }}" id="{{ id }}" aria-describedby="{{ fileDescription }}" {% if multiple %} multiple{% endif %}>
+<div class="rvt-file" data-rvt-file-input="{{ id }}">
+    <input type="file" data-rvt-file-input-button="{{ id }}" id="{{ id }}" aria-describedby="{{ fileDescription }}" {% if multiple %} multiple{% endif %}>
     <label for="{{ id }}" class="rvt-button{% if secondary %} rvt-button--secondary{% endif %}">
         <span>{{ buttonText }}</span>
         {% include "@includes--file-upload" %}
     </label>
-    <div class="rvt-file__preview" data-upload-preview="{{ id }}" id="{{ fileDescription }}">
+    <div class="rvt-file__preview" data-rvt-file-input-preview="{{ id }}" id="{{ fileDescription }}">
         {{ previewText }}
     </div>
 </div>
