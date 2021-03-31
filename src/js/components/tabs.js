@@ -42,7 +42,7 @@ export default class Tabs extends Component {
         this.openOnInit = initialPanel || this.panels[0];
 
         // bind methods
-        Component.bindMethodToDOMElement(this.element, 'activateTab', this.activateTab);
+        Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab);
 
         this._handleClick = this._handleClick.bind(this);
         this._handleKeydown = this._handleKeydown.bind(this);
@@ -133,7 +133,8 @@ export default class Tabs extends Component {
 
       activateTab(tab) {
         // Trigger tabActivated custom event. This event is used to control the process of switching between tabs.
-    
+        console.log(this.element);
+
         const activationEvent = Component.dispatchCustomEvent(
           'tabActivated',
           tab, 

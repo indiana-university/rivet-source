@@ -20,9 +20,9 @@ export default class Component {
     /* Virtual, must be implemented by subclass. */
   }
 
-  static bindMethodToDOMElement(element, name, method) {
-    Object.defineProperty(element, name, {
-      value: method.bind(element),
+  static bindMethodToDOMElement(self, name, method) {
+    Object.defineProperty(self.element, name, {
+      value: method.bind(self),
       writable: false
     });
   }

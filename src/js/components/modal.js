@@ -37,10 +37,10 @@ export default class Modal extends Component {
           'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]';
 
         // bind methods
-        Component.bindMethodToDOMElement(this.element, 'open', this.open);
-        Component.bindMethodToDOMElement(this.element, 'close', this.close);
-        Component.bindMethodToDOMElement(this.element, 'focusTrigger', this.focusTrigger);
-        Component.bindMethodToDOMElement(this.element, 'focusModal', this.focusModal);
+        Component.bindMethodToDOMElement(this, 'open', this.open);
+        Component.bindMethodToDOMElement(this, 'close', this.close);
+        Component.bindMethodToDOMElement(this, 'focusTrigger', this.focusTrigger);
+        Component.bindMethodToDOMElement(this, 'focusModal', this.focusModal);
 
         this._handleClick = this._handleClick.bind(this);
         this._handleKeydown = this._handleKeydown.bind(this);

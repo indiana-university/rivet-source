@@ -58,8 +58,8 @@ export default class Sidenav extends Component {
         });
 
         // bind methods
-        Component.bindMethodToDOMElement(this.element, 'open', this.open);
-        Component.bindMethodToDOMElement(this.element, 'close', this.close);
+        Component.bindMethodToDOMElement(this, 'open', this.open);
+        Component.bindMethodToDOMElement(this, 'close', this.close);
 
         this._handleClick = this._handleClick.bind(this);
       },

@@ -18,7 +18,7 @@ export default class Alert extends Component {
         this.closeSelector = `[${this.closeAttribute}]`;
         this.closeButton = null;
 
-        Component.bindMethodToDOMElement(this.element, 'dismiss', this.dismiss);
+        Component.bindMethodToDOMElement(this, 'dismiss', this.dismiss);
         
         this._handleClick = this._handleClick.bind(this);
       },

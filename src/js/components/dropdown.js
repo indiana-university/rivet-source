@@ -40,8 +40,8 @@ export default class Dropdown extends Component {
           icon.setAttribute('focusable', 'false');
         }
         
-        Component.bindMethodToDOMElement(this.element, 'open', this.open);
-        Component.bindMethodToDOMElement(this.element, 'close', this.close);
+        Component.bindMethodToDOMElement(this, 'open', this.open);
+        Component.bindMethodToDOMElement(this, 'close', this.close);
 
         this._handleClick = this._handleClick.bind(this);
         this._handleKeydown = this._handleKeydown.bind(this);
