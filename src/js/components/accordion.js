@@ -8,7 +8,7 @@ import keyCodes from '../utilities/keyCodes';
 
 export default class Accordion extends Component {
   static get selector() {
-    return '[data-accordion]';
+    return '[data-rvt-accordion]';
   }
 
   static get methods() {
@@ -16,8 +16,8 @@ export default class Accordion extends Component {
       init() {
         console.log('Accordion::init()');
 
-        this.openAllOnInit = this.element.hasAttribute('data-accordion-open-all');
-        this.triggerAttribute = 'data-accordion-trigger';
+        this.openAllOnInit = this.element.hasAttribute('data-rvt-accordion-open-all');
+        this.triggerAttribute = 'data-rvt-accordion-trigger';
         this.triggerSelector = `[${this.triggerAttribute}]`;
         this.triggers = nodeListToArray(
           this.element.querySelectorAll(this.triggerSelector)
@@ -26,18 +26,18 @@ export default class Accordion extends Component {
         if (this.triggers.length < 2) {
           // eslint-disable-next-line no-console
           console.warn(
-            'An accordion should contain *at least two* accordion triggers with the "data-accordion-trigger" attribute'
+            'An accordion should contain *at least two* accordion triggers with the "data-rvt-accordion-trigger" attribute'
           );
         }
         
-        this.panelAttribute = 'data-accordion-panel';
+        this.panelAttribute = 'data-rvt-accordion-panel';
         this.panelSelector = `[${this.panelAttribute}]`;
         this.panels = nodeListToArray(
           this.element.querySelectorAll(this.panelSelector)
         );
         
         const initializedPanels = this.element.querySelectorAll(
-          `[data-accordion-panel-init]`
+          `[data-rvt-accordion-panel-init]`
         );
 
         try {
@@ -49,7 +49,7 @@ export default class Accordion extends Component {
     
           // Determine if a specific panel has been initialized with the data-tab-init attribute, otherwise, use the first tab
           this.panels.forEach((panel, index) => {
-            if (panel.hasAttribute('data-accordion-panel-init')) {
+            if (panel.hasAttribute('data-rvt-accordion-panel-init')) {
               initialPanel = panel;
             } else {
               this.panels[index].setAttribute('hidden', '');
@@ -60,7 +60,7 @@ export default class Accordion extends Component {
           this.openOnInit = initialPanel;
         } catch (e) {
           console.warn(
-            'Only one accordion panel should have the data-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-accordion element'
+            'Only one accordion panel should have the data-rvt-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-rvt-accordion element'
           );
         }
     
@@ -102,7 +102,7 @@ export default class Accordion extends Component {
               // Set non-initialized accordion panels to hidden
               this.panels[index].setAttribute('hidden', '');
               const trigger = this.element.querySelector(
-                `[${this.triggerAttribute}="${panel.dataset.accordionPanel}"]`
+                `[${this.triggerAttribute}="${panel.dataset.rvtAccordionPanel}"]`
               );
               // Set 'aria-expanded' for all non-initialized accordion triggers to 'false'
               trigger.setAttribute('aria-expanded', 'false');
@@ -119,7 +119,7 @@ export default class Accordion extends Component {
         // If not an accordion trigger, ignore
         if (!currentTrigger) return;
     
-        // Get the data-accordion-trigger value
+        // Get the data-rvt-accordion-trigger value
         const currentTriggerValue = currentTrigger.getAttribute(
           this.triggerAttribute
         );
@@ -142,7 +142,7 @@ export default class Accordion extends Component {
           event.keyCode === keyCodes.end ||
           event.keyCode === keyCodes.home
         ) {
-          const accordionParent = event.target.closest('[data-accordion]');
+          const accordionParent = event.target.closest('[data-rvt-accordion]');
           // If not an accordion, ignore
           if (!accordionParent) return;
     
@@ -196,17 +196,17 @@ export default class Accordion extends Component {
           'accordionOpened',
           panel,
           {
-            id: panel.dataset.accordionPanel
+            id: panel.dataset.rvtAccordionPanel
           }
         );
     
         if (!activationEvent) return;
     
         const trigger = this.element.querySelector(
-          `[${this.triggerAttribute} = "${panel.dataset.accordionPanel}"]`
+          `[${this.triggerAttribute} = "${panel.dataset.rvtAccordionPanel}"]`
         );
 
-        console.log(`[${this.triggerAttribute} = "${panel.dataset.accordionPanel}"]`);
+        console.log(`[${this.triggerAttribute} = "${panel.dataset.rvtAccordionPanel}"]`);
     
         // Open the appropriate accordion trigger/panel pair
         panel.removeAttribute('hidden');
@@ -220,14 +220,14 @@ export default class Accordion extends Component {
           'accordionClosed',
           panel,
           {
-            id: panel.dataset.accordionPanel
+            id: panel.dataset.rvtAccordionPanel
           }
         );
     
         if (!activationEvent) return;
     
         const trigger = this.element.querySelector(
-          `[${this.triggerAttribute} = "${panel.dataset.accordionPanel}"]`
+          `[${this.triggerAttribute} = "${panel.dataset.rvtAccordionPanel}"]`
         );
     
         // Close the appropriate accordion trigger/panel pair
