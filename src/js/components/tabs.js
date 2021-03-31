@@ -59,7 +59,7 @@ export default class Tabs extends Component {
 
       disconnected() {
         Component.dispatchComponentRemovedEvent(this.element);
-        
+
         this.tablist.removeEventListener('click', this._handleClick, false);
         this.tablist.removeEventListener('keydown', this._handleKeydown, false);
       },
