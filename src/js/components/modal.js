@@ -48,7 +48,7 @@ export default class Modal extends Component {
 
       connected() {
         Component.dispatchComponentAddedEvent(this.element);
-        
+
         if (!this.openOnInit) {
           this.element.setAttribute('hidden', '');
         }
@@ -59,6 +59,8 @@ export default class Modal extends Component {
       },
 
       disconnected() {
+        Component.dispatchComponentRemovedEvent(this.element);
+        
         document.removeEventListener('click', this._handleClick, false);
         document.removeEventListener('keydown', this._handleKeydown, false);
       },

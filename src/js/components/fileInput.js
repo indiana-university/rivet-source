@@ -27,6 +27,10 @@ export default class FileInput extends Component {
         Component.dispatchComponentAddedEvent(this.element);
       },
 
+      disconnected() {
+        Component.dispatchComponentRemovedEvent(this.element);
+      },
+
       _sanitizeHTML(str) {
         const temp = document.createElement('div');
         temp.textContent = str;

@@ -39,13 +39,13 @@ export default class Component {
   }
 
   static dispatchComponentAddedEvent(element) {
-    return this.dispatchCustomEvent('componentAdded', element, {
+    return this.dispatchCustomEvent('componentAdded', document, {
       component: element
     });
   }
 
   static dispatchComponentRemovedEvent(element) {
-    return this.dispatchCustomEvent('componentRemoved', element, {
+    return this.dispatchCustomEvent('componentRemoved', document, {
       component: element
     });
   }

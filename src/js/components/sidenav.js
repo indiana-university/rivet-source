@@ -68,6 +68,10 @@ export default class Sidenav extends Component {
         Component.dispatchComponentAddedEvent(this.element);
       },
 
+      disconnected() {
+        Component.dispatchComponentRemovedEvent(this.element);
+      },
+
       onClick(event) {
         this._handleClick(event);
       },

@@ -50,7 +50,7 @@ export default class Tabs extends Component {
 
       connected() {
         Component.dispatchComponentAddedEvent(this.element);
-        
+
         this.activateTab(this.openOnInit);
         
         this.tablist.addEventListener('click', this._handleClick, false);
@@ -58,6 +58,8 @@ export default class Tabs extends Component {
       },
 
       disconnected() {
+        Component.dispatchComponentRemovedEvent(this.element);
+        
         this.tablist.removeEventListener('click', this._handleClick, false);
         this.tablist.removeEventListener('keydown', this._handleKeydown, false);
       },

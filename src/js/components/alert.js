@@ -31,9 +31,9 @@ export default class Alert extends Component {
       },
 
       disconnected() {
-        console.log('Alert::disconnected()');
+        Component.dispatchComponentRemovedEvent(this.element);
         
-        this.closeButton.addEventListener('click', this._handleClick, false);
+        this.closeButton.removeEventListener('click', this._handleClick, false);
       },
 
       _handleClick() {

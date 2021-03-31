@@ -83,7 +83,7 @@ export default class Accordion extends Component {
       },
 
       disconnected() {
-        console.log('Accordion::disconnected()');
+        Component.dispatchComponentRemovedEvent(this.element);
 
         this.element.removeEventListener('click', this._handleClick, false);
         this.element.removeEventListener('keydown', this._handleKeydown, false);

@@ -37,7 +37,7 @@ export default class Disclosure extends Component {
       },
 
       disconnected() {
-        console.log('Disclosure::disconnected');
+        Component.dispatchComponentRemovedEvent(this.element);
 
         document.removeEventListener('click', this._handleClick, false);
         document.removeEventListener('keydown', this._handleKeydown, false);
