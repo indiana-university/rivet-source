@@ -5,12 +5,9 @@
 .#{$prefix}-footer-base {
   background-color: $color-crimson-base;
   color: $color-white-base;
-  padding-top: $spacing-md;
-  padding-bottom: $spacing-md;
 
   &__inner {
     border-top: 1px solid rgba(255, 255, 255, .25);
-    padding-top: $spacing-sm;
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -44,8 +41,6 @@
 
 @include mq($breakpoint-md) {
   .#{$prefix}-footer-base {
-    padding-bottom: $spacing-sm;
-
     &__inner {
       flex-direction: row;
       align-items: center;
