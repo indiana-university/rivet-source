@@ -5,12 +5,12 @@
 .#{$prefix}-footer-resources {
   background-color: $color-crimson-base;
   color: $color-white-base;
-  padding-top: $spacing-md;
-  padding-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
 
   &__heading {
     font-size: $ts-18;
     font-weight: $font-weight-bold;
+    margin-top: $spacing-md;
   }
 
   &__text-block {
@@ -20,7 +20,7 @@
 
   &__list {
     list-style: none;
-    margin-top: $spacing-sm;
+    margin-top: $spacing-xs;
     padding-left: 0;
   }
 
@@ -47,5 +47,27 @@
     justify-content: center;
     margin-bottom: $spacing-sm;
     width: 100%;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-footer-resources {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+
+    &__heading {
+      margin-top: 0;
+    }
+
+    &__list {
+      margin-top: $spacing-sm;
+    }
+  }
+
+  // Adjust the padding of the resources component to make spacing work better
+  // visually when used together with social component.
+
+  .#{$prefix}-footer-social + .#{$prefix}-footer-resources {
+    padding-top: $spacing-xs;
   }
 }
