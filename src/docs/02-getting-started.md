@@ -41,3 +41,20 @@ disclosure.open();
 ```
 
 New component instances will be initialized automatically when added to the DOM and cleaned up when removed.
+
+## Manual
+
+If manual initialization of Rivet components is preferred, omit the call to `Rivet.init()`.
+
+Instead, you must call component creation methods on DOM elements to initialize them as Rivet components.
+
+### Example JS
+```js
+// Using the disclosure example HTML from above
+
+const disclosure = Rivet.Disclosure.init('[data-rvt-disclosure="disclosure-1"]');
+  
+disclosure.open();
+```
+
+Note that component creation methods are *not* constructors -- they are static methods. However, they return the component-ized DOM element as a convenience to the client.
