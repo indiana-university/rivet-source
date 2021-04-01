@@ -2,31 +2,44 @@
 
 @use 'core' as *;
 
-.#{$prefix}-c-footer-related {
+.#{$prefix}-footer-resources {
   background-color: $color-crimson-base;
   color: $color-white-base;
   padding-top: $spacing-md;
   padding-bottom: $spacing-md;
-  
+
   &__heading {
     font-size: $ts-18;
     font-weight: $font-weight-bold;
-    margin-bottom: $spacing-sm;
   }
-  
-  &__link {
+
+  &__text-block {
+    font-size: $ts-14;
+    margin-top: $spacing-sm;
+  }
+
+  &__list {
+    list-style: none;
+    margin-top: $spacing-sm;
+    padding-left: 0;
+  }
+
+  &__list-item a {
     color: $color-white-base;
     display: block;
     font-size: $ts-14;
-    margin-bottom: $spacing-sm;
     text-decoration: none;
-    
+
     &:hover {
       color: $color-white-base;
       text-decoration: underline;
     }
   }
-  
+
+  /**
+   * This class can be used on any button or button links needed for CTAs, etc.
+   */
+
   &__button {
     background-color: $color-white-base;
     border-color: transparent;
