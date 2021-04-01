@@ -58,3 +58,26 @@ disclosure.open();
 ```
 
 Note that component creation methods are *not* constructors -- they are static methods. However, they return the component-ized DOM element as a convenience to the client.
+
+## Module
+
+A module bundle is available if you want to `import` the component source files/creation methods a la carte:
+
+`https://unpkg.com/rivet-core@2.0.0-alpha.4/js/rivet-esm.min.js`
+
+```html
+<script>
+  import { Disclosure } from '/path/to/rivet-esm';
+  
+  // Initialize all disclosure components including future ones that might be
+  // added to the DOM
+  
+  Disclosure.initAll();
+  
+  // Or, initialize specific component instances manually
+  
+  const disclosure = Disclosure.init('[data-rvt-disclosure="disclosure-1"]');
+  
+  disclosure.open();
+</script>
+```
