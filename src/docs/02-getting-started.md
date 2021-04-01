@@ -6,7 +6,7 @@ Rivet provides three initialization options: **auto**, **manual**, and **module*
 
 ## Auto
 
-Rivet components can be auto-initialized using the `Rivet.init()` method. Components to initialize are identified by Rivet-specific `data` attributes described in the documentation (not HTML elements, IDs, or classes).
+Rivet components can be auto-initialized using the `Rivet.init()` method.
 
 ```html
 <link rel="https://unpkg.com/rivet-core@2.0.0-alpha.4/css/rivet.min.css">
@@ -16,7 +16,9 @@ Rivet components can be auto-initialized using the `Rivet.init()` method. Compon
 <script>Rivet.init();</script>
 ```
 
-Individual components can be fetched using `querySelector()`. Each component type provides a number of methods that can be used to interact programmatically with the component. These methods are listed in each specific component's documentation.
+Individual components can be fetched using `querySelector()`.
+
+Each component type provides a number of methods that can be used to interact programmatically with the component. These methods are listed in each specific component's documentation.
 
 ```html
 <div data-rvt-disclosure="disclosure-1">
@@ -34,7 +36,7 @@ const disclosure = document.querySelector('[data-rvt-disclosure="disclosure-1"]'
 disclosure.open();
 ```
 
-New component instances will be initialized automatically when added to the DOM and cleaned up when removed.
+New component instances are initialized automatically when added to the DOM and cleaned up when removed.
 
 ## Manual
 
@@ -58,7 +60,9 @@ A module bundle is available if you want to `import` the component source files/
 
 `https://unpkg.com/rivet-core@2.0.0-alpha.4/js/rivet-esm.min.js`
 
-You can call a specific component type's `initAll()` method to initialize all instances of that component, including those not yet added to the DOM. Alternatively, you can call a component creation method to initialize a specific DOM element as a Rivet component.
+You can call a specific component type's `initAll()` method to initialize all instances of that component, including those not yet added to the DOM.
+
+Alternatively, you can call a component creation method to initialize a specific DOM element as a Rivet component.
 
 ```html
 <script>
