@@ -11,6 +11,8 @@
     display: flex;
     flex-direction: column;
     margin-left: auto;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
   }
 
   &__logo {
@@ -36,6 +38,31 @@
       text-decoration: underline;
       color: $color-white-base;
     }
+  }
+
+  // Experimental "light" mode for simple sites without the need
+  // for a footer system.
+
+  &--light {
+    background-color: $color-white-base;
+    color: $color-black-800;
+  }
+
+  &--light a {
+    color: $color-black-800;
+  }
+
+  &--light a:hover {
+    color: $color-blue-600;
+    text-decoration: underline;
+  }
+
+  &--light &__inner {
+    border-top-color: $color-black-100;
+  }
+
+  &--light &__logo {
+    color: $color-crimson-base;
   }
 }
 
