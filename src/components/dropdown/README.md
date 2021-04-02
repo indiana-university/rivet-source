@@ -15,8 +15,8 @@ Although similar to a native HTML `select` element, the dropdown component shoul
 ### Using the default dropdown and menu list configuration
 
 ```
-<div class="rvt-dropdown" data-dropdown="dropdownNavigation">
-  <button type="button" class="rvt-button" data-dropdown-toggle="dropdownNavigation" aria-haspopup="true"
+<div class="rvt-dropdown" data-rvt-dropdown="dropdownNavigation">
+  <button type="button" class="rvt-button" data-rvt-dropdown-toggle="dropdownNavigation" aria-haspopup="true"
     aria-expanded="false">
     <span class="rvt-dropdown__toggle-text">Navigation menu</span><svg role="img" alt="" class="rvt-m-left-xs"
       xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -25,7 +25,7 @@ Although similar to a native HTML `select` element, the dropdown component shoul
     </svg>
   </button>
 
-  <div class="rvt-dropdown__menu" id="dropdownNavigation" role="menu" hidden data-dropdown-menu>
+  <div class="rvt-dropdown__menu" id="dropdownNavigation" role="menu" hidden data-rvt-dropdown-menu>
     <a href="#">Item one</a>
     <a href="#">Item two</a>
     <a href="#" aria-current="page">Item three</a>
@@ -42,7 +42,7 @@ Although similar to a native HTML `select` element, the dropdown component shoul
 To right-align the menu list element with the right side of the dropdown button, add the class `rvt-dropdown__menu--right` to the dropdown menu:
 
 ```
-<div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdownNavigation" role="menu" hidden data-dropdown-menu>
+<div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdownNavigation" role="menu" hidden data-rvt-dropdown-menu>
 ```
 
 ### Using buttons in the menu list
@@ -70,7 +70,7 @@ To add a heading within the menu list, add the following heading markup:
 Within the menu list markup:
 
 ```
-<div class="rvt-dropdown__menu" id="dropdownHeading" role="menu" hidden data-dropdown-menu>
+<div class="rvt-dropdown__menu" id="dropdownHeading" role="menu" hidden data-rvt-dropdown-menu>
   <a href="#" role="menuitemradio">Item One</a>
   <a href="#" aria-checked="true" role="menuitemradio">Item Two</a>
   <a href="#" role="menuitemradio">Item Three</a>
@@ -88,7 +88,7 @@ Within the menu list markup:
 In order to initialize the dropdown as an ES6 module, you will need to create a new instance of it, and pass it the element you wish to instantiate as a dropdown.
 
 ```
-const dropdownElement = document.querySelector('[data-dropdown="your-data-dropdown-value"]');
+const dropdownElement = document.querySelector('[data-rvt-dropdown="your-data-rvt-dropdown-value"]');
 const newDropdown = new Rivet.Dropdown(dropdownElement);
 ```
 

@@ -1,7 +1,7 @@
-<div class="rvt-accordion{% if classes %} {{ classes }}{% endif %}" data-accordion="{{ id }}">
+<div class="rvt-accordion{% if classes %} {{ classes }}{% endif %}" data-rvt-accordion="{{ id }}">
   {%- for panel in panels -%}
     <h3 class="rvt-accordion__summary">
-      <button class="rvt-accordion__toggle" id="{{ id }}-{{ loop.index }}-label" data-accordion-trigger="{{ id }}-{{ loop.index }}">
+      <button class="rvt-accordion__toggle" id="{{ id }}-{{ loop.index }}-label" data-rvt-accordion-trigger="{{ id }}-{{ loop.index }}">
         <span class="rvt-accordion__toggle-text">{{ panel.summary }}</span>
         <div class="rvt-accordion__toggle-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -13,14 +13,8 @@
         </div>
       </button>
     </h3>
-    <div class="rvt-accordion__panel" id="{{ id }}-{{ loop.index }}" aria-labelledby="{{ id }}-{{ loop.index }}-label" data-accordion-panel="{{ id }}-{{ loop.index }}" {% if panel.init %} data-accordion-panel-init{% endif %}>
+    <div class="rvt-accordion__panel" id="{{ id }}-{{ loop.index }}" aria-labelledby="{{ id }}-{{ loop.index }}-label" data-rvt-accordion-panel="{{ id }}-{{ loop.index }}" {% if panel.init %} data-rvt-accordion-panel-init{% endif %}>
       <p class="rvt-m-all-remove">{{ panel.content | safe }}</p>
     </div>
   {%- endfor -%}
 </div>
-
-<script>
-window.demoAccordion = new Rivet.Accordion(
-  document.querySelector('[data-accordion="{{ id }}"]')
-)
-</script>

@@ -3,33 +3,3 @@
   {% include '@includes--global-header' %}
   {% include '@includes--local-header' %}
 </header>
-
-<script>
-  // Get the first <header> element on the page.
-  const headerElement = document.querySelector('header');
-
-  // Convert to Array first so we can use forEach safely
-  
-  const disclosureElements = Array.prototype.slice.call(
-    headerElement.querySelectorAll('[data-disclosure]')
-  );
-  
-  const dropdownElements = Array.prototype.slice.call(
-    headerElement.querySelectorAll('[data-dropdown]')
-  );
-
-  // If there are disclosures or dropdowns on the page instantiate them
-
-  if (disclosureElements) {
-    disclosureElements.forEach(function(disclosure) {
-      new Rivet.Disclosure(disclosure);
-    });
-  }
-
-  if (dropdownElements) {
-    dropdownElements.forEach(function(dropdown) {
-      new Rivet.Dropdown(dropdown);
-    });
-  }
-
-</script>

@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import Component from './component';
 import { nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
-import Disclosure from './disclosure';
 
 /**
  * The Dropdown class is a descendant of the Disclosure class with additional
@@ -13,145 +13,285 @@ import Disclosure from './disclosure';
  * using the arrow and tab keys.
  */
 
-export default class Dropdown extends Disclosure {
-  constructor(element) {
-    super(element, {
-      disclosureAttribute: '[data-dropdown]',
-      toggleAttribute: '[data-dropdown-toggle]',
-      toggleDataProperty: 'dropdownToggle',
-      targetAttribute: '[data-dropdown-menu]',
-      openEventName: 'dropdownOpen',
-      closeEventNane: 'dropdownClose'
-    });
-
-    this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+export default class Dropdown extends Component {
+  static get selector() {
+    return '[data-rvt-dropdown]';
   }
 
-  /**
-   * Creates an object of menu items within a dropdown
-   * @param {HTMLDivElement} menu - a div containing the dropdown menu items
-   * @returns {Object} An object of menu item anchor elements
-   */
-  _setUpMenu(menu) {
-    const menuObject = {};
+  static get methods() {
+    return {
+      init() {
+        console.log('Dropdown::init()');
 
-    // Create a real Array of all the focusable elements in the menu
-    const menuFocusables = nodeListToArray(
-      menu.querySelectorAll(this.focusableElements)
-    );
-
-    // Create a property to hold an array of all focusables
-    menuObject.all = menuFocusables;
-
-    // Create a property with a reference to the first focusable
-    menuObject.first = menuFocusables[0];
-
-    // Create a property with a reference to the last focusable
-    menuObject.last = menuFocusables[menuFocusables.length - 1];
-
-    return menuObject;
-  }
-
-  _handleKeydown(event) {
-
-    super._handleKeydown(event);
-
-    if (!this._shouldHandleKeydown(event)) return;
-
-    switch (event.keyCode) {
-      case keyCodes.down: {
-        /**
-         * Open the menu if it hasn't been opened yet.
-         * Move the focus to the first item if the menu has been opened.
-         */
-        if (!this.isOpen) {
-          this.open();
-        } else {
-          const currentMenu = this._setUpMenu(this.targetElement);
-          currentMenu.first.focus();
+        this.disclosureAttribute = '[data-rvt-dropdown]';
+        this.toggleAttribute = '[data-rvt-dropdown-toggle]';
+        this.toggleDataProperty = 'dropdownToggle';
+        this.targetAttribute = '[data-rvt-dropdown-menu]';
+        this.openEventName = 'dropdownOpen';
+        this.closeEventNane = 'dropdownClose';
+        this.toggleElement = this.element.querySelector('[data-rvt-dropdown-toggle]');
+        this.targetElement = this.element.querySelector('[data-rvt-dropdown-menu]');
+        this.isOpen = false;
+        this.activeToggle = null;
+        this.activeDisclosure = null;
+        
+        const icon = this.element.querySelector('svg');
+        if (icon) {
+          icon.setAttribute('focusable', 'false');
         }
+        
+        Component.bindMethodToDOMElement(this, 'open', this.open);
+        Component.bindMethodToDOMElement(this, 'close', this.close);
 
-        /**
-         * Handle down arrow key when inside the open menu.
-         * If the event didn't come from within the menu, then bail.
-         */
-        if (!this.targetElement.contains(event.target)) break;
+        this._handleClick = this._handleClick.bind(this);
+        this._handleKeydown = this._handleKeydown.bind(this);
 
-        /**
-         * This keeps track of which button/focusable is focused in the open menu
-         */
-        const currentMenu = this._setUpMenu(this.targetElement);
-        let currentIndex;
+        this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+      },
 
-        for (let i = 0; i < currentMenu.all.length; i++) {
-          if (event.target == currentMenu.all[i]) {
-            currentIndex = i;
-          }
-        }
+      connected() {
+        Component.dispatchComponentAddedEvent(this.element);
+        
+        document.addEventListener('click', this._handleClick, false);
+        document.addEventListener('keydown', this._handleKeydown, false);
+      },
 
-        const nextItem = currentMenu.all[currentIndex + 1];
+      disconnected() {
+        Component.dispatchComponentRemovedEvent(this.element);
 
-        if (!nextItem) {
-          currentMenu.first.focus();
+        document.removeEventListener('click', this._handleClick, false);
+        document.removeEventListener('keydown', this._handleKeydown, false);
+      },
 
+      open() {
+        // Return if disabled disclosure is being opened programmatically
+
+        if (this.toggleElement.hasAttribute('disabled')) {
           return;
         }
 
-        nextItem.focus();
+        // Fire a disclosureOpen event
 
-        break;
-      }
-
-      case keyCodes.up: {
-        event.preventDefault();
-
-        /**
-         * Handle up arrow key when inside the open menu.
-         * If the event didn't come from within the menu, then bail.
-         */
-        if (!this.targetElement.contains(event.target)) break;
-
-        /**
-         * This keeps track of which button/focusable is focused in the open menu
-         */
-        const currentMenu = this._setUpMenu(this.targetElement);
-        let currentIndex;
-
-        for (let i = 0; i < currentMenu.all.length; i++) {
-          if (event.target == currentMenu.all[i]) {
-            currentIndex = i;
+        const openEvent = Component.dispatchCustomEvent(
+          'disclosureOpen',
+          this.toggleElement,
+          {
+            id: this.toggleElement.dataset['toggle']
           }
-        }
+        );
 
-        const previousItem = currentMenu.all[currentIndex - 1];
+        // Bail if the event was suppressed
 
-        if (!previousItem && currentMenu.last !== undefined) {
-          currentMenu.last.focus();
+        if (!openEvent) return;
 
-          return;
-        }
+        // Set the disclosure's open state to "true"
 
-        previousItem.focus();
+        this.isOpen = true;
+        this.toggleElement.setAttribute('aria-expanded', 'true');
 
-        break;
-      }
+        // Remove the 'hidden' attribute to show the element to disclose
 
-      case keyCodes.tab: {
+        this.targetElement.removeAttribute('hidden');
+
+        // Set currently active toggle and disclosed element
+
+        this.activeToggle = this.toggleElement;
+        this.activeDisclosure = this.targetElement;
+      },
+
+      close() {
         /**
-         * Handle tab key when inside the open menu.
+         * If there isn't a currently active disclosure, then bail so close() isn't
+         * fired multiple times.
          */
-        if (!this.targetElement.contains(event.target)) break;
+        if (!this.activeToggle) return;
 
-        const currentMenu = this._setUpMenu(this.targetElement);
+        const closeEvent = Component.dispatchCustomEvent(
+          'dropdownClose',
+          this.toggleElement,
+          {
+            id: this.toggleElement.dataset['toggle']
+          }
+        );
 
-        // Close the dropdown when the user tabs out of the menu.
-        if (document.activeElement == currentMenu.last && !event.shiftKey) {
+        if (!closeEvent) return;
+
+        this.isOpen = false;
+        this.activeToggle.setAttribute('aria-expanded', 'false');
+        this.activeDisclosure.setAttribute('hidden', '');
+
+        // Resets the state variables
+        this.activeToggle = null;
+        this.activeDisclosure = null;
+      },
+
+      _setUpMenu(menu) {
+        const menuObject = {};
+    
+        // Create a real Array of all the focusable elements in the menu
+        const menuFocusables = nodeListToArray(
+          menu.querySelectorAll(this.focusableElements)
+        );
+    
+        // Create a property to hold an array of all focusables
+        menuObject.all = menuFocusables;
+    
+        // Create a property with a reference to the first focusable
+        menuObject.first = menuFocusables[0];
+    
+        // Create a property with a reference to the last focusable
+        menuObject.last = menuFocusables[menuFocusables.length - 1];
+    
+        return menuObject;
+      },
+
+      _handleClick(event) {
+        const toggle = event.target.closest('[data-rvt-dropdown-toggle]');
+
+        // Did it come from inside open disclosure?
+        if (this.targetElement.contains(event.target)) return;
+
+        // If it came from outside component, close all open disclosures
+        if (!toggle && this.activeToggle !== null) {
           this.close();
-
           return;
         }
 
-        break;
+        // Check which toggle the click came from, and whether it's already opened
+        if (toggle !== this.toggleElement || this.isOpen) {
+          this.close();
+        } else {
+          this.open();
+        }
+      },
+
+      _shouldHandleKeydown(event) {
+        // If the keydown didn't come from within disclosure component, then bail.
+        if (!this.element.contains(event.target)) return false;
+    
+        // Delegate event to only this instance of the disclosure
+        const disclosure = event.target.closest('[data-rvt-dropdown]');
+        if (disclosure !== this.element) return false;
+    
+        return true;
+      },
+
+      _handleKeydown(event) {
+        if (!this._shouldHandleKeydown(event)) return;
+    
+        switch (event.keyCode) {
+          case keyCodes.escape: {
+            if (!this.activeToggle) return;
+    
+            // If there's an open disclosure, close it.
+            this.close();
+    
+            this.toggleElement.focus();
+    
+            /**
+             * Resets the state variables so as not to interfere with other
+             * Escape key handlers/interactions
+             */
+            this.activeToggle = null;
+    
+            break;
+          }
+
+          case keyCodes.down: {
+            /**
+             * Open the menu if it hasn't been opened yet.
+             * Move the focus to the first item if the menu has been opened.
+             */
+            if (!this.isOpen) {
+              this.open();
+            } else {
+              const currentMenu = this._setUpMenu(this.targetElement);
+              currentMenu.first.focus();
+            }
+    
+            /**
+             * Handle down arrow key when inside the open menu.
+             * If the event didn't come from within the menu, then bail.
+             */
+            if (!this.targetElement.contains(event.target)) break;
+    
+            /**
+             * This keeps track of which button/focusable is focused in the open menu
+             */
+            const currentMenu = this._setUpMenu(this.targetElement);
+            let currentIndex;
+    
+            for (let i = 0; i < currentMenu.all.length; i++) {
+              if (event.target == currentMenu.all[i]) {
+                currentIndex = i;
+              }
+            }
+    
+            const nextItem = currentMenu.all[currentIndex + 1];
+    
+            if (!nextItem) {
+              currentMenu.first.focus();
+    
+              return;
+            }
+    
+            nextItem.focus();
+    
+            break;
+          }
+    
+          case keyCodes.up: {
+            event.preventDefault();
+    
+            /**
+             * Handle up arrow key when inside the open menu.
+             * If the event didn't come from within the menu, then bail.
+             */
+            if (!this.targetElement.contains(event.target)) break;
+    
+            /**
+             * This keeps track of which button/focusable is focused in the open menu
+             */
+            const currentMenu = this._setUpMenu(this.targetElement);
+            let currentIndex;
+    
+            for (let i = 0; i < currentMenu.all.length; i++) {
+              if (event.target == currentMenu.all[i]) {
+                currentIndex = i;
+              }
+            }
+    
+            const previousItem = currentMenu.all[currentIndex - 1];
+    
+            if (!previousItem && currentMenu.last !== undefined) {
+              currentMenu.last.focus();
+    
+              return;
+            }
+    
+            previousItem.focus();
+    
+            break;
+          }
+    
+          case keyCodes.tab: {
+            /**
+             * Handle tab key when inside the open menu.
+             */
+            if (!this.targetElement.contains(event.target)) break;
+    
+            const currentMenu = this._setUpMenu(this.targetElement);
+    
+            // Close the dropdown when the user tabs out of the menu.
+            if (document.activeElement == currentMenu.last && !event.shiftKey) {
+              this.close();
+    
+              return;
+            }
+    
+            break;
+          }
+        }
       }
     }
   }

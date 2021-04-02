@@ -1,16 +1,16 @@
-<div class="rvt-tabs rvt-tabs--fitted" data-tabset="tabset-1">
+<div class="rvt-tabs rvt-tabs--fitted" data-rvt-tabs="tabset-1">
     <div class="rvt-tabs__tablist" role="tablist" aria-label="Rivet tabs">
-        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-1" id="t-one">
+        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-rvt-tab="tab-1" id="t-one">
             Tab one
         </button>
-        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-2" id="t-two" tabindex="-1">
+        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-rvt-tab="tab-2" id="t-two" tabindex="-1">
             Tab two
         </button>
-        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-tab="tab-3" id="t-three" tabindex="-1">
+        <button class="rvt-tabs__tab" role="tab" aria-selected="false" data-rvt-tab="tab-3" id="t-three" tabindex="-1">
             Tab three
         </button>
     </div>
-    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-1" aria-labelledby="t-one" data-tab-panel="tab-1" hidden>
+    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-1" aria-labelledby="t-one" data-rvt-tab-panel="tab-1" hidden>
         <span class="rvt-ts-26 rvt-text-bold rvt-display-block">Sue’s Salads</span>
         <p>
             Panel 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -19,14 +19,14 @@
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
-    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-2" aria-labelledby="t-two" data-tab-panel="tab-2" hidden>
+    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-2" aria-labelledby="t-two" data-rvt-tab-panel="tab-2" hidden>
         <span class="rvt-ts-26 rvt-text-bold rvt-display-block">JJ’s Diner</span>
         <p>
             Panel 2: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
-    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-3" aria-labelledby="t-three" data-tab-panel="tab-3" hidden>
+    <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-3" aria-labelledby="t-three" data-rvt-tab-panel="tab-3" hidden>
         <span class="rvt-ts-26 rvt-text-bold rvt-display-block">Food n’ Stuff</span>
         <p>
             Panel 3: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -34,6 +34,6 @@
     </div>
 </div>
 <script>
-  let tabElement = document.querySelector('[data-tabset="tabset-1"]');
+  let tabElement = document.querySelector('[data-rvt-tabs="tabset-1"]');
   window.newTab = new Rivet.Tabs(tabElement);
 </script>

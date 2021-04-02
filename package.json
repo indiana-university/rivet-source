@@ -45,6 +45,7 @@
     "@frctl/mandelbrot": "^1.5.1",
     "@frctl/nunjucks": "^2.0.1",
     "@octokit/rest": "^17.1.3",
+    "@rollup/plugin-node-resolve": "^11.2.0",
     "autoprefixer": "^7.1.2",
     "axios": "^0.19.2",
     "browser-sync": "^2.26.13",
@@ -80,5 +81,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.14.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "wicked-elements": "^3.1.1"
+  }
 }
