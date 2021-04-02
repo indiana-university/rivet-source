@@ -1,0 +1,73 @@
+// Related section
+
+@use 'core' as *;
+
+.#{$prefix}-footer-resources {
+  background-color: $color-crimson-base;
+  color: $color-white-base;
+  padding-bottom: $spacing-sm;
+
+  &__heading {
+    font-size: $ts-18;
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-md;
+  }
+
+  &__text-block {
+    font-size: $ts-14;
+    margin-top: $spacing-sm;
+  }
+
+  &__list {
+    list-style: none;
+    margin-top: $spacing-xs;
+    padding-left: 0;
+  }
+
+  &__list-item a {
+    color: $color-white-base;
+    display: block;
+    font-size: $ts-14;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white-base;
+      text-decoration: underline;
+    }
+  }
+
+  /**
+   * This class can be used on any button or button links needed for CTAs, etc.
+   */
+
+  &__button {
+    background-color: $color-white-base;
+    border-color: transparent;
+    color: $color-crimson-base;
+    justify-content: center;
+    margin-bottom: $spacing-sm;
+    width: 100%;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-footer-resources {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+
+    &__heading {
+      margin-top: 0;
+    }
+
+    &__list {
+      margin-top: $spacing-sm;
+    }
+  }
+
+  // Adjust the padding of the resources component to make spacing work better
+  // visually when used together with social component.
+
+  .#{$prefix}-footer-social + .#{$prefix}-footer-resources {
+    padding-top: $spacing-xs;
+  }
+}

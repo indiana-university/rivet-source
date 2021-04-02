@@ -2,18 +2,22 @@
 
 @use 'core' as *;
 
-.#{$prefix}-c-footer-social {
+.#{$prefix}-footer-social {
   background-color: $color-crimson-base;
-  padding-top: $spacing-lg;
+  padding-top: $spacing-sm;
   padding-bottom: $spacing-sm;
-  
+
   &__list {
     display: flex;
     width: 100%;
     list-style: none;
     padding: 0;
     justify-content: center;
-    
+
+    li {
+      margin-top: 0;
+    }
+
     li:not(:first-child) {
       margin-left: $spacing-xs;
     }
@@ -21,7 +25,7 @@
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-c-footer-social__list  {
+  .#{$prefix}-footer-social__list {
     justify-content: flex-end;
   }
 }

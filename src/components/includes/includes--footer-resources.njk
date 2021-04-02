@@ -53,27 +53,30 @@
     ]
   }
 ] -%}
-<div aria-labelledby="resources-heading" class="rvt-c-footer-related" role="complementary">
+<div aria-labelledby="resources-heading" class="rvt-footer-resources" role="complementary">
   <h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2>
-  <div class="rvt-container-xl">
+  <div class="rvt-container-lg">
     <div class="rvt-row">
-      <div class="rvt-cols-2-md">
-        <h3 class="rvt-c-footer-related__heading">Indiana University</h3>
-        <ul class="rvt-plain-list">
-          {% for button in buttons %}
-            <li>
-              <a class="rvt-c-footer-related__button rvt-button" href="{{ button.url }}">{{ button.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
+      <div class="rvt-cols-3-md">
+        <h3 class="rvt-footer-resources__heading">Indiana University</h3>
+        <!--
+          TODO: Make a better recommendation on how to mark this up.
+        -->
+        <div class="rvt-footer-resources__text-block">
+          107 S. Indiana Avenue
+          <br/>
+          Bloomington, IN
+          <br/>
+          47405-7000
+        </div>
       </div>
       {% for category in categories %}
-        <div class="rvt-cols-2-md">
-          <h3 class="rvt-c-footer-related__heading">{{ category.title }}</h3>
-          <ul class="rvt-plain-list">
+        <div class="rvt-cols-3-md">
+          <h3 class="rvt-footer-resources__heading">{{ category.title }}</h3>
+          <ul class="rvt-footer-resources__list">
             {% for link in category.links %}
-              <li>
-                <a class="rvt-c-footer-related__link" href="{{ link.link }}">{{ link.title }}</a>
+              <li class="rvt-footer-resources__list-item">
+                <a href="{{ link.link }}">{{ link.title }}</a>
               </li>
             {% endfor %}
           </ul>

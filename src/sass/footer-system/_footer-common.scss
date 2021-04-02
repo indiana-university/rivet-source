@@ -2,17 +2,17 @@
 
 @use 'core' as *;
 
-.#{$prefix}-c-footer-social,
-.#{$prefix}-c-footer-related,
-.#{$prefix}-c-footer-brand {
+.#{$prefix}-footer-social,
+.#{$prefix}-footer-resources,
+.#{$prefix}-footer-base {
   a:focus {
     outline-color: $color-white-base;
   }
-  
+
   a.#{$prefix}-button:focus {
-    box-shadow: 0 0 0 0.125rem $color-crimson-base, 0 0 0 $spacing-xxs $color-white-base;
+    box-shadow: 0 0 0 .125rem $color-crimson-base, 0 0 0 $spacing-xxs $color-white-base;
   }
-  
+
   a.#{$prefix}-button:hover {
     background-color: $color-blue-base;
   }

@@ -2,69 +2,96 @@
 
 @use 'core' as *;
 
-.#{$prefix}-c-footer-brand {
+.#{$prefix}-footer-base {
   background-color: $color-crimson-base;
   color: $color-white-base;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-md;
-  
+
   &__inner {
+    border-top: 1px solid rgba(255, 255, 255, .25);
     display: flex;
     flex-direction: column;
     margin-left: auto;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
   }
-  
+
   &__logo {
     margin: 0 auto;
   }
-  
+
   &__list {
     padding: 0;
     list-style: none;
     text-align: center;
   }
-  
+
   &__item {
     font-size: $ts-14;
     margin-top: $spacing-xs;
   }
-  
+
   &__link {
     color: $color-white-base;
     text-decoration: none;
-    
+
     &:hover {
       text-decoration: underline;
       color: $color-white-base;
     }
   }
+
+  // Experimental "light" mode for simple sites without the need
+  // for a footer system.
+
+  &--light {
+    background-color: $color-white-base;
+    color: $color-black-800;
+  }
+
+  &--light a {
+    color: $color-black-800;
+  }
+
+  &--light a:hover {
+    color: $color-blue-600;
+    text-decoration: underline;
+  }
+
+  &--light &__inner {
+    border-top-color: $color-black-100;
+  }
+
+  &--light &__logo {
+    color: $color-crimson-base;
+  }
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-c-footer-brand {
+  .#{$prefix}-footer-base {
     &__inner {
-      border-top: 1px solid rgba(255, 255, 255, 0.25);
       flex-direction: row;
       align-items: center;
+      margin-top: 0;
       margin-right: 0;
+      margin-bottom: 0;
       justify-content: flex-end;
-      padding-top: $spacing-sm;
     }
-    
+
     &__logo {
+      display: inline-flex;
       margin: 0;
     }
-    
+
     &__list {
       margin-top: 0;
       margin-left: $spacing-sm;
       display: flex;
     }
-    
+
     &__item {
       margin-top: 0;
     }
-    
+
     &__item:not(:first-child) {
       margin-left: $spacing-sm;
     }

@@ -1,14 +1,26 @@
 # Footer System
-> Intro text/summary
+The footer system is made up of three modules used to provide supplemental links and information about your site or app.
 
 ## Footer system modules
-> Most stuff in this RFC is still applicable. Will make for a good start on usage documentation
+1. **Social module** - this module displays icon links to social media profiles
+2. **Resources module** - this module can be divided into columns using the Rivet grid. Columns contain lists of links to resources on your site or external links to outside resources.
+3. **Base module** - This in the only required module of the footer. It contains links to policy information about accessibility, privacy, and copyright.
 
 ## States and roles
-> E.g. active states, open, closed, ARIA roles, etc.
+The Social and Resources modules must have a `role="complementary"` attribute to create landmarks for assistive technology users. No matter which combination of the Social, Resources, and Base modules you use the first module in the footer, must be a direct sibling of the `<main>` element of the document.
 
-## JavaScript
-> What's going on with the JS here?
+```html
+<main>
+  <!-- Site main content -->
+</main>
+<div aria-labelledby="social-heading" class="rvt-footer-social" role="complementary">
+  <!-- I'm the direct sibling of the <main> element! -->
+  <!-- Social module content -->
+</div>
+<footer class="rvt-footer-base">
+  <!-- Base module content -->
+</footer>
+```
 
 ## Usability guidance
-> Do this, Don't do this..
+> TODO: Write "Do this, Don't do this..." documentation
