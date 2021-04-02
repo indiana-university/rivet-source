@@ -9,7 +9,7 @@
     text-transform: uppercase;
     color: $color-crimson-base;
     font-weight: $font-weight-bold;
-    letter-spacing: .04rem;
+    letter-spacing: $spacing-sm * .04;
   }
 
   &__list {
@@ -131,7 +131,7 @@
   &__link,
   &__toggle {
     &:focus {
-      z-index: 1;
+      z-index: $z-index-100;
     }
   }
 }
