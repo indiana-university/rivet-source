@@ -4,10 +4,22 @@
 @use 'core' as *;
 
 .#{$prefix}-sidenav {
+  &__label {
+    font-size: $ts-14;
+    text-transform: uppercase;
+    color: $color-crimson-base;
+    font-weight: $font-weight-bold;
+    letter-spacing: .04rem;
+  }
+
   &__list {
     flex-basis: 100%;
     list-style-type: none;
     padding-left: 0;
+  }
+
+  &__label + &__list {
+    margin-top: $spacing-sm;
   }
 
   &__list[hidden],
@@ -17,10 +29,19 @@
 
   &__item {
     align-items: center;
-    border-top: 1px solid $color-black-100;
     display: flex;
     flex-wrap: wrap;
     margin-top: 0; // resets Rivet default margin-top
+  }
+
+  &__item &__item {
+    border-left: $spacing-xxs solid $color-black-100;
+  }
+
+  &__item &__list {
+    margin-left: $spacing-sm;
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-sm;
   }
 
   &__item-wrapper {
@@ -28,14 +49,24 @@
     flex-basis: 100%;
   }
 
+  &__item &__item &__link {
+    padding-top: $spacing-xxs * 1.2;
+    padding-bottom: $spacing-xxs * 1.2;
+  }
+
   &__link {
+    font-size: $ts-14;
     color: $color-black-base;
     flex-grow: 1;
-    padding: $spacing-sm*.875;
+    padding-top: $spacing-xs;
+    padding-right: $spacing-xs;
+    padding-bottom: $spacing-xs;
+    padding-left: $spacing-sm;
     text-decoration: none;
 
     &[aria-current] {
-      box-shadow: inset $spacing-xxs 0 0 $color-blue-base;
+      box-shadow: inset $spacing-xxs 0 0 $color-crimson-base;
+      background-color: $color-black-000;
     }
 
     &:focus,
@@ -45,14 +76,33 @@
     }
   }
 
+  &__link[aria-current] + &__toggle {
+    background-color: $color-black-000;
+  }
+
+  &__link[aria-current] + &__toggle:hover,
+  &__link[aria-current] + &__toggle:focus {
+    color: $color-black-600;
+    background-color: $color-black-100;
+  }
+
+  /**
+   * Pulls back alignment of current state for nested links
+   */
+
+  &__item > &__list &__link[aria-current] {
+    margin-left: -$spacing-xxs;
+  }
+
   &__toggle {
+    color: $color-black-300;
     align-items: center;
     background: transparent;
     border: none;
     cursor: pointer;
     display: none; // Hide by default if JS doesn't load
     justify-content: center;
-    padding: $spacing-sm*.875;
+    padding: 0 $spacing-xs;
 
     svg {
       vertical-align: middle;
@@ -84,71 +134,4 @@
       z-index: 1;
     }
   }
-}
-
-/*
-  * Nested levels:
-  * Indent text and set background colors and border-top colors
-  */
-$list: 'rvt-sidenav__list';
-$item: 'rvt-sidenav__item';
-
-/* Set up initial selectors for indenting and shading */
-$indent-selector: '.#{$list} > .#{$item} > .#{$list} > .#{$item}';
-$shade-selector: '.#{$item} > .#{$list}';
-
-// Set up level indent/background shade map
-$level-styles: (
-  32: $color-black-000,
-  52: $color-black-100,
-  72: $color-black-200
-);
-
-/* TODO: Adjust stylelint rules to handle nested Sass */
-
-@each $indent, $shade in $level-styles {
-  /* stylelint-disable */
-
-  // Get current @each index
-  $index: index(($level-styles), ($indent $shade));
-
-  // Calculate indent in rem (using base value 16)
-  $indent-rem: $indent / 16;
-
-  // Indent the link text
-
-  #{$indent-selector} > .rvt-sidenav__item-wrapper > .rvt-sidenav__link,
-  #{$indent-selector} > .rvt-sidenav__link {
-    padding-left: $indent-rem + rem;
-  }
-
-  // Set border-top color per nested level
-
-  #{$indent-selector} {
-    @if $index == 1 {
-      border-color: $color-black-100;
-    }
-
-    @else if $index == 2 {
-      border-color: $color-black-200;
-    }
-
-    @else if $index == 3 {
-      border-color: $color-black-300;
-    }
-  }
-
-  // Set the background shade
-
-  #{$shade-selector} {
-    background-color: $shade;
-  }
-
-  // Append another pair of list and item to the selector for indenting
-  $indent-selector: '#{$indent-selector} > .#{$list} > .#{$item}';
-
-  // Append another pair of item and list to selector for shading
-  $shade-selector: '#{$shade-selector} > .#{$item} > .#{$list}';
-
-  /* stylelint-enable */
 }

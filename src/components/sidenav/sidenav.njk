@@ -1,4 +1,10 @@
-<nav class="rvt-sidenav" aria-label="Sidenav" data-rvt-sidenav>
+<nav class="rvt-sidenav" aria-label="Section navigation" data-rvt-sidenav>
+  <!--
+    NOTE: Using aria-hidden here because the <nav> element wrapper will
+    already have an accessible name from the aria-label attribute. This label
+    is for visual purposes only.
+  -->
+  <span class="rvt-sidenav__label" aria-hidden="true">Optional label</span>
   <ul class="rvt-sidenav__list">
     <li class="rvt-sidenav__item">
       <a href="#" class="rvt-sidenav__link">Section nav one</a>
@@ -12,7 +18,7 @@
           </svg>
         </button>
       </div>
-      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1" role="menu">
+      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1">
         <li class="rvt-sidenav__item">
           <div class="rvt-sidenav__item-wrapper">
             <a href="#" class="rvt-sidenav__link">Level two</a>
@@ -22,7 +28,7 @@
               </svg>
             </button>
           </div>
-          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-2" role="menu">
+          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-2">
             <li class="rvt-sidenav__item">
               <a href="#" class="rvt-sidenav__link">Level three</a>
             </li>
@@ -39,7 +45,7 @@
               </svg>
             </button>
           </div>
-          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-3" role="menu">
+          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-3">
             <li class="rvt-sidenav__item">
               <a href="#" class="rvt-sidenav__link">Level three</a>
             <li class="rvt-sidenav__item">
@@ -67,7 +73,7 @@
               </svg>
             </button>
           </div>
-          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-4" role="menu">
+          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-4">
             <li class="rvt-sidenav__item">
               <div class="rvt-sidenav__item-wrapper">
                 <a href="#" class="rvt-sidenav__link">
@@ -79,7 +85,7 @@
                   </svg>
                 </button>
               </div>
-              <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-5" role="menu">
+              <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-5">
                 <li class="rvt-sidenav__item">
                   <a href="#" class="rvt-sidenav__link">Level four</a>
                 </li>
@@ -94,7 +100,7 @@
                       </svg>
                     </button>
                   </div>
-                  <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-6" role="menu">
+                  <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-6">
                     <li class="rvt-sidenav__item">
                       <div class="rvt-sidenav__item-wrapper">
                         <a href="#" class="rvt-sidenav__link">Level five</a>
@@ -104,7 +110,7 @@
                           </svg>
                         </button>
                       </div>
-                      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-7" role="menu">
+                      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-7">
                         <li class="rvt-sidenav__item">
                           <a href="#" class="rvt-sidenav__link">Level six</a>
                         </li>
