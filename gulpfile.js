@@ -195,11 +195,7 @@ async function compileIIFE() {
   try {
     const bundle = await rollup.rollup({
       input: './src/js/index.js',
-      plugins: [
-        nodeResolve(),
-        eslint(eslintOptionsIIFE),
-        babel({ runtimeHelpers: true })
-      ]
+      plugins: [nodeResolve(), babel({ runtimeHelpers: true })]
     });
 
     await bundle.write({
@@ -219,7 +215,7 @@ async function compileESM() {
   try {
     const bundle = await rollup.rollup({
       input: './src/js/index.js',
-      plugins: [nodeResolve(), eslint(eslintOptionsESM)]
+      plugins: [nodeResolve()]
     });
 
     await bundle.write({
