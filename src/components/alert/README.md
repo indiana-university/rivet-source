@@ -156,13 +156,13 @@ Alert lists provide a way to group a set of errors together. For instance, when 
 
 #### Dismissable alerts
 
-Rivet alerts can be dismissable with the addition of a `button` element with the class `rvt-alert__dismiss` and the data attribute `data-alert-close`. This button encloses a `span` element designed to provide context for accessibility and an `SVG` close icon. **You will need to initialize the alert JavaScript in order to use this functionality.**
+Rivet alerts can be dismissable with the addition of a `button` element with the class `rvt-alert__dismiss` and the data attribute `data-rvt-alert-close`. This button encloses a `span` element designed to provide context for accessibility and an `SVG` close icon. **You will need to initialize the alert JavaScript in order to use this functionality.**
 
 ```
 <div class="rvt-alert rvt-alert--info" role="alertdialog" aria-labelledby="dismissable-alert-title">
     <h1 class="rvt-alert__title" id="dismissable-alert-title">Alert title</h1>
     <p class="rvt-alert__message">Lorem ipsum sit dolor amet</p>
-    <button type="button" class="rvt-alert__dismiss" data-alert-close>
+    <button type="button" class="rvt-alert__dismiss" data-rvt-alert-close>
         <span class="v-hide">Dismiss this alert</span>
         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
             <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"/>
@@ -176,7 +176,7 @@ Rivet alerts can be dismissable with the addition of a `button` element with the
 In order to initialize the alert, you will need to create a new instance of it, and pass it the element you wish to instantiate as a modal.
 
 ```
-const alertElement = document.querySelector('[data-alert="your-data-alert-value"]');
+const alertElement = document.querySelector('[data-rvt-alert="your-data-rvt-alert-value"]');
 const newAlert = new Rivet.Alert(alertElement);
 ```
 
@@ -195,7 +195,7 @@ If you use the appropriate data attribute/id combination in your markup, alerts 
 
 | Event              | Description                                                                                                                                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `rvt:alertDismiss` | Emitted when the alert is dismissed (using the Alert.open() method, or the `data-alert-dismiss` attribute). The value of the alert `id` attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id |
+| `rvt:alertDismiss` | Emitted when the alert is dismissed (using the Alert.open() method, or the `data-rvt-alert-dismiss` attribute). The value of the alert `id` attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id |
 
 ## Accessibility requirements
 

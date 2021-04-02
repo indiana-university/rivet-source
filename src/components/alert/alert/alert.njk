@@ -1,9 +1,5 @@
-<div class="rvt-alert rvt-alert--{{ type }}" role="alertdialog" aria-labelledby="{{ id }}-alert-title" data-alert="{{ type }}">
+<div class="rvt-alert rvt-alert--{{ type }}" role="alertdialog" aria-labelledby="{{ id }}-alert-title" data-rvt-alert="{{ type }}">
     <h1 class="rvt-alert__title" id="{{ id }}-alert-title">{{ title }}</h1>
     <p class="rvt-alert__message">{{ message }}</p>
     {% render "@includes--alert-close-button" %}
 </div>
-<script>
-  let close{{ type }}Element = document.querySelector('[data-alert="{{ type }}"]');
-  window.new{{ type }}Alert = new Rivet.Alert(close{{ type }}Element);
-</script>

@@ -14,13 +14,13 @@ context:
           value: "button"
     - text: "No"
       attributes:
-        - label: "data-modal-close"
+        - label: "data-rvt-modal-close"
           value: "modalExample"
         - label: "role"
           value: "button"
     - text: "No, please cancel"
       attributes:
-        - label: "data-modal-close"
+        - label: "data-rvt-modal-close"
           value: "modalExample"
         - label: "role"
           value: "button"
@@ -39,7 +39,7 @@ variants:
               value: "button"
         - text: Cancel
           attributes:
-            - label: "data-modal-close"
+            - label: "data-rvt-modal-close"
               value: "modalWithForm"
             - label: "role"
               value: "button"
@@ -58,7 +58,7 @@ variants:
               value: "button"
         - text: "No, thanks"
           attributes:
-            - label: "data-modal-close"
+            - label: "data-rvt-modal-close"
               value: "modalDialogExample"
             - label: "role"
               value: "button"
@@ -82,7 +82,7 @@ variants:
         - text: "Cancel"
           modifier: "-secondary"
           attributes:
-            - label: "data-modal-close"
+            - label: "data-rvt-modal-close"
               value: "modalConfirmation"
             - label: "role"
               value: "button"

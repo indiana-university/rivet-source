@@ -10,12 +10,12 @@ Before using the accordion, consider why you wish to use it. If you are using an
 
 The accordion component consists of several parts. The first piece is a wrapper `div` with the class `rvt-accordion`. This wrapper encloses each accordion item, which are made of a heading tag with the class `rvt-accordion__summary`, and `div` with the class `rvt-accordion__panel`. The heading contains everything related to an accordion item's label (or the part that is visible when the item is closed). The panel contains everything that becomes visible once an accordion item is opened.
 
-The heading encloses a button with the class `rvt-accordion__toggle`. This button has a `data-accordion-trigger` attribute, which has a value matching the `id` of the relevant panel.
+The heading encloses a button with the class `rvt-accordion__toggle`. This button has a `data-rvt-accordion-trigger` attribute, which has a value matching the `id` of the relevant panel.
 
 ```
-<div class="rvt-accordion" data-accordion="test-accordion">
+<div class="rvt-accordion" data-rvt-accordion="test-accordion">
   <h3 class="rvt-accordion__summary">
-    <button class="rvt-accordion__toggle" id="test-accordion-1-label" data-accordion-trigger="test-accordion-1">
+    <button class="rvt-accordion__toggle" id="test-accordion-1-label" data-rvt-accordion-trigger="test-accordion-1">
       <span class="rvt-accordion__toggle-text">Accordion one</span>
       <div class="rvt-accordion__toggle-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -27,11 +27,11 @@ The heading encloses a button with the class `rvt-accordion__toggle`. This butto
       </div>
     </button>
   </h3>
-  <div class="rvt-accordion__panel" id="test-accordion-1" aria-labelledby="test-accordion-1-label" data-accordion-panel="test-accordion-1">
+  <div class="rvt-accordion__panel" id="test-accordion-1" aria-labelledby="test-accordion-1-label" data-rvt-accordion-panel="test-accordion-1">
     <p class="rvt-m-all-remove">Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam.</p>
   </div>
   <h3 class="rvt-accordion__summary">
-    <button class="rvt-accordion__toggle" id="test-accordion-2-label" data-accordion-trigger="test-accordion-2">
+    <button class="rvt-accordion__toggle" id="test-accordion-2-label" data-rvt-accordion-trigger="test-accordion-2">
       <span class="rvt-accordion__toggle-text">Accordion two</span>
       <div class="rvt-accordion__toggle-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@ The heading encloses a button with the class `rvt-accordion__toggle`. This butto
       </div>
     </button>
   </h3>
-  <div class="rvt-accordion__panel" id="test-accordion-2" aria-labelledby="test-accordion-2-label" data-accordion-panel="test-accordion-2">
+  <div class="rvt-accordion__panel" id="test-accordion-2" aria-labelledby="test-accordion-2-label" data-rvt-accordion-panel="test-accordion-2">
     <p class="rvt-m-all-remove">Nostrum fugit a natus. Corporis voluptates ut odio omnis nobis voluptas. Est dolor et eum quis deleniti explicabo autem est magnam. Unde expedita ab quia maxime quia. Qui voluptas distinctio ipsa laborum laboriosam.</p>
   </div>
 </div>
@@ -54,7 +54,7 @@ The heading encloses a button with the class `rvt-accordion__toggle`. This butto
 In order to initialize the accordion, you will need to create a new instance of it, and pass it the element you wish to instantiate as an accordion.
 
 ```
-const accordionElement = document.querySelector('[data-accordion="your-data-accordion-value"]');
+const accordionElement = document.querySelector('[data-rvt-accordion="your-data-rvt-accordion-value"]');
 const newAccordion = new Rivet.Accordion(accordionElement);
 ```
 
@@ -87,8 +87,8 @@ If you use the appropriate data attribute/id combination in your markup, accordi
 
 | Event                 | Description                                                                                                                                                                                                                                                                             |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rvt:accordionOpened` | Emitted when an accordion panel is opened (using the Accordion.open() method, or the data-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id  |
-| `rvt:accordionClosed` | Emitted when an accordion panel is closed (using the Accordion.close() method, or the data-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id |
+| `rvt:accordionOpened` | Emitted when an accordion panel is opened (using the Accordion.open() method, or the data-rvt-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id  |
+| `rvt:accordionClosed` | Emitted when an accordion panel is closed (using the Accordion.close() method, or the data-rvt-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id |
 
 ## Accessibility (a11y) requirements
 

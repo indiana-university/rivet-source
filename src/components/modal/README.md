@@ -20,10 +20,10 @@ Overlays for signing users up for an email newsletter are not considered a good 
 ## Adding the markup
 
 ```
-<button type="button" data-modal-trigger="modal-example-basic">Open modal</div>
+<button type="button" data-rvt-modal-trigger="modal-example-basic">Open modal</div>
 
-<div class="rvt-modal" id="modal-example-basic" role="dialog" tabindex="-1" hidden aria-labelledby="modal-example-title" data-modal="modal-example-basic">
-  <div class="rvt-modal__inner" data-modal-inner>
+<div class="rvt-modal" id="modal-example-basic" role="dialog" tabindex="-1" hidden aria-labelledby="modal-example-title" data-rvt-modal="modal-example-basic">
+  <div class="rvt-modal__inner" data-rvt-modal-inner>
     <header class="rvt-modal__header">
        <h1 class="rvt-modal__title" id="modal-example-title">Modal title</h1>
     </header>
@@ -32,7 +32,7 @@ Overlays for signing users up for an email newsletter are not considered a good 
       <button type="button" class="rvt-button" role="button">
         <span>OK</span>
       </button>
-      <button type="button" class="rvt-button" data-modal-close="modal-example-basic" role="button">
+      <button type="button" class="rvt-button" data-rvt-modal-close="modal-example-basic" role="button">
         <span>Cancel</span>
       </button>
     </div>
@@ -45,7 +45,7 @@ Overlays for signing users up for an email newsletter are not considered a good 
 In order to initialize the modal, you will need to create a new instance of it, and pass it the element you wish to instantiate as a modal.
 
 ```
-const modalElement = document.querySelector('[data-modal="your-data-modal-value"]');
+const modalElement = document.querySelector('[data-rvt-modal="your-data-rvt-modal-value"]');
 document.newModal = new Rivet.Modal(modalElement);
 ```
 
@@ -90,8 +90,8 @@ If you use the appropriate data attribute/id combination in your markup, modals 
 
 | Event            | Description                                                                                                                                                                                                                                                          |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rvt:modalOpen`  | Emitted when the modal is opened (using the Modal.open() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id()  |
-| `rvt:modalClose` | Emitted when the modal is closed (using the Modal.close() method, or the data-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
+| `rvt:modalOpen`  | Emitted when the modal is opened (using the Modal.open() method, or the data-rvt-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id()  |
+| `rvt:modalClose` | Emitted when the modal is closed (using the Modal.close() method, or the data-rvt-modal-trigger attribute). The value of the modal id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id() |
 
 ## Accessibility (a11y) requirements
 

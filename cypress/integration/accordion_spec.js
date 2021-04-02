@@ -6,14 +6,14 @@ beforeEach(function () {
    * Use cypress aliases to share the context of the accordion trigger and panel
    * elements across different assertions.
    */
-  cy.get('[data-accordion-panel="my-new-accordion-1"]').as('panel1');
-  cy.get('[data-accordion-trigger="my-new-accordion-1"]').as('trigger1');
-  cy.get('[data-accordion-panel="my-new-accordion-2"]').as('panel2');
-  cy.get('[data-accordion-trigger="my-new-accordion-2"]').as('trigger2');
-  cy.get('[data-accordion-panel="my-new-accordion-3"]').as('panel3');
-  cy.get('[data-accordion-trigger="my-new-accordion-3"]').as('trigger3');
-  cy.get('[data-accordion-panel="my-new-accordion-4"]').as('panel4');
-  cy.get('[data-accordion-trigger="my-new-accordion-4"]').as('trigger4');
+  cy.get('[data-rvt-accordion-panel="my-new-accordion-1"]').as('panel1');
+  cy.get('[data-rvt-accordion-trigger="my-new-accordion-1"]').as('trigger1');
+  cy.get('[data-rvt-accordion-panel="my-new-accordion-2"]').as('panel2');
+  cy.get('[data-rvt-accordion-trigger="my-new-accordion-2"]').as('trigger2');
+  cy.get('[data-rvt-accordion-panel="my-new-accordion-3"]').as('panel3');
+  cy.get('[data-rvt-accordion-trigger="my-new-accordion-3"]').as('trigger3');
+  cy.get('[data-rvt-accordion-panel="my-new-accordion-4"]').as('panel4');
+  cy.get('[data-rvt-accordion-trigger="my-new-accordion-4"]').as('trigger4');
 });
 
 describe('Rivet accordion interactions', function () {

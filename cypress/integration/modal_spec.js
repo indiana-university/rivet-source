@@ -6,19 +6,19 @@ beforeEach(function () {
    * Use cypress aliases to share the context of the modal, trigger, and close
    * elements across different assertions.
    */
-  cy.get('[data-modal="modalExample"]').as('modal');
-  cy.get('[data-modal-close="modalExample"].rvt-modal__close').as('modalClose');
-  cy.get('[data-modal-trigger="modalExample"]').as('modalTrigger');
-  cy.get('[data-modal="modalDialogExample"]').as('modalDialog');
-  cy.get('[data-modal-close="modalDialogExample"]').as('modalDialogClose');
-  cy.get('[data-modal-trigger="modalDialogExample"]').as('modalDialogTrigger');
+  cy.get('[data-rvt-modal="modalExample"]').as('modal');
+  cy.get('[data-rvt-modal-close="modalExample"].rvt-modal__close').as('modalClose');
+  cy.get('[data-rvt-modal-trigger="modalExample"]').as('modalTrigger');
+  cy.get('[data-rvt-modal="modalDialogExample"]').as('modalDialog');
+  cy.get('[data-rvt-modal-close="modalDialogExample"]').as('modalDialogClose');
+  cy.get('[data-rvt-modal-trigger="modalDialogExample"]').as('modalDialogTrigger');
 
 });
 
 describe('Rivet basic modal interactions', function () {
   it('Should see the modal page', function () {
     cy.get('@modalTrigger')
-      .should('have.attr', 'data-modal-trigger', 'modalExample')
+      .should('have.attr', 'data-rvt-modal-trigger', 'modalExample')
       .and('be.visible');
 
     cy.get('@modal').should('not.be.visible');

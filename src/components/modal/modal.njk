@@ -1,4 +1,4 @@
-{% render '@button', { content: buttonText, attributes: [{ label: "data-modal-trigger", value: id }]}, true %}
+{% render '@button', { content: buttonText, attributes: [{ label: "data-rvt-modal-trigger", value: id }]}, true %}
 
 <div class="rvt-modal"
   id="{{ id }}"
@@ -6,11 +6,14 @@
   tabindex="-1"
   hidden
   aria-labelledby="{{ modalTitleId }}"
-  data-modal="{{ id }}"
+  data-rvt-modal="{{ id }}"
+  {% if dialog %}
+    data-rvt-modal-dialog
+  {% endif %}
   {% for attribute in attributes %}
     {{ attribute.label }}="{{ attribute.value }}"
   {% endfor %}>
-  <div class="rvt-modal__inner" data-modal-inner>
+  <div class="rvt-modal__inner" data-rvt-modal-inner>
     <header class="rvt-modal__header">
         <h1 class="rvt-modal__title" id="{{ modalTitledId }}">{{ modalTitle }}</h1>
     </header>
@@ -31,22 +34,10 @@
       {% endfor %}
     </div>
     {% if not dialog %}
-    <button class="rvt-button rvt-button--plain rvt-modal__close" data-modal-close="{{ id }}" role="button">
+    <button class="rvt-button rvt-button--plain rvt-modal__close" data-rvt-modal-close="{{ id }}" role="button">
       <span class="rvt-sr-only">Close</span>
       {% include "@includes--close" %}
     </button>
     {% endif %}
   </div>
 </div>
-
-{% if dialog %}
-<script>
-    let modal{{ id }}Element = document.querySelector('[data-modal="{{ id }}"]');
-    window.new{{ id }}Modal = new Rivet.Modal(modal{{ id }}Element, { dialog: true });
-</script>
-{% else %}
-<script>
-    let modal{{ id }}Element = document.querySelector('[data-modal="{{ id }}"]');
-    window.new{{ id }}Modal = new Rivet.Modal(modal{{ id }}Element);
-</script>
-{% endif %}

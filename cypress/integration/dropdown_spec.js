@@ -1,5 +1,5 @@
-const DROPDOWN_TOGGLE = '[data-dropdown-toggle="dropdownNavigation"]';
-const DROPDOWN_MENU = '[data-dropdown-menu]';
+const DROPDOWN_TOGGLE = '[data-rvt-dropdown-toggle="dropdownNavigation"]';
+const DROPDOWN_MENU = '[data-rvt-dropdown-menu]';
 const DEV_SERVER = "http://localhost:3000";
 const DOWN = 40;
 const UP = 38;
