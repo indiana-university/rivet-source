@@ -1,10 +1,13 @@
 # Footer
+
 Add an IU-branded footer to your website or application.
 
-## When to use
+## Overview
+
 Branding guidelines require each site to have an IU-branded footer. For more information on web branding guidelines, visit [brand.iu.edu](brand.iu.edu).
 
-## How to use
+## Usage
+
 A footer is made up of three parts: the **base footer**, the **resources module**, and the **social module**.
 
 > Only the base footer is required. The resources and social modules are optional.
