@@ -107,7 +107,7 @@ Primary navigation is wrapped in a [disclosure](/components/detail/disclosure) t
                         </svg>
                     </button>
 
-                    <nav aria-label="Global navigation" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
+                    <nav aria-label="Primary navigation" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
                         <ul class="rvt-header-menu__list">
 
                             <!-- Navigation link without dropdown -->
@@ -205,7 +205,7 @@ You can include search in the header. The search field is hidden in a [disclosur
 
                 <div class="rvt-header-global__controls" data-rvt-disclosure="menu">
                     
-                  <nav aria-label="Global navigation" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
+                  <nav aria-label="Primary navigation" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
                     <!-- Primary navigation... -->
                   </nav>
 
@@ -312,7 +312,7 @@ To see an example site that uses secondary navigation, visit the [COVID-19 subsi
                     </svg>
                 </button>
 
-                <nav aria-label="Section" class="rvt-header-menu" data-rvt-disclosure-target="local-header-menu" hidden>
+                <nav aria-label="Secondary navigation" class="rvt-header-menu" data-rvt-disclosure-target="local-header-menu" hidden>
                     <ul class="rvt-header-menu__list">
 
                         <!-- Secondary navigation link -->
@@ -367,3 +367,18 @@ To see an example site that uses secondary navigation, visit the [COVID-19 subsi
     </div>
 </header>
 ```
+
+## Accessibility
+
+The footer is built to follow the WAI-ARIA authoring standards. It is marked up with the appropriate ARIA attributes, described below.
+
+See the [disclosure](/components/detail/disclosure) and [dropdown](/components/detail/dropdown) documentation for additional accessibility information.
+
+### ARIA attributes
+
+|Attribute|Description|
+|-|-|
+|`aria-label="Primary navigation"`|Applied to the `nav` element containing primary header navigation|
+|`aria-label="Secondary navigation"`|Applied to the `nav` element containing secondary header navigation|
+|`aria-expanded`|Applied to elements with the `data-rvt-disclosure-toggle` and `data-rvt-dropdown-toggle` attributes. Set to `false` when closed, `true` when open.|
+|`aria-current="page"`|Applied to a navigation link's `a` element when the user is currently on that page (or in a section of the site containing that page).|
