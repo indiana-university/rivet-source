@@ -41,7 +41,7 @@ The base header contains the IU trident logo and the title of your website or ap
                         
                         <div class="rvt-lockup__body">
                             <span class="rvt-lockup__title">Title</span>
-                            <span class="rvt-lockup__subtitle">Subtitle</span>
+                            <span class="rvt-lockup__subtitle">Optional subtitle</span>
                         </div>
                     
                     </a>
@@ -83,7 +83,7 @@ Primary navigation is wrapped in a [disclosure](/components/detail/disclosure) t
                         
                         <div class="rvt-lockup__body">
                             <span class="rvt-lockup__title">Title</span>
-                            <span class="rvt-lockup__subtitle">Subtitle</span>
+                            <span class="rvt-lockup__subtitle">Optional subtitle</span>
                         </div>
                     
                     </a>
@@ -270,4 +270,100 @@ searchForm.addEventListener('submit', event => {
 
   // Handle query...
 });
+```
+
+## Secondary navigation
+
+You can add a second level of navigation links beneath the header. This option is useful for section-specific navigation or subsites within a larger website.
+
+Secondary navigation is wrapped in a [disclosure](/components/detail/disclosure) that hides the navigation on smaller screens. The navigation remains hidden until the user taps the "toggle local menu" button.
+
+To see an example site that uses secondary navigation, visit the [COVID-19 subsite on iu.edu](https://iu.edu/covid/index.html).
+
+```html
+<header class="rvt-header-wrapper">
+    
+    <!-- Hidden link for screen reader users to skip to main content -->
+    
+    <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+    
+    <!-- Primary header area from previous examples -->
+    
+    <div class="rvt-header-global">
+        <!-- ... -->
+    </div>
+
+    <!-- Secondary header navigation -->
+
+    <div class="rvt-header-local">
+        <div class="rvt-container-xl">
+            <div class="rvt-header-local__inner" data-rvt-disclosure="local-header-menu">
+                
+                <!-- Secondary navigation title -->
+                
+                <a href="#" class="rvt-header-local__title">Component Library</a>
+
+                <!-- Menu button that shows/hides secondary navigation on smaller screens -->
+
+                <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="local-header-menu">
+                    <span class="rvt-sr-only">Toggle local menu</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
+                    </svg>
+                </button>
+
+                <nav aria-label="Section" class="rvt-header-menu" data-rvt-disclosure-target="local-header-menu" hidden>
+                    <ul class="rvt-header-menu__list">
+
+                        <!-- Secondary navigation link -->
+
+                        <li class="rvt-header-menu__item">
+                            <a class="rvt-header-menu__link" href="#">Section Item One</a>
+                        </li>
+
+                        <!-- Secondary navigation link with dropdown -->
+
+                        <li class="rvt-header-menu__item">
+                            <div class="rvt-header-menu__dropdown rvt-dropdown" data-rvt-dropdown="secondary-nav-2">
+                                <div class="rvt-header-menu__group">
+
+                                    <!-- Link that appears in secondary navigation -->
+
+                                    <a class="rvt-header-menu__link" href="#">Section Item Two</a>
+                                    
+                                    <!-- Button that shows/hides dropdown links -->
+
+                                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-rvt-dropdown-toggle="secondary-nav-2">
+                                        <span class="rvt-sr-only">Toggle Sub-navigation</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16" viewBox="0 0 16 16" width="16">
+                                            <path d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" fill="currentColor"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-rvt-dropdown-menu="secondary-nav-2" hidden>
+                                    <ul class="rvt-header-menu__submenu-list">
+                                        
+                                        <!-- Dropdown links -->
+                                        
+                                        <li class="rvt-header-menu__submenu-item">
+                                            <a class="rvt-header-menu__submenu-link" href="#">Sub Item One</a>
+                                        </li>
+
+                                        <li class="rvt-header-menu__submenu-item">
+                                            <a class="rvt-header-menu__submenu-link" href="#">Sub Item Two</a>
+                                        </li>
+
+                                        <li class="rvt-header-menu__submenu-item">
+                                            <a class="rvt-header-menu__submenu-link" href="#">Sub Item Three</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
 ```
