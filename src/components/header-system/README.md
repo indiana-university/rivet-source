@@ -260,12 +260,13 @@ If you'd like search to function differently, you can:
 To handle submitted search queries yourself without redirecting the user to a new page, use the following JavaScript:
 
 ```js
-const search = document.querySelector('[data-rvt-disclosure="search"] form');
+const searchForm = document.querySelector('[data-rvt-disclosure="search"] form');
+const searchField = searchForm.querySelector('input');
 
-search.addEventListener('submit', event => {
+searchForm.addEventListener('submit', event => {
   event.preventDefault();
 
-  const query = search.querySelector('input').value;
+  const query = searchField.value;
 
   // Handle query...
 });
