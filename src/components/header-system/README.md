@@ -178,3 +178,94 @@ You can mark the current section or page in the primary navigation by:
 - Adding the `aria-current="page"` attribute to the `a` child element within the `li` element described in the previous bullet point
 
 The second link in the example primary navigation code above has been marked as the current page.
+
+## Search
+
+You can include search in the header. The search field is hidden in a [disclosure](/components/detail/disclosure) until the search button (a magnifying glass) is clicked or tapped.
+
+> You can use search with or without primary navigation. If you use primary navigation, search must appear *after* it in your markup.
+
+```html
+<header class="rvt-header-wrapper">
+    
+    <!-- Hidden link for screen reader users to skip to main content -->
+    
+    <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+    
+    <div class="rvt-header-global">
+        <div class="rvt-container-xl">
+            <div class="rvt-header-global__inner">
+                <div class="rvt-header-global__logo-slot">
+                    <a class="rvt-lockup" href="/">
+
+                        <!-- Trident logo and site title... -->
+                    
+                    </a>
+                </div>
+
+                <div class="rvt-header-global__controls" data-rvt-disclosure="menu">
+                    
+                  <nav aria-label="Global navigation" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
+                    <!-- Primary navigation... -->
+                  </nav>
+
+                  <!-- Search -->
+
+                  <div data-rvt-disclosure="search">
+                      
+                      <!-- Button that shows/hides the search field -->
+                      
+                      <button class="rvt-global-toggle" data-rvt-disclosure-toggle="search" aria-expanded="false">
+                          <span class="rvt-sr-only">Search</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__search" height="16" viewBox="0 0 16 16" width="16">
+                              <path d="M15.71,14.29,10.89,9.47a6,6,0,1,0-1.42,1.42l4.82,4.82a1,1,0,0,0,1.42,0A1,1,0,0,0,15.71,14.29ZM6,10a4,4,0,1,1,4-4A4,4,0,0,1,6,10Z" fill="currentColor"></path>
+                          </svg>
+                      </button>
+
+                      <!-- Search field -->
+
+                      <form action="/search" class="rvt-header-global__search" data-rvt-disclosure-target="search" role="search" method="get" hidden>
+                          <label class="rvt-sr-only" for="search">Search</label>
+                          <div class="rvt-input-group">
+                              <input class="rvt-input-group__input rvt-text-input" type="text" name="q">
+                              <div class="rvt-input-group__append">
+                                  <button class="rvt-button">Search</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+```
+
+### Implementing search
+
+By default, the user is sent to the URL `/search` when they submit a search query. The value of their search query is appended to the page URL as the query string parameter `q`.
+
+```
+GET /search?q={search query}
+```
+
+It is up to you to implement a method for handling search queries on your website or application &mdash; most sites use [Google Custom Search](https://developers.iu.edu/resources/google-custom-search/).
+
+If you'd like search to function differently, you can:
+
+- Change the value of the `action` and `method` attributes on the search `form` element
+- Change the value of the `name` attribute on the search `inpint` element
+
+To handle submitted search queries yourself without redirecting the user to a new page, use the following JavaScript:
+
+```js
+const search = document.querySelector('[data-rvt-disclosure="search"] form');
+
+search.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const query = this.querySelector('input').value;
+
+  // Handle query...
+});
+```
