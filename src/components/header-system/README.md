@@ -253,8 +253,9 @@ It is up to you to implement a method for handling search queries on your websit
 
 If you'd like search to function differently, you can:
 
-- Change the value of the `action` and `method` attributes on the search `form` element
-- Change the value of the `name` attribute on the search `input` element
+- Change the value of the `action` attribute on the search `form` element to redirect the user to a different page on submit 
+- Change the value of the `method` attribute on the search `form` element to `post` to submit the search query via `HTTP POST` instead
+- Change the value of the `name` attribute on the search `input` element to use a different name for the variable containing the search query
 
 To handle submitted search queries yourself without redirecting the user to a new page, use the following JavaScript:
 
