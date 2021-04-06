@@ -264,7 +264,7 @@ const search = document.querySelector('[data-rvt-disclosure="search"] form');
 search.addEventListener('submit', event => {
   event.preventDefault();
 
-  const query = this.querySelector('input').value;
+  const query = search.querySelector('input').value;
 
   // Handle query...
 });
