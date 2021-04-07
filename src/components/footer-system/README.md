@@ -259,6 +259,6 @@ The footer is built to follow the WAI-ARIA authoring standards. It is marked up 
 
 |Attribute|Description|
 |-|-|
-|`role="complementary"`|Applied to the container `div` for the optional resources and social modules|
+|`role="complementary"`|Applied to the container `div` for the optional resources and social modules. Note that any element with this attribute *must* be a sibling of `main` and not be nested within any other element, including `footer`.|
 |`aria-labelledby="resources-heading"`|Applied to the container `div` for the optional resources module. The value of this attribute matches the `id` of the `h2` child element containing the screen reader title.|
 |`aria-labelledby="social-heading"`|Applied to the container `div` for the optional social module. The value of this attribute matches the `id` of the `h2` child element containing the screen reader title.|
