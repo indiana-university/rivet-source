@@ -52,6 +52,20 @@ The base header contains the IU trident logo and the title of your website or ap
 </header>
 ```
 
+#### Adjusting the width of header content
+
+The example code on this page uses the `.rvt-container-xl` class to constrain the width of all content in the header.
+
+If you'd like wider or narrower header content to match the width of your page content, you can use any of the other [`.rvt-container-*` classes](/components/detail/grid) instead.
+
+```html
+<div class="rvt-header-global">
+    <div class="rvt-container-md">
+        <!-- This header uses the .rvt-container-md class instead. -->
+    </div>
+</div>
+```
+
 ### Header with primary navigation
 
 You can include a set of primary navigation links in the header. These links can optionally be [dropdowns](/components/detail/dropdown) that contain additional links related to a section or category.
