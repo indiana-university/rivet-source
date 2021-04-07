@@ -184,15 +184,6 @@ Primary navigation is wrapped in a [disclosure](/components/detail/disclosure) t
 </header>
 ```
 
-### Marking the current section or page
-
-You can mark the current section or page in the primary navigation by:
-
-- Adding the `.rvt-header-menu__item--current` class to an `li` element that has the `.rvt-header-menu__item` class
-- Adding the `aria-current="page"` attribute to the `a` child element within the `li` element described in the previous bullet point
-
-The second link in the example primary navigation code above has been marked as the current page.
-
 ## Search
 
 You can include search in the header. The search field is hidden in a [disclosure](/components/detail/disclosure) until the search button (a magnifying glass) is clicked or tapped.
