@@ -255,37 +255,6 @@ You can include search in the header. The search field is hidden in a [disclosur
 </header>
 ```
 
-### Implementing search
-
-By default, the user is sent to the URL `/search` when they submit a search query. The value of their search query is appended to the page URL as the query string parameter `q`.
-
-```
-GET /search?q={search query}
-```
-
-It is up to you to implement a method for handling search queries on your website or application &mdash; most sites use [Google Custom Search](https://developers.iu.edu/resources/google-custom-search/).
-
-If you'd like search to function differently, you can:
-
-- Change the value of the `action` attribute on the search `form` element to redirect the user to a different page on submit 
-- Change the value of the `method` attribute on the search `form` element to `post` to submit the search query via `HTTP POST` instead
-- Change the value of the `name` attribute on the search `input` element to use a different name for the variable containing the search query
-
-To handle submitted search queries yourself without redirecting the user to a new page, use the following JavaScript:
-
-```js
-const searchForm = document.querySelector('[data-rvt-disclosure="search"] form');
-const searchField = searchForm.querySelector('input');
-
-searchForm.addEventListener('submit', event => {
-  event.preventDefault();
-
-  const query = searchField.value;
-
-  // Handle query...
-});
-```
-
 ## Secondary navigation
 
 You can add a second level of navigation links beneath the header. This option is useful for section-specific navigation or subsites within a larger website.
