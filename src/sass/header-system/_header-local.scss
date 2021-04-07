@@ -42,6 +42,7 @@
     svg {
       width: .75 * $spacing-sm;
       height: .75 * $spacing-sm;
+      flex-shrink: 0;
     }
   }
 
