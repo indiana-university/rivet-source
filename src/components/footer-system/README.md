@@ -55,6 +55,16 @@ The base footer contains the IU trident, copyright information, and links relate
 </footer>
 ```
 
+#### Light variant
+
+Add the `.rvt-footer-base--light` class to give the base footer a light background instead of the default crimson background.
+
+```html
+<footer class="rvt-footer-base rvt-footer-base--light">
+  <!-- ... -->
+</footer>
+```
+
 ### Resources module (optional)
 
 The optional resources module contains lists of links to resources your site's visitors might find helpful. These lists of links can be grouped into columns by category.
