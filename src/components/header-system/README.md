@@ -355,4 +355,4 @@ See the [disclosure](/components/detail/disclosure) and [dropdown](/components/d
 |`aria-label="Primary navigation"`|Applied to the `nav` element containing primary header navigation|
 |`aria-label="Secondary navigation"`|Applied to the `nav` element containing secondary header navigation|
 |`aria-expanded`|Applied to elements with the `data-rvt-disclosure-toggle` and `data-rvt-dropdown-toggle` attributes. Set to `false` when closed, `true` when open.|
-|`aria-current="page"`|Applied to a navigation link's `a` element when the user is currently on that page (or in a section of the site containing that page).|
+|`aria-current="page"`|Applied to a navigation link's `a` element when the user is currently on that page (or in a section of the site containing that page)|
