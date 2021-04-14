@@ -1,0 +1,55 @@
+@use 'core' as *;
+
+/**
+ * Global header toggle stuff
+ * -----------------------------------------------------------------------------
+ * This was an attempt to make a generic toggle button (circle design) to use for
+ * the the button that toggles visibility of the main nav, search, etc. on smaller
+ * screens. It's turned into something more specific/tightly coupled to specific
+ * toggle buttons. E.g. `__open`/`__close` and `__search`. If possible this
+ * element shouldn't know anything about what KINDS of stuff it toggles.
+ * It should know that it needs to display an icon, it's a <button> element,
+ * and that's it.
+ */
+
+.#{$prefix}-global-toggle {
+  background: none;
+  border: $spacing-xxs/2 solid $color-black-200;
+  border-radius: 999rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-black-500;
+  width: $spacing-lg;
+  height: $spacing-lg;
+  flex-shrink: 0;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-blue-base;
+    color: $color-white-base;
+    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline-offset: $spacing-xxs/2;
+  }
+
+  &__open,
+  &__close {
+    width: $spacing-sm * .75;
+    height: $spacing-sm * .75;
+    flex-shrink: 0;
+  }
+
+  &__search {
+    flex-shrink: 0;
+  }
+
+  &[aria-expanded=false] &__close,
+  &[aria-expanded=true] &__open {
+    display: none;
+  }
+
+  &[aria-expanded=false] &__open,
+  &[aria-expanded=true] &__close {
+    display: inline-flex;
+  }
+}

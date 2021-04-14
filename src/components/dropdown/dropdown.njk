@@ -1,12 +1,12 @@
-<div class="rvt-dropdown" data-dropdown="{{ id }}">
+<div class="rvt-dropdown" data-rvt-dropdown="{{ id }}">
   {% if not special %}
-    {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+    {% render '@button--dropdown', { content: title, modifier: modifier, attributes: [{ label: "data-rvt-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% elif identityModule %}
-    {% render '@button--dropdown', { special: "true", identityModule: "true", initials: initials, username: username, attributes: [{ label: "class", value: "rvt-header-id__profile rvt-header-id__profile--has-dropdown rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+    {% render '@button--dropdown', { special: "true", identityModule: "true", initials: initials, username: username, attributes: [{ label: "class", value: "rvt-header-id__profile rvt-header-id__profile--has-dropdown rvt-dropdown__toggle" }, { label: "data-rvt-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% else %}
-    {% render '@button--dropdown', { special: "true", content: title, initials: initials, username: username, attributes: [{ label: "class", value: "rvt-dropdown__toggle" }, { label: "data-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
+    {% render '@button--dropdown', { special: "true", content: title, initials: initials, username: username, attributes: [{ label: "class", value: "rvt-dropdown__toggle" }, { label: "data-rvt-dropdown-toggle", value: id }, { label: "aria-haspopup", value: "true"}, { label: "aria-expanded", value: "false"}] }, true %}
   {% endif %}
-  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} hidden data-dropdown-menu>
+  <div class="rvt-dropdown__menu{% if class %} {{ class }}{% endif %}" id="{{ id }}"{% if not identityModule %} role="menu"{% endif %} hidden data-rvt-dropdown-menu>
   {% if buttons %}
     {% for item in items %}
       {% if item.relatedLinks %}
@@ -45,18 +45,3 @@
   {% endif %}
   </div>
 </div>
-
-<script>
-  const dropdownWrapper{{ id }} = document.querySelector('[data-dropdown="{{ id }}"]');
-  window.new{{ id }} = new Rivet.Dropdown(dropdownWrapper{{ id }});
-
-  dropdownWrapper{{ id }}.querySelector('button').addEventListener('rvt:dropdownOpen', function(event) {
-    // event.preventDefault();
-    // console.log('Opened:', event.detail.id);
-  });
-
-  dropdownWrapper{{ id }}.querySelector('button').addEventListener('rvt:dropdownClose', function(event) {
-    // event.preventDefault();
-    // console.log('Closed:', event.detail.id);
-  });
-</script>

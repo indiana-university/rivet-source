@@ -1,0 +1,222 @@
+@use 'core' as *;
+
+/**
+ * FIXME: Speculative ID menu stuff. This is from an old prototype, but might be
+ * salvageable. Not sure if we should approach this separately.
+ */
+
+.#{$prefix}-global-toggle--id {
+  background-color: $color-crimson-base;
+  border-color: $color-crimson-base;
+  color: $color-white-base;
+  overflow: hidden;
+  border: none;
+
+  img {
+    width: $spacing-lg;
+    height: $spacing-lg;
+  }
+}
+
+/**
+ * NOTE: This menu has been refactored/extracted to be reusable for when
+ * we want to use it in the "Secondary" header module See this RFC:
+ * https://v2.rivet.iu.edu/rfcs/header-system/
+ */
+
+/**
+ * TODO: Make a decision on the use of `hidden` vs. a toggled CSS class
+ * for showing/hiding the header menus.
+ */
+
+.#{$prefix}-header-menu {
+  left: -3rem;
+  margin: 0 $spacing-md;
+  position: absolute;
+  // Magic number here to get the menus to line up with bottom of global header
+  top: 3rem;
+  background-color: $color-black-000;
+  border-top: 1px solid $color-black-100;
+  z-index: $z-index-100;
+  width: calc(100% + 3rem);
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__toggle {
+    margin-left: $spacing-xxs;
+    align-self: center;
+    width: $spacing-md;
+    height: $spacing-md;
+    color: $color-black-500;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0 $spacing-xs;
+    border-radius: 999rem;
+    background: $color-black-100;
+  }
+
+  &__toggle:hover {
+    background: $color-blue-base;
+    color: $color-white-base;
+    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline-offset: $spacing-xxs/2;
+  }
+
+  &__list {
+    list-style: none;
+    padding: $spacing-xs $spacing-md $spacing-xs $spacing-md;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    margin: 0;
+  }
+
+  &__item:not(:first-child) {
+    border-top: 1px solid $color-black-100;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-black-base;
+    display: flex;
+    font-size: $ts-14;
+    margin-right: auto;
+    padding: $spacing-xs 0 $spacing-xs $spacing-xxs;
+    width: 100%;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: $color-blue-base;
+    outline: .125rem solid $color-blue-base;
+    outline-offset: .125rem;
+  }
+
+  &__dropdown {
+    width: 100%;
+  }
+
+  &__submenu {
+    background-color: unset;
+    border: none;
+    padding-top: 0;
+    padding-bottom: $spacing-xs;
+    margin-top: 0;
+    right: unset;
+    position: relative;
+  }
+
+  &__submenu-list {
+    border-left: 3px solid $color-black-100;
+  }
+
+  &__submenu-link {
+    text-decoration: none;
+    font-size: $ts-14;
+    display: block;
+    padding: $spacing-xs $spacing-sm;
+    width: 100%;
+    color: $color-black-base;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-header-menu {
+    top: 3.65rem;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-header-menu {
+    display: flex;
+    margin: 0;
+    background-color: transparent;
+    border-top: none;
+    position: relative;
+    top: unset;
+    left: unset;
+    font-size: $ts-14;
+    align-items: center;
+
+    &__list {
+      display: flex;
+      padding: 0;
+
+      li:not(:first-child) {
+        border-top: none;
+      }
+    }
+
+    &__item:not(:first-child) {
+      margin-left: $spacing-sm;
+    }
+
+    &__item {
+      position: relative;
+    }
+
+    &__group {
+      align-items: center;
+    }
+
+    &__dropdown {
+      width: auto;
+    }
+
+    &__link {
+      display: block;
+      margin-right: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    &__item--current::after {
+      content: '';
+      display: block;
+      background-color: $color-crimson-base;
+      width: 100%;
+      height: $spacing-xxs * 1.2;
+      position: absolute;
+      bottom: -$spacing-md * 1.1;
+    }
+
+    &__submenu {
+      position: absolute;
+      // Magic number to get optical positioning right
+      top: 3.1 * $spacing-sm;
+      right: 0;
+      width: $spacing-xxl * 3.5;
+      background-color: $color-white-base;
+      border-radius: $spacing-xxs;
+      box-shadow: $shadow-base;
+      padding: $spacing-xs 0;
+      list-style: none;
+    }
+
+    &__submenu-list {
+      border-left: none;
+    }
+
+    &__submenu a:hover {
+      background-color: $color-blue-base;
+      color: $color-white-base;
+    }
+
+    &__submenu-item {
+      margin-top: 0;
+    }
+
+    &__submenu-link {
+      padding: $spacing-xs $spacing-sm;
+    }
+
+    &__submenu-link:hover {
+      background-color: $color-black-000;
+    }
+  }
+}

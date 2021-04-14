@@ -1,0 +1,78 @@
+@use 'core' as *;
+
+.#{$prefix}-lockup {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: $color-black-base;
+  flex-shrink: 0;
+
+  &__title {
+    line-height: 1.1;
+    font-weight: $font-weight-bold;
+  }
+
+  &__subtitle {
+    line-height: 1.1;
+    font-size: $ts-12;
+    color: $color-black-500;
+    margin-top: $spacing-xxs/2;
+  }
+
+  &__tab {
+    align-items: center;
+    background-color: $color-crimson-base;
+    color: $color-white-base;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    // Magic numbers to get the display right.
+    width: 1.75rem;
+    height: 2.125rem;
+  }
+
+  &__trident {
+    flex-shrink: 0;
+    flex-grow: 1;
+    // Magic numbers to get the display right.
+    width: 1.1875rem;
+    height: 1.4375rem;
+  }
+
+  &__body {
+    /**
+     * This top margin helps the body content appear vertically centered.
+     * This is important for long titles that run on to two lines
+     */
+    // margin-top: $spacing-xxs * .5;
+    margin-left: $spacing-xs;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .#{$prefix}-lockup {
+    &__title {
+      font-size: $ts-20;
+    }
+
+    &__subtitle {
+      font-size: $ts-14;
+    }
+
+    &__tab {
+      width: 2.25rem;
+      height: 2.75rem;
+    }
+
+    &__trident {
+      width: $spacing-md;
+      height: 1.875rem;
+    }
+
+    &__body {
+      margin-left: $spacing-sm;
+    }
+  }
+}

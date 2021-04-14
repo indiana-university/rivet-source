@@ -6,8 +6,8 @@ beforeEach(function() {
    * Use cypress aliases to share the context of the list and toggle
    * elements across different assertions.
    */
-  cy.get('[data-sidenav-list="toggle-1"]').as('list');
-  cy.get('[data-sidenav-toggle="toggle-1"]').as('toggle');
+  cy.get('[data-rvt-sidenav-list="toggle-1"]').as('list');
+  cy.get('[data-rvt-sidenav-toggle="toggle-1"]').as('toggle');
 });
 
 describe('Sidenav Interaction', function() {
