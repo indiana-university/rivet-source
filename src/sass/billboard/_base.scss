@@ -13,12 +13,14 @@
   }
 
   &__title::before {
-    content: " ";
+    content: '';
     display: block;
     position: absolute;
     background-color: $color-crimson-base;
     width: $spacing-lg;
-    // HACK: This is a magic number 
+
+    // HACK: This is a magic number
+
     height: $spacing-xs;
     top: -$spacing-sm;
   }
@@ -41,7 +43,7 @@
   }
 }
 
-@media screen and (min-width: 840px) {
+@include mq($breakpoint-md) {
   .rvt-billboard {
     display: flex;
     flex-direction: row-reverse;
@@ -51,7 +53,7 @@
     }
 
     &__image::after {
-      content: "";
+      content: '';
       display: block;
       background-color: $color-black-000;
       position: absolute;
