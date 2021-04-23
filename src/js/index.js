@@ -20,8 +20,8 @@ import Tabs from './components/tabs';
 // global init function
 
 function init() {
-  console.log('Auto-initializing all Rivet components...')
-  
+  console.log('Auto-initializing all Rivet components...');
+
   Accordion.initAll();
   Alert.initAll();
   Disclosure.initAll();
@@ -32,4 +32,14 @@ function init() {
   Tabs.initAll();
 }
 
-export { Accordion, Alert, Disclosure, Dropdown, FileInput, Modal, Sidenav, Tabs, init };
+export {
+  Accordion,
+  Alert,
+  Disclosure,
+  Dropdown,
+  FileInput,
+  Modal,
+  Sidenav,
+  Tabs,
+  init
+};
