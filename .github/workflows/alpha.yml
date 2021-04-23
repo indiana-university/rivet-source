@@ -14,7 +14,6 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm test
       - name: Create artifact
         run: npm build
 
