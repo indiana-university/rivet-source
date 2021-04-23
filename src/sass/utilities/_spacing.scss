@@ -80,7 +80,7 @@ $spacing-sizes: (
         margin#{$direction}: $value !important;
       }
       
-      .--#{$prefix}-m#{$direction}#{$size} {
+      .-#{$prefix}-m#{$direction}#{$size} {
         margin#{$direction}: -$value !important;
       }
 
@@ -140,7 +140,7 @@ $spacing-sizes: (
             margin#{$direction}: $refs !important;
           }
           
-          .--#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+          .-#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
             margin#{$direction}: -$refs !important;
           }
 
