@@ -1,0 +1,7 @@
+title: "Index page"
+preview: '@preview-no-padding'
+context:
+  headerContainer: "@header-system-index.headerContainer"
+  siteTitle: "@header-system-index.siteTitle"
+  siteSubtitle: "@header-system-index.siteSubtitle"
+  mainNav: "@header-system-index.mainNav"
