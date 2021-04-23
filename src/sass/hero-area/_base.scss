@@ -1,9 +1,7 @@
 @use 'core' as *;
 
 .rvt-hero {
-  // background-color: #FFF3F0;
-  // background-color: #FFFCEB;
-  // background-color: #F9F9F0;
+  // background-color: $color-crimson-base;
 
   &__body {
     margin-top: $spacing-md;
@@ -11,10 +9,11 @@
 
   &__eyebrow {
     color: $color-crimson-base;
-    font-weight: 700;
+    font-weight: 400;
     font-size: $ts-14;
     display: block;
     text-transform: uppercase;
+    letter-spacing: $spacing-xxs * .125;
   }
 
   &__title {
