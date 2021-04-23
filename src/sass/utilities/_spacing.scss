@@ -79,6 +79,10 @@ $spacing-sizes: (
       .#{$prefix}-m#{$direction}#{$size} {
         margin#{$direction}: $value !important;
       }
+      
+      .--#{$prefix}-m#{$direction}#{$size} {
+        margin#{$direction}: -$value !important;
+      }
 
       .#{$prefix}-p#{$direction}#{$size} {
         padding#{$direction}: $value !important;
@@ -134,6 +138,10 @@ $spacing-sizes: (
         @else {
           .#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
             margin#{$direction}: $refs !important;
+          }
+          
+          .--#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+            margin#{$direction}: -$refs !important;
           }
 
           .#{$prefix}-p#{$direction}#{$suffix}-#{$variable}-up {
