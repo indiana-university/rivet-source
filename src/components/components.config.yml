@@ -1,5 +1,5 @@
 context:
-  siteContainer: "rvt-container-xl"
+  siteContainer: "rvt-container-lg"
   siteTitle: "Rivet Design System"
   siteSubtitle: "Indiana University"
   mainNav:
