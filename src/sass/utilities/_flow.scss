@@ -1,0 +1,9 @@
+// Copyright (C) 2021 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use 'core' as *;
+
+.rvt-flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+  margin-bottom: 0;
+}
