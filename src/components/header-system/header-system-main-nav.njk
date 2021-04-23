@@ -5,7 +5,7 @@
   <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
 
   <div class="rvt-header-global">
-    <div class="{{ headerContainer }}">
+    <div class="{{ siteContainer }}">
       <div class="rvt-header-global__inner">
         <div class="rvt-header-global__logo-slot">
           <a class="rvt-lockup" href="/">
@@ -51,65 +51,8 @@
                 fill="currentColor"></path>
             </svg>
           </button>
-
           <nav aria-label="Primary navigation" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
-            <ul class="rvt-header-menu__list">
-
-              <!-- Navigation link without dropdown -->
-              {% for navItem in mainNav %}
-              <li class="rvt-header-menu__item{% if navItem.current %} rvt-header-menu__item--current{% endif %}">
-                <a class="rvt-header-menu__link" href="{{ navItem.url }}" {% if navItem.current %} aria-current="page"
-                  {% endif %}>{{ navItem.text }}</a>
-              </li>
-              {% endfor %}
-
-              <!--
-                                Navigation link with dropdown
-                                NOTE: Implement using context data to clean up markup example
-                            -->
-              <li class="rvt-header-menu__item">
-                <div class="rvt-header-menu__dropdown rvt-dropdown" data-rvt-dropdown="primary-nav-1">
-                  <div class="rvt-header-menu__group">
-
-                    <!-- Link that appears in header -->
-
-                    <a class="rvt-header-menu__link" href="#">Nav Item Five</a>
-
-                    <!-- Button that shows/hides dropdown links -->
-
-                    <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle"
-                      data-rvt-dropdown-toggle="primary-nav-1">
-                      <span class="rvt-sr-only">Toggle Sub-navigation</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="rvt-global-toggle__open" height="16"
-                        viewBox="0 0 16 16" width="16">
-                        <path
-                          d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-                          fill="currentColor"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right"
-                    data-rvt-dropdown-menu="primary-nav-1" hidden>
-                    <ul class="rvt-header-menu__submenu-list">
-
-                      <!-- Dropdown links -->
-
-                      <li class="rvt-header-menu__submenu-item">
-                        <a class="rvt-header-menu__submenu-link" href="#">Sub Item One</a>
-                      </li>
-
-                      <li class="rvt-header-menu__submenu-item">
-                        <a class="rvt-header-menu__submenu-link" href="#">Sub Item Two</a>
-                      </li>
-
-                      <li class="rvt-header-menu__submenu-item">
-                        <a class="rvt-header-menu__submenu-link" href="#">Sub Item Three</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
+            {% include "@header-system-navigation-partial" %}
           </nav>
         </div>
       </div>

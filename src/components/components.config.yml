@@ -1,33 +1,44 @@
 context:
-    title_short: This is a short title
-    lipsum_short: Sequi dolorem voluptatem fugiat ducimus nesciunt esse ad fugit, blanditiis, similique accusamus ullam dolore quis eligendi.
+  siteContainer: "rvt-container-xl"
+  siteTitle: "Rivet Design System"
+  siteSubtitle: "Indiana University"
+  mainNav:
+    -
+      text: "Nav Item One"
+      url: "#"
+    - 
+      text: "Nav Item Two"
+      url: "#"
+    - 
+      text: "Nav Item Three"
+      url: "#"
+      current: true
+      children:
+        -
+          text: "Sub One"
+          url: "#"
+        -
+          text: "Sub Three"
+          url: "#"
+        -
+          text: "Sub Three"
+          url: "#"
+    - 
+      text: "Nav Item Four"
+      url: "#"
+  # For unordered/ordered lists
+  list_items:
+      - List Item One
+      - List Item Two
+      - List Item Three
+      - List Item Four
 
-    # Fake people
-    people:
-        - name: Bert Macklin
-          title: The FBI
-        - name: Leslie Knope
-          title: Assistant Director, Pawnee Parks Department
-        - name: Ron Swanson
-          title: Director, Pawnee Parks Department
-        - name: April Ludgate
-          title: Animal Control
-        - name: Ben Wayatt
-          title: Creator, The Cones of Dunshire
-
-    # For unordered/ordered lists
-    list_items:
-        - List Item One
-        - List Item Two
-        - List Item Three
-        - List Item Four
-
-    # Sizes
-    sizes:
-        - xxs
-        - xs
-        - sm
-        - md
-        - lg
-        - xl
-        - xxl
+  # Sizes
+  sizes:
+      - xxs
+      - xs
+      - sm
+      - md
+      - lg
+      - xl
+      - xxl

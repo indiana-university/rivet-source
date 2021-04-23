@@ -1,33 +1,3 @@
 title: 'Header - System'
 status: 'wip'
 preview: '@preview-no-padding'
-collated: true
-context:
-  headerContainer: "rvt-container-lg"
-  siteTitle: "Rivet Design System"
-  siteSubtitle: "Indiana University"
-  mainNav:
-    -
-      text: "Nav Item One"
-      url: "#"
-    - 
-      text: "Nav Item Two"
-      url: "#"
-    - 
-      text: "Nav Item Three"
-      url: "#"
-      current: true
-      children:
-        -
-          text: "Sub One"
-          url: "#"
-        -
-          text: "Sub Three"
-          url: "#"
-        -
-          text: "Sub Three"
-          url: "#"
-    - 
-      text: "Nav Item Four"
-      url: "#"
-      
