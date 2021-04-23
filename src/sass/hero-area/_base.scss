@@ -1,8 +1,6 @@
 @use 'core' as *;
 
 .rvt-hero {
-  // background-color: $color-crimson-base;
-
   &__body {
     margin-top: $spacing-md;
   }
@@ -60,7 +58,7 @@
   }
 }
 
-@media screen and (min-width: 840px) {
+@include mq($breakpoint-md) {
   .rvt-hero {
     padding-top: $spacing-xxl;
     padding-bottom: $spacing-xxl;
