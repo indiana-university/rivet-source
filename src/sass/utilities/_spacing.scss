@@ -27,7 +27,9 @@ $spacing-sizes: (
   -md: $spacing-md,
   -lg: $spacing-lg,
   -xl: $spacing-xl,
-  -xxl: $spacing-xxl
+  -xxl: $spacing-xxl,
+  -3-x: $spacing-3-x,
+  -4-x: $spacing-4-x
 );
 
 // Super gnarly loop here, but it save sooo much time
