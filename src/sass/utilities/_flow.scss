@@ -3,6 +3,16 @@
 
 @use 'core' as *;
 
+.rvt-flow > * {
+  // This acts as a reset of sorts to create an even starting point in
+  // terms of vertical margin.
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+// With every direct child of the flow utility zeroed out we can create
+// consistent vertical space.
+
 .rvt-flow > * + * {
   margin-top: var(--flow-space, 1rem);
   margin-bottom: 0;
