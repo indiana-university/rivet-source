@@ -6,7 +6,7 @@
 
   &__title {
     font-size: $ts-29;
-    font-weight: $font-weight-bold;
+    // font-weight: $font-weight-bold;
     position: relative;
     // Creates clear space for crimson "dash"
     margin-top: $spacing-sm;
@@ -40,6 +40,25 @@
   &__image img {
     width: 100%;
     display: block;
+    border-radius: $spacing-xs;
+  }
+
+  &--center &__body {
+    text-align: center;
+    max-width: $width-xxl * 1.5;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &--center &__title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &--center &__image {
+    display: none;
   }
 }
 
