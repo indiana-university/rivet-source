@@ -12,12 +12,12 @@
   &__image img {
     display: block;
     width: 100%;
+    border-radius: $spacing-xs;
   }
 
-  &--raised &__image {
-    border-top-right-radius: $spacing-xs;
-    border-top-left-radius: $spacing-xs;
-    overflow: hidden;
+  &--raised &__image img {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   &__body {
@@ -28,6 +28,11 @@
     padding: $spacing-sm;
   }
 
+  &__eyebrow {
+    color: $color-crimson-base;
+    font-size: $ts-14;
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -35,7 +40,6 @@
 
   &__title {
     font-size: $ts-20;
-    // font-weight: $font-weight-bold;
     padding-right: $spacing-sm;
     line-height: 1.3;
   }
@@ -54,12 +58,16 @@
     background-color: $color-blue-000;
     padding: $spacing-xs;
     position: absolute;
-    right: $spacing-md;
+    right: $spacing-xs;
     background-size: $spacing-sm $spacing-sm;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23006298" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
     background-repeat: no-repeat;
     background-position: center;
     transition: all .2s ease;
+  }
+
+  &--raised &__title a::before {
+    right: $spacing-md;
   }
 
   &__title--cover a::after {
@@ -78,25 +86,31 @@
 
   &__title a:hover::before {
     transform: translate($spacing-xs, 0);
-  }
-
-  &__header-icon {
-    width: $spacing-lg;
-    height: $spacing-lg;
-    display: flex;
-    margin-left: auto;
-    background-color: $color-blue-000;
-    border-radius: 999rem;
-    justify-content: center;
-    align-items: center;
-    color: $color-blue-base;
-    flex-shrink: 0;
+    background-color: $color-blue-100;
   }
 
   &__content {
     border-top: 1px solid $color-black-100;
-    margin-top: $spacing-md;
+    margin-top: $spacing-lg;
     color: $color-black-500;
+    padding-top: $spacing-md;
+  }
+
+  &__meta {
+    font-size: $ts-14;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: $spacing-md;
+  }
+
+  &__meta > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: $spacing-xs;
+  }
+
+  &__meta > *:last-child {
+    margin-right: 0;
   }
 }
 
