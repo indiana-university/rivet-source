@@ -6,7 +6,7 @@
   &--raised {
     background-color: $color-white-base;
     border-radius: $spacing-xs;
-    box-shadow: 0 $spacing-xxs 10px rgba(36, 49, 66, .2);
+    box-shadow: 0 $spacing-xxs $spacing-sm rgba(36, 49, 66, .2);
   }
 
   &__image img {
@@ -106,7 +106,7 @@
   &__meta > * {
     margin-top: 0;
     margin-bottom: 0;
-    margin-right: $spacing-xs;
+    margin-right: $spacing-sm;
   }
 
   &__meta > *:last-child {
