@@ -13,19 +13,19 @@
   display: inline-flex !important;
 }
 
-.#{$prefix}-row {
+.#{$prefix}-flex-row {
   flex-direction: row !important;
 }
 
-.#{$prefix}-row-reverse {
+.#{$prefix}-flex-row-reverse {
   flex-direction: row-reverse !important;
 }
 
-.#{$prefix}-column {
+.#{$prefix}-flex-column {
   flex-direction: column !important;
 }
 
-.#{$prefix}-column-reverse {
+.#{$prefix}-flex-column-reverse {
   flex-direction: column-reverse !important;
 }
 
@@ -39,19 +39,19 @@
       display: inline-flex !important;
     }
 
-    .#{$prefix}-row-#{$variable}-up {
+    .#{$prefix}-flex-row-#{$variable}-up {
       flex-direction: row !important;
     }
 
-    .#{$prefix}-row-reverse-#{$variable}-up {
+    .#{$prefix}-flex-row-reverse-#{$variable}-up {
       flex-direction: row-reverse !important;
     }
 
-    .#{$prefix}-column-#{$variable}-up {
+    .#{$prefix}-flex-column-#{$variable}-up {
       flex-direction: column !important;
     }
 
-    .#{$prefix}-column-reverse-#{$variable}-up {
+    .#{$prefix}-flex-column-reverse-#{$variable}-up {
       flex-direction: column-reverse !important;
     }
   }
