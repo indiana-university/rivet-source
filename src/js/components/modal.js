@@ -46,7 +46,7 @@ var Modal = (function() {
 
     modal.body = document.getElementById(id);
 
-    return modal;
+    return modal.trigger && modal.body ? modal : null;
   }
 
   /**
@@ -73,6 +73,8 @@ var Modal = (function() {
      */
 
     var modal = _createModalObject(id);
+
+    if (!modal) return;
 
     if (!modal.body) {
       throw new Error('Could not find a modal with the id of ' + id + ' to open.');
@@ -122,6 +124,8 @@ var Modal = (function() {
      */
 
     var modal = _createModalObject(id);
+
+    if (!modal) return;
 
     if (!modal.body) {
       throw new Error('Could not find a modal with the id of ' + id + ' to close.');
