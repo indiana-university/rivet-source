@@ -16,7 +16,7 @@
 
   &__title {
     font-size: $ts-36;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     line-height: 1.2;
 
     --flow-space: .25rem;
@@ -38,6 +38,8 @@
     img {
       display: block;
       width: 100%;
+      border-top-left-radius: $spacing-xs;
+      border-bottom-left-radius: $spacing-xs;
     }
   }
 
