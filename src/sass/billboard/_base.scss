@@ -25,12 +25,19 @@
     top: -$spacing-sm;
   }
 
-  &__text {
-    color: $color-black-500;
+  &__title--plain::before {
+    content: none;
   }
 
   &__body {
     margin-top: $spacing-xl;
+  }
+
+  &__content {
+    color: $color-black-500;
+    margin-top: $spacing-sm;
+
+    --flow-space: 1.5rem;
   }
 
   &__image {
