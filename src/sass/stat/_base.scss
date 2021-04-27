@@ -41,11 +41,13 @@
   &__number {
     font-size: $ts-41;
     font-weight: $font-weight-bold;
-    line-height: 1.3;
+    line-height: 1.2;
   }
 
   &__description {
     font-weight: $font-weight-bold;
+
+    --flow-space: 0;
   }
 
   &__notes {
