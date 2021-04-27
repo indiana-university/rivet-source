@@ -1,1 +1,8 @@
 status: 'wip'
+context:
+  raised: true
+  eyebrow: "My category"
+  title: "My card title is not that long"
+  content: "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa nemo cum distinctio facere molestiae soluta earum reprehenderit nulla corrupti commodi, nihil, ea ut veniam laboriosam modi vero sapiente ducimus sint.</p>"
+  image: "https://www.fillmurray.com/800/450"
+  meta: "<time>November 5, 1955</time>"

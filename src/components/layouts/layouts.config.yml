@@ -1,2 +1,18 @@
 title: "Layouts"
 preview: '@preview-no-padding'
+context:
+  cards:
+    -
+      eyebrow: "The Future"
+      title: "Back to the"
+      image: "https://www.fillmurray.com/800/450"
+    -
+      eyebrow: "Flying cars"
+      title: "Spoiler alert: we don't have them yet"
+      image: "https://www.fillmurray.com/800/450"
+      meta: "<time>November 5, 2015</time>"
+    -
+      eyebrow: "Hoverboards"
+      title: "My card title is not that long"
+      image: "https://www.fillmurray.com/800/450"
+      meta: "<time>November 5, 1985</time>"

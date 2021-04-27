@@ -24,15 +24,14 @@
       </div>
     </div>
     <div class="rvt-row rvt-row--loose">
+      {% for card in cards %}
       <div class="rvt-cols-4-md [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
-        {% include "@card" %}
+        {% render "@card", {
+          title: card.title,
+          eyebrow: card.eyebrow
+        }, true %}
       </div>
-      <div class="rvt-cols-4-md [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
-        {% include "@card" %}
-      </div>
-      <div class="rvt-cols-4-md [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
-        {% include "@card" %}
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>

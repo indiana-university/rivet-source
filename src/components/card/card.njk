@@ -1,21 +1,25 @@
-<div class="rvt-card rvt-card--raised">
+<div class="rvt-card{% if raised %} rvt-card--raised{% endif %}">
+  {% if image %}
   <div class="rvt-card__image">
-    <img src="https://www.fillmurray.com/800/450" alt="">
+    <img src="{{ image }}" alt="">
   </div>
+  {% endif %}
   <div class="rvt-card__body">
-    <div class="rvt-card__eyebrow">Category</div>
+    {% if eyebrow %}
+    <div class="rvt-card__eyebrow">{{ eyebrow }}</div>
+    {% endif %}
     <div class="rvt-card__header">
       <h2 class="rvt-card__title rvt-card__title--cover">
-        <a href="#">Start your college journey</a>
+        <a href="#">{{ title }}</a>
       </h2>
     </div>
     <div class="rvt-card__content [ rvt-flow ]">
-      <p>You can always save your application in progress and come back to it later.</p>
+      {{ content | safe }}
     </div>
+    {% if meta %}
     <div class="rvt-card__meta">
-      <time>November 5, 1955</time>
-      {# <p>(812) 999-2394</p>
-      <a href="#">bmacklin@iu.edu</a> #}
+      {{ meta | safe }}
     </div>
+    {% endif %}
   </div>
 </div>
