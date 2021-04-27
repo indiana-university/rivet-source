@@ -1,20 +1,19 @@
-<div class="rvt-hero">
+<div class="rvt-hero {% if classes %} {{ classes }}{% endif %}">
   <div class="{{ siteContainer }}"> 
     <div class="rvt-hero__inner">
       <div class="rvt-hero__body [ rvt-flow ]">
-        <span class="rvt-hero__eyebrow">Category</span>
-        <h1 class="rvt-hero__title">Hero heading</h1>
+        <span class="rvt-hero__eyebrow">{{ eyebrow }}</span>
+        <h1 class="rvt-hero__title">{{ title }}</h1>
         <div class="rvt-hero__teaser">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorem alias aperiam commodi velit dolorum repellendus, reprehenderit, aut assumenda eius rem quam, autem voluptatum cumque facilis et totam ex. Ducimus!</p>
+          {{ teaserContent | safe }}
         </div>
         <div class="rvt-hero__actions">
-          <a href="#" class="rvt-button rvt-button--link">Explore more</a>
+          {{ actions | safe }}
         </div>
       </div>
-      <div class="rvt-hero__image [ -rvt-m-top-md ]">
-        <img src="{{ '/img/hero-cutout-test.png' | path }}" alt="">
-        {# <img src="https://www.fillmurray.com/800/450" alt=""> #}
-        <div class="rvt-hero__image-caption">Some caption for the image...</div>
+      <div class="rvt-hero__image">
+        <img src="{{ image.url }}" alt="">
+        <div class="rvt-hero__image-caption">{{ image.caption }}</div>
       </div>
     </div>
   </div>

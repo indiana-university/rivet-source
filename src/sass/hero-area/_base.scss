@@ -43,6 +43,10 @@
     }
   }
 
+  &--cutout-image &__image {
+    margin-top: -$spacing-md;
+  }
+
   &__image-caption {
     color: $color-black-500;
     font-size: $ts-14;
