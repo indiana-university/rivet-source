@@ -302,10 +302,14 @@
     top: 50%;
 
     /**
-         * This negative margin accounts for the width/height of the
-         * default loading indicator above.
-         */
+     * This negative margin accounts for the width/height of the
+     * default loading indicator above.
+     */
     margin-top: -.65rem;
     margin-left: -$xs;
+
+    &--xxs {
+      margin-top: -$xs;
+    }
   }
 }

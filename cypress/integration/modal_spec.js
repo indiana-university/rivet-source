@@ -123,4 +123,20 @@ describe('Rivet modal interactions', function() {
 
     cy.get(MODAL).should('have.attr', 'aria-hidden', 'true');
   });
+
+  it('Should not throw an error if removed then opened with .open() method', function() {
+    cy.get(MODAL).then(modal => modal.remove());
+
+    cy.window().then(win => {
+      win.Modal.open('modal-example');
+    });
+  });
+
+  // Modal does not exist in test DOM beyond this point
+
+  it('Should not throw an error if removed then closed with .close() method', function() {
+    cy.window().then(win => {
+      win.Modal.close('modal-example');
+    });
+  });
 });
