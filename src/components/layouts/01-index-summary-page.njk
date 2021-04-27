@@ -9,10 +9,10 @@
   </div>
 
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">  
-    {% include "@billboard--reverse" %}
+    {% render "@billboard", { reverse: true }, true %}
   </div>
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">
-    {% include "@billboard" %}
+    {% render "@billboard" %}
   </div>
   <div class="rvt-bg-black-000 rvt-p-tb-xxl rvt-p-tb-3-x-md-up">  
     <div class="{{ siteContainer }}">
