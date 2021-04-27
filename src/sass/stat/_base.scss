@@ -1,0 +1,60 @@
+@use '../core' as *;
+
+.#{$prefix}-stat {
+  &__group {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    border-bottom: 1px solid $color-black-100;
+  }
+
+  &__item {
+    border-right: 1px solid $color-black-100;
+    padding: $spacing-xxl $spacing-lg;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+    text-decoration: none;
+    color: $color-black-800;
+    margin-top: 0;
+    transition: all .2s ease;
+    background-color: $color-white-base;
+  }
+
+  &__item[href]:hover {
+    transform: scale(1.1);
+    box-shadow: $shadow-base;
+    color: $color-crimson-base;
+    border-radius: $spacing-xs;
+  }
+
+  &__item:last-child {
+    border-right: none;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__number {
+    font-size: $ts-41;
+    font-weight: $font-weight-bold;
+    line-height: 1.3;
+  }
+
+  &__description {
+    font-weight: $font-weight-bold;
+  }
+
+  &__notes {
+    margin-top: $spacing-md;
+    color: $color-black-500;
+    font-size: $ts-14;
+  }
+}
