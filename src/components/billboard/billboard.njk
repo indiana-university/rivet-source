@@ -1,12 +1,20 @@
-<div class="rvt-billboard{% if reverse %} rvt-billboard--reverse{% endif %}">
+
+<div class="rvt-billboard{% if classes %} {{ classes }}{% endif %}">
   <div class="rvt-billboard__image">
     <img src="{{ image }}" alt="">
   </div>
   <div class="rvt-billboard__body">
     <h2 class="rvt-billboard__title">{{ title }}</h2>
+    {%- if content or cta -%}
     <div class="rvt-billboard__content [ rvt-flow ]">
       {{ content | safe }}
-      {% render "@cta" %}
+      {%- if cta -%}
+        {% render "@cta", {
+          text: cta.text,
+          url: cta.url
+        }, true %}
+      {%- endif -%}
     </div>
+    {%- endif -%}
   </div>
 </div>

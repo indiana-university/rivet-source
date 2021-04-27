@@ -9,21 +9,19 @@
   </div>
 
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">  
-    {% render "@billboard", { reverse: true }, true %}
+    {% render "@billboard", {
+      classes: 'rvt-billboard--reverse'
+    }, true %}
   </div>
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">
     {% render "@billboard" %}
   </div>
   <div class="rvt-bg-black-000 rvt-p-tb-xxl rvt-p-tb-3-x-md-up">  
     <div class="{{ siteContainer }}">
-      <div class="rvt-billboard rvt-billboard--center">
-        <div class="rvt-billboard__image">
-          <img src="https://www.fillmurray.com/1200/800" alt="">
-        </div>
-        <div class="rvt-billboard__body">
-          <h2 class="rvt-billboard__title">Billboard title</h2>
-        </div>
-      </div>
+      {% render "@billboard", {
+        title: 'Billboard title',
+        classes: 'rvt-billboard--center'
+      } %}
       <div class="rvt-row rvt-row--loose">
         {% for card in cards %}
         <div class="rvt-cols-4-md [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
