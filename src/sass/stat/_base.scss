@@ -13,11 +13,11 @@
   }
 
   &__item {
-    border-right: 1px solid $color-black-100;
     padding: $spacing-xxl $spacing-lg;
     text-align: center;
     flex-grow: 1;
     flex-basis: 0;
+    flex-basis: 100%;
     max-width: 100%;
     text-decoration: none;
     color: $color-black-800;
@@ -31,10 +31,6 @@
     box-shadow: $shadow-base;
     color: $color-crimson-base;
     border-radius: $spacing-xs;
-  }
-
-  &__item:last-child {
-    border-right: none;
   }
 
   &__image {
@@ -56,5 +52,24 @@
     margin-top: $spacing-md;
     color: $color-black-500;
     font-size: $ts-14;
+  }
+}
+
+@include mq($breakpoint-sm) {
+  .#{$prefix}-stat {
+    &__item {
+      flex-basis: 50%;
+    }
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-stat__item {
+    flex-basis: auto;
+    border-right: 1px solid $color-black-100;
+  }
+
+  .#{$prefix}-stat__item:last-child {
+    border-right: none;
   }
 }
