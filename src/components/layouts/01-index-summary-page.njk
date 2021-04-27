@@ -1,18 +1,19 @@
 {% include "@header-system-main-nav" %}
 <main class="rvt-grow-1">
-  {% include "@hero-area" %}
+  {% render "@hero-area" %}
 
   <div class="rvt-p-tb-xxl">
     <div class="{{ siteContainer }}">
       {% include "@stat" %}
     </div>
   </div>
-
+  
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">  
     {% render "@billboard", {
       classes: 'rvt-billboard--reverse'
     }, true %}
   </div>
+  
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">
     {% render "@billboard" %}
   </div>
