@@ -16,6 +16,13 @@
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">
     {% render "@billboard" %}
   </div>
+  
+  <div class="rvt-p-tb-xl rvt-p-tb-4-x-md-up">
+    <div class="{{ siteContainer }}">
+      {% render "@quote", { avatar: true }, true %}
+    </div>
+  </div>
+  
   <div class="rvt-bg-black-000 rvt-p-tb-xxl rvt-p-tb-3-x-md-up">  
     <div class="{{ siteContainer }}">
       {% render "@billboard", {

@@ -1,47 +1,31 @@
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-quote {
-  display: flex;
+  text-align: center;
 
   &__text {
+    font-family: 'GeorgiaPro', Georgia, 'Times New Roman', Times, serif;
+    font-size: $ts-26;
+    font-style: italic;
     margin: 0;
-    padding-left: $spacing-xxl;
-    position: relative;
-
-    p {
-      font-size: $ts-23;
-      line-height: 1.4;
-      margin: 0;
-    }
-
-    cite {
-      color: $color-black-500;
-      display: block;
-      font-size: $ts-16;
-      margin-top: $spacing-md;
-    }
-
-    &::before {
-      content: '\201C';
-      position: absolute;
-      top: -$spacing-xs;
-      left: 0;
-      line-height: 1;
-      font-size: $ts-32 * 4;
-    }
+    color: $color-black-600;
   }
 
-  .#{$prefix}-avatar {
-    margin-right: $spacing-sm;
+  &__title,
+  &__subtitle {
+    display: block;
+    color: $color-black-500;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
   }
 }
 
 @include mq($breakpoint-md) {
   .#{$prefix}-quote {
     &__text {
-      p {
-        font-size: $ts-32;
-      }
+      font-size: $ts-32;
     }
   }
 }
