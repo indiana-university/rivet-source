@@ -1,13 +1,12 @@
-<div class="rvt-billboard">
+<div class="rvt-billboard{% if reverse %} rvt-billboard--reverse{% endif %}">
   <div class="rvt-billboard__image">
-    <img src="https://www.fillmurray.com/1200/800" alt="">
+    <img src="{{ image }}" alt="">
   </div>
   <div class="rvt-billboard__body">
-    <h2 class="rvt-billboard__title">Billboard title</h2>
+    <h2 class="rvt-billboard__title">{{ title }}</h2>
     <div class="rvt-billboard__content [ rvt-flow ]">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, culpa ipsa animi nesciunt modi quia nisi? Ab sunt pariatur nisi soluta tenetur excepturi quos tempora dolorem laudantium vero, cupiditate blanditiis.</p>
+      {{ content | safe }}
       {% include "@cta" %}
-      {# <a href="#" class="rvt-button rvt-button--link">Expore Academics</a> #}
     </div>
   </div>
 </div>
