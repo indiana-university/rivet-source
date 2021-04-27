@@ -36,3 +36,9 @@ h6 {
   font-weight: $font-weight-regular;
   margin: 0;
 }
+
+hr {
+  height: 1px;
+  border: none;
+  background-color: $color-black-100;
+}
