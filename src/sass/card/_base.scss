@@ -75,7 +75,7 @@
     right: $spacing-md;
   }
 
-  &__title--cover a::after {
+  &--cover &__title a::after {
     content: '';
     position: absolute;
     left: 0;
