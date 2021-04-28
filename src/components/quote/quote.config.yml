@@ -2,3 +2,7 @@ title: Quote
 label: Quote
 status: 'wip'
 preview: '@preview-no-padding'
+context:
+  text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>'
+  title: 'Author name'
+  subtitle: 'Writer of Books, Ph.D.'
