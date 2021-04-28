@@ -1,8 +1,15 @@
 {% include "@header-system-main-nav" %}
 <main class="rvt-grow-1">
-  {% render "@hero-area" %}
+  {%- set heroActions -%}
+  <a class="rvt-button rvt-button--link" href="#">Read more about this</a>
+  <a class="rvt-button rvt-button--plain" href="#">Also this action</a>
+  {%- endset -%}
   
-  <div class="rvt-p-tb-xxl">
+  {% render "@hero-area", {
+    actions: heroActions
+  }, true %}
+  
+  <div class="rvt-p-tb-xl rvt-p-tb-xxl-md-up">
     <div class="rvt-border-bottom rvt-border-top">  
       <div class="{{ siteContainer }}">
         {% render "@stat-group", true %}
@@ -13,17 +20,17 @@
     </div>
   </div>
   
-  <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">  
+  <div class="{{ siteContainer }} rvt-p-tb-xl rvt-p-tb-3-x-md-up">  
     {% render "@billboard", {
       classes: 'rvt-billboard--reverse'
     }, true %}
   </div>
   
-  <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">
+  <div class="{{ siteContainer }} rvt-p-tb-xl rvt-p-tb-3-x-md-up">
     {% render "@billboard" %}
   </div>
   
-  <div class="rvt-p-tb-xl rvt-p-tb-3-x-md-up">
+  <div class="rvt-p-tb-xxl rvt-p-top-3-x-md-up rvt-p-bottom-4-x-md-up">
     <div class="{{ siteContainer }}">
       {# Pass this markup into the "image" key below to see the version with an image #}
       {%- set quoteImage -%}

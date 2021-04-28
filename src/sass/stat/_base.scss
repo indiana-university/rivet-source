@@ -7,7 +7,7 @@
   background-color: $color-white-base;
   display: flex;
   justify-content: center;
-  padding: $spacing-lg;
+  padding: $spacing-xl $spacing-md;
 
   &[href]:hover {
     transform: scale(1.1);
@@ -39,5 +39,11 @@
     letter-spacing: .025rem;
 
     --flow-space: 0;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-stat {
+    padding: $spacing-xxl $spacing-xl;
   }
 }
