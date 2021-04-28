@@ -1,37 +1,24 @@
 @use '../core' as *;
 
 .#{$prefix}-stat {
-  &__group {
-    display: flex;
-    margin-top: 0;
-    margin-bottom: 0;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    list-style: none;
-    padding-left: 0;
-    border-bottom: 1px solid $color-black-100;
-  }
+  text-decoration: none;
+  transition: all .2s ease;
+  background-color: $color-white-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &__item {
-    padding: $spacing-xxl $spacing-lg;
-    text-align: center;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: 0;
-    flex-basis: 100%;
-    max-width: 100%;
-    text-decoration: none;
-    color: $color-black-800;
-    margin-top: 0;
-    transition: all .2s ease;
-    background-color: $color-white-base;
-  }
+  border: 1px solid $color-crimson-base;
 
-  &__item[href]:hover {
+  &[href]:hover {
     transform: scale(1.1);
     box-shadow: $shadow-base;
     color: $color-crimson-base;
     border-radius: $spacing-xs;
+  }
+
+  &__content {
+    text-align: center;
   }
 
   &__image {
@@ -49,30 +36,5 @@
     font-weight: $font-weight-bold;
 
     --flow-space: 0;
-  }
-
-  &__notes {
-    margin-top: $spacing-md;
-    color: $color-black-500;
-    font-size: $ts-14;
-  }
-}
-
-@include mq($breakpoint-sm) {
-  .#{$prefix}-stat {
-    &__item {
-      flex-basis: 50%;
-    }
-  }
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-stat__item {
-    flex-basis: auto;
-    border-right: 1px solid $color-black-100;
-  }
-
-  .#{$prefix}-stat__item:last-child {
-    border-right: none;
   }
 }
