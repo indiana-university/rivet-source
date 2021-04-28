@@ -3,9 +3,11 @@
   {% render "@hero-area" %}
   
   <div class="rvt-p-tb-xxl">
-    {% render "@stat-group", {
-      classes: "rvt-border-bottom"
-    }, true %}
+    <div class="rvt-border-bottom rvt-border-top">  
+      <div class="{{ siteContainer }}">
+        {% render "@stat-group", true %}
+      </div>
+    </div>
     <div class="{{ siteContainer }}">
       <p class="rvt-ts-14 rvt-p-top-xs rvt-color-black-500">Notes about the stats</p>
     </div>
@@ -21,9 +23,18 @@
     {% render "@billboard" %}
   </div>
   
-  <div class="rvt-p-tb-xl rvt-p-tb-4-x-md-up">
+  <div class="rvt-p-tb-xl rvt-p-tb-3-x-md-up">
     <div class="{{ siteContainer }}">
-      {% render "@quote", { avatar: true }, true %}
+      {# Pass this markup into the "image" key below to see the version with an image #}
+      {%- set quoteImage -%}
+        <div class="rvt-avatar rvt-avatar--md">
+          <img src="https://www.fillmurray.com/200/200" alt="" class="rvt-avatar__image">
+        </div>
+      {%- endset -%}
+      
+      {% render "@quote", {
+        image: null
+      }, true %}
     </div>
   </div>
   

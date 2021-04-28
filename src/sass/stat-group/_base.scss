@@ -9,10 +9,15 @@
     flex-grow: 1;
     max-width: 100%;
     min-width: 200px;
-    border-right: 1px solid $color-black-100;
   }
 
   & > *:last-child {
     border-right: none;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-stat-group > * {
+    border-right: 1px solid $color-black-100;
   }
 }
