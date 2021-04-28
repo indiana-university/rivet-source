@@ -1,12 +1,15 @@
 {% include "@header-system-main-nav" %}
 <main class="rvt-grow-1">
   {% render "@hero-area" %}
-
-  {# <div class="rvt-p-tb-xxl">
+  
+  <div class="rvt-p-tb-xxl">
+    {% render "@stat-group", {
+      classes: "rvt-border-bottom"
+    }, true %}
     <div class="{{ siteContainer }}">
-      {% include "@stat" %}
+      <p class="rvt-ts-14 rvt-p-top-xs rvt-color-black-500">Notes about the stats</p>
     </div>
-  </div> #}
+  </div>
   
   <div class="{{ siteContainer }} rvt-p-tb-lg rvt-p-tb-3-x-md-up">  
     {% render "@billboard", {

@@ -1,16 +1,11 @@
-<a href="#" class="rvt-stat [ rvt-flow ]">
-  <div class="rvt-stat__content">
+<a href="#" class="rvt-stat">
+  <div class="rvt-stat__content [ rvt-flow ]">
+    {% if image %}
     <div class="rvt-stat__image">
-      <div class="rvt-avatar rvt-avatar--sm rvt-bg-blue-200 rvt-color-blue-700">
-        <svg width="25" height="32" viewBox="0 0 21 26" xmlns="http://www.w3.org/2000/svg">
-          <g fill="currentColor">
-            <path d="M10.4411 6.99463C8.73211 6.99463 7.3457 8.38585 7.3457 10.09C7.3457 11.7941 8.73211 13.1853 10.4411 13.1853C12.15 13.1853 13.5364 11.7941 13.5364 10.09C13.5364 8.38585 12.1452 6.99463 10.4411 6.99463ZM10.4411 11.6593C9.57936 11.6593 8.87172 10.9565 8.87172 10.09C8.87172 9.22348 9.57455 8.52064 10.4411 8.52064C11.3027 8.52064 12.0104 9.22348 12.0104 10.09C12.0056 10.9565 11.3027 11.6593 10.4411 11.6593Z" />
-            <path d="M20.5315 10.0948C20.5315 4.52509 16.0016 0 10.4415 0C4.8814 0 0.34668 4.52509 0.34668 10.0948C0.34668 14.7306 3.7068 18.2544 6.41223 21.0802C7.5772 22.3029 8.6844 23.4631 9.26207 24.4692H8.10673C7.6831 24.4692 7.34131 24.811 7.34131 25.2346C7.34131 25.6582 7.6831 26 8.10673 26H12.7714C13.195 26 13.5368 25.6582 13.5368 25.2346C13.5368 24.811 13.195 24.4692 12.7714 24.4692H11.6161C12.1937 23.4631 13.301 22.3029 14.4659 21.0802C17.1713 18.2496 20.5315 14.7306 20.5315 10.0948ZM10.7496 22.9913C10.5955 23.2079 10.2778 23.2079 10.1238 22.9913C9.45463 22.0574 8.53035 21.0898 7.51461 20.0211C4.8814 17.2627 1.89676 14.1385 1.87751 10.1285C1.85344 5.58415 5.55053 1.71857 10.0901 1.53564C14.9714 1.33827 19.0055 5.25199 19.0055 10.09C19.0055 14.1144 16.0112 17.2531 13.3635 20.0211C12.343 21.0898 11.4187 22.0574 10.7496 22.9913Z" />
-          </g>
-        </svg>
-      </div>
+      {{ image | safe }}
     </div>
-    <div class="rvt-stat__number">20</div>
-    <div class="rvt-stat__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas dolores, assumenda mollitia iste cumque deserunt animi cum debitis hic asperiores velit odit, architecto consequuntur labore sunt neque odio quasi pariatur!</div>
+    {% endif %}
+    <div class="rvt-stat__number">{{ number }}</div>
+    <div class="rvt-stat__description">{{ description }}</div>
   </div>
 </a>
