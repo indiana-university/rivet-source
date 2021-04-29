@@ -20,28 +20,30 @@ The container for a quote is made up of a `div` with a class of `rvt-quote`.
 </div>
 ```
 
-The visual display of the quote is made up of a `blockquote` element with a class of `rvt-quote__text`, a `p` element with the quote's text, and a `cite` element with the attribution.
+The visual display of the quote is made up of a `blockquote` element with a class of `rvt-quote__text`, a `p` element with the quote's text.
 
 ```
 <div class="rvt-quote">
   <blockquote class="rvt-quote__text">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <cite>Author Name</cite>
   </blockquote>
 </div>
 ```
 
-If you would like to include an avatar image with the quote, the avatar markup can be added before the `blockquote`:
+If you would like to include an avatar image with the quote, the avatar markup can be added before the `blockquote`. You will also need to add a CSS modifier class to the `rvt-quote` element.
 
 ```
-<div class="rvt-quote">
+<div class="rvt-quote rvt-quote--avatar">
   <div class="rvt-avatar rvt-avatar--md">
     <img class="rvt-avatar__image" src="http://www.fillmurray.com/300/300" alt="">
   </div>
 
   <blockquote class="rvt-quote__text">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <cite>Author Name</cite>
+    <p class="rvt-quote__citation">
+      <span class="rvt-quote__title">Author Name</span>
+      <span class="rvt-qutoe__subtitle">Writer of books, PhD</span>
+    </p>
   </blockquote>
 </div>
 ```

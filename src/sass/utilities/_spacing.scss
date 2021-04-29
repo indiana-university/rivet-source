@@ -27,7 +27,9 @@ $spacing-sizes: (
   -md: $spacing-md,
   -lg: $spacing-lg,
   -xl: $spacing-xl,
-  -xxl: $spacing-xxl
+  -xxl: $spacing-xxl,
+  -3-xl: $spacing-3-xl,
+  -4-xl: $spacing-4-xl
 );
 
 // Super gnarly loop here, but it save sooo much time
@@ -76,6 +78,10 @@ $spacing-sizes: (
     @else {
       .#{$prefix}-m#{$direction}#{$size} {
         margin#{$direction}: $value !important;
+      }
+      
+      .-#{$prefix}-m#{$direction}#{$size} {
+        margin#{$direction}: -$value !important;
       }
 
       .#{$prefix}-p#{$direction}#{$size} {
@@ -132,6 +138,10 @@ $spacing-sizes: (
         @else {
           .#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
             margin#{$direction}: $refs !important;
+          }
+          
+          .-#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+            margin#{$direction}: -$refs !important;
           }
 
           .#{$prefix}-p#{$direction}#{$suffix}-#{$variable}-up {

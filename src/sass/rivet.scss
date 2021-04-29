@@ -9,12 +9,15 @@
 @use 'alerts';
 @use 'avatar';
 @use 'badges';
+@use 'billboard';
 @use 'box';
 @use 'breadcrumb';
 @use 'buttons';
 @use 'buttons-segmented';
+@use 'card';
 @use 'calendar-tile';
 @use 'checkboxes';
+@use 'cta';
 @use 'dropdown';
 @use 'essay';
 @use 'feature';
@@ -37,6 +40,8 @@
 @use 'quote';
 @use 'radios';
 @use 'sidenav';
+@use 'stat';
+@use 'stat-group';
 @use 'step-indicator';
 @use 'tables';
 @use 'tabs';

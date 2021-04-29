@@ -8,9 +8,7 @@
     <script src="{{ '/js/rivet-iife.js' | path }}"></script>
     <script src="{{ '/js/rivet-init.js' | path }}"></script>
 </head>
-<body>
-    <div class="display-wrapper">
-        {{ yield | safe }}
-    </div>
+<body class="rvt-flex rvt-flex-column">
+    {{ yield | safe }}
 </body>
 </html>

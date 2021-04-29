@@ -1,9 +1,12 @@
-<div class="rvt-quote">
-  {% if avatar %}
-    {% render '@avatar', { modifier: attributes.size, text: attributes.text, image: attributes.image, utility_class: utility_class }, true %}
+<div class="rvt-quote{% if image %} rvt-quote--image{% endif %} [ rvt-flow ]{% if classes %} {{ classes }}{% endif %}">
+  {% if image %}
+  {{ image | safe }}
   {% endif %}
   <blockquote class="rvt-quote__text">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <cite>Author Name</cite>
+    {{ text | safe }}
   </blockquote>
+  <p class="rvt-quote__citation">
+    <span class="rvt-quote__title">{{ title }}</span>
+    <span class="rvt-quote__subtitle">{{ subtitle }}</span>
+  </p>
 </div>

@@ -1,0 +1,118 @@
+@use '../core' as *;
+
+.rvt-billboard {
+  position: relative;
+  gap: $spacing-lg;
+
+  &__title {
+    font-size: $ts-29;
+    // font-weight: $font-weight-bold;
+    position: relative;
+    // Creates clear space for crimson "dash"
+    margin-top: $spacing-sm;
+  }
+
+  &__title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $color-crimson-base;
+    width: $spacing-lg;
+
+    // HACK: This is a magic number
+
+    height: $spacing-xs;
+    top: -$spacing-sm;
+  }
+
+  &__title--plain::before {
+    content: none;
+  }
+
+  &__body {
+    margin-top: $spacing-xl;
+  }
+
+  &__content {
+    color: $color-black-500;
+    margin-top: $spacing-sm;
+
+    --flow-space: 1.5rem;
+  }
+
+  &__image {
+    z-index: 1;
+  }
+
+  &__image img {
+    width: 100%;
+    display: block;
+    border-radius: $spacing-xs;
+  }
+
+  &--center &__body {
+    text-align: center;
+    max-width: $width-xxl * 1.5;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &--center &__title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &--center &__image {
+    display: none;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .rvt-billboard {
+    display: flex;
+    flex-direction: row-reverse;
+
+    &__image {
+      width: 55%;
+    }
+
+    &__image::after {
+      content: '';
+      display: block;
+      background-color: $color-black-000;
+      position: absolute;
+      top: -4rem;
+      right: 0;
+      width: 50vw;
+      height: calc(100% + 8rem);
+      margin-right: calc(50% - 50vw);
+      z-index: -1;
+    }
+
+    &__body {
+      flex-basis: 33%;
+      flex-grow: 1;
+      padding-right: $spacing-xl;
+    }
+
+    &--reverse {
+      flex-direction: row;
+    }
+
+    &--reverse &__image::after {
+      left: 0;
+      width: 50vw;
+      height: calc(100% + 8rem);
+      // position should be half what the 100% + calc statement is above
+      top: -4rem;
+      margin-left: calc(50% - 50vw);
+    }
+
+    &--reverse &__body {
+      padding-right: 0;
+      padding-left: $spacing-xl;
+    }
+  }
+}
