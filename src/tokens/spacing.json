@@ -32,11 +32,11 @@
       "value": "4rem",
       "comment": "64px"
     },
-    "3xl": {
+    "3-xl": {
       "value": "8rem",
       "comment": "128px"
     },
-    "4xl": {
+    "4-xl": {
       "value": "12rem",
       "comment": "192px"
     }
