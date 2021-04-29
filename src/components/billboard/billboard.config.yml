@@ -1,5 +1,6 @@
 title: "Billboard"
 preview: "@preview-no-padding"
+status: "wip"
 context:
   image: "https://www.fillmurray.com/1200/800"
   title: "Billboard title"
