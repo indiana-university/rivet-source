@@ -1,4 +1,4 @@
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-header-wrapper {
   box-shadow: 0 3px 6px rgba($color-black-base, .07);
