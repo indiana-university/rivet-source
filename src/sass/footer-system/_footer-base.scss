@@ -1,6 +1,6 @@
 // Brand section (copyright)
 
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-footer-base {
   background-color: $color-crimson-base;
