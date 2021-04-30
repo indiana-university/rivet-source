@@ -1,0 +1,39 @@
+@use '../core' as *;
+
+.rvt-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__wrapper {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .rvt-layout {
+    &__wrapper {
+      flex-direction: row;
+    }
+
+    &__sidebar {
+      flex-basis: $width-md;
+      max-width: $width-md;
+      flex-grow: 1;
+      flex-shrink: 0;
+      padding-top: $spacing-xxl;
+    }
+
+    &__content {
+      flex-grow: 1;
+      border-left: 1px solid $color-black-100;
+      padding-top: $spacing-xxl;
+      padding-left: $spacing-xxl;
+      // padding-right: $spacing-xxl;
+      padding-bottom: $spacing-xxl;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{% include "@header-system-main-nav" %}
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper {{ siteContainer }}">
+  <div class="rvt-layout__sidebar" id="section-nav">
+    {% render "@sidenav" %}
+  </div>
+  <div class="rvt-layout__content">
+    <a class="rvt-hide-md-up" href="#section-nav">Section navigation</a>
+    
+    <div class="rvt-prose rvt-flow">
+      <h1>Hello, World</h1>
+      
+      {% include "@prose-placeholder-partial" %}
+    </div>
+      
+  </div>
+</main>
+{% include "@footer-system" %}
