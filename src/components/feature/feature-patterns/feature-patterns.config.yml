@@ -1,6 +1,6 @@
 title: Feature Patterns
 label: "Useful patterns"
-status: "wip"
+status: "deprecated"
 collated: false
 default: "content-horizontal"
 variants:
