@@ -61,3 +61,9 @@ You can apply the `rvt-layout__break-out` CSS class to an element within the `rv
   </div>
 </main>
 ```
+
+### Do
+Use the break out element to call attention to an important piece or section of content.
+
+### Don't
+Use more than one or two break out elements per page layout.
