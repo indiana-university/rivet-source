@@ -36,4 +36,11 @@
     font-weight: $font-weight-bold;
     line-height: 1.2;
   }
+
+  > img,
+  > img + *,
+  > figure,
+  > figure + * {
+    --flow-space: 3rem;
+  }
 }
