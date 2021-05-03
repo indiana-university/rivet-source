@@ -62,10 +62,10 @@ You can apply the `rvt-layout__break-out` CSS class to an element within the `rv
 </main>
 ```
 
-### Do
+#### Do
 Use the break out element to call attention to an important piece or section of content.
 
-### Don't
+#### Don't
 Use more than one or two break out elements per page layout.
 
 ### The "Feature slot" element
@@ -74,3 +74,10 @@ The Feature slot provides a way to create an additional call out at the top of t
 - Possible uses include a small feature illustration or image
 - Contact information for a person profile
 - An important time-sensitive call-to-action
+
+#### Do
+- Use to call out important information
+- Use to add visual interest to the intro of a page with an image or illustration
+
+#### Don't
+- Use more than one Feature slot per page
