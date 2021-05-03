@@ -58,5 +58,10 @@
     &__break-out {
       margin-left: -$spacing-xxl;
     }
+
+    &__break-out,
+    &__break-out + * {
+      --flow-space: 3rem;
+    }
   }
 }
