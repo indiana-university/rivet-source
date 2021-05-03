@@ -51,3 +51,19 @@ hr {
   border: none;
   background-color: $color-black-100;
 }
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  padding-top: $spacing-sm;
+  padding-left: $spacing-sm;
+  font-size: $ts-14;
+}
