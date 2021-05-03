@@ -42,3 +42,22 @@ In addition to the base Rivet Layout elements `rvt-layout` and `rvt-layout__wrap
   </footer>
 </body>
 ```
+
+### The "Break out" element
+You can apply the `rvt-layout__break-out` CSS class to an element within the `rvt-layout__content` column to make that content break out of the main column. The breakout element is useful for elements like images and stats that you want to call out within a column of running text.
+
+```html
+<main class="rvt-layout__wrapper">
+  <div class="rvt-layout__sidebar">
+    <!-- Rivet Sidenav component -->
+  </div>
+  <div class="rvt-layout__content">
+    <!-- Site or App specific Layout content -->
+    <div class="rvt-layout__break-out">
+      <!--
+        This image will be slightly wider than the rest of the main content column
+      -->
+      <img src="...">
+  </div>
+</main>
+```
