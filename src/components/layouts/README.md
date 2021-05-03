@@ -62,8 +62,15 @@ You can apply the `rvt-layout__break-out` CSS class to an element within the `rv
 </main>
 ```
 
-### Do
+### The "Feature slot" element
+The Feature slot provides a way to create an additional call out at the top of the main content column in the generic details Layout. Applying then `rvt-layout__feature-slot` CSS class to the first child of the `rvt-layout__content` element will create a space that causes running text to wrap around it and pulls the area out of the main content column.
+
+- Possible uses include a small feature illustration or image
+- Contact information for a person profile
+- An important time-sensitive call-to-action
+
+### Dos
 Use the break out element to call attention to an important piece or section of content.
 
-### Don't
+### Don'ts
 Use more than one or two break out elements per page layout.

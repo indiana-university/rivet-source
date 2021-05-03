@@ -65,3 +65,31 @@
     }
   }
 }
+
+@include mq($breakpoint-xl) {
+  .rvt-layout {
+    &__break-out {
+      margin-right: -$spacing-xxl;
+    }
+
+    &__feature-slot {
+      margin-right: -$spacing-xxl;
+      float: right;
+      width: $width-xl;
+      margin-bottom: $spacing-lg;
+      margin-left: $spacing-lg;
+    }
+
+    &__feature-slot + * {
+      margin-top: 0;
+    }
+  }
+}
+
+@include mq($breakpoint-xxl) {
+  .rvt-layout {
+    &__feature-slot {
+      margin-right: -$spacing-3-xl;
+    }
+  }
+}
