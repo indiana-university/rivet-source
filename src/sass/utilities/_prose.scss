@@ -37,7 +37,12 @@
   > img,
   > img + *,
   > figure,
-  > figure + * {
+  > figure + *,
+  > hr {
     --flow-space: 3rem;
+  }
+
+  > *:empty:not(hr) {
+    display: none;
   }
 }
