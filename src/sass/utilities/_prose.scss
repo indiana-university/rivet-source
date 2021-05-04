@@ -1,13 +1,7 @@
 @use '../core' as *;
 
 .rvt-prose {
-  // Fall back for browsers that do not support the "ch" (character) unit.
-  max-width: 760px;
 
-  /**
-   * Constrain prose/longer-form copy to a readable, user-friendly line length.
-   */
-  max-width: 75ch;
 
   h1 {
     font-size: $ts-32;
