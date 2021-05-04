@@ -52,7 +52,8 @@ $gutter: $spacing-md / 2;
 @mixin row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 ($gutter/-1);
+  margin-right: ($gutter/-1);
+  margin-left: ($gutter/-1);
 }
 
 /**
