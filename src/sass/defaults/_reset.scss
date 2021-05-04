@@ -67,3 +67,11 @@ figcaption {
   padding-left: $spacing-sm;
   font-size: $ts-14;
 }
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
