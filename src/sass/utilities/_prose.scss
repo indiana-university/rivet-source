@@ -1,6 +1,10 @@
 @use '../core' as *;
 
 .rvt-prose {
+  // Benton sans feels really compact and can benefit from a little extra
+  // line-height here.
+  line-height: 1.65;
+
   h1 {
     font-size: $ts-32;
   }
