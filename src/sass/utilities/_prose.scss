@@ -5,15 +5,15 @@
     font-size: $ts-32;
   }
 
-  /**
-   * We RARELY ever get down into the h4-6 area, so I say
-   * just let the browser take care of those sizes and we'll
-   * set the font-weight. See below.
-   */
-
   h2,
   h3 {
     font-size: $ts-23;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: $ts-20;
   }
 
   h1,
