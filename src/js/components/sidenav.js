@@ -109,7 +109,7 @@ export default class Sidenav extends Component {
           return;
         }
 
-        const openEvent = Component.dispatchCustomEvent('sidenavListOpen', toggle, {
+        const openEvent = Component.dispatchCustomEvent('sidenavListOpened', toggle, {
           id: toggleId
         });
     
@@ -130,8 +130,8 @@ export default class Sidenav extends Component {
           console.warn(`No such toggle '${toggleId}' in Sidenav.close()`);
           return;
         }
-        // FIXME: Changed to sidenavListClosed to match tense of other events
-        const closeEvent = Component.dispatchCustomEvent('sidenavListClose', toggle, {
+
+        const closeEvent = Component.dispatchCustomEvent('sidenavListClosed', toggle, {
           id: toggleId
         });
     
