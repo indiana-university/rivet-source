@@ -8,11 +8,9 @@
     {% if eyebrow %}
     <div class="rvt-card__eyebrow">{{ eyebrow }}</div>
     {% endif %}
-    <div class="rvt-card__header">
-      <h2 class="rvt-card__title">
-        <a href="#">{{ title }}</a>
-      </h2>
-    </div>
+    <h2 class="rvt-card__title">
+      <a href="#">{{ title }}</a>
+    </h2>
     <div class="rvt-card__content [ rvt-flow ]">
       {{ content | safe }}
     </div>
