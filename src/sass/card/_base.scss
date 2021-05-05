@@ -36,6 +36,11 @@
   &__eyebrow {
     color: $color-crimson-base;
     font-size: $ts-14;
+    text-decoration: none;
+  }
+
+  &__eyebrow[href]:hover {
+    text-decoration: underline;
   }
 
   &__title {
