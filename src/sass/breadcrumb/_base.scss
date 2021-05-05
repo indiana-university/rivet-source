@@ -14,12 +14,11 @@
     margin-top: 0;
     margin-right: $spacing-xs;
     font-size: $ts-14;
-    line-height: 1;
 
     &::before {
       content: '/';
       padding-right: $spacing-xs;
-      color: #bbbbbb;
+      color: $color-black-200;
     }
 
     a {
@@ -51,11 +50,5 @@
     li:last-child {
       color: $color-black-700;
     }
-  }
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-breadcrumbs li {
-    font-size: $ts-base;
   }
 }

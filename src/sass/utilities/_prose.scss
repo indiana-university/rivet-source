@@ -1,0 +1,48 @@
+@use '../core' as *;
+
+.rvt-prose {
+  // Benton sans feels really compact and can benefit from a little extra
+  // line-height here.
+  line-height: 1.65;
+
+  h1 {
+    font-size: $ts-32;
+  }
+
+  h2,
+  h3 {
+    font-size: $ts-23;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: $ts-20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // Reset the flow space here to put more space before headings.
+    --flow-space: 3rem;
+
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    scroll-margin-top: $spacing-md;
+  }
+
+  > img,
+  > img + *,
+  > figure,
+  > figure + *,
+  > hr {
+    --flow-space: 3rem;
+  }
+
+  > *:empty:not(hr) {
+    display: none;
+  }
+}
