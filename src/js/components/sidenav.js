@@ -92,30 +92,52 @@ export default class Sidenav extends Component {
         }
     
         targetList.hasAttribute('hidden')
-          ? this.open(toggleButton, targetList)
-          : this.close(toggleButton, targetList);
+          ? this.open(toggleId)
+          : this.close(toggleId);
       },
 
-      open(toggleButton, targetList) {
-        const openEvent = Component.dispatchCustomEvent('sidenavListOpen', toggleButton, {
-          id: toggleButton.dataset.rvtSidenavToggle
+      open(toggleId) {
+        const toggle = this.element.querySelector(
+          `[${this.toggleAttribute}="${toggleId}"]`
+        );
+        const targetList = this.element.querySelector(
+          `[${this.listAttribute}="${toggleId}"]`
+        );
+
+        if (!toggle || !targetList) {
+          console.warn(`No such toggle '${toggleId}' in Sidenav.open()`);
+          return;
+        }
+
+        const openEvent = Component.dispatchCustomEvent('sidenavListOpened', toggle, {
+          id: toggleId
         });
     
         if (!openEvent) return;
     
-        toggleButton.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-expanded', 'true');
         targetList.removeAttribute('hidden');
       },
     
-      close(toggleButton, targetList) {
-        // FIXME: Changed to sidenavListClosed to match tense of other events
-        const closeEvent = Component.dispatchCustomEvent('sidenavListClose', toggleButton, {
-          id: toggleButton.dataset.rvtSidenavToggle
+      close(toggleId) {
+        const toggle = this.element.querySelector(
+          `[${this.toggleAttribute}="${toggleId}"]`
+        );
+        const targetList = this.element.querySelector(
+          `[${this.listAttribute}="${toggleId}"]`
+        );
+        if (!toggle || !targetList) {
+          console.warn(`No such toggle '${toggleId}' in Sidenav.close()`);
+          return;
+        }
+
+        const closeEvent = Component.dispatchCustomEvent('sidenavListClosed', toggle, {
+          id: toggleId
         });
     
         if (!closeEvent) return;
     
-        toggleButton.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-expanded', 'false');
         targetList.setAttribute('hidden', '');
       }
     }
