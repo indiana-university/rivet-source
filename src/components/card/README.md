@@ -16,11 +16,11 @@ The cover variant is created by adding a `rvt-card--cover` modifier class to the
 
 ### Do
 - Use cards to represent items in a list.
-- Use the _cover_ variant when the card only contains one link
+- Use the _cover_ variant when the card only contains one link—a direct child of the `rvt-card__title` element.
 
 ### Don't
-- Use cards to wrap every section of content on a page.
-- Don't use the cover variant if the card contains more than one link
+- Do not use the Raised variant as wrappers for multiple page sections. Cards are meant to draw attention to important parts of content on a page. If every part of the page is a card, the card is no longer effective as an attention getter.
+- Do not use the cover variant if the card contains more than one link
 
 ## Card Elements
 These are the elements that make up the card. The card container is the only required element in a card. All other elements are technically optional.
