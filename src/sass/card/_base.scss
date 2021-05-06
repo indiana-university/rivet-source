@@ -75,7 +75,7 @@
     right: $spacing-md;
   }
 
-  &--cover &__title a::after {
+  &--clickable &__title a::after {
     content: '';
     position: absolute;
     left: 0;
