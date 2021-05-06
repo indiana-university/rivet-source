@@ -6,13 +6,13 @@ The Card has three variants that affect the way it behaves.
 
 1. The default card
 2. The `rvt-card--raised` variant which adds a box shadow, background color, and rounded corner to create a "raised" appearance
-3. The `rvt-card--cover` variant which makes the entire card a clickable link
+3. The `rvt-card--clickable` variant which makes the entire card a clickable link
 
 ### Raised variant
 The raised variant is created by adding a `rvt-card--raised` modifier class to the main card container element. It will add a white background color, rounded corners, and a shadow to the card to give it a common card-link "raised" appearance.
 
-### Cover variant
-The cover variant is created by adding a `rvt-card--cover` modifier class to the main card container element. This modifier will make the `a` element inside of the [card title element](#link-to-title-element-heading-below) cover the card element effectively making the entire card a clickable link.
+### Clickable variant
+The clickable variant is created by adding a `rvt-card--clickable` modifier class to the main card container element. This modifier will make the `a` element inside of the [card title element](#link-to-title-element-heading-below) cover the card element effectively making the entire card a clickable link.
 
 ### Do
 - Use cards to represent items in a list.
