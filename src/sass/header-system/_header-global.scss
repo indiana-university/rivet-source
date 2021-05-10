@@ -1,4 +1,4 @@
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-header-global {
   padding-top: $spacing-sm;

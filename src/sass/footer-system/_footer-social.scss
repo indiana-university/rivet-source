@@ -1,6 +1,6 @@
 // Social section
 
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-footer-social {
   background-color: $color-crimson-base;

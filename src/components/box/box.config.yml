@@ -1,5 +1,5 @@
 title: "Box"
-status: "alpha"
+status: "deprecated"
 collated: true
 context:
   content: "This is a basic box"

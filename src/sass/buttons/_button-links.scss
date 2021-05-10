@@ -1,7 +1,9 @@
-@use 'core' as *;
+@use '../core' as *;
 
 .rvt-button--link {
   background-color: $color-crimson-base;
   border-color: $color-crimson-base;
-  // box-shadow: 0px 0.25rem 0.25rem rgb(36 49 66 / 16%);
+  box-shadow: 0 .25rem .25rem rgb(36 49 66 / 16%);
+
+  --flow-space: 2rem;
 }

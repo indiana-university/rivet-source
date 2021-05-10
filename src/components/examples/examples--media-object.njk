@@ -8,6 +8,20 @@
 
 {% render '@media-object', { class: "rvt-mo-demo-only", preContent: "1", content: "2", postContent: "3"}, true %}
 
+<h2 class="rvt-ts-md rvt-text-bold rvt-m-tb-md">Utility version!</h2>
+<p>The media object can be recreated using Rivet's flex utilities. We can no deprecate the Media Object component.</p>
+<div class="rvt-flex-md-up">
+  <div class="rvt-shrink-0 rvt-width-xs [ rvt-p-all-sm rvt-bg-blue-100 ]">
+    Prepend
+  </div>
+  <div class="rvt-grow-1 rvt-shrink-1 [ rvt-p-all-sm rvt-bg-yellow-100 ]">
+    Main
+  </div>
+  <div class="rvt-shrink-1 [ rvt-p-all-sm rvt-bg-orange-100 ]">
+    Append
+  </div>
+</div>
+
 <style>
 .rvt-mo-demo-only .rvt-mo__prepend,
 .rvt-mo-demo-only .rvt-mo__main,

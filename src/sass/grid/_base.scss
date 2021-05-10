@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use 'core' as *;
+@use '../core' as *;
 
 // These Sass maps are used for all the basic row set up.
 
@@ -28,10 +28,10 @@ $row-columns: (
 // like, .row--yournewsize.
 
 $row-widths: (
-  'sm': 640px,
-  'md': 1024px,
-  'lg': 1140px,
-  'xl': 1380px
+  'sm': (840/16) * 1rem,
+  'md': (1024/16) * 1rem,
+  'lg': (1140/16) * 1rem,
+  'xl': (1380/16) * 1rem
 );
 
 // Global grid gutter. Set this to half of what you want the final gutter to be.
@@ -52,7 +52,8 @@ $gutter: $spacing-md / 2;
 @mixin row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 ($gutter/-1);
+  margin-right: ($gutter/-1);
+  margin-left: ($gutter/-1);
 }
 
 /**

@@ -2,7 +2,8 @@
 node_modules
 _build
 dist
-static
+static/css
+static/js
 .idea
 .vscode
 cypress/videos

@@ -1,7 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-breadcrumbs {
   list-style: none;
@@ -14,12 +14,11 @@
     margin-top: 0;
     margin-right: $spacing-xs;
     font-size: $ts-14;
-    line-height: 1;
 
     &::before {
       content: '/';
       padding-right: $spacing-xs;
-      color: #bbbbbb;
+      color: $color-black-200;
     }
 
     a {
@@ -51,11 +50,5 @@
     li:last-child {
       color: $color-black-700;
     }
-  }
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-breadcrumbs li {
-    font-size: $ts-base;
   }
 }

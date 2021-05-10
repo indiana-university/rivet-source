@@ -1,0 +1,133 @@
+@use '../core' as *;
+
+.#{$prefix}-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &--raised {
+    background-color: $color-white-base;
+    border-radius: $spacing-xs;
+    box-shadow: 0 $spacing-xxs $spacing-sm rgba(36, 49, 66, .2);
+  }
+
+  &__image img {
+    display: block;
+    width: 100%;
+    border-radius: $spacing-xs;
+  }
+
+  &--raised &__image img {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &__body {
+    padding-top: $spacing-sm;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &--raised &__body {
+    padding: $spacing-sm;
+  }
+
+  &__eyebrow {
+    color: $color-crimson-base;
+    font-size: $ts-14;
+    text-decoration: none;
+  }
+
+  &__eyebrow[href]:hover {
+    text-decoration: underline;
+  }
+
+  &__title {
+    font-size: $ts-20;
+    padding-right: $spacing-xl;
+    line-height: 1.3;
+  }
+
+  &__title a {
+    text-decoration: none;
+    color: $color-black-base;
+  }
+
+  &__title a::before {
+    content: '';
+    border-radius: 999rem;
+    display: block;
+    width: $spacing-sm;
+    height: $spacing-sm;
+    background-color: $color-blue-000;
+    padding: $spacing-xs;
+    position: absolute;
+    right: $spacing-xs;
+    background-size: $spacing-sm $spacing-sm;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23006298" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .2s ease;
+  }
+
+  &--raised &__title a::before {
+    right: $spacing-md;
+  }
+
+  &--clickable &__title a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__title a:hover {
+    color: $color-blue-base;
+    text-decoration: underline;
+  }
+
+  &__title a:hover::before {
+    transform: translate($spacing-xs, 0);
+    background-color: $color-blue-100;
+  }
+
+  &__content {
+    border-top: 1px solid $color-black-100;
+    flex-grow: 1;
+    margin-top: $spacing-lg;
+    color: $color-black-500;
+    padding-top: $spacing-md;
+  }
+
+  &__meta {
+    font-size: $ts-14;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: $spacing-md;
+  }
+
+  &__meta > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: $spacing-sm;
+  }
+
+  &__meta > *:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+  .#{$prefix}-card {
+    &__body {
+      padding-top: $spacing-md;
+    }
+
+    &--raised &__body {
+      padding: $spacing-md;
+    }
+  }
+}

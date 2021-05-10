@@ -1,6 +1,6 @@
 // Applies to all parts of the footer
 
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-footer-social,
 .#{$prefix}-footer-resources,

@@ -1,0 +1,23 @@
+<div class="rvt-card{% if classes %} {{ classes }}{% endif %}">
+  {% if image %}
+  <div class="rvt-card__image">
+    <img src="{{ image }}" alt="">
+  </div>
+  {% endif %}
+  <div class="rvt-card__body">
+    {% if eyebrow %}
+    <div class="rvt-card__eyebrow">{{ eyebrow }}</div>
+    {% endif %}
+    <h2 class="rvt-card__title">
+      <a href="#">{{ title }}</a>
+    </h2>
+    <div class="rvt-card__content [ rvt-flow ]">
+      {{ content | safe }}
+    </div>
+    {% if meta %}
+    <div class="rvt-card__meta">
+      {{ meta | safe }}
+    </div>
+    {% endif %}
+  </div>
+</div>

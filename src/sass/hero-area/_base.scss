@@ -1,14 +1,7 @@
-@use 'core' as *;
-
-.rvt-flow > * + * {
-  margin-top: var(--flow-space, 1rem);
-  margin-bottom: 0;
-}
+@use '../core' as *;
 
 .rvt-hero {
-  // background-color: #FFF3F0;
-  // background-color: #FFFCEB;
-  // background-color: #F9F9F0;
+  padding-top: $spacing-md;
 
   &__body {
     margin-top: $spacing-md;
@@ -16,15 +9,16 @@
 
   &__eyebrow {
     color: $color-crimson-base;
-    font-weight: 700;
+    font-weight: 400;
     font-size: $ts-14;
     display: block;
     text-transform: uppercase;
+    letter-spacing: $spacing-xxs * .125;
   }
-  
+
   &__title {
     font-size: $ts-36;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     line-height: 1.2;
 
     --flow-space: .25rem;
@@ -46,7 +40,13 @@
     img {
       display: block;
       width: 100%;
+      border-top-left-radius: $spacing-xs;
+      border-bottom-left-radius: $spacing-xs;
     }
+  }
+
+  &--cutout-image &__image {
+    margin-top: -$spacing-md;
   }
 
   &__image-caption {
@@ -60,13 +60,13 @@
     width: 100%;
     justify-content: center;
   }
-  
+
   &__actions > *:not(:first-child) {
     margin-top: $spacing-sm;
   }
 }
 
-@media screen and (min-width: 840px) {
+@include mq($breakpoint-md) {
   .rvt-hero {
     padding-top: $spacing-xxl;
     padding-bottom: $spacing-xxl;
@@ -81,7 +81,8 @@
       flex-basis: 50%;
       max-width: 50%;
       padding-right: $spacing-lg;
-      margin-top: 0;
+      // This helps optically center the hero body content vertically.
+      margin-top: -$spacing-sm;
     }
 
     &__actions {

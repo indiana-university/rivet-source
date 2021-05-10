@@ -9,9 +9,9 @@ context:
   items:
     - text: Home
       link: "#"
-    - text: Files
+    - text: Tier two
       link: "#"
-    - text: my-file.txt
+    - text: Tier three
       attributes:
         - label: "aria-label"
           value: "Current page"
