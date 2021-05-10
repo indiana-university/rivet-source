@@ -51,7 +51,7 @@ describe('Rivet basic modal interactions', function () {
 
     cy.get('@modal').should('be.visible');
 
-    cy.get('body').click();
+    cy.get('body').click('topLeft');
 
     cy.get('@modal').should('not.be.visible');
   });
