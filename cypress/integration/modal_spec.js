@@ -60,7 +60,8 @@ describe('Rivet basic modal interactions', function () {
     cy.get('@modal').should('not.be.visible');
 
     cy.window().then(win => {
-      win.newmodalExampleModal.open();
+      var modal = win.document.querySelector('[data-rvt-modal="modalExample"]');
+      modal.open();
     });
 
     cy.get('@modal').should('be.visible');
@@ -74,7 +75,8 @@ describe('Rivet basic modal interactions', function () {
     cy.get('@modal').should('be.visible');
 
     cy.window().then(win => {
-      win.newmodalExampleModal.close();
+      var modal = win.document.querySelector('[data-rvt-modal="modalExample"]');
+      modal.close();
     });
 
     cy.get('@modal').should('not.be.visible');
