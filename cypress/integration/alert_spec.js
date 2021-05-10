@@ -28,7 +28,10 @@ describe('Rivet alert interactions', function () {
 
   it('Should be able to dismiss with .dismiss() method', function () {
     cy.window().then(win => {
-      win.newwarningAlert.dismiss();
+      var alert = win.document.querySelector(
+        '[data-rvt-alert="warning"]'
+      );
+      alert.dismiss();
     });
 
     cy.get('@warningAlert').should('not.exist');
