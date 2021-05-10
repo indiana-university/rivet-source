@@ -1,3 +1,4 @@
+const DROPDOWN = '[data-rvt-dropdown="dropdownNavigation"]';
 const DROPDOWN_TOGGLE = '[data-rvt-dropdown-toggle="dropdownNavigation"]';
 const DROPDOWN_MENU = '[data-rvt-dropdown-menu]';
 const DEV_SERVER = "http://localhost:3000";
@@ -61,7 +62,8 @@ describe('Dropdown Interaction', function() {
 
   it('Should be able to close with .close() method', function() {
     cy.window().then(win => {
-      win.newdropdownNavigation.close();
+      var dropdown = win.document.querySelector(DROPDOWN);
+      dropdown.close();
     });
 
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
@@ -73,7 +75,8 @@ describe('Dropdown Interaction', function() {
 
   it('Should be able to open with .open() method', function() {
     cy.window().then(win => {
-      win.newdropdownNavigation.open();
+      var dropdown = win.document.querySelector(DROPDOWN);
+      dropdown.open();
     });
 
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'true');
