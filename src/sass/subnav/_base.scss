@@ -6,6 +6,7 @@
 .#{$prefix}-subnav {
   overflow-x: auto;
   border-bottom: 1px solid $color-black-100;
+  -webkit-overflow-scrolling: auto;
 
   &__list {
     display: flex;
