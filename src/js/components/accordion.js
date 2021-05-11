@@ -57,7 +57,7 @@ export default class Accordion extends Component {
           });
     
           // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-          this.openOnInit = initialPanel;
+          this.openOnInit = initialPanel.getAttribute(this.panelAttribute);
         } catch (e) {
           console.warn(
             'Only one accordion panel should have the data-rvt-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-rvt-accordion element'
@@ -94,12 +94,12 @@ export default class Accordion extends Component {
         // If accordion is set to open all panels on init, open them
         if (this.openAllOnInit === true) {
           this.panels.forEach(panel => {
-            this.open(panel);
+            this.open(panel.getAttribute(this.panelAttribute));
           });
         } else {
           // Keep all other accordions closed by setting their initial states
           this.panels.forEach((panel, index) => {
-            if (panel !== this.openOnInit) {
+            if (panel.getAttribute(this.panelAttribute) !== this.openOnInit) {
               // Set non-initialized accordion panels to hidden
               this.panels[index].setAttribute('hidden', '');
               const trigger = this.element.querySelector(
@@ -125,15 +125,10 @@ export default class Accordion extends Component {
           this.triggerAttribute
         );
     
-        // Get the associated panel
-        const currentPanel = this.element.querySelector(
-          `[${this.panelAttribute}="${currentTriggerValue}"]`
-        );
-    
         // Open or close accordion
         currentTrigger.getAttribute('aria-expanded') === 'true'
-          ? this.close(currentPanel)
-          : this.open(currentPanel);
+          ? this.close(currentTriggerValue)
+          : this.open(currentTriggerValue);
       },
 
       _handleKeydown(event) {
@@ -190,8 +185,15 @@ export default class Accordion extends Component {
         }
       },
 
-      open(panel) {
-        // Trigger accordionOpened custom event. This event is used open accordion panels.
+      open(panelId) {
+        const panel = this.element.querySelector(
+          `[${this.panelAttribute}="${panelId}"]`
+        );
+
+        if (!panel) {
+          console.warn(`No such panel '${panelId}' in Accordion.open()`);
+          return;
+        }
     
         const activationEvent = Component.dispatchCustomEvent(
           'accordionOpened',
@@ -214,8 +216,15 @@ export default class Accordion extends Component {
         trigger.setAttribute('aria-expanded', 'true');
       },
 
-      close(panel) {
-        // Trigger accordionClosed custom event. This event is used to control the process of closing accordion panels.
+      close(panelId) {
+        const panel = this.element.querySelector(
+          `[${this.panelAttribute}="${panelId}"]`
+        );
+
+        if (!panel) {
+          console.warn(`No such panel '${panelId}' in Accordion.close()`);
+          return;
+        }
     
         const activationEvent = Component.dispatchCustomEvent(
           'accordionClosed',
