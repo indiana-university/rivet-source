@@ -50,4 +50,13 @@ describe('Rivet tab interactions', function () {
     cy.get('@panel2').should('not.be.visible');
     cy.get('@panel3').should('not.be.visible');
   });
+
+  it('Should be able to activate a tab with the .activateTab() method', function() {
+    cy.window().then(win => {
+      var tabs = win.document.querySelector('[data-rvt-tabs="tabset-1"]');
+      tabs.activateTab('tab-2');
+    });
+
+    cy.get('[data-rvt-tab-panel="tab-2"]').should('be.visible').should('not.have.attr', 'hidden');
+  });
 });
