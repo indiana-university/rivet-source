@@ -15,34 +15,16 @@ const minify = require('gulp-terser');
 const fractal = require('./fractal');
 const pkg = require('./package.json');
 
+const moveExample = require('./tasks/moveExample');
+const { compileTokens, watchTokens } = require('./tasks/tokensTasks');
+const { compileSass } = require('./tasks/sassTasks');
+
 /**
  * Style Dictionary
  */
-const StyleDictionary = require('style-dictionary').extend(
-  './.tokens.config.js'
-);
-
-const { jsonVariables } = require('./src/tokens/formats/json-formats');
-
-const {
-  mapSimple,
-  mapSimpleDesc,
-  variables
-} = require('./src/tokens/formats/sass-formats');
-
-// Pull in Style Dictionary custom filters
-const {
-  isBreakpoint,
-  isColor,
-  isTypeScale,
-  isWidth,
-  isZIndex
-} = require('./src/tokens/filters/format-filters');
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
-
-sass.compiler = require('sass');
 
 /**
  * Sass tasks
@@ -67,33 +49,6 @@ var bannerText = `/*!
 function setProdNodeEnv(callback) {
   process.env.NODE_ENV = 'production';
   callback();
-}
-
-function compileTokens(callback) {
-  StyleDictionary.registerFilter(isBreakpoint);
-  StyleDictionary.registerFilter(isColor);
-  StyleDictionary.registerFilter(isTypeScale);
-  StyleDictionary.registerFilter(isWidth);
-  StyleDictionary.registerFilter(isZIndex);
-  StyleDictionary.registerFormat(jsonVariables);
-  StyleDictionary.registerFormat(mapSimple);
-  StyleDictionary.registerFormat(mapSimpleDesc);
-  StyleDictionary.registerFormat(variables);
-  process.env.NODE_ENV === 'production'
-    ? StyleDictionary.buildAllPlatforms()
-    : StyleDictionary.buildPlatform('src/sass/core');
-  callback();
-}
-
-function watchTokens(callback) {
-  watch('src/tokens/**/*.json', series(compileTokens));
-  callback();
-}
-
-function compileSass() {
-  return src('src/sass/**/*.scss')
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(dest('static/css/'));
 }
 
 // List .scss files. See .stylelintrc for config
@@ -323,13 +278,6 @@ function fractalBuild() {
   });
 }
 
-function example(callback) {
-  src('./src/components/_extras/_index-example.html')
-    .pipe(rename('index.html'))
-    .pipe(dest('.'));
-  callback();
-}
-
 exports.release = series(
   setProdNodeEnv,
   compileTokens,
@@ -348,7 +296,7 @@ exports.release = series(
   headerJS,
   releaseCopySass,
   headerSass,
-  example
+  moveExample
 );
 
 exports.build = series(

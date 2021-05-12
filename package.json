@@ -16,7 +16,7 @@
   "module": "js/rivet-esm.js",
   "scripts": {
     "start": "gulp",
-    "build": "npm run clean && gulp release",
+    "build": "npm run clean && gulp release && npx babel js/rivet-iife.js --out-file js/rivet-iife.js",
     "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
     "changelog": "node ./scripts/changelog.js",
     "fix": "stylelint 'src/sass/**/*.scss' --fix",
