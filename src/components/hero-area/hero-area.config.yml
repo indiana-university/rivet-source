@@ -1,0 +1,10 @@
+title: "Hero area"
+preview: "@preview-no-padding"
+context:
+  eyebrow: "Category"
+  title: "Hero area title"
+  teaserContent: "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor optio accusantium placeat suscipit sint rem, expedita ipsa, officia consequatur dolorem explicabo odio magnam fugiat quis modi libero doloribus! Aperiam, perspiciatis.</p>"
+  actions: '<a class="rvt-button rvt-button--link" href="#">Read more about this</a>'
+  image:
+    url: "https://www.fillmurray.com/1200/800"
+    caption: "An optional image caption"

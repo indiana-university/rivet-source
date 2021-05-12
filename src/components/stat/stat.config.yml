@@ -1,0 +1,7 @@
+title: "Stat"
+preview: "@preview-no-padding"
+status: "wip"
+context:
+  number: 20
+  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quibusdam unde eos omnis rerum dolores accusamus voluptate blanditiis reiciendis? Velit tenetur doloremque ducimus esse nostrum accusantium iste hic obcaecati omnis?"
+  image: '<div class="rvt-avatar"><img class="rvt-avatar__image" src="https://www.fillmurray.com/300/300"></div>'

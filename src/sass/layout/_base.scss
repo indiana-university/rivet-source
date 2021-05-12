@@ -1,0 +1,99 @@
+@use '../core' as *;
+
+.rvt-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__wrapper {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &__wrapper--details {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__content {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+  }
+
+  &__wrapper--single &__content {
+    padding-left: 0;
+  }
+
+  &__break-out {
+    margin-right: -$spacing-md;
+    margin-left: -$spacing-md;
+  }
+
+  &__sidebar {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-top: 1px solid $color-black-100;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .rvt-layout {
+    &__wrapper {
+      flex-direction: row;
+    }
+
+    &__sidebar {
+      flex-basis: $width-md;
+      max-width: $width-md;
+      flex-grow: 1;
+      flex-shrink: 0;
+      padding-top: $spacing-xxl * 1.5;
+      border-top: none;
+      border-right: 1px solid $color-black-100;
+    }
+
+    &__content {
+      flex-grow: 1;
+      padding-top: $spacing-xxl * 1.5;
+      padding-left: $spacing-xxl;
+      padding-bottom: $spacing-xxl;
+    }
+
+    &__break-out {
+      margin-left: -$spacing-xxl;
+    }
+
+    &__break-out,
+    &__break-out + * {
+      --flow-space: 3rem;
+    }
+
+    &__wrapper--single &__break-out {
+      margin-left: -$spacing-md;
+    }
+  }
+}
+
+@include mq($breakpoint-xl) {
+  .rvt-layout {
+    &__break-out {
+      margin-right: -$spacing-xxl;
+    }
+
+    &__wrapper--single &__break-out {
+      margin-left: -$spacing-xxl;
+    }
+
+    &__feature-slot {
+      margin-right: -$spacing-xxl;
+      float: right;
+      width: $width-xl;
+      margin-bottom: $spacing-lg;
+      margin-left: $spacing-lg;
+    }
+
+    &__feature-slot + * {
+      margin-top: 0;
+    }
+  }
+}

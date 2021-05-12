@@ -1,7 +1,7 @@
 const DEV_SERVER = 'http://localhost:3000';
 
 beforeEach(function () {
-  cy.visit(`${DEV_SERVER}/components/preview/example-layouts--accordion-test`);
+  cy.visit(`${DEV_SERVER}/components/preview/examples--accordion-test`);
   /**
    * Use cypress aliases to share the context of the accordion trigger and panel
    * elements across different assertions.

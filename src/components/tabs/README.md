@@ -86,7 +86,7 @@ If you use the appropriate data attribute/id combination in your markup, modals 
 
 | Method                      | Description                                                                                                                      |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| .activateTab(tab, callback) | - `tab` - The element to be activated. - `callback` - An optional callback function that is executed after the tab is activated. |
+| .activateTab(tabId) | `tabId` - The value of the `data-rvt-tab-panel` attribute of the tab to activate. |
 | .destroy()                  | Adds the built-in event listeners to the tab component.                                                                          |
 | .init()                     | Removes all built-in event listeners from the tab component.                                                                     |
 

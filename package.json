@@ -2,7 +2,7 @@
   "name": "rivet-core",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",

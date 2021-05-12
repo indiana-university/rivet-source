@@ -1,7 +1,7 @@
 // Copyright (C) 2019 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-sidenav {
   &__label {
@@ -49,11 +49,6 @@
     flex-basis: 100%;
   }
 
-  &__item &__item &__link {
-    padding-top: $spacing-xxs * 1.2;
-    padding-bottom: $spacing-xxs * 1.2;
-  }
-
   &__link {
     font-size: $ts-14;
     color: $color-black-base;
@@ -62,11 +57,22 @@
     padding-right: $spacing-xs;
     padding-bottom: $spacing-xs;
     padding-left: $spacing-sm;
+    position: relative;
     text-decoration: none;
 
     &[aria-current] {
-      box-shadow: inset $spacing-xxs 0 0 $color-crimson-base;
       background-color: $color-black-000;
+    }
+
+    &[aria-current]::before {
+      content: '';
+      display: block;
+      width: .25rem;
+      height: 100%;
+      background-color: $color-crimson-base;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     &:focus,
@@ -74,6 +80,15 @@
       color: $color-blue-base;
       text-decoration: underline;
     }
+  }
+
+  &__item &__item &__link {
+    padding-top: $spacing-xxs * 1.2;
+    padding-bottom: $spacing-xxs * 1.2;
+  }
+
+  &__item > &__list &__link[aria-current]::before {
+    margin-left: -$spacing-xxs;
   }
 
   &__link[aria-current] + &__toggle {
@@ -84,14 +99,6 @@
   &__link[aria-current] + &__toggle:focus {
     color: $color-black-600;
     background-color: $color-black-100;
-  }
-
-  /**
-   * Pulls back alignment of current state for nested links
-   */
-
-  &__item > &__list &__link[aria-current] {
-    margin-left: -$spacing-xxs;
   }
 
   &__toggle {

@@ -1,0 +1,11 @@
+<a href="#" class="rvt-stat">
+  <div class="rvt-stat__content [ rvt-flow ]">
+    {% if image %}
+    <div class="rvt-stat__image">
+      {{ image | safe }}
+    </div>
+    {% endif %}
+    <div class="rvt-stat__number">{{ number }}</div>
+    <div class="rvt-stat__description">{{ description }}</div>
+  </div>
+</a>

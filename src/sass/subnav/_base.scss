@@ -1,0 +1,57 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.#{$prefix}-subnav {
+  overflow-x: auto;
+  border-bottom: 1px solid $color-black-100;
+  -webkit-overflow-scrolling: auto;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding: $spacing-xxs;
+  }
+
+  &__item {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  &__item a,
+  &__item button {
+    align-items: center;
+    border: none;
+    color: $color-black-base;
+    display: flex;
+    font-size: $ts-14;
+    padding: $spacing-sm $spacing-sm;
+    position: relative;
+    text-decoration: none;
+    -webkit-appearance: none;
+  }
+
+  &__item a[aria-current]::after,
+  &__item a:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: $spacing-xxs;
+    bottom: -$spacing-xxs;
+    left: 0;
+    background-color: $color-crimson-base;
+    position: absolute;
+  }
+
+  &__item a:hover:not([aria-current]),
+  &__item button:hover {
+    background-color: $color-black-100;
+
+    &::after {
+      background-color: $color-black-200;
+    }
+  }
+}

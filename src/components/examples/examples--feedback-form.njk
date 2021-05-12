@@ -1,0 +1,235 @@
+
+<main role="main" id="main-content">
+    <div class="rvtc-page-wrapper">
+        <div class="rvt-container rvt-container--junior rvt-container--center">
+            <div class="rvt-grid">
+                <div class="rvt-grid__item-4-md-up">
+                    <h1 class="rvt-ts-36 rvt-lh-title">Student <strong>feedback</strong></h1>
+                    <p class="rvt-m-top-remove rvt-m-bottom-lg">English 201 Fall 2018</p>
+                    <p class="rvt-m-bottom-xl">We appreciate you taking the time to fill out the English 201 fall sememster feedback from. Your feedback is instrumental in helping us to improve the class.</p>
+                </div>
+                <div class="rvt-grid__item-7-md-up rvt-grid__item--last">
+                    <form id="feedback-form">
+                        <p class="rvt-text-right rvt-ts-12 rvt-m-all-remove">Required fields are followed by <strong><abbr title="required">*</abbr></strong></p>
+                        <fieldset class="rvt-border-bottom rvt-p-bottom-xl rvt-m-top-sm">
+                            <legend class="rvt-ts-20 rvt-text-bold rvt-m-bottom-md">Contact info</legend>
+
+                            <div class="rvt-grid">
+                                <div class="rvt-grid__item-md">
+                                    <label for="first-name">First name</label>
+                                    <input type="text" id="first-name" class="rvt-m-bottom-sm">
+                                </div>
+                                <div class="rvt-grid__item-md">
+                                    <label for="last-name">Last name</label>
+                                    <input type="text" id="last-name" class="rvt-m-bottom-sm">
+                                </div>
+                            </div>
+
+                            <label for="email-address">Email address</label>
+                            <input type="email" id="email-address" class="rvt-m-bottom-sm">
+
+                            <label for="class-section">
+                                Class section <strong><abbr title="required">*</abbr></strong>
+                            </label>
+                            <select id="class-section">
+                                <option value="">- Choose one -</option>
+                                <option value="201-A">201-A</option>
+                                <option value="201-B">201-B</option>
+                                <option value="201-C">201-C</option>
+                                <option value="201-D">201-D</option>
+                                <option value="201-E">201-E</option>
+                                <option value="201-F">201-F</option>
+                                <option value="201-G">201-G</option>
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="rvt-m-top-lg rvt-p-bottom-xl rvt-border-bottom">
+                            <legend class="rvt-ts-20 rvt-text-bold">Class participation</legend>
+                            <p class="rvt-m-top-remove">Please give us an idea of why you took this class. <strong><abbr title="required">*</abbr></strong></p>
+
+                            <ul class="rvt-plain-list rvt-m-top-xl" id="participation-list">
+                                <li>
+                                    <input type="checkbox" name="participation" id="major-requirement">
+                                    <label for="major-requirement" class="rvt-m-bottom-remove">Major requrirement</label>
+                                    <small class="rvt-display-block rvt-m-bottom-sm rvt-p-left-lg">This class was a specific requirement for the degree you are pursuing.</small>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="participation" id="elective">
+                                    <label for="elective">Fulfills elective requirement</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="participation" id="general-intrest">
+                                    <label for="general-intrest">General interest in the subject</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="participation" id="other">
+                                    <label for="other">Other</label>
+                                </li>
+                            </ul>
+                        </fieldset>
+
+                        <fieldset class="rvt-m-top-lg">
+                            <legend class="rvt-ts-20 rvt-text-bold rvt-m-bottom-md">Feedback message</legend>
+                            <label for="message-subject">
+                                Subject <strong><abbr title="required">*</abbr></strong>
+                            </label>
+                            <input type="text" id="message-subject" class="rvt-m-bottom-sm">
+
+                            <label for="message-content">
+                                Message <strong><abbr title="required">*</abbr></strong>
+                            </label>
+                            <textarea id="message-content"></textarea>
+                        </fieldset>
+
+                        <div class="rvt-button-group rvt-m-top-lg">
+                            <button class="rvt-button" type="submit">Send feedback</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style scoped>
+    /**
+     * This may be a good recommendation for how to overide or add to
+     * Rivet's style on a case-by-case basis. Would let other devs
+     * who see custom stuff easily identify it and reference it in
+     * Github issue/recommendations.  ** rvtc- ** c = custom.
+     */
+    .rvtc-page-wrapper {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    @media screen and (min-width: 800px) {
+        .rvtc-page-wrapper {
+            padding-top: 8rem;
+            padding-bottom: 12rem;
+        }
+    }
+</style>
+
+<script>
+    document.body.style.backgroundColor = '#fafafa';
+
+    // Mock error set up
+    const feedbackForm = document.getElementById('feedback-form');
+
+    const timeoutInterval = 500;
+
+    let formErrors = [
+        {
+            field: 'class-section',
+            text: 'The <strong>class section</strong> field is required. Please pick your section.',
+            template: 'inline'
+        },
+        {
+            field: 'participation-list',
+            text: 'This <strong>class participation</strong> is required. Please pick one of the options from this list.',
+            template: 'standalone'
+        }
+    ];
+
+    const errorSummary = () => {
+        return (`
+            <div class="rvt-alert rvt-alert--danger rvt-m-bottom-md" role="alert" tabindex="-1" id="alert-summary">
+                <h1 class="rvt-alert__title">Please correct the following errors.</h1>
+                <p class="rvt-alert__message">The <a href="#class-section">class section</a> and <a href="#participation-list">class participation</a> fields are invalid. See inline error messages for more detail.</p>
+            </div>
+        `);
+    }
+
+    const inlineTemplate = function(id, text) {
+        return (`
+            <div class="rvt-inline-alert rvt-inline-alert--danger rvt-m-bottom-xs">
+                <span class="rvt-inline-alert__icon">
+                    <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <g fill="currentColor">
+                            <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                            <path d="M10.83,5.17a1,1,0,0,0-1.41,0L8,6.59,6.59,5.17A1,1,0,0,0,5.17,6.59L6.59,8,5.17,9.41a1,1,0,1,0,1.41,1.41L8,9.41l1.41,1.41a1,1,0,0,0,1.41-1.41L9.41,8l1.41-1.41A1,1,0,0,0,10.83,5.17Z"/>
+                        </g>
+                    </svg>
+                </span>
+                <span class="rvt-inline-alert__message" role="alert" id="${id}-message">
+                    ${text}
+                </span>
+            </div>
+        `);
+    }
+
+    const standaloneTemplate = (id, text) => {
+        return (`
+            <div class="rvt-inline-alert rvt-inline-alert--standalone rvt-inline-alert--danger">
+                <span class="rvt-inline-alert__icon">
+                    <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <g fill="currentColor">
+                            <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14a6,6,0,1,1,6-6A6,6,0,0,1,8,14Z" />
+                            <path d="M10.83,5.17a1,1,0,0,0-1.41,0L8,6.59,6.59,5.17A1,1,0,0,0,5.17,6.59L6.59,8,5.17,9.41a1,1,0,1,0,1.41,1.41L8,9.41l1.41,1.41a1,1,0,0,0,1.41-1.41L9.41,8l1.41-1.41A1,1,0,0,0,10.83,5.17Z"/>
+                        </g>
+                    </svg>
+                </span>
+                <span class="rvt-inline-alert__message" role="alert" id="${id}-message">
+                    ${text}
+                </span>
+            </div>
+        `);
+    }
+
+    const insertSummary = function() {
+        let errorSummaryContainer = document.createElement('div');
+        errorSummaryContainer.innerHTML = errorSummary();
+        let firstFormChild = feedbackForm.childNodes[1];
+        firstFormChild.before(errorSummaryContainer);
+        // window.location.hash = 'feedback-form';
+    }
+
+    feedbackForm.addEventListener('submit', event => {
+        event.preventDefault();
+        window.setTimeout(() => {
+            formErrors.forEach(error => {
+                let formField = feedbackForm.querySelector('#' + error.field);
+                let errorContainer = document.createElement('span');
+
+                switch (error.template) {
+                    case 'inline':
+                        if (formField.getAttribute('aria-invalid')) return;
+
+                        errorContainer.innerHTML = inlineTemplate(error.field, error.text);
+
+                        formField.after(errorContainer);
+                        formField.setAttribute('aria-invalid', 'true');
+                        formField.setAttribute('aria-describedby', error.field + '-message');
+                        formField.classList.add('rvt-is-invalid');
+
+                        break;
+
+                    case 'standalone':
+                        let checkboxes = formField.querySelectorAll('input[type="checkbox"]');
+
+                        if (checkboxes[0].getAttribute('aria-invalid')) return;
+
+                        errorContainer.innerHTML = standaloneTemplate(error.field, error.text);
+
+                        for (var i = 0; i < checkboxes.length; i++) {
+                            checkboxes[i].setAttribute('aria-invalid', true);
+                            checkboxes[i].setAttribute('aria-describedby', error.field + '-message');
+                        }
+
+                        formField.after(errorContainer);
+                        break;
+
+                    default:
+                        break;
+                }
+            });
+            insertSummary();
+
+            let theSummary = document.querySelector('#alert-summary');
+            theSummary.focus();
+        }, timeoutInterval);
+
+
+    });
+</script>

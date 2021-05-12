@@ -1,0 +1,49 @@
+@use '../core' as *;
+
+.#{$prefix}-stat {
+  color: $color-black-base;
+  text-decoration: none;
+  transition: all .2s ease;
+  background-color: $color-white-base;
+  display: flex;
+  justify-content: center;
+  padding: $spacing-xl $spacing-md;
+
+  &[href]:hover {
+    transform: scale(1.1);
+    box-shadow: $shadow-base;
+    color: $color-crimson-base;
+    border-radius: $spacing-xs;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__number {
+    font-size: $ts-41;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+  }
+
+  &__description {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $color-black-500;
+    font-size: $ts-14;
+    letter-spacing: .025rem;
+
+    --flow-space: 0;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-stat {
+    padding: $spacing-xxl $spacing-xl;
+  }
+}

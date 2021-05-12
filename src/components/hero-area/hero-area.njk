@@ -1,0 +1,20 @@
+<div class="rvt-hero {% if classes %} {{ classes }}{% endif %}">
+  <div class="{{ siteContainer }}"> 
+    <div class="rvt-hero__inner">
+      <div class="rvt-hero__body [ rvt-flow ]">
+        <span class="rvt-hero__eyebrow">{{ eyebrow }}</span>
+        <h1 class="rvt-hero__title">{{ title }}</h1>
+        <div class="rvt-hero__teaser">
+          {{ teaserContent | safe }}
+        </div>
+        <div class="rvt-hero__actions">
+          {{ actions | safe }}
+        </div>
+      </div>
+      <div class="rvt-hero__image">
+        <img src="{{ image.url }}" alt="">
+        <div class="rvt-hero__image-caption">{{ image.caption }}</div>
+      </div>
+    </div>
+  </div>
+</div>

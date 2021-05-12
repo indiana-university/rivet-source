@@ -1,0 +1,17 @@
+title: "Subnav"
+status: "alpha"
+collated: "true"
+context:
+    id: "Section navigation"
+    items:
+      - link: "#"
+        content: "Item one"
+      - link: "#"
+        content: "Item two"
+        current: "true"
+      - link: "#"
+        content: "Item three"
+      - link: "#"
+        content: "Item four"
+      - link: "#"
+        content: "Item five"

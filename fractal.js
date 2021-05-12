@@ -29,7 +29,7 @@ const myCustomizedTheme = mandelbrot({
    * Show Docs before Components
    * http://fractal.build/guide/web/default-theme#nav
    */
-  nav: ['docs', 'components'],
+  nav: ['search', 'docs', 'components'],
   scripts: ['default', '/js/vendor.js']
 });
 

@@ -1,6 +1,6 @@
 // Related section
 
-@use 'core' as *;
+@use '../core' as *;
 
 .#{$prefix}-footer-resources {
   background-color: $color-crimson-base;
