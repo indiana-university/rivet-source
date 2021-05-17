@@ -62,7 +62,6 @@
     "postcss-scss": "^2.0.0",
     "rollup": "^1.26.5",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-eslint": "^7.0.0",
     "sass": "^1.25.0",
     "start-server-and-test": "^1.10.6",
     "style-dictionary": "^2.8.3",
