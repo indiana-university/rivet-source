@@ -63,6 +63,7 @@
     "rollup": "^1.26.5",
     "rollup-plugin-babel": "^4.3.3",
     "sass": "^1.25.0",
+    "standard": "^16.0.3",
     "start-server-and-test": "^1.10.6",
     "style-dictionary": "^2.8.3",
     "stylelint": "^13.2.1",
