@@ -170,8 +170,6 @@ function prefixReleaseCSS() {
 }
 
 async function compileIIFE() {
-  checkEnv();
-
   try {
     const bundle = await rollup.rollup({
       input: './src/js/index.js',
@@ -190,8 +188,6 @@ async function compileIIFE() {
 }
 
 async function compileESM() {
-  checkEnv();
-
   try {
     const bundle = await rollup.rollup({
       input: './src/js/index.js',
