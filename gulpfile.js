@@ -1,5 +1,4 @@
 const { dest, series, src, watch } = require('gulp');
-const { eslint } = require('rollup-plugin-eslint');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const autoprefixer = require('autoprefixer');
 const babel = require('rollup-plugin-babel');
@@ -168,25 +167,6 @@ function prefixReleaseCSS() {
   return src('./css/rivet.css')
     .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
     .pipe(dest('./css/'));
-}
-
-/**
- * JS tasks
- */
-
-// Set default eslint options for compiling IIFE/ESM
-let eslintOptionsIIFE = { throwOnError: false },
-  eslintOptionsESM = { throwOnError: false };
-
-/**
- * Set new eslint options for compiling IIFE/ESM if env is set to 'production'
- */
-
-function checkEnv() {
-  if (process.env.NODE_ENV === 'production') {
-    eslintOptionsIIFE = { throwOnError: true };
-    eslintOptionsESM = { throwOnError: true };
-  }
 }
 
 async function compileIIFE() {
