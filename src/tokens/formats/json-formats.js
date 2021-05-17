@@ -2,7 +2,6 @@ const jsonVariables = {
   name: 'rvt/json/variables',
   formatter: function(dictionary) {
     const allProperties = dictionary.allProperties;
-    // eslint-disable-next-line prefer-const
 
     // Wrapper is the string that will be built into the final output
     let wrapper = `{\n`;
