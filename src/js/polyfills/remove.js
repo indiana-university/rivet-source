@@ -4,11 +4,10 @@
  */
 (function(arr) {
   arr.forEach(function(item) {
-    /* eslint-disable */
     if (item.hasOwnProperty('remove')) {
       return;
     }
-    /* eslint-enable */
+
     Object.defineProperty(item, 'remove', {
       configurable: true,
       enumerable: true,

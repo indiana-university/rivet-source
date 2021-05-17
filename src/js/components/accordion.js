@@ -24,7 +24,6 @@ export default class Accordion extends Component {
         );
         
         if (this.triggers.length < 2) {
-          // eslint-disable-next-line no-console
           console.warn(
             'An accordion should contain *at least two* accordion triggers with the "data-rvt-accordion-trigger" attribute'
           );

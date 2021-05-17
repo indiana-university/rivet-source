@@ -108,5 +108,4 @@ fractal.web.set('static.path', path.join(__dirname, 'static'));
  */
 fractal.web.set('builder.dest', '_build');
 
-// eslint-disable-next-line no-unused-vars
 const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility
