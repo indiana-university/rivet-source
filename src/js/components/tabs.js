@@ -39,7 +39,9 @@ export default class Tabs extends Component {
         });
 
         // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-        this.openOnInit = initialPanel || this.panels[0];
+        this.openOnInit = initialPanel.getAttribute(this.panelAttribute) || this.panels[0].getAttribute(this.panelAttribute);
+
+        console.log(this.openOnInit);
 
         // bind methods
         Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab);
@@ -70,15 +72,10 @@ export default class Tabs extends Component {
         if (!currentTab) return;
     
         // Get the data-rvt-tab value
-        const currentTabValue = currentTab.getAttribute(this.tabAttribute);
-    
-        // Get the associated panel
-        const currentPanel = this.element.querySelector(
-          `[${this.panelAttribute}="${currentTabValue}"]`
-        );
+        const tabId = currentTab.getAttribute(this.tabAttribute);
     
         // Activate tab
-        this.activateTab(currentPanel);
+        this.activateTab(tabId);
       },
 
       _handleKeydown(event) {
@@ -131,9 +128,15 @@ export default class Tabs extends Component {
         }
       },
 
-      activateTab(tab) {
-        // Trigger tabActivated custom event. This event is used to control the process of switching between tabs.
-        console.log(this.element);
+      activateTab(tabId) {
+        const tab = this.element.querySelector(
+          `[${this.panelAttribute}="${tabId}"]`
+        );
+
+        if (!tab) {
+          console.warn(`No such tab '${tabId}' in Tabs.activateTab()`);
+          return;
+        }
 
         const activationEvent = Component.dispatchCustomEvent(
           'tabActivated',

@@ -82,6 +82,25 @@ describe('Rivet basic modal interactions', function () {
     cy.get('@modal').should('not.be.visible');
   });
 
+  it('Should be able to focus on the modal trigger with the .focusTrigger() method', function() {
+    cy.window().then(win => {
+      var modal = win.document.querySelector('[data-rvt-modal="modalExample"]');
+      modal.focusTrigger();
+    });
+
+    cy.get('[data-rvt-modal-trigger="modalExample"]').should('be.focused');
+  });
+
+  it('Should be able to focus on the modal with the .focusModal() method', function() {
+    cy.window().then(win => {
+      var modal = win.document.querySelector('[data-rvt-modal="modalExample"]');
+      modal.open();
+      modal.focusModal();
+    });
+
+    cy.get('[data-rvt-modal="modalExample"]').should('be.focused');
+  });
+
 });
 
 describe('Rivet dialog modal interactions', function () {

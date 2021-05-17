@@ -81,4 +81,30 @@ describe('Keyboard interactions', function () {
     cy.get('@trigger4').type('{home}');
     cy.get('@trigger1').should('to.have.focus');
   });
+
+  it('Should be able to open a panel with the .open() method', function() {
+    cy.window().then(win => {
+      var accordion = win.document.querySelector('[data-rvt-accordion="my-new-accordion"]');
+      accordion.open('my-new-accordion-1');
+    });
+
+    cy.get('[data-rvt-accordion-trigger="my-new-accordion-1"]').should('have.attr', 'aria-expanded', 'true');
+
+    cy.get('[data-rvt-accordion-panel="my-new-accordion-1"]')
+      .should('be.visible')
+      .and('not.have.attr', 'hidden');
+  });
+
+  it('Should be able to close a panel with the .close() method', function() {
+    cy.window().then(win => {
+      var accordion = win.document.querySelector('[data-rvt-accordion="my-new-accordion"]');
+      accordion.close('my-new-accordion-1');
+    });
+
+    cy.get('[data-rvt-accordion-trigger="my-new-accordion-1"]').should('have.attr', 'aria-expanded', 'false');
+
+    cy.get('[data-rvt-accordion-panel="my-new-accordion-1"]')
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
+  });
 });
