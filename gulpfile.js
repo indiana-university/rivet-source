@@ -7,121 +7,24 @@ const header = require('gulp-header');
 const postcss = require('gulp-postcss');
 const rename = require('gulp-rename');
 const rollup = require('rollup');
-const sass = require('gulp-sass');
 const strip = require('gulp-strip-comments');
-const stylelint = require('gulp-stylelint');
 const minify = require('gulp-terser');
 const fractal = require('./fractal');
 const pkg = require('./package.json');
 
+const bannerText = require('./tasks/bannerText');
 const moveExample = require('./tasks/moveExample');
 const { compileTokens, watchTokens } = require('./tasks/tokensTasks');
-const { compileSass } = require('./tasks/sassTasks');
-
-/**
- * Style Dictionary
- */
+const { compileSass, lintSassWatch, lintSassBuild, watchSass, releaseCopySass, headerSass } = require('./tasks/sassTasks');
+const { compileCSS, headerCSS, minifyCSS, prefixFractalCSS, prefixReleaseCSS } = require('./tasks/cssTasks');
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
-
-/**
- * Sass tasks
- */
-
-// Create the string for the version number banner.
-var sassBannerText = `// ${pkg.name} - @version ${pkg.version}
-
-`;
-
-// Create the string for the version number banner.
-var bannerText = `/*!
- * ${pkg.name} - @version ${pkg.version}
-
- * Copyright (C) 2018 The Trustees of Indiana University
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
-`;
 
 // Set Node environment to 'production' for build and release exports
 function setProdNodeEnv(callback) {
   process.env.NODE_ENV = 'production';
   callback();
-}
-
-// List .scss files. See .stylelintrc for config
-function lintSassWatch() {
-  return src(['src/sass/**/*.scss', '!src/sass/libs/**/*.scss']).pipe(
-    stylelint({
-      failAfterError: false,
-      reporters: [{ formatter: 'string', console: true }]
-    })
-  );
-}
-
-function lintSassBuild() {
-  return src(['src/sass/**/*.scss', '!src/sass/libs/**/*.scss']).pipe(
-    stylelint({
-      failAfterError: true,
-      reporters: [{ formatter: 'string', console: true }]
-    })
-  );
-}
-
-function watchSass(callback) {
-  watch('src/sass/**/*.scss', series(compileSass, lintSassWatch));
-  callback();
-}
-
-// Copy all .scss files to dist folder.
-function releaseCopySass() {
-  return src('src/sass/**/*.scss').pipe(dest('./sass'));
-}
-
-// Add version number header to all .scss files.
-function headerSass() {
-  return src(['./sass/**/*.scss', '!./sass/libs/*'])
-    .pipe(header(sassBannerText, { package: pkg }))
-    .pipe(dest('./sass/'));
-}
-
-/**
- * CSS tasks
- */
-
-function compileCSS() {
-  return src('static/css/rivet.css').pipe(dest('./css'));
-}
-
-function headerCSS() {
-  return src('./css/rivet.css')
-    .pipe(header(bannerText, { package: pkg }))
-    .pipe(dest('./css/'));
-}
-
-function minifyCSS(callback) {
-  src('./css/rivet.css')
-    .pipe(cssnano())
-    .pipe(
-      rename({
-        suffix: '.min'
-      })
-    )
-    .pipe(dest('./css/'));
-  callback();
-}
-
-function prefixFractalCSS() {
-  return src('_build/css/*.css')
-    .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
-    .pipe(dest('_build/css/'));
-}
-
-function prefixReleaseCSS() {
-  return src('./css/rivet.css')
-    .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
-    .pipe(dest('./css/'));
 }
 
 async function compileIIFE() {
