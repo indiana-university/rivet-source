@@ -3,7 +3,7 @@ const { moveExample, setProdNodeEnv } = require('./gulp/utilityTasks');
 const { compileTokens, watchTokens } = require('./gulp/tokensTasks');
 const { compileSass, lintSassWatch, lintSassBuild, watchSass, releaseCopySass, headerSass } = require('./gulp/sassTasks');
 const { compileCSS, headerCSS, minifyCSS, prefixFractalCSS, prefixReleaseCSS } = require('./gulp/cssTasks');
-const { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, watchJS } = require('./gulp/javaScriptTasks')
+const { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, transpileIIFE, watchJS } = require('./gulp/javaScriptTasks')
 const { fractalStart, fractalHeadless, fractalBuild } = require('./gulp/fractalTasks');
 
 exports.release = series(
@@ -20,6 +20,7 @@ exports.release = series(
   distJS,
   stripIIFE,
   stripESM,
+  transpileIIFE,
   minifyJS,
   headerJS,
   releaseCopySass,

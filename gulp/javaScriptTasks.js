@@ -1,5 +1,5 @@
 const { dest, series, src, watch } = require('gulp')
-const babel = require('rollup-plugin-babel')
+const babel = require('gulp-babel')
 const bannerText = require('./bannerText')
 const header = require('gulp-header')
 const minify = require('gulp-terser')
@@ -13,7 +13,7 @@ async function compileIIFE() {
   try {
     const bundle = await rollup.rollup({
       input: './src/js/index.js',
-      plugins: [nodeResolve(), babel({ runtimeHelpers: true })]
+      plugins: [nodeResolve()]
     });
 
     await bundle.write({
@@ -24,6 +24,14 @@ async function compileIIFE() {
   } catch (error) {
     throw new Error(error);
   }
+}
+
+function transpileIIFE() {
+  return src('./js/rivet-iife.js')
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(dest('./js'))
 }
 
 async function compileESM() {
@@ -100,4 +108,4 @@ function watchJS(callback) {
   callback();
 }
 
-module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, watchJS }
+module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, watchJS, transpileIIFE }
