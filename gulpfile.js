@@ -45,7 +45,6 @@ const { fractalStart, fractalHeadless, fractalBuild } = require('./gulp/fractalT
 exports.release = series(
   setProdNodeEnv,
   compileTokens,
-  lintSassBuild,
   compileSass,
   compileCSS,
   prefixReleaseCSS,
