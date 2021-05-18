@@ -1,9 +1,45 @@
-const { series, parallel } = require('gulp');
-const { moveExample, setProdNodeEnv } = require('./gulp/utilityTasks');
-const { compileTokens, watchTokens } = require('./gulp/tokensTasks');
-const { compileSass, lintSassWatch, lintSassBuild, watchSass, releaseCopySass, headerSass } = require('./gulp/sassTasks');
-const { compileCSS, headerCSS, minifyCSS, prefixFractalCSS, prefixReleaseCSS } = require('./gulp/cssTasks');
-const { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, transpileIIFE, watchJS } = require('./gulp/javaScriptTasks')
+const { series } = require('gulp')
+
+// Utilities
+const { moveExample, setProdNodeEnv } = require('./gulp/utilityTasks')
+
+// Design tokens tasks
+const { compileTokens, watchTokens } = require('./gulp/tokensTasks')
+
+// Sass tasks
+const {
+  compileSass,
+  lintSassWatch,
+  lintSassBuild,
+  watchSass,
+  releaseCopySass,
+  headerSass
+} = require('./gulp/sassTasks')
+
+// CSS tasks
+const {
+  compileCSS,
+  headerCSS,
+  minifyCSS,
+  prefixFractalCSS,
+  prefixReleaseCSS
+} = require('./gulp/cssTasks')
+
+// JavaScript tasks
+const {
+  compileIIFE,
+  compileESM,
+  distJS,
+  stripIIFE,
+  stripESM,
+  minifyJS,
+  headerJS,
+  vendorJS,
+  transpileIIFE,
+  watchJS
+} = require('./gulp/javaScriptTasks')
+
+// Fractal tasks
 const { fractalStart, fractalHeadless, fractalBuild } = require('./gulp/fractalTasks');
 
 exports.release = series(
