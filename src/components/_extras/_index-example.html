@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link media="all" rel="stylesheet" href="./css/rivet.min.css">
-    <title>Rivet starter file</title>
-</head>
-<body>
-    <header class="rvt-header" role="banner">
-        <a class="rvt-skip-link" href="#main-content">Skip to content</a>
-        <div class="rvt-header__trident">
-            <svg role="img" xmlns="http://www.w3.org/2000/svg" width="60" height="70" viewBox="0 0 60 70" aria-labelledby="iu-logo">
-                <title id="iu-logo">Indiana University</title>
-                <rect width="60" height="70" fill="#900" />
-                <polygon points="35.96 18.44 35.96 21.84 38.52 21.84 38.52 40.51 33.41 40.51 33.41 15.9 35.96 15.9 35.96 12.5 24.04 12.5 24.04 15.9 26.58 15.9 26.58 40.51 21.48 40.51 21.48 21.84 24.04 21.84 24.04 18.44 12.09 18.44 12.09 21.84 14.65 21.84 14.65 43.79 18.72 48.15 26.58 48.15 26.58 53.26 24.04 53.26 24.04 57.5 35.96 57.5 35.96 53.26 33.41 53.26 33.41 48.15 40.93 48.15 45.33 43.79 45.33 21.84 47.91 21.84 47.91 18.44 35.96 18.44" fill="#fff" />
-            </svg>
-        </div>
-        <span class="rvt-header__title">
-            <a href="#0">Application Title</a>
-        </span>
-    </header>
-    <main role="main" id="main-content">
 
-        <!-- **************************************************************
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link media="all" rel="stylesheet" href="./css/rivet.min.css">
+  <title>Rivet starter file</title>
+</head>
+
+<body class="rvt-layout">
+  <header class="rvt-header-wrapper">
+    <!-- Hidden link for screen reader users to skip to main content -->
+    <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+    <div class="rvt-header-global">
+      <div class="rvt-container-lg">
+        <div class="rvt-header-global__inner">
+          <div class="rvt-header-global__logo-slot">
+            <a class="rvt-lockup" href="/">
+              <!-- Trident logo -->
+              <div class="rvt-lockup__tab">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+                  <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+                </svg>
+              </div>
+              <!-- Website or application title -->
+              <div class="rvt-lockup__body">
+                <span class="rvt-lockup__title">Site title</span>
+                <span class="rvt-lockup__subtitle">Site subtitle</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main role="main" id="main-content" class="rvt-layout__wrapper rvt-container-lg">
+
+    <!-- **************************************************************
             Start building here!
         *************************************************************** -->
 
-    </main>
-    <footer class="rvt-footer m-top-xxl" role="contentinfo">
-        <div class="rvt-footer__copyright-lockup">
-            <div class=rvt-footer__trident>
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
-                    <polygon points="13.33 3.32 13.33 5.21 14.76 5.21 14.76 15.64 11.9 15.64 11.9 1.9 13.33 1.9 13.33 0 6.67 0 6.67 1.9 8.09 1.9 8.09 15.64 5.24 15.64 5.24 5.21 6.67 5.21 6.67 3.32 0 3.32 0 5.21 1.43 5.21 1.43 17.47 3.7 19.91 8.09 19.91 8.09 22.76 6.67 22.76 6.67 25.13 13.33 25.13 13.33 22.76 11.9 22.76 11.9 19.91 16.1 19.91 18.56 17.47 18.56 5.21 20 5.21 20 3.32 13.33 3.32" fill="#900"/>
-                </svg>
-            </div>
-            <p><a href="https://www.iu.edu/copyright/index.html">Copyright</a> &copy; 2017 The Trustees of <a href="https://www.iu.edu/">Indiana University</a></p>
+  </main>
+  <footer class="rvt-footer-base">
+    <div class="rvt-container-lg">
+      <div class="rvt-footer-base__inner">
+        <div class="rvt-footer-base__logo">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19" fill="#231f20" />
+          </svg>
         </div>
-        <ul class="rvt-footer__aux-links">
-            <li class="rvt-footer__aux-item">
-                <!-- You can learn more about privacy policies and generate one
-                     for your site here:
-                     https://protect.iu.edu/online-safety/tools/privacy-notice/index.html -->
-                <a href="#0">Privacy Policy</a>
-            </li>
-            <li class="rvt-footer__aux-item">
-                <a href="https://accessibility.iu.edu/">Accessibility help</a>
-            </li>
+        <ul class="rvt-footer-base__list">
+          <li class="rvt-footer-base__item">
+            <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
+          </li>
+          <li class="rvt-footer-base__item">
+            <a class="rvt-footer-base__link" href="#">Privacy Notice</a>
+          </li>
+          <li class="rvt-footer-base__item">
+            <a class="rvt-footer-base__link" href="#">Copyright</a> © 2021 The Trustees of <a
+              class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
+          </li>
         </ul>
-    </footer>
-    <script src="./js/rivet.min.js"></script>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/rivet.min.js"></script>
+  <script>
+    // Initialize Rivet JS components
+    Rivet.init()
+  </script>
 </body>
 </html>
