@@ -1,0 +1,111 @@
+{% include "@header-system-main-nav" %}
+
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper">
+
+  <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xxl">
+    <div class="rvt-container-lg rvt-prose">
+      <ol class="rvt-breadcrumbs rvt-grow-1">
+        <li>
+          <a href="#" class="rvt-color-white">
+            <span class="rvt-sr-only">Home</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
+              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
+            </svg>
+          </a>
+        </li>
+        <li><a href="#" class="rvt-color-white">Tier two title</a></li>
+        <li><a href="#" class="rvt-color-white">Tier three title</a></li>
+      </ol>
+      <h1 class="rvt-m-top-xs">Enter a title about people</h1>
+    </div>
+  </div>
+  
+  {# <div class="rvt-bg-black-000 rvt-p-tb-xl rvt-p-tb-xxl-md-up">
+    <div class="rvt-container-lg rvt-prose">
+      <ol class="rvt-breadcrumbs rvt-grow-1">
+        <li>
+          <a href="#">
+            <span class="rvt-sr-only">Home</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
+              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
+            </svg>
+          </a>
+        </li>
+        <li><a href="#">Tier two title</a></li>
+        <li><a href="#">Tier three title</a></li>
+      </ol>
+      <h1 class="rvt-m-top-xs">News and updates</h1>
+    </div>
+  </div> #}
+  
+  <div class="rvt-container-lg rvt-p-bottom-3-xl">
+    <form action="">
+      <div class="rvt-row rvt-row--loose">
+        <div class="rvt-cols-4-md rvt-m-top-lg">
+          <label class="rvt-ts-14" for="people-filter">Filter search</label>
+          <input type="text" class="rvt-input" id="people-filter" placeholder="Type to filter list">
+        </div>
+        <div class="rvt-cols-4-md rvt-m-top-lg">
+          <label class="rvt-ts-14" for="alpha-filter">Filter alphabetically</label>
+          <select name="" id="alpha-filter" class="rvt-select">
+            <option value="All">All</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+            <option value="N">N</option>
+            <option value="O">O</option>
+            <option value="P">P</option>
+            <option value="Q">Q</option>
+            <option value="R">R</option>
+            <option value="S">S</option>
+            <option value="T">T</option>
+            <option value="U">U</option>
+            <option value="V">V</option>
+            <option value="W">W</option>
+            <option value="X">X</option>
+            <option value="Y">Y</option>
+            <option value="Z">Z</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="rvt-row rvt-row--loose">
+      {% for card in cards %}
+      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
+        <div class="rvt-card">
+          {% render "@avatar", {
+            image: "https://www.fillmurray.com/400/400",
+            modifier: "--lg"
+          }, true %}
+          
+          <div class="rvt-card__body">
+            <div class="rvt-card__eyebrow">Faculty</div>
+            <h2 class="rvt-card__title">
+              <a href="#">Bert Macklin</a>
+            </h2>
+            <div class="rvt-card__content [ rvt-flow ]">
+              <p>Executive Director of Academics</p>
+            </div>
+            <div class="rvt-card__meta rvt-display-block">
+              <p>P: (812) 555-6878</p>
+              <p>E: <a href="#">bmacklin@iu.edu</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% include "@footer-system" %}

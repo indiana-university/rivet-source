@@ -11,7 +11,7 @@ context:
     -
       eyebrow: "Flying cars"
       title: "Spoiler alert: we don't have them yet"
-      content: "<p>Some other content that shouldn't be here really.</p> <ul><li>Item one</li> <li>Item two</li></ul>"
+      content: "<p>Some other content that shouldn't be here really.</p>"
       image: "https://www.fillmurray.com/800/450"
       meta: "<time>November 5, 2015</time>"
     -
@@ -27,5 +27,9 @@ context:
       meta: "<time>October 25, 1985</time>"
     -
       title: "Quibusdam possimus velit, porro necessitatibus quidem"
+      content: "<p>Esse in laudantium dolorum sequi omnis nisi?</p>"
+      meta: "<time>October 25, 1985</time>"
+    -
+      title: "Porro necessitatibus quidem"
       content: "<p>Esse in laudantium dolorum sequi omnis nisi?</p>"
       meta: "<time>October 25, 1985</time>"

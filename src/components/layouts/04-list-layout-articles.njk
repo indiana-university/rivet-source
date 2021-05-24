@@ -1,0 +1,92 @@
+{% include "@header-system-main-nav" %}
+
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper">
+  
+  {# <div class="rvt-container-lg rvt-p-tb-xl rvt-p-tb-3-xl-md-up">
+    {% render "@billboard", {
+      classes: ""
+    }, true %}
+  </div> #}
+  
+  <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xxl">
+    <div class="rvt-container-lg rvt-prose">
+      <ol class="rvt-breadcrumbs rvt-grow-1">
+        <li>
+          <a href="#" class="rvt-color-white">
+            <span class="rvt-sr-only">Home</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
+              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
+            </svg>
+          </a>
+        </li>
+        <li><a href="#" class="rvt-color-white">Tier two title</a></li>
+        <li><a href="#" class="rvt-color-white">Tier three title</a></li>
+      </ol>
+      <h1 class="rvt-m-top-xs">Enter a descriptive title </h1>
+    </div>
+  </div>
+  
+  {# <div class="rvt-bg-black-000 rvt-p-tb-xxl">
+    <div class="rvt-container-lg rvt-prose rvt-flow">
+      <ol class="rvt-breadcrumbs rvt-grow-1">
+        <li>
+          <a href="#">
+            <span class="rvt-sr-only">Home</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
+              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
+            </svg>
+          </a>
+        </li>
+        <li><a href="#">Tier two title</a></li>
+        <li><a href="#">Tier three title</a></li>
+      </ol>
+      <h1 class="rvt-m-top-xs">News and updates</h1>
+    </div>
+  </div> #}
+
+  <div class="rvt-container-lg rvt-p-top-md rvt-p-bottom-3-xl-md-up">
+
+    {# <div class="rvt-flex rvt-items-center">
+      <span class="rvt-ts-14">Tags:</span>
+      <ul class="rvt-plain-list rvt-flex rvt-items-center">
+        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge">Arts &amp; Humanities</a></li>
+        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge">Science</a></li>
+      </ul>
+    </div> #}
+
+    <div class="rvt-row rvt-row--loose">
+      {# <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
+        <div class="rvt-card">
+          {% render "@avatar", {
+            image: "https://www.fillmurray.com/400/400",
+            modifier: "--lg",
+            utility_class: ""
+          }, true %}
+          
+          <div class="rvt-card__body">
+            <div class="rvt-card__eyebrow">Faculty</div>
+            <h2 class="rvt-card__title">
+              <a href="#">Bert Macklin</a>
+            </h2>
+            <div class="rvt-card__content [ rvt-flow ]">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa nemo cum distinctio facere.</p>
+            </div>
+          </div>
+        </div>
+      </div> #}
+      {% for card in cards %}
+      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
+        {% render "@card", {
+          title: card.title,
+          content: card.content,
+          classes: "rvt-card--clickable",
+          meta: null,
+          link: "/components/preview/generic-details-single-column"
+        }, true %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% include "@footer-system" %}

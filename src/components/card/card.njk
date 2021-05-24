@@ -9,7 +9,7 @@
     <div class="rvt-card__eyebrow">{{ eyebrow }}</div>
     {% endif %}
     <h2 class="rvt-card__title">
-      <a href="#">{{ title }}</a>
+      <a href="{% if link %}{{ link }}{% else %}#{% endif %}">{{ title }}</a>
     </h2>
     <div class="rvt-card__content [ rvt-flow ]">
       {{ content | safe }}
