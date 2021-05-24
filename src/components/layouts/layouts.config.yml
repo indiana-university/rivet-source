@@ -19,3 +19,13 @@ context:
       title: "My card title is not that long"
       image: "https://www.fillmurray.com/800/450"
       meta: "<time>November 5, 1985</time>"
+    -
+      eyebrow: "Lorem ipsum"
+      title: "Dolor sit amet consectetur adipisicing elit"
+      content: "<p>Ipsam quibusdam possimus velit, porro necessitatibus quidem consectetur atque</p>"
+      image: "https://www.fillmurray.com/800/450"
+      meta: "<time>October 25, 1985</time>"
+    -
+      title: "Quibusdam possimus velit, porro necessitatibus quidem"
+      content: "<p>Esse in laudantium dolorum sequi omnis nisi?</p>"
+      meta: "<time>October 25, 1985</time>"
