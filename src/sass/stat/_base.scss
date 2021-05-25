@@ -11,7 +11,7 @@
 
   &[href]:hover {
     transform: scale(1.1);
-    box-shadow: $shadow-base;
+    box-shadow: $shadow-heavy;
     color: $color-crimson-base;
     border-radius: $spacing-xs;
   }

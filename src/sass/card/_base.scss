@@ -8,7 +8,7 @@
   &--raised {
     background-color: $color-white-base;
     border-radius: $spacing-xs;
-    box-shadow: 0 $spacing-xxs $spacing-sm rgba(36, 49, 66, .2);
+    box-shadow: $shadow-heavy;
   }
 
   &__image img {
