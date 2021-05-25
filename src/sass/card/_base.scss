@@ -105,19 +105,12 @@
 
   &__meta {
     font-size: $ts-14;
-    display: flex;
-    flex-wrap: wrap;
     padding-top: $spacing-md;
   }
 
   &__meta > * {
     margin-top: 0;
     margin-bottom: 0;
-    margin-right: $spacing-sm;
-  }
-
-  &__meta > *:last-child {
-    margin-right: 0;
   }
 }
 

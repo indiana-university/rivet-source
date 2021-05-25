@@ -9,7 +9,7 @@
     }, true %}
   </div> #}
   
-  <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xxl">
+  {# <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xxl">
     <div class="rvt-container-lg rvt-prose">
       <ol class="rvt-breadcrumbs rvt-grow-1">
         <li>
@@ -25,7 +25,7 @@
       </ol>
       <h1 class="rvt-m-top-xs">Enter a descriptive title </h1>
     </div>
-  </div>
+  </div> #}
   
   {# <div class="rvt-bg-black-000 rvt-p-tb-xxl">
     <div class="rvt-container-lg rvt-prose rvt-flow">
@@ -41,47 +41,35 @@
         <li><a href="#">Tier two title</a></li>
         <li><a href="#">Tier three title</a></li>
       </ol>
-      <h1 class="rvt-m-top-xs">News and updates</h1>
+      <h1 class="rvt-m-top-xs">Enter a descriptive page title</h1>
     </div>
   </div> #}
+  
+  <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
+    <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
+      <h1>Our Articles</h1>
+      <p class="rvt-ts-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam. Odit.</p>
+    </div>
+  </div>
 
-  <div class="rvt-container-lg rvt-p-top-md rvt-p-bottom-3-xl-md-up">
-
-    {# <div class="rvt-flex rvt-items-center">
-      <span class="rvt-ts-14">Tags:</span>
-      <ul class="rvt-plain-list rvt-flex rvt-items-center">
-        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge">Arts &amp; Humanities</a></li>
-        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge">Science</a></li>
+  <div class="rvt-container-lg rvt-p-top-xxl rvt-p-bottom-3-xl">
+    <div class="rvt-flex rvt-items-center">
+      <span class="rvt-ts-14 rvt-color-black-500">Tags:</span>
+      <ul class="rvt-plain-list rvt-flex rvt-wrap rvt-items-center rvt-m-left-xxs">
+        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">Arts &amp; Humanities</a></li>
+        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">Science</a></li>
+        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">Around campus</a></li>
+        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">News &amp; Events</a></li>
       </ul>
-    </div> #}
-
+    </div>
     <div class="rvt-row rvt-row--loose">
-      {# <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
-        <div class="rvt-card">
-          {% render "@avatar", {
-            image: "https://www.fillmurray.com/400/400",
-            modifier: "--lg",
-            utility_class: ""
-          }, true %}
-          
-          <div class="rvt-card__body">
-            <div class="rvt-card__eyebrow">Faculty</div>
-            <h2 class="rvt-card__title">
-              <a href="#">Bert Macklin</a>
-            </h2>
-            <div class="rvt-card__content [ rvt-flow ]">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa nemo cum distinctio facere.</p>
-            </div>
-          </div>
-        </div>
-      </div> #}
       {% for card in cards %}
       <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
         {% render "@card", {
           title: card.title,
           content: card.content,
           classes: "rvt-card--clickable",
-          meta: null,
+          meta: "<time>Nov 12, 1955</time>",
           link: "/components/preview/generic-details-single-column"
         }, true %}
       </div>

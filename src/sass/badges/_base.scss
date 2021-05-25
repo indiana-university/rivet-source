@@ -4,8 +4,8 @@
 @use '../core' as *;
 
 .#{$prefix}-badge {
-  background-color: $color-black-100;
-  border: 2px solid $color-black-100;
+  background-color: $color-black-200;
+  border: 2px solid $color-black-200;
   border-radius: 999px;
   color: $color-black-base;
   display: inline-block;
@@ -35,12 +35,11 @@
 
 a.#{$prefix}-badge {
   text-decoration: none;
-  background-color: $color-black-100;
 
   &:hover {
     color: $color-black-base;
-    background-color: $color-black-200;
-    border-color: $color-black-200;
+    background-color: $color-black-400;
+    border-color: $color-black-400;
   }
 
   &--info:hover,
