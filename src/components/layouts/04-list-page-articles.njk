@@ -1,7 +1,7 @@
 {% include "@header-system-main-nav" %}
 
 <!-- This can be any container you want or no container? -->
-<main class="rvt-layout__wrapper">
+<main class="rvt-layout__wrapper" id="main-content">
   
   {# <div class="rvt-container-lg rvt-p-tb-xl rvt-p-tb-3-xl-md-up">
     {% render "@billboard", {
@@ -48,21 +48,40 @@
   <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
     <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
       <h1>Our Articles</h1>
-      <p class="rvt-ts-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam. Odit.</p>
+      <p class="rvt-ts-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p>
     </div>
   </div>
 
-  <div class="rvt-container-lg rvt-p-top-xxl rvt-p-bottom-3-xl">
+  <div class="rvt-container-lg rvt-p-top-lg rvt-p-top-xxl-md-up rvt-p-bottom-3-xl">
     <div class="rvt-flex rvt-items-center">
-      <span class="rvt-ts-14 rvt-color-black-500">Tags:</span>
-      <ul class="rvt-plain-list rvt-flex rvt-wrap rvt-items-center rvt-m-left-xxs">
-        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">Arts &amp; Humanities</a></li>
-        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">Science</a></li>
-        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">Around campus</a></li>
-        <li class="rvt-m-top-none rvt-m-left-xxs"><a href="#" class="rvt-badge rvt-badge--secondary">News &amp; Events</a></li>
-      </ul>
+      <h2 class="rvt-ts-18 rvt-grow-1"><span class="rvt-color-black-500">Showing catgegory:</span> All</h2>
+      
+      <div class="rvt-dropdown" data-rvt-dropdown="dropdownNavigation">
+        <button type="button" class="rvt-button rvt-button--plain" data-rvt-dropdown-toggle="dropdownNavigation" aria-haspopup="true" aria-expanded="false">
+          <svg class="rvt-m-right-xs rvt-color-blue-400" width="16" height="16" viewBox="0 0 16 16">
+            <g fill="currentColor">
+              <path d="M13,4H6A1,1,0,0,1,6,2h7a1,1,0,0,1,0,2Z"/>
+              <path d="M13,9H6A1,1,0,0,1,6,7h7a1,1,0,0,1,0,2Z"/>
+              <path d="M13,14H6a1,1,0,0,1,0-2h7a1,1,0,0,1,0,2Z"/>
+              <circle cx="3" cy="3" r="1"/>
+              <circle cx="3" cy="8" r="1"/>
+              <circle cx="3" cy="13" r="1"/>
+            </g>
+          </svg>
+          <span class="rvt-dropdown__toggle-text">Categories</span>
+        </button>
+        <div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdownNavigation" data-rvt-dropdown-menu="" hidden>
+          <a aria-current="page" href="#">All</a>
+          <a href="#">Academics</a>
+          <a href="#" >Around Campus</a>
+          <a href="#" >Student Spotlights</a>
+          <a href="#" >Helth &amp; Wellness</a>
+        </div>
+      </div>
+      
     </div>
-    <div class="rvt-row rvt-row--loose">
+    <hr>
+    <div class="rvt-row rvt-row--loose -rvt-m-top-lg-md-up">
       {% for card in cards %}
       <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
         {% render "@card", {

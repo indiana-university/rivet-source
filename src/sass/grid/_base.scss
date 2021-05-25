@@ -93,11 +93,11 @@ $gutter: $spacing-md / 2;
   }
 
   &--loose {
-    margin: 0 ($gutter * -1.66);
+    margin: 0 ($gutter * -2);
   }
 
   &--loose > [class^='#{$prefix}-cols'] {
-    padding: 0 ($gutter * 1.66);
+    padding: 0 ($gutter * 2);
   }
 
   &--tight {

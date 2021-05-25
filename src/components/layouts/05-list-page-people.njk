@@ -1,7 +1,7 @@
 {% include "@header-system-main-nav" %}
 
 <!-- This can be any container you want or no container? -->
-<main class="rvt-layout__wrapper">
+<main class="rvt-layout__wrapper" id="main-content">
   {# <div class="rvt-container-lg rvt-p-tb-3-xl">
     {% render "@billboard", {
       title: "Our people",
@@ -35,16 +35,15 @@
       <h1 class="rvt-m-top-xs">News and updates</h1>
     </div>
   </div> #}
-  
-  <div class="rvt-container-lg rvt-p-top-lg rvt-p-top-xxl-md-up">
+  <div class="rvt-container-lg rvt-p-top-lg rvt-p-top-xxl-md-up rvt-p-bottom-3-xl">
     <form>
       <div class="rvt-row rvt-row--loose">
-        <div class="rvt-cols-4-md rvt-m-top-lg rvt-m-top-none-md-up">
-          <label class="rvt-ts-14" for="people-filter">Filter search</label>
+        <div class="rvt-cols-6-md rvt-m-top-lg rvt-m-top-none-md-up">
+          <label class="rvt-label" for="people-filter">Filter by search</label>
           <input type="text" class="rvt-input" id="people-filter" placeholder="Type to filter list">
         </div>
-        <div class="rvt-cols-4-md rvt-m-top-lg rvt-m-top-none-md-up">
-          <label class="rvt-ts-14" for="alpha-filter">Filter alphabetically</label>
+        <div class="rvt-cols-6-md rvt-m-top-lg rvt-m-top-none-md-up">
+          <label class="rvt-label" for="alpha-filter">Filter last name</label>
           <select name="" id="alpha-filter" class="rvt-select">
             <option value="All">All</option>
             <option value="A">A</option>
@@ -75,19 +74,17 @@
             <option value="Z">Z</option>
           </select>
         </div>
-        <div class="rvt-cols-4-md">
+        {# <div class="rvt-cols-4-md">
           <button class="rvt-button rvt-button--plain rvt-m-top-lg rvt-m-top-md-md-up">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
               <path fill="currentColor" d="M5.25,14.88A1.25,1.25,0,0,1,4,13.63V8.31L.24,2.76A1.25,1.25,0,0,1,1.38,1H14.58a1.25,1.25,0,0,1,1.09,1.86L15.55,3,11,8.37v2.49a1.24,1.24,0,0,1-.59,1.06L5.71,14.79A1.25,1.25,0,0,1,5.25,14.88ZM2.81,3,6,7.69v4.59l3-1.84V7.63L12.94,3Z"/>
             </svg>
             <span class="rvt-m-left-xs">Filter Results</span>
           </button>
-        </div>
+        </div> #}
       </div>
     </form>
-  </div>
-  
-  <div class="rvt-container-lg rvt-p-bottom-3-xl">
+    <hr class="rvt-m-top-lg">
     {# <hr class="rvt-m-top-xxl"> #}
     <div class="rvt-row rvt-row--loose">
       {% for card in cards %}

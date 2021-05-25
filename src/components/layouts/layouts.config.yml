@@ -2,6 +2,15 @@ title: "Layouts"
 status: "wip"
 preview: '@preview-no-padding'
 context:
+  people:
+    -
+      name: Braylon Owens
+    -
+      name: Zayden Hendricks
+    -
+      name: Simeon Gallegos
+    -
+      name: Nevaeh Valenzuela
   cards:
     -
       eyebrow: "Future"
