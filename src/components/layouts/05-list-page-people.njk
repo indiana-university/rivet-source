@@ -2,39 +2,12 @@
 
 <!-- This can be any container you want or no container? -->
 <main class="rvt-layout__wrapper" id="main-content">
-  {# <div class="rvt-container-lg rvt-p-tb-3-xl">
-    {% render "@billboard", {
-      title: "Our people",
-      cta: {
-        text: "See all people"
-      }
-    }, true %}
-  </div> #}
-  
   <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
     <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
-      <h1>Our People</h1>
+      <h1>List of People</h1>
       <p class="rvt-ts-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam. Odit.</p>
     </div>
   </div>
-  
-  {# <div class="rvt-bg-black-000 rvt-p-tb-xl rvt-p-tb-xxl-md-up">
-    <div class="rvt-container-lg rvt-prose">
-      <ol class="rvt-breadcrumbs rvt-grow-1">
-        <li>
-          <a href="#">
-            <span class="rvt-sr-only">Home</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
-              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
-            </svg>
-          </a>
-        </li>
-        <li><a href="#">Tier two title</a></li>
-        <li><a href="#">Tier three title</a></li>
-      </ol>
-      <h1 class="rvt-m-top-xs">News and updates</h1>
-    </div>
-  </div> #}
   <div class="rvt-container-lg rvt-p-top-lg rvt-p-top-xxl-md-up rvt-p-bottom-3-xl">
     <form>
       <div class="rvt-row rvt-row--loose">
@@ -74,51 +47,41 @@
             <option value="Z">Z</option>
           </select>
         </div>
-        {# <div class="rvt-cols-4-md">
-          <button class="rvt-button rvt-button--plain rvt-m-top-lg rvt-m-top-md-md-up">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-              <path fill="currentColor" d="M5.25,14.88A1.25,1.25,0,0,1,4,13.63V8.31L.24,2.76A1.25,1.25,0,0,1,1.38,1H14.58a1.25,1.25,0,0,1,1.09,1.86L15.55,3,11,8.37v2.49a1.24,1.24,0,0,1-.59,1.06L5.71,14.79A1.25,1.25,0,0,1,5.25,14.88ZM2.81,3,6,7.69v4.59l3-1.84V7.63L12.94,3Z"/>
-            </svg>
-            <span class="rvt-m-left-xs">Filter Results</span>
-          </button>
-        </div> #}
       </div>
     </form>
     <hr class="rvt-m-top-lg">
-    {# <hr class="rvt-m-top-xxl"> #}
     <div class="rvt-row rvt-row--loose">
-      {% for card in cards %}
+      {% for person in people %}
       <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
         <div class="rvt-card">
           <a href="#">
             {% render "@avatar", {
-              image: "https://www.fillmurray.com/400/400",
+              image: person.avatar,
               modifier: "--lg"
             }, true %}
           </a>
-          
           <div class="rvt-card__body">
-            <div class="rvt-card__eyebrow">Faculty</div>
+            <div class="rvt-card__eyebrow">{{ person.label }}</div>
             <h2 class="rvt-card__title">
-              <a href="#">Dr. Peter Venkman</a>
+              <a href="#">{{ person.name }}</a>
             </h2>
             <div class="rvt-card__content [ rvt-flow ]">
-              <p>Executive Director of Academics, The School of Paranormal Behavior</p>
+              {{ person.content | safe }}
             </div>
-            {# <div class="rvt-card__meta">
+            <div class="rvt-card__meta">
               <div class="rvt-flex rvt-items-center">
                 <svg class="rvt-color-black-400 rvt-m-right-xs" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
                   <path fill="currentColor" d="M16,12.8A3.2,3.2,0,0,1,12.8,16,12.8,12.8,0,0,1,0,3.2,3.2,3.2,0,0,1,3.2,0a3,3,0,0,1,.54,0,2.84,2.84,0,0,1,.53.14l1.2,5.27-1.73.9a9.55,9.55,0,0,0,5.91,5.91l.91-1.74,5.26,1.22a2.84,2.84,0,0,1,.14.53A3,3,0,0,1,16,12.8Z"/>
                 </svg>
-                <p class="rvt-m-all-none">(812) 555-6878</p>
+                <p class="rvt-m-all-none">{{ person.phone }}</p>
               </div>
               <div class="rvt-flex rvt-items-center">
                 <svg class="rvt-color-black-400 rvt-m-right-xs" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
                   <path fill="currentColor" d="M13.5,3H2.5A1.5,1.5,0,0,0,1,4.5v8A1.5,1.5,0,0,0,2.5,14h11A1.5,1.5,0,0,0,15,12.5v-8A1.5,1.5,0,0,0,13.5,3ZM11.41,5,8,7.77,4.59,5ZM3,12V6.29L7.11,9.62l.12.08a1.5,1.5,0,0,0,1.54,0L13,6.29V12Z"/>
                 </svg>
-                <a class="rvt-m-all-none" href="#">bmacklin@iu.edu</a>
+                <a class="rvt-m-all-none" href="#">{{ person.email }}</a>
               </div>
-            </div> #}
+            </div>
           </div>
         </div>
       </div>

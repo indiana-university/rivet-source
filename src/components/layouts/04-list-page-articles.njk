@@ -9,46 +9,10 @@
     }, true %}
   </div> #}
   
-  {# <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xxl">
-    <div class="rvt-container-lg rvt-prose">
-      <ol class="rvt-breadcrumbs rvt-grow-1">
-        <li>
-          <a href="#" class="rvt-color-white">
-            <span class="rvt-sr-only">Home</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
-              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
-            </svg>
-          </a>
-        </li>
-        <li><a href="#" class="rvt-color-white">Tier two title</a></li>
-        <li><a href="#" class="rvt-color-white">Tier three title</a></li>
-      </ol>
-      <h1 class="rvt-m-top-xs">Enter a descriptive title </h1>
-    </div>
-  </div> #}
-  
-  {# <div class="rvt-bg-black-000 rvt-p-tb-xxl">
-    <div class="rvt-container-lg rvt-prose rvt-flow">
-      <ol class="rvt-breadcrumbs rvt-grow-1">
-        <li>
-          <a href="#">
-            <span class="rvt-sr-only">Home</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
-              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
-            </svg>
-          </a>
-        </li>
-        <li><a href="#">Tier two title</a></li>
-        <li><a href="#">Tier three title</a></li>
-      </ol>
-      <h1 class="rvt-m-top-xs">Enter a descriptive page title</h1>
-    </div>
-  </div> #}
-  
   <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
     <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
-      <h1>Our Articles</h1>
-      <p class="rvt-ts-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p>
+      <h1>List of items</h1>
+      <p class="rvt-ts-18">Optional lead description text, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p>
     </div>
   </div>
 
@@ -82,15 +46,17 @@
     </div>
     <hr>
     <div class="rvt-row rvt-row--loose -rvt-m-top-lg-md-up">
-      {% for card in cards %}
+      {% for article in articles %}
       <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
         {% render "@card", {
-          title: card.title,
-          content: card.content,
+          image: article.image,
+          eyebrow: article.eyebrow,
+          title: article.title,
+          content: article.content,
           classes: "rvt-card--clickable",
-          meta: "<time>Nov 12, 1955</time>",
+          meta: article.meta,
           link: "/components/preview/generic-details-single-column"
-        }, true %}
+        } %}
       </div>
       {% endfor %}
     </div>
