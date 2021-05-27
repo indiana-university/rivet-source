@@ -61,16 +61,6 @@
     }
   }
 
-  &--small &__item {
-    a {
-      /**
-       * NOTE: These are magic numbers that make the small pagination
-       * the same size as the small buttons.
-       */
-      padding: .35rem .65rem;
-    }
-  }
-
   /**
    * Disabled state
    */
