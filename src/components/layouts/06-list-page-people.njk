@@ -2,12 +2,18 @@
 
 <!-- This can be any container you want or no container? -->
 <main class="rvt-layout__wrapper" id="main-content">
+  <!--
+    #1: Start page intro section
+  -->
   <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
     <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
       <h1>List of People</h1>
-      <p class="rvt-ts-18">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam. Odit.</p>
+      <p class="rvt-ts-20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam. Odit.</p>
     </div>
   </div>
+  <!--
+    #2: Start filters section
+  -->
   <div class="rvt-container-lg">
     <div class="rvt-border-bottom rvt-p-top-lg rvt-p-top-xxl-md-up rvt-p-bottom-lg">
       <div class="rvt-row rvt-row--loose">
@@ -51,10 +57,13 @@
     </div>
   </div>
   
-  <div class="rvt-container-lg rvt-p-bottom-3-xl">
+  <!--
+    #3: Start list of people
+  -->
+  <div class="rvt-container-lg rvt-p-tb-xl">
     <div class="rvt-row rvt-row--loose">
       {% for person in people %}
-      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-top-lg rvt-m-top-xxl-md-up ]">
+      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
         <div class="rvt-card">
           <a href="#">
             {% render "@avatar", {
@@ -77,17 +86,26 @@
                 </svg>
                 <p class="rvt-m-all-none">{{ person.phone }}</p>
               </div>
-              <div class="rvt-flex rvt-items-center">
+              <div class="rvt-flex rvt-items-center rvt-m-top-xs">
                 <svg class="rvt-color-black-400 rvt-m-right-xs" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
                   <path fill="currentColor" d="M13.5,3H2.5A1.5,1.5,0,0,0,1,4.5v8A1.5,1.5,0,0,0,2.5,14h11A1.5,1.5,0,0,0,15,12.5v-8A1.5,1.5,0,0,0,13.5,3ZM11.41,5,8,7.77,4.59,5ZM3,12V6.29L7.11,9.62l.12.08a1.5,1.5,0,0,0,1.54,0L13,6.29V12Z"/>
                 </svg>
-                <a class="rvt-m-all-none" href="#">{{ person.email }}</a>
+                <a href="#">{{ person.email }}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
       {% endfor %}
+    </div>
+  </div>
+
+  <!--
+    #4: Start pagination
+  -->
+  <div class="rvt-container-lg">
+    <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
+      {% render "@pagination" %}
     </div>
   </div>
 </main>
