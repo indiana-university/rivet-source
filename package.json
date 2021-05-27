@@ -50,6 +50,7 @@
     "axios": "^0.19.2",
     "browser-sync": "^2.26.13",
     "cypress": "^5.5.0",
+    "faker": "^5.5.3",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-cssnano": "^2.1.2",

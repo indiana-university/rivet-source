@@ -24,7 +24,6 @@ With the `rvt-layout__wrapper` CSS class applied to the `main` element it will a
 ### Using Rivet container utilities with Layouts
 Note the use of the additional [Rivet container](#) `rvt-container-lg` CSS utility class on the layout wrapper. The is used to constrain the maximum width of the layout. It is possible to use any of the Rivet container size utilities, but the "large" or `rvt-container-lg` variant is a good default. This container size should match the size used in the [header](#) and [footer](#) of you site or app.
 
-
 ### Details Layouts
 There are two versions of the Details layout. A single column version and a two-column (on larger screens) version with the [Sidenav component](/docs/components/sidenav/) included for section navigation.
 
