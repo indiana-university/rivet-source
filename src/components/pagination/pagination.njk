@@ -1,9 +1,32 @@
-<nav role="navigation" {% for attribute in attributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}>
-  <ul class="rvt-pagination{% if modifier %} rvt-pagination--{{ modifier }}{% endif %}">
-    {% for item in items %}
-      <li class="rvt-pagination__item{% if item.current %} is-active" aria-current="true{% elif item.disabled %} is-disabled{% endif %}">
-        <a{% for attribute in item.linkAttributes %} {{attribute.label}}="{{attribute.value}}"{% endfor %}{% if item.disabled %} tabindex="-1"{% endif %}>{{ item.text }}</a>
-      </li>
-    {% endfor %}
+<nav role="navigation" aria-label="Default results pages">
+  <ul class="rvt-pagination">
+    <li class="rvt-pagination__item is-disabled">  
+      <a href="#0" aria-label="Previous set of pages">
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M10.5,15a1,1,0,0,1-.77-.36L4.87,8.8a1.25,1.25,0,0,1,0-1.61L9.73,1.36a1,1,0,0,1,1.54,1.28L6.8,8l4.47,5.36A1,1,0,0,1,10.5,15ZM6.41,8.47h0Zm0-1h0Z"/>
+        </svg>        
+        <span class="rvt-sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#0" aria-label="Page 1">1</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#0" aria-current="page">2</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#0" aria-label="Page 3">3</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#0" aria-label="Page 4">4</a>
+    </li>
+    <li class="rvt-pagination__item">
+      <a href="#0">
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M5.5,15a1,1,0,0,1-.77-1.64L9.2,8,4.73,2.64A1,1,0,0,1,6.27,1.36L11.13,7.2a1.25,1.25,0,0,1,0,1.61L6.27,14.64A1,1,0,0,1,5.5,15ZM9.6,8.48h0Zm0-1h0Z"/>
+        </svg>
+        <span class="rvt-sr-only">Next set of pages</span>
+      </a>
+    </li>
   </ul>
 </nav>
