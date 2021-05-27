@@ -23,12 +23,23 @@
   <div class="{{ siteContainer }} rvt-p-tb-xl rvt-p-tb-3-xl-md-up">  
     {% render "@billboard", {
       classes: 'rvt-billboard--reverse',
-      cta: { text: 'See another page', url: '/components/preview/generic-details-page'}
+      title: "We like to write articles",
+      cta: {
+        text: "Read more articles",
+        url: "/components/preview/list-page-articles-with-sidebar"
+      }
     }, true %}
   </div>
   
   <div class="{{ siteContainer }} rvt-p-tb-xl rvt-p-tb-3-xl-md-up">
-    {% render "@billboard" %}
+    {% render "@billboard", {
+      image: "http://placeimg.com/600/400/animals?9846",
+      title: "We like our people",
+      cta: {
+        text: "See all our people",
+        url: "/components/preview/list-page-people-with-sidebar"
+      }
+    }, true %}
   </div>
   
   <div class="rvt-p-tb-xxl rvt-p-top-3-xl-md-up rvt-p-bottom-4-xl-md-up">
