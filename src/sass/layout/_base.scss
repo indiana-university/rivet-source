@@ -16,6 +16,8 @@
   }
 
   &__content {
+    // This stops some overflow issues if non-breaking content starts to overflow.
+    min-width: 0;
     padding-top: $spacing-lg;
     padding-bottom: $spacing-lg;
   }
