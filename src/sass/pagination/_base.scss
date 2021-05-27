@@ -9,14 +9,6 @@
   padding: 0;
   display: flex;
 
-  &--center {
-    justify-content: center;
-  }
-
-  &--right {
-    justify-content: flex-end;
-  }
-
   &__item {
     line-height: 1;
     margin-top: 0;
