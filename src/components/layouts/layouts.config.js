@@ -34,12 +34,21 @@ for (let i = 0; i < peopleCount; i++) {
   })
 }
 
+const profileData = {
+  avatar: faker.internet.avatar(),
+  name: `${faker.name.firstName()} ${faker.name.firstName()}`,
+  email: faker.internet.email(),
+  phone: faker.phone.phoneNumber('(###) ###-####'),
+  title: faker.name.jobTitle()
+}
+
 module.exports = {
   title: 'Layouts',
   status: 'wip',
   preview: '@preview-no-padding',
   context: {
     articles: articlesData,
-    people: peopleData
+    people: peopleData,
+    profile: profileData
   }
 }

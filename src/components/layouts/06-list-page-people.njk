@@ -65,7 +65,7 @@
       {% for person in people %}
       <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
         <div class="rvt-card">
-          <a href="#">
+          <a href="/components/preview/profile-page-with-sidebar">
             {% render "@avatar", {
               image: person.avatar,
               modifier: "--lg"
@@ -74,7 +74,7 @@
           <div class="rvt-card__body">
             <div class="rvt-card__eyebrow">{{ person.label }}</div>
             <h2 class="rvt-card__title">
-              <a href="#">{{ person.name }}</a>
+              <a href="/components/preview/profile-page-with-sidebar">{{ person.name }}</a>
             </h2>
             <div class="rvt-card__content [ rvt-flow ]">
               {{ person.content | safe }}
