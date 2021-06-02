@@ -1,0 +1,24 @@
+<nav class="rvt-seriesnav{% if classes %} {{ classes }}{% endif %}">
+  <a class="rvt-seriesnav__previous" href="#">
+    <div class="rvt-seriesnav__text">
+      <span class="rvt-seriesnav__label">{{ previousLabel if previousLabel else 'Previous' }}:</span>
+      <span class="rvt-seriesnav__item">{{ previousItem if previousItem else 'Leslie Knope' }}</span>
+    </div>
+    <span class="rvt-seriesnav__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M15,7H3.41L5.71,4.71A1,1,0,0,0,4.29,3.29l-4,4a1,1,0,0,0,0,1.42l4,4a1,1,0,0,0,1.41-1.41L3.41,9H15a1,1,0,1,0,0-2Z"/>
+      </svg>
+    </span>
+  </a>
+  <a class="rvt-seriesnav__next" href="#">
+    <div class="rvt-seriesnav__text">
+      <span class="rvt-seriesnav__label">{{ nextLabel if nextLabel else 'Next' }}:</span>
+      <span class="rvt-seriesnav__item">{{ nextItem if nextItem else 'Bert Macklin' }}</span>
+    </div>
+    <span class="rvt-seriesnav__icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/>
+      </svg>
+    </span>
+  </a>
+</nav>

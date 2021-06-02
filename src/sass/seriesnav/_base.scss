@@ -3,7 +3,7 @@
 
 @use '../core' as *;
 
-.rvt-stepnav {
+.#{$prefix}-seriesnav {
   border-top: 1px solid $color-black-100;
   border-bottom: 1px solid $color-black-100;
 
@@ -66,7 +66,7 @@
 }
 
 @include mq($breakpoint-md) {
-  .rvt-stepnav {
+  .#{$prefix}-seriesnav {
     display: flex;
 
     &__previous {

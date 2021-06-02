@@ -1,8 +1,8 @@
-# Stepnav
+# Seriesnav
 Navigation forward and backward through a group of related pages
 
 ## Usage
-The Stepnav should be used at the bottom of an article, post, or profile to provide a way for users to navigate to the next or previous entries in a series if they exist.
+The Seriesnav should be used at the bottom of an article, post, or profile to provide a way for users to navigate to the next or previous entries in a series if they exist.
 
 ### Do
 - Use at the bottom of the page
