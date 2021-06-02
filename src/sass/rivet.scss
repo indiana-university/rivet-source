@@ -43,42 +43,10 @@
 @use 'stat';
 @use 'stat-group';
 @use 'step-indicator';
+@use 'stepnav';
 @use 'subnav';
 @use 'tables';
 @use 'tabs';
 @use 'timeline';
 @use 'validation';
 @use './core' as *;
-
-.rvt-article-nav {
-  display: flex;
-  border-top: 1px solid $color-black-100;
-  border-bottom: 1px solid $color-black-100;
-
-  &__previous {
-    border-right: 1px solid $color-black-100;
-  }
-
-  &__previous,
-  &__next {
-    flex-basis: 50%;
-    display: block;
-    flex-grow: 1;
-    text-decoration: none;
-    color: $color-black-800;
-    padding: $spacing-md;
-
-    &:hover {
-      background-color: $color-black-000;
-    }
-  }
-
-  &__label,
-  &__item {
-    display: block;
-  }
-
-  &__label {
-    color: $color-black-500;
-  }
-}
