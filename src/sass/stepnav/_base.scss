@@ -6,16 +6,9 @@
 .rvt-stepnav {
   border-top: 1px solid $color-black-100;
   border-bottom: 1px solid $color-black-100;
-  display: flex;
 
   &__previous {
-    border-right: 1px solid $color-black-100;
     flex-direction: row-reverse;
-    padding-right: $spacing-md;
-  }
-
-  &__next {
-    padding-left: $spacing-md;
   }
 
   &__icon {
@@ -69,5 +62,21 @@
 
   &__label {
     color: $color-black-500;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .rvt-stepnav {
+    display: flex;
+
+    &__previous {
+      border-right: 1px solid $color-black-100;
+      flex-direction: row-reverse;
+      padding-right: $spacing-md;
+    }
+
+    &__next {
+      padding-left: $spacing-md;
+    }
   }
 }
