@@ -43,8 +43,10 @@
 @use 'stat';
 @use 'stat-group';
 @use 'step-indicator';
+@use 'seriesnav';
 @use 'subnav';
 @use 'tables';
 @use 'tabs';
 @use 'timeline';
 @use 'validation';
+@use './core' as *;

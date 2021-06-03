@@ -16,7 +16,7 @@
   <!--
     #2: Start tags/categories list
   -->
-  <div class="rvt-container-lg rvt-p-top-lg">
+  <div class="{{ siteContainer }} rvt-p-top-lg">
     <ul class="rvt-plain-list rvt-flex rvt-wrap rvt-justify-center rvt-p-bottom-lg rvt-border-bottom">
       <li class="rvt-m-right-xs">
         <a href="#" class="rvt-badge rvt-badge--secondary">All</a>
@@ -39,7 +39,7 @@
   <!--
     #3: Start list of items
   -->
-  <div class="rvt-container-lg rvt-p-tb-xl">
+  <div class="{{ siteContainer }} rvt-p-tb-xl">
     <div class="rvt-row rvt-row--loose">
       {% for article in articles %}
       <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
@@ -50,7 +50,7 @@
           content: article.content,
           classes: "rvt-card--clickable",
           meta: article.meta,
-          link: "/components/preview/generic-details-page"
+          link: "/components/preview/details-page"
         } %}
       </div>
       {% endfor %}
@@ -60,7 +60,7 @@
   <!--
     #4: Start pagination
   -->
-  <div class="rvt-container-lg">
+  <div class="{{ siteContainer }}">
     <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
       {% render "@pagination" %}
     </div>
