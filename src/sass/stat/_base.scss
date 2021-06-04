@@ -27,13 +27,10 @@
 
   &__number {
     font-size: $ts-41;
-    font-weight: $font-weight-bold;
     line-height: 1.2;
   }
 
   &__description {
-    font-weight: $font-weight-bold;
-    text-transform: uppercase;
     color: $color-black-500;
     font-size: $ts-14;
     letter-spacing: .025rem;
