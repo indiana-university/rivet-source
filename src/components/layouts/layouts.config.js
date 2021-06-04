@@ -42,6 +42,13 @@ const profileData = {
   title: faker.name.jobTitle()
 }
 
+// Paths to IU-related card images in the 'static' folder
+const cardImages = [
+  '/img/index-page-card-1.jpeg',
+  '/img/index-page-card-2.jpeg',
+  '/img/index-page-card-3.jpeg'
+]
+
 module.exports = {
   title: 'Layouts',
   status: 'wip',
@@ -49,6 +56,7 @@ module.exports = {
   context: {
     articles: articlesData,
     people: peopleData,
-    profile: profileData
+    profile: profileData,
+    cardImages: cardImages
   }
 }
