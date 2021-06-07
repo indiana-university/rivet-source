@@ -1,4 +1,4 @@
-<nav class="rvt-subnav" aria-label="{{ id }}">
+<nav class="rvt-subnav {% if classes %}{{ classes }}{% endif %}" aria-label="{{ id }}">
   <ul class="rvt-subnav__list">
     {% for item in items %}
       <li class="rvt-subnav__item">
