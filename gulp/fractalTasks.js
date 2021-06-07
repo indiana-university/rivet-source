@@ -1,4 +1,4 @@
-const fractal = require('../fractal')
+const fractal = require('../fractal.config')
 
 // Keep a reference to the fractal CLI console utility
 const logger = fractal.cli.console;
