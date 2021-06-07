@@ -1,0 +1,88 @@
+{% include "@header-system-main-nav" %}
+
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper" id="main-content">
+
+  <!--
+    #1: Start page intro section
+  -->
+  <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
+    <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
+      <nav class="rvt-flex rvt-items-center" role="navigation" aria-label="Breadcrumb">
+        <ol class="rvt-breadcrumbs rvt-grow-1">
+          <li>
+            <a href="#">
+              <span class="rvt-sr-only">Home</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
+                <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
+              </svg>
+            </a>
+          </li>
+          <li><a href="#">Tier two title</a></li>
+          <li><a href="#">Tier three title</a></li>
+        </ol>
+      </nav>
+      <h1 class="rvt-m-top-xs">Lorem ipsum dolor sit</h1>
+      {# <p class="rvt-ts-20">Optional lead description text, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p> #}
+    </div>
+    <div class="{{ siteContainer }}">
+      {% render "@subnav", {
+        classes: "rvt-border-bottom-none"
+      }, true %}
+    </div>
+  </div>
+  
+  
+  <div class="{{ siteContainer }}">
+    <div class="rvt-row rvt-m-top-xl">
+      <div class="rvt-cols-4-md rvt-m-bottom-md">
+        <label class="rvt-label" for="search">Type to filter</label>
+        <input class="rvt-input" type="text" id="search">
+      </div>
+      <div class="rvt-cols-4-md rvt-m-bottom-md">
+        <label class="rvt-label" for="permission">Filter by permission</label>
+        <select name="" id="permission" class="rvt-select">
+          <option value="owner">Owner</option>
+          <option value="developer">Developer</option>
+          <option value="gues">Guest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <!--
+    #3: Start list of items
+  -->
+  <div class="{{ siteContainer }}">
+    <ul class="rvt-plain-list rvt-border-top">
+      {% for app in apps %}
+      <li class="rvt-border-bottom rvt-m-top-none rvt-p-tb-md rvt-p-right-xs">
+        <a href="#" class="rvt-link-plain rvt-flex rvt-items-center">
+          <span class="rvt-ts-18 rvt-text-bold rvt-grow-1">{{ app.title }}</span>
+          <span class="rvt-bg-blue-000 rvt-flex rvt-items-center rvt-justify-center rvt-p-all-xs rvt-border-radius-circle">
+            <svg class="rvt-shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path fill="currentColor" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/>
+            </svg>
+          </span>
+        </a>
+        <p class="rvt-m-top-xxs rvt-ts-14 rvt-color-black-500">{{ app.description }}</p>
+        <div class="rvt-flex rvt-items-center">
+          <span class="rvt-ts-14 rvt-m-right-sm rvt-color-black-500">Owned by <strong>{{ app.user }}</strong></span>
+          <span class="rvt-badge rvt-badge--success-secondary">Ready</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <!--
+    #4: Start pagination
+  -->
+  <div class="{{ siteContainer }} rvt-m-top-xl">
+    <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
+      {% render "@pagination" %}
+    </div>
+  </div>
+  
+</main>
+{% include "@footer-system" %}

@@ -1,0 +1,43 @@
+{% include "@header-system-main-nav" %}
+<!--
+  #1: Start page intro section
+-->
+<div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl" role="complementary">
+  <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
+    <nav class="rvt-flex rvt-items-center" role="navigation" aria-label="Breadcrumb">
+      <ol class="rvt-breadcrumbs rvt-grow-1">
+        <li>
+          <a href="#">
+            <span class="rvt-sr-only">Home</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
+              <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
+            </svg>
+          </a>
+        </li>
+        <li><a href="#">Tier two title</a></li>
+        <li><a href="#">Tier three title</a></li>
+      </ol>
+    </nav>
+    <h1 class="rvt-m-top-xs">Lorem ipsum dolor sit</h1>
+    {# <p class="rvt-ts-20">Optional lead description text, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p> #}
+  </div>
+  {# <div class="{{ siteContainer }}">
+    {% render "@subnav", {
+      classes: "rvt-border-bottom-none"
+    }, true %}
+  </div> #}
+</div>
+
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper rvt-layout__wrapper--details {{ siteContainer }}" id="main-content">
+
+  <div class="rvt-layout__sidebar [ rvt-p-top-xxl ]" id="section-nav">
+    {% render "@sidenav" %}
+  </div>
+  <div class="rvt-layout__content [ rvt-p-top-xxl ]">
+    butts
+      
+  </div>
+  
+</main>
+{% include "@footer-system" %}
