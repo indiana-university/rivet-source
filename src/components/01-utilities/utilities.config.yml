@@ -1,5 +1,7 @@
 title: "Utilities"
 status: "ready"
+root: true
+collated: false
 context:
     flexText:
         - "One"
