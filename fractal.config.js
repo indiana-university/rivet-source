@@ -5,29 +5,21 @@ const fractal = (module.exports = require('@frctl/fractal').create())
 const mandelbrot = require('@frctl/mandelbrot')
 
 /**
- * Use this to customize the default theme
+ * Project Settings
+ * See more at https://fractal.build/guide/customisation/
  */
-const myCustomizedTheme = mandelbrot({
-  lang: 'en-US',
-  skin: 'white',
-  format: 'yaml',
-  panels: ['notes', 'html', 'resources', 'info'],
-  scripts: ['default', '/js/vendor.js']
-});
-
-/**
- * Use the customized theme.
- */
-fractal.web.theme(myCustomizedTheme);
-
-
 fractal.set('project.title', 'Rivet');
-
 fractal.components.engine('@frctl/nunjucks');
 fractal.components.set('ext', '.njk');
-
 fractal.components.set('path', path.join(__dirname, 'src/components'));
+fractal.components.set('default.preview', '@preview');
+fractal.components.set('default.status', 'alpha');
+fractal.docs.set('path', path.join(__dirname, 'src/docs'));
+fractal.web.set('static.path', path.join(__dirname, 'static'));
 
+/**
+ * Custom statuses
+ */
 fractal.components.set('statuses', {
   deprecated: {
     label: 'Deprecated',
@@ -58,29 +50,48 @@ fractal.components.set('statuses', {
 });
 
 /**
- * This sets up the default preview layout that's used to render the component
- * preview. You can find the preview template in the root of src/components/
+ * Use this to customize the default theme
  */
-fractal.components.set('default.preview', '@preview');
+const myCustomizedTheme = mandelbrot({
+  lang: 'en-US',
+  skin: {
+    name: 'white',
+    accent: '#990000',
+    complement: '#ffffff',
+    links: '#006298'
+  },
+  format: 'yaml',
+  panels: ['notes', 'view', 'html', 'resources', 'info'],
+  scripts: ['default', '/js/vendor.js'],
+  favicon: '/img/favicon.ico',
+  information: [
+    {
+      label: 'Version',
+      value: require('./package.json').version
+    },
+    {
+      label: 'Built on',
+      value: new Date(),
+      type: 'time',
+      format: (value) => {
+          return value.toLocaleDateString('en');
+      }
+    }
+  ]
+});
+
+fractal.web.theme(myCustomizedTheme);
 
 /**
- * Sets the default component status to "wip"
- */
-fractal.components.set('default.status', 'alpha');
-
-/**
- * Tell Fractal where to look for documentation pages.
- */
-fractal.docs.set('path', path.join(__dirname, 'src/docs'));
-
-/**
- * Tell the Fractal web preview plugin where to look for static assets.
- */
-fractal.web.set('static.path', path.join(__dirname, 'static'));
-
-/**
- * Set a destination for Fractal to build out the stat UI for the components.
+ * Build settings
  */
 fractal.web.set('builder.dest', '_build');
+
+/**
+ * BrowserSync options
+ */
+fractal.web.set('server.syncOptions', {
+  open: true
+});
 
 const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility
