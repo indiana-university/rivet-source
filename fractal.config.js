@@ -1,19 +1,8 @@
 'use strict';
 
-/*
- * Require the path module
- */
-const path = require('path');
-
-/**
- * Require the Fractal module
- */
-const fractal = (module.exports = require('@frctl/fractal').create());
-
-/**
- * Use the default mandelbrot theme.
- */
-const mandelbrot = require('@frctl/mandelbrot'); // require the Mandelbrot theme
+const path = require('path')
+const fractal = (module.exports = require('@frctl/fractal').create())
+const mandelbrot = require('@frctl/mandelbrot')
 
 /**
  * Use this to customize the default theme
@@ -22,14 +11,7 @@ const myCustomizedTheme = mandelbrot({
   lang: 'en-US',
   skin: 'white',
   format: 'yaml',
-  // which panels to show
-  // http://fractal.build/guide/web/default-theme#panels
   panels: ['notes', 'html', 'resources', 'info'],
-  /**
-   * Show Docs before Components
-   * http://fractal.build/guide/web/default-theme#nav
-   */
-  nav: ['search', 'docs', 'components'],
   scripts: ['default', '/js/vendor.js']
 });
 
@@ -38,17 +20,10 @@ const myCustomizedTheme = mandelbrot({
  */
 fractal.web.theme(myCustomizedTheme);
 
-/**
- * Give your project a title.
- */
+
 fractal.set('project.title', 'Rivet');
 
 fractal.components.engine('@frctl/nunjucks');
-
-/**
- * Tell Fractal where to look for components.
- */
-
 fractal.components.set('ext', '.njk');
 
 fractal.components.set('path', path.join(__dirname, 'src/components'));
