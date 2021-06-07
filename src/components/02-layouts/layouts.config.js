@@ -64,6 +64,7 @@ module.exports = {
   title: 'Layouts',
   status: 'wip',
   preview: '@preview-no-padding',
+  root: true,
   context: {
     articles: articlesData,
     people: peopleData,
