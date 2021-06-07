@@ -93,9 +93,9 @@ a.#{$prefix}-badge {
   color: $color-white-base;
 
   &-secondary {
-    background-color: transparent;
-    border-color: $color-green-500;
-    color: $color-green-500;
+    background-color: $color-green-000;
+    border-color: $color-green-000;
+    color: $color-green-600;
   }
 }
 
