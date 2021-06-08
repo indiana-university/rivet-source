@@ -29,22 +29,7 @@
     <h2 class="rvt-grow-1">Plugins</h2>
   </div>
   
-  <div class="rvt-empty-state [ rvt-m-top-lg ]">
-    <div class="rvt-empty-state__content [ rvt-flow ]">
-      <div class="rvt-p-all-md rvt-bg-black-100 rvt-inline-flex rvt-border-radius-circle">
-        <svg class="rvt-color-black-500 rvt-shrink-0" width="16" height="16" viewBox="0 0 16 16">
-          <g fill="currentColor">
-            <path d="M5,14a1,1,0,0,1-.78-.37l-4-5a1,1,0,0,1,0-1.25l4-5A1,1,0,0,1,5.78,3.63L2.28,8l3.5,4.38A1,1,0,0,1,5,14Z"/>
-            <path d="M11,14a1,1,0,0,1-.78-1.62L13.72,8l-3.5-4.37a1,1,0,0,1,1.56-1.25l4,5a1,1,0,0,1,0,1.25l-4,5A1,1,0,0,1,11,14Z"/>
-          </g>
-        </svg>
-      </div>
-      <p>This account is not using plugins. Would you like to add one?</p>
-    </div>
-    <div class="rvt-empty-state__actions">
-      <button class="rvt-button rvt-button--success" type="button">Add a plugin</button>
-    </div>
-  </div>
+  {% render "@empty-state" %}
   
   <div class="rvt-flex-md-up rvt-items-center rvt-p-bottom-xs rvt-p-lr-xxs rvt-border-bottom rvt-m-top-xxl">
     <h2 class="rvt-grow-1">Access</h2>

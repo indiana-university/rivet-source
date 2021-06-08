@@ -19,6 +19,7 @@
 @use 'checkboxes';
 @use 'cta';
 @use 'dropdown';
+@use 'empty-state';
 @use 'essay';
 @use 'feature';
 @use 'file-input';
@@ -49,22 +50,3 @@
 @use 'tabs';
 @use 'timeline';
 @use 'validation';
-@use './core' as *;
-
-.rvt-empty-state {
-  border: 4px dashed $color-black-200;
-  border-radius: $spacing-xs;
-  background-color: $color-black-000;
-  padding: $spacing-xxl $spacing-md;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-
-  &__content {
-    color: $color-black-600;
-  }
-
-  &__actions {
-    margin-top: $spacing-md;
-  }
-}
