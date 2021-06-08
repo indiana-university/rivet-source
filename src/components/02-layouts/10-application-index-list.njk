@@ -1,135 +1,95 @@
 {% include "@header-system-main-nav" %}
 
-<!-- This can be any container you want or no container? -->
-<main class="rvt-layout__wrapper" id="main-content">
+<!--
+  #1: <main> element set up
+  Note here how it is required to use Rivet flexbox utility classes
+  on the <main> element in this layout configuration. This differs from
+  how some other layouts are set up.
+-->
+<main class="rvt-flex rvt-flex-column rvt-grow-1" id="main-content">
 
   <!--
-    #1: Start page intro section
+    #2: Start page intro with subnav section:
+    This section acts as the introduction to the page. It contains breadcrumb
+    navigation (optional) a page/view title (required) and a Subnav (optional)
+    used to create in page navigation between screens in an app.
   -->
   <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
     <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
-      <nav class="rvt-flex rvt-items-center" role="navigation" aria-label="Breadcrumb">
-        <ol class="rvt-breadcrumbs rvt-grow-1">
-          <li>
-            <a href="#">
-              <span class="rvt-sr-only">Home</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" id="rvt-icon-home">
-                <path fill="currentColor" d="M15.6 6.4l-7-5.19a.76.76 0 0 0-.19-.12A1 1 0 0 0 8 1a1 1 0 0 0-.42.09.76.76 0 0 0-.19.12L.4 6.4a1 1 0 0 0-.4.8 1 1 0 0 0 .2.6 1 1 0 0 0 1.4.2l.4-.3V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7.7l.4.3a1 1 0 0 0 .6.2 1 1 0 0 0 .6-1.8zM12 13H9V9H7v4H4V6.22l4-3 4 3z"></path>
-              </svg>
-            </a>
-          </li>
-          <li><a href="#">Tier two title</a></li>
-          <li><a href="#">Tier three title</a></li>
-        </ol>
-      </nav>
-      <h1 class="rvt-m-top-xs">Lorem ipsum dolor sit</h1>
-      {# <p class="rvt-ts-20">Optional lead description text, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p> #}
+      {% include "@layouts-breadcrumb-partial" %}
+      <h1 class="rvt-m-top-xs">Vero harum id inventore perferendis</h1>
     </div>
+    <!--
+      This container constrains the max-width of the Subnav. If your app only has
+      a few screens and a relatively flat information architecture you might not
+      need this Subnav. It can be removed without affecting the display of the 
+      intro section.
+    -->
     <div class="{{ siteContainer }}">
-      <nav class="rvt-subnav [ rvt-border-bottom-none ]" aria-label="Section navigation">
-        <ul class="rvt-subnav__list">
-          <li class="rvt-subnav__item">
-            <a href="/components/preview/application-details-page">
-              <svg class="rvt-color-black-300" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                <g fill="currentColor">
-                  <path d="M8,8a4,4,0,1,1,4-4A4,4,0,0,1,8,8ZM8,2a2,2,0,1,0,2,2A2,2,0,0,0,8,2Z" />
-                  <path d="M12.75,16H3.25A1.25,1.25,0,0,1,2,14.75V13A4,4,0,0,1,6,9h4a4,4,0,0,1,4,4v1.75A1.25,1.25,0,0,1,12.75,16ZM4,14h8V13a2,2,0,0,0-2-2H6a2,2,0,0,0-2,2Z" />
-                </g>
-              </svg>
-              <span class="rvt-m-left-xs">Profile</span>
-            </a>
-          </li>
-          <li class="rvt-subnav__item">
-            <a href="/components/preview/application-details-page">
-              <svg class="rvt-color-black-300" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M14.57,12.06,13,9.7V6A5,5,0,0,0,3,6V9.7L1.43,12.06a1.25,1.25,0,0,0,1,1.94H6a2,2,0,0,0,4,0h3.53a1.25,1.25,0,0,0,1-1.94ZM8,12H3.87L5,10.3V6a3,3,0,0,1,6,0v4.3L12.13,12Z" />
-              </svg>
-              <span class="rvt-m-left-xs">Notifications</span>
-            </a>
-          </li>
-          <li class="rvt-subnav__item">
-            <a href="/components/preview/application-details-page">
-              <svg class="rvt-color-black-300" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M12.29,2H12V1a1,1,0,0,0-2,0V2H6V1A1,1,0,0,0,4,1V2H3.71A2.78,2.78,0,0,0,1,4.83v7.33A2.78,2.78,0,0,0,3.71,15h8.57A2.78,2.78,0,0,0,15,12.17V4.83A2.78,2.78,0,0,0,12.29,2ZM3.71,4H4V5H6V4h4V5h2V4h.29a.78.78,0,0,1,.71.83V7H3V4.83A.78.78,0,0,1,3.71,4Zm8.57,9H3.71A.78.78,0,0,1,3,12.17V9H13v3.17A.78.78,0,0,1,12.29,13Z" />
-              </svg>
-              <span class="rvt-m-left-xs">Schedule</span>
-            </a>
-          </li>
-          <li class="rvt-subnav__item">
-            <a href="/components/preview/application-details-page">
-              <svg class="rvt-color-black-300" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor"
-                  d="M13.94,8.78A6,6,0,0,0,14,8a6,6,0,0,0-.07-.9L15.73,6a7.94,7.94,0,0,0-.92-2.15l-2.06.52a6,6,0,0,0-1.2-1.18L12,1.1A7.94,7.94,0,0,0,9.87.23L8.78,2.06A6,6,0,0,0,8,2a6,6,0,0,0-.9.07L6,.27a7.94,7.94,0,0,0-2.15.92l.52,2.06a6,6,0,0,0-1.18,1.2L1.1,4A7.94,7.94,0,0,0,.23,6.13L2.06,7.22A6,6,0,0,0,2,8a6,6,0,0,0,.07.9L.27,10a7.94,7.94,0,0,0,.92,2.15l2.06-.52a6,6,0,0,0,1.2,1.18L4,14.9a7.94,7.94,0,0,0,2.17.87l1.09-1.83A6,6,0,0,0,8,14a6,6,0,0,0,.9-.07L10,15.73a7.94,7.94,0,0,0,2.15-.92l-.52-2.06a6,6,0,0,0,1.18-1.2L14.9,12a7.94,7.94,0,0,0,.87-2.17ZM8,11a3,3,0,1,1,3-3A3,3,0,0,1,8,11Z" />
-              </svg>
-              <span class="rvt-m-left-xs">Settings</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      {% render "@subnav", {
+        id: "App settings navigation",
+        classes: "[ rvt-border-bottom-none ]"
+      }, true %}
     </div>
   </div>
 
-  <div class="{{ siteContainer }}">
-  
-    <div class="rvt-m-top-xl rvt-flex-md-up">
-      <div class="rvt-grow-1">
-        <label class="rvt-label" for="search">Type to filter</label>
-        <input class="rvt-input" type="text" id="search">
+  <div class="rvt-layout__wrapper">
+    
+    <div class="{{ siteContainer }}">
+    
+      <div class="rvt-m-top-xl rvt-flex-md-up">
+        <div class="rvt-grow-1">
+          <label class="rvt-label" for="search">Type to filter</label>
+          <input class="rvt-input" type="text" id="search">
+        </div>
+        <div class="rvt-grow-1 rvt-width-md rvt-m-left-lg-md-up">
+          <label class="rvt-label" for="permission">Filter by permission</label>
+          <select name="" id="permission" class="rvt-select">
+            <option value="owner">Owner</option>
+            <option value="developer">Developer</option>
+            <option value="gues">Guest</option>
+          </select>
+        </div>
+        <button class="rvt-button rvt-m-left-lg-md-up rvt-m-top-md">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
+          </svg>
+          <span class="rvt-m-left-xs">Create new entry</span>
+        </button>
       </div>
-      <div class="rvt-grow-1 rvt-width-md rvt-m-left-lg-md-up">
-        <label class="rvt-label" for="permission">Filter by permission</label>
-        <select name="" id="permission" class="rvt-select">
-          <option value="owner">Owner</option>
-          <option value="developer">Developer</option>
-          <option value="gues">Guest</option>
-        </select>
-      </div>
-      <button class="rvt-button rvt-m-left-lg-md-up rvt-m-top-md">
-        <svg width="16" height="16" viewBox="0 0 16 16">
-          <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
-        </svg>
-        <span class="rvt-m-left-xs">Create new entry</span>
-      </button>
     </div>
     
-  </div>
-  
-  <!--
-    #3: Start list of items
-  -->
-  <div class="{{ siteContainer }}">
-    <ul class="rvt-plain-list rvt-border-top rvt-m-top-md">
-      {% for app in apps %}
-      <li class="rvt-border-bottom rvt-m-top-none rvt-p-tb-md rvt-p-right-xs">
-        <a href="/components/preview/application-details-page" class="rvt-link-plain rvt-flex rvt-items-center">
-          <span class="rvt-ts-18 rvt-text-bold rvt-grow-1">{{ app.title }}</span>
-          <span class="rvt-bg-blue-000 rvt-flex rvt-items-center rvt-justify-center rvt-p-all-xs rvt-border-radius-circle">
-            <svg class="rvt-shrink-0" width="16" height="16" viewBox="0 0 16 16">
-              <path fill="currentColor" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/>
-            </svg>
-          </span>
-        </a>
-        <p class="rvt-m-top-xxs rvt-ts-14 rvt-color-black-500">{{ app.description }}</p>
-        <div class="rvt-flex rvt-items-center">
-          <span class="rvt-ts-14 rvt-m-right-sm rvt-color-black-500">Owned by <strong>{{ app.user }}</strong></span>
-          <span class="rvt-badge rvt-badge--success-secondary">Ready</span>
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  
-  <!--
-    #4: Start pagination
-  -->
-  <div class="{{ siteContainer }} rvt-m-top-xl">
-    <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
-      {% render "@pagination" %}
+    <div class="{{ siteContainer }}">
+      <ul class="rvt-plain-list rvt-border-top rvt-m-top-md">
+        {% for app in apps %}
+        <li class="rvt-border-bottom rvt-m-top-none rvt-p-tb-md rvt-p-right-xs">
+          <a href="/components/preview/application-details-page" class="rvt-link-plain rvt-flex rvt-items-center">
+            <span class="rvt-ts-18 rvt-text-bold rvt-grow-1">{{ app.title }}</span>
+            <span class="rvt-bg-blue-000 rvt-flex rvt-items-center rvt-justify-center rvt-p-all-xs rvt-border-radius-circle">
+              <svg class="rvt-shrink-0" width="16" height="16" viewBox="0 0 16 16">
+                <path fill="currentColor" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/>
+              </svg>
+            </span>
+          </a>
+          <p class="rvt-m-top-xxs rvt-ts-14 rvt-color-black-500">{{ app.description }}</p>
+          <div class="rvt-flex rvt-items-center">
+            <span class="rvt-ts-14 rvt-m-right-sm rvt-color-black-500">Owned by <strong>{{ app.user }}</strong></span>
+            <span class="rvt-badge rvt-badge--success-secondary">Ready</span>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
+    
+     <!--
+        #4: Start pagination
+      -->
+      <div class="{{ siteContainer }} rvt-m-top-xl">
+        <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
+          {% render "@pagination" %}
+        </div>
+      </div>
   </div>
-  
 </main>
 {% render "@footer-system-base", {
   classes: "rvt-footer-base--light"
