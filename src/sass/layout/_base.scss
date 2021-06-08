@@ -44,6 +44,14 @@
       flex-direction: row;
     }
 
+    // Adds support for a nested wrapper element that can grow to fill the viewport.
+    // For example in the "Application details" layouts
+
+    &__wrapper > &__wrapper {
+      height: 100%;
+      flex-grow: 1;
+    }
+
     &__sidebar {
       flex-basis: $width-md;
       max-width: $width-md;

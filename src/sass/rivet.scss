@@ -52,7 +52,7 @@
 @use './core' as *;
 
 .rvt-empty-state {
-  border: 4px dashed $color-black-300;
+  border: 4px dashed $color-black-200;
   border-radius: $spacing-xs;
   background-color: $color-black-000;
   padding: $spacing-xxl $spacing-md;
@@ -63,7 +63,7 @@
   &__content {
     color: $color-black-600;
   }
-  
+
   &__actions {
     margin-top: $spacing-md;
   }
