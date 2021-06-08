@@ -29,7 +29,9 @@
     <h2 class="rvt-grow-1">Plugins</h2>
   </div>
   
-  {% render "@empty-state" %}
+  {% render "@empty-state", {
+    classes: "[ rvt-m-top-lg ]"
+  }, true %}
   
   <div class="rvt-flex-md-up rvt-items-center rvt-p-bottom-xs rvt-p-lr-xxs rvt-border-bottom rvt-m-top-xxl">
     <h2 class="rvt-grow-1">Access</h2>
