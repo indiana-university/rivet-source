@@ -9,27 +9,19 @@
   padding: 0;
   display: flex;
 
-  &--center {
-    justify-content: center;
-  }
-
-  &--right {
-    justify-content: flex-end;
-  }
-
   &__item {
     line-height: 1;
     margin-top: 0;
 
     a {
-      border: 1px solid $color-black-300;
-      display: inline-block;
+      color: $color-black-800;
+      display: inline-flex;
+      align-items: center;
 
       /**
        * This negative margin compensates for the 1px borders that
        * bump up against each other.
        */
-      margin-left: -1px;
       min-width: $spacing-lg;
 
       /**
@@ -47,7 +39,8 @@
       background-color: $color-black-100;
     }
 
-    a:focus {
+    a:focus,
+    a[aria-current]:focus {
       border-radius: inherit;
       /* stylelint-disable */
       box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
@@ -55,41 +48,10 @@
       outline: none;
       z-index: map-get($z-index, '1000');
     }
-  }
 
-  &--small &__item {
-    a {
-      /**
-       * NOTE: These are magic numbers that make the small pagination
-       * the same size as the small buttons.
-       */
-      padding: .35rem .65rem;
+    a[aria-current] {
+      box-shadow: 0 $spacing-xxs 0 $color-crimson-base;
     }
-  }
-
-  &__item:first-child a {
-    border-top-left-radius: $spacing-xxs;
-    border-bottom-left-radius: $spacing-xxs;
-  }
-
-  &__item:last-child a {
-    border-top-right-radius: $spacing-xxs;
-    border-bottom-right-radius: $spacing-xxs;
-  }
-
-  /**
-   * Active state
-   */
-
-  &__item.is-active a {
-    background-color: $color-blue-600;
-    border-color: $color-blue-600;
-    color: $color-white-base;
-
-    /**
-     * z-index hides the border overlap
-     */
-    z-index: map-get($z-index, '200');
   }
 
   /**
@@ -97,11 +59,10 @@
    */
 
   &__item.is-disabled a {
-    color: $color-black-700;
-    background-color: $color-black-100;
+    color: $color-black-300;
 
     &:hover {
-      border-color: $color-black-200;
+      background-color: transparent;
       cursor: default;
     }
 

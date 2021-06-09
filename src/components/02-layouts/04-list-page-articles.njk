@@ -1,0 +1,70 @@
+{% include "@header-system-main-nav" %}
+
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper" id="main-content">
+
+  <!--
+    #1: Start page intro section
+  -->
+  <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
+    <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
+      <h1>List of items</h1>
+      <p class="rvt-ts-20">Optional lead description text, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam.</p>
+    </div>
+  </div>
+  
+  <!--
+    #2: Start tags/categories list
+  -->
+  <div class="{{ siteContainer }} rvt-p-top-lg">
+    <ul class="rvt-plain-list rvt-flex rvt-wrap rvt-justify-center rvt-p-bottom-lg rvt-border-bottom">
+      <li class="rvt-m-right-xs">
+        <a href="#" class="rvt-badge rvt-badge--secondary">All</a>
+      </li>
+      <li class="rvt-m-right-xs">
+        <a href="#" class="rvt-badge rvt-badge--secondary">Around Campus</a>
+      </li>
+      <li class="rvt-m-right-xs">
+        <a href="#" class="rvt-badge rvt-badge--secondary">Health &amp; Wellness</a>
+      </li>
+      <li class="rvt-m-right-xs">
+        <a href="#" class="rvt-badge rvt-badge--secondary">News &amp; Events</a>
+      </li>
+      <li class="rvt-m-right-xs">
+        <a href="#" class="rvt-badge rvt-badge--secondary">Special Announcements</a>
+      </li>
+    </ul>
+  </div>
+  
+  <!--
+    #3: Start list of items
+  -->
+  <div class="{{ siteContainer }} rvt-p-tb-xl">
+    <div class="rvt-row rvt-row--loose">
+      {% for article in articles %}
+      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
+        {% render "@card", {
+          image: article.image,
+          eyebrow: article.eyebrow,
+          title: article.title,
+          content: article.content,
+          classes: "rvt-card--clickable",
+          meta: article.meta,
+          link: "/components/preview/details-page"
+        } %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <!--
+    #4: Start pagination
+  -->
+  <div class="{{ siteContainer }}">
+    <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
+      {% render "@pagination" %}
+    </div>
+  </div>
+  
+</main>
+{% include "@footer-system" %}

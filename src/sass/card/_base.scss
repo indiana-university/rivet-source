@@ -4,11 +4,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 
   &--raised {
     background-color: $color-white-base;
     border-radius: $spacing-xs;
-    box-shadow: 0 $spacing-xxs $spacing-sm rgba(36, 49, 66, .2);
+    box-shadow: $shadow-heavy;
   }
 
   &__image img {
@@ -97,26 +98,19 @@
   &__content {
     border-top: 1px solid $color-black-100;
     flex-grow: 1;
-    margin-top: $spacing-lg;
+    margin-top: $spacing-md;
     color: $color-black-500;
     padding-top: $spacing-md;
   }
 
   &__meta {
     font-size: $ts-14;
-    display: flex;
-    flex-wrap: wrap;
     padding-top: $spacing-md;
   }
 
   &__meta > * {
     margin-top: 0;
     margin-bottom: 0;
-    margin-right: $spacing-sm;
-  }
-
-  &__meta > *:last-child {
-    margin-right: 0;
   }
 }
 

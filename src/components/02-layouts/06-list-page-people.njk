@@ -1,0 +1,112 @@
+{% include "@header-system-main-nav" %}
+
+<!-- This can be any container you want or no container? -->
+<main class="rvt-layout__wrapper" id="main-content">
+  <!--
+    #1: Start page intro section
+  -->
+  <div class="rvt-bg-crimson rvt-color-white rvt-p-tb-xl rvt-p-tb-xxl-md-up">
+    <div class="rvt-container-sm rvt-prose rvt-flow rvt-text-center">
+      <h1>List of People</h1>
+      <p class="rvt-ts-20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate magnam perspiciatis alias iste tempore, dicta qui consequatur quibusdam. Odit.</p>
+    </div>
+  </div>
+  <!--
+    #2: Start filters section
+  -->
+  <div class="{{ siteContainer }}">
+    <div class="rvt-border-bottom rvt-p-top-lg rvt-p-top-xxl-md-up rvt-p-bottom-lg">
+      <div class="rvt-row rvt-row--loose">
+        <div class="rvt-cols-6-md rvt-m-top-lg rvt-m-top-none-md-up">
+          <label class="rvt-label" for="people-filter">Filter by search</label>
+          <input type="text" class="rvt-input" id="people-filter" placeholder="Type to filter list">
+        </div>
+        <div class="rvt-cols-6-md rvt-m-top-lg rvt-m-top-none-md-up">
+          <label class="rvt-label" for="alpha-filter">Filter last name</label>
+          <select name="" id="alpha-filter" class="rvt-select">
+            <option value="All">All</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+            <option value="N">N</option>
+            <option value="O">O</option>
+            <option value="P">P</option>
+            <option value="Q">Q</option>
+            <option value="R">R</option>
+            <option value="S">S</option>
+            <option value="T">T</option>
+            <option value="U">U</option>
+            <option value="V">V</option>
+            <option value="W">W</option>
+            <option value="X">X</option>
+            <option value="Y">Y</option>
+            <option value="Z">Z</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--
+    #3: Start list of people
+  -->
+  <div class="{{ siteContainer }} rvt-p-tb-xl">
+    <div class="rvt-row rvt-row--loose">
+      {% for person in people %}
+      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
+        <div class="rvt-card">
+          <a href="/components/preview/profile-page-with-sidebar">
+            {% render "@avatar", {
+              image: person.avatar,
+              modifier: "--lg"
+            }, true %}
+          </a>
+          <div class="rvt-card__body">
+            <div class="rvt-card__eyebrow">{{ person.label }}</div>
+            <h2 class="rvt-card__title">
+              <a href="/components/preview/profile-page-with-sidebar">{{ person.name }}</a>
+            </h2>
+            <div class="rvt-card__content [ rvt-flow ]">
+              {{ person.content | safe }}
+            </div>
+            <div class="rvt-card__meta">
+              <div class="rvt-flex rvt-items-center">
+                <svg class="rvt-color-black-400 rvt-m-right-xs" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill="currentColor" d="M16,12.8A3.2,3.2,0,0,1,12.8,16,12.8,12.8,0,0,1,0,3.2,3.2,3.2,0,0,1,3.2,0a3,3,0,0,1,.54,0,2.84,2.84,0,0,1,.53.14l1.2,5.27-1.73.9a9.55,9.55,0,0,0,5.91,5.91l.91-1.74,5.26,1.22a2.84,2.84,0,0,1,.14.53A3,3,0,0,1,16,12.8Z"/>
+                </svg>
+                <p class="rvt-m-all-none">{{ person.phone }}</p>
+              </div>
+              <div class="rvt-flex rvt-items-center rvt-m-top-xs">
+                <svg class="rvt-color-black-400 rvt-m-right-xs" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
+                  <path fill="currentColor" d="M13.5,3H2.5A1.5,1.5,0,0,0,1,4.5v8A1.5,1.5,0,0,0,2.5,14h11A1.5,1.5,0,0,0,15,12.5v-8A1.5,1.5,0,0,0,13.5,3ZM11.41,5,8,7.77,4.59,5ZM3,12V6.29L7.11,9.62l.12.08a1.5,1.5,0,0,0,1.54,0L13,6.29V12Z"/>
+                </svg>
+                <a href="#">{{ person.email }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!--
+    #4: Start pagination
+  -->
+  <div class="{{ siteContainer }}">
+    <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
+      {% render "@pagination" %}
+    </div>
+  </div>
+</main>
+{% include "@footer-system" %}

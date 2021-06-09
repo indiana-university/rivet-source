@@ -1,7 +1,16 @@
 {
   "shadow": {
     "base": {
-      "value": "0 1px 3px 2px rgba(36, 49, 66, .1)"
+      "value": "0 .1875rem .375rem rgb(36, 49, 66, .07)"
+    },
+    "subtle": {
+      "value": "{shadow.base.value}"
+    },
+    "standard": {
+      "value": "0 .25rem .5rem rgb(36, 49, 66, .16)"
+    },
+    "heavy": {
+      "value": "0 .25rem 1rem rgb(36, 49, 66, .2)"
     }
   }
 }
