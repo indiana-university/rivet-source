@@ -1,30 +1,73 @@
-<legend class="rvt-sr-only">{{ legend }}</legend>
-<ul{% if list %} class="rvt-plain-list"{% else %} class="rvt-inline-list"{% endif %}>
-  {% for box in boxes %}
-    <li{% if box.hidden %} class="rvt-checkbox-wrapper"{% endif %}>
-      <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ box.id }}" id="{{ box.id }}"{% if box.modifiers %}{% for modifier in box.modifiers %} {{ modifier.status }}{% endfor %}{% endif %}>
-      {% if box.hidden %}
+<fieldset class="rvt-fieldset">
+  <legend class="rvt-sr-only">Checkbox list</legend>
+  <ul class="rvt-plain-list rvt-width-xl">
+    <li>
+      <span class="rvt-checkbox">
+        <input class="rvt-checkbox__input" type="checkbox" name="checkbox-demo" id="checkbox-1">
+        <!--
+          Can work with hidden input elements that some framework template languages generate
+        -->
         <input type="hidden">
-      {% endif %}
-      <label class="rvt-label" for="{{ box.id }}">{{ box.checkboxLabel }}</label>
-      {% if (box.id === "checkbox-indeterminate") %}
-        <ul class="rvt-plain-list rvt-p-left-lg">
-          {% for item in box.items %}
-            <li>
-              <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ item.id }}" id="{{ item.id }}"{% if loop.index === 1 %} checked{% endif %}>
-              <label class="rvt-label" for="{{ item.id }}">{{ item.checkboxLabel }}</label>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+        <label class="rvt-checkbox__label" for="checkbox-1">Option one</label>
+      </span>
     </li>
-  {% endfor %}
+    <li>
+      <span class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="indeterminate">
+        <label for="indeterminate">Option two</label>
+      </span>
+    </li>
+    <li>
+      <span class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-3" disabled>
+        <label for="checkbox-3">Option three</label>
+      </span>
+    </li>
+    <li>
+      <span class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-4" disabled checked>
+        <label for="checkbox-4">Option four</label>
+      </span>
+    </li>
+    <li>
+      <span class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-long">
+        <label for="checkbox-long">
+          <span class="rvt-text-bold">Just a quick note</span><br>
+          <span class="rvt-ts-14 rvt-display-inline-block rvt-color-black-600">This checkbox has a really long label that can wrap on to two lines and still have nice left alignment.</span>
+        </label>
+      </span>
+    </li>
+    <li>
+      <span class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-hidden-label">
+        <label for="checkbox-hidden-label">
+          <span class="rvt-sr-only">This label text is visually hidden</span>
+        </label>
+      </span>
+    </li>
+  </ul>
+</fieldset>
+
+<ul class="rvt-plain-list rvt-flex rvt-m-top-lg">
+  <li class="rvt-m-right-sm">
+    <span class="rvt-checkbox">
+      <input type="checkbox" name="checkbox-demo" id="inline-1">
+      <label for="inline-1">Option two</label>
+    </span>
+  </li>
+  <li class="rvt-m-right-sm">
+    <span class="rvt-checkbox">
+      <input type="checkbox" name="checkbox-demo" id="inline-2">
+      <label for="inline-2">Option two</label>
+    </span>
+  </li>
 </ul>
 
 <script>
-    /**
-     * Setting indeterminate state for demo purposes here.
-     */
-    var indCheck = document.querySelector('#checkbox-indeterminate');
-    indCheck.indeterminate = true;
+  /**
+   * Setting indeterminate state for demo purposes here.
+   */
+  var indCheck = document.querySelector('#indeterminate');
+  indCheck.indeterminate = true;
 </script>
