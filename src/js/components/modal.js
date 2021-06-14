@@ -209,9 +209,9 @@ export default class Modal extends Component {
       },
 
       open() {
-        // Trigger modalOpen custom event. This event is used to control the process of closing other open modals.
+        // Trigger modalOpened custom event. This event is used to control the process of closing other open modals.
         const openEvent = Component.dispatchCustomEvent(
-          'modalOpen',
+          'modalOpened',
           this.element
         );
     
@@ -222,9 +222,9 @@ export default class Modal extends Component {
       },
 
       close() {
-        // Trigger modalClose custom event.
+        // Trigger modalClosed custom event.
         const closeEvent = Component.dispatchCustomEvent(
-          'modalClose',
+          'modalClosed',
           this.element
         );
     
