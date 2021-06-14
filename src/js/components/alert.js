@@ -42,7 +42,7 @@ export default class Alert extends Component {
     
       dismiss() {
         const dismissEvent = Component.dispatchCustomEvent(
-          'alertDismiss',
+          'alertDismissed',
           this.element,
           {
             id: this.element.dataset.rvtAlert
