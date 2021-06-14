@@ -70,10 +70,10 @@ export default class Dropdown extends Component {
           return;
         }
 
-        // Fire a disclosureOpen event
+        // Fire a dropdownOpened event
 
         const openEvent = Component.dispatchCustomEvent(
-          'disclosureOpen',
+          'dropdownOpened',
           this.toggleElement,
           {
             id: this.toggleElement.dataset['toggle']
@@ -107,7 +107,7 @@ export default class Dropdown extends Component {
         if (!this.activeToggle) return;
 
         const closeEvent = Component.dispatchCustomEvent(
-          'dropdownClose',
+          'dropdownClosed',
           this.toggleElement,
           {
             id: this.toggleElement.dataset['toggle']
