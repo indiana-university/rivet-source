@@ -210,9 +210,10 @@ export default class Modal extends Component {
 
       open() {
         // Trigger modalOpen custom event. This event is used to control the process of closing other open modals.
-        const openEvent = Component.dispatchCustomEvent('modalOpen', this.element, {
-          id: this.element.dataset.rvtModal
-        });
+        const openEvent = Component.dispatchCustomEvent(
+          'modalOpen',
+          this.element
+        );
     
         if (!openEvent) return;
     
@@ -222,9 +223,10 @@ export default class Modal extends Component {
 
       close() {
         // Trigger modalClose custom event.
-        const closeEvent = Component.dispatchCustomEvent('modalClose', this.element, {
-          id: this.element.dataset.rvtModal
-        });
+        const closeEvent = Component.dispatchCustomEvent(
+          'modalClose',
+          this.element
+        );
     
         if (!closeEvent) return;
     

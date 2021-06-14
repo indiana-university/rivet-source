@@ -109,9 +109,13 @@ export default class Sidenav extends Component {
           return;
         }
 
-        const openEvent = Component.dispatchCustomEvent('sidenavListOpened', toggle, {
-          id: toggleId
-        });
+        const openEvent = Component.dispatchCustomEvent(
+          'sidenavListOpened', 
+          this.element,
+          {
+            list: targetList
+          }
+        );
     
         if (!openEvent) return;
     
@@ -131,9 +135,13 @@ export default class Sidenav extends Component {
           return;
         }
 
-        const closeEvent = Component.dispatchCustomEvent('sidenavListClosed', toggle, {
-          id: toggleId
-        });
+        const closeEvent = Component.dispatchCustomEvent(
+          'sidenavListClosed', 
+          this.element, 
+          {
+            list: targetList
+          }
+        );
     
         if (!closeEvent) return;
     

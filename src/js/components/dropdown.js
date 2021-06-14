@@ -74,10 +74,7 @@ export default class Dropdown extends Component {
 
         const openEvent = Component.dispatchCustomEvent(
           'dropdownOpened',
-          this.toggleElement,
-          {
-            id: this.toggleElement.dataset['toggle']
-          }
+          this.element
         );
 
         // Bail if the event was suppressed
@@ -108,10 +105,7 @@ export default class Dropdown extends Component {
 
         const closeEvent = Component.dispatchCustomEvent(
           'dropdownClosed',
-          this.toggleElement,
-          {
-            id: this.toggleElement.dataset['toggle']
-          }
+          this.element
         );
 
         if (!closeEvent) return;

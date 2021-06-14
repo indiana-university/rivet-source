@@ -88,10 +88,7 @@ export default class Disclosure extends Component {
 
         const closeEvent = Component.dispatchCustomEvent(
           'disclosureClosed',
-          this.toggleElement,
-          {
-            id: this.toggleElement.dataset.rvtDisclosureToggle
-          }
+          this.element
         );
 
         if (!closeEvent) return;
