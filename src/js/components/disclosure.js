@@ -56,7 +56,7 @@ export default class Disclosure extends Component {
           'disclosureOpened',
           this.toggleElement,
           {
-            id: this.toggleElement.dataset['rvtDisclosureToggle']
+            id: this.toggleElement.dataset.rvtDisclosureToggle
           }
         );
 
@@ -90,7 +90,7 @@ export default class Disclosure extends Component {
           'disclosureClosed',
           this.toggleElement,
           {
-            id: this.toggleElement.dataset['rvtDisclosureToggle']
+            id: this.toggleElement.dataset.rvtDisclosureToggle
           }
         );
 
