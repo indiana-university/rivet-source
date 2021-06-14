@@ -50,14 +50,11 @@ export default class Disclosure extends Component {
           return;
         }
 
-        // Fire a disclosureOpen event
+        // Fire a disclosureOpened event
 
         const openEvent = Component.dispatchCustomEvent(
           'disclosureOpened',
-          this.toggleElement,
-          {
-            id: this.toggleElement.dataset.rvtDisclosureToggle
-          }
+          this.element
         );
 
         // Bail if the event was suppressed
