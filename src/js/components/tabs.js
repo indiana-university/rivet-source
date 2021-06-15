@@ -140,10 +140,8 @@ export default class Tabs extends Component {
 
         const activationEvent = Component.dispatchCustomEvent(
           'tabActivated',
-          tab, 
-          {
-            id: tab.dataset.rvtTabPanel
-          }
+          this.element, 
+          { tab }
         );
     
         if (!activationEvent) return;

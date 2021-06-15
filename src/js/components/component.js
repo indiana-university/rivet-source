@@ -27,7 +27,7 @@ export default class Component {
     });
   }
 
-  static dispatchCustomEvent(eventName, element, detail) {
+  static dispatchCustomEvent(eventName, element, detail = {}) {
     const prefix = globalSettings.prefix;
     const event = new CustomEvent(`${prefix}:${eventName}`, {
       bubbles: true,

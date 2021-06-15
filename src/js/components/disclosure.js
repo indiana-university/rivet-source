@@ -50,14 +50,11 @@ export default class Disclosure extends Component {
           return;
         }
 
-        // Fire a disclosureOpen event
+        // Fire a disclosureOpened event
 
         const openEvent = Component.dispatchCustomEvent(
-          'disclosureOpen',
-          this.toggleElement,
-          {
-            id: this.toggleElement.dataset['toggle']
-          }
+          'disclosureOpened',
+          this.element
         );
 
         // Bail if the event was suppressed
@@ -87,11 +84,8 @@ export default class Disclosure extends Component {
         if (!this.activeToggle) return;
 
         const closeEvent = Component.dispatchCustomEvent(
-          'disclosureClose',
-          this.toggleElement,
-          {
-            id: this.toggleElement.dataset['toggle']
-          }
+          'disclosureClosed',
+          this.element
         );
 
         if (!closeEvent) return;
