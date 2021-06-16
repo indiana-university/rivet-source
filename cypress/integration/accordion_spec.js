@@ -81,7 +81,9 @@ describe('Keyboard interactions', function () {
     cy.get('@trigger4').type('{home}');
     cy.get('@trigger1').should('to.have.focus');
   });
+});
 
+describe('API methods', function () {
   it('Should be able to open a panel with the .open() method', function() {
     cy.window().then(win => {
       var accordion = win.document.querySelector('[data-rvt-accordion="my-new-accordion"]');
@@ -106,5 +108,49 @@ describe('Keyboard interactions', function () {
     cy.get('[data-rvt-accordion-panel="my-new-accordion-1"]')
       .should('not.be.visible')
       .and('have.attr', 'hidden');
+  });
+});
+
+describe('Custom events', function () {
+  it('Should fire a rvt:accordionOpened custom event with correct element references', function() {
+    cy.window().then(win => {
+      var accordion = win.document.querySelector('[data-rvt-accordion="my-new-accordion"]');
+      var eventFired = false;
+      var eventAccordionReference;
+      var eventPanelReference;
+      
+      win.addEventListener('rvt:accordionOpened', event => {
+        eventFired = true;
+        eventAccordionReference = event.target == accordion;
+        eventPanelReference = event.detail.panel.dataset.rvtAccordionPanel == 'my-new-accordion-1';
+      });
+      
+      accordion.open('my-new-accordion-1');
+      
+      if (!eventFired) throw new Error('Did not fire accordionOpened event');
+      if (!eventAccordionReference) throw new Error('Did not pass correct reference to emitting accordion component element');
+      if (!eventPanelReference) throw new Error('Did not pass correct reference to opened panel element');
+    });
+  });
+
+  it('Should fire a rvt:accordionClosed custom event with correct element references', function() {
+    cy.window().then(win => {
+      var accordion = win.document.querySelector('[data-rvt-accordion="my-new-accordion"]');
+      var eventFired = false;
+      var eventAccordionReference;
+      var eventPanelReference;
+      
+      win.addEventListener('rvt:accordionClosed', event => {
+        eventFired = true;
+        eventAccordionReference = event.target == accordion;
+        eventPanelReference = event.detail.panel.dataset.rvtAccordionPanel == 'my-new-accordion-1';
+      });
+      
+      accordion.close('my-new-accordion-1');
+      
+      if (!eventFired) throw new Error('Did not fire accordionClosed event');
+      if (!eventAccordionReference) throw new Error('Did not pass correct reference to emitting accordion component element');
+      if (!eventPanelReference) throw new Error('Did not pass correct reference to closed panel element');
+    });
   });
 });
