@@ -100,7 +100,7 @@ describe('Dropdown Interaction', function() {
       dropdown.open();
       
       if (!eventFired) throw new Error('Did not fire dropdownOpened event');
-      if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting alert component element');
+      if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting dropdown component element');
     });
   });
 
@@ -118,7 +118,7 @@ describe('Dropdown Interaction', function() {
       dropdown.close();
       
       if (!eventFired) throw new Error('Did not fire dropdownClosed event');
-      if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting alert component element');
+      if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting dropdown component element');
     });
   });
 });
