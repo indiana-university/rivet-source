@@ -85,4 +85,40 @@ describe('Dropdown Interaction', function() {
       .should('be.visible')
       .and('not.have.attr', 'hidden');
   });
+
+  it('Should fire a rvt:dropdownOpened custom event with correct element references', function() {
+    cy.window().then(win => {
+      var dropdown = win.document.querySelector(DROPDOWN);
+      var eventFired = false;
+      var eventDropdownReference;
+      
+      win.addEventListener('rvt:dropdownOpened', event => {
+        eventFired = true;
+        eventDropdownReference = event.target == dropdown;
+      });
+      
+      dropdown.open();
+      
+      if (!eventFired) throw new Error('Did not fire dropdownOpened event');
+      if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting alert component element');
+    });
+  });
+
+  it('Should fire a rvt:dropdownClosed custom event with correct element references', function() {
+    cy.window().then(win => {
+      var dropdown = win.document.querySelector(DROPDOWN);
+      var eventFired = false;
+      var eventDropdownReference;
+      
+      win.addEventListener('rvt:dropdownClosed', event => {
+        eventFired = true;
+        eventDropdownReference = event.target == dropdown;
+      });
+      
+      dropdown.close();
+      
+      if (!eventFired) throw new Error('Did not fire dropdownClosed event');
+      if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting alert component element');
+    });
+  });
 });
