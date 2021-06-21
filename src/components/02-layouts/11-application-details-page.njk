@@ -51,7 +51,27 @@
   -->
   <div class="rvt-layout__wrapper rvt-layout__wrapper--details {{ siteContainer }}">
     <div class="rvt-layout__sidebar [ rvt-p-top-xxl ]" id="section-nav">
-      {% render "@sidenav" %}
+      {% render "@sidenav", {
+        label: "Third tier pages",
+        items: [
+          {
+            text: "Third tier - one"
+          },
+          {
+            text: "Third tier - two",
+            current: true
+          },
+          {
+            text: "Third tier - three"
+          },
+          {
+            text: "Third tier - four"
+          },
+          {
+            text: "Third tier - five"
+          }
+        ]
+      }, true %}
     </div>
     <div class="rvt-layout__content [ rvt-p-top-xxl ]">
       {% include "@app-details-read-partial" %}
