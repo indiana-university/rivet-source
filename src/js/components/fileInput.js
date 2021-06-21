@@ -81,7 +81,6 @@ export default class FileInput extends Component {
             'fileAttached',
             this.element,
             {
-              id: this.element.dataset.rvtFileInput,
               files: Array.from(uploadInput.files).map(f => f.name)
             }
           );
