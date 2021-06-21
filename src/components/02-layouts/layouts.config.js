@@ -44,9 +44,9 @@ const profileData = {
 
 // Paths to IU-related card images in the 'static' folder
 const cardImages = [
-  '/img/index-page-card-1.jpeg',
-  '/img/index-page-card-2.jpeg',
-  '/img/index-page-card-3.jpeg'
+  '/img/landing-page-card-1.jpeg',
+  '/img/landing-page-card-2.jpeg',
+  '/img/landing-page-card-3.jpeg'
 ]
 
 let appData = [];

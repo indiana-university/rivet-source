@@ -2,7 +2,7 @@ title: "Billboard"
 preview: "@preview-no-padding"
 status: "wip"
 context:
-  image: "http://placeimg.com/1200/800/nature?9846"
+  image: "/img/billboard-2-example.png"
   title: "Billboard title"
   content: "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa nemo cum distinctio facere molestiae soluta earum reprehenderit nulla corrupti commodi, nihil, ea ut veniam laboriosam modi vero sapiente ducimus sint.</p>"
   cta:
