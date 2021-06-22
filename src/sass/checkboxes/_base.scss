@@ -19,6 +19,14 @@
     position: absolute;
   }
 
+  &--sr-only-label input[type=checkbox] + label,
+  &--sr-only-label input[type=checkbox] ~ label {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 0;
+  }
+
   input[type=checkbox] + label,
   input[type=checkbox] ~ label {
     display: inline-block;
