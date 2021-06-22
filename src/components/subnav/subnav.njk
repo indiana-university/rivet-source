@@ -2,7 +2,7 @@
   <ul class="rvt-subnav__list">
     {% for item in items %}
       <li class="rvt-subnav__item">
-        <a href="{{ item.link }}"{% if item.current %} aria-current="page"{% endif %}>
+        <a href="{{ item.link if item.link else '#' }}"{% if item.current %} aria-current="page"{% endif %}>
           {{ item.content | safe }}
         </a>
       </li>

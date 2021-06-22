@@ -17,7 +17,7 @@
   <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
     <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
       {# {% include "@layouts-breadcrumb-partial" %} #}
-      <h1 class="rvt-m-top-xs">Index List of Items</h1>
+      <h1 class="rvt-m-top-xs">Index Table of Items</h1>
     </div>
     <!--
       This container constrains the max-width of the Subnav. If your app only has
@@ -47,13 +47,14 @@
         id: "App settings navigation",
         classes: "[ rvt-border-bottom-none ]",
         items: [
-          { content: listIndexContent,
-            current: true,
+          {
+            content: listIndexContent,
             link: "/components/preview/application-index-list"
           },
           {
             content: tableIndexContent,
-            link: "/components/preview/application-index-table"
+            link: "/components/preview/application-index-table",
+            current: true
           },
           {
             content: detailsContent,
@@ -67,32 +68,59 @@
 
   <div class="rvt-layout__wrapper">
     
-    <div class="{{ siteContainer }}">
-    
-      <div class="rvt-m-top-xl rvt-flex-md-up">
-        <div class="rvt-grow-1">
+    <!--
+      Filter block
+    -->
+    <div class="{{ siteContainer }} rvt-m-top-xl">
+      <div class="rvt-flex-md-up rvt-items-center">
+        <div class="rvt-width-lg">
           <label class="rvt-label" for="search">Type to filter</label>
           <input class="rvt-input" type="text" id="search">
         </div>
-        <div class="rvt-grow-1 rvt-width-md rvt-m-left-lg-md-up">
-          <label class="rvt-label" for="permission">Filter by permission</label>
-          <select name="" id="permission" class="rvt-select">
-            <option value="owner">Owner</option>
-            <option value="developer">Developer</option>
-            <option value="gues">Guest</option>
-          </select>
+        <div class="rvt-m-left-lg-md-up rvt-m-top-md">
+          <input class="rvt-checkbox" type="checkbox" id="checkbox-filter" checked>
+          <label class="rvt-label" for="checkbox-filter">
+            Show active
+          </label>
         </div>
-        <button class="rvt-button rvt-m-left-lg-md-up rvt-m-top-md">
-          <svg width="16" height="16" viewBox="0 0 16 16">
-            <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
-          </svg>
-          <span class="rvt-m-left-xs">Create new entry</span>
-        </button>
       </div>
     </div>
     
-    <div class="{{ siteContainer }}">
-      {% include "@app-index-list-partial" %}
+    <div class="{{ siteContainer }} rvt-m-top-xl">
+      <form>
+        <table class="rvt-table">
+          <caption class="rvt-sr-only">Table example one</caption>
+          <thead>
+            <tr>
+              <th scope="col">
+                <span class="rvt-sr-only">Item Selection</span>
+              </th>
+              <th scope="col">Item</th>
+              <th scope="col">Owner</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for app in apps %}
+            <tr>
+              <td width="48">
+                <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ loop.index }}" id="checkbox-{{ loop.index }}">
+                <label class="rvt-label" for="checkbox-{{ loop.index }}">
+                  <span class="rvt-sr-only">Option one</span>
+                </label>
+              </td>
+              <th scope="row">
+                <a class="rvt-link-plain" href="/components/preview/application-details-page">{{ app.title }}</a>
+              </th>
+              <td>{{ app.user }}</td>
+              <td><span class="rvt-badge rvt-badge--success-secondary">Active</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </form>
+      
+      
     </div>
     
      <!--

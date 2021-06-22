@@ -23,8 +23,8 @@
         of pages/screens, althought it is not strictly required and the page intro
         will display correctly without it.
       -->
-      {% include "@layouts-breadcrumb-partial" %}
-      <h1 class="rvt-m-top-xs">Lorem ipsum dolor sit</h1>
+      {# {% include "@layouts-breadcrumb-partial" %} #}
+      <h1 class="rvt-m-top-xs">Details view</h1>
     </div>
     <!--
       This container constrains the max-width of the Subnav. If your app only has
@@ -33,9 +33,42 @@
       intro section.
     -->
     <div class="{{ siteContainer }}">
+      {%- set listIndexContent -%}
+        {% include "@bell-icon" %}
+        <div class="rvt-m-left-xs">List index view</div>
+      {%- endset -%}
+      {%- set tableIndexContent -%}
+        {% include "@calendar-icon" %}
+        <div class="rvt-m-left-xs">Table index view</div>
+      {%- endset -%}
+      {%- set detailsContent -%}
+        {% include "@gears-icon" %}
+        <div class="rvt-m-left-xs">Details view</div>
+      {%- endset -%}
+      {%- set editContent -%}
+        {% include "@user-icon" %}
+        <div class="rvt-m-left-xs">Edit view</div>
+      {%- endset -%}
+      
       {% render "@subnav", {
         id: "App settings navigation",
-        classes: "[ rvt-border-bottom-none ]"
+        classes: "[ rvt-border-bottom-none ]",
+        items: [
+          {
+            content: listIndexContent,
+            link: "/components/preview/application-index-list"
+          },
+          {
+            content: tableIndexContent,
+            link: "/components/preview/application-index-table"
+          },
+          {
+            content: detailsContent,
+            link: "/components/preview/application-details-page",
+            current: true
+          },
+          { content: editContent }
+        ]
       }, true %}
     </div>
   </div><!-- End page intro -->
@@ -52,23 +85,23 @@
   <div class="rvt-layout__wrapper rvt-layout__wrapper--details {{ siteContainer }}">
     <div class="rvt-layout__sidebar [ rvt-p-top-xxl ]" id="section-nav">
       {% render "@sidenav", {
-        label: "Third tier pages",
+        label: "Details sub-pages",
         items: [
           {
-            text: "Third tier - one"
+            text: "Additional details - one"
           },
           {
-            text: "Third tier - two",
+            text: "Additional details - two",
             current: true
           },
           {
-            text: "Third tier - three"
+            text: "Additional details - three"
           },
           {
-            text: "Third tier - four"
+            text: "Additional details - four"
           },
           {
-            text: "Third tier - five"
+            text: "Additional details - five"
           }
         ]
       }, true %}
