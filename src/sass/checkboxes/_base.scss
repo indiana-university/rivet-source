@@ -105,4 +105,10 @@
       0 0 0 $spacing-xxs $color-white-base,
       0 0 0 ($spacing-xxs * 1.5) $color-blue-600;
   }
+
+  &__description {
+    color: $color-black-600;
+    font-size: $ts-14;
+    padding: 0 $spacing-xs;
+  }
 }

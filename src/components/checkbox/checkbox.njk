@@ -31,11 +31,9 @@
     </li>
     <li>
       <span class="rvt-checkbox">
-        <input type="checkbox" name="checkbox-demo" id="checkbox-long">
-        <label for="checkbox-long">
-          <span class="rvt-text-bold">Just a quick note</span><br>
-          <span class="rvt-ts-14 rvt-display-inline-block rvt-color-black-600">This checkbox has a really long label that can wrap on to two lines and still have nice left alignment.</span>
-        </label>
+        <input aria-describedby="checkbox-description" type="checkbox" name="checkbox-demo" id="checkbox-long">
+        <label for="checkbox-long">Just a quick note</label>
+        <div id="checkbox-description" class="rvt-checkbox__description">This checkbox has a really long label that can wrap on to two lines and still have nice left alignment.</div>
       </span>
     </li>
     <li>
