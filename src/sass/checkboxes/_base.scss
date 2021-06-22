@@ -5,7 +5,7 @@
 
 .rvt-checkbox {
   display: inline-block;
-  padding-left: $spacing-md;
+  padding-left: $spacing-lg;
   position: relative;
 
   input[type=checkbox] {
@@ -19,6 +19,10 @@
     position: absolute;
   }
 
+  &--sr-only-label {
+    padding-left: $spacing-md;
+  }
+
   &--sr-only-label input[type=checkbox] ~ label {
     height: 0;
     overflow: hidden;
@@ -28,7 +32,6 @@
 
   input[type=checkbox] ~ label {
     display: inline-block;
-    padding: 0 .5rem;
 
     &:hover {
       cursor: pointer;
@@ -98,6 +101,5 @@
   &__description {
     color: $color-black-600;
     font-size: $ts-14;
-    padding: 0 $spacing-xs;
   }
 }
