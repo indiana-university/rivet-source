@@ -22,10 +22,6 @@
   input[type=checkbox] + label,
   input[type=checkbox] ~ label {
     display: inline-block;
-    font-size: $ts-16;
-    font-weight: $font-weight-regular;
-    line-height: inherit;
-    margin: 0;
     padding: 0 .5rem;
 
     &:hover {
@@ -41,10 +37,8 @@
     display: inline-block;
     height: $spacing-sm;
     left: $spacing-xxs;
-    margin: 0;
     position: absolute;
     top: $spacing-xxs;
-    vertical-align: middle;
     width: $spacing-sm;
   }
 
@@ -55,7 +49,6 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     box-shadow: 0 0 0 ($spacing-xxs / 2) $color-blue-600;
-    color: $color-white-base;
   }
 
   input[type=checkbox]:focus + label::before,
