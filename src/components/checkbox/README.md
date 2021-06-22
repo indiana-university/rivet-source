@@ -8,7 +8,7 @@ Checkboxes allow users to select one or more options from a list of choices.
   <ul class="rvt-plain-list rvt-width-xl">
     <li>
       <span class="rvt-checkbox">
-        <input class="rvt-checkbox__input" type="checkbox" name="checkbox-demo" id="checkbox-1">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-1">
         <!--
           Can work with hidden input elements that some framework template languages generate
         -->
