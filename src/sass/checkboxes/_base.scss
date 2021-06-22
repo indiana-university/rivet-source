@@ -14,13 +14,17 @@
     left: 0;
     margin: 0;
     top: 0;
-    width: $spacing-md;
+    width: $spacing-lg;
     opacity: 0;
     position: absolute;
   }
 
   &--sr-only-label {
     padding-left: $spacing-md;
+  }
+
+  &--sr-only-label input[type=checkbox] {
+    width: $spacing-md;
   }
 
   &--sr-only-label input[type=checkbox] ~ label {
