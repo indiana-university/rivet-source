@@ -3,7 +3,8 @@ node_modules
 _build
 dist
 static/css
-static/js
+static/js/*
+!static/js/rivet-init.js
 .idea
 .vscode
 cypress/videos
