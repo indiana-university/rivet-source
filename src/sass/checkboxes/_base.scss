@@ -35,11 +35,8 @@
   }
 
   input[type=checkbox] ~ label {
+    cursor: pointer;
     display: inline-block;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   input[type=checkbox] ~ label::before {
