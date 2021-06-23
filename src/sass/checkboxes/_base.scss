@@ -43,6 +43,7 @@
   }
 
   input[type=checkbox] ~ label::before {
+    background-color: $color-white-base;
     border-radius: $spacing-xxs / 2;
     box-shadow: 0 0 0 ($spacing-xxs / 2) $color-black-500;
     content: '';
