@@ -16,7 +16,7 @@
   -->
   <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
     <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
-      {# {% include "@layouts-breadcrumb-partial" %} #}
+      {% include "@layouts-breadcrumb-partial" %}
       <h1 class="rvt-m-top-xs">Index List of Items</h1>
     </div>
     <!--
@@ -27,19 +27,27 @@
     -->
     <div class="{{ siteContainer }}">
       {%- set listIndexContent -%}
-        {% include "@bell-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@bell-icon" %}
+        </span>
         <div class="rvt-m-left-xs">List index view</div>
       {%- endset -%}
       {%- set tableIndexContent -%}
-        {% include "@calendar-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@calendar-icon" %}
+        </span>
         <div class="rvt-m-left-xs">Table index view</div>
       {%- endset -%}
       {%- set detailsContent -%}
-        {% include "@gears-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@gears-icon" %}
+        </span>
         <div class="rvt-m-left-xs">Details view</div>
       {%- endset -%}
       {%- set editContent -%}
-        {% include "@user-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@user-icon" %}
+        </span>
         <div class="rvt-m-left-xs">Edit view</div>
       {%- endset -%}
       
@@ -70,11 +78,11 @@
     <div class="{{ siteContainer }}">
     
       <div class="rvt-m-top-xl rvt-flex-md-up">
-        <div class="rvt-grow-1">
+        <div class="rvt-grow-1 rvt-m-bottom-md">
           <label class="rvt-label" for="search">Type to filter</label>
           <input class="rvt-input" type="text" id="search">
         </div>
-        <div class="rvt-grow-1 rvt-width-md rvt-m-left-lg-md-up">
+        <div class="rvt-grow-1 rvt-m-bottom-md rvt-m-left-lg-md-up">
           <label class="rvt-label" for="permission">Filter by permission</label>
           <select name="" id="permission" class="rvt-select">
             <option value="owner">Owner</option>
@@ -82,7 +90,7 @@
             <option value="gues">Guest</option>
           </select>
         </div>
-        <button class="rvt-button rvt-m-left-lg-md-up rvt-m-top-md">
+        <button class="rvt-button rvt-m-left-lg-md-up rvt-m-top-md-md-up">
           <svg width="16" height="16" viewBox="0 0 16 16">
             <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
           </svg>

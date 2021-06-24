@@ -16,7 +16,7 @@
   -->
   <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
     <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
-      {# {% include "@layouts-breadcrumb-partial" %} #}
+      {% include "@layouts-breadcrumb-partial" %}
       <h1 class="rvt-m-top-xs">Index Table of Items</h1>
     </div>
     <!--
@@ -27,19 +27,27 @@
     -->
     <div class="{{ siteContainer }}">
       {%- set listIndexContent -%}
-        {% include "@bell-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@bell-icon" %}
+        </span>
         <div class="rvt-m-left-xs">List index view</div>
       {%- endset -%}
       {%- set tableIndexContent -%}
-        {% include "@calendar-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@calendar-icon" %}
+        </span>
         <div class="rvt-m-left-xs">Table index view</div>
       {%- endset -%}
       {%- set detailsContent -%}
-        {% include "@gears-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@gears-icon" %}
+        </span>
         <div class="rvt-m-left-xs">Details view</div>
       {%- endset -%}
       {%- set editContent -%}
-        {% include "@user-icon" %}
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@user-icon" %}
+        </span>
         <div class="rvt-m-left-xs">Edit view</div>
       {%- endset -%}
       
@@ -73,16 +81,42 @@
     -->
     <div class="{{ siteContainer }} rvt-m-top-xl">
       <div class="rvt-flex-md-up rvt-items-center">
-        <div class="rvt-width-lg">
+        <div class="rvt-grow-1">
           <label class="rvt-label" for="search">Type to filter</label>
           <input class="rvt-input" type="text" id="search">
         </div>
-        <div class="rvt-m-left-lg-md-up rvt-m-top-md">
-          <input class="rvt-checkbox" type="checkbox" id="checkbox-filter" checked>
-          <label class="rvt-label" for="checkbox-filter">
-            Show active
-          </label>
+        <div class="rvt-m-left-md-md-up rvt-grow-1">
+          <label class="rvt-label" for="status">Status</label>
+          <select class="rvt-select" name="" id="status">
+            <option value="on-hold">On hold</option>
+            <option value="active">Active</option>
+            <option value="archived">Archived</option>
+          </select>
         </div>
+        
+        <div class="rvt-dropdown [ rvt-m-top-md rvt-m-left-md-md-up ]" data-rvt-dropdown="dropdownButtons">
+          <button type="button" class="rvt-button" data-rvt-dropdown-toggle="dropdownButtons" aria-haspopup="true" aria-expanded="false">
+            <span class="rvt-dropdown__toggle-text">Actions</span>
+            <svg role="img" alt="" class="rvt-m-left-xs" width="16" height="16" viewBox="0 0 16 16">
+              <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
+            </svg>
+          </button>
+
+          <div class="rvt-dropdown__menu" id="dropdownButtons" role="menu" hidden data-rvt-dropdown-menu>
+            <form>
+              <button type="button" name="archive" role="menuitemradio">
+                <span>Archive</span>
+              </button>
+              <button type="button" name="put-on-hold" role="menuitemradio">
+                <span>Put on hold</span>
+              </button>
+              <button class="rvt-color-orange-500" name="delete" type="button" role="menuitemradio">
+                <span>Delete</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        
       </div>
     </div>
     
@@ -94,6 +128,12 @@
             <tr>
               <th scope="col">
                 <span class="rvt-sr-only">Item Selection</span>
+                <span class="rvt-checkbox rvt-checkbox--sr-only-label">
+                  <input type="checkbox" id="checkbox-filter">
+                  <label for="checkbox-filter">
+                    Select all
+                  </label>
+                </span>
               </th>
               <th scope="col">Item</th>
               <th scope="col">Owner</th>
@@ -104,10 +144,12 @@
             {% for app in apps %}
             <tr>
               <td width="48">
-                <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ loop.index }}" id="checkbox-{{ loop.index }}">
-                <label class="rvt-label" for="checkbox-{{ loop.index }}">
-                  <span class="rvt-sr-only">Option one</span>
-                </label>
+                <span class="rvt-checkbox rvt-checkbox--sr-only-label">
+                  <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ loop.index }}" id="checkbox-{{ loop.index }}">
+                  <label class="rvt-label" for="checkbox-{{ loop.index }}">
+                    <span class="rvt-sr-only">Option one</span>
+                  </label>
+                </span>
               </td>
               <th scope="row">
                 <a class="rvt-link-plain" href="/components/preview/application-details-page">{{ app.title }}</a>
