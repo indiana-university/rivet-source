@@ -3,27 +3,33 @@
   {% if options %}
     {% for name, option in options %}
       <li {% if option.hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
-        <input class="rvt-radio" type="radio" name="radio-{{option.id}}" id="radio-{{option.id}}-{{option.text}}" {{option.modifier}} {{option.checked}}>
-        {% if option.hiddenFields %}
-          <input type="hidden">
-        {% endif %}
-        <label class="rvt-label" for="radio-{{option.id}}-{{option.text}}">{{option.text}}</label>
+        <div class="rvt-radio">
+          <input type="radio" name="radio-{{option.id}}" id="radio-{{option.id}}-{{option.text}}" {{option.modifier}} {{option.checked}}>
+          {% if option.hiddenFields %}
+            <input type="hidden">
+          {% endif %}
+          <label for="radio-{{option.id}}-{{option.text}}">{{option.text}}</label>
+        </div>
       </li>
     {% endfor %}
   {% else %}
     <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
-      <input class="rvt-radio" type="radio" name="radio-{{id}}" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
-      {% if hiddenFields %}
-        <input type="hidden">
-      {% endif %}
-      <label class="rvt-label" for="radio-{{id}}-option-one">Option one</label>
-    </li>
-    <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
-        <input class="rvt-radio" type="radio" name="radio-{{id}}" id="radio-{{id}}-option-two" {{modifier}}>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-{{id}}" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
         {% if hiddenFields %}
           <input type="hidden">
         {% endif %}
-        <label class="rvt-label" for="radio-{{id}}-option-two">Option two</label>
+        <label for="radio-{{id}}-option-one">Option one</label>
+      </div>
+    </li>
+    <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-{{id}}" id="radio-{{id}}-option-two" {{modifier}}>
+        {% if hiddenFields %}
+          <input type="hidden">
+        {% endif %}
+        <label for="radio-{{id}}-option-two">Option two</label>
+      </div>
     </li>
   {% endif %}
 </ul>
