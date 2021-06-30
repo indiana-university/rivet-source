@@ -121,48 +121,7 @@
     </div>
     
     <div class="{{ siteContainer }} rvt-m-top-xl">
-      <form>
-        <table class="rvt-table">
-          <caption class="rvt-sr-only">Table example one</caption>
-          <thead>
-            <tr>
-              <th scope="col">
-                <span class="rvt-sr-only">Item Selection</span>
-                <span class="rvt-checkbox rvt-checkbox--sr-only-label">
-                  <input type="checkbox" id="checkbox-filter">
-                  <label for="checkbox-filter">
-                    Select all
-                  </label>
-                </span>
-              </th>
-              <th scope="col">Item</th>
-              <th scope="col">Owner</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for app in apps %}
-            <tr>
-              <td width="48">
-                <span class="rvt-checkbox rvt-checkbox--sr-only-label">
-                  <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ loop.index }}" id="checkbox-{{ loop.index }}">
-                  <label class="rvt-label" for="checkbox-{{ loop.index }}">
-                    <span class="rvt-sr-only">Option one</span>
-                  </label>
-                </span>
-              </td>
-              <th scope="row">
-                <a class="rvt-link-plain" href="/components/preview/application-details-page">{{ app.title }}</a>
-              </th>
-              <td>{{ app.user }}</td>
-              <td><span class="rvt-badge rvt-badge--success-secondary">Active</span></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </form>
-      
-      
+      {% include "@app-index-table-partial" %}
     </div>
     
      <!--
