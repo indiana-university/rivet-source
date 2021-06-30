@@ -3,20 +3,6 @@
 
 @use '../core' as *;
 
-ul,
-ol {
-  /**
-   * Zero out margins so we can use more uniform rem-based utility
-   * classes for spacing.
-   */
-  margin: 0;
-}
-
-ul li,
-ol li {
-  margin-top: $spacing-xs;
-}
-
 dl dt {
   font-weight: $font-weight-bold;
   margin-top: $spacing-sm;
@@ -30,20 +16,34 @@ dl dd {
   margin-left: 0;
 }
 
-.#{$prefix}-plain-list {
-  list-style: none;
-  padding: 0;
+.#{$prefix}-list,
+.#{$prefix}-list-inline,
+.#{$prefix}-list-plain {
+  margin: 0;
 }
 
-.#{$prefix}-inline-list {
+.#{$prefix}-list {
+  padding-left: $spacing-xl;
+}
+
+.#{$prefix}-list-inline,
+.#{$prefix}-list-plain {
+  list-style: none;
+  padding-left: 0;
+}
+
+.#{$prefix}-list-inline {
   display: flex;
   flex-wrap: wrap;
   gap: $spacing-xs $spacing-sm;
-  list-style: none;
-  margin-top: $spacing-xs;
-  padding: 0;
+}
 
-  & > li {
-    margin: 0;
-  }
+.#{$prefix}-list-inline,
+.#{$prefix}-list > li,
+:where(.#{$prefix}-list > li),
+.#{$prefix}-list__item,
+.#{$prefix}-list-plain > li,
+:where(.#{$prefix}-list-plain > li),
+.#{$prefix}-list-plain__item {
+  margin-top: $spacing-xs;
 }
