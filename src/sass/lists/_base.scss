@@ -30,33 +30,20 @@ dl dd {
   margin-left: 0;
 }
 
-@mixin plain-list {
+.#{$prefix}-plain-list {
   list-style: none;
   padding: 0;
 }
 
-@mixin inline-list {
-  /**
-   * This is a hack that remove extras space between elements that are
-   * set to display inline-block.
-   */
-  font-size: 0;
-
-  @include plain-list;
-
-  & li {
-    display: inline-block;
-    line-height: 1;
-    font-size: 1rem;
-    margin-right: $spacing-sm;
-    margin-bottom: $spacing-xs;
-  }
-}
-
-.#{$prefix}-plain-list {
-  @include plain-list;
-}
-
 .#{$prefix}-inline-list {
-  @include inline-list;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs $spacing-sm;
+  list-style: none;
+  margin-top: $spacing-xs;
+  padding: 0;
+
+  & > li {
+    margin: 0;
+  }
 }
