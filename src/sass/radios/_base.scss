@@ -3,6 +3,8 @@
 
 @use '../core' as *;
 
+$padding: 3rem / 16;
+
 .#{$prefix}-radio {
   display: inline-block;
   padding-left: $spacing-lg;
@@ -44,7 +46,7 @@
     background-color: $color-white-base;
     border: ($spacing-xxs / 2) solid $color-black-500;
     border-radius: $spacing-sm;
-    box-shadow: inset 0 0 0 (3rem / 16) $color-white-base;
+    box-shadow: inset 0 0 0 $padding $color-white-base;
     content: '';
     display: inline-block;
     height: $spacing-sm;
@@ -62,8 +64,8 @@
   input[type=radio]:focus ~ label::before {
     border-color: $color-blue-600;
     box-shadow:
-      inset 0 0 0 (3rem / 16) $color-white-base,
-      0 0 0 calc(4rem/16) $color-blue-200;
+      inset 0 0 0 $padding $color-white-base,
+      0 0 0 $spacing-xxs $color-blue-200;
   }
 
   input[type=radio]:disabled {
@@ -78,7 +80,7 @@
   input[type=radio]:disabled ~ label::before {
     background-color: $color-black-100;
     border-color: $color-black-300;
-    box-shadow: inset 0 0 0 (3rem / 16) $color-black-100;
+    box-shadow: inset 0 0 0 $padding $color-black-100;
   }
 
   input[type=radio]:disabled:checked ~ label::before {
@@ -87,6 +89,7 @@
 
   &__description {
     color: $color-black-600;
+    display: block;
     font-size: $ts-14;
   }
 }
