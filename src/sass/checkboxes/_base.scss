@@ -3,7 +3,7 @@
 
 @use '../core' as *;
 
-.rvt-checkbox {
+.#{$prefix}-checkbox {
   display: inline-block;
   padding-left: $spacing-lg;
   position: relative;
@@ -37,6 +37,7 @@
   input[type=checkbox] ~ label {
     cursor: pointer;
     display: inline-block;
+    line-height: 1.5;
   }
 
   input[type=checkbox] ~ label::before {
@@ -87,6 +88,7 @@
 
   &__description {
     color: $color-black-600;
+    display: block;
     font-size: $ts-14;
   }
 }
