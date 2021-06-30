@@ -1,29 +1,129 @@
-<legend>{{legend}}</legend>
-<ul {% if list %}class="rvt-plain-list"{% else %}class="rvt-inline-list"{% endif %}>
-  {% if options %}
-    {% for name, option in options %}
-      <li {% if option.hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
-        <input class="rvt-radio" type="radio" name="radio-{{option.id}}" id="radio-{{option.id}}-{{option.text}}" {{option.modifier}} {{option.checked}}>
-        {% if option.hiddenFields %}
-          <input type="hidden">
-        {% endif %}
-        <label class="rvt-label" for="radio-{{option.id}}-{{option.text}}">{{option.text}}</label>
-      </li>
-    {% endfor %}
-  {% else %}
-    <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
-      <input class="rvt-radio" type="radio" name="radio-{{id}}" id="radio-{{id}}-option-one" {{modifier}} {{checked}}>
-      {% if hiddenFields %}
+<fieldset class="rvt-fieldset">
+  <legend class="rvt-text-bold">Radio input (default)</legend>
+  <ul class="rvt-plain-list">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-1" id="radio-1-1">
+        <label for="radio-1-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-1" id="radio-1-2">
+        <label for="radio-1-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset class="rvt-fieldset rvt-m-top-md">
+  <legend class="rvt-text-bold">Radio input (checked)</legend>
+  <ul class="rvt-plain-list">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-2" id="radio-2-1" checked>
+        <label for="radio-2-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-2" id="radio-2-2">
+        <label for="radio-2-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset class="rvt-fieldset rvt-m-top-md">
+  <legend class="rvt-text-bold">Radio input (hidden fields)</legend>
+  <ul class="rvt-plain-list">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-3" id="radio-3-1" checked>
         <input type="hidden">
-      {% endif %}
-      <label class="rvt-label" for="radio-{{id}}-option-one">Option one</label>
+        <label for="radio-3-1">Option one</label>
+      </div>
     </li>
-    <li {% if hiddenFields %}class="rvt-radio-wrapper"{% endif %}>
-        <input class="rvt-radio" type="radio" name="radio-{{id}}" id="radio-{{id}}-option-two" {{modifier}}>
-        {% if hiddenFields %}
-          <input type="hidden">
-        {% endif %}
-        <label class="rvt-label" for="radio-{{id}}-option-two">Option two</label>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-3" id="radio-3-2">
+        <input type="hidden">
+        <label for="radio-3-2">Option two</label>
+      </div>
     </li>
-  {% endif %}
-</ul>
+  </ul>
+</fieldset>
+
+<fieldset class="rvt-fieldset rvt-m-top-md">
+  <legend class="rvt-text-bold">Radio input (disabled)</legend>
+  <ul class="rvt-plain-list">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-4" id="radio-4-1" checked disabled>
+        <label for="radio-4-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-4" id="radio-4-2" disabled>
+        <label for="radio-4-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset class="rvt-fieldset rvt-m-top-md">
+  <legend class="rvt-text-bold">Radio input (inline list)</legend>
+  <ul class="rvt-inline-list">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-5" id="radio-5-1">
+        <label for="radio-5-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-5" id="radio-5-2">
+        <label for="radio-5-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset class="rvt-fieldset rvt-m-top-md">
+  <legend class="rvt-text-bold">Radio input (screen reader only label)</legend>
+  <ul class="rvt-plain-list">
+    <li>
+      <div class="rvt-radio rvt-radio--sr-only-label">
+        <input type="radio" name="radio-group-6" id="radio-6-1">
+        <label for="radio-6-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio rvt-radio--sr-only-label">
+        <input type="radio" name="radio-group-6" id="radio-6-2">
+        <label for="radio-6-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset class="rvt-fieldset rvt-m-top-md">
+  <legend class="rvt-text-bold">Radio input (description)</legend>
+  <ul class="rvt-plain-list">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-7" id="radio-7-1" aria-describedby="radio-7-1-description">
+        <label for="radio-7-1">Option one</label>
+        <div id="radio-7-1-description" class="rvt-radio__description">This is a description for the radio button.</div>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-7" id="radio-7-2" aria-describedby="radio-7-2-description">
+        <label for="radio-7-2">Option two</label>
+        <div id="radio-7-2-description" class="rvt-radio__description">This is a description for the radio button.</div>
+      </div>
+    </li>
+  </ul>
+</fieldset>
