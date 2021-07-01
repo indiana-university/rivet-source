@@ -19,11 +19,14 @@ dl dd {
 .#{$prefix}-list,
 .#{$prefix}-list-inline,
 .#{$prefix}-list-plain {
-  margin: 0;
+  display: flex;
+  gap: $spacing-xs $spacing-sm;
+  margin: $spacing-xs 0 0 0;
 }
 
-.#{$prefix}-list {
-  padding-left: $spacing-xl;
+.#{$prefix}-list,
+.#{$prefix}-list-plain {
+  flex-direction: column;
 }
 
 .#{$prefix}-list-inline,
@@ -32,18 +35,12 @@ dl dd {
   padding-left: 0;
 }
 
-.#{$prefix}-list-inline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-xs $spacing-sm;
+.#{$prefix}-list,
+.#{$prefix}-list-plain .#{$prefix}-list-plain {
+  padding-left: $spacing-lg;
 }
 
-.#{$prefix}-list-inline,
-.#{$prefix}-list > li,
-:where(.#{$prefix}-list > li),
-.#{$prefix}-list__item,
-.#{$prefix}-list-plain > li,
-:where(.#{$prefix}-list-plain > li),
-.#{$prefix}-list-plain__item {
-  margin-top: $spacing-xs;
+.#{$prefix}-list-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
 }

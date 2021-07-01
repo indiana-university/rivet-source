@@ -18,10 +18,9 @@ Ordered lists are created by wrapping an `<ol class="rvt-list">` tag around `li`
 
 ```html
 <ol class="rvt-list">
-  <li>List Item One</li>
-  <li>List Item Two</li>
-  <li>List Item Three</li>
-  <li>List Item Four</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ol>
 ```
 
@@ -31,10 +30,9 @@ Unordered lists are created by wrapping an `<ul class="rvt-list">` tag around `l
 
 ```html
 <ul class="rvt-list">
-  <li>List Item One</li>
-  <li>List Item Two</li>
-  <li>List Item Three</li>
-  <li>List Item Four</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 
@@ -44,23 +42,21 @@ You can use the helper class `rvt-list-plain` to remove list formatting for disp
 
 ```html
 <ul class="rvt-list-plain">
-  <li>List Item One</li>
-  <li>List Item Two</li>
-  <li>List Item Three</li>
-  <li>List Item Four</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 
 ### Inline lists
 
-You can use the helper class `rvt-list-inline` to remove list formatting and display list items inline. These items will have some extra right and bottom margin applied to them (for instance, where they flow onto more than one line).
+You can use the helper class `rvt-list-inline` to remove list formatting and display list items inline. Items will wrap across multiple lines as needed.
 
 ```html
 <ul class="rvt-list-inline">
-  <li>List Item One</li>
-  <li>List Item Two</li>
-  <li>List Item Three</li>
-  <li>List Item Four</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 
