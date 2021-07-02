@@ -21,12 +21,7 @@ dl dd {
 .#{$prefix}-list-plain {
   display: flex;
   gap: $spacing-xs $spacing-sm;
-  margin: $spacing-sm 0 0 0;
-}
-
-.#{$prefix}-list .#{$prefix}-list,
-.#{$prefix}-list-plain .#{$prefix}-list-plain {
-  margin-top: $spacing-xs;
+  margin: $spacing-xs 0 0 0;
 }
 
 .#{$prefix}-list,
