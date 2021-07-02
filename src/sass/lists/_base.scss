@@ -31,7 +31,8 @@ dl dd {
 
 .#{$prefix}-list-inline,
 .#{$prefix}-list-plain {
-  list-style: none;
+  // Equivalent to `list-style: none`, but retains list semantics in VoiceOver.
+  list-style: '';
   padding-left: 0;
 }
 
