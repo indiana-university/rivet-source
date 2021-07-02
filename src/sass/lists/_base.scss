@@ -3,20 +3,6 @@
 
 @use '../core' as *;
 
-ul,
-ol {
-  /**
-   * Zero out margins so we can use more uniform rem-based utility
-   * classes for spacing.
-   */
-  margin: 0;
-}
-
-ul li,
-ol li {
-  margin-top: $spacing-xs;
-}
-
 dl dt {
   font-weight: $font-weight-bold;
   margin-top: $spacing-sm;
@@ -30,20 +16,32 @@ dl dd {
   margin-left: 0;
 }
 
-.#{$prefix}-plain-list {
-  list-style: none;
-  padding: 0;
+.#{$prefix}-list,
+.#{$prefix}-list-inline,
+.#{$prefix}-list-plain {
+  display: flex;
+  gap: $spacing-xs $spacing-sm;
+  margin: $spacing-xs 0 0 0;
 }
 
-.#{$prefix}-inline-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-xs $spacing-sm;
-  list-style: none;
-  margin-top: $spacing-xs;
-  padding: 0;
+.#{$prefix}-list,
+.#{$prefix}-list-plain {
+  flex-direction: column;
+}
 
-  & > li {
-    margin: 0;
-  }
+.#{$prefix}-list-inline,
+.#{$prefix}-list-plain {
+  // Equivalent to `list-style: none`, but retains list semantics in VoiceOver.
+  list-style: '';
+  padding-left: 0;
+}
+
+.#{$prefix}-list,
+.#{$prefix}-list-plain .#{$prefix}-list-plain {
+  padding-left: $spacing-lg;
+}
+
+.#{$prefix}-list-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
 }
