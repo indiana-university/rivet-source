@@ -3,19 +3,6 @@
 
 @use '../core' as *;
 
-dl dt {
-  font-weight: $font-weight-bold;
-  margin-top: $spacing-sm;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-dl dd {
-  margin-left: 0;
-}
-
 .#{$prefix}-list,
 .#{$prefix}-list-inline,
 .#{$prefix}-list-plain {
@@ -44,4 +31,64 @@ dl dd {
 .#{$prefix}-list-inline {
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.#{$prefix}-list-description-1 {
+  margin: 0;
+
+  &__term {
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-sm;
+
+    & + & {
+      margin-top: 0;
+    }
+  }
+
+  &__details {
+    margin-left: 0;
+  }
+}
+
+:where(.#{$prefix}-list-description-2) {
+  margin: 0;
+
+  dt {
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-sm;
+  }
+
+  dt + dt {
+    margin-top: 0;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+}
+
+.#{$prefix}-list-description-3 {
+  margin: 0;
+
+  dt {
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-sm;
+  }
+
+  dt + dt {
+    margin-top: 0;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+}
+
+.dt-test {
+  font-weight: normal;
+  margin-top: 2rem;
+}
+
+.dd-test {
+  margin-left: 1rem;
 }
