@@ -1,6 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use "sass:map";
 @use '../core' as *;
 
 /* stylelint-disable */
@@ -11,9 +12,22 @@
  * apply different font sizes based on screen size.
  */
 
-@each $pixels, $rems in $type-scale {
-  .#{$prefix}-ts-#{$pixels} {
+@each $key, $rems in $font-size {
+  .#{$prefix}-fs-#{$key} {
     font-size: $rems !important;
+  }
+}
+
+@each $key, $rems in $line-height {
+  .#{$prefix}-lh-#{$key} {
+    line-height: $rems !important;
+  }
+}
+
+@each $key, $rems in $font-size {
+  .#{$prefix}-ts-#{$key} {
+    font-size: $rems !important;
+    line-height: map.get($line-height, $key) !important;
   }
 }
 
@@ -21,7 +35,7 @@
  * These responsive type scale classes make it easy to apply different
  * font sizes based on screen sizes.
  * Example:
- * <h1 class="ts-18 ts-20-md-up ts-32-lg-up">Hello, world!</h1>
+ * <h1 class="rvt-ts-4 rvt-ts-5-md-up rvt-ts-6-lg-up">Hello, world!</h1>
  *
  * The font size on this h1 element would be 18px on small screens,
  * 20px on medium screens and up, and 32px on large screens and up.
@@ -29,9 +43,30 @@
 
 @each $variable, $size in $breakpoints {
   @include mq($size) {
-    @each $pixels, $rems in $type-scale {
-      .#{$prefix}-ts-#{$pixels}-#{$variable}-up {
+    @each $key, $rems in $font-size {
+      .#{$prefix}-fs-#{$key}-#{$variable}-up {
         font-size: $rems !important;
+      }
+    }
+  }
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $key, $rems in $line-height {
+      .#{$prefix}-ts-#{$key}-#{$variable}-up {
+        line-height: $rems !important;
+      }
+    }
+  }
+}
+
+@each $variable, $size in $breakpoints {
+  @include mq($size) {
+    @each $key, $rems in $font-size {
+      .#{$prefix}-ts-#{$key}-#{$variable}-up {
+        font-size: $rems !important;
+        line-height: map.get($line-height, $key) !important;
       }
     }
   }

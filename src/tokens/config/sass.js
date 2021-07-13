@@ -16,6 +16,18 @@ module.exports = [
     mapName: 'colors'
   },
   {
+    destination: 'maps/font-size.scss',
+    filter: 'isFontSize',
+    format: 'rvt/scss/map-simple',
+    mapName: 'font-size'
+  },
+  {
+    destination: 'maps/line-height.scss',
+    filter: 'isLineHeight',
+    format: 'rvt/scss/map-simple',
+    mapName: 'line-height'
+  },
+  {
     destination: 'maps/type-scale.scss',
     filter: 'isTypeScale',
     format: 'rvt/scss/map-simple',

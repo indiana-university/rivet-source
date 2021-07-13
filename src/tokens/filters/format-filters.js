@@ -12,6 +12,20 @@ const isColor = {
   }
 };
 
+const isFontSize = {
+  name: 'isFontSize',
+  matcher: function(prop) {
+    return prop.attributes.category === 'font-size';
+  }
+};
+
+const isLineHeight = {
+  name: 'isLineHeight',
+  matcher: function(prop) {
+    return prop.attributes.category === 'line-height';
+  }
+};
+
 const isTypeScale = {
   name: 'isTypeScale',
   matcher: function(prop) {
@@ -36,6 +50,8 @@ const isZIndex = {
 module.exports = {
   isBreakpoint,
   isColor,
+  isFontSize,
+  isLineHeight,
   isTypeScale,
   isWidth,
   isZIndex

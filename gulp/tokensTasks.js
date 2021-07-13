@@ -13,6 +13,8 @@ const {
 const {
   isBreakpoint,
   isColor,
+  isFontSize,
+  isLineHeight,
   isTypeScale,
   isWidth,
   isZIndex
@@ -21,6 +23,8 @@ const {
 function compileTokens(callback) {
   StyleDictionary.registerFilter(isBreakpoint);
   StyleDictionary.registerFilter(isColor);
+  StyleDictionary.registerFilter(isFontSize);
+  StyleDictionary.registerFilter(isLineHeight);
   StyleDictionary.registerFilter(isTypeScale);
   StyleDictionary.registerFilter(isWidth);
   StyleDictionary.registerFilter(isZIndex);

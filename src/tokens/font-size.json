@@ -1,0 +1,56 @@
+{
+  "font-size": {
+    "1": {
+      "value": ".75rem",
+      "comment": "12px"
+    },
+    "2": {
+      "value": ".875rem",
+      "comment": "14px"
+    },
+    "3": {
+      "value": "1rem",
+      "comment": "16px"
+    },
+    "4": {
+      "value": "1.125rem",
+      "comment": "18px"
+    },
+    "5": {
+      "value": "1.25rem",
+      "comment": "20px"
+    },
+    "6": {
+      "value": "1.4375rem",
+      "comment": "23px"
+    },
+    "7": {
+      "value": "1.625rem",
+      "comment": "26px"
+    },
+    "8": {
+      "value": "1.8125rem",
+      "comment": "29px"
+    },
+    "9": {
+      "value": "2rem",
+      "comment": "32px"
+    },
+    "10": {
+      "value": "2.25rem",
+      "comment": "36px"
+    },
+    "11": {
+      "value": "2.5625rem",
+      "comment": "41px"
+    },
+    "12": {
+      "value": "2.875rem",
+      "comment": "46px"
+    },
+    "13": {
+      "value": "3.25rem",
+      "comment": "52px"
+    }
+  }
+}

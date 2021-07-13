@@ -60,41 +60,46 @@ context:
         - abbr: -right
           name: Right
     typeScale:
-        - abbr: -xxs
-          rem: .75
-          pixels: 12
-        - abbr: -xs
-          rem: .875
-          pixels: 14
-        - abbr: -base
-          rem: 1
-          pixels: 16
-        - rem: 1.125
-          pixels: 18
-        - abbr: -sm
-          rem: 1.25
-          pixels: 20
-        - rem: 1.4375
-          pixels: 23
-        - abbr: -md
-          rem: 1.625
-          pixels: 26
-        - rem: 1.8125
-          pixels: 29
-        - abbr: -lg
-          rem: 2
-          pixels: 32
-        - rem: 2.25
-          pixels: 36
-        - abbr: -xl
-          rem: 2.5625
-          pixels: 41
-        - rem: 2.875
-          pixels: 46
-        - abbr: -xxl
-          rem: 3.25
-          pixels: 52
-    typeScaleText: Lorem ipsum
+        - id: 1
+          fs: 12
+          lh: 16
+        - id: 2
+          fs: 14
+          lh: 20
+        - id: 3
+          fs: 16
+          lh: 24
+        - id: 4
+          fs: 18
+          lh: 24
+        - id: 5
+          fs: 20
+          lh: 28
+        - id: 6
+          fs: 23
+          lh: 32
+        - id: 7
+          fs: 26
+          lh: 36
+        - id: 8
+          fs: 29
+          lh: 40
+        - id: 9
+          fs: 32
+          lh: 44
+        - id: 10
+          fs: 36
+          lh: 48
+        - id: 11
+          fs: 41
+          lh: 52
+        - id: 12
+          fs: 46
+          lh: 56
+        - id: 13
+          fs: 52
+          lh: 60
+    typeScaleText: Chimney magpie gymnast. Jazzy paella flutter. Manmade doorknob windows bagpipe. Waffle thermos cupboard prologue.
     colors:
         - variable: white
           hex: "ffffff"

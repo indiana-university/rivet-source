@@ -1,19 +1,19 @@
 <table>
-    <caption class="rvt-sr-only">Rivet type scale</caption>
-    <thead>
-        <th>Helper Class</th>
-        <th>rem</th>
-        <th>px</th>
-        <th>Actual size</th>
-    </thead>
-    <tbody>
-        {% for type in typeScale %}
-            <tr>
-                <td><code>.rvt-ts-{{ type.pixels }}</code>{% if type.abbr %}, <code>.rvt-ts{{ type.abbr }}</code>{% endif %}</td>
-                <td>{{ type.rem }}rem</td>
-                <td>{{ type.pixels }}px</td>
-                <td class="rvt-ts-{{ type.pixels }}">{{ typeScaleText }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
+  <caption class="rvt-sr-only">Rivet type scale</caption>
+  <thead>
+    <th>Class</th>
+    <th class="rvt-text-nobr">Font size</th>
+    <th class="rvt-text-nobr">Line height</th>
+    <th>Sample</th>
+  </thead>
+  <tbody>
+    {% for type in typeScale %}
+      <tr>
+        <td class="rvt-text-nobr"><code>.rvt-ts-{{ type.id }}</code></td>
+        <td>{{ type.fs }}px</td>
+        <td>{{ type.lh }}px</td>
+        <td class="rvt-ts-{{ type.id }}">{{ typeScaleText }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
 </table>
