@@ -84,7 +84,7 @@
     text-decoration: none;
     color: $color-black-base;
     display: flex;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     margin-right: auto;
     padding: $spacing-xs 0 $spacing-xs $spacing-xxs;
     width: 100%;
@@ -118,7 +118,7 @@
 
   &__submenu-link {
     text-decoration: none;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     display: block;
     padding: $spacing-xs $spacing-sm;
     width: 100%;
@@ -141,7 +141,7 @@
     position: relative;
     top: unset;
     left: unset;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     align-items: center;
 
     &__list {

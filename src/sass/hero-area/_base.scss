@@ -10,14 +10,14 @@
   &__eyebrow {
     color: $color-crimson-base;
     font-weight: 400;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     display: block;
     text-transform: uppercase;
     letter-spacing: $spacing-xxs * .125;
   }
 
   &__title {
-    font-size: $ts-36;
+    font-size: $font-size-10;
     font-weight: $font-weight-bold;
     line-height: 1.2;
 
@@ -25,7 +25,7 @@
   }
 
   &__teaser {
-    font-size: $ts-18;
+    font-size: $font-size-4;
     color: $color-black-500;
   }
 
@@ -51,7 +51,7 @@
 
   &__image-caption {
     color: $color-black-500;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     padding-top: $spacing-xs;
     padding-left: $spacing-xs;
   }

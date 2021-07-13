@@ -1,11 +1,11 @@
 @use '../core' as *;
 
 $avatar-fonts: (
-  'xs': $ts-14,
-  'sm': $ts-16,
-  'md': $ts-23,
-  'lg': $ts-32,
-  'xl': $ts-41
+  'xs': $font-size-2,
+  'sm': $font-size-3,
+  'md': $font-size-6,
+  'lg': $font-size-9,
+  'xl': $font-size-11
 );
 
 $avatar-widths: (
@@ -36,7 +36,7 @@ $avatar-widths: (
   }
 
   &--xs {
-    font-size: $ts-14;
+    font-size: $font-size-2;
     height: map-get($avatar-widths, 'xs');
     width: map-get($avatar-widths, 'xs');
   }
@@ -47,19 +47,19 @@ $avatar-widths: (
   }
 
   &--md {
-    font-size: $ts-23;
+    font-size: $font-size-6;
     height: map-get($avatar-widths, 'md');
     width: map-get($avatar-widths, 'md');
   }
 
   &--lg {
-    font-size: $ts-32;
+    font-size: $font-size-9;
     height: map-get($avatar-widths, 'lg');
     width: map-get($avatar-widths, 'lg');
   }
 
   &--xl {
-    font-size: $ts-41;
+    font-size: $font-size-11;
     height: map-get($avatar-widths, 'xl');
     width: map-get($avatar-widths, 'xl');
   }

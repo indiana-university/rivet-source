@@ -28,12 +28,6 @@ module.exports = [
     mapName: 'line-height'
   },
   {
-    destination: 'maps/type-scale.scss',
-    filter: 'isTypeScale',
-    format: 'rvt/scss/map-simple',
-    mapName: 'type-scale'
-  },
-  {
     destination: 'maps/width.scss',
     filter: 'isWidth',
     format: 'rvt/scss/map-simple',

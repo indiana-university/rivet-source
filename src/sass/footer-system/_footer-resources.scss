@@ -8,13 +8,13 @@
   padding-bottom: $spacing-sm;
 
   &__heading {
-    font-size: $ts-18;
+    font-size: $font-size-4;
     font-weight: $font-weight-bold;
     margin-top: $spacing-md;
   }
 
   &__text-block {
-    font-size: $ts-14;
+    font-size: $font-size-2;
     margin-top: $spacing-sm;
   }
 
@@ -27,7 +27,7 @@
   &__list-item a {
     color: $color-white-base;
     display: block;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     text-decoration: none;
 
     &:hover {

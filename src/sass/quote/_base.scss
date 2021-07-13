@@ -23,7 +23,7 @@
 
   &__text {
     font-family: 'GeorgiaPro', Georgia, 'Times New Roman', Times, serif;
-    font-size: $ts-26;
+    font-size: $font-size-7;
     font-style: italic;
     margin: 0;
     color: $color-black-700;
@@ -59,7 +59,7 @@
 @include mq($breakpoint-md) {
   .#{$prefix}-quote {
     &__text {
-      font-size: $ts-32;
+      font-size: $font-size-9;
     }
   }
 }

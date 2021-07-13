@@ -15,7 +15,6 @@ const {
   isColor,
   isFontSize,
   isLineHeight,
-  isTypeScale,
   isWidth,
   isZIndex
 } = require('../src/tokens/filters/format-filters');
@@ -25,7 +24,6 @@ function compileTokens(callback) {
   StyleDictionary.registerFilter(isColor);
   StyleDictionary.registerFilter(isFontSize);
   StyleDictionary.registerFilter(isLineHeight);
-  StyleDictionary.registerFilter(isTypeScale);
   StyleDictionary.registerFilter(isWidth);
   StyleDictionary.registerFilter(isZIndex);
   StyleDictionary.registerFormat(jsonVariables);

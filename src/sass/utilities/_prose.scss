@@ -6,18 +6,21 @@
   line-height: 1.65;
 
   h1 {
-    font-size: $ts-32;
+    font-size: $font-size-9;
+    line-height: $line-height-9;
   }
 
   h2,
   h3 {
-    font-size: $ts-23;
+    font-size: $font-size-6;
+    line-height: $line-height-6;
   }
 
   h4,
   h5,
   h6 {
-    font-size: $ts-20;
+    font-size: $font-size-5;
+    line-height: $line-height-5;
   }
 
   h1,
@@ -30,7 +33,6 @@
     --flow-space: 3rem;
 
     font-weight: $font-weight-bold;
-    line-height: 1.2;
     scroll-margin-top: $spacing-md;
   }
 

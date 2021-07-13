@@ -11,7 +11,7 @@
 
   &__title {
     font-weight: $font-weight-bold;
-    font-size: $ts-18;
+    font-size: $font-size-4;
 
     /**
      * We'll put bottom margin on the title here so that the .alert can
@@ -28,9 +28,10 @@
   }
 
   &__message {
-    margin-top: 0;
+    font-size: $font-size-2;
+    line-height: $line-height-2;
     margin-bottom: 0;
-    font-size: $ts-14;
+    margin-top: 0;
     padding-right: $spacing-md;
   }
 

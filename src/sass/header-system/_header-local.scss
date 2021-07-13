@@ -17,7 +17,7 @@
   &__title {
     color: $color-black-base;
     text-decoration: none;
-    font-size: $ts-16;
+    font-size: $font-size-3;
     font-weight: $font-weight-bold;
     display: block;
     flex-shrink: 0;
@@ -56,7 +56,7 @@
   .rvt-header-local {
     &__title {
       border-right: 1px solid $color-black-200;
-      font-size: $ts-18;
+      font-size: $font-size-4;
       padding-right: $spacing-sm;
       margin-right: $spacing-sm;
     }

@@ -41,8 +41,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 1.125rem;
+  font-size: $font-size-4;
   font-weight: $font-weight-regular;
+  line-height: $line-height-4;
   margin: 0;
 }
 
@@ -63,9 +64,10 @@ figure {
 }
 
 figcaption {
-  padding-top: $spacing-sm;
+  font-size: $font-size-2;
+  line-height: $line-height-2;
   padding-left: $spacing-sm;
-  font-size: $ts-14;
+  padding-top: $spacing-sm;
 }
 
 em {

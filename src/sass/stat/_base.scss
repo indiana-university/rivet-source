@@ -26,13 +26,13 @@
   }
 
   &__number {
-    font-size: $ts-41;
+    font-size: $font-size-11;
     line-height: 1.2;
   }
 
   &__description {
     color: $color-black-500;
-    font-size: $ts-14;
+    font-size: $font-size-2;
     letter-spacing: .025rem;
 
     --flow-space: 0;

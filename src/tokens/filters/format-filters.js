@@ -26,13 +26,6 @@ const isLineHeight = {
   }
 };
 
-const isTypeScale = {
-  name: 'isTypeScale',
-  matcher: function(prop) {
-    return prop.attributes.category === 'ts';
-  }
-};
-
 const isWidth = {
   name: 'isWidth',
   matcher: function(prop) {
@@ -52,7 +45,6 @@ module.exports = {
   isColor,
   isFontSize,
   isLineHeight,
-  isTypeScale,
   isWidth,
   isZIndex
 };
