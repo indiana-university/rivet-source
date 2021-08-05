@@ -1,0 +1,142 @@
+{% include "@header-system-main-nav" %}
+<!--
+  #1: <main> element set up
+  Note here how it is required to use Rivet flexbox utility classes
+  on the <main> element in this layout configuration. This differs from
+  how some other layouts are set up.
+-->
+<main id="main-content" class="rvt-flex rvt-flex-column rvt-grow-1">
+  <!--
+    #2: Start page intro with subnav section:
+    This section acts as the introduction to the page. It contains breadcrumb
+    navigation (optional) a page/view title (required) and a Subnav (optional)
+    used to create in page navigation between screens in an app.
+  -->
+  <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
+    <!--
+      Note this div is used to constrain the max width, add default spacing,
+      and set typorgraphic defaults for the intro section.
+    -->
+    <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
+      <!--
+        This breadcrumb nav should be used for apps with a deeply nested structure
+        of pages/screens, althought it is not strictly required and the page intro
+        will display correctly without it.
+      -->
+      {% include "@layouts-breadcrumb-partial" %}
+      <h1 class="rvt-m-top-xs">Basic details view</h1>
+    </div>
+  </div><!-- End page intro -->
+  
+  <!--
+    #2: Start layout wrapper/main content area
+    This is a bit different than other layouts so far. The `rvt-layout__wrapper`
+    and additional layout classes are applied to an element nested in side the 
+    <main> element instead of the <main> element itself.
+    
+    Other than the placement of the rvt-layout__wrapper classes. This functions
+    the same as all the other Rivet "details"-like layouts.
+  -->
+  <div class="rvt-layout__wrapper [ rvt-p-tb-xxl ]">
+    <div class="{{ siteContainer }}">  
+      <div class="rvt-row">
+        <div class="rvt-cols-8-md rvt-flow rvt-prose">
+        
+          <div class="rvt-alert rvt-alert--success" role="alertdialog" aria-labelledby="success-alert-title" data-rvt-alert="success">
+            <div class="rvt-alert__title" id="success-alert-title">Thank you!</div>
+            <p class="rvt-alert__message">We have received your application. Check your email in a few weeks to find out if you’ve
+              been admitted.</p>
+            <button class="rvt-alert__dismiss" data-rvt-alert-close>
+              <span class="rvt-sr-only">Dismiss this alert</span>
+              <svg role="img" alt="" width="16" height="16" viewBox="0 0 16 16">
+                <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+              </svg>
+            </button>
+          </div>
+          
+          <form action="">
+            <fieldset class="rvt-fieldset">
+              <legend class="rvt-legend [ rvt-ts-20 ]">First set of fields</legend>
+              
+              <div class="rvt-m-top-sm">
+                <label class="rvt-label" for="text-one">Text input</label>
+                <input class="rvt-input" type="text" id="text-one">
+              </div>
+              <div class="rvt-m-top-lg">
+                <label class="rvt-label" for="select-one">Select input</label>
+                <select class="rvt-select" name="" id="select-one">
+                  <option value="">Option one</option>
+                  <option value="">Option two</option>
+                  <option value="">Option three</option>
+                  <option value="">Option four</option>
+                </select>
+              </div>
+              
+              <div class="rvt-m-top-lg">
+                <label for="textarea-1" class="rvt-label">Textarea</label>
+                <textarea id="textarea-1" class="rvt-textarea"></textarea>
+              </div>
+            </fieldset>
+            
+            <fieldset class="rvt-fieldset rvt-m-top-xl">
+              <legend class="rvt-legend [ rvt-ts-20 ]">Another set of fields</legend>
+              
+              <ul class="rvt-plain-list rvt-width-xl rvt-m-top-sm">
+                <li>
+                  <div class="rvt-checkbox">
+                    <input type="checkbox" name="checkbox-demo" id="checkbox-1">
+                    <!--
+                      Can work with hidden input elements that some framework template languages generate
+                    -->
+                    <input type="hidden">
+                    <label for="checkbox-1">Option one</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="rvt-checkbox">
+                    <input type="checkbox" name="checkbox-demo" id="indeterminate">
+                    <label for="indeterminate">Option two</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="rvt-checkbox">
+                    <input aria-describedby="checkbox-description" type="checkbox" name="checkbox-demo" id="checkbox-long">
+                    <label for="checkbox-long">Just a quick note</label>
+                    <div id="checkbox-description" class="rvt-checkbox__description">This checkbox has a really long label that can wrap on to two lines and still have nice left alignment.</div>
+                  </div>
+                </li>
+              </ul>
+            </fieldset>
+            
+            <fieldset class="rvt-fieldset rvt-m-top-xl">
+              <legend class="rvt-legend [ rvt-ts-20 ]">A third set of fields</legend>
+              <ul class="rvt-inline-list">
+                <li>
+                  <div class="rvt-radio">
+                    <input type="radio" name="radio-group-5" id="radio-5-1">
+                    <label for="radio-5-1">Option one</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="rvt-radio">
+                    <input type="radio" name="radio-group-5" id="radio-5-2">
+                    <label for="radio-5-2">Option two</label>
+                  </div>
+                </li>
+              </ul>
+            </fieldset>
+            
+            <div class="rvt-m-top-xl">
+              <button class="rvt-button">Save changes</button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</main>
+{% render "@footer-system-base", {
+  classes: "rvt-footer-base--light"
+}, true %}

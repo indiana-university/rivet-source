@@ -17,7 +17,7 @@
   <div class="rvt-bg-black-000 rvt-border-bottom rvt-p-top-xl">
     <div class="{{ siteContainer }} rvt-prose rvt-flow rvt-p-bottom-xl">
       {% include "@layouts-breadcrumb-partial" %}
-      <h1 class="rvt-m-top-xs">Index Table of Items</h1>
+      <h1 class="rvt-m-top-xs">Index List of Items</h1>
     </div>
     <!--
       This container constrains the max-width of the Subnav. If your app only has
@@ -25,7 +25,7 @@
       need this Subnav. It can be removed without affecting the display of the 
       intro section.
     -->
-    <div class="{{ siteContainer }}">
+    {# <div class="{{ siteContainer }}">
       {%- set listIndexContent -%}
         <span class="rvt-color-black-300 rvt-flex">
           {% include "@bell-icon" %}
@@ -55,14 +55,13 @@
         id: "App settings navigation",
         classes: "[ rvt-border-bottom-none ]",
         items: [
-          {
-            content: listIndexContent,
+          { content: listIndexContent,
+            current: true,
             link: "/components/preview/application-index-list"
           },
           {
             content: tableIndexContent,
-            link: "/components/preview/application-index-table",
-            current: true
+            link: "/components/preview/application-index-table"
           },
           {
             content: detailsContent,
@@ -71,68 +70,44 @@
           { content: editContent }
         ]
       }, true %}
-    </div>
+    </div> #}
   </div>
 
   <div class="rvt-layout__wrapper">
     
-    <!--
-      Filter block
-    -->
-    <div class="{{ siteContainer }} rvt-m-top-xl">
-      <div class="rvt-flex-md-up rvt-items-center">
-        <div class="rvt-grow-1">
+    <div class="{{ siteContainer }} rvt-p-tb-xl">
+    
+      <div class="rvt-flex-md-up">
+        <div class="rvt-grow-1 rvt-m-bottom-md">
           <label class="rvt-label" for="search">Type to filter</label>
           <input class="rvt-input" type="text" id="search">
         </div>
-        <div class="rvt-m-left-md-md-up rvt-grow-1">
-          <label class="rvt-label" for="status">Status</label>
-          <select class="rvt-select" name="" id="status">
-            <option value="on-hold">On hold</option>
-            <option value="active">Active</option>
-            <option value="archived">Archived</option>
+        <div class="rvt-grow-1 rvt-m-bottom-md rvt-m-left-lg-md-up">
+          <label class="rvt-label" for="permission">Filter by permission</label>
+          <select name="" id="permission" class="rvt-select">
+            <option value="owner">Owner</option>
+            <option value="developer">Developer</option>
+            <option value="gues">Guest</option>
           </select>
         </div>
-        
-        <div class="rvt-dropdown [ rvt-m-top-md rvt-m-left-md-md-up ]" data-rvt-dropdown="dropdownButtons">
-          <button type="button" class="rvt-button" data-rvt-dropdown-toggle="dropdownButtons" aria-haspopup="true" aria-expanded="false">
-            <span class="rvt-dropdown__toggle-text">Actions</span>
-            <svg role="img" alt="" class="rvt-m-left-xs" width="16" height="16" viewBox="0 0 16 16">
-              <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
-            </svg>
-          </button>
-
-          <div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdownButtons" role="menu" hidden data-rvt-dropdown-menu>
-            <form>
-              <button type="button" name="archive" role="menuitemradio">
-                <span>Archive</span>
-              </button>
-              <button type="button" name="put-on-hold" role="menuitemradio">
-                <span>Put on hold</span>
-              </button>
-              <button name="delete" type="button" role="menuitemradio">
-                <span>Delete</span>
-              </button>
-            </form>
-          </div>
-        </div>
-        
+        <button class="rvt-button rvt-m-left-lg-md-up rvt-m-top-md-md-up">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
+          </svg>
+          <span class="rvt-m-left-xs">Create new entry</span>
+        </button>
       </div>
-    </div>
-    
-    <div class="{{ siteContainer }} rvt-m-top-xl">
-      {% include "@app-index-table-partial" %}
-    </div>
-    
+      
+      {% include "@app-index-list-partial" %}
      <!--
         #4: Start pagination
       -->
-      <div class="{{ siteContainer }} rvt-m-top-xl">
-        <div class="rvt-p-bottom-xxl rvt-flex rvt-justify-center">
-          {% render "@pagination" %}
-        </div>
+      <div class="rvt-m-top-xl rvt-flex rvt-justify-center">
+        {% render "@pagination" %}
       </div>
-  </div>
+    </div>
+    
+  </div><!-- End layout-wrapper -->
 </main>
 {% render "@footer-system-base", {
   classes: "rvt-footer-base--light"
