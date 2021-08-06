@@ -23,10 +23,10 @@
         of pages/screens, althought it is not strictly required and the page intro
         will display correctly without it.
       -->
-      {# {% include "@layouts-breadcrumb-partial" %} #}
-      <h1 class="rvt-m-top-xs">Details view</h1>
+      {% include "@layouts-breadcrumb-partial" %}
+      <h1 class="rvt-m-top-xs">Details view with sidebar</h1>
     </div>
-    <!--
+    {# <!--
       This container constrains the max-width of the Subnav. If your app only has
       a few screens and a relatively flat information architecture you might not
       need this Subnav. It can be removed without affecting the display of the 
@@ -78,7 +78,7 @@
           { content: editContent }
         ]
       }, true %}
-    </div>
+    </div> #}
   </div><!-- End page intro -->
   
   <!--
