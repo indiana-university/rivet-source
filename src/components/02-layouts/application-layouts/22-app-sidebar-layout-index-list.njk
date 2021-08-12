@@ -69,72 +69,46 @@
   #1: <main> element set up
 -->
 <main id="main-content" class="rvt-layout__wrapper rvt-layout__wrapper--details">
-  <div class="rvt-layout__sidebar [ rvt-p-top-xxl rvt-p-lr-md rvt-bg-black-000 ]" id="section-nav">
+  <div class="rvt-layout__sidebar [ rvt-p-top-xxl-md-up rvt-p-lr-md rvt-bg-black-000 ]" id="section-nav">
     <form action="">
-      <fieldset class="rvt-fieldset">
+      <fieldset class="rvt-fieldset [ rvt-flow ]">
         <legend class="rvt-legend [ rvt-ts-14 rvt-text-uppercase ]">Filter options</legend>
         
-        <ul class="rvt-plain-list rvt-width-xl rvt-m-top-sm">
-          <li>
-            <div class="rvt-checkbox">
-              <input type="checkbox" name="multiple-choice" id="sidebar-checkbox-1">
-              <label for="sidebar-checkbox-1">Option one</label>
-            </div>
-          </li>
-          <li>
-            <div class="rvt-checkbox">
-              <input type="checkbox" name="multiple-choice" id="sidebar-checkbox-2">
-              <label for="sidebar-checkbox-2">Option two</label>
-            </div>
-          </li>
-          <li>
-            <div class="rvt-checkbox">
-              <input aria-describedby="checkbox-description" type="checkbox" name="multiple-choice" id="sidebar-checkbox-3">
-              <label for="sidebar-checkbox-3">Option three has a little bit longer label</label>
-            </div>
-          </li>
-          <li>
-            <div class="rvt-checkbox">
-              <input aria-describedby="checkbox-description" type="checkbox" name="multiple-choice" id="sidebar-checkbox-4">
-              <label for="sidebar-checkbox-4">Option four</label>
-            </div>
-          </li>
-        </ul>
-      </fieldset>
-      
-      <fieldset class="rvt-fieldset [ rvt-m-top-lg rvt-flow ]">
-        <legend class="rvt-legend [ rvt-ts-14 rvt-text-uppercase ]">Filter choices</legend>
-        <ul class="rvt-plain-list">
-          <li>
-            <div class="rvt-radio">
-              <input type="radio" name="exclusive-choice" id="sidebar-radio-1">
-              <label for="sidebar-radio-1">Choice one</label>
-            </div>
-          </li>
-          <li>
-            <div class="rvt-radio">
-              <input type="radio" name="exclusive-choice" id="sidebar-radio-2">
-              <label for="sidebar-radio-2">Choice two</label>
-            </div>
-          </li>
-          <li>
-            <div class="rvt-radio">
-              <input type="radio" name="exclusive-choice" id="sidebar-radio-3">
-              <label for="sidebar-radio-3">Choice three</label>
-            </div>
-          </li>
-        </ul>
+        <div>
+          <label class="rvt-label" for="search">Type to filter</label>
+          <input class="rvt-input" type="text" id="search">
+        </div>
+        <div>
+          <label class="rvt-label" for="single-choice">Single choice</label>
+          <select name="" id="single-choice" class="rvt-select">
+            <option value="choice-one">Choice one</option>
+            <option value="choice-two">Choice two</option>
+            <option value="choice-three">Choice three</option>
+          </select>
+        </div>
       </fieldset>
     </form>
   </div>
   <div class="rvt-layout__content [ rvt-p-top-xxl rvt-p-lr-md rvt-p-lr-xxl-md-up ]">
-    <div class="rvt-prose">
-      {% include "@layouts-breadcrumb-partial" %}
-      <h1 class="rvt-m-top-xs">Sidebar app shell</h1>
+    
+    <div class="rvt-flex-lg-up">
+      <div class="rvt-prose rvt-grow-1">
+        {% include "@layouts-breadcrumb-partial" %}
+        <h1 class="rvt-m-top-xs">Sidebar app shell</h1>
+      </div>
+      
+      <div class="rvt-m-top-md rvt-m-top-none-lg-up">
+        <button class="rvt-button">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
+          </svg>
+          <span class="rvt-m-left-xs">Create new entry</span>
+        </button>
+      </div>
     </div>
     
     <div class="rvt-m-top-xl">
-      {% include "@app-index-table-partial" %}
+      {% include "@app-index-list-partial" %}
       
       <!--
         #4: Start pagination
