@@ -1,40 +1,55 @@
-<form>
-  <table class="rvt-table [ rvt-m-top-xl ]">
-    <caption class="rvt-sr-only">Table example one</caption>
-    <thead>
-      <tr>
-        <th scope="col">
-          <span class="rvt-sr-only">Item Selection</span>
-          <span class="rvt-checkbox rvt-checkbox--sr-only-label">
-            <input type="checkbox" id="checkbox-filter">
-            <label for="checkbox-filter">
-              Select all
-            </label>
-          </span>
-        </th>
-        <th scope="col">Item</th>
-        <th scope="col">Owner</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for app in apps %}
-      <tr>
-        <td width="48">
-          <span class="rvt-checkbox rvt-checkbox--sr-only-label">
-            <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ loop.index }}" id="checkbox-{{ loop.index }}">
-            <label class="rvt-label" for="checkbox-{{ loop.index }}">
-              <span class="rvt-sr-only">Option one</span>
-            </label>
-          </span>
-        </td>
-        <th scope="row">
-          <a class="rvt-link-plain" href="#0">{{ app.title }}</a>
-        </th>
-        <td>{{ app.user }}</td>
-        <td><span class="rvt-badge rvt-badge--success-secondary">Active</span></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</form>
+<!--
+  Data table actions
+-->
+<div class="rvt-flex rvt-m-bottom-sm">
+  <span class="rvt-checkbox [ rvt-m-lr-sm ]">
+    <input type="checkbox" id="select-all">
+    <label for="select-all">Select all</label>
+  </span>
+  <span class="rvt-border-left rvt-p-left-xs">
+    <span class="rvt-badge">0 selected</span>
+    <button class="rvt-button rvt-button--small rvt-button--plain [ rvt-text-regular ]">
+      <span class="rvt-color-blue-400">{% include "@trash-icon" %}</span>
+      <span class="rvt-m-left-xs">Delete</span>
+    </button>  
+    <button class="rvt-button rvt-button--small rvt-button--plain [ rvt-text-regular ]">
+      <span class="rvt-color-blue-400">{% include "@download-icon" %}</span>
+      <span class="rvt-m-left-xs">Export</span>
+    </button>
+    <!--
+      Can add more actions/controls here as needed
+    -->
+  </span>
+</div>
+<table class="rvt-table">
+  <caption class="rvt-sr-only">Table example one</caption>
+  <thead>
+    <tr>
+      <th scope="col">
+        <span class="rvt-sr-only">Item Selection</span>
+      </th>
+      <th scope="col">Item</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for app in apps %}
+    <tr>
+      <td width="48">
+        <span class="rvt-checkbox rvt-checkbox--sr-only-label">
+          <input class="rvt-checkbox" type="checkbox" name="checkbox-{{ loop.index }}" id="checkbox-{{ loop.index }}">
+          <label class="rvt-label" for="checkbox-{{ loop.index }}">
+            <span class="rvt-sr-only">Option one</span>
+          </label>
+        </span>
+      </td>
+      <th scope="row">
+        <a class="rvt-link-plain" href="#0">{{ app.title }}</a>
+      </th>
+      <td>{{ app.user }}</td>
+      <td><span class="rvt-badge rvt-badge--success-secondary">Active</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

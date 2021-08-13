@@ -26,7 +26,7 @@
     <!--
       Filter block
     -->
-    <div class="{{ siteContainer }} rvt-p-tb-xl">
+    <div class="{{ siteContainer }} rvt-p-tb-xxl">
       <div class="rvt-alert rvt-alert--warning [ rvt-m-bottom-md ]" role="alertdialog" aria-labelledby="success-alert-title" data-rvt-alert="success">
         <div class="rvt-alert__title" id="success-alert-title">Warning messages</div>
         <p class="rvt-alert__message">Use this space in your app for error handling and warning messaging.</p>
@@ -37,44 +37,7 @@
           </svg>
         </button>
       </div>
-    
-      <div class="rvt-flex-md-up rvt-items-center">
-        <div class="rvt-grow-1">
-          <label class="rvt-label" for="search">Type to filter</label>
-          <input class="rvt-input" type="text" id="search">
-        </div>
-        <div class="rvt-m-left-md-md-up rvt-grow-1">
-          <label class="rvt-label" for="status">Status</label>
-          <select class="rvt-select" name="" id="status">
-            <option value="on-hold">On hold</option>
-            <option value="active">Active</option>
-            <option value="archived">Archived</option>
-          </select>
-        </div>
-        
-        <div class="rvt-dropdown [ rvt-m-top-md rvt-m-left-md-md-up ]" data-rvt-dropdown="dropdownButtons">
-          <button type="button" class="rvt-button" data-rvt-dropdown-toggle="dropdownButtons" aria-haspopup="true" aria-expanded="false">
-            <span class="rvt-dropdown__toggle-text">Actions</span>
-            <svg role="img" alt="" class="rvt-m-left-xs" width="16" height="16" viewBox="0 0 16 16">
-              <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z" />
-            </svg>
-          </button>
-
-          <div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdownButtons" role="menu" hidden data-rvt-dropdown-menu>
-            <form>
-              <button type="button" name="archive" role="menuitemradio">
-                <span>Archive</span>
-              </button>
-              <button type="button" name="put-on-hold" role="menuitemradio">
-                <span>Put on hold</span>
-              </button>
-              <button name="delete" type="button" role="menuitemradio">
-                <span>Delete</span>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+      
       {% include "@app-index-table-partial" %}
       <!--
         #4: Start pagination

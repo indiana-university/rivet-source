@@ -69,45 +69,124 @@
   #1: <main> element set up
 -->
 <main id="main-content" class="rvt-layout__wrapper rvt-layout__wrapper--details">
-  <div class="rvt-layout__sidebar [ rvt-p-top-xxl-md-up rvt-p-lr-md rvt-bg-black-000 ]" id="section-nav">
-    <form action="">
-      <fieldset class="rvt-fieldset [ rvt-flow ]">
-        <legend class="rvt-legend [ rvt-ts-14 rvt-text-uppercase ]">Filter options</legend>
-        
-        <div>
-          <label class="rvt-label" for="search">Type to filter</label>
-          <input class="rvt-input" type="text" id="search">
-        </div>
-        <div>
-          <label class="rvt-label" for="single-choice">Single choice</label>
-          <select name="" id="single-choice" class="rvt-select">
-            <option value="choice-one">Choice one</option>
-            <option value="choice-two">Choice two</option>
-            <option value="choice-three">Choice three</option>
-          </select>
-        </div>
-      </fieldset>
-    </form>
+  <div class="rvt-layout__sidebar [ rvt-p-top-xxl-md-up rvt-p-left-md rvt-bg-black-000 ]" id="section-nav">
+    {% render "@sidenav", {
+      label: "Details sub-pages",
+      items: [
+        {
+          text: "Side navigation one"
+        },
+        {
+          text: "Side navigation two",
+          current: true,
+          children: [
+            {
+              text: "Nested child one"
+            },
+            {
+              text: "Nested child one"
+            },
+            {
+              text: "Nested child one"
+            },
+            {
+              text: "Nested child one"
+            }
+          ]
+        },
+        {
+          text: "Side navigation three"
+        },
+        {
+          text: "Side navigation four"
+        },
+        {
+          text: "Side navigation five"
+        }
+      ]
+    }, true %}
+    
+    {# <label for="filter-items">Filter items</label>
+    <input class="rvt-input" id="filter-items" type="text" placeholder="Type to filter items">
+    
+    
+    <div class="rvt-flex rvt-items-center rvt-m-top-xl">
+      <svg class="rvt-color-green" width="16" height="16" viewBox="0 0 16 16">
+        <g fill="currentColor">
+          <path d="M8,16a8,8,0,1,1,8-8A8,8,0,0,1,8,16ZM8,2a6,6,0,1,0,6,6A6,6,0,0,0,8,2Z"/>
+          <path d="M11.55,9.17,9,7.46V4A1,1,0,0,0,7,4V8a.94.94,0,0,0,0,.09,1,1,0,0,0,.11.37,1,1,0,0,0,.1.16,1,1,0,0,0,.14.14l.07.07,3,2a1,1,0,1,0,1.11-1.66Z"/>
+        </g>
+      </svg>
+      <span class="rvt-ts-14 rvt-m-left-xs rvt-color-black-600">Recent</span>
+    </div>
+    
+    <ul class="rvt-plain-list">
+      {% for app in apps.slice(0, 4) %}
+      <li>
+        <a class="rvt-link-plain rvt-ts-14" href="#0">{{ app.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <div class="rvt-flex rvt-items-center rvt-m-top-xl">
+      <svg class="rvt-color-yellow" width="16" height="16" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M15.61,5.53a1,1,0,0,0-.81-.68l-4.08-.6L8.9.56a1,1,0,0,0-1.8,0L5.28,4.25l-4.08.6a1,1,0,0,0-.56,1.7l3,2.88-.7,4.06a1,1,0,0,0,.4,1,1,1,0,0,0,1,.08L8,12.63l3.65,1.92a1.11,1.11,0,0,0,.46.11,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-.7-4.06,3-2.88A1,1,0,0,0,15.61,5.53Z"/>
+      </svg>
+
+      <span class="rvt-ts-14 rvt-m-left-xs rvt-color-black-600">Favorites</span>
+    </div>
+    
+    <ul class="rvt-plain-list">
+      {% for app in apps.slice(4, 7) %}
+      <li>
+        <a class="rvt-link-plain rvt-ts-14" href="#0">{{ app.title }}</a>
+      </li>
+      {% endfor %}
+    </ul> #}
   </div>
   <div class="rvt-layout__content [ rvt-p-top-xxl rvt-p-lr-md rvt-p-lr-xxl-md-up ]">
     
-    <div class="rvt-flex-lg-up">
-      <div class="rvt-prose rvt-grow-1">
-        {% include "@layouts-breadcrumb-partial" %}
-        <h1 class="rvt-m-top-xs">Sidebar app shell</h1>
+    <div class="rvt-prose rvt-grow-1">
+      {% include "@layouts-breadcrumb-partial" %}
+      <h1 class="rvt-m-top-xs">Sidebar app shell</h1>
+    </div>
+    
+    <div class="rvt-m-top-md">
+      
+      <div class="rvt-alert rvt-alert--warning [ rvt-m-bottom-md ]" role="alertdialog" aria-labelledby="success-alert-title" data-rvt-alert="success">
+        <div class="rvt-alert__title" id="success-alert-title">Warning messages</div>
+        <p class="rvt-alert__message">Use this space in your app for error handling and warning messaging.</p>
+        <button class="rvt-alert__dismiss" data-rvt-alert-close>
+          <span class="rvt-sr-only">Dismiss this alert</span>
+          <svg role="img" alt="" width="16" height="16" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+          </svg>
+        </button>
       </div>
       
-      <div class="rvt-m-top-md rvt-m-top-none-lg-up">
-        <button class="rvt-button">
+      <div class="rvt-flex-lg-up">
+        <div class="rvt-grow-1 rvt-m-bottom-md">
+          <label class="rvt-label" for="search">Type to filter</label>
+          <input class="rvt-input" type="text" id="search">
+        </div>
+        <div class="rvt-grow-1 rvt-m-bottom-md rvt-m-left-lg-lg-up">
+          <label class="rvt-label" for="choice-filter">Filter by choice</label>
+          <select name="" id="choice-filter" class="rvt-select">
+            <option value="choice-one">Choice one</option>
+            <option value="choice-two">Choice two</option>
+            <option value="choice-three">Choice three</option>
+            <option value="choice-four">Choice four</option>
+            <option value="choice-five">Choice five</option>
+          </select>
+        </div>
+        <button class="rvt-button rvt-m-left-lg-lg-up rvt-m-top-md-lg-up">
           <svg width="16" height="16" viewBox="0 0 16 16">
             <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
           </svg>
           <span class="rvt-m-left-xs">Create new entry</span>
         </button>
       </div>
-    </div>
     
-    <div class="rvt-m-top-xl">
       {% include "@app-index-list-partial" %}
       
       <!--
