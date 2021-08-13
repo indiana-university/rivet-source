@@ -1,13 +1,10 @@
-<div class="rvt-alert rvt-alert--success" role="alertdialog" aria-labelledby="success-alert-title" data-rvt-alert="success">
-  <div class="rvt-alert__title" id="success-alert-title">Thank you!</div>
-  <p class="rvt-alert__message">Use this space in your app for error handling and confirmation messaging.</p>
-  <button class="rvt-alert__dismiss" data-rvt-alert-close>
-    <span class="rvt-sr-only">Dismiss this alert</span>
-    <svg role="img" alt="" width="16" height="16" viewBox="0 0 16 16">
-      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
-    </svg>
-  </button>
-</div>
+{% render "@alert", {
+  type: "warning",
+  id: "list-alert",
+  title: "Error handling",
+  message: "Use this space for error handling, confirmation messages, and warnings.",
+  classes: "[ rvt-m-bottom-md ]"
+}, true %}
 
 <form action="">
   <fieldset class="rvt-fieldset">
