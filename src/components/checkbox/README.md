@@ -7,7 +7,7 @@ Checkboxes allow users to select one or more options from a list of choices.
 ```html
 <fieldset class="rvt-fieldset">
   <legend class="rvt-sr-only">Checkbox list</legend>
-  <ul class="rvt-plain-list rvt-width-xl">
+  <ul class="rvt-list-plain rvt-width-xl">
     <li>
       <div class="rvt-checkbox">
         <input type="checkbox" name="checkbox-demo" id="checkbox-1">

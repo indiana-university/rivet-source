@@ -10,59 +10,53 @@ Group and organize collections of content.
 
 ## Adding the markup
 
-Lists can be divided into three types - ordered, unordered, and definitions.
+Lists can be divided into three types: ordered, unordered, and definitions.
 
 ### Ordered lists
 
-Ordered lists are created by wrapping an `ol` tag around `li` tags. Each `li` tag represents an item in the ordered list.
+Ordered lists are created by wrapping an `<ol class="rvt-list">` tag around `li` tags. Each `li` tag represents an item in the ordered list.
 
-```
-<ol>
-    <li>List Item One</li>
-    <li>List Item Two</li>
-    <li>List Item Three</li>
-    <li>List Item Four</li>
+```html
+<ol class="rvt-list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ol>
 ```
 
 ### Unordered lists
 
-Unordered lists are created by wrapping an `ul` tag around `li` tags. Each `li` tag represents an item in the unordered list.
+Unordered lists are created by wrapping an `<ul class="rvt-list">` tag around `li` tags. Each `li` tag represents an item in the unordered list.
 
-```
-<ul>
-    <li>List Item One</li>
-    <li>List Item Two</li>
-    <li>List Item Three</li>
-    <li>List Item Four</li>
+```html
+<ul class="rvt-list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 
-#### Additional options
+### Plain lists
 
-##### Plain lists
+You can use the helper class `rvt-list-plain` to remove list formatting for display purposes.
 
-You can use the helper class `rvt-plain-list` to remove list formatting for display purposes.
-
-```
-<ul class="rvt-plain-list">
-    <li>List Item One</li>
-    <li>List Item Two</li>
-    <li>List Item Three</li>
-    <li>List Item Four</li>
+```html
+<ul class="rvt-list-plain">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 
-##### Inline lists
+### Inline lists
 
-You can use the helper class `rvt-inline-list` to remove list formatting and display list items inline. These items will have some extra right and bottom margin applied to them (for instance, where they flow onto more than one line).
+You can use the helper class `rvt-list-inline` to remove list formatting and display list items inline. Items will wrap across multiple lines as needed.
 
-```
-<ul class="rvt-inline-list">
-    <li>List Item One</li>
-    <li>List Item Two</li>
-    <li>List Item Three</li>
-    <li>List Item Four</li>
+```html
+<ul class="rvt-list-inline">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
 </ul>
 ```
 

@@ -14,12 +14,12 @@ When you have a longer list of mutually exclusive options (for example, a list o
 
 ### Inline
 
-Radio buttons appear within fieldsets. The Rivet inline radio consists of a wrapping `ul` element with the class `rvt-inline-list` and individual `li` elements which wrap the individual radio options. Each radio option is a `<div class="rvt-radio">` element, containing the `input` and `label` elements.
+Radio buttons appear within fieldsets. The Rivet inline radio consists of a wrapping `ul` element with the class `rvt-list-inline` and individual `li` elements which wrap the individual radio options. Each radio option is a `<div class="rvt-radio">` element, containing the `input` and `label` elements.
 
 ```html
 <fieldset>
   <legend class="rvt-sr-only">Radio inline</legend>
-  <ul class="rvt-inline-list">
+  <ul class="rvt-list-inline">
     <li>
       <div class="rvt-radio">
         <input type="radio" name="radio-demo" id="radio-1">
@@ -38,12 +38,12 @@ Radio buttons appear within fieldsets. The Rivet inline radio consists of a wrap
 
 ### List
 
-The Rivet radio list is nearly identical to the Rivet inline radio, with the exception that the `ul` element receives the `rvt-plain-list` class instead.
+The Rivet radio list is nearly identical to the Rivet inline radio, with the exception that the `ul` element receives the `rvt-list-plain` class instead.
 
 ```html
 <fieldset>
   <legend class="rvt-sr-only">Radio list</legend>
-  <ul class="rvt-plain-list">
+  <ul class="rvt-list-plain">
     <li>
       <div class="rvt-radio">
         <input type="radio" name="radio-demo" id="radio-1">
@@ -67,7 +67,7 @@ Hidden inputs (as some frameworks require) can be included in the radio componen
 ```html
 <fieldset>
   <legend class="rvt-sr-only">Radio list with hidden inputs</legend>
-  <ul class="rvt-plain-list">
+  <ul class="rvt-list-plain">
     <li>
       <div class="rvt-radio">
         <input type="radio" name="radio-demo" id="radio-1">
