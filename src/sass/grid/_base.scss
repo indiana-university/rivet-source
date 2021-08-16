@@ -42,8 +42,8 @@ $gutter: $spacing-md / 2;
 // source files in their app.
 
 @mixin container($width: 100%) {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto;
+  margin-right: auto;
   max-width: $width;
   padding-left: $gutter * 2;
   padding-right: $gutter * 2;
