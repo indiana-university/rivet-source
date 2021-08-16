@@ -4,7 +4,7 @@
     <div class="rvt-sidenav__item-wrapper">
       <a href="{{ entry.url if entry.url else '#' }}" class="rvt-sidenav__link" {% if entry.current %} aria-current="page"{% endif %}>{{ entry.text }}</a>
       <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-{{ index }}">
-        <span class="rvt-sr-only">Toggle Section nav {{ index }} menu</span>
+        <span class="rvt-sr-only">Show or hide additional items in this section</span>
         <svg width="16" height="16" viewBox="0 0 16 16">
           <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
         </svg>
@@ -24,11 +24,6 @@
   </li>
 {% endmacro %}
 <nav class="rvt-sidenav{% if classes %} {{ classes }}{% endif %}" {% if label %} aria-labelledby="{{ label | replace(' ', '') }}"{% endif %} data-rvt-sidenav>
-  <!--
-    NOTE: Using aria-hidden here because the <nav> element wrapper will
-    already have an accessible name from the aria-label attribute. This label
-    is for visual purposes only.
-  -->
   {% if label %}
   <span class="rvt-sidenav__label" id="{{ label | replace(' ', '') }}">{{ label }}</span>
   {% endif %}
