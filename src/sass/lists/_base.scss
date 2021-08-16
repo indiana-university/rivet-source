@@ -45,3 +45,10 @@ dl dd {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.#{$prefix}-list-reset {
+  list-style: '';
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
