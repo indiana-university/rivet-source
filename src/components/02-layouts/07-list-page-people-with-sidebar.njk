@@ -58,9 +58,9 @@
       <!--
         #3: Start people list
       -->
-      <div class="rvt-row rvt-row--loose rvt-m-top-xl">
+      <ul class="rvt-row rvt-row--loose rvt-m-top-xl">
         {% for person in people %}
-          <div class="rvt-cols-6-md [ rvt-flex rvt-m-bottom-xxl ]">
+          <li class="rvt-cols-6-md [ rvt-flex rvt-m-bottom-xxl ]">
             <div class="rvt-card">
               <a href="/components/preview/profile-page-with-sidebar">
                 {% render "@avatar", {
@@ -92,9 +92,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </li>
           {% endfor %}
-      </div>
+      </ul>
       
       <div class="rvt-flex rvt-justify-center">
         {% render "@pagination", { modifier: "center" }, true %}

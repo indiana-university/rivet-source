@@ -61,16 +61,14 @@
     #3: Start list of people
   -->
   <div class="{{ siteContainer }} rvt-p-tb-xl">
-    <div class="rvt-row rvt-row--loose">
+    <ul class="rvt-row rvt-row--loose">
       {% for person in people %}
-      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
+      <li class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
         <div class="rvt-card">
-          <a href="/components/preview/profile-page-with-sidebar">
-            {% render "@avatar", {
-              image: person.avatar,
-              modifier: "--lg"
-            }, true %}
-          </a>
+          {% render "@avatar", {
+            image: person.avatar,
+            modifier: "--lg"
+          }, true %}
           <div class="rvt-card__body">
             <div class="rvt-card__eyebrow">{{ person.label }}</div>
             <h2 class="rvt-card__title">
@@ -95,9 +93,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 
   <!--

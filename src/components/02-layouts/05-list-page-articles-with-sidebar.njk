@@ -8,9 +8,9 @@
     {% include "@page-intro-partial" %}
 
     <div class="rvt-border-top rvt-p-top-xl rvt-m-top-xl">
-      <div class="rvt-row rvt-row--loose">
+      <ul class="rvt-row rvt-row--loose">
         {% for article in articles.slice(0,9) %}
-        <div class="rvt-cols-6-lg [ rvt-flex rvt-m-bottom-xxl ]">
+        <li class="rvt-cols-6-lg [ rvt-flex rvt-m-bottom-xxl ]">
           {% render "@card", {
             image: article.image,
             eyebrow: article.eyebrow,
@@ -20,9 +20,9 @@
             meta: article.meta,
             link: "/components/preview/details-page-with-sidebar"
           } %}
-        </div>
+        </li>
         {% endfor %}
-      </div>
+      </ul>
       <div class="rvt-flex rvt-justify-center">
         {% render "@pagination", { modifier: "center" }, true %}
       </div>
