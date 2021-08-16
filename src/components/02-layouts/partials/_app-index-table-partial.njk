@@ -1,27 +1,35 @@
 <!--
   Data table actions
 -->
-<div class="rvt-flex rvt-m-bottom-sm">
-  <span class="rvt-checkbox [ rvt-m-lr-sm ]">
-    <input type="checkbox" id="select-all">
-    <label for="select-all">Select all</label>
-  </span>
-  <span class="rvt-border-left rvt-p-left-xs">
-    <span class="rvt-badge">0 selected</span>
-    <button class="rvt-button rvt-button--small rvt-button--plain [ rvt-text-regular ]">
-      <span class="rvt-color-blue-400">{% include "@trash-icon" %}</span>
-      <span class="rvt-m-left-xs">Delete</span>
-    </button>  
-    <button class="rvt-button rvt-button--small rvt-button--plain [ rvt-text-regular ]">
-      <span class="rvt-color-blue-400">{% include "@download-icon" %}</span>
-      <span class="rvt-m-left-xs">Export</span>
-    </button>
-    <!--
-      Can add more actions/controls here as needed
-    -->
-  </span>
+<div class="rvt-flex-md-up rvt-items-center rvt-m-bottom-sm">
+  <div class="rvt-flex rvt-items-center rvt-grow-1">
+    <span class="rvt-checkbox [ rvt-m-lr-sm ]">
+      <input type="checkbox" id="select-all">
+      <label for="select-all">Select all</label>
+    </span>
+    <span class="rvt-border-left rvt-p-left-xs">
+      <span class="rvt-badge"><span data-rvt-c-select-count>0</span> selected</span>
+      <button class="rvt-button rvt-button--small rvt-button--plain [ rvt-text-regular ]">
+        <span class="rvt-color-blue-400">{% include "@trash-icon" %}</span>
+        <span class="rvt-m-left-xs">Delete</span>
+      </button>  
+      <button class="rvt-button rvt-button--small rvt-button--plain [ rvt-text-regular ]">
+        <span class="rvt-color-blue-400">{% include "@download-icon" %}</span>
+        <span class="rvt-m-left-xs">Export</span>
+      </button>
+      <!--
+        Can add more actions/controls here as needed
+      -->
+    </span>
+  </div>
+  <button class="rvt-button">
+    <svg width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
+    </svg>
+    <span class="rvt-m-left-xs">New record</span>
+  </button>
 </div>
-<table class="rvt-table">
+<table class="rvt-table" data-rvt-c-select-table>
   <caption class="rvt-sr-only">Table example one</caption>
   <thead>
     <tr>
@@ -53,3 +61,37 @@
     {% endfor %}
   </tbody>
 </table>
+
+<script>
+  /**
+   * This code is for demo purposes only to show how the UX for a
+   * table with batch selection functionality could work with this
+   * layout. You will need to implement batch selection in your
+   * site or app however works best with your project depending on 
+   * which UI framework or libraries you are using.
+   */
+  const count = document.querySelector('[data-rvt-c-select-count]');
+  const table = document.querySelector('[data-rvt-c-select-table]');
+  const checkboxes = table.querySelectorAll('input[type="checkbox"]');
+  const selectAll = document.querySelector('#select-all');
+  
+  let checkedCount = 0
+  count.textContent = checkedCount
+  
+  table.addEventListener('change', event => {
+    event.target.checked ? checkedCount += 1 : checkedCount -= 1;
+    count.textContent = checkedCount;
+  })
+  
+  selectAll.addEventListener('change', event => {
+    if (event.target.checked) {
+      checkboxes.forEach(checkbox => checkbox.checked = true)
+      checkedCount = checkboxes.length
+      count.textContent = checkedCount
+    } else {
+      checkboxes.forEach(checkbox => checkbox.checked = false)
+      checkedCount = 0
+      count.textContent = 0
+    }
+  })
+</script>

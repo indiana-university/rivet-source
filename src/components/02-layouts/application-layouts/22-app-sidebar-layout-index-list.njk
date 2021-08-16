@@ -120,7 +120,7 @@
       <span class="rvt-ts-14 rvt-m-left-xs rvt-color-black-600">Recent</span>
     </div>
     
-    <ul class="rvt-plain-list">
+    <ul class="rvt-list-plain">
       {% for app in apps.slice(0, 4) %}
       <li>
         <a class="rvt-link-plain rvt-ts-14" href="#0">{{ app.title }}</a>
@@ -136,7 +136,7 @@
       <span class="rvt-ts-14 rvt-m-left-xs rvt-color-black-600">Favorites</span>
     </div>
     
-    <ul class="rvt-plain-list">
+    <ul class="rvt-list-plain">
       {% for app in apps.slice(4, 7) %}
       <li>
         <a class="rvt-link-plain rvt-ts-14" href="#0">{{ app.title }}</a>
@@ -148,7 +148,7 @@
     
     <div class="rvt-prose rvt-grow-1">
       {% include "@layouts-breadcrumb-partial" %}
-      <h1 class="rvt-m-top-xs">Sidebar app shell</h1>
+      <h1 class="rvt-m-top-xs">Simple list layout</h1>
     </div>
     
     <div class="rvt-m-top-md">
@@ -183,7 +183,7 @@
           <svg width="16" height="16" viewBox="0 0 16 16">
             <path fill="currentColor" d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"/>
           </svg>
-          <span class="rvt-m-left-xs">Create new entry</span>
+          <span class="rvt-m-left-xs">New record</span>
         </button>
       </div>
     
