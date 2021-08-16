@@ -24,6 +24,10 @@
     padding-left: 0;
   }
 
+  &__list-item {
+    margin-top: $spacing-xs;
+  }
+
   &__list-item a {
     color: $color-white-base;
     display: block;
