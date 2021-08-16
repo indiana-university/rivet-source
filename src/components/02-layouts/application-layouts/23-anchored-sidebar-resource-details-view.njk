@@ -107,7 +107,7 @@
   <div class="rvt-layout__content [ rvt-p-top-xxl rvt-p-lr-md rvt-p-lr-xxl-md-up ]">
     <div class="rvt-prose">
       {% include "@layouts-breadcrumb-partial" %}
-      <h1 class="rvt-m-top-xs">Resource edit layout</h1>
+      <h1 class="rvt-m-top-xs">Anchored sidebar resource view</h1>
     </div>
     <!--
       This modified container element constrains line length keeping text and
@@ -117,10 +117,18 @@
     <div class="rvt-container-lg rvt-m-top-xl rvt-m-left-none rvt-m-right-none rvt-p-right-none rvt-p-left-none">
       <div class="rvt-row">
         <div class="rvt-cols-8-lg">
-          {% include "@app-crud-partial" %}
+          {% include "@app-details-read-partial" %}
         </div>
       </div>
     </div>
+
+    <!--
+      #4: Start pagination
+    -->
+    <div class="rvt-m-top-xl rvt-flex rvt-justify-center">
+      {% render "@pagination" %}
+    </div>
+  </div>
 </main>
 <footer class="rvt-footer-base rvt-footer-base--light">
   <div class="rvt-footer-base__inner [ rvt-p-lr-md ]">
