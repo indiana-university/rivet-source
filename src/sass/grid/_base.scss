@@ -52,8 +52,12 @@ $gutter: $spacing-md / 2;
 @mixin row {
   display: flex;
   flex-wrap: wrap;
+  // Remove list styles for when row is used on list elements (ul, ol, etc.)
+  list-style: '';
   margin-right: ($gutter/-1);
   margin-left: ($gutter/-1);
+  // Reset padding for when row is used on list elements (ul, ol, etc.)
+  padding-left: 0;
 }
 
 /**
