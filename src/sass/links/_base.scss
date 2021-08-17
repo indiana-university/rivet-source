@@ -42,3 +42,11 @@ a,
     text-decoration: underline;
   }
 }
+
+.#{$prefix}-link-plain {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

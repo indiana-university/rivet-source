@@ -1,0 +1,28 @@
+<ul class="rvt-list-reset rvt-border-top">
+  {% for app in apps %}
+  <li class="rvt-border-bottom rvt-p-tb-xs rvt-p-right-xs">
+    <a href="#0" class="rvt-link-plain rvt-flex rvt-items-center">
+      <span class="rvt-grow-1">{{ app.title }}</span>
+      <span class="rvt-bg-blue-000 rvt-flex rvt-items-center rvt-justify-center rvt-p-all-xs rvt-border-radius-circle">
+        <svg class="rvt-shrink-0" width="16" height="16" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/>
+        </svg>
+      </span>
+    </a>
+    <div class="rvt-flex-md-up rvt-items-center-md-up rvt-ts-14 rvt-m-top-xxs">
+      <div class="rvt-flex rvt-items-center">
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@user-icon" %}
+        </span>
+        <span>Owned by <span class="rvt-text-bold">{{ app.user }}</span></span>
+      </div>
+      <span class="rvt-flex rvt-items-center rvt-m-left-sm-md-up">
+        <span class="rvt-color-black-300 rvt-flex">
+          {% include "@calendar-icon" %}
+        </span>
+        <span class="rvt-m-left-xs">Updated on <time>April 1, 2021</time></span>
+      </span>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

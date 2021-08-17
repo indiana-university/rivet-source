@@ -17,20 +17,20 @@
     #2: Start tags/categories list
   -->
   <div class="{{ siteContainer }} rvt-p-top-lg">
-    <ul class="rvt-list-plain rvt-flex rvt-wrap rvt-justify-center rvt-p-bottom-lg rvt-border-bottom">
-      <li class="rvt-m-right-xs">
+    <ul class="rvt-list-inline rvt-wrap rvt-justify-center rvt-p-bottom-lg rvt-border-bottom">
+      <li>
         <a href="#" class="rvt-badge rvt-badge--secondary">All</a>
       </li>
-      <li class="rvt-m-right-xs">
+      <li>
         <a href="#" class="rvt-badge rvt-badge--secondary">Around Campus</a>
       </li>
-      <li class="rvt-m-right-xs">
+      <li>
         <a href="#" class="rvt-badge rvt-badge--secondary">Health &amp; Wellness</a>
       </li>
-      <li class="rvt-m-right-xs">
+      <li>
         <a href="#" class="rvt-badge rvt-badge--secondary">News &amp; Events</a>
       </li>
-      <li class="rvt-m-right-xs">
+      <li>
         <a href="#" class="rvt-badge rvt-badge--secondary">Special Announcements</a>
       </li>
     </ul>
@@ -40,9 +40,9 @@
     #3: Start list of items
   -->
   <div class="{{ siteContainer }} rvt-p-tb-xl">
-    <div class="rvt-row rvt-row--loose">
+    <ul class="rvt-row rvt-row--loose">
       {% for article in articles %}
-      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
+      <li class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
         {% render "@card", {
           image: article.image,
           eyebrow: article.eyebrow,
@@ -52,9 +52,9 @@
           meta: article.meta,
           link: "/components/preview/details-page"
         } %}
-      </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
   
   <!--
@@ -67,4 +67,4 @@
   </div>
   
 </main>
-{% include "@footer-system" %}
+{% include "@footer-system-all" %}

@@ -5,11 +5,12 @@
 
 .#{$prefix}-sidenav {
   &__label {
-    font-size: $ts-14;
-    text-transform: uppercase;
     color: $color-crimson-base;
+    font-size: $ts-14;
     font-weight: $font-weight-bold;
+    display: block;
     letter-spacing: $spacing-sm * .04;
+    text-transform: uppercase;
   }
 
   &__list {

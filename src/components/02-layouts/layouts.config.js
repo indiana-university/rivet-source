@@ -49,6 +49,17 @@ const cardImages = [
   '/img/landing-page-card-3.jpeg'
 ]
 
+let appData = [];
+const appDataCount = 8;
+for (let i = 0; i < appDataCount; i++) {
+  appData.push({
+    title: faker.lorem.words(5).replace(/^\w/, character => character.toUpperCase()),
+    description: faker.lorem.sentence(),
+    user: faker.internet.userName()
+  })
+}
+
+
 module.exports = {
   title: 'Layouts',
   status: 'wip',
@@ -58,6 +69,7 @@ module.exports = {
     articles: articlesData,
     people: peopleData,
     profile: profileData,
-    cardImages: cardImages
+    cardImages: cardImages,
+    apps: appData
   }
 }
