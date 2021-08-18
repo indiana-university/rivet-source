@@ -176,13 +176,25 @@ var Tabs = (function() {
     var prevTab = tabs.indexOf(activeTab) - 1;
 
     switch (event.keyCode) {
-      case KEYS.right:
+      case KEYS.right || KEYS.down:
+        !tabs[nextTab] ?
+          tabs[0].focus() :
+          tabs[nextTab].focus();
+
+        break;
+      case KEYS.down:
         !tabs[nextTab] ?
           tabs[0].focus() :
           tabs[nextTab].focus();
 
         break;
       case KEYS.left:
+        !tabs[prevTab] ?
+          tabs[tabs.length - 1].focus() :
+          tabs[prevTab].focus();
+
+        break;
+      case KEYS.up:
         !tabs[prevTab] ?
           tabs[tabs.length - 1].focus() :
           tabs[prevTab].focus();
