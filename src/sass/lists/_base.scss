@@ -3,20 +3,6 @@
 
 @use '../core' as *;
 
-ul,
-ol {
-  /**
-   * Zero out margins so we can use more uniform rem-based utility
-   * classes for spacing.
-   */
-  margin: 0;
-}
-
-ul li,
-ol li {
-  margin-top: $spacing-xs;
-}
-
 dl dt {
   font-weight: $font-weight-bold;
   margin-top: $spacing-sm;
@@ -30,33 +16,39 @@ dl dd {
   margin-left: 0;
 }
 
-@mixin plain-list {
-  list-style: none;
-  padding: 0;
+.#{$prefix}-list,
+.#{$prefix}-list-inline,
+.#{$prefix}-list-plain {
+  display: flex;
+  gap: $spacing-xs $spacing-sm;
+  margin: $spacing-xs 0 0 0;
 }
 
-@mixin inline-list {
-  /**
-   * This is a hack that remove extras space between elements that are
-   * set to display inline-block.
-   */
-  font-size: 0;
-
-  @include plain-list;
-
-  & li {
-    display: inline-block;
-    line-height: 1;
-    font-size: 1rem;
-    margin-right: $spacing-sm;
-    margin-bottom: $spacing-xs;
-  }
+.#{$prefix}-list,
+.#{$prefix}-list-plain {
+  flex-direction: column;
 }
 
-.#{$prefix}-plain-list {
-  @include plain-list;
+.#{$prefix}-list-inline,
+.#{$prefix}-list-plain {
+  // Equivalent to `list-style: none`, but retains list semantics in VoiceOver.
+  list-style: '';
+  padding-left: 0;
 }
 
-.#{$prefix}-inline-list {
-  @include inline-list;
+.#{$prefix}-list,
+.#{$prefix}-list-plain .#{$prefix}-list-plain {
+  padding-left: $spacing-lg;
+}
+
+.#{$prefix}-list-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.#{$prefix}-list-reset {
+  list-style: '';
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }

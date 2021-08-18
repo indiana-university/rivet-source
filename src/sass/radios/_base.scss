@@ -3,104 +3,93 @@
 
 @use '../core' as *;
 
+$padding: 3rem / 16;
+
 .#{$prefix}-radio {
-  position: absolute;
-  left: -1em;
-  opacity: 0;
+  display: inline-block;
+  padding-left: $spacing-lg;
+  position: relative;
 
-  & + .#{$prefix}-label,
-  .#{$prefix}-radio-wrapper .#{$prefix}-label ~ .#{$prefix}-label {
-    font-size: 1rem;
-    font-weight: $font-weight-regular;
-
-    /**
-     * Visually adjust due to the bigger hit area for radio buttons.
-     */
-    margin-left: .125rem;
-
-    &::before {
-      /**
-       * There are some magic numbers here that help improve rendering
-       * of box-shadows in Firefox and IE. Making them just a smidge
-       * wider (.08rem instead of .0625rem/1px) than one pixel compensates
-       * for some weird aliasing that is happening. As a bonus it seem to
-       *  make radios and checkboxes look optically closer the 1px border
-       * used on other inputs like text inputs, textareas, and selects.
-       */
-      box-shadow: 0 0 0 .08rem $color-black-400;
-      content: ' ';
-      line-height: 1;
-      vertical-align: middle;
-      display: inline-block;
-
-      /**
-       * Optically center vertically with label
-       */
-      margin-top: -.25rem;
-      margin-right: .75rem;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 100%;
-      background-color: $color-white-base;
-      transition: all .2s ease;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
+  input[type=radio] {
+    cursor: pointer;
+    height: $spacing-md;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: $spacing-lg;
   }
 
-  /* stylelint-disable */
-
-  &:checked + .#{$prefix}-label,
-  .#{$prefix}-radio-wrapper &:checked ~ .#{$prefix}-label {
-    &::before {
-      background-color: $color-blue-600;
-      box-shadow:
-        inset 0 0 0 .125rem $color-white-base,
-        0 0 0 .125rem $color-blue-600;
-    }
+  &--sr-only-label {
+    padding-left: $spacing-md;
   }
 
-  &:focus + .#{$prefix}-label::before,
-  .#{$prefix}-radio-wrapper &:focus ~ .#{$prefix}-label::before {
+  &--sr-only-label input[type=radio] {
+    width: $spacing-md;
+  }
+
+  &--sr-only-label input[type=radio] ~ label {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 0;
+  }
+
+  input[type=radio] ~ label {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.5;
+  }
+
+  input[type=radio] ~ label::before {
+    background-color: $color-white-base;
+    border: ($spacing-xxs / 2) solid $color-black-500;
+    border-radius: $spacing-sm;
+    box-shadow: inset 0 0 0 $padding $color-white-base;
+    content: '';
+    display: inline-block;
+    height: $spacing-sm;
+    left: ($spacing-xxs / 2);
+    position: absolute;
+    top: ($spacing-xxs / 2);
+    width: $spacing-sm;
+  }
+
+  input[type=radio]:checked ~ label::before {
+    background-color: $color-blue-600;
+    border-color: $color-blue-600;
+  }
+
+  input[type=radio]:focus ~ label::before {
+    border-color: $color-blue-600;
     box-shadow:
-      0 0 0 .08rem $color-black-700,
-      0 0 0 .1875rem $color-white-base,
-      0 0 0 .3125rem $color-blue-600;
+      inset 0 0 0 $padding $color-white-base,
+      0 0 0 $spacing-xxs $color-blue-200;
   }
 
-  /**
-   * Style the checked:focus state a little differently here because
-   * if we follow the checkbox checked:focus state it there are too many
-   * rings and it sort of looks like a bullseye.
-   */
-
-  &:checked:focus + .#{$prefix}-label::before,
-  .#{$prefix}-radio-wrapper &:checked:focus ~ .#{$prefix}-label::before {
-    box-shadow:
-      inset 0 0 0 .125rem $color-white-base,
-      0 0 0 .125rem $color-blue-600,
-      0 0 0 .3125rem $color-blue-500;
-  }
-
-  &:disabled + .#{$prefix}-label::before,
-  .#{$prefix}-radio-wrapper &:disabled ~ .#{$prefix}-label::before {
-    background-color: $color-black-200;
-    box-shadow: 0 0 0 .08rem $color-black-300;
-  }
-
-  /* stylelint-enable */
-
-  &:checked:disabled + .#{$prefix}-label::before,
-  .#{$prefix}-radio-wrapper &:checked:disabled ~ .#{$prefix}-label::before {
-    background-color: $color-black-600;
-    box-shadow: inset 0 0 0 .125rem $color-black-200, 0 0 0 .08rem $color-black-600;
-  }
-
-  &:disabled + .#{$prefix}-label,
-  .#{$prefix}-radio-wrapper &:disabled ~ .#{$prefix}-label {
+  input[type=radio]:disabled {
     cursor: default;
+  }
+
+  input[type=radio]:disabled ~ label {
+    color: $color-black-700;
+    cursor: default;
+  }
+
+  input[type=radio]:disabled ~ label::before {
+    background-color: $color-black-100;
+    border-color: $color-black-300;
+    box-shadow: inset 0 0 0 $padding $color-black-100;
+  }
+
+  input[type=radio]:disabled:checked ~ label::before {
+    background-color: $color-black-300;
+  }
+
+  &__description {
     color: $color-black-600;
+    display: block;
+    font-size: $ts-14;
   }
 }

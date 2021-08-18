@@ -196,10 +196,8 @@ export default class Accordion extends Component {
     
         const activationEvent = Component.dispatchCustomEvent(
           'accordionOpened',
-          panel,
-          {
-            id: panel.dataset.rvtAccordionPanel
-          }
+          this.element,
+          { panel }
         );
     
         if (!activationEvent) return;
@@ -227,10 +225,8 @@ export default class Accordion extends Component {
     
         const activationEvent = Component.dispatchCustomEvent(
           'accordionClosed',
-          panel,
-          {
-            id: panel.dataset.rvtAccordionPanel
-          }
+          this.element,
+          { panel }
         );
     
         if (!activationEvent) return;

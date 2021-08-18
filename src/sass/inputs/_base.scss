@@ -12,7 +12,7 @@
     display: block;
     width: 100%;
     border-radius: $spacing-xxs;
-    background-color: inherit;
+    background-color: $color-white-base;
     border: 1px solid $color-black-400;
     padding: $spacing-xs;
     height: $spacing-xl;
@@ -80,8 +80,6 @@
     display: inline-block;
     font-size: $ts-14;
     line-height: 1;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-xs;
   }
 
   &-fieldset {
@@ -94,6 +92,7 @@
     margin: 0;
     font-weight: $font-weight-regular;
     display: block;
+    width: 100%;
   }
 
   &-select[multiple] {

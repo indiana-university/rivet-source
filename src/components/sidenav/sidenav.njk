@@ -1,144 +1,35 @@
-<nav class="rvt-sidenav" aria-label="Section navigation" data-rvt-sidenav>
-  <!--
-    NOTE: Using aria-hidden here because the <nav> element wrapper will
-    already have an accessible name from the aria-label attribute. This label
-    is for visual purposes only.
-  -->
-  <span class="rvt-sidenav__label" aria-hidden="true">Optional label</span>
+{% macro navListItem(entry, index) %}
+  <li class="rvt-sidenav__item">
+    {% if entry.children %}
+    <div class="rvt-sidenav__item-wrapper">
+      <a href="{{ entry.url if entry.url else '#' }}" class="rvt-sidenav__link" {% if entry.current %} aria-current="page"{% endif %}>{{ entry.text }}</a>
+      <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-{{ index }}">
+        <span class="rvt-sr-only">Show or hide additional items in this section</span>
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+        </svg>
+      </button>
+    </div>
+    <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-{{ index }}">
+      {% for child in entry.children %}
+      <li class="rvt-sidenav__item">
+        {% set innerLoopIndex = index + "-" + loop.index %}
+        {{ navListItem(child, innerLoopIndex) }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <a href="{{ entry.url if entry.url else '#' }}" class="rvt-sidenav__link" {% if entry.current %} aria-current="page"{% endif %}>{{ entry.text }}</a>
+    {% endif %}
+  </li>
+{% endmacro %}
+<nav class="rvt-sidenav{% if classes %} {{ classes }}{% endif %}" {% if label %} aria-labelledby="{{ label | replace(' ', '') }}"{% endif %} data-rvt-sidenav>
+  {% if label %}
+  <span class="rvt-sidenav__label" id="{{ label | replace(' ', '') }}">{{ label }}</span>
+  {% endif %}
   <ul class="rvt-sidenav__list">
-    <li class="rvt-sidenav__item">
-      <a href="#" class="rvt-sidenav__link">Section nav one</a>
-    </li>
-    <li class="rvt-sidenav__item">
-      <div class="rvt-sidenav__item-wrapper">
-        <a href="#" class="rvt-sidenav__link" aria-current="page">Section nav two</a>
-        <button href="#" class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-1">
-          <span class="rvt-sr-only">Toggle Section nav two menu</span>
-          <svg width="16" height="16" viewBox="0 0 16 16">
-              <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-          </svg>
-        </button>
-      </div>
-      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1">
-        <li class="rvt-sidenav__item">
-          <div class="rvt-sidenav__item-wrapper">
-            <a href="#" class="rvt-sidenav__link" aria-current="page">Level two</a>
-            <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-2">
-              <span class="rvt-sr-only">Toggle section level two menu</span>
-              <svg width="16" height="16" viewBox="0 0 16 16">
-                  <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-              </svg>
-            </button>
-          </div>
-          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-2">
-            <li class="rvt-sidenav__item">
-              <a href="#" class="rvt-sidenav__link">Level three</a>
-            </li>
-          </ul>
-        </li>
-        <li class="rvt-sidenav__item">
-          <div class="rvt-sidenav__item-wrapper">
-            <a href="#" class="rvt-sidenav__link">
-              <span>Level two</span>
-            </a>
-            <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-3">
-              <span class="rvt-sr-only">Toggle section level two menu</span>
-              <svg width="16" height="16" viewBox="0 0 16 16">
-                  <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-              </svg>
-            </button>
-          </div>
-          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-3">
-            <li class="rvt-sidenav__item">
-              <a href="#" class="rvt-sidenav__link">Level three</a>
-            <li class="rvt-sidenav__item">
-              <a href="#" class="rvt-sidenav__link">Level three</a>
-            </li>
-            <li class="rvt-sidenav__item">
-              <a href="#" class="rvt-sidenav__link">Level three</a>
-            </li>
-            <li class="rvt-sidenav__item">
-              <a href="#" class="rvt-sidenav__link">Level three</a>
-            </li>
-          </ul>
-        </li>
-        <li class="rvt-sidenav__item">
-          <a href="#" class="rvt-sidenav__link">Level two</a>
-        </li>
-        <li class="rvt-sidenav__item">
-          <div class="rvt-sidenav__item-wrapper">
-            <a href="#" class="rvt-sidenav__link">
-              <span>Level two</span>
-            </a>
-            <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-4">
-              <span class="rvt-sr-only">Toggle section level two menu</span>
-              <svg width="16" height="16" viewBox="0 0 16 16">
-                  <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-              </svg>
-            </button>
-          </div>
-          <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-4">
-            <li class="rvt-sidenav__item">
-              <div class="rvt-sidenav__item-wrapper">
-                <a href="#" class="rvt-sidenav__link">
-                  <span>Level three</span>
-                </a>
-                <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-5">
-                  <span class="rvt-sr-only">Toggle section level two menu</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                      <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-                  </svg>
-                </button>
-              </div>
-              <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-5">
-                <li class="rvt-sidenav__item">
-                  <a href="#" class="rvt-sidenav__link">Level four</a>
-                </li>
-                <li class="rvt-sidenav__item">
-                  <div class="rvt-sidenav__item-wrapper">
-                    <a href="#" class="rvt-sidenav__link">
-                      <span>Level four</span>
-                    </a>
-                    <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-6">
-                      <span class="rvt-sr-only">Toggle section level two menu</span>
-                      <svg width="16" height="16" viewBox="0 0 16 16">
-                          <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-                      </svg>
-                    </button>
-                  </div>
-                  <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-6">
-                    <li class="rvt-sidenav__item">
-                      <div class="rvt-sidenav__item-wrapper">
-                        <a href="#" class="rvt-sidenav__link">Level five</a>
-                        <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-7">
-                          <span class="rvt-sr-only">Toggle section level two menu</span>
-                          <svg width="16" height="16" viewBox="0 0 16 16">
-                              <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
-                          </svg>
-                        </button>
-                      </div>
-                      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-7">
-                        <li class="rvt-sidenav__item">
-                          <a href="#" class="rvt-sidenav__link">Level six</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="rvt-sidenav__item">
-          <a href="#" class="rvt-sidenav__link">Level two</a>
-        </li>
-      </ul>
-    </li>
-    <li class="rvt-sidenav__item">
-      <a href="#" class="rvt-sidenav__link">Section nav three</a>
-    </li>
-    <li class="rvt-sidenav__item">
-      <a href="#" class="rvt-sidenav__link">Section nav four</a>
-    </li>
+    {% for item in items %}
+    {{ navListItem(item, loop.index) }}
+    {% endfor %}
   </ul>
 </nav>

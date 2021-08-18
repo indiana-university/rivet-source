@@ -101,6 +101,42 @@ describe('Rivet basic modal interactions', function () {
     cy.get('[data-rvt-modal="modalExample"]').should('be.focused');
   });
 
+  it('Should fire a rvt:modalOpened custom event with correct element references', function() {
+    cy.window().then(win => {
+      var modal = win.document.querySelector('[data-rvt-modal="modalExample"]');
+      var eventFired = false;
+      var eventModalReference;
+      
+      win.addEventListener('rvt:modalOpened', event => {
+        eventFired = true;
+        eventModalReference = event.target == modal;
+      });
+      
+      modal.open();
+      
+      if (!eventFired) throw new Error('Did not fire modalOpened event');
+      if (!eventModalReference) throw new Error('Did not pass correct reference to emitting modal component element');
+    });
+  });
+
+  it('Should fire a rvt:modalClosed custom event with correct element references', function() {
+    cy.window().then(win => {
+      var modal = win.document.querySelector('[data-rvt-modal="modalExample"]');
+      var eventFired = false;
+      var eventModalReference;
+      
+      win.addEventListener('rvt:modalClosed', event => {
+        eventFired = true;
+        eventModalReference = event.target == modal;
+      });
+      
+      modal.close();
+      
+      if (!eventFired) throw new Error('Did not fire modalClosed event');
+      if (!eventModalReference) throw new Error('Did not pass correct reference to emitting modal component element');
+    });
+  });
+
 });
 
 describe('Rivet dialog modal interactions', function () {

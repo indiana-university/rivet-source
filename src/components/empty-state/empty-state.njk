@@ -1,0 +1,20 @@
+{%- set defaultContent -%}
+<div class="rvt-p-all-md rvt-bg-black-100 rvt-inline-flex rvt-border-radius-circle">
+  {% include "@bell-icon" %}
+</div>
+<p>This is the default empty state. Would you like to create an item?</p>
+{%- endset -%}
+
+{%- set defaultActions -%}
+<button class="rvt-button" type="button">Create and item</button>
+<a href="#" class="rvt-button rvt-button--plain">Read the documentation</a>
+{%- endset -%}
+
+<div class="rvt-empty-state{% if classes %} {{ classes }}{% endif %}">
+  <div class="rvt-empty-state__content [ rvt-flow ]">
+    {{ content if content else defaultContent | safe }}
+  </div>
+  <div class="rvt-empty-state__actions">
+    {{ actions if actions else defaultActions | safe }}
+  </div>
+</div>

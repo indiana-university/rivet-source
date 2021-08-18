@@ -14,76 +14,104 @@ When you have a longer list of mutually exclusive options (for example, a list o
 
 ### Inline
 
-Radio buttons appear within forms. The Rivet inline radio consists of a wrapping `ul` element with the class `rvt-inline-list` and individual `li` elements which wrap the individual radio options. The radio itself is an `input` element with the class `rvt-radio`, and is paired with a `label` with the class `rvt-label`.
+Radio buttons appear within fieldsets. The Rivet inline radio consists of a wrapping `ul` element with the class `rvt-list-inline` and individual `li` elements which wrap the individual radio options. Each radio option is a `<div class="rvt-radio">` element, containing the `input` and `label` elements.
 
-```
-<form>
-    <fieldset>
-        <legend class="sr-only">Radio inputs inline</legend>
-        <ul class="rvt-inline-list">
-            <li>
-                <input class="rvt-radio" type="radio" name="radio-demo" id="radio-1">
-                <label class="rvt-label" for="radio-1" class="rvt-m-right-md">Option one</label>
-            </li>
-            <li>
-                <input class="rvt-radio" type="radio" name="radio-demo" id="radio-2">
-                <label class="rvt-label" for="radio-2">Option two</label>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+```html
+<fieldset>
+  <legend class="rvt-sr-only">Radio inline</legend>
+  <ul class="rvt-list-inline">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-demo" id="radio-1">
+        <label for="radio-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-demo" id="radio-2">
+        <label for="radio-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
 ```
 
 ### List
 
-The Rivet radio list is nearly identical to the Rivet inline radio, with the exception that the `ul` element receives the `rvt-plain-list` class instead.
+The Rivet radio list is nearly identical to the Rivet inline radio, with the exception that the `ul` element receives the `rvt-list-plain` class instead.
 
-```
-<form>
-    <fieldset>
-        <legend class="sr-only">Radio list</legend>
-        <ul class="rvt-plain-list">
-            <li>
-                <input class="rvt-radio" type="radio" name="radio-demo-2" id="radio-3">
-                <label class="rvt-label" for="radio-3" class="rvt-m-right-sm">Option one</label>
-            </li>
-            <li>
-                <input class="rvt-radio" type="radio" name="radio-demo-2" id="radio-4">
-                <label class="rvt-label" for="radio-4">Option two</label>
-            </li>
-            <li>
-                <input class="rvt-radio" type="radio" name="radio-demo-2" id="radio-4-disabled" disabled>
-                <label class="rvt-label" for="radio-4-disabled">Option three disabled</label>
-            </li>
-            <li>
-                <input class="rvt-radio" type="radio" name="radio-demo-2" id="radio-5" disabled checked>
-                <label class="rvt-label" for="radio-5">Option four checked and disabled</label>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+```html
+<fieldset>
+  <legend class="rvt-sr-only">Radio list</legend>
+  <ul class="rvt-list-plain">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-demo" id="radio-1">
+        <label for="radio-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-demo" id="radio-2">
+        <label for="radio-2">Option two</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>
 ```
 
 ### Hidden fields
 
-This example includes a hidden input in the markup, as some frameworks require. It requires that the input and label be wrapped in a `rvt-radio-wrapper`. Here we are using the wrapper class on an `li`, but it will also work with generic elements like a `div` and `span`.
+Hidden inputs (as some frameworks require) can be included in the radio components without any further adjustment.
 
-```
+```html
 <fieldset>
-    <legend class="rvt-ts-23 rvt-m-bottom-lg">Radio inputs inline</legend>
-    <ul class="rvt-inline-list">
-        <li class="rvt-radio-wrapper">
-            <input class="rvt-radio" type="radio" name="radio-demo" id="radio-6">
-            <input type="hidden">
-            <label class="rvt-label" for="radio-6">Option one</label>
-        </li>
-        <li class="rvt-radio-wrapper">
-            <input class="rvt-radio" type="radio" name="radio-demo" id="radio-7">
-            <input type="hidden">
-            <label class="rvt-label" for="radio-7">Option two</label>
-        </li>
-    </ul>
+  <legend class="rvt-sr-only">Radio list with hidden inputs</legend>
+  <ul class="rvt-list-plain">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-demo" id="radio-1">
+        <input type="hidden">
+        <label for="radio-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-demo" id="radio-2">
+        <input type="hidden">
+        <label for="radio-2">Option two</label>
+      </div>
+    </li>
+  </ul>
 </fieldset>
+```
+
+## Visually-hidden label modifier
+
+To visually hide the label of a radio, but still make it accessible to screen readers, use the `rvt-radio--sr-only-label` modifier on the `rvt-radio` wrapper element.
+
+The markup in this example will visually hide the label element, leaving only the radio element visible. This can be useful in situations such as when radios are used to select individual rows of data from a table.
+
+```html
+<div class="rvt-radio rvt-radio--sr-only-label">
+  <input type="radio" name="radio-demo" id="radio-hidden-label">
+  <label for="radio-hidden-label">This label text is visually hidden</label>
+</div>
+```
+
+## Description element
+
+In some cases it can be helpful to provide more detailed information about a radio option in addition to the the text inside the `<label>` element. In these instances you can use the `.rvt-radio__description` element to provide more context to a user.
+
+1. Add a `<div class="rvt-radio__description" id="radio-description"></div>` element as a direct child of the `<div class="rvt-radio">` element, placed after the `<label>` element. Make the id unique for the document.
+2. Add an `aria-describedby` attribute to the radio `<input>`, referencing the `id` attribute of the description element.
+
+```html
+<div class="rvt-radio">
+  <input aria-describedby="radio-description" type="radio" name="radio-demo" id="radio-long">
+  <label for="radio-long">Just a quick note</label>
+  <div id="radio-description" class="rvt-radio__description">This radio has a really long label that can wrap on to two lines and still have nice left alignment.</div>
+</div>
 ```
 
 ## Implementation notes
