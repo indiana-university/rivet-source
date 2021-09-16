@@ -78,7 +78,7 @@
 
     &:focus,
     &:hover {
-      color: $color-blue-base;
+      color: $color-blue-500;
       text-decoration: underline;
     }
   }
@@ -125,13 +125,13 @@
     }
 
     &:focus {
-      outline: $spacing-xxs/2 solid $color-blue-base;
+      outline: $spacing-xxs/2 solid $color-blue-500;
       outline-offset: $spacing-xxs/2;
     }
 
     &:focus,
     &:hover {
-      background: $color-blue-base;
+      background: $color-blue-500;
       color: $color-white-base;
     }
   }

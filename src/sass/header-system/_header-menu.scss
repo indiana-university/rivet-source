@@ -59,9 +59,9 @@
   }
 
   &__toggle:hover {
-    background: $color-blue-base;
+    background: $color-blue-500;
     color: $color-white-base;
-    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline: $spacing-xxs/2 solid $color-blue-500;
     outline-offset: $spacing-xxs/2;
   }
 
@@ -92,8 +92,8 @@
 
   &__link:hover,
   &__link:focus {
-    color: $color-blue-base;
-    outline: .125rem solid $color-blue-base;
+    color: $color-blue-500;
+    outline: .125rem solid $color-blue-500;
     outline-offset: .125rem;
   }
 
@@ -205,7 +205,7 @@
     }
 
     &__submenu a:hover {
-      background-color: $color-blue-base;
+      background-color: $color-blue-500;
       color: $color-white-base;
     }
 

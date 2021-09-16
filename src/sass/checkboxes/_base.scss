@@ -55,11 +55,11 @@
 
   input[type=checkbox]:checked ~ label::before,
   input[type=checkbox]:indeterminate ~ label::before {
-    background-color: $color-blue-600;
+    background-color: $color-blue-500;
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=');
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    border-color: $color-blue-600;
+    border-color: $color-blue-500;
   }
 
   input[type=checkbox]:indeterminate ~ label::before {

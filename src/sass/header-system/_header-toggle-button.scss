@@ -26,9 +26,9 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $color-blue-base;
+    background-color: $color-blue-500;
     color: $color-white-base;
-    outline: $spacing-xxs/2 solid $color-blue-base;
+    outline: $spacing-xxs/2 solid $color-blue-500;
     outline-offset: $spacing-xxs/2;
   }
 

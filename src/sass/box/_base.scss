@@ -31,7 +31,7 @@
   &__row--info {
     background-color: $color-blue-000;
     box-shadow: $spacing-xxs 0 0 0 $color-blue-600 inset;
-    color: $color-blue-700;
+    color: $color-blue-500;
   }
 
   &__row--success {
@@ -123,7 +123,7 @@
   &--info &__footer {
     background-color: $color-blue-000;
     border-color: $color-blue-200;
-    color: $color-blue-700;
+    color: $color-blue-500;
   }
 
   &--info &__row {

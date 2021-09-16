@@ -5,10 +5,10 @@
 
 a,
 .#{$prefix}-link {
-  color: $color-blue-600;
+  color: $color-blue-500;
 
   &:hover {
-    color: $color-blue-900;
+    color: $color-blue-500;
   }
 
   &:focus {
@@ -20,7 +20,7 @@ a,
     /**
      * TODO: Come up with a better color for the :visited state.
      */
-    color: $color-blue-900;
+    color: $color-blue-500;
   }
 }
 

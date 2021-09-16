@@ -31,14 +31,14 @@
   }
 
   &__controls .#{$prefix}-global-toggle[aria-expanded=true] {
-    background-color: $color-blue-base;
-    border-color: $color-blue-base;
+    background-color: $color-blue-500;
+    border-color: $color-blue-500;
     color: $color-white-base;
   }
 
   &__controls .#{$prefix}-global-toggle:focus {
     outline: none;
-    box-shadow: 0 0 0 .125rem $color-white-base, 0 0 0 $spacing-xxs $color-blue-base;
+    box-shadow: 0 0 0 .125rem $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
   }
 
   &__search,

@@ -35,34 +35,29 @@
         "value": "{color.blue.600.value}"
       },
       "000": {
-        "value": "#edf1f6"
+        "value": "#EDFAFD"
       },
       "100": {
-        "value": "#dce3ee"
+        "value": "#C6ECF6"
       },
       "200": {
-        "value": "#b8c8dc"
+        "value": "#94D2E7"
       },
       "300": {
-        "value": "#95adcb"
+        "value": "#63B1D3"
       },
       "400": {
-        "value": "#7194ba"
+        "value": "#328BB8"
       },
       "500": {
-        "value": "#497ba9"
+        "value": "#006298",
+        "comment": "Base blue"
       },
       "600": {
-        "value": "#006298"
+        "value": "#004F80"
       },
       "700": {
-        "value": "#134a71"
-      },
-      "800": {
-        "value": "#16324b"
-      },
-      "900": {
-        "value": "#121c28"
+        "value": "#00385F"
       }
     },
     "cream": {

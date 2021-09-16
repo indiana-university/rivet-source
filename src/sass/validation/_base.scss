@@ -5,15 +5,15 @@
 
 @include all-inputs('.#{$prefix}-validation-info') {
   transition: box-shadow .2s ease;
-  border-color: $color-blue-600;
-  box-shadow: 0 0 0 .125rem $color-blue-600;
+  border-color: $color-blue-500;
+  box-shadow: 0 0 0 .125rem $color-blue-500;
 
   &:focus {
     border-color: $color-black-700;
     /* stylelint-disable */
     box-shadow:
       0 0 0 .125rem $color-white-base,
-      0 0 0 .2875rem $color-blue-600;
+      0 0 0 .2875rem $color-blue-500;
     /* stylelint-enable */
   }
 }
@@ -101,7 +101,6 @@
     color: $color-orange-500;
   }
 
-  &--has-info,
   &--info {
     color: $color-blue-600;
   }
@@ -142,13 +141,12 @@
       }
     }
 
-    &.#{$prefix}-inline-alert--has-info,
     &.#{$prefix}-inline-alert--info {
-      border-left: $spacing-xxs solid $color-blue-600;
+      border-left: $spacing-xxs solid $color-blue-500;
       background-color: $color-blue-000;
 
       .#{$prefix}-inline-alert__message {
-        color: $color-blue-700;
+        color: $color-blue-600;
       }
     }
   }
