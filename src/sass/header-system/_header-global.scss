@@ -27,7 +27,7 @@
   &__controls .#{$prefix}-global-toggle[aria-expanded=false] {
     background-color: $color-black-100;
     border: none;
-    color: $color-black-600;
+    color: $color-black-500;
   }
 
   &__controls .#{$prefix}-global-toggle[aria-expanded=true] {

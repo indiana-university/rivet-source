@@ -48,7 +48,7 @@
   &__menu {
     position: absolute;
     margin-top: $spacing-xs;
-    background-color: #ffffff;
+    background-color: $color-white-base;
     border-radius: $spacing-xxs;
     box-shadow: $shadow-standard;
     min-width: 12.5rem;
@@ -57,8 +57,8 @@
     z-index: map-get($z-index, '1000');
 
     /**
-         * Align the dropdown menu to the right edge of the button.
-         */
+     * Align the dropdown menu to the right edge of the button.
+     */
 
     &--right {
       right: 0;
@@ -78,7 +78,7 @@
     button {
       display: block;
       text-decoration: none;
-      color: $color-black-base;
+      color: $color-black-500;
 
       /**
              * This padding-top and bottom value is a magic number. Sorry,
@@ -117,13 +117,13 @@
     }
 
     button:disabled {
-      color: $color-black-800;
-      background-color: $color-black-100;
+      color: $color-black-400;
+      background-color: $color-black-000;
     }
   }
 
   &__menu-heading {
-    color: $color-black-700;
+    color: $color-black-400;
     padding: $spacing-sm $spacing-sm $spacing-xxs;
     font-weight: $font-weight-bold;
     font-size: $ts-14;
@@ -135,13 +135,13 @@
 
   &__menu-divider,
   &__menu-separator {
-    border-top: 1px solid $color-black-200;
+    border-top: 1px solid $color-black-100;
     margin-top: $spacing-xs;
     margin-bottom: $spacing-xs;
   }
 
   [role='group'] {
-    border-top: 1px solid $color-black-200;
+    border-top: 1px solid $color-black-100;
     margin-top: $spacing-xs;
     padding-top: $spacing-xs;
 

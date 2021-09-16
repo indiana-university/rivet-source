@@ -2,37 +2,32 @@
   "color": {
     "black": {
       "base": {
-        "value": "{color.black.800.value}"
+        "value": "{color.black.500.value}"
       },
       "000": {
-        "value": "#f7f7f8"
+        "value": "#f8f9fa"
       },
       "100": {
-        "value": "#ebecee"
+        "value": "#e2e7e9"
       },
       "200": {
-        "value": "#c4c7cc"
+        "value": "#A0ABB4"
       },
       "300": {
-        "value": "#a7abb3"
+        "value": "#75838F"
       },
       "400": {
-        "value": "#8b919b"
+        "value": "#4C5A69"
       },
       "500": {
-        "value": "#707784"
+        "value": "#243142",
+        "comment": "Base black"
       },
       "600": {
-        "value": "#565f6d"
+        "value": "#182534"
       },
       "700": {
-        "value": "#3d4757"
-      },
-      "800": {
-        "value": "#243142"
-      },
-      "900": {
-        "value": "#161c24"
+        "value": "#0E1825"
       }
     },
     "blue": {

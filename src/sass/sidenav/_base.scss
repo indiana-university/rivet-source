@@ -98,12 +98,12 @@
 
   &__link[aria-current] + &__toggle:hover,
   &__link[aria-current] + &__toggle:focus {
-    color: $color-black-600;
+    color: $color-black-500;
     background-color: $color-black-100;
   }
 
   &__toggle {
-    color: $color-black-300;
+    color: $color-black-200;
     align-items: center;
     background: transparent;
     border: none;

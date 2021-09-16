@@ -13,7 +13,7 @@
 
   &__icon {
     align-items: center;
-    color: $color-black-400;
+    color: $color-black-300;
     border-radius: 999rem;
     border: 1px solid $color-black-200;
     display: flex;
@@ -43,7 +43,7 @@
   &__previous,
   &__next {
     display: flex;
-    color: $color-black-800;
+    color: $color-black-500;
     flex-basis: 50%;
     flex-grow: 1;
     padding-top: $spacing-md;
@@ -61,7 +61,7 @@
   }
 
   &__label {
-    color: $color-black-500;
+    color: $color-black-400;
   }
 }
 

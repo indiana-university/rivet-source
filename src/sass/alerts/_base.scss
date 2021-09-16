@@ -4,8 +4,8 @@
 @use '../core' as *;
 
 .#{$prefix}-alert {
-  background-color: $color-black-100;
-  border-left: $spacing-xxs solid $color-black-400;
+  background-color: $color-black-000;
+  border-left: $spacing-xxs solid $color-black-500;
   padding: $spacing-sm;
   position: relative;
 

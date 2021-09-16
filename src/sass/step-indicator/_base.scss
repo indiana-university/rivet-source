@@ -39,7 +39,7 @@
   }
 
   &__item-content {
-    color: $color-black-base;
+    color: $color-black-500;
 
     /**
      * If we set the link to display flex, we can use
@@ -76,7 +76,7 @@
   &__indicator {
     align-items: center;
     background-color: $color-white-base;
-    border: $spacing-xxs solid $color-black-200;
+    border: $spacing-xxs solid $color-black-100;
     border-radius: 999rem;
     box-shadow: 0 0 0 $spacing-xxs $color-white-base;
     display: inline-flex;
@@ -96,7 +96,7 @@
   &__indicator--warning {
     background-color: $color-yellow-200;
     border-color: $color-yellow-100;
-    color: $color-black-900;
+    color: $color-black-700;
   }
 
   &__indicator--danger {

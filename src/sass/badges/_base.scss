@@ -102,12 +102,12 @@ a.#{$prefix}-badge {
 .#{$prefix}-badge--warning {
   background-color: $color-yellow-200;
   border-color: $color-yellow-200;
-  color: $color-black-900;
+  color: $color-black-700;
 
   &-secondary {
     background-color: transparent;
     border-color: $color-yellow-200;
-    color: $color-black-900;
+    color: $color-black-700;
   }
 }
 

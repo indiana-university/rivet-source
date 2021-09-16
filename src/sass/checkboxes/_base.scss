@@ -42,7 +42,7 @@
 
   input[type=checkbox] ~ label::before {
     background-color: $color-white-base;
-    border: ($spacing-xxs / 2) solid $color-black-500;
+    border: ($spacing-xxs / 2) solid $color-black-300;
     border-radius: $spacing-xxs / 2;
     content: '';
     display: inline-block;
@@ -77,17 +77,17 @@
   }
 
   input[type=checkbox]:disabled ~ label {
-    color: $color-black-700;
+    color: $color-black-400;
     cursor: default;
   }
 
   input[type=checkbox]:disabled ~ label::before {
-    background-color: $color-black-200;
+    background-color: $color-black-100;
     border-color: $color-black-300;
   }
 
   &__description {
-    color: $color-black-600;
+    color: $color-black-400;
     display: block;
     font-size: $ts-14;
   }
