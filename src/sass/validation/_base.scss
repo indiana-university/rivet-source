@@ -20,15 +20,15 @@
 
 @include all-inputs('.#{$prefix}-validation-warning') {
   transition: box-shadow .2s ease;
-  border-color: $color-yellow-200;
-  box-shadow: 0 0 0 .125rem $color-yellow-200;
+  border-color: $color-gold-500;
+  box-shadow: 0 0 0 .125rem $color-gold-500;
 
   &:focus {
     border-color: $color-black-700;
     /* stylelint-disable */
     box-shadow:
       0 0 0 .125rem $color-white-base,
-      0 0 0 .2875rem $color-yellow-200;
+      0 0 0 .2875rem $color-gold-500;
     /* stylelint-enable */
   }
 }
@@ -91,9 +91,8 @@
     color: $color-green-500;
   }
 
-  &--has-warning,
   &--warning {
-    color: $color-yellow-200;
+    color: $color-gold-500;
   }
 
   &--is-invalid,
@@ -133,11 +132,11 @@
     }
 
     &.#{$prefix}-inline-alert--warning {
-      border-left: $spacing-xxs solid $color-yellow-200;
-      background-color: $color-yellow-000;
+      border-left: $spacing-xxs solid $color-gold-500;
+      background-color: $color-gold-000;
 
       .#{$prefix}-inline-alert__message {
-        color: $color-yellow-700;
+        color: $color-gold-700;
       }
     }
 

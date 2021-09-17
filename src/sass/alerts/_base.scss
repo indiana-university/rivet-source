@@ -91,13 +91,13 @@
 }
 
 .#{$prefix}-alert--warning {
-  background-color: $color-yellow-000;
-  border-left-color: $color-yellow-200;
-  color: $color-yellow-700;
+  background-color: $color-gold-000;
+  border-left-color: $color-gold-500;
+  color: $color-gold-700;
 }
 
 .#{$prefix}-alert--warning .#{$prefix}-alert__dismiss {
-  color: $color-yellow-700;
+  color: $color-gold-700;
 }
 
 .#{$prefix}-alert--danger {
