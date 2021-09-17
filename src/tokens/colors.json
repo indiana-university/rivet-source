@@ -32,7 +32,7 @@
     },
     "blue": {
       "base": {
-        "value": "{color.blue.600.value}"
+        "value": "{color.blue.500.value}"
       },
       "000": {
         "value": "#EDFAFD"
