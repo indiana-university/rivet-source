@@ -165,39 +165,34 @@
         "value": "#ffffff"
       }
     },
-    "yellow": {
+    "gold": {
       "base": {
-        "value": "{color.yellow.200.value}"
+        "value": "{color.gold.500.value}"
       },
       "000": {
-        "value": "#ffeecd"
+        "value": "#FFFCEB"
       },
       "100": {
-        "value": "#ffdd9b"
+        "value": "#FFF4C6"
       },
       "200": {
-        "value": "#f5bb17"
+        "value": "#FFE694"
       },
       "300": {
-        "value": "#d6a31a"
+        "value": "#FFD563"
       },
       "400": {
-        "value": "#b58a1b"
+        "value": "#FFC132"
       },
       "500": {
-        "value": "#94721b"
+        "value": "#FFAA00",
+        "comment": "Base gold"
       },
       "600": {
-        "value": "#765a19"
+        "value": "#A36B00"
       },
       "700": {
-        "value": "#584416"
-      },
-      "800": {
-        "value": "#3c2e13"
-      },
-      "900": {
-        "value": "#221b0c"
+        "value": "#613D00"
       }
     }
   }
