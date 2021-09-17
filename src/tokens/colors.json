@@ -60,19 +60,34 @@
         "value": "#00385F"
       }
     },
-    "cream": {
-      "base": {
-        "value": "#edebeb"
-      }
-    },
     "crimson": {
       "base": {
-        "value": "#990000"
-      }
-    },
-    "crimson-dark": {
-      "base": {
-        "value": "#7A1705"
+        "value": "{color.crimson.500.value}"
+      },
+      "000": {
+        "value": "#FFF7F8"
+      },
+      "100": {
+        "value": "#FFD6DB"
+      },
+      "200": {
+        "value": "#FF636A"
+      },
+      "300": {
+        "value": "#F23A3F"
+      },
+      "400": {
+        "value": "#DC231E"
+      },
+      "500": {
+        "value": "#990000",
+        "comment": "Base crimson"
+      },
+      "600": {
+        "value": "#800000"
+      },
+      "700": {
+        "value": "#5A0C0C"
       }
     },
     "green": {

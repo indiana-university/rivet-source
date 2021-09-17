@@ -6,8 +6,8 @@
  */
 
 .#{$prefix}-global-toggle--id {
-  background-color: $color-crimson-base;
-  border-color: $color-crimson-base;
+  background-color: $color-crimson-500;
+  border-color: $color-crimson-500;
   color: $color-white-base;
   overflow: hidden;
   border: none;
@@ -180,7 +180,7 @@
     &__item--current::after {
       content: '';
       display: block;
-      background-color: $color-crimson-base;
+      background-color: $color-crimson-500;
       width: 100%;
       height: $spacing-xxs * 1.2;
       position: absolute;
