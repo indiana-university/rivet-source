@@ -180,6 +180,33 @@
         "value": "#690A00"
       }
     },
+    "purple": {
+      "000": {
+        "value": "#FBF8FB"
+      },
+      "100": {
+        "value": "#DECADC"
+      },
+      "200": {
+        "value": "#C09EBB"
+      },
+      "300": {
+        "value": "#A07498"
+      },
+      "400": {
+        "value": "#7D4C73"
+      },
+      "500": {
+        "value": "#59264D",
+        "comment": "Base purple"
+      },
+      "600": {
+        "value": "#48183D"
+      },
+      "700": {
+        "value": "#330D2B"
+      }
+    },
     "white": {
       "base": {
         "value": "#ffffff"
