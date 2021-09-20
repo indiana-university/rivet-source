@@ -155,34 +155,29 @@
         "value": "{color.orange.500.value}"
       },
       "000": {
-        "value": "#ffece5"
+        "value": "#FFF3F0"
       },
       "100": {
-        "value": "#ffd9cc"
+        "value": "#FFCDC0"
       },
       "200": {
-        "value": "#ffb49a"
+        "value": "#FFA690"
       },
       "300": {
-        "value": "#fa8e6b"
+        "value": "#FF7E60"
       },
       "400": {
-        "value": "#ef663c"
+        "value": "#F75930"
       },
       "500": {
-        "value": "#df3603"
+        "value": "#DF3603",
+        "comment": "Base orange"
       },
       "600": {
-        "value": "#b02f0a"
+        "value": "#B11C00"
       },
       "700": {
-        "value": "#82270d"
-      },
-      "800": {
-        "value": "#571e0c"
-      },
-      "900": {
-        "value": "#2f1407"
+        "value": "#690A00"
       }
     },
     "white": {

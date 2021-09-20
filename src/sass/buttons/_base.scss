@@ -129,14 +129,14 @@
   }
 
   &:hover {
-    background-color: $color-orange-700;
-    border-color: $color-orange-700;
+    background-color: $color-orange-600;
+    border-color: $color-orange-600;
     color: $color-white-base;
   }
 
   &:active {
-    background-color: $color-orange-800;
-    border-color: $color-orange-800;
+    background-color: $color-orange-700;
+    border-color: $color-orange-700;
   }
 }
 
@@ -151,14 +151,14 @@
 
   &:hover {
     background-color: $color-orange-000;
-    border-color: $color-orange-500;
+    border-color: $color-orange-600;
     color: $color-orange-700;
   }
 
   &:active {
     background-color: $color-orange-100;
     border-color: $color-orange-500;
-    color: $color-orange-800;
+    color: $color-orange-700;
   }
 }
 
