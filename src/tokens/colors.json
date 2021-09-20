@@ -90,6 +90,36 @@
         "value": "#5A0C0C"
       }
     },
+    "gold": {
+      "base": {
+        "value": "{color.gold.500.value}"
+      },
+      "000": {
+        "value": "#FFFCEB"
+      },
+      "100": {
+        "value": "#FFF4C6"
+      },
+      "200": {
+        "value": "#FFE694"
+      },
+      "300": {
+        "value": "#FFD563"
+      },
+      "400": {
+        "value": "#FFC132"
+      },
+      "500": {
+        "value": "#FFAA00",
+        "comment": "Base gold"
+      },
+      "600": {
+        "value": "#A36B00"
+      },
+      "700": {
+        "value": "#613D00"
+      }
+    },
     "green": {
       "base": {
         "value": "{color.green.500.value}"
@@ -163,36 +193,6 @@
     "white": {
       "base": {
         "value": "#ffffff"
-      }
-    },
-    "gold": {
-      "base": {
-        "value": "{color.gold.500.value}"
-      },
-      "000": {
-        "value": "#FFFCEB"
-      },
-      "100": {
-        "value": "#FFF4C6"
-      },
-      "200": {
-        "value": "#FFE694"
-      },
-      "300": {
-        "value": "#FFD563"
-      },
-      "400": {
-        "value": "#FFC132"
-      },
-      "500": {
-        "value": "#FFAA00",
-        "comment": "Base gold"
-      },
-      "600": {
-        "value": "#A36B00"
-      },
-      "700": {
-        "value": "#613D00"
       }
     }
   }
