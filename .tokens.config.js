@@ -1,6 +1,3 @@
-const jsonFileOutput = require("./src/tokens/config/json");
-const sassFileOutput = require("./src/tokens/config/sass");
-
 module.exports = {
   "source": [
     "src/tokens/**/*.json"
@@ -11,7 +8,7 @@ module.exports = {
       buildPath: 'src/sass/core/',
       files: [
         {
-          destination: 'variables-combined.scss',
+          destination: 'variables.scss',
           format: 'scss/map-deep'
         }
       ]
@@ -19,19 +16,36 @@ module.exports = {
     "tokens/sass": {
       transformGroup: 'scss',
       buildPath: 'tokens/sass/',
-      files: sassFileOutput
-    },
-    "tokens/json": {
-      transforms: ['attribute/cti', 'name/cti/kebab'],
-      buildPath: 'tokens/json/',
-      files: jsonFileOutput
+      files: [
+        {
+          destination: 'variables.scss',
+          format: 'scss/map-deep'
+        }
+      ]
     },
     "tokens/css": {
       buildPath: 'tokens/css/',
-      files: [{
-        destination: 'variables.css',
-        format: 'css/variables'
-      }],
+      files: [
+        {
+          destination: 'variables.css',
+          format: 'css/variables'
+        }
+      ],
+      transforms: ['name/cti/kebab']
+    },
+    "tokens/json": {
+      transformGroup: 'js',
+      buildPath: `tokens/json/`,
+      files: [
+        {
+          destination: 'tokens.json',
+          format: 'json'
+        },
+        {
+          destination: 'tokens-flat.json',
+          format: 'json/flat'
+        }
+      ],
       transforms: ['name/cti/kebab']
     }
   }

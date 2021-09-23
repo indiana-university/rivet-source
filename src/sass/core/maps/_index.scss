@@ -1,7 +1,7 @@
-@use '../variables-combined' as *;
+@use '../variables' as *;
 
 $breakpoints: map-get($tokens, 'breakpoint');
 $colors: map-get($tokens, 'colors');
-$type-scale: map-get($tokens, 'type-scale');
+$type-scale: map-get($tokens, 'ts');
 $widths: map-get($tokens, 'width');
 $z-index: map-get($tokens, 'z-index');
