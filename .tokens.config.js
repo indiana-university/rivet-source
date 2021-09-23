@@ -9,7 +9,12 @@ module.exports = {
     "src/sass/core": {
       transformGroup: 'scss',
       buildPath: 'src/sass/core/',
-      files: sassFileOutput
+      files: [
+        {
+          destination: 'variables-combined.scss',
+          format: 'scss/map-deep'
+        }
+      ]
     },
     "tokens/sass": {
       transformGroup: 'scss',

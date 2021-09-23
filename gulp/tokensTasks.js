@@ -19,15 +19,15 @@ const {
 } = require('../src/tokens/filters/format-filters');
 
 function compileTokens(callback) {
-  StyleDictionary.registerFilter(isBreakpoint);
-  StyleDictionary.registerFilter(isColor);
-  StyleDictionary.registerFilter(isTypeScale);
-  StyleDictionary.registerFilter(isWidth);
-  StyleDictionary.registerFilter(isZIndex);
-  StyleDictionary.registerFormat(jsonVariables);
-  StyleDictionary.registerFormat(mapSimple);
-  StyleDictionary.registerFormat(mapSimpleDesc);
-  StyleDictionary.registerFormat(variables);
+  // StyleDictionary.registerFilter(isBreakpoint);
+  // StyleDictionary.registerFilter(isColor);
+  // StyleDictionary.registerFilter(isTypeScale);
+  // StyleDictionary.registerFilter(isWidth);
+  // StyleDictionary.registerFilter(isZIndex);
+  // StyleDictionary.registerFormat(jsonVariables);
+  // StyleDictionary.registerFormat(mapSimple);
+  // StyleDictionary.registerFormat(mapSimpleDesc);
+  // StyleDictionary.registerFormat(variables);
   process.env.NODE_ENV === 'production'
     ? StyleDictionary.buildAllPlatforms()
     : StyleDictionary.buildPlatform('src/sass/core');
