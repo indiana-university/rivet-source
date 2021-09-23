@@ -26,7 +26,7 @@
     font-size: $ts-26;
     font-style: italic;
     margin: 0;
-    color: $color-black-700;
+    color: $color-black-400;
   }
 
   &__citation {
@@ -38,7 +38,7 @@
     display: block;
     height: $spacing-sm / 16;
     width: $spacing-xl;
-    background-color: $color-black-200;
+    background-color: $color-black-100;
     position: relative;
     top: -$spacing-md;
     margin-right: auto;
@@ -48,7 +48,7 @@
   &__title,
   &__subtitle {
     display: block;
-    color: $color-black-500;
+    color: $color-black-400;
   }
 
   &__title {

@@ -39,8 +39,8 @@
 
   input[type='file']:disabled + label {
     background-color: $color-black-100;
-    color: $color-black-700;
-    border-color: $color-black-400;
+    color: $color-black-400;
+    border-color: $color-black-200;
     cursor: not-allowed;
   }
 

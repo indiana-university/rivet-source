@@ -45,7 +45,7 @@
     height: $spacing-sm*.75;
     position: absolute;
     color: $color-white-base;
-    background: $color-blue-600;
+    background: $color-blue-500;
     border-radius: 50%;
     box-shadow: 0 0 0 $spacing-xxs $color-black-100;
     margin-top: $spacing-sm;
@@ -67,7 +67,7 @@
 
   &__date {
     font-size: $ts-14;
-    color: $color-black-700;
+    color: $color-black-400;
   }
 }
 

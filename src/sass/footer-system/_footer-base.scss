@@ -3,7 +3,7 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-base {
-  background-color: $color-crimson-base;
+  background-color: $color-crimson-500;
   color: $color-white-base;
 
   &__inner {
@@ -45,15 +45,15 @@
 
   &--light {
     background-color: $color-white-base;
-    color: $color-black-800;
+    color: $color-black-500;
   }
 
   &--light a {
-    color: $color-black-800;
+    color: $color-black-500;
   }
 
   &--light a:hover {
-    color: $color-blue-600;
+    color: $color-blue-500;
     text-decoration: underline;
   }
 
@@ -62,7 +62,7 @@
   }
 
   &--light &__logo {
-    color: $color-crimson-base;
+    color: $color-crimson-500;
   }
 }
 

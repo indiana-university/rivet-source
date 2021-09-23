@@ -15,7 +15,7 @@
   }
 
   &__title {
-    color: $color-black-base;
+    color: $color-black-500;
     text-decoration: none;
     font-size: $ts-16;
     font-weight: $font-weight-bold;
@@ -55,7 +55,7 @@
 @include mq($breakpoint-lg) {
   .rvt-header-local {
     &__title {
-      border-right: 1px solid $color-black-200;
+      border-right: 1px solid $color-black-100;
       font-size: $ts-18;
       padding-right: $spacing-sm;
       margin-right: $spacing-sm;

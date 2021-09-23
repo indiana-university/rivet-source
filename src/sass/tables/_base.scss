@@ -66,15 +66,15 @@ tr td {
 }
 
 .#{$prefix}-table-cells {
-  border-top: 1px solid $color-black-200;
+  border-top: 1px solid $color-black-100;
 
   tr td,
   tr th {
-    border-right: 1px solid $color-black-200;
+    border-right: 1px solid $color-black-100;
   }
 
   tr td:first-child,
   tr th:first-child {
-    border-left: 1px solid $color-black-200;
+    border-left: 1px solid $color-black-100;
   }
 }

@@ -31,7 +31,7 @@
   &__row--info {
     background-color: $color-blue-000;
     box-shadow: $spacing-xxs 0 0 0 $color-blue-600 inset;
-    color: $color-blue-700;
+    color: $color-blue-500;
   }
 
   &__row--success {
@@ -41,9 +41,9 @@
   }
 
   &__row--warning {
-    background-color: $color-yellow-000;
-    box-shadow: $spacing-xxs 0 0 0 $color-yellow-200 inset;
-    color: $color-yellow-700;
+    background-color: $color-gold-000;
+    box-shadow: $spacing-xxs 0 0 0 $color-gold-200 inset;
+    color: $color-gold-700;
   }
 
   &__row--danger {
@@ -123,7 +123,7 @@
   &--info &__footer {
     background-color: $color-blue-000;
     border-color: $color-blue-200;
-    color: $color-blue-700;
+    color: $color-blue-500;
   }
 
   &--info &__row {
@@ -146,18 +146,18 @@
   }
 
   &--warning {
-    border-color: $color-yellow-100;
+    border-color: $color-gold-100;
   }
 
   &--warning &__header,
   &--warning &__footer {
-    background-color: $color-yellow-000;
-    border-color: $color-yellow-100;
-    color: $color-yellow-700;
+    background-color: $color-gold-000;
+    border-color: $color-gold-100;
+    color: $color-gold-700;
   }
 
   &--warning &__row {
-    border-color: $color-yellow-100;
+    border-color: $color-gold-100;
   }
 
   &--danger {

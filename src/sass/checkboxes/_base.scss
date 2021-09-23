@@ -42,7 +42,7 @@
 
   input[type=checkbox] ~ label::before {
     background-color: $color-white-base;
-    border: ($spacing-xxs / 2) solid $color-black-500;
+    border: ($spacing-xxs / 2) solid $color-black-300;
     border-radius: $spacing-xxs / 2;
     content: '';
     display: inline-block;
@@ -55,11 +55,11 @@
 
   input[type=checkbox]:checked ~ label::before,
   input[type=checkbox]:indeterminate ~ label::before {
-    background-color: $color-blue-600;
+    background-color: $color-blue-500;
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik02LjcyLDEzbC0uNDgtLjM2LTMtM0ExLDEsMCwwLDEsNC43MSw4LjI5bDIuMTEsMi4xMiw0LjMzLTYuOTRhMSwxLDAsMCwxLDEuNywxLjA2TDcuNjQsMTIuODdaIi8+Cjwvc3ZnPgo=');
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    border-color: $color-blue-600;
+    border-color: $color-blue-500;
   }
 
   input[type=checkbox]:indeterminate ~ label::before {
@@ -77,17 +77,17 @@
   }
 
   input[type=checkbox]:disabled ~ label {
-    color: $color-black-700;
+    color: $color-black-400;
     cursor: default;
   }
 
   input[type=checkbox]:disabled ~ label::before {
-    background-color: $color-black-200;
+    background-color: $color-black-100;
     border-color: $color-black-300;
   }
 
   &__description {
-    color: $color-black-600;
+    color: $color-black-400;
     display: block;
     font-size: $ts-14;
   }

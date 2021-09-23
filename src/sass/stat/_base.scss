@@ -12,7 +12,7 @@
   &[href]:hover {
     transform: scale(1.1);
     box-shadow: $shadow-heavy;
-    color: $color-crimson-base;
+    color: $color-crimson-500;
     border-radius: $spacing-xs;
   }
 
@@ -31,7 +31,7 @@
   }
 
   &__description {
-    color: $color-black-500;
+    color: $color-black-400;
     font-size: $ts-14;
     letter-spacing: .025rem;
 

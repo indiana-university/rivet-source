@@ -44,8 +44,8 @@ a.#{$prefix}-badge {
 
   &--info:hover,
   &--info-secondary:hover {
-    background-color: $color-blue-700;
-    border-color: $color-blue-700;
+    background-color: $color-blue-600;
+    border-color: $color-blue-600;
     color: $color-white-base;
   }
 
@@ -58,8 +58,8 @@ a.#{$prefix}-badge {
 
   &--warning:hover,
   &--warning-secondary:hover {
-    background-color: $color-yellow-700;
-    border-color: $color-yellow-700;
+    background-color: $color-gold-600;
+    border-color: $color-gold-600;
     color: $color-white-base;
   }
 
@@ -76,14 +76,14 @@ a.#{$prefix}-badge {
 }
 
 .#{$prefix}-badge--info {
-  background-color: $color-blue-600;
-  border-color: $color-blue-600;
+  background-color: $color-blue-500;
+  border-color: $color-blue-500;
   color: $color-white-base;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-blue-600;
-    color: $color-blue-600;
+    border-color: $color-blue-500;
+    color: $color-blue-500;
   }
 }
 
@@ -100,14 +100,14 @@ a.#{$prefix}-badge {
 }
 
 .#{$prefix}-badge--warning {
-  background-color: $color-yellow-200;
-  border-color: $color-yellow-200;
-  color: $color-black-900;
+  background-color: $color-gold-400;
+  border-color: $color-gold-400;
+  color: $color-black-700;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-yellow-200;
-    color: $color-black-900;
+    border-color: $color-gold-400;
+    color: $color-black-500;
   }
 }
 

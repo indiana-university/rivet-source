@@ -5,12 +5,12 @@
 
 %button-focus {
   outline: none;
-  box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
+  box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
 }
 
 .#{$prefix}-button {
-  background-color: $color-blue-600;
-  border: $spacing-xxs/2 solid $color-blue-600;
+  background-color: $color-blue-500;
+  border: $spacing-xxs/2 solid $color-blue-500;
   border-radius: $spacing-xxs;
   color: $color-white-base;
   cursor: pointer;
@@ -39,42 +39,42 @@
   }
 
   &:hover {
-    background-color: $color-blue-700;
-    border-color: $color-blue-700;
+    background-color: $color-blue-600;
+    border-color: $color-blue-600;
     color: $color-white-base;
   }
 
   &:active {
-    background-color: $color-blue-800;
-    border-color: $color-blue-800;
+    background-color: $color-blue-700;
+    border-color: $color-blue-700;
   }
 
   &:disabled,
   &:disabled:hover {
-    background-color: $color-black-100;
-    color: $color-black-700;
-    border-color: $color-black-400;
+    background-color: $color-black-000;
+    color: $color-black-400;
+    border-color: $color-black-300;
     cursor: not-allowed;
   }
 }
 
 .#{$prefix}-button--secondary {
   background-color: transparent;
-  color: $color-blue-600;
+  color: $color-blue-500;
 
   &:focus {
     @extend %button-focus;
   }
 
   &:hover {
-    background-color: $color-blue-100;
+    background-color: $color-blue-000;
     border-color: $color-blue-600;
-    color: $color-blue-800;
+    color: $color-blue-600;
   }
 
   &:active {
-    background-color: $color-blue-200;
-    color: $color-blue-800;
+    background-color: $color-blue-100;
+    color: $color-blue-600;
   }
 }
 
@@ -93,8 +93,8 @@
   }
 
   &:active {
-    background-color: $color-green-800;
-    border-color: $color-green-800;
+    background-color: $color-green-700;
+    border-color: $color-green-700;
   }
 }
 
@@ -116,7 +116,7 @@
   &:active {
     background-color: $color-green-100;
     border-color: $color-green-500;
-    color: $color-green-800;
+    color: $color-green-700;
   }
 }
 
@@ -129,14 +129,14 @@
   }
 
   &:hover {
-    background-color: $color-orange-700;
-    border-color: $color-orange-700;
+    background-color: $color-orange-600;
+    border-color: $color-orange-600;
     color: $color-white-base;
   }
 
   &:active {
-    background-color: $color-orange-800;
-    border-color: $color-orange-800;
+    background-color: $color-orange-700;
+    border-color: $color-orange-700;
   }
 }
 
@@ -151,14 +151,14 @@
 
   &:hover {
     background-color: $color-orange-000;
-    border-color: $color-orange-500;
+    border-color: $color-orange-600;
     color: $color-orange-700;
   }
 
   &:active {
     background-color: $color-orange-100;
     border-color: $color-orange-500;
-    color: $color-orange-800;
+    color: $color-orange-700;
   }
 }
 
@@ -170,29 +170,29 @@
   padding-left: $spacing-xs;
 
   &:active {
-    border-color: $color-blue-800;
+    border-color: $color-blue-500;
   }
 }
 
 .#{$prefix}-button--plain {
   border-color: transparent;
   background-color: transparent;
-  color: $color-blue-600;
+  color: $color-blue-500;
 
   &:focus {
     @extend %button-focus;
   }
 
   &:hover {
-    background-color: $color-blue-100;
+    background-color: $color-blue-000;
     border-color: transparent;
-    color: $color-blue-800;
+    color: $color-blue-600;
   }
 
   &:active {
-    background-color: $color-blue-200;
+    background-color: $color-blue-100;
     border-color: transparent;
-    color: $color-blue-800;
+    color: $color-blue-600;
   }
 
   &:disabled,
@@ -234,15 +234,14 @@
 
 .#{$prefix}-button--loading,
 .#{$prefix}-button--loading[disabled] {
-  background-color: $color-black-100;
-  border-color: $color-black-400;
-  color: $color-black-700;
+  background-color: $color-black-000;
+  border-color: $color-black-300;
+  color: $color-black-400;
   justify-content: center;
   position: relative;
 
   &:hover {
     background-color: $color-black-100;
-    border-color: $color-black-400;
     color: $color-black-700;
   }
 
@@ -260,9 +259,9 @@
     top: 50%;
 
     /**
-         * This negative margin accounts for the width/height of the
-         * default loading indicator above.
-         */
+     * This negative margin accounts for the width/height of the
+     * default loading indicator above.
+     */
     margin-top: -.65rem;
     margin-left: -$spacing-xs;
   }

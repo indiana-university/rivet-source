@@ -3,7 +3,7 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-resources {
-  background-color: $color-crimson-base;
+  background-color: $color-crimson-500;
   color: $color-white-base;
   padding-bottom: $spacing-sm;
 
@@ -47,7 +47,7 @@
   &__button {
     background-color: $color-white-base;
     border-color: transparent;
-    color: $color-crimson-base;
+    color: $color-crimson-500;
     justify-content: center;
     margin-bottom: $spacing-sm;
     width: 100%;

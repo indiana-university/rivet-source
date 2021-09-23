@@ -4,8 +4,8 @@
 @use '../core' as *;
 
 .#{$prefix}-alert {
-  background-color: $color-black-100;
-  border-left: $spacing-xxs solid $color-black-400;
+  background-color: $color-black-000;
+  border-left: $spacing-xxs solid $color-black-500;
   padding: $spacing-sm;
   position: relative;
 
@@ -55,7 +55,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 $spacing-xxs/2 $color-blue-600 !important;
+      box-shadow: 0 0 0 $spacing-xxs/2 $color-blue-500 !important;
     }
   }
 }
@@ -72,7 +72,11 @@
 
 .#{$prefix}-alert--info {
   background-color: $color-blue-000;
-  border-left-color: $color-blue-600;
+  border-left-color: $color-blue-500;
+  color: $color-blue-700;
+}
+
+.#{$prefix}-alert--info .#{$prefix}-alert__dismiss {
   color: $color-blue-700;
 }
 
@@ -82,17 +86,27 @@
   color: $color-green-700;
 }
 
-.#{$prefix}-alert--message,
-.#{$prefix}-alert--warning {
-  background-color: $color-yellow-000;
-  border-left-color: $color-yellow-200;
-  color: $color-yellow-700;
+.#{$prefix}-alert--success .#{$prefix}-alert__dismiss {
+  color: $color-green-700;
 }
 
-.#{$prefix}-alert--error,
+.#{$prefix}-alert--warning {
+  background-color: $color-gold-000;
+  border-left-color: $color-gold-500;
+  color: $color-gold-700;
+}
+
+.#{$prefix}-alert--warning .#{$prefix}-alert__dismiss {
+  color: $color-gold-700;
+}
+
 .#{$prefix}-alert--danger {
   background-color: $color-orange-000;
   border-left-color: $color-orange-500;
+  color: $color-orange-700;
+}
+
+.#{$prefix}-alert--danger .#{$prefix}-alert__dismiss {
   color: $color-orange-700;
 }
 
