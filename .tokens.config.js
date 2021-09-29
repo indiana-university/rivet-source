@@ -38,11 +38,11 @@ module.exports = {
       buildPath: `tokens/json/`,
       files: [
         {
-          destination: 'tokens.json',
+          destination: 'variables.json',
           format: 'json'
         },
         {
-          destination: 'tokens-flat.json',
+          destination: 'variables-flat.json',
           format: 'json/flat'
         }
       ],
