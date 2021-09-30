@@ -22,7 +22,7 @@
   }
 
   &__text {
-    font-family: 'GeorgiaPro', Georgia, 'Times New Roman', Times, serif;
+    font-family: $font-serif;
     font-size: $ts-26;
     font-style: italic;
     margin: 0;
