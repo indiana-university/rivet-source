@@ -89,7 +89,7 @@
       right: $spacing-xxs;
       left: unset;
       background-color: $color-white-base;
-      box-shadow: 0 1px 3px 2px rgba(36, 49, 66, .1);
+      box-shadow: $shadow-heavy;
       border-radius: $spacing-xxs;
       position: absolute;
       padding: $spacing-sm $spacing-md;
