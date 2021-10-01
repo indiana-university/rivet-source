@@ -1,0 +1,20 @@
+// Copyright (C) 2021 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+@use 'sass:map';
+@use 'sass:string';
+
+@each $key, $value in map.get($tokens, 'shadow') {
+  @if string.index($key, 'base') {
+    .#{$prefix}-shadow {
+      box-shadow: $value !important;
+    }
+  }
+
+  @else {
+    .#{$prefix}-shadow-#{$key} {
+      box-shadow: $value !important;
+    }
+  }
+}
