@@ -1,22 +1,36 @@
-<div class="rvt-prose rvt-m-top-3-xl-lg-up">
-  <h1 class="rvt-p-all-xl-md-up rvt-ts-18 rvt-ts-52-md-up rvt-bg-orange-100 rvt-color-crimson-500">TODO: Update to use new design tokens</h1>
-</div>
-{# <table>
+<div class="rvt-flow rvt-prose">
+  <h1 class="rvt-ts-lg rvt-text-bold">Colors</h1>
+  {% for key, value in colors %}
+  {% if key != "white" %}
+  <h2>IU {{ key | capitalize }}</h2>
+  <table>
     <caption class="rvt-sr-only">Rivet color utilities</caption>
     <thead>
-        <th>Variable</th>
-        <th>Hex</th>
-        <th>Color</th>
-        <th>Background-color</th>
+      <th>Example</th>
+      <th>Value</th>
+      <th>Token</th>
     </thead>
     <tbody>
-        {% for color in colors %}
-            <tr>
-                <td><code>${{ color.variable }}</code></td>
-                <td><code>#{{ color.hex }}</code></td>
-                <td><span class="rvt-color-{{ color.variable }}">Example text</span></td>
-                <td class="rvt-bg-{{ color.variable }}"></td>
-            </tr>
-        {% endfor %}
+      <tr>
+        <td>
+          <div style="height: 2rem; background-color: {{ value["000"].value }};"></div>
+        </td>
+        <td>{{ value["000"].value }}</td>
+        <td>$color-{{ key }}-000</td>
+      </tr>
+      {% for colorKey, colorValue in value %}
+      {% if (colorKey != "000") and (colorKey != "base") %}
+      <tr>
+        <td>
+          <div style="height: 2rem; background-color: {{ colorValue.value }};"></div>
+        </td>
+        <td>{{ colorValue.value }}</td>
+        <td>$color-{{ key }}-{{ colorKey }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
     </tbody>
-</table> #}
+  </table>
+  {% endif %}
+  {% endfor %}
+</div>

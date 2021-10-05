@@ -9,16 +9,17 @@ module.exports = {
   root: true,
   collated: false,
   context: {
-    flexText: [
-      "One",
-      "Two",
-      "Three",
-      "Four",
-      "Five"
+    borders: [
+      'top',
+      'right',
+      'bottom',
+      'left',
+      'all',
+      'radius'
     ],
-    colors: colorTokens,
+    colors: colorTokens.color,
     spacings: spacingTokens.spacing,
     typeScale: typeScaleTokens.ts,
-    zIndexes: zIndexTokens
+    zIndexes: zIndexTokens['z-index']
   }
 }
