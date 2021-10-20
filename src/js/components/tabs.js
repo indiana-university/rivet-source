@@ -93,19 +93,7 @@ export default class Tabs extends Component {
             break;
           }
     
-          case keyCodes.down: {
-            !this.tabs[nextTab] ? this.tabs[0].focus() : this.tabs[nextTab].focus();
-            break;
-          }
-    
           case keyCodes.left: {
-            !this.tabs[prevTab]
-              ? this.tabs[this.tabs.length - 1].focus()
-              : this.tabs[prevTab].focus();
-            break;
-          }
-    
-          case keyCodes.up: {
             !this.tabs[prevTab]
               ? this.tabs[this.tabs.length - 1].focus()
               : this.tabs[prevTab].focus();

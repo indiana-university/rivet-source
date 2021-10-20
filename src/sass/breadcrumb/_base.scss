@@ -32,7 +32,7 @@
   }
 
   li:first-child {
-    color: $color-black-600;
+    color: $color-black-500;
 
     &::before {
       content: none;
@@ -40,7 +40,7 @@
   }
 
   li:last-child {
-    color: $color-black-700;
+    color: $color-black-400;
   }
 
   &--call-out {

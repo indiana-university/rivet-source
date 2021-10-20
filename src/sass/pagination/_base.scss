@@ -14,7 +14,7 @@
     margin-top: 0;
 
     a {
-      color: $color-black-800;
+      color: $color-black-500;
       display: inline-flex;
       align-items: center;
 
@@ -50,7 +50,7 @@
     }
 
     a[aria-current] {
-      box-shadow: 0 $spacing-xxs 0 $color-crimson-base;
+      box-shadow: 0 $spacing-xxs 0 $color-crimson-500;
     }
   }
 

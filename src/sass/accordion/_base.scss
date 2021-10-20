@@ -26,16 +26,17 @@
   }
 
   &__toggle:hover {
-    background-color: $color-black-100;
+    background-color: $color-black-000;
     cursor: pointer;
   }
 
   &__toggle:focus {
-    outline: 2px solid $color-blue-base;
+    outline: 2px solid $color-blue-500;
     outline-offset: $spacing-xxs/2;
   }
 
   &__toggle-text {
+    color: $color-black-500;
     font-size: $ts-18;
     font-weight: $font-weight-bold;
     line-height: 1.3;
@@ -43,7 +44,7 @@
   }
 
   &__toggle-icon {
-    color: $color-black-600;
+    color: $color-black-400;
     margin-left: auto;
   }
 

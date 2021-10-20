@@ -6,7 +6,6 @@
 
   &__title {
     font-size: $ts-29;
-    // font-weight: $font-weight-bold;
     position: relative;
     // Creates clear space for crimson "dash"
     margin-top: $spacing-sm;
@@ -16,7 +15,7 @@
     content: '';
     display: block;
     position: absolute;
-    background-color: $color-crimson-base;
+    background-color: $color-crimson-500;
     width: $spacing-lg;
 
     // HACK: This is a magic number
@@ -34,7 +33,7 @@
   }
 
   &__content {
-    color: $color-black-500;
+    color: $color-black-400;
     margin-top: $spacing-sm;
 
     --flow-space: 1.5rem;

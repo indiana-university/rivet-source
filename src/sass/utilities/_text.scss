@@ -44,3 +44,11 @@
 .#{$prefix}-text-nobr {
   white-space: nowrap;
 }
+
+.#{$prefix}-font-sans {
+  font-family: $font-sans;
+}
+
+.#{$prefix}-font-serif {
+  font-family: $font-serif;
+}

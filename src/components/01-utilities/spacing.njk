@@ -7,23 +7,23 @@
     <table>
         <caption class="rvt-sr-only">Rivet spacing utilities</caption>
         <thead>
-            <th>CSS suffix</th>
-            <th>rem</th>
-            <th>px</th>
             <th>Example</th>
+            <th>Value</th>
+            <th>Token</th>
         </thead>
         <tbody>
-            {% for space in spacings %}
+            {% for key,value in spacings %}
+            {% if key != "base" %}
             <tr>
-                <td><code>{{ space.abbr }}</code></td>
-                <td>{{ space.rem }}rem</td>
-                <td>{{ space.pixels }}px</td>
                 <td>
-                    <div class="sp-example rvt-p-all{{ space.abbr }}">
-                        <p class="sp-example-inner rvt-m-all-remove rvt-p-all-xs">{{ space.name }}</p>
+                    <div class="sp-example rvt-p-all-{{ key }}">
+                        <p class="sp-example-inner rvt-m-all-remove rvt-p-all-xs">{{ key }}</p>
                     </div>
                 </td>
+                <td>{{ value.value }} / {{ value.value | replace("rem", "") * 16 }}px</td>
+                <td>$spacing-{{ key }}</td>
             </tr>
+            {% endif %}
             {% endfor %}
         </tbody>
     </table>

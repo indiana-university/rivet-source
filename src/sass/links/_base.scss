@@ -5,14 +5,14 @@
 
 a,
 .#{$prefix}-link {
-  color: $color-blue-600;
+  color: $color-blue-500;
 
   &:hover {
-    color: $color-blue-900;
+    color: $color-blue-700;
   }
 
   &:focus {
-    outline: $spacing-xxs/2 solid $color-blue-600;
+    outline: $spacing-xxs/2 solid $color-blue-500;
     outline-offset: $spacing-xxs/2;
   }
 
@@ -20,7 +20,7 @@ a,
     /**
      * TODO: Come up with a better color for the :visited state.
      */
-    color: $color-blue-900;
+    color: $color-blue-500;
   }
 }
 

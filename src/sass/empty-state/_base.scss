@@ -1,7 +1,7 @@
 @use '../core' as *;
 
 .#{$prefix}-empty-state {
-  border: $spacing-xxs dashed $color-black-200;
+  border: $spacing-xxs dashed $color-black-100;
   border-radius: $spacing-xs;
   background-color: $color-black-000;
   display: flex;
@@ -10,7 +10,7 @@
   text-align: center;
 
   &__content {
-    color: $color-black-600;
+    color: $color-black-400;
   }
 
   &__actions {

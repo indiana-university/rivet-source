@@ -24,7 +24,7 @@
   &__item button {
     align-items: center;
     border: none;
-    color: $color-black-base;
+    color: $color-black-500;
     display: flex;
     font-size: $ts-14;
     padding: $spacing-sm $spacing-sm;
@@ -41,16 +41,16 @@
     height: $spacing-xxs;
     bottom: -$spacing-xxs;
     left: 0;
-    background-color: $color-crimson-base;
+    background-color: $color-crimson-500;
     position: absolute;
   }
 
   &__item a:hover:not([aria-current]),
   &__item button:hover {
-    background-color: $color-black-100;
+    background-color: $color-black-000;
 
     &::after {
-      background-color: $color-black-200;
+      background-color: $color-black-100;
     }
   }
 }
