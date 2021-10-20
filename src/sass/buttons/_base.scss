@@ -3,11 +3,6 @@
 
 @use '../core' as *;
 
-%button-focus {
-  outline: none;
-  box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
-}
-
 .#{$prefix}-button {
   background-color: $color-blue-500;
   border: $spacing-xxs/2 solid $color-blue-500;
@@ -35,7 +30,8 @@
   }
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    outline: none;
   }
 
   &:hover {
@@ -63,7 +59,8 @@
   color: $color-blue-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    outline: none;
   }
 
   &:hover {
@@ -83,7 +80,8 @@
   border-color: $color-green-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-green-500;
+    outline: none;
   }
 
   &:hover {
@@ -104,7 +102,8 @@
   color: $color-green-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-green-500;
+    outline: none;
   }
 
   &:hover {
@@ -125,7 +124,8 @@
   border-color: $color-orange-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-orange-500;
+    outline: none;
   }
 
   &:hover {
@@ -146,7 +146,8 @@
   color: $color-orange-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-orange-500;
+    outline: none;
   }
 
   &:hover {
@@ -168,10 +169,6 @@
   vertical-align: bottom;
   padding-right: $spacing-xs;
   padding-left: $spacing-xs;
-
-  &:active {
-    border-color: $color-blue-500;
-  }
 }
 
 .#{$prefix}-button--plain {
@@ -180,7 +177,8 @@
   color: $color-blue-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    outline: none;
   }
 
   &:hover {
