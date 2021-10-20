@@ -51,6 +51,7 @@
   }
 
   &__title a {
+    display: block;
     text-decoration: none;
     color: $color-black-500;
   }
