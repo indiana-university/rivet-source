@@ -57,6 +57,10 @@
     text-decoration: underline;
   }
 
+  &--light a:focus {
+    outline-color: $color-blue-500;
+  }
+
   &--light &__inner {
     border-top-color: $color-black-100;
   }
