@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
 
 .#{$prefix}-tabs {
   &__tab {
@@ -21,7 +22,7 @@
     text-align: left;
     transition: box-shadow .2s ease;
     width: 100%;
-    z-index: map-get($z-index, '100');
+    z-index: map.get($z-index, '100');
 
     &:last-child {
       border-bottom: 1px solid $color-black-100;
@@ -43,11 +44,11 @@
     &:focus {
       /* stylelint-disable */
       box-shadow:
-        0 0 0 $spacing-xxs/2 $color-white-base,
+        0 0 0 ($spacing-xxs / 2) $color-white-base,
         0 0 0 $spacing-xxs $color-blue-500;
       /* stylelint-enable */
       outline: none;
-      z-index: map-get($z-index, '1000');
+      z-index: map.get($z-index, '1000');
     }
   }
 
@@ -66,7 +67,7 @@
     transition: box-shadow .2s ease;
 
     &:focus {
-      box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-500;
+      box-shadow: inset 0 0 0 ($spacing-xxs / 2) $color-blue-500;
       outline: none;
     }
   }

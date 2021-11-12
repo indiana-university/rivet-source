@@ -19,7 +19,7 @@
     "build": "npm run clean && gulp release",
     "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
     "changelog": "node ./scripts/changelog.js",
-    "fix:css": "stylelint 'src/sass/**/*.scss' --fix",
+    "fix:css": "npx stylelint 'src/sass/**/*.scss' --fix",
     "fix:js": "standard 'src/js' --fix",
     "test": "start-server-and-test cypress:serve http://localhost:3000 cypress:test",
     "cypress:browser": "cypress open",
@@ -27,8 +27,7 @@
     "cypress:test": "cypress run",
     "clean": "rm -rf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build",
-    "lint": "standard 'src/js'",
-    "stylelint": "stylelint --fix \"**/*.scss\""
+    "lint": "standard 'src/js'"
   },
   "files": [
     "css/**/*",
@@ -62,7 +61,6 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-stylelint": "^13.0.0",
     "gulp-terser": "^1.2.0",
-    "node-sass": "^6.0.1",
     "postcss": "^8.3.11",
     "postcss-scss": "^2.0.0",
     "rollup": "^1.26.5",
@@ -71,10 +69,10 @@
     "start-server-and-test": "^1.10.6",
     "style-dictionary": "^2.8.3",
     "stylelint": "^14.0.1",
-    "stylelint-config-rivet-scss": "^1.0.0",
-    "stylelint-scss": "^4.0.0"
+    "stylelint-config-rivet-scss": "^1.0.1"
   },
   "dependencies": {
+    "uninstall": "0.0.0",
     "wicked-elements": "^3.1.1"
   }
 }

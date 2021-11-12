@@ -1,5 +1,5 @@
 @mixin all-inputs($class) {
-  @if $class == null {
+  @if not $class {
     input[type='date'],
     input[type='datetime'],
     input[type='datetime-local'],

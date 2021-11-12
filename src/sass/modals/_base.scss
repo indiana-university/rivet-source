@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
 
 /**
  * This class gets applied to the body of the document when the modal
@@ -14,7 +15,7 @@
 }
 
 .#{$prefix}-modal {
-  z-index: map-get($z-index, '1000');
+  z-index: map.get($z-index, '1000');
   position: fixed;
   top: 0;
   left: 0;

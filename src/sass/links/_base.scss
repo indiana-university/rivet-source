@@ -12,8 +12,8 @@ a,
   }
 
   &:focus {
-    outline: $spacing-xxs/2 solid $color-blue-500;
-    outline-offset: $spacing-xxs/2;
+    outline: $spacing-xxs / 2 solid $color-blue-500;
+    outline-offset: $spacing-xxs / 2;
   }
 
   a:visited {
@@ -26,7 +26,7 @@ a,
 
 .#{$prefix}-link--reverse,
 .#{$prefix}-link-reverse {
-  color: rgb($color-white-base .8);
+  color: rgba($color-white-base, .8);
 
   &:hover {
     color: $color-white-base;

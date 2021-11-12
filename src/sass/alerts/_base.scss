@@ -55,7 +55,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 $spacing-xxs/2 $color-blue-500 !important;
+      box-shadow: 0 0 0 $spacing-xxs / 2 $color-blue-500 !important;
     }
   }
 }
@@ -159,7 +159,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 $spacing-xxs/2 $color-orange-500;
+    box-shadow: 0 0 0 $spacing-xxs / 2 $color-orange-500;
     border-color: $color-orange-500;
   }
 }
