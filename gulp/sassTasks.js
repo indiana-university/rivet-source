@@ -1,8 +1,7 @@
 const { dest, src, series, watch } = require('gulp')
 const header = require('gulp-header')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'));
 const stylelint = require('gulp-stylelint')
-sass.compiler = require('sass')
 const pkg = require('../package.json')
 
 // Create the string for the version number banner.
