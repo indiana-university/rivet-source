@@ -19,7 +19,7 @@
     "build": "npm run clean && gulp release",
     "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
     "changelog": "node ./scripts/changelog.js",
-    "fix:css": "npx stylelint 'src/sass/**/*.scss' --fix",
+    "fix:css": "stylelint 'src/sass/**/*.scss' --fix",
     "fix:js": "standard 'src/js' --fix",
     "test": "start-server-and-test cypress:serve http://localhost:3000 cypress:test",
     "cypress:browser": "cypress open",
