@@ -2,145 +2,87 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
 
 .#{$prefix}-tabs {
+  background-color: $color-white-base;
+  border: 1px solid $color-black-100;
+  border-radius: $spacing-xs;
+
+  &__tablist {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__tab {
-    background-color: $color-black-000;
-    border-top: 1px solid $color-black-100;
-    border-right: 1px solid $color-black-100;
-    border-left: 1px solid $color-black-100;
-    border-bottom: none;
-    border-radius: 0;
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
     color: $color-black-500;
     cursor: pointer;
-    display: block;
     line-height: 1;
-    margin-right: $spacing-xs;
-    padding: $spacing-xs $spacing-md;
+    padding: $spacing-sm $spacing-sm;
     position: relative;
-    text-align: left;
-    transition: box-shadow .2s ease;
-    width: 100%;
-    z-index: map-get($z-index, '100');
+    z-index: map.get($z-index, '100');
+    border-bottom: 1px solid $color-black-100;
 
-    &:last-child {
-      border-bottom: 1px solid $color-black-100;
-      margin-right: 0;
+    &:not(:first-child) {
+      border-left: 1px solid $color-black-100;
+      // Fixes double border when tabs wrap on to multiple lines
+      margin-left: -1px;
     }
 
-    &:first-child {
-      border-top-right-radius: $spacing-xxs;
-      border-top-left-radius: $spacing-xxs;
-    }
-
-    &:focus,
     &:hover {
-      background-color: $color-blue-500;
-      border-color: $color-blue-500;
-      color: $color-white-base;
+      background-color: $color-black-000;
+      color: $color-black-700;
+    }
+
+    &:hover::after {
+      content: '';
+      display: block;
+      height: $spacing-xxs;
+      width: 100%;
+      background-color: $color-black-100;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
 
     &:focus {
-      /* stylelint-disable */
-      box-shadow:
-        0 0 0 $spacing-xxs/2 $color-white-base,
-        0 0 0 $spacing-xxs $color-blue-500;
-      /* stylelint-enable */
+      outline: $spacing-xxs/2 solid $color-blue-500;
+      z-index: map.get($z-index, '1000');
+    }
+
+    &:focus:not(:focus-visible) {
       outline: none;
-      z-index: map-get($z-index, '1000');
     }
   }
 
   &__tab[aria-selected='true'] {
-    background-color: $color-blue-500;
-    border-color: $color-blue-500;
-    color: $color-white-base;
+    background-color: $color-black-000;
+  }
+
+  &__tab[aria-selected='true']::after {
+    content: '';
+    display: block;
+    height: $spacing-xxs;
+    width: 100%;
+    background-color: $color-crimson-500;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 
   &__panel {
-    border: 1px solid $color-black-100;
-    border-bottom-right-radius: $spacing-xxs;
-    border-bottom-left-radius: $spacing-xxs;
-    margin-top: -1px;
-    padding: $spacing-md;
-    transition: box-shadow .2s ease;
+    padding: $spacing-sm;
 
     &:focus {
-      box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-500;
+      outline: $spacing-xxs/2 solid $color-blue-500;
+      outline-offset: -$spacing-xxs/2;
+    }
+
+    &:focus:not(:focus-visible) {
       outline: none;
     }
-  }
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-tabs {
-    &__tab {
-      border-top-right-radius: $spacing-xxs;
-      border-top-left-radius: $spacing-xxs;
-      display: inline-block;
-      text-align: center;
-      width: auto;
-      border-bottom: 1px solid $color-black-100;
-    }
-
-    &__tablist {
-      display: flex;
-    }
-
-    &__panel {
-      border-top-right-radius: $spacing-xxs;
-    }
-  }
-}
-
-/**
- * Vertical tabs
- */
-@include mq($breakpoint-md) {
-  .#{$prefix}-tabs--vertical {
-    border: 1px solid $color-black-100;
-    border-radius: $spacing-xxs;
-    display: flex;
-    justify-content: space-between;
-
-    .#{$prefix}-tabs__tablist {
-      border-right: 1px solid $color-black-100;
-      display: block;
-      flex-basis: 250px;
-      flex-grow: 0;
-      min-width: 250px;
-    }
-
-    .#{$prefix}-tabs__tab {
-      border-right: none;
-      border-radius: 0;
-      border-top: none;
-      border-bottom: 1px solid $color-black-100;
-      border-left: none;
-      width: 100%;
-
-      &[aria-selected='true']:first-child {
-        border-top-left-radius: $spacing-xxs;
-      }
-    }
-
-    .#{$prefix}-tabs__panel {
-      border: none;
-      flex-grow: 1;
-    }
-  }
-}
-
-/**
- * Fitted tabs
- */
-
-.#{$prefix}-tabs--fitted {
-  .#{$prefix}-tabs__tab {
-    flex-grow: 1;
-  }
-
-  .#{$prefix}-tabs__panel {
-    border-top-right-radius: 0;
   }
 }
