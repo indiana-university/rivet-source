@@ -30,7 +30,7 @@
     padding: $spacing-sm $spacing-sm;
     position: relative;
     text-decoration: none;
-    -webkit-appearance: none;
+    appearance: none;
   }
 
   &__item a[aria-current]::after,

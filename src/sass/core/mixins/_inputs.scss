@@ -17,9 +17,7 @@
     select {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     input[type='date']#{$class},
     input[type='datetime']#{$class},
     input[type='datetime-local']#{$class},

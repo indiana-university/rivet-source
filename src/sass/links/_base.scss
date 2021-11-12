@@ -26,7 +26,7 @@ a,
 
 .#{$prefix}-link--reverse,
 .#{$prefix}-link-reverse {
-  color: rgba($color-white-base, .8);
+  color: rgb($color-white-base .8);
 
   &:hover {
     color: $color-white-base;

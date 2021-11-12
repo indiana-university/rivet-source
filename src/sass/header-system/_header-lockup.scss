@@ -26,6 +26,7 @@
     display: flex;
     flex-shrink: 0;
     justify-content: center;
+
     // Magic numbers to get the display right.
     width: 1.75rem;
     height: 2.125rem;
@@ -34,6 +35,7 @@
   &__trident {
     flex-shrink: 0;
     flex-grow: 1;
+
     // Magic numbers to get the display right.
     width: 1.1875rem;
     height: 1.4375rem;

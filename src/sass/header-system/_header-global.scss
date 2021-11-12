@@ -46,6 +46,7 @@
     left: -3 * $spacing-sm;
     margin: 0 $spacing-md;
     position: absolute;
+
     // Magic number here to get the menus to line up with bottom of global header
     top: 3 * $spacing-sm;
     background-color: $color-black-000;

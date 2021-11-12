@@ -29,7 +29,7 @@
     left: 0;
   }
 
-  &__toggle[aria-expanded=true]::before {
+  &__toggle[aria-expanded='true']::before {
     transform: rotate(90deg);
   }
 

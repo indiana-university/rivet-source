@@ -33,6 +33,7 @@
   left: -3rem;
   margin: 0 $spacing-md;
   position: absolute;
+
   // Magic number here to get the menus to line up with bottom of global header
   top: 3rem;
   background-color: $color-black-000;
@@ -189,6 +190,7 @@
 
     &__submenu {
       position: absolute;
+
       // Magic number to get optical positioning right
       top: 3.1 * $spacing-sm;
       right: 0;

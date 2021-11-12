@@ -43,13 +43,13 @@
     flex-shrink: 0;
   }
 
-  &[aria-expanded=false] &__close,
-  &[aria-expanded=true] &__open {
+  &[aria-expanded='false'] &__close,
+  &[aria-expanded='true'] &__open {
     display: none;
   }
 
-  &[aria-expanded=false] &__open,
-  &[aria-expanded=true] &__close {
+  &[aria-expanded='false'] &__open,
+  &[aria-expanded='true'] &__close {
     display: inline-flex;
   }
 }

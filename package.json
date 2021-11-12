@@ -27,7 +27,8 @@
     "cypress:test": "cypress run",
     "clean": "rm -rf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build",
-    "lint": "standard 'src/js'"
+    "lint": "standard 'src/js'",
+    "stylelint": "stylelint --fix \"**/*.scss\""
   },
   "files": [
     "css/**/*",
