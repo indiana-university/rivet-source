@@ -7,6 +7,7 @@
   &__title {
     font-size: $ts-29;
     position: relative;
+
     // Creates clear space for crimson "dash"
     margin-top: $spacing-sm;
   }
@@ -104,6 +105,7 @@
       left: 0;
       width: 50vw;
       height: calc(100% + 8rem);
+
       // position should be half what the 100% + calc statement is above
       top: -4rem;
       margin-left: calc(50% - 50vw);

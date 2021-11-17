@@ -21,10 +21,13 @@
     /**
      * Prefixes get rid of browser default select element styles.
      */
+
+    /* stylelint-disable  */
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
     appearance: none;
+    /* stylelint-enable */
   }
 
   &-textarea {
@@ -35,7 +38,9 @@
 
   &-input[type='search'] {
     height: auto;
+    /* stylelint-disable  */
     -webkit-appearance: none;
+    /* stylelint-enable */
   }
 
   &-select {
@@ -49,9 +54,11 @@
     /**
      * Prefixes get rid of browser default select element styles.
      */
+     /* stylelint-disable  */
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
+    /* stylelint-enable */
     appearance: none;
   }
 

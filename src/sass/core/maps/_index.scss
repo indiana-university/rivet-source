@@ -1,7 +1,8 @@
 @use '../variables' as *;
+@use 'sass:map';
 
-$breakpoints: map-get($tokens, 'breakpoint');
-$colors: map-get($tokens, 'colors');
-$type-scale: map-get($tokens, 'ts');
-$widths: map-get($tokens, 'width');
-$z-index: map-get($tokens, 'z-index');
+$breakpoints: map.get($tokens, 'breakpoint');
+$colors: map.get($tokens, 'colors');
+$type-scale: map.get($tokens, 'ts');
+$widths: map.get($tokens, 'width');
+$z-index: map.get($tokens, 'z-index');

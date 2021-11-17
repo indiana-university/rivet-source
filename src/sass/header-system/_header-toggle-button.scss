@@ -14,7 +14,7 @@
 
 .#{$prefix}-global-toggle {
   background: none;
-  border: $spacing-xxs/2 solid $color-black-200;
+  border: ($spacing-xxs / 2) solid $color-black-200;
   border-radius: 999rem;
   display: inline-flex;
   align-items: center;
@@ -28,8 +28,8 @@
     cursor: pointer;
     background-color: $color-blue-500;
     color: $color-white-base;
-    outline: $spacing-xxs/2 solid $color-blue-500;
-    outline-offset: $spacing-xxs/2;
+    outline: ($spacing-xxs / 2) solid $color-blue-500;
+    outline-offset: ($spacing-xxs / 2);
   }
 
   &__open,
@@ -43,13 +43,13 @@
     flex-shrink: 0;
   }
 
-  &[aria-expanded=false] &__close,
-  &[aria-expanded=true] &__open {
+  &[aria-expanded='false'] &__close,
+  &[aria-expanded='true'] &__open {
     display: none;
   }
 
-  &[aria-expanded=false] &__open,
-  &[aria-expanded=true] &__close {
+  &[aria-expanded='false'] &__open,
+  &[aria-expanded='true'] &__close {
     display: inline-flex;
   }
 }

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
 
 .#{$prefix}-steps {
   display: flex;
@@ -24,7 +25,7 @@
       content: '';
       display: block;
       width: 100%;
-      box-shadow: 0 $spacing-sm*2.75 0 $spacing-xxs/2 $color-black-100;
+      box-shadow: 0 ($spacing-sm * 2.75) 0 ($spacing-xxs / 2) $color-black-100;
       z-index: 0;
     }
 
@@ -84,7 +85,7 @@
     justify-content: center;
     position: relative;
     width: $spacing-lg;
-    z-index: map-get($z-index, '100');
+    z-index: map.get($z-index, '100');
   }
 
   &__indicator--success {
@@ -129,7 +130,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    left: $spacing-sm*1.125;
+    left: $spacing-sm * 1.125;
   }
 
   &--vertical &__item-content {

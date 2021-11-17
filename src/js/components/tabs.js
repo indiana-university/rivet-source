@@ -39,9 +39,9 @@ export default class Tabs extends Component {
         });
 
         // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-        this.openOnInit = initialPanel.getAttribute(this.panelAttribute) || this.panels[0].getAttribute(this.panelAttribute);
-
-        console.log(this.openOnInit);
+        this.openOnInit = initialPanel
+          ? initialPanel.getAttribute(this.panelAttribute)
+          : this.panels[0].getAttribute(this.panelAttribute);
 
         // bind methods
         Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab);

@@ -125,8 +125,8 @@
     }
 
     &:focus {
-      outline: $spacing-xxs/2 solid $color-blue-500;
-      outline-offset: $spacing-xxs/2;
+      outline: ($spacing-xxs / 2) solid $color-blue-500;
+      outline-offset: ($spacing-xxs / 2);
     }
 
     &:focus,

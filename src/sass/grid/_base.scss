@@ -22,16 +22,15 @@ $row-columns: (
 );
 
 // Row sizes map.
-//
 // These are the max-widths of the row. Feel free to add more
 // sizes/key: value pairs that can then be used on the .row container
 // like, .row--yournewsize.
 
 $row-widths: (
-  'sm': (840/16) * 1rem,
-  'md': (1024/16) * 1rem,
-  'lg': (1140/16) * 1rem,
-  'xl': (1380/16) * 1rem
+  'sm': (840 / 16) * 1rem,
+  'md': (1024 / 16) * 1rem,
+  'lg': (1140 / 16) * 1rem,
+  'xl': (1380 / 16) * 1rem
 );
 
 // Global grid gutter. Set this to half of what you want the final gutter to be.
@@ -52,11 +51,15 @@ $gutter: $spacing-md / 2;
 @mixin row {
   display: flex;
   flex-wrap: wrap;
+
   // Remove list styles for when row is used on list elements (ul, ol, etc.)
+
   list-style: '';
-  margin-right: ($gutter/-1);
-  margin-left: ($gutter/-1);
+  margin-right: ($gutter / -1);
+  margin-left: ($gutter / -1);
+
   // Reset padding for when row is used on list elements (ul, ol, etc.)
+
   padding-left: 0;
 }
 
