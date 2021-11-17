@@ -181,6 +181,9 @@
       }
     },
     "purple": {
+      "base": {
+        "value": "{color.purple.500.value}"
+      },
       "000": {
         "value": "#FBF8FB"
       },
