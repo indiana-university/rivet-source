@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
 
 .#{$prefix}-pagination {
   list-style: none;
@@ -32,7 +33,7 @@
       position: relative;
       text-decoration: none;
       transition: box-shadow .2s ease;
-      z-index: map-get($z-index, '100');
+      z-index: map.get($z-index, '100');
     }
 
     a:hover {
@@ -46,7 +47,7 @@
       box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
       /* stylelint-enable */
       outline: none;
-      z-index: map-get($z-index, '1000');
+      z-index: map.get($z-index, '1000');
     }
 
     a[aria-current] {

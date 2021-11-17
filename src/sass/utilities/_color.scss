@@ -15,9 +15,7 @@
       .rvt-bg-#{$key} {
         background-color: $color-hex !important;
       }
-    }
-
-    @else {
+    } @else {
       .rvt-color-#{$key}-#{$color-name} {
         color: $color-hex !important;
       }
