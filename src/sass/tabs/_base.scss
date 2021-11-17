@@ -28,6 +28,7 @@
 
     &:not(:first-child) {
       border-left: 1px solid $color-black-100;
+
       // Fixes double border when tabs wrap on to multiple lines
       margin-left: -1px;
     }
@@ -49,7 +50,7 @@
     }
 
     &:focus {
-      outline: $spacing-xxs/2 solid $color-blue-500;
+      outline: $spacing-xxs / 2 solid $color-blue-500;
     }
 
     &:focus:not(:focus-visible) {
@@ -76,8 +77,8 @@
     padding: $spacing-sm;
 
     &:focus {
-      outline: $spacing-xxs/2 solid $color-blue-500;
-      outline-offset: -$spacing-xxs/2;
+      outline: $spacing-xxs / 2 solid $color-blue-500;
+      outline-offset: -$spacing-xxs / 2;
     }
 
     &:focus:not(:focus-visible) {
