@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use 'sass:map';
 
 $avatar-fonts: (
   'xs': $ts-14,
@@ -24,10 +25,10 @@ $avatar-widths: (
   display: flex;
   flex-shrink: 0;
   font-weight: 700;
-  height: map-get($avatar-widths, 'sm');
+  height: map.get($avatar-widths, 'sm');
   justify-content: center;
   overflow: hidden;
-  width: map-get($avatar-widths, 'sm');
+  width: map.get($avatar-widths, 'sm');
 
   &__image {
     display: block;
@@ -37,31 +38,31 @@ $avatar-widths: (
 
   &--xs {
     font-size: $ts-14;
-    height: map-get($avatar-widths, 'xs');
-    width: map-get($avatar-widths, 'xs');
+    height: map.get($avatar-widths, 'xs');
+    width: map.get($avatar-widths, 'xs');
   }
 
   &--sm {
-    height: map-get($avatar-widths, 'sm');
-    width: map-get($avatar-widths, 'sm');
+    height: map.get($avatar-widths, 'sm');
+    width: map.get($avatar-widths, 'sm');
   }
 
   &--md {
     font-size: $ts-23;
-    height: map-get($avatar-widths, 'md');
-    width: map-get($avatar-widths, 'md');
+    height: map.get($avatar-widths, 'md');
+    width: map.get($avatar-widths, 'md');
   }
 
   &--lg {
     font-size: $ts-32;
-    height: map-get($avatar-widths, 'lg');
-    width: map-get($avatar-widths, 'lg');
+    height: map.get($avatar-widths, 'lg');
+    width: map.get($avatar-widths, 'lg');
   }
 
   &--xl {
     font-size: $ts-41;
-    height: map-get($avatar-widths, 'xl');
-    width: map-get($avatar-widths, 'xl');
+    height: map.get($avatar-widths, 'xl');
+    width: map.get($avatar-widths, 'xl');
   }
 }
 
@@ -69,7 +70,7 @@ $avatar-widths: (
   @include mq($size) {
     @each $pixels, $rems in $avatar-widths {
       .#{$prefix}-avatar--#{$pixels}-#{$variable}-up {
-        font-size: map-get($avatar-fonts, $pixels);
+        font-size: map.get($avatar-fonts, $pixels);
         height: $rems !important;
         width: $rems !important;
       }

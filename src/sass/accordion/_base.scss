@@ -17,7 +17,7 @@
     display: flex;
     padding: $spacing-sm;
     text-align: left;
-    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
   }
 
@@ -32,7 +32,7 @@
 
   &__toggle:focus {
     outline: 2px solid $color-blue-500;
-    outline-offset: $spacing-xxs/2;
+    outline-offset: $spacing-xxs / 2;
   }
 
   &__toggle-text {

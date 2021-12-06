@@ -10,9 +10,7 @@
     .#{$prefix}-shadow {
       box-shadow: $value !important;
     }
-  }
-
-  @else {
+  } @else {
     .#{$prefix}-shadow-#{$key} {
       box-shadow: $value !important;
     }

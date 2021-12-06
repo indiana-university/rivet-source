@@ -9,21 +9,19 @@
   @each $color-name, $color-hex in $value {
     @if string.index($color-name, 'base') {
       .rvt-color-#{$key} {
-        color: $color-hex;
+        color: $color-hex !important;
       }
 
       .rvt-bg-#{$key} {
-        background-color: $color-hex;
+        background-color: $color-hex !important;
       }
-    }
-
-    @else {
+    } @else {
       .rvt-color-#{$key}-#{$color-name} {
-        color: $color-hex;
+        color: $color-hex !important;
       }
 
       .rvt-bg-#{$key}-#{$color-name} {
-        background-color: $color-hex;
+        background-color: $color-hex !important;
       }
     }
   }
