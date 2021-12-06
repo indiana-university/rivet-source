@@ -3,6 +3,7 @@ name: Publish beta release
 on:
   push:
     tags:
+      - 'v**-beta'
       - 'v**-beta**'
   workflow_dispatch:
 
