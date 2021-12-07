@@ -1,3 +1,8 @@
+/******************************************************************************
+ * Copyright (C) 2022 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ *****************************************************************************/
+
 import globalSettings from '../globalSettings';
 import { define } from 'wicked-elements';
 
