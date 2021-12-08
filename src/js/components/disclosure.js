@@ -70,8 +70,6 @@ export default class Disclosure extends Component {
 
       _initProperties () {
         this.isOpen = false
-        this.activeToggle = null
-        this.activeDisclosure = null
       },
 
       /************************************************************************
@@ -136,8 +134,6 @@ export default class Disclosure extends Component {
         this.targetElement.removeAttribute('hidden')
 
         this.isOpen = true
-        this.activeToggle = this.toggleElement
-        this.activeDisclosure = this.targetElement
       },
 
       /************************************************************************
@@ -160,7 +156,7 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       _isOpen () {
-        return this.activeToggle && this.activeDisclosure
+        return this.isOpen
       },
 
       /************************************************************************
@@ -170,12 +166,10 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       _setClosedState () {
-        this.activeToggle.setAttribute('aria-expanded', 'false')
-        this.activeDisclosure.setAttribute('hidden', '')
+        this.toggleElement.setAttribute('aria-expanded', 'false')
+        this.targetElement.setAttribute('hidden', '')
 
         this.isOpen = false
-        this.activeToggle = null
-        this.activeDisclosure = null
       },
 
       /************************************************************************
