@@ -229,25 +229,10 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       onKeydown (event) {
-        if (!this._keydownOriginatedInsideDisclosure(event)) { return false }
-
         if (event.keyCode === keyCodes.escape) {
           this.close()
           this.toggleElement.focus()
         }
-      },
-
-      /************************************************************************
-       * Returns true if the given keydown event originated inside the
-       * disclosure.
-       *
-       * @private
-       * @param {Event} event - Keydown event
-       * @returns {boolean} Keydown originated inside disclosure
-       ***********************************************************************/
-
-      _keydownOriginatedInsideDisclosure (event) {
-        return this.element.contains(event.target)
       }
     }
   }
