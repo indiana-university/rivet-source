@@ -1,54 +1,128 @@
-/**
- * Copyright (C) 2018 The Trustees of Indiana University
+/******************************************************************************
+ * Copyright (C) 2022 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
- */
-import Component from './component';
+ *****************************************************************************/
+
+import Component from './component'
+
+/******************************************************************************
+ * The alert component displays brief important messages to the user like
+ * errors or action confirmations.
+ *
+ * @see https://v2.rivet.iu.edu/docs/components/alert/
+ *****************************************************************************/
 
 export default class Alert extends Component {
-  static get selector() {
-    return '[data-rvt-alert]';
+
+  /****************************************************************************
+   * Gets the alert's CSS selector.
+   *
+   * @static
+   * @returns {string} The CSS selector
+   ***************************************************************************/
+
+  static get selector () {
+    return '[data-rvt-alert]'
   }
 
-  static get methods() {
+  /****************************************************************************
+   * Gets an object containing the methods that should be attached to the
+   * component's root DOM element. Used by wicked-elements to initialize a DOM
+   * element with Web Component-like behavior.
+   *
+   * @static
+   * @returns {Object} Object with component methods
+   ***************************************************************************/
+
+  static get methods () {
     return {
-      init() {
-        console.log('Alert::init()');
 
-        this.closeAttribute = 'data-rvt-alert-close';
-        this.closeSelector = `[${this.closeAttribute}]`;
-        this.closeButton = null;
+      /************************************************************************
+       * Initializes the alert.
+       ***********************************************************************/
 
-        Component.bindMethodToDOMElement(this, 'dismiss', this.dismiss);
-        
-        this._handleClick = this._handleClick.bind(this);
+      init () {
+        this._initElements()
+
+        Component.bindMethodToDOMElement(this, 'dismiss', this.dismiss)
       },
 
-      connected() {
-        Component.dispatchComponentAddedEvent(this.element);
+      /************************************************************************
+       * Initializes alert child elements.
+       *
+       * @private
+       ***********************************************************************/
 
-        this.closeButton = this.element.querySelector(this.closeSelector);
-        this.closeButton.addEventListener('click', this._handleClick, false);
+      _initElements () {
+        this.closeButton = this.element.querySelector('[data-rvt-alert-close]')
       },
 
-      disconnected() {
-        Component.dispatchComponentRemovedEvent(this.element);
-        
-        this.closeButton.removeEventListener('click', this._handleClick, false);
+      /************************************************************************
+       * Called when the alert is added to the DOM.
+       ***********************************************************************/
+
+      connected () {
+        Component.dispatchComponentAddedEvent(this.element)
       },
 
-      _handleClick() {
-        this.dismiss();
+      /************************************************************************
+       * Called when the alert is removed from the DOM.
+       ***********************************************************************/
+
+      disconnected () {
+        Component.dispatchComponentRemovedEvent(this.element)
       },
-    
-      dismiss() {
-        const dismissEvent = Component.dispatchCustomEvent(
+
+      /************************************************************************
+       * Handles click events broadcast to the alert.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      onClick (event) {
+        if (this._clickOriginatedInsideCloseButton(event)) { this.dismiss() }
+      },
+
+      /************************************************************************
+       * Returns true if the given click event originated inside the
+       * alert's close button.
+       *
+       * @private
+       * @param {Event} event - Click event
+       * @returns {boolean} Click originated inside content area
+       ***********************************************************************/
+
+      _clickOriginatedInsideCloseButton (event) {
+        return this.closeButton && this.closeButton.contains(event.target)
+      },
+
+      /************************************************************************
+       * Dismisses the alert.
+       ***********************************************************************/
+
+      dismiss () {
+        if (!this._dismissEventDispatched()) { return }
+
+        this.element.remove()
+      },
+
+      /************************************************************************
+       * Returns true if the custom "dismiss" event was successfully
+       * dispatched.
+       *
+       * @private
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      // FIXME: Violates command-query separation and side-effects rules.
+
+      _dismissEventDispatched () {
+        const dispatched = Component.dispatchCustomEvent(
           'alertDismissed',
           this.element
-        );
-    
-        if (!dismissEvent) return;
-    
-        this.element.remove();
+        )
+
+        return dispatched
       }
     }
   }
