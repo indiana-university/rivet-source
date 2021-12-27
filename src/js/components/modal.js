@@ -4,7 +4,6 @@
  */
 
 import Component from './component';
-import { nodeListToArray } from '../utilities/domHelpers';
 import keyCodes from '../utilities/keyCodes';
 
 export default class Modal extends Component {
@@ -173,7 +172,7 @@ export default class Modal extends Component {
         switch (event.keyCode) {
           case keyCodes.tab: {
             // Create an array of all the focusable elements within the modal
-            const focusList = nodeListToArray(
+            const focusList = Array.from(
               currentModal.querySelectorAll(this.focusElements)
             );
             const firstFocus = focusList[0];
