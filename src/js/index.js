@@ -9,6 +9,7 @@
 
 import './polyfills/closest'
 import './polyfills/CustomEvent'
+import './polyfills/from'
 import './polyfills/remove'
 
 /******************************************************************************
