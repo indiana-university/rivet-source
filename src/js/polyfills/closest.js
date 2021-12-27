@@ -15,7 +15,7 @@ if (!Element.prototype.matches) {
 /******************************************************************************
  * Element.closest() polyfill
  *
- * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
+ * @see https://go.iu.edu/4ftm
  *****************************************************************************/
 
 if (!Element.prototype.closest) {

@@ -6,7 +6,7 @@
 /******************************************************************************
  * ChildNode.remove() polyfill
  *
- * https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove#Polyfill
+ * @see https://go.iu.edu/4fto
  *****************************************************************************/
 
 (function (arr) {
