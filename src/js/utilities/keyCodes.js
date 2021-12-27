@@ -1,7 +1,7 @@
-/**
- * Copyright (C) 2019 The Trustees of Indiana University
+/******************************************************************************
+ * Copyright (C) 2022 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
- */
+ *****************************************************************************/
 
 const keyCodes = {
   up: 38,
@@ -15,6 +15,6 @@ const keyCodes = {
   end: 35,
   pageUp: 33,
   pageDown: 34
-};
+}
 
-export default keyCodes;
+export default keyCodes
