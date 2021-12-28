@@ -467,7 +467,7 @@ export default class Modal extends Component {
       // FIXME: Violates command-query separation and side-effects rules.
 
       _eventDispatched (name) {
-        const dispatched = Component.dispatchCustomEvent('modalOpened', this.element)
+        const dispatched = Component.dispatchCustomEvent(name, this.element)
 
         return dispatched
       }
