@@ -116,7 +116,7 @@ export default class Accordion extends Component {
       },
 
       /************************************************************************
-       * Returns true of the given panel element should be opened on page load.
+       * Returns true if the given panel element should be opened on page load.
        *
        * @private
        * @param {HTMLElement} panel - Panel DOM element
