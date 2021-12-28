@@ -225,7 +225,6 @@ export default class Sidenav extends Component {
       /************************************************************************
        * Opens the child menu with the given data-rvt-sidenav-list ID value.
        *
-       * @private
        * @param {string} childMenuId - Child menu ID
        ***********************************************************************/
 
@@ -274,7 +273,6 @@ export default class Sidenav extends Component {
       /************************************************************************
        * Closes the child menu with the given data-rvt-sidenav-list ID value.
        *
-       * @private
        * @param {string} childMenuId - Child menu ID
        ***********************************************************************/
 
