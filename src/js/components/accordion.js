@@ -144,7 +144,7 @@ export default class Accordion extends Component {
       },
 
       /************************************************************************
-       * Handles click events broadcast to the sidenav.
+       * Handles click events broadcast to the accordion.
        *
        * @param {Event} event - Click event
        ***********************************************************************/
