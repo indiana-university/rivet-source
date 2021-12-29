@@ -319,14 +319,11 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _handleDownKey (event) {
-        if (!this._isOpen()) {
-          this.open()
-          this.firstMenuItem.focus()
-        }
+        if (!this._isOpen()) { this.open() }
 
-        if (!this._keydownOriginatedInsideMenu(event)) { return }
-
-        this._focusNextMenuItem(event)
+        this._keydownOriginatedInsideMenu(event)
+          ? this._focusNextMenuItem(event)
+          : this.firstMenuItem.focus()
       },
 
       /************************************************************************
