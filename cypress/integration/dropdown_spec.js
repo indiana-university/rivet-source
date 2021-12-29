@@ -16,8 +16,8 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'hidden')
-      .and('not.be.visible');
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
   });
 
   it('Should be able to open the dropdown', function() {
@@ -69,8 +69,8 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'hidden')
-      .and('not.be.visible');
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
   });
 
   it('Should be able to open with .open() method', function() {
