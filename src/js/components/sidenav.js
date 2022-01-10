@@ -42,11 +42,26 @@ export default class Sidenav extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
         this._setInitialChildMenuStates()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
+      },
+
+      /************************************************************************
+       * Initializes sidenav child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.toggleAttribute = 'data-rvt-sidenav-toggle'
+        this.childMenuAttribute = 'data-rvt-sidenav-list'
+
+        this.toggleSelector = `[${this.toggleAttribute}]`
+        this.childMenuSelector = `[${this.childMenuAttribute}]`
       },
 
       /************************************************************************
@@ -57,11 +72,11 @@ export default class Sidenav extends Component {
 
       _initElements () {
         this.childMenuToggleButtons = Array.from(
-          this.element.querySelectorAll('[data-rvt-sidenav-toggle]')
+          this.element.querySelectorAll(this.toggleSelector)
         )
 
         this.childMenus = Array.from(
-          this.element.querySelectorAll('[data-rvt-sidenav-list]')
+          this.element.querySelectorAll(this.childMenuSelector)
         )
       },
 
@@ -177,7 +192,7 @@ export default class Sidenav extends Component {
        ***********************************************************************/
 
       _clickOriginatedInChildMenuToggleButton (event) {
-        return event.target.closest('[data-rvt-sidenav-toggle]')
+        return event.target.closest(this.toggleSelector)
       },
 
       /************************************************************************
@@ -190,11 +205,11 @@ export default class Sidenav extends Component {
 
       _setChildMenuToToggle (event) {
         this.childMenuToToggleId = event.target
-          .closest('[data-rvt-sidenav-toggle]')
+          .closest(this.toggleSelector)
           .dataset.rvtSidenavToggle
 
         this.childMenuToToggle = this.element.querySelector(
-          `[data-rvt-sidenav-list="${this.childMenuToToggleId}"]`
+          `[${this.childMenuAttribute} = "${this.childMenuToToggleId}"]`
         )
       },
 
@@ -208,7 +223,7 @@ export default class Sidenav extends Component {
 
       _childMenuToToggleExists () {
         return this.childMenuToToggle &&
-               this.childMenuToToggle.getAttribute('data-rvt-sidenav-list') !== ''
+               this.childMenuToToggle.getAttribute(this.childMenuAttribute) !== ''
       },
 
       /************************************************************************
@@ -251,11 +266,11 @@ export default class Sidenav extends Component {
 
       _setChildMenuToOpen (childMenuId) {
         this.childMenuToOpenToggleButton = this.element.querySelector(
-          `[data-rvt-sidenav-toggle="${childMenuId}"]`
+          `[${this.toggleAttribute} = "${childMenuId}"]`
         )
 
         this.childMenuToOpen = this.element.querySelector(
-          `[data-rvt-sidenav-list="${childMenuId}"]`
+          `[${this.childMenuAttribute} = "${childMenuId}"]`
         )
       },
 
@@ -299,11 +314,11 @@ export default class Sidenav extends Component {
 
       _setChildMenuToClose (childMenuId) {
         this.childMenuToCloseToggleButton = this.element.querySelector(
-          `[data-rvt-sidenav-toggle="${childMenuId}"]`
+          `[${this.toggleAttribute} = "${childMenuId}"]`
         )
 
         this.childMenuToClose = this.element.querySelector(
-          `[data-rvt-sidenav-list="${childMenuId}"]`
+          `[${this.childMenuAttribute} = "${childMenuId}"]`
         )
       },
 
@@ -327,11 +342,11 @@ export default class Sidenav extends Component {
 
       _childMenuExists (childMenuId) {
         const childMenuToggleButton = this.element.querySelector(
-          `[data-rvt-sidenav-toggle="${childMenuId}"]`
+          `[${this.toggleAttribute} = "${childMenuId}"]`
         )
 
         const childMenu = this.element.querySelector(
-          `[data-rvt-sidenav-list="${childMenuId}"]`
+          `[${this.childMenuAttribute} = "${childMenuId}"]`
         )
 
         return childMenuToggleButton && childMenu

@@ -43,6 +43,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
         this._initProperties()
         this._initMenuItems()
@@ -53,14 +54,28 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Initializes dropdown child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+       _initSelectors () {
+        this.toggleAttribute = 'data-rvt-dropdown-toggle'
+        this.menuAttribute = 'data-rvt-dropdown-menu'
+
+        this.toggleSelector = `[${this.toggleAttribute}]`
+        this.menuSelector = `[${this.menuAttribute}]`
+      },
+
+      /************************************************************************
        * Initializes dropdown child elements.
        *
        * @private
        ***********************************************************************/
 
       _initElements () {
-        this.toggleElement = this.element.querySelector('[data-rvt-dropdown-toggle]')
-        this.menuElement = this.element.querySelector('[data-rvt-dropdown-menu]')
+        this.toggleElement = this.element.querySelector(this.toggleSelector)
+        this.menuElement = this.element.querySelector(this.menuSelector)
       },
 
       /************************************************************************

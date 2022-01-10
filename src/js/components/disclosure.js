@@ -43,6 +43,7 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
         this._initProperties()
         this._removeIconFromTabOrder()
@@ -52,14 +53,28 @@ export default class Disclosure extends Component {
       },
 
       /************************************************************************
+       * Initializes disclosure child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.toggleAttribute = 'data-rvt-disclosure-toggle'
+        this.targetAttribute = 'data-rvt-disclosure-target'
+
+        this.toggleSelector = `[${this.toggleAttribute}]`
+        this.targetSelector = `[${this.targetAttribute}]`
+      },
+
+      /************************************************************************
        * Initializes disclosure child elements.
        *
        * @private
        ***********************************************************************/
 
       _initElements () {
-        this.toggleElement = this.element.querySelector('[data-rvt-disclosure-toggle]')
-        this.targetElement = this.element.querySelector('[data-rvt-disclosure-target]')
+        this.toggleElement = this.element.querySelector(this.toggleSelector)
+        this.targetElement = this.element.querySelector(this.targetSelector)
       },
 
       /************************************************************************

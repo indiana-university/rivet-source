@@ -43,6 +43,7 @@ export default class Modal extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
         this._initProperties()
         this._bindExternalEventHandlers()
@@ -54,17 +55,35 @@ export default class Modal extends Component {
       },
 
       /************************************************************************
+       * Initializes modal child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.modalAttribute = 'data-rvt-modal'
+        this.innerModalAttribute = 'data-rvt-modal-inner'
+        this.triggerAttribute = 'data-rvt-modal-trigger'
+        this.closeButtonAttribute = 'data-rvt-modal-close'
+        this.dialogAttribute = this.dialogAttribute
+
+        this.innerModalSelector = `[${this.innerModalAttribute}]`
+        this.triggerSelector = `[${this.triggerAttribute}]`
+        this.closeButtonSelector = `[${this.closeButtonAttribute}]`
+      },
+
+      /************************************************************************
        * Initializes modal child elements.
        *
        * @private
        ***********************************************************************/
 
       _initElements () {
-        const modalId = this.element.getAttribute('data-rvt-modal')
+        const modalId = this.element.getAttribute(this.modalAttribute)
 
-        this.innerModal = this.element.querySelector('[data-rvt-modal-inner]')
-        this.triggerButton = document.querySelector(`[data-rvt-modal-trigger="${modalId}"]`)
-        this.closeButtons = this.element.querySelectorAll('[data-rvt-modal-close]')
+        this.innerModal = this.element.querySelector(this.innerModalSelector)
+        this.triggerButton = document.querySelector(`[${this.triggerAttribute} = "${modalId}"]`)
+        this.closeButtons = this.element.querySelectorAll(this.closeButtonSelector)
       },
 
       /************************************************************************
@@ -76,7 +95,7 @@ export default class Modal extends Component {
       _initProperties () {
         this.id = this.element.getAttribute('id')
         this.isOpen = false
-        this.isDialog = this.element.hasAttribute('data-rvt-modal-dialog')
+        this.isDialog = this.element.hasAttribute(this.dialogAttribute)
       },
 
       /************************************************************************
@@ -220,7 +239,7 @@ export default class Modal extends Component {
        ***********************************************************************/
 
       _clickOriginatedInCloseButton (event) {
-        return event.target.closest('[data-rvt-modal-close]')
+        return event.target.closest(this.closeButtonSelector)
       },
 
       /************************************************************************
@@ -261,8 +280,8 @@ export default class Modal extends Component {
        ***********************************************************************/
 
       _clickOriginatedInsideModalOrTrigger (event) {
-        return event.target.closest('[data-rvt-modal-inner]') ||
-               event.target.closest('[data-rvt-modal-trigger]')
+        return event.target.closest(this.innerModalSelector) ||
+               event.target.closest(this.triggerSelector)
       },
 
       /************************************************************************

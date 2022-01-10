@@ -43,11 +43,26 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
         this._setInitialPanelStates()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
+      },
+
+      /************************************************************************
+       * Initializes accordion child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.triggerAttribute = 'data-rvt-accordion-trigger'
+        this.panelAttribute = 'data-rvt-accordion-panel'
+
+        this.triggerSelector = `[${this.triggerAttribute}]`
+        this.panelSelector = `[${this.panelAttribute}]`
       },
 
       /************************************************************************
@@ -58,11 +73,11 @@ export default class Accordion extends Component {
 
       _initElements () {
         this.triggers = Array.from(
-          this.element.querySelectorAll('[data-rvt-accordion-trigger]')
+          this.element.querySelectorAll(this.triggerSelector)
         )
 
         this.panels = Array.from(
-          this.element.querySelectorAll('[data-rvt-accordion-panel]')
+          this.element.querySelectorAll(this.panelSelector)
         )
       },
 
@@ -110,8 +125,8 @@ export default class Accordion extends Component {
       _setPanelDefaultStates () {
         this.panels.forEach(panel => {
           this._panelShouldBeOpen(panel)
-            ? this.open(panel.getAttribute('data-rvt-accordion-panel'))
-            : this.close(panel.getAttribute('data-rvt-accordion-panel'))
+            ? this.open(panel.getAttribute(this.panelAttribute))
+            : this.close(panel.getAttribute(this.panelAttribute))
         })
       },
 
@@ -169,7 +184,7 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       _eventOriginatedInsideTrigger (event) {
-        return event.target.closest('[data-rvt-accordion-trigger]')
+        return event.target.closest(this.triggerSelector)
       },
 
       /************************************************************************
@@ -181,8 +196,8 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       _setTriggerToToggle (event) {
-        this.triggerToToggle = event.target.closest('[data-rvt-accordion-trigger]')
-        this.triggerToToggleId = this.triggerToToggle.getAttribute('data-rvt-accordion-trigger')
+        this.triggerToToggle = event.target.closest(this.triggerSelector)
+        this.triggerToToggleId = this.triggerToToggle.getAttribute(this.triggerAttribute)
       },
 
       /************************************************************************
@@ -237,7 +252,7 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       _setNeighboringTriggerIndexes (event) {
-        const currentTrigger = event.target.closest('[data-rvt-accordion-trigger]')
+        const currentTrigger = event.target.closest(this.triggerSelector)
 
         this.previousTriggerIndex = this.triggers.indexOf(currentTrigger) - 1
         this.nextTriggerIndex = this.triggers.indexOf(currentTrigger) + 1
@@ -320,11 +335,11 @@ export default class Accordion extends Component {
 
       _setPanelToOpen (panelId) {
         this.triggerToOpen = this.element.querySelector(
-          `[data-rvt-accordion-trigger = "${panelId}"]`
+          `[${this.triggerAttribute} = "${panelId}"]`
         )
 
         this.panelToOpen = this.element.querySelector(
-          `[data-rvt-accordion-panel="${panelId}"]`
+          `[${this.panelAttribute} = "${panelId}"]`
         )
       },
 
@@ -379,11 +394,11 @@ export default class Accordion extends Component {
 
       _setPanelToClose (panelId) {
         this.triggerToClose = this.element.querySelector(
-          `[data-rvt-accordion-trigger = "${panelId}"]`
+          `[${this.triggerAttribute} = "${panelId}"]`
         )
 
         this.panelToClose = this.element.querySelector(
-          `[data-rvt-accordion-panel="${panelId}"]`
+          `[${this.panelAttribute} = "${panelId}"]`
         )
       },
 

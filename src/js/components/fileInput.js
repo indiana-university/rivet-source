@@ -42,8 +42,23 @@ export default class FileInput extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
         this._initProperties()
+      },
+
+      /************************************************************************
+       * Initializes file input child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.inputElementAttribute = 'data-rvt-file-input-button'
+        this.previewElementAttribute = 'data-rvt-file-input-preview'
+
+        this.inputElementSelector = `[${this.inputElementAttribute}]`
+        this.previewElementSelector = `[${this.previewElementAttribute}]`
       },
 
       /************************************************************************
@@ -53,8 +68,8 @@ export default class FileInput extends Component {
        ***********************************************************************/
 
       _initElements () {
-        this.inputElement = this.element.querySelector('[data-rvt-file-input-button]')
-        this.previewElement = this.element.querySelector('[data-rvt-file-input-preview]')
+        this.inputElement = this.element.querySelector(this.inputElementSelector)
+        this.previewElement = this.element.querySelector(this.previewElementSelector)
       },
 
       /************************************************************************

@@ -43,9 +43,26 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
 
         Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab)
+      },
+
+      /************************************************************************
+       * Initializes tabs component child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.tabAttribute = `data-rvt-tab`
+        this.panelAttribute = `data-rvt-tab-panel`
+
+        this.tabSelector = `[${this.tabAttribute}]`
+        this.panelSelector = `[${this.panelAttribute}]`
+        this.tablistSelector = '[role="tablist"]'
+        this.initialTabSelector = '[data-rvt-tab-init]'
       },
 
       /************************************************************************
@@ -55,9 +72,9 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _initElements () {
-        this.tablist = this.element.querySelector('[role="tablist"]')
-        this.tabs = Array.from(this.element.querySelectorAll('[data-rvt-tab]'))
-        this.panels = Array.from(this.element.querySelectorAll('[data-rvt-tab-panel]'))
+        this.tablist = this.element.querySelector(this.tablistSelector)
+        this.tabs = Array.from(this.element.querySelectorAll(this.tabSelector))
+        this.panels = Array.from(this.element.querySelectorAll(this.panelSelector))
       },
 
       /************************************************************************
@@ -78,12 +95,12 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _activateInitialTab () {
-        const initialTab = this.element.querySelector('[data-rvt-tab-init]')
+        const initialTab = this.element.querySelector(this.initialTabSelector)
         const firstTab = this.panels[0]
 
         initialTab
-          ? this.activateTab(initialTab.getAttribute('data-rvt-tab-panel'))
-          : this.activateTab(firstTab.getAttribute('data-rvt-tab-panel'))
+          ? this.activateTab(initialTab.getAttribute(this.panelAttribute))
+          : this.activateTab(firstTab.getAttribute(this.panelAttribute))
       },
 
       /************************************************************************
@@ -115,7 +132,7 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _eventOriginatedInsideTab (event) {
-        return event.target.closest('[data-rvt-tab]')
+        return event.target.closest(this.tabSelector)
       },
 
       /************************************************************************
@@ -127,7 +144,7 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _getClickedTabId (event) {
-        return event.target.closest('[data-rvt-tab]').getAttribute('data-rvt-tab')
+        return event.target.closest(this.tabSelector).getAttribute(this.tabAttribute)
       },
 
       /************************************************************************
@@ -173,7 +190,7 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _setNeighboringTabIndexes (event) {
-        const currentTab = event.target.closest('[data-rvt-tab]')
+        const currentTab = event.target.closest(this.tabSelector)
 
         this.previousTabIndex = this.tabs.indexOf(currentTab) - 1
         this.nextTabIndex = this.tabs.indexOf(currentTab) + 1
@@ -256,8 +273,8 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _setTabToActivate (tabId) {
-        this.tabToActivate = this.element.querySelector(`[data-rvt-tab="${tabId}"]`)
-        this.panelToActivate = this.element.querySelector(`[data-rvt-tab-panel="${tabId}"]`)
+        this.tabToActivate = this.element.querySelector(`[${this.tabAttribute} = "${tabId}"]`)
+        this.panelToActivate = this.element.querySelector(`[${this.panelAttribute} = "${tabId}"]`)
       },
 
       /************************************************************************

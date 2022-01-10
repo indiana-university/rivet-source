@@ -42,9 +42,22 @@ export default class Alert extends Component {
        ***********************************************************************/
 
       init () {
+        this._initSelectors()
         this._initElements()
 
         Component.bindMethodToDOMElement(this, 'dismiss', this.dismiss)
+      },
+
+      /************************************************************************
+       * Initializes alert child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.closeButtonAttribute = 'data-rvt-alert-close'
+
+        this.closeButtonSelector = `[${this.closeButtonAttribute}]`
       },
 
       /************************************************************************
@@ -54,7 +67,7 @@ export default class Alert extends Component {
        ***********************************************************************/
 
       _initElements () {
-        this.closeButton = this.element.querySelector('[data-rvt-alert-close]')
+        this.closeButton = this.element.querySelector(this.closeButtonSelector)
       },
 
       /************************************************************************
