@@ -279,8 +279,6 @@ export default class Tabs extends Component {
        * @returns {boolean} Event successfully dispatched
        ***********************************************************************/
 
-      // FIXME: Violates command-query separation and side-effects rules.
-
       _tabActivatedEventDispatched () {
         const dispatched = Component.dispatchCustomEvent(
           'tabActivated',

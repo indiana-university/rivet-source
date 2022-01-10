@@ -114,8 +114,6 @@ export default class Alert extends Component {
        * @returns {boolean} Event successfully dispatched
        ***********************************************************************/
 
-      // FIXME: Violates command-query separation and side-effects rules.
-
       _dismissEventDispatched () {
         const dispatched = Component.dispatchCustomEvent(
           'alertDismissed',

@@ -120,8 +120,6 @@ export default class FileInput extends Component {
        * @returns {boolean} Event successfully dispatched
        ***********************************************************************/
 
-      // FIXME: Violates command-query separation and side-effects rules.
-
       _attachEventDispatched () {
         const files = Array.from(this.inputElement.files).map(f => f.name)
         const dispatched = Component.dispatchCustomEvent(

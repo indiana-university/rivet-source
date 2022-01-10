@@ -346,8 +346,6 @@ export default class Sidenav extends Component {
        * @returns {boolean} Event successfully dispatched
        ***********************************************************************/
 
-      // FIXME: Violates command-query separation and side-effects rules.
-
       _eventDispatched (name, childMenu) {
         const dispatched = Component.dispatchCustomEvent(
           name,
