@@ -94,11 +94,6 @@ function headerJS(callback) {
   callback();
 }
 
-// Copy vendor.js from 'src/js' to 'static/js' for Fractal to use
-function vendorJS() {
-  return src('src/js/vendor.js').pipe(dest('./static/js'));
-}
-
 function watchJS(callback) {
   watch(
     'src/js/**/*.js',
