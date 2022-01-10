@@ -211,7 +211,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       onClick (event) {
-        if (this._clickOriginatedInsideMenu(event)) { return }
+        if (this._eventOriginatedInsideMenu(event)) { return }
 
         this._isOpen()
           ? this.close()
@@ -219,15 +219,14 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
-       * Returns true if the given click event originated inside the
-       * dropdown's menu.
+       * Returns true if the given event originated inside the dropdown's menu.
        *
        * @private
-       * @param {Event} event - Click event
-       * @returns {boolean} Click originated inside menu
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside menu
        ***********************************************************************/
 
-      _clickOriginatedInsideMenu (event) {
+      _eventOriginatedInsideMenu (event) {
         return this.menuElement.contains(event.target)
       },
 
@@ -278,7 +277,7 @@ export default class Dropdown extends Component {
       _handleUpKey (event) {
         event.preventDefault()
 
-        if (!this._keydownOriginatedInsideMenu(event)) { return }
+        if (!this._eventOriginatedInsideMenu(event)) { return }
 
         this._focusPreviousMenuItem(event)
       },
@@ -321,7 +320,7 @@ export default class Dropdown extends Component {
       _handleDownKey (event) {
         if (!this._isOpen()) { this.open() }
 
-        this._keydownOriginatedInsideMenu(event)
+        this._eventOriginatedInsideMenu(event)
           ? this._focusNextMenuItem(event)
           : this.firstMenuItem.focus()
       },
@@ -362,7 +361,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _handleTabKey (event) {
-        if (!this._keydownOriginatedInsideMenu(event)) { return }
+        if (!this._eventOriginatedInsideMenu(event)) { return }
 
         if (this._userTabbedOutOfLastMenuItem(event)) { this.close() }
       },
@@ -378,19 +377,6 @@ export default class Dropdown extends Component {
 
       _userTabbedOutOfLastMenuItem (event) {
         return document.activeElement == this.lastMenuItem && !event.shiftKey
-      },
-
-      /************************************************************************
-       * Returns true if the given keydown event originated inside the
-       * dropdown's menu.
-       *
-       * @private
-       * @param {Event} event - Keydown event
-       * @returns {boolean} Keydown originated inside menu
-       ***********************************************************************/
-
-      _keydownOriginatedInsideMenu (event) {
-        return this.menuElement.contains(event.target)
       }
     }
   }

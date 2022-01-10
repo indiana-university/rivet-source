@@ -150,7 +150,7 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       onClick (event) {
-        if (!this._clickOriginatedInTrigger(event)) { return }
+        if (!this._eventOriginatedInsideTrigger(event)) { return }
 
         this._setTriggerToToggle(event)
 
@@ -160,15 +160,15 @@ export default class Accordion extends Component {
       },
 
       /************************************************************************
-       * Returns true if the given click event originated inside one of the
+       * Returns true if the given event originated inside one of the
        * accordion's panel triggers.
        *
        * @private
-       * @param {Event} event - Click event
-       * @returns {boolean} Click originated inside panel trigger
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside panel trigger
        ***********************************************************************/
 
-      _clickOriginatedInTrigger (event) {
+      _eventOriginatedInsideTrigger (event) {
         return event.target.closest('[data-rvt-accordion-trigger]')
       },
 
@@ -203,7 +203,7 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       onKeydown (event) {
-        if (!this._keydownOriginatedInTrigger(event)) { return }
+        if (!this._eventOriginatedInsideTrigger(event)) { return }
 
         this._setNeighboringTriggerIndexes(event)
 
@@ -224,19 +224,6 @@ export default class Accordion extends Component {
             this._focusLastTrigger()
             break
         }
-      },
-
-      /************************************************************************
-       * Returns true if the given keydown event originated inside one of the
-       * accordion's panel triggers.
-       *
-       * @private
-       * @param {Event} event - Keydown event
-       * @returns {boolean} Keydown originated inside panel trigger
-       ***********************************************************************/
-
-      _keydownOriginatedInTrigger (event) {
-        return event.target.closest('[data-rvt-accordion-trigger]')
       },
 
       /************************************************************************

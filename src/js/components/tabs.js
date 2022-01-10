@@ -101,20 +101,20 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       onClick (event) {
-        if (!this._tabWasClicked(event)) { return }
+        if (!this._eventOriginatedInsideTab(event)) { return }
 
         this.activateTab(this._getClickedTabId(event))
       },
 
       /************************************************************************
-       * Returns true if the given click event originated inside a tab.
+       * Returns true if the given event originated inside a tab.
        *
        * @private
-       * @param {Event} event - Click event
-       * @returns {boolean} Click originated inside a tab
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside a tab
        ***********************************************************************/
 
-      _tabWasClicked (event) {
+      _eventOriginatedInsideTab (event) {
         return event.target.closest('[data-rvt-tab]')
       },
 
@@ -137,7 +137,7 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       onKeydown (event) {
-        if (!this._keydownOriginatedInTab(event)) { return }
+        if (!this._eventOriginatedInsideTab(event)) { return }
 
         this._setNeighboringTabIndexes(event)
 
@@ -161,18 +161,6 @@ export default class Tabs extends Component {
           default:
             break
         }
-      },
-
-      /************************************************************************
-       * Returns true if the given keydown event originated inside a tab.
-       *
-       * @private
-       * @param {Event} event - Keydown event
-       * @returns {boolean} Keydown originated inside a tab
-       ***********************************************************************/
-
-      _keydownOriginatedInTab (event) {
-        return event.target.closest('[data-rvt-tab]')
       },
 
       /************************************************************************
