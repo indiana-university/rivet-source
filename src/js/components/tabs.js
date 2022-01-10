@@ -174,9 +174,6 @@ export default class Tabs extends Component {
           case keyCodes.end:
             this._focusLastTab()
             break
-
-          default:
-            break
         }
       },
 
