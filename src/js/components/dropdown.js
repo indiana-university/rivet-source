@@ -48,6 +48,7 @@ export default class Dropdown extends Component {
         this._initProperties()
         this._initMenuItems()
         this._removeIconFromTabOrder()
+        this._bindExternalEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
@@ -115,11 +116,34 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Binds the dropdown instance to handler methods for relevant events
+       * that originate outside the component's root DOM element.
+       *
+       * @private
+       ***********************************************************************/
+
+      _bindExternalEventHandlers () {
+        this._onDocumentClick = this._onDocumentClick.bind(this)
+      },
+
+      /************************************************************************
        * Called when the dropdown is added to the DOM.
        ***********************************************************************/
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+
+        this._addDocumentEventHandlers()
+      },
+
+      /************************************************************************
+       * Adds event handlers to the document that are related to the dropdown.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addDocumentEventHandlers () {
+        document.addEventListener('click', this._onDocumentClick, false)
       },
 
       /************************************************************************
@@ -128,6 +152,18 @@ export default class Dropdown extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+
+        this._removeDocumentEventHandlers()
+      },
+
+      /************************************************************************
+       * Removes document event handlers related to the dropdown.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeDocumentEventHandlers () {
+        document.removeEventListener('click', this._onDocumentClick, false)
       },
 
       /************************************************************************
@@ -241,6 +277,32 @@ export default class Dropdown extends Component {
 
       _eventOriginatedInsideMenu (event) {
         return this.menuElement.contains(event.target)
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the document that are related to
+       * the dropdown but did not originate inside the modal itself.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      _onDocumentClick (event) {
+        if (!this._clickOriginatedOutsideDropdown(event)) { return }
+
+        if (!this._isOpen()) { return }
+
+        this.close()
+      },
+
+      /************************************************************************
+       * Returns true if the click event originated inside the dropdown.
+       *
+       * @param {Event} event - Click event
+       * @returns {boolean} Event originated outside dropdown
+       ***********************************************************************/
+
+      _clickOriginatedOutsideDropdown (event) {
+        return ! this.element.contains(event.target)
       },
 
       /************************************************************************
