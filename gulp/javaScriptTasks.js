@@ -98,9 +98,9 @@ function watchJS(callback) {
   watch(
     'src/js/**/*.js',
     { ignoreInitial: false },
-    series(compileIIFE, compileESM, vendorJS)
+    series(compileIIFE, compileESM)
   );
   callback();
 }
 
-module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, watchJS, transpileIIFE }
+module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, watchJS, transpileIIFE }
