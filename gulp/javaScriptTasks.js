@@ -94,18 +94,13 @@ function headerJS(callback) {
   callback();
 }
 
-// Copy vendor.js from 'src/js' to 'static/js' for Fractal to use
-function vendorJS() {
-  return src('src/js/vendor.js').pipe(dest('./static/js'));
-}
-
 function watchJS(callback) {
   watch(
     'src/js/**/*.js',
     { ignoreInitial: false },
-    series(compileIIFE, compileESM, vendorJS)
+    series(compileIIFE, compileESM)
   );
   callback();
 }
 
-module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, vendorJS, watchJS, transpileIIFE }
+module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, watchJS, transpileIIFE }
