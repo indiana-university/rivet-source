@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-sidenav {
   &__label {
@@ -125,8 +126,8 @@
     }
 
     &:focus {
-      outline: ($spacing-xxs / 2) solid $color-blue-500;
-      outline-offset: ($spacing-xxs / 2);
+      outline: (math.div($spacing-xxs, 2)) solid $color-blue-500;
+      outline-offset: (math.div($spacing-xxs, 2));
     }
 
     &:focus,

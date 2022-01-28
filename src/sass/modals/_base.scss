@@ -3,6 +3,7 @@
 
 @use '../core' as *;
 @use 'sass:map';
+@use 'sass:math';
 
 /**
  * This class gets applied to the body of the document when the modal
@@ -62,7 +63,7 @@
     &:focus {
       outline: none;
       /* stylelint-disable */
-      box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
       /* stylelint-enable */
     }
   }

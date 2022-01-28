@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 // These Sass maps are used for all the basic row set up.
 
@@ -27,14 +28,14 @@ $row-columns: (
 // like, .row--yournewsize.
 
 $row-widths: (
-  'sm': (840 / 16) * 1rem,
-  'md': (1024 / 16) * 1rem,
-  'lg': (1140 / 16) * 1rem,
-  'xl': (1380 / 16) * 1rem
+  'sm': (math.div(840, 16)) * 1rem,
+  'md': (math.div(1024, 16)) * 1rem,
+  'lg': (math.div(1140, 16)) * 1rem,
+  'xl': (math.div(1380, 16)) * 1rem
 );
 
 // Global grid gutter. Set this to half of what you want the final gutter to be.
-$gutter: $spacing-md / 2;
+$gutter: math.div($spacing-md, 2);
 
 // Starting on some mixins to build row classes and to make
 // available for those who want to use the Sass source
@@ -55,8 +56,8 @@ $gutter: $spacing-md / 2;
   // Remove list styles for when row is used on list elements (ul, ol, etc.)
 
   list-style: '';
-  margin-right: ($gutter / -1);
-  margin-left: ($gutter / -1);
+  margin-right: math.div($gutter, -1);
+  margin-left: math.div($gutter, -1);
 
   // Reset padding for when row is used on list elements (ul, ol, etc.)
 

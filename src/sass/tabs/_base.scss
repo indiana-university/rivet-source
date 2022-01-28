@@ -3,6 +3,7 @@
 
 @use '../core' as *;
 @use 'sass:map';
+@use 'sass:math';
 
 .#{$prefix}-tabs {
   background-color: $color-white-base;
@@ -50,7 +51,7 @@
     }
 
     &:focus {
-      outline: $spacing-xxs / 2 solid $color-blue-500;
+      outline: math.div($spacing-xxs, 2) solid $color-blue-500;
     }
 
     &:focus:not(:focus-visible) {
@@ -77,8 +78,8 @@
     padding: $spacing-sm;
 
     &:focus {
-      outline: $spacing-xxs / 2 solid $color-blue-500;
-      outline-offset: -$spacing-xxs / 2;
+      outline: math.div($spacing-xxs, 2) solid $color-blue-500;
+      outline-offset: math.div($spacing-xxs, 2) * -1;
     }
 
     &:focus:not(:focus-visible) {

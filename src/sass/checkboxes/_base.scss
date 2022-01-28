@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-checkbox {
   display: inline-block;
@@ -42,14 +43,14 @@
 
   input[type='checkbox'] ~ label::before {
     background-color: $color-white-base;
-    border: ($spacing-xxs / 2) solid $color-black-300;
-    border-radius: $spacing-xxs / 2;
+    border: (math.div($spacing-xxs, 2)) solid $color-black-300;
+    border-radius: math.div($spacing-xxs, 2);
     content: '';
     display: inline-block;
     height: $spacing-sm;
-    left: $spacing-xxs / 2;
+    left: math.div($spacing-xxs, 2);
     position: absolute;
-    top: $spacing-xxs / 2;
+    top: math.div($spacing-xxs, 2);
     width: $spacing-sm;
   }
 
@@ -68,7 +69,7 @@
 
   input[type='checkbox']:focus ~ label::before {
     box-shadow:
-      0 0 0 ($spacing-xxs / 2) $color-white-base,
+      0 0 0 (math.div($spacing-xxs, 2)) $color-white-base,
       0 0 0 $spacing-xxs $color-blue-600;
   }
 
