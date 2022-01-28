@@ -1,0 +1,64 @@
+// Copyright (C) 2022 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.#{$prefix}-link-hub {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-gap: 0 $spacing-lg;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+
+  &__item {
+    border-top: 1px solid $color-black-100;
+    margin: 0;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    padding-top: $spacing-sm;
+    padding-right: $spacing-xl;
+    padding-bottom: $spacing-sm;
+    position: relative;
+  }
+
+  &__link::after {
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%2395adcb" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: $spacing-sm;
+    height: $spacing-sm;
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+  }
+
+  &__text,
+  &__description {
+    display: block;
+  }
+
+  &__link:hover &__text {
+    text-decoration: underline;
+  }
+
+  &__text {
+    font-weight: $font-weight-regular;
+    font-size: $ts-20;
+    line-height: 1.3;
+  }
+
+  &__description {
+    font-size: $ts-14;
+    color: $color-black-400;
+    margin-top: $spacing-xs;
+  }
+
+  &--stacked {
+    display: block;
+  }
+}
