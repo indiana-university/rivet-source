@@ -46,7 +46,6 @@
     "@octokit/rest": "^17.1.3",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "autoprefixer": "^7.1.2",
-    "axios": "^0.24.0",
     "browser-sync": "^2.27.7",
     "cypress": "^9.0.0",
     "faker": "^5.5.3",
