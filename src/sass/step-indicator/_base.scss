@@ -26,7 +26,7 @@
       content: '';
       display: block;
       width: 100%;
-      box-shadow: 0 ($spacing-sm * 2.75) 0 (math.div($spacing-xxs, 2)) $color-black-100;
+      box-shadow: 0 ($spacing-sm * 2.75) 0 math.div($spacing-xxs, 2) $color-black-100;
       z-index: 0;
     }
 

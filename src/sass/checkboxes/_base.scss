@@ -43,7 +43,7 @@
 
   input[type='checkbox'] ~ label::before {
     background-color: $color-white-base;
-    border: (math.div($spacing-xxs, 2)) solid $color-black-300;
+    border: math.div($spacing-xxs, 2) solid $color-black-300;
     border-radius: math.div($spacing-xxs, 2);
     content: '';
     display: inline-block;
@@ -69,7 +69,7 @@
 
   input[type='checkbox']:focus ~ label::before {
     box-shadow:
-      0 0 0 (math.div($spacing-xxs, 2)) $color-white-base,
+      0 0 0 math.div($spacing-xxs, 2) $color-white-base,
       0 0 0 $spacing-xxs $color-blue-600;
   }
 

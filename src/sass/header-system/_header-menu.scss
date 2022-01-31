@@ -63,8 +63,8 @@
   &__toggle:hover {
     background: $color-blue-500;
     color: $color-white-base;
-    outline: (math.div($spacing-xxs, 2)) solid $color-blue-500;
-    outline-offset: (math.div($spacing-xxs, 2));
+    outline: math.div($spacing-xxs, 2) solid $color-blue-500;
+    outline-offset: math.div($spacing-xxs, 2);
   }
 
   &__list {
