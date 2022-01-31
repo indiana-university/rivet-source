@@ -64,7 +64,7 @@
     "postcss": "^8.3.11",
     "postcss-scss": "^2.0.0",
     "rollup": "^1.26.5",
-    "sass": "^1.25.0",
+    "sass": "^1.49.0",
     "standard": "^16.0.4",
     "start-server-and-test": "^1.10.6",
     "style-dictionary": "^2.8.3",
