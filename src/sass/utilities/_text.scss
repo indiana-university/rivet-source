@@ -14,15 +14,15 @@
 }
 
 .#{$prefix}-text-bold {
-  font-weight: 700 !important;
+  font-weight: $font-weight-bold !important;
 }
 
 .#{$prefix}-text-medium {
-  font-weight: 600 !important;
+  font-weight: $font-weight-medium !important;
 }
 
 .#{$prefix}-text-regular {
-  font-weight: 400 !important;
+  font-weight: $font-weight-regular !important;
 }
 
 .#{$prefix}-text-left {
