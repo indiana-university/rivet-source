@@ -19,6 +19,19 @@
 @font-face {
   font-family: BentonSans;
   font-style: normal;
+  font-weight: $font-weight-medium;
+  src: url('https://fonts.iu.edu/fonts/benton-sans-medium.eot');
+  src:
+    url('https://fonts.iu.edu/fonts/benton-sans-medium.eot?#iefix') format('embedded-opentype'),
+    url('https://fonts.iu.edu/fonts/benton-sans-medium.woff') format('woff'),
+    url('https://fonts.iu.edu/fonts/benton-sans-medium.ttf') format('truetype'),
+    url('https://fonts.iu.edu/fonts/benton-sans-medium.svg#BentonSansMedium') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: BentonSans;
+  font-style: normal;
   font-weight: $font-weight-bold;
   src: url('https://fonts.iu.edu/fonts/benton-sans-bold.eot');
   src:
