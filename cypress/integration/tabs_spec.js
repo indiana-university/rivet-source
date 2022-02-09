@@ -38,7 +38,7 @@ describe('Rivet tab interactions', function () {
     cy.focused().should('have.attr', 'data-rvt-tab', 'tab-1');
 
     cy.get('@tab1').trigger('keydown', { keyCode: 35 });
-    cy.focused().should('have.attr', 'data-rvt-tab', 'tab-4');
+    cy.focused().should('have.attr', 'data-rvt-tab', 'tab-6');
   });
 
   it('Should be able to display a different tab', function () {

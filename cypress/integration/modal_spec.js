@@ -130,6 +130,7 @@ describe('Rivet basic modal interactions', function () {
         eventModalReference = event.target == modal;
       });
       
+      modal.open();
       modal.close();
       
       if (!eventFired) throw new Error('Did not fire modalClosed event');

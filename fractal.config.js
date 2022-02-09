@@ -62,7 +62,7 @@ const myCustomizedTheme = mandelbrot({
   },
   format: 'yaml',
   panels: ['notes', 'view', 'html', 'resources', 'info'],
-  scripts: ['default', '/js/vendor.js'],
+  scripts: ['default'],
   favicon: '/img/favicon.ico',
   information: [
     {

@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use 'sass:math';
 
 /**
  * FIXME: Speculative ID menu stuff. This is from an old prototype, but might be
@@ -62,8 +63,8 @@
   &__toggle:hover {
     background: $color-blue-500;
     color: $color-white-base;
-    outline: ($spacing-xxs / 2) solid $color-blue-500;
-    outline-offset: ($spacing-xxs / 2);
+    outline: math.div($spacing-xxs, 2) solid $color-blue-500;
+    outline-offset: math.div($spacing-xxs, 2);
   }
 
   &__list {

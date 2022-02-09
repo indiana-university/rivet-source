@@ -1,157 +1,246 @@
-import Component from './component';
-import keyCodes from '../utilities/keyCodes';
+/******************************************************************************
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ *****************************************************************************/
+
+import Component from './component'
+import keyCodes from '../utilities/keyCodes'
+
+/******************************************************************************
+ * The disclosure component allows the user to show or hide additional content
+ * about a topic.
+ *
+ * @see https://v2.rivet.iu.edu/docs/components/disclosure/
+ *****************************************************************************/
 
 export default class Disclosure extends Component {
-  static get selector() {
-    return '[data-rvt-disclosure]';
+
+  /****************************************************************************
+   * Gets the disclosure's CSS selector.
+   *
+   * @static
+   * @returns {string} The CSS selector
+   ***************************************************************************/
+
+  static get selector () {
+    return '[data-rvt-disclosure]'
   }
 
-  static get methods() {
+  /****************************************************************************
+   * Gets an object containing the methods that should be attached to the
+   * component's root DOM element. Used by wicked-elements to initialize a DOM
+   * element with Web Component-like behavior.
+   *
+   * @static
+   * @returns {Object} Object with component methods
+   ***************************************************************************/
+
+  static get methods () {
     return {
-      init() {
-        console.log('Disclosure::init');
 
-        this.toggleElement = this.element.querySelector('[data-rvt-disclosure-toggle]');
-        this.targetElement = this.element.querySelector('[data-rvt-disclosure-target]');
-        this.isOpen = false;
-        this.activeToggle = null;
-        this.activeDisclosure = null;
-        
-        const icon = this.element.querySelector('svg');
-        if (icon) {
-          icon.setAttribute('focusable', 'false');
-        }
-        
-        Component.bindMethodToDOMElement(this, 'open', this.open);
-        Component.bindMethodToDOMElement(this, 'close', this.close);
+      /************************************************************************
+       * Initializes the disclosure.
+       ***********************************************************************/
 
-        this._handleClick = this._handleClick.bind(this);
-        this._handleKeydown = this._handleKeydown.bind(this);
+      init () {
+        this._initSelectors()
+        this._initElements()
+        this._initProperties()
+        this._removeIconFromTabOrder()
+
+        Component.bindMethodToDOMElement(this, 'open', this.open)
+        Component.bindMethodToDOMElement(this, 'close', this.close)
       },
 
-      connected() {
-        Component.dispatchComponentAddedEvent(this.element);
-        
-        document.addEventListener('click', this._handleClick, false);
-        document.addEventListener('keydown', this._handleKeydown, false);
+      /************************************************************************
+       * Initializes disclosure child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.toggleAttribute = 'data-rvt-disclosure-toggle'
+        this.targetAttribute = 'data-rvt-disclosure-target'
+
+        this.toggleSelector = `[${this.toggleAttribute}]`
+        this.targetSelector = `[${this.targetAttribute}]`
       },
 
-      disconnected() {
-        Component.dispatchComponentRemovedEvent(this.element);
+      /************************************************************************
+       * Initializes disclosure child elements.
+       *
+       * @private
+       ***********************************************************************/
 
-        document.removeEventListener('click', this._handleClick, false);
-        document.removeEventListener('keydown', this._handleKeydown, false);
+      _initElements () {
+        this.toggleElement = this.element.querySelector(this.toggleSelector)
+        this.targetElement = this.element.querySelector(this.targetSelector)
       },
 
-      open() {
-        // Return if disabled disclosure is being opened programmatically
+      /************************************************************************
+       * Initializes disclosure state properties.
+       *
+       * @private
+       ***********************************************************************/
 
-        if (this.toggleElement.hasAttribute('disabled')) {
-          return;
-        }
-
-        // Fire a disclosureOpened event
-
-        const openEvent = Component.dispatchCustomEvent(
-          'disclosureOpened',
-          this.element
-        );
-
-        // Bail if the event was suppressed
-
-        if (!openEvent) return;
-
-        // Set the disclosure's open state to "true"
-
-        this.isOpen = true;
-        this.toggleElement.setAttribute('aria-expanded', 'true');
-
-        // Remove the 'hidden' attribute to show the element to disclose
-
-        this.targetElement.removeAttribute('hidden');
-
-        // Set currently active toggle and disclosed element
-
-        this.activeToggle = this.toggleElement;
-        this.activeDisclosure = this.targetElement;
+      _initProperties () {
+        this.isOpen = false
       },
 
-      close() {
-        /**
-         * If there isn't a currently active disclosure, then bail so close() isn't
-         * fired multiple times.
-         */
-        if (!this.activeToggle) return;
+      /************************************************************************
+       * Removes the arrow icon from the tab order.
+       *
+       * @private
+       ***********************************************************************/
 
-        const closeEvent = Component.dispatchCustomEvent(
-          'disclosureClosed',
-          this.element
-        );
+      _removeIconFromTabOrder () {
+        const icon = this.element.querySelector('svg')
 
-        if (!closeEvent) return;
-
-        this.isOpen = false;
-        this.activeToggle.setAttribute('aria-expanded', 'false');
-        this.activeDisclosure.setAttribute('hidden', '');
-
-        // Resets the state variables
-        this.activeToggle = null;
-        this.activeDisclosure = null;
+        if (icon) { icon.setAttribute('focusable', 'false') }
       },
 
-      _handleClick(event) {
-        const toggle = event.target.closest('[data-rvt-disclosure-toggle]');
+      /************************************************************************
+       * Called when the disclosure is added to the DOM.
+       ***********************************************************************/
 
-        // Did it come from inside open disclosure?
-        if (this.targetElement.contains(event.target)) return;
-
-        // If it came from outside component, close all open disclosures
-        if (!toggle && this.activeToggle !== null) {
-          this.close();
-          return;
-        }
-
-        // Check which toggle the click came from, and whether it's already opened
-        if (toggle !== this.toggleElement || this.isOpen) {
-          this.close();
-        } else {
-          this.open();
-        }
+      connected () {
+        Component.dispatchComponentAddedEvent(this.element)
       },
 
-      _shouldHandleKeydown(event) {
-        // If the keydown didn't come from within disclosure component, then bail.
-        if (!this.element.contains(event.target)) return false;
-    
-        // Delegate event to only this instance of the disclosure
-        const disclosure = event.target.closest('[data-rvt-disclosure]');
-        if (disclosure !== this.element) return false;
-    
-        return true;
+      /************************************************************************
+       * Called when the disclosure is removed from the DOM.
+       ***********************************************************************/
+
+      disconnected () {
+        Component.dispatchComponentRemovedEvent(this.element)
       },
-    
-      _handleKeydown(event) {
-        if (!this._shouldHandleKeydown(event)) return;
-    
-        switch (event.keyCode) {
-          case keyCodes.escape: {
-            if (!this.activeToggle) return;
-    
-            // If there's an open disclosure, close it.
-            this.close();
-    
-            this.toggleElement.focus();
-    
-            /**
-             * Resets the state variables so as not to interfere with other
-             * Escape key handlers/interactions
-             */
-            this.activeToggle = null;
-    
-            break;
-          }
+
+      /************************************************************************
+       * Opens the disclosure.
+       ***********************************************************************/
+
+      open () {
+        if (this._isDisabled()) { return }
+
+        if (!this._eventDispatched('disclosureOpened')) { return }
+
+        this._setOpenState()
+      },
+
+      /************************************************************************
+       * Returns true if the disclosure toggle is disabled.
+       *
+       * @private
+       * @returns {boolean} Disabled state
+       ***********************************************************************/
+
+      _isDisabled () {
+        return this.toggleElement.hasAttribute('disabled')
+      },
+
+      /************************************************************************
+       * Sets the disclosure's state properties to represent it being open.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setOpenState () {
+        this.toggleElement.setAttribute('aria-expanded', 'true')
+        this.targetElement.removeAttribute('hidden')
+
+        this.isOpen = true
+      },
+
+      /************************************************************************
+       * Closes the disclosure.
+       ***********************************************************************/
+
+      close () {
+        if (!this._isOpen()) { return }
+
+        if (!this._eventDispatched('disclosureClosed')) { return }
+
+        this._setClosedState()
+      },
+
+      /************************************************************************
+       * Returns true if the disclosure is open.
+       *
+       * @private
+       * @returns {boolean} Disclosure open state
+       ***********************************************************************/
+
+      _isOpen () {
+        return this.isOpen
+      },
+
+      /************************************************************************
+       * Sets the disclosure's state properties to represent it being closed.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setClosedState () {
+        this.toggleElement.setAttribute('aria-expanded', 'false')
+        this.targetElement.setAttribute('hidden', '')
+
+        this.isOpen = false
+      },
+
+      /************************************************************************
+       * Returns true if the custom event with the given name was successfully
+       * dispatched.
+       *
+       * @private
+       * @param {string} name - Event name
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _eventDispatched (name) {
+        const dispatched = Component.dispatchCustomEvent(name, this.element)
+
+        return dispatched
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the disclosure.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      onClick (event) {
+        if (this._clickOriginatedInsideDisclosureTarget(event)) { return }
+
+        this._isOpen()
+          ? this.close()
+          : this.open()
+      },
+
+      /************************************************************************
+       * Returns true if the given click event originated inside the
+       * disclosure's content area.
+       *
+       * @private
+       * @param {Event} event - Click event
+       * @returns {boolean} Click originated inside content area
+       ***********************************************************************/
+
+      _clickOriginatedInsideDisclosureTarget (event) {
+        return this.targetElement.contains(event.target)
+      },
+
+      /************************************************************************
+       * Handles keydown events broadcast to the disclosure.
+       *
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      onKeydown (event) {
+        if (event.keyCode === keyCodes.escape) {
+          this.close()
+          this.toggleElement.focus()
         }
       }
-    };
+    }
   }
 }

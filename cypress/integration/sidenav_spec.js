@@ -6,8 +6,8 @@ beforeEach(function() {
    * Use cypress aliases to share the context of the list and toggle
    * elements across different assertions.
    */
-  cy.get('[data-rvt-sidenav-list="toggle-1"]').as('list');
-  cy.get('[data-rvt-sidenav-toggle="toggle-1"]').as('toggle');
+  cy.get('[data-rvt-sidenav-list="toggle-2"]').as('list');
+  cy.get('[data-rvt-sidenav-toggle="toggle-2"]').as('toggle');
 });
 
 describe('Sidenav Interaction', function() {
@@ -43,10 +43,10 @@ describe('Sidenav Interaction', function() {
       win.addEventListener('rvt:sidenavListOpened', event => {
         eventFired = true;
         eventSidenavReference = event.target == sidenav;
-        eventListReference = event.detail.list.dataset.rvtSidenavList == 'toggle-1';
+        eventListReference = event.detail.list.dataset.rvtSidenavList == 'toggle-2';
       });
       
-      sidenav.open('toggle-1');
+      sidenav.open('toggle-2');
       
       if (!eventFired) throw new Error('Did not fire sidenavListOpened event');
       if (!eventSidenavReference) throw new Error('Did not pass correct reference to emitting sidenav component element');
@@ -64,10 +64,10 @@ describe('Sidenav Interaction', function() {
       win.addEventListener('rvt:sidenavListClosed', event => {
         eventFired = true;
         eventSidenavReference = event.target == sidenav;
-        eventListReference = event.detail.list.dataset.rvtSidenavList == 'toggle-1';
+        eventListReference = event.detail.list.dataset.rvtSidenavList == 'toggle-2';
       });
       
-      sidenav.close('toggle-1');
+      sidenav.close('toggle-2');
       
       if (!eventFired) throw new Error('Did not fire sidenavListClosed event');
       if (!eventSidenavReference) throw new Error('Did not pass correct reference to emitting sidenav component element');

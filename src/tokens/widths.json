@@ -31,6 +31,14 @@
     "xxl": {
       "value": "32rem",
       "comment": "512px"
+    },
+    "3-xl": {
+      "value": "40rem",
+      "comment": "640px"
+    },
+    "4-xl": {
+      "value": "48rem",
+      "comment": "768px"
     }
   }
 }

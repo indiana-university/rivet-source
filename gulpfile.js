@@ -34,7 +34,6 @@ const {
   stripESM,
   minifyJS,
   headerJS,
-  vendorJS,
   transpileIIFE,
   watchJS
 } = require('./gulp/javaScriptTasks')
@@ -79,7 +78,6 @@ exports.build = series(
   stripESM,
   minifyJS,
   headerJS,
-  vendorJS,
   fractalBuild,
   prefixFractalCSS
 );

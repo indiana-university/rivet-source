@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-lockup {
   display: inline-flex;
@@ -16,7 +17,7 @@
     line-height: 1.1;
     font-size: $ts-12;
     color: $color-black-500;
-    margin-top: $spacing-xxs / 2;
+    margin-top: math.div($spacing-xxs, 2);
   }
 
   &__tab {

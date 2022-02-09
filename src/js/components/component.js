@@ -1,52 +1,128 @@
-import globalSettings from '../globalSettings';
-import { define } from 'wicked-elements';
+/******************************************************************************
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ *****************************************************************************/
+
+import globalSettings from '../globalSettings'
+import { define } from 'wicked-elements'
+
+/******************************************************************************
+ * Abstract base class from which all Rivet component classes are derived.
+ *****************************************************************************/
 
 export default class Component {
-  static initAll() {
-    this.init(this.selector);
+  
+  /****************************************************************************
+   * Initializes all current and future instances of the component that are
+   * added to the DOM.
+   *
+   * @static
+   ***************************************************************************/
+
+  static initAll () {
+    this.init(this.selector)
   }
 
-  static init(selector) {
-    define(selector, this.methods);
+  /****************************************************************************
+   * Initializes a specific component instance with the given selector.
+   *
+   * @static
+   * @param {string} selector - CSS selector of component to initialize
+   * @returns {HTMLElement} The initialized component
+   ***************************************************************************/
 
-    return document.querySelector(selector);
+  static init (selector) {
+    define(selector, this.methods)
+
+    return document.querySelector(selector)
   }
 
-  static get selector() {
+  /****************************************************************************
+   * Gets the component's CSS selector.
+   *
+   * @abstract
+   * @static
+   * @returns {string} The CSS selector
+   ***************************************************************************/
+
+  static get selector () {
     /* Virtual, must be implemented by subclass. */
   }
 
-  static get methods() {
+  /****************************************************************************
+   * Gets the component's methods.
+   *
+   * @abstract
+   * @static
+   * @returns {Object} The component's methods
+   ***************************************************************************/
+
+  static get methods () {
     /* Virtual, must be implemented by subclass. */
   }
 
-  static bindMethodToDOMElement(self, name, method) {
+  /****************************************************************************
+   * Binds the given method to the component DOM element.
+   *
+   * @static
+   * @param {Component} self - Component instance
+   * @param {string} name - Method name
+   * @param {Function} method - Method to bind
+   ***************************************************************************/
+
+  static bindMethodToDOMElement (self, name, method) {
     Object.defineProperty(self.element, name, {
       value: method.bind(self),
       writable: false
-    });
+    })
   }
 
-  static dispatchCustomEvent(eventName, element, detail = {}) {
-    const prefix = globalSettings.prefix;
+  /****************************************************************************
+   * Dispatches a custom browser event.
+   *
+   * @static
+   * @param {string} eventName - Event name
+   * @param {HTMLElement} element - Event target
+   * @param {Object?} detail - Optional event details
+   * @returns {boolean} Event success or failure
+   ***************************************************************************/
+
+  static dispatchCustomEvent (eventName, element, detail = {}) {
+    const prefix = globalSettings.prefix
     const event = new CustomEvent(`${prefix}:${eventName}`, {
       bubbles: true,
       cancelable: true,
       detail
-    });
+    })
 
-    return element.dispatchEvent(event);
+    return element.dispatchEvent(event)
   }
 
-  static dispatchComponentAddedEvent(element) {
+  /****************************************************************************
+   * Dispatches a "component added" browser event.
+   *
+   * @static
+   * @param {HTMLElement} element - New component DOM element
+   * @returns {boolean} Event success or failure
+   ***************************************************************************/
+
+  static dispatchComponentAddedEvent (element) {
     return this.dispatchCustomEvent('componentAdded', document, {
       component: element
-    });
+    })
   }
 
-  static dispatchComponentRemovedEvent(element) {
+  /****************************************************************************
+   * Dispatches a "component removed" browser event.
+   *
+   * @static
+   * @param {HTMLElement} element - Removed component DOM element
+   * @returns {boolean} Event success or failure
+   ***************************************************************************/
+
+  static dispatchComponentRemovedEvent (element) {
     return this.dispatchCustomEvent('componentRemoved', document, {
       component: element
-    });
+    })
   }
 }
