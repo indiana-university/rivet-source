@@ -165,11 +165,13 @@
 }
 
 .#{$prefix}-button--small {
+  font-size: $ts-14;
   height: $spacing-md;
   line-height: 1.1;
   vertical-align: bottom;
   padding-right: $spacing-xs;
   padding-left: $spacing-xs;
+  padding-top: $spacing-xxs * 0.5;
 }
 
 .#{$prefix}-button--plain {
