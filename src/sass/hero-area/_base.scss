@@ -1,7 +1,8 @@
 @use '../core' as *;
 
-.rvt-hero {
+.#{$prefix}-hero {
   padding-top: $spacing-md;
+  padding-bottom: $spacing-lg;
 
   &__body {
     margin-top: $spacing-md;
@@ -9,7 +10,7 @@
 
   &__eyebrow {
     color: $color-crimson-500;
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-medium;
     font-size: $ts-14;
     display: block;
     text-transform: uppercase;
@@ -17,11 +18,9 @@
   }
 
   &__title {
-    font-size: $ts-36;
-    font-weight: $font-weight-medium;
+    font-size: $ts-32;
     line-height: 1.2;
-
-    --flow-space: .25rem;
+    margin-top: $spacing-xs;
   }
 
   &__teaser {
@@ -29,12 +28,12 @@
     color: $color-black-400;
   }
 
-  &__actions {
-    --flow-space: 2rem;
-  }
-
   &__stage {
     margin-top: $spacing-lg;
+  }
+
+  &__stage img {
+    border-radius: $spacing-xs;
   }
 
   &--cutout-image &__image {
@@ -56,10 +55,37 @@
   &__actions > *:not(:first-child) {
     margin-top: $spacing-sm;
   }
+
+  &--dark-bg &__eyebrow {
+    color: $color-white-base;
+  }
+
+  &--dark-bg &__title {
+    color: $color-white-base;
+  }
+  
+  &--dark-bg &__teaser {
+    color: $color-white-base;
+  }
+
+  &--dark-bg .rvt-button--cta {
+    background-color: $color-white-base;
+    color: $color-blue-500;
+    border-color: $color-white-base;
+  }
+
+  &--dark-bg .rvt-button--cta:hover {
+    background-color: $color-blue-100;
+    border-color: $color-blue-100;
+  }
+
+  &--dark-bg &__image-caption {
+    color: $color-white-base;
+  }
 }
 
 @include mq($breakpoint-md) {
-  .rvt-hero {
+  .#{$prefix}-hero {
     padding-top: $spacing-xxl;
     padding-bottom: $spacing-xxl;
 
@@ -75,10 +101,19 @@
       max-width: 75%;
       padding-right: $spacing-xxl;
       // This helps optically center the hero body content vertically.
-      margin-top: -$spacing-sm;
+      margin-top: 0;
+    }
+
+    &__title {
+      font-size: $ts-36;
+    }
+
+    &__teaser {
+      margin-top: $spacing-lg;
     }
 
     &__actions {
+      margin-top: $spacing-lg;
       display: flex;
       flex-grow: 1;
     }

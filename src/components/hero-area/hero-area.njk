@@ -1,23 +1,17 @@
-<div class="rvt-hero {% if classes %} {{ classes }}{% endif %}">
+<div class="rvt-hero rvt-bg-black-000 {% if classes %} {{ classes }}{% endif %}">
   <div class="{{ siteContainer }}"> 
     <div class="rvt-hero__inner">
       <div class="rvt-hero__body [ rvt-flow ]">
         <span class="rvt-hero__eyebrow">{{ eyebrow }}</span>
-        <h1 class="rvt-hero__title">{{ title }}</h1>
+        <h1 class="rvt-hero__title">{{ title | safe }}</h1>
         <div class="rvt-hero__teaser">
           {{ teaserContent | safe }}
         </div>
         <div class="rvt-hero__actions">
           {{ actions | safe }}
-          {# <form action="" class="rvt-flex rvt-grow-1">
-            <label for="name" class="rvt-sr-only">Name</label>
-            <input type="text" placeholder="Enter your email address" class="rvt-input rvt-m-right-md-md-up" id="name">
-            <button class="rvt-button rvt-button--link">Submit</button>
-          </form> #}
         </div>
       </div>
       <div class="rvt-hero__stage">
-        {# <iframe style="width: 100%; aspect-ratio: 16 / 9;" width="560" height="315" src="https://www.youtube.com/embed/x0UkZq2VtGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> #}
         <img src="{{ image.url }}" alt="">
         <div class="rvt-hero__image-caption">{{ image.caption }}</div>
       </div>
