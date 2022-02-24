@@ -3,7 +3,6 @@
 
 .#{$prefix}-cta {
   text-decoration: none;
-  font-weight: $font-weight-medium;
 
   &:not(&-button) {
     display: inline-block;

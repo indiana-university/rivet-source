@@ -201,6 +201,33 @@
   }
 }
 
+.#{$prefix}-button--link {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: $color-blue-500;
+  font-weight: $font-weight-medium;
+  height: initial;
+  padding: 0;
+  display: inline-flex;
+  align-items: initial;
+  transition: none;
+
+  &:hover {
+    background-color: transparent;
+    color: $color-blue-600;
+  }
+
+  &:active {
+    color: $color-blue-700;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    
+  }
+}
+
 .#{$prefix}-button-group {
   display: flex;
 
