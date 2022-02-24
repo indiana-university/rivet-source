@@ -4,7 +4,7 @@ context:
   eyebrow: "Category"
   title: "Hero area title"
   teaserContent: "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor optio accusantium placeat suscipit sint rem, expedita ipsa, officia consequatur dolorem explicabo odio magnam fugiat quis modi libero doloribus! Aperiam, perspiciatis.</p>"
-  actions: '<a class="rvt-button rvt-button--link" href="#">Read more about this</a>'
+  actions: '<a class="rvt-cta-button" href="#">Read more about this</a>'
   image:
     url: "http://placeimg.com/900/600/nature?9846"
     caption: "An optional image caption"
