@@ -10,7 +10,7 @@
   border-radius: $spacing-xxs;
   color: $color-white-base;
   cursor: pointer;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-medium;
   line-height: 1;
   text-decoration: none;
   position: relative;
@@ -59,7 +59,6 @@
   background-color: transparent;
   border-color: $color-blue-100;
   color: $color-blue-500;
-  font-weight: $font-weight-medium;
 
   &:focus {
     box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
@@ -104,7 +103,6 @@
   background-color: transparent;
   border-color: $color-green-100;
   color: $color-green-500;
-  font-weight: $font-weight-medium;
 
   &:focus {
     box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-500;
@@ -149,7 +147,6 @@
   background-color: transparent;
   border-color: $color-orange-100;
   color: $color-orange-500;
-  font-weight: $font-weight-medium;
 
   &:focus {
     box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-500;
