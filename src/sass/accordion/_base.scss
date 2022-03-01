@@ -57,13 +57,10 @@
 
   &__panel > * {
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   &__panel > * + * {
     margin-top: 1.5rem;
-  }
-
-  &__panel > *:last-child {
-    margin-bottom: 0;
   }
 }
