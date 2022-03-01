@@ -10,7 +10,7 @@
   border-radius: $spacing-xxs;
   color: $color-white-base;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: $font-weight-medium;
   line-height: 1;
   text-decoration: none;
   position: relative;
@@ -57,6 +57,7 @@
 
 .#{$prefix}-button--secondary {
   background-color: transparent;
+  border-color: $color-blue-100;
   color: $color-blue-500;
 
   &:focus {
@@ -66,12 +67,13 @@
 
   &:hover {
     background-color: $color-blue-000;
-    border-color: $color-blue-600;
+    border-color: $color-blue-100;
     color: $color-blue-600;
   }
 
   &:active {
     background-color: $color-blue-100;
+    border-color: $color-blue-200;
     color: $color-blue-600;
   }
 }
@@ -99,7 +101,7 @@
 
 .#{$prefix}-button--success-secondary {
   background-color: transparent;
-  border-color: $color-green-500;
+  border-color: $color-green-100;
   color: $color-green-500;
 
   &:focus {
@@ -109,14 +111,14 @@
 
   &:hover {
     background-color: $color-green-000;
-    border-color: $color-green-500;
-    color: $color-green-700;
+    border-color: $color-green-100;
+    color: $color-green-600;
   }
 
   &:active {
     background-color: $color-green-100;
-    border-color: $color-green-500;
-    color: $color-green-700;
+    border-color: $color-green-200;
+    color: $color-green-600;
   }
 }
 
@@ -143,7 +145,7 @@
 
 .#{$prefix}-button--danger-secondary {
   background-color: transparent;
-  border-color: $color-orange-500;
+  border-color: $color-orange-100;
   color: $color-orange-500;
 
   &:focus {
@@ -153,14 +155,14 @@
 
   &:hover {
     background-color: $color-orange-000;
-    border-color: $color-orange-600;
-    color: $color-orange-700;
+    border-color: $color-orange-100;
+    color: $color-orange-600;
   }
 
   &:active {
     background-color: $color-orange-100;
-    border-color: $color-orange-500;
-    color: $color-orange-700;
+    border-color: $color-orange-200;
+    color: $color-orange-600;
   }
 }
 
