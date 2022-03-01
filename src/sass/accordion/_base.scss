@@ -45,10 +45,10 @@
   }
 
   &__toggle-icon {
+    align-items: center;
     color: $color-black-400;
+    display: flex;
     margin-left: auto;
-    position: relative;
-    top: 4px;
   }
 
   &__panel {
