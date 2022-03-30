@@ -29,6 +29,10 @@
   &__break-out {
     margin-right: -$spacing-md;
     margin-left: -$spacing-md;
+
+    img {
+      width: 100%;
+    }
   }
 
   &__sidebar {

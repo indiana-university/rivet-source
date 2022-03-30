@@ -13,8 +13,8 @@
         </div>
       </button>
     </h3>
-    <div class="rvt-accordion__panel" id="{{ id }}-{{ loop.index }}" aria-labelledby="{{ id }}-{{ loop.index }}-label" data-rvt-accordion-panel="{{ id }}-{{ loop.index }}" {% if panel.init %} data-rvt-accordion-panel-init{% endif %}>
-      <p class="rvt-m-all-remove">{{ panel.content | safe }}</p>
+    <div class="rvt-accordion__panel [ rvt-prose ]" id="{{ id }}-{{ loop.index }}" aria-labelledby="{{ id }}-{{ loop.index }}-label" data-rvt-accordion-panel="{{ id }}-{{ loop.index }}" {% if panel.init %} data-rvt-accordion-panel-init{% endif %}>
+      <p>{{ panel.content | safe }}</p>
     </div>
   {%- endfor -%}
 </div>
