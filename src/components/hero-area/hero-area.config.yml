@@ -4,7 +4,9 @@ context:
   eyebrow: "Category"
   title: "Become the best version of yourself at IU."
   teaserContent: "<p>Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.</p>"
-  actions: '<a class="rvt-button rvt-button--cta" href="#">Read more about this</a>'
+  actions: |
+    <a class="rvt-button rvt-button--cta" href="#">Read more about this</a>
+    <a class="rvt-button rvt-button--plain" href="#">Secondary action</a>
   image:
     url: "http://placeimg.com/900/600/nature?9846"
     caption: "An optional image caption"
