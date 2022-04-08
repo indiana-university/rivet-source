@@ -223,11 +223,6 @@
   &:active {
     color: $color-blue-700;
   }
-
-  &:disabled,
-  &:disabled:hover {
-    
-  }
 }
 
 .#{$prefix}-button-group {
