@@ -4,28 +4,26 @@
 .#{$prefix}-cta {
   text-decoration: none;
 
-  &:not(&-button) {
+  display: inline-block;
+
+  &::after {
+    content: '';
+    color: $color-blue-500;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23006298" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: $spacing-xs;
     display: inline-block;
+    width: $spacing-sm;
+    height: $spacing-sm;
+    position: relative;
+    top: $spacing-xxs * .8;
+    transition: all .2s ease;
+  }
 
+  &:hover {
     &::after {
-      content: '';
-      color: $color-blue-500;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23006298" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
-      background-repeat: no-repeat;
-      background-position: center;
-      margin-left: $spacing-xs;
-      display: inline-block;
-      width: $spacing-sm;
-      height: $spacing-sm;
-      position: relative;
-      top: $spacing-xxs * .8;
-      transition: all .2s ease;
-    }
-
-    &:hover {
-      &::after {
-        transform: translate($spacing-xs, 0);
-      }
+      transform: translate($spacing-xs, 0);
     }
   }
 
@@ -46,8 +44,6 @@
     display: inline-flex;
     align-items: center;
     transition: box-shadow .2s ease;
-
-    --flow-space: 2rem;
 
     &::-moz-focus-inner {
       border: 0;
