@@ -16,7 +16,7 @@
     background-color: transparent;
     border: none;
     display: flex;
-    padding: $spacing-sm;
+    padding: $spacing-md $spacing-sm;
     text-align: left;
     appearance: none;
     width: 100%;
@@ -38,18 +38,29 @@
 
   &__toggle-text {
     color: $color-black-500;
-    font-size: $ts-18;
-    font-weight: $font-weight-bold;
+    font-size: $ts-20;
+    font-weight: $font-weight-regular;
     line-height: 1.3;
     padding-right: $spacing-sm;
   }
 
   &__toggle-icon {
+    align-items: center;
     color: $color-black-400;
+    display: flex;
     margin-left: auto;
   }
 
   &__panel {
-    padding: $spacing-md;
+    padding: $spacing-xs $spacing-sm $spacing-md $spacing-sm;
+  }
+
+  &__panel > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__panel > * + * {
+    margin-top: 1.5rem;
   }
 }
