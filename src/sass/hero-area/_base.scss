@@ -1,6 +1,7 @@
 @use '../core' as *;
 
 .#{$prefix}-hero {
+  background-color: $color-black-000;
   padding-top: $spacing-md;
   padding-bottom: $spacing-lg;
 
@@ -55,7 +56,7 @@
     }
   }
 
-  &__image-caption {
+  &__media-caption {
     color: $color-black-400;
     font-size: $ts-14;
     padding-top: $spacing-xs;
@@ -71,24 +72,16 @@
     margin-top: $spacing-sm;
   }
 
+  &--bg-dark {
+    // Default to crimson background with --dark modifier
+
+    background-color: $color-crimson-500;
+  }
+
   &--bg-dark &__eyebrow,
   &--bg-dark &__title,
-  &--bg-dark &__teaser {
-    color: $color-white-base;
-  }
-
-  &--bg-dark .rvt-button {
-    background-color: $color-white-base;
-    color: $color-blue-500;
-    border-color: $color-white-base;
-  }
-
-  &--bg-dark .rvt-button:hover {
-    background-color: $color-blue-100;
-    border-color: $color-blue-100;
-  }
-
-  &--bg-dark &__image-caption {
+  &--bg-dark &__teaser,
+  &--bg-dark &__media-caption {
     color: $color-white-base;
   }
 }
@@ -123,6 +116,8 @@
     }
 
     &__actions {
+      align-items: center;
+      gap: $spacing-md;
       margin-top: $spacing-lg;
       display: flex;
       flex-grow: 1;
@@ -131,10 +126,6 @@
     &__actions > * {
       flex-grow: 0;
       width: auto;
-    }
-
-    &__actions > *:not(:last-child) {
-      margin-right: $spacing-sm;
     }
 
     // Undo top margins needed on small screens
