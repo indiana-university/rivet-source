@@ -126,14 +126,19 @@
     }
 
     &:focus {
-      outline: math.div($spacing-xxs, 2) solid $color-blue-500;
-      outline-offset: math.div($spacing-xxs, 2);
+      background-color: $color-blue-000;
+      color: $color-blue-500;
     }
 
-    &:focus,
     &:hover {
-      background: $color-blue-500;
-      color: $color-white-base;
+      background-color: $color-blue-000;
+      color: $color-blue-600;
+    }
+
+    &:hover,
+    &:focus {
+      outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+      outline-offset: math.div($spacing-xxs, 2);
     }
   }
 
