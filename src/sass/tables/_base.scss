@@ -2,12 +2,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
-/**
- * Tables
- */
-
-table {
+table,
+.#{$prefix}-table {
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
@@ -76,5 +74,48 @@ tr td {
   tr td:first-child,
   tr th:first-child {
     border-left: 1px solid $color-black-100;
+  }
+}
+
+/**
+ * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
+ * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+ */
+.#{$prefix}-table-responsive[role='region'][tabindex] {
+  border: 1px solid $color-black-100;
+  border-radius: $spacing-xs;
+  overflow: auto;
+
+  /* stylelint-disable */
+  background:
+    linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
+    radial-gradient(
+      farthest-side at 0% 50%,
+      rgba(36, 19, 66, 0.2),
+      rgba(36, 19, 66, 0)
+    ),
+    radial-gradient(
+        farthest-side at 100% 50%,
+        rgba(36, 19, 66, 0.2),
+        rgba(36, 19, 66, 0)
+      )
+      0 100%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-position: 0 0, 100%, 0 0, 100%;
+  background-attachment: local, local, scroll, scroll;
+  /* stylelint-enable */
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2.5) $color-blue-400;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-table-responsive[role='region'][tabindex] {
+    border: none;
   }
 }
