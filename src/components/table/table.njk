@@ -1,23 +1,25 @@
-<table {% if class %} class="{{ class }}"{% endif %}>
-  <caption class="rvt-sr-only">{{ tableTitle }}</caption>
-  <thead>
-    <tr>
-      {% for header in headers %}
-        <th scope="col">{{ header.text }}</th>
-      {% endfor %}
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in rows %}
+<div role="region" tabindex="0" class="rvt-table-responsive" aria-labelledyby="responsive-table">
+  <table role="region" tabindex="0" class="{% if class %} {{ class }}{% endif %}">
+    <caption id="responsive-table" class="rvt-sr-only">{{ tableTitle }}</caption>
+    <thead>
       <tr>
-        {% for col in row.cols %}
-          {% if loop.index === 1 %}
-            <th scope="row">{{ col.text }}</th>
-          {% else %}
-            <td>{{ col.text | safe }}</td>
-          {% endif %}
+        {% for header in headers %}
+          <th scope="col">{{ header.text }}</th>
         {% endfor %}
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+        <tr>
+          {% for col in row.cols %}
+            {% if loop.index === 1 %}
+              <th scope="row">{{ col.text }}</th>
+            {% else %}
+              <td>{{ col.text | safe }}</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
