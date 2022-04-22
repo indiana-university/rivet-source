@@ -51,7 +51,7 @@
     a:focus,
     a[aria-current]:focus {
       border-radius: inherit;
-      outline: solid math.div($spacing-xxs, 2) $color-blue-500;
+      outline: solid math.div($spacing-xxs, 2) $color-blue-400;
       outline-offset: math.div($spacing-xxs, 2);
       z-index: map.get($z-index, '1000');
     }

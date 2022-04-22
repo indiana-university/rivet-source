@@ -16,6 +16,10 @@
     border-radius: $spacing-xs;
   }
 
+  &[href]:focus {
+    transition: none;
+  }
+
   &__content {
     text-align: center;
   }

@@ -38,7 +38,6 @@
     padding: 0 $spacing-sm * .75;
     display: inline-flex;
     align-items: center;
-    transition: box-shadow .2s ease;
 
     &::after {
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23ffffff" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
@@ -50,7 +49,7 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-crimson-500;
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-crimson-400;
       outline: none;
     }
 

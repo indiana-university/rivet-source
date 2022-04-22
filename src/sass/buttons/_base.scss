@@ -18,7 +18,6 @@
   padding: 0 $spacing-sm * .75;
   display: inline-flex;
   align-items: center;
-  transition: box-shadow .2s ease;
 
   // Initially hide any loaders if they're being used inside buttons.
 
@@ -31,7 +30,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2.5) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
     outline: none;
   }
 
@@ -61,7 +60,7 @@
   color: $color-blue-500;
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
     outline: none;
   }
 
@@ -83,7 +82,7 @@
   border-color: $color-green-500;
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-400;
     outline: none;
   }
 
@@ -105,7 +104,7 @@
   color: $color-green-500;
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-400;
     outline: none;
   }
 
@@ -127,7 +126,7 @@
   border-color: $color-orange-500;
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-400;
     outline: none;
   }
 
@@ -149,7 +148,7 @@
   color: $color-orange-500;
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-400;
     outline: none;
   }
 
@@ -181,7 +180,7 @@
   color: $color-blue-500;
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
     outline: none;
   }
 

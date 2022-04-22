@@ -41,7 +41,7 @@
   // Default focus for browsers that don't support :focus-visible
 
   &__toggle:focus {
-    outline: $spacing-xxs solid $color-blue-200;
+    outline: $spacing-xxs solid $color-blue-400;
   }
 
   // Undo styles for browsers that support :focus-visible
@@ -53,7 +53,7 @@
   // Apply stronger focus styles when tab navigation is being used
 
   &__toggle:focus-visible {
-    outline: $spacing-xxs solid $color-blue-500;
+    outline: $spacing-xxs solid $color-blue-400;
     background-color: $color-blue-000;
   }
 
