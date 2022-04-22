@@ -85,7 +85,10 @@
   &-label {
     display: inline-block;
     font-size: $ts-14;
-    line-height: 1;
+  }
+
+  &-label + * {
+    margin-top: $spacing-xxs;
   }
 
   &-fieldset {
