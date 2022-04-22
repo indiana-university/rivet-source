@@ -51,7 +51,9 @@
     }
 
     &:focus {
-      outline: math.div($spacing-xxs, 2) solid $color-blue-500;
+      outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+      outline-offset: math.div($spacing-xxs, 2);
+      background-color: $color-blue-000;
     }
 
     &:focus:not(:focus-visible) {

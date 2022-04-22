@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-disclosure {
   &__toggle {
@@ -41,7 +42,7 @@
   // Default focus for browsers that don't support :focus-visible
 
   &__toggle:focus {
-    outline: $spacing-xxs solid $color-blue-200;
+    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
   }
 
   // Undo styles for browsers that support :focus-visible
@@ -53,7 +54,6 @@
   // Apply stronger focus styles when tab navigation is being used
 
   &__toggle:focus-visible {
-    outline: $spacing-xxs solid $color-blue-500;
     background-color: $color-blue-000;
   }
 

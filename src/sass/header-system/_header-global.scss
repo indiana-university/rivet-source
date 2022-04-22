@@ -38,7 +38,7 @@
 
   &__controls .#{$prefix}-global-toggle:focus {
     outline: none;
-    box-shadow: 0 0 0 .125rem $color-white-base, 0 0 0 $spacing-xxs $color-blue-500;
+    box-shadow: 0 0 0 .125rem $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
   }
 
   &__search,

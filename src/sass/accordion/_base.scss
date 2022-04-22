@@ -32,8 +32,20 @@
   }
 
   &__toggle:focus {
-    outline: 2px solid $color-blue-500;
+    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
     outline-offset: math.div($spacing-xxs, 2);
+  }
+
+  // Undo styles for browsers that support :focus-visible
+
+  &__toggle:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Apply stronger focus styles when tab navigation is being used
+
+  &__toggle:focus-visible {
+    background-color: $color-blue-000;
   }
 
   &__toggle-text {
