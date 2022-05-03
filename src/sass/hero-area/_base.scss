@@ -69,7 +69,7 @@
   }
 
   &__actions > *:not(:first-child) {
-    margin-top: $spacing-sm;
+    margin-top: $spacing-md;
   }
 
   &--bg-dark {
@@ -121,10 +121,12 @@
       margin-top: $spacing-lg;
       display: flex;
       flex-grow: 1;
+      flex-wrap: wrap;
     }
 
     &__actions > * {
       flex-grow: 0;
+      flex-shrink: 0;
       width: auto;
     }
 
