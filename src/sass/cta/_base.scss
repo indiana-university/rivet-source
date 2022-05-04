@@ -1,9 +1,10 @@
 @use '../core' as *;
+@use 'sass:math';
 
-.rvt-cta {
+.#{$prefix}-cta {
   text-decoration: none;
-  font-weight: 700;
   display: inline-block;
+  font-weight: $font-weight-medium;
 
   &::after {
     content: '';
@@ -24,5 +25,81 @@
     &::after {
       transform: translate($spacing-xs, 0);
     }
+  }
+
+  &--button {
+    background-color: $color-crimson-500;
+    border: math.div($spacing-xxs, 2) solid $color-crimson-500;
+    border-color: $color-crimson-500;
+    border-radius: $spacing-xxs;
+    box-shadow: $shadow-standard;
+    color: $color-white-base;
+    height: $spacing-xl;
+    padding: 0 $spacing-sm * .75;
+    display: inline-flex;
+    align-items: center;
+
+    &::after {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23ffffff" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
+      top: 0;
+    }
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-crimson-400;
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-crimson-600;
+      border-color: $color-crimson-600;
+      color: $color-white-base;
+
+      &::after {
+        transform: translate($spacing-xxs, 0);
+      }
+    }
+
+    &:active {
+      background-color: $color-crimson-700;
+      border-color: $color-crimson-700;
+    }
+  }
+}
+
+// Contextual styles for the CTA button When used with any "--bg-dark" component variants.
+[class*='--bg-dark'] .#{$prefix}-cta {
+  color: $color-white-base;
+
+  &:hover {
+    color: $color-blue-100;
+  }
+
+  &::after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23ffffff" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-crimson-500;
+    outline: none;
+  }
+}
+
+[class*='--bg-dark'] .#{$prefix}-cta--button {
+  background-color: $color-white-base;
+  color: $color-blue-500;
+  border-color: $color-white-base;
+
+  &::after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23006298" d="M15.92,8.38a1,1,0,0,0-.22-1.09l-4-4a1,1,0,0,0-1.41,1.41L12.59,7H1A1,1,0,0,0,1,9H12.59l-2.29,2.29a1,1,0,1,0,1.41,1.41l4-4A1,1,0,0,0,15.92,8.38Z"/></svg>');
+  }
+
+  &:hover {
+    background-color: $color-blue-100;
+    border-color: $color-blue-100;
+    color: $color-blue-700;
   }
 }

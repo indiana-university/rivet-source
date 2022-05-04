@@ -70,7 +70,7 @@
   input[type='checkbox']:focus ~ label::before {
     box-shadow:
       0 0 0 math.div($spacing-xxs, 2) $color-white-base,
-      0 0 0 $spacing-xxs $color-blue-600;
+      0 0 0 $spacing-xxs $color-blue-400;
   }
 
   input[type='checkbox']:disabled {
