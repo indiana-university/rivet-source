@@ -5,8 +5,7 @@
 @use 'sass:math';
 
 .#{$prefix} {
-  &-input[type],
-  &-input:not([type]),
+  &-input,
   &-text-input,
   &-textarea,
   &-select {
