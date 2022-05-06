@@ -35,12 +35,12 @@
     }
 
     &:hover {
-      background-color: $color-black-000;
-      color: $color-black-700;
+      background-color: $color-blue-000;
+      color: $color-blue-500;
     }
 
     &:hover::after {
-      background-color: $color-black-100;
+      background-color: $color-blue-500;
       bottom: 0;
       content: '';
       display: block;
@@ -62,7 +62,11 @@
   }
 
   &__tab[aria-selected='true'] {
-    background-color: $color-black-000;
+    background-color: $color-orange-000;
+  }
+
+  &__tab[aria-selected='true']:hover {
+    color: $color-black-500;
   }
 
   &__tab[aria-selected='true']::after {

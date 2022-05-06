@@ -12,7 +12,9 @@
     display: flex;
     list-style: none;
     margin: 0;
-    padding: $spacing-xxs;
+    padding-top: $spacing-xxs;
+    padding-right: $spacing-xxs;
+    padding-left: $spacing-xxs;
   }
 
   &__item {
@@ -31,6 +33,19 @@
     position: relative;
     text-decoration: none;
     appearance: none;
+
+    > svg {
+      color: $color-black-300;
+    }
+  }
+
+  &__item a[aria-current] {
+    background-color: $color-orange-000;
+    color: $color-crimson-500;
+
+    > svg {
+      color: $color-crimson-500;
+    }
   }
 
   &__item a[aria-current]::after,
@@ -39,7 +54,7 @@
     display: block;
     width: 100%;
     height: $spacing-xxs;
-    bottom: -$spacing-xxs;
+    bottom: 0;
     left: 0;
     background-color: $color-crimson-500;
     position: absolute;
@@ -47,10 +62,15 @@
 
   &__item a:hover:not([aria-current]),
   &__item button:hover {
-    background-color: $color-black-000;
+    background-color: $color-blue-000;
+    color: $color-blue-500;
+
+    > svg {
+      color: $color-blue-500;
+    }
 
     &::after {
-      background-color: $color-black-100;
+      background-color: $color-blue-500;
     }
   }
 }
