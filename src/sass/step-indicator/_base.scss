@@ -26,7 +26,7 @@
       content: '';
       display: block;
       width: 100%;
-      box-shadow: 0 ($spacing-sm * 2.75) 0 math.div($spacing-xxs, 2) $color-black-100;
+      box-shadow: 0 ($spacing-sm * 2.9) 0 1px $color-black-100;
       z-index: 0;
     }
 
@@ -78,10 +78,11 @@
   &__indicator {
     align-items: center;
     background-color: $color-white-base;
-    border: $spacing-xxs solid $color-black-100;
+    border: math.div($spacing-xxs, 2) solid $color-black-100;
     border-radius: 999rem;
-    box-shadow: 0 0 0 $spacing-xxs $color-white-base;
+    box-shadow: 0 0 0 $spacing-xs $color-white-base;
     display: inline-flex;
+    font-weight: $font-weight-medium;
     height: $spacing-lg;
     justify-content: center;
     position: relative;
@@ -118,7 +119,7 @@
   &--vertical &__item {
     text-align: left;
     margin-top: 0;
-    padding-top: $spacing-md;
+    padding-top: $spacing-lg;
     position: relative;
   }
 
@@ -127,7 +128,7 @@
   }
 
   &--vertical &__item::before {
-    box-shadow: -$spacing-xxs 0 0 0 $color-black-100;
+    box-shadow: math.div($spacing-xxs, -2) 0 0 0 $color-black-100;
     height: 100%;
     position: absolute;
     top: 0;
@@ -163,9 +164,9 @@ a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__label {
 a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content[aria-current] .#{$prefix}-steps__indicator {
-  background-color: $color-blue-500;
+  background-color: $color-crimson-500;
   color: $color-white-base;
-  border-color: $color-blue-500;
+  border-color: $color-crimson-500;
 }
 
 @include mq($breakpoint-md) {

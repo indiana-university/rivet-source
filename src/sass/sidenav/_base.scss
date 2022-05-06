@@ -63,7 +63,7 @@
     text-decoration: none;
 
     &[aria-current] {
-      background-color: $color-black-000;
+      background-color: $color-orange-000;
     }
 
     &[aria-current]::before {
@@ -94,13 +94,21 @@
   }
 
   &__link[aria-current] + &__toggle {
-    background-color: $color-black-000;
+    background-color: $color-orange-000;
+
+    > svg {
+      color: $color-crimson-500;
+    }
   }
 
   &__link[aria-current] + &__toggle:hover,
   &__link[aria-current] + &__toggle:focus {
-    color: $color-black-500;
-    background-color: $color-black-100;
+    color: $color-blue-500;
+    background-color: $color-blue-000;
+
+    > svg {
+      color: $color-blue-500;
+    }
   }
 
   &__toggle {

@@ -78,6 +78,22 @@
     margin: 0;
   }
 
+  &__item--current {
+    position: relative;
+    padding-left: .5rem;
+  }
+
+  &__item--current::before {
+    background-color: $color-crimson-500;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: .25rem;
+  }
+
   &__item:not(:first-child) {
     border-top: 1px solid $color-black-100;
   }
@@ -179,6 +195,14 @@
       position: relative;
     }
 
+    &__item--current &__link {
+      color: $color-crimson-500;
+    }
+
+    &__item--current::before {
+      content: none;
+    }
+
     &__item--current::after {
       content: '';
       display: block;
@@ -187,6 +211,11 @@
       height: $spacing-xxs * 1.2;
       position: absolute;
       bottom: -$spacing-md * 1.1;
+    }
+
+    &__item--current &__toggle {
+      background-color: $color-orange-000;
+      color: $color-crimson-500;
     }
 
     &__submenu {
