@@ -9,15 +9,18 @@
     font-size: $ts-32;
   }
 
-  h2,
-  h3 {
+  h2 {
     font-size: $ts-23;
+  }
+
+  h3 {
+    font-size: $ts-20;
   }
 
   h4,
   h5,
   h6 {
-    font-size: $ts-20;
+    font-size: $ts-18;
   }
 
   h1,
@@ -29,9 +32,14 @@
     // Reset the flow space here to put more space before headings.
     --flow-space: 3rem;
 
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-regular;
     line-height: 1.2;
     scroll-margin-top: $spacing-md;
+  }
+
+  p:not([class]),
+  li:not([class]) {
+    color: $color-black-400;
   }
 
   > img,
