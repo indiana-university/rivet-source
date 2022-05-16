@@ -37,8 +37,9 @@
     scroll-margin-top: $spacing-md;
   }
 
-  p:not([class]),
-  li:not([class]) {
+  :where(p),
+  :where(li),
+  :where(td) {
     color: $color-black-400;
   }
 
