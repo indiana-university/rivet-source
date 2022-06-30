@@ -85,23 +85,3 @@
     </div>
   </div>
 </header>
-
-<script>
-  const search = document.querySelector('[data-rvt-disclosure="search"]')
-  const menu = document.querySelector('[data-rvt-disclosure="menu"]')
-
-  function handleDisclosureOpen(event) {
-    if (event.target.dataset.rvtDisclosure == 'search') {
-      menu.close()
-      setTimeout(function() {
-        search.querySelector('input[type="text"]').focus()
-      })
-    } else if (event.target.dataset.rvtDisclosure == 'menu') {
-      search.close()
-    } else {
-      return
-    }
-  }
-
-  document.addEventListener('rvt:disclosureOpened', handleDisclosureOpen)
-</script>
