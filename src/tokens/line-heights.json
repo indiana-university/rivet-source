@@ -1,0 +1,13 @@
+{
+  "line-height": {
+    "base": {
+      "value": "1.5"
+    },
+    "heading": {
+      "value": "1.2"
+    },
+    "taller": {
+      "value": "1.65"
+    }
+  }
+}
