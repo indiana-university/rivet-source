@@ -3,7 +3,7 @@
 .rvt-prose {
   // Benton sans feels really compact and can benefit from a little extra
   // line-height here.
-  line-height: 1.65;
+  line-height: $line-height-taller;
 
   h1 {
     font-size: $ts-32;
@@ -33,7 +33,7 @@
     --flow-space: 3rem;
 
     font-weight: $font-weight-regular;
-    line-height: 1.2;
+    line-height: $line-height-heading;
     scroll-margin-top: $spacing-md;
   }
 

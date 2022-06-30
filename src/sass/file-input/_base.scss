@@ -50,7 +50,7 @@
 
     span {
       font-weight: $font-weight-bold;
-      line-height: 1.5;
+      line-height: $line-height-base;
       margin-right: $spacing-sm;
       display: inline-block;
     }

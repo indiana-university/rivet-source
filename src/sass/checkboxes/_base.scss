@@ -38,7 +38,7 @@
   input[type='checkbox'] ~ label {
     cursor: pointer;
     display: inline-block;
-    line-height: 1.5;
+    line-height: $line-height-base;
   }
 
   input[type='checkbox'] ~ label::before {

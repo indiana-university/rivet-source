@@ -121,7 +121,7 @@
   padding: 0;
 
   &__item {
-    line-height: 1.5;
+    line-height: $line-height-base;
   }
 
   &__item:not(first-child) {
