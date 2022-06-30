@@ -37,12 +37,16 @@
   text-align: center !important;
 }
 
-/**
- * Sets shorter line-height for headings and title.
- */
+.#{$prefix}-lh-base {
+  line-height: $line-height-base;
+}
 
 .#{$prefix}-lh-title {
-  line-height: 1.1;
+  line-height: $line-height-heading;
+}
+
+.#{$prefix}-lh-taller {
+  line-height: $line-height-taller;
 }
 
 .#{$prefix}-text-nobr {
