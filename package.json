@@ -24,7 +24,7 @@
     "cypress:browser": "cypress open",
     "cypress:serve": "gulp headless",
     "cypress:test": "cypress run",
-    "clean": "rm -rf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
+    "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build",
     "lint": "standard 'src/js'"
   },
