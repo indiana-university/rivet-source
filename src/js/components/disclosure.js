@@ -46,6 +46,7 @@ export default class Disclosure extends Component {
         this._initSelectors()
         this._initElements()
         this._initProperties()
+        this._setInitialDisclosureState()
         this._removeIconFromTabOrder()
         this._bindExternalEventHandlers()
 
@@ -86,6 +87,26 @@ export default class Disclosure extends Component {
 
       _initProperties () {
         this.isOpen = false
+      },
+
+      /************************************************************************
+       * Sets the initial state of the disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setInitialDisclosureState () {
+        if (this._shouldBeOpenByDefault()) { this.open() }
+      },
+
+      /************************************************************************
+       * Returns true if the disclosure should be open by default.
+       *
+       * @private
+       ***********************************************************************/
+
+      _shouldBeOpenByDefault () {
+        return this.element.hasAttribute('data-rvt-disclosure-open-on-init')
       },
 
       /************************************************************************
