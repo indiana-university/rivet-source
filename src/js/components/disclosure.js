@@ -152,6 +152,18 @@ export default class Disclosure extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+
+        this._removeDocumentEventHandlers()
+      },
+
+      /************************************************************************
+       * Removes document event handlers related to the disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeDocumentEventHandlers () {
+        document.removeEventListener('click', this._onDocumentClick, false)
       },
 
       /************************************************************************
