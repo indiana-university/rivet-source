@@ -118,7 +118,21 @@ export default class Disclosure extends Component {
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
 
-        this._addDocumentEventHandlers()
+        if (this._shouldAddDocumentEventHandlers()) {
+          this._addDocumentEventHandlers()
+        }
+      },
+
+      /************************************************************************
+       * Returns true if document event handlers should be added for this
+       * disclosure instance.
+       *
+       * @private
+       * @returns {boolean} Should add external event handlers
+       ***********************************************************************/
+
+      _shouldAddDocumentEventHandlers () {
+        return this.element.hasAttribute('data-rvt-close-click-outside')
       },
 
       /************************************************************************
