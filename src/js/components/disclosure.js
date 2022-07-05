@@ -47,6 +47,7 @@ export default class Disclosure extends Component {
         this._initElements()
         this._initProperties()
         this._removeIconFromTabOrder()
+        this._bindExternalEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
@@ -100,11 +101,35 @@ export default class Disclosure extends Component {
       },
 
       /************************************************************************
+       * Binds the disclosure instance to handler methods for relevant events
+       * that originate outside the component's root DOM element.
+       *
+       * @private
+       ***********************************************************************/
+
+      _bindExternalEventHandlers () {
+        this._onDocumentClick = this._onDocumentClick.bind(this)
+      },
+
+      /************************************************************************
        * Called when the disclosure is added to the DOM.
        ***********************************************************************/
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+
+        this._addDocumentEventHandlers()
+      },
+
+      /************************************************************************
+       * Adds event handlers to the document that are related to the
+       * disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addDocumentEventHandlers () {
+        document.addEventListener('click', this._onDocumentClick, false)
       },
 
       /************************************************************************
@@ -227,6 +252,32 @@ export default class Disclosure extends Component {
 
       _clickOriginatedInsideDisclosureTarget (event) {
         return this.targetElement.contains(event.target)
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the document that are related to
+       * the disclosure but did not originate inside the disclosure itself.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      _onDocumentClick (event) {
+        if (!this._clickOriginatedOutsideDisclosure(event)) { return }
+
+        if (!this._isOpen()) { return }
+
+        this.close()
+      },
+
+      /************************************************************************
+       * Returns true if the click event originated inside the disclosure.
+       *
+       * @param {Event} event - Click event
+       * @returns {boolean} Event originated outside disclosure
+       ***********************************************************************/
+
+      _clickOriginatedOutsideDisclosure (event) {
+        return ! this.element.contains(event.target)
       },
 
       /************************************************************************
