@@ -41,11 +41,12 @@
   line-height: $line-height-base;
 }
 
-.#{$prefix}-lh-title {
+.#{$prefix}-lh-title,
+.#{$prefix}-lh-tight {
   line-height: $line-height-tight;
 }
 
-.#{$prefix}-lh-taller {
+.#{$prefix}-lh-loose {
   line-height: $line-height-loose;
 }
 
