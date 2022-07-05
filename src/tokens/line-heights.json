@@ -6,7 +6,10 @@
     "title": {
       "value": "1.2"
     },
-    "taller": {
+    "tight": {
+      "value": "1.2"
+    },
+    "loose": {
       "value": "1.65"
     }
   }
