@@ -55,7 +55,7 @@ tr td {
 }
 
 .#{$prefix}-table-compact {
-  line-height: $line-height-title;
+  line-height: $line-height-tight;
 
   tr th,
   tr td {

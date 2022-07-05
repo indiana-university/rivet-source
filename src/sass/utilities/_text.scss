@@ -42,11 +42,11 @@
 }
 
 .#{$prefix}-lh-title {
-  line-height: $line-height-title;
+  line-height: $line-height-tight;
 }
 
 .#{$prefix}-lh-taller {
-  line-height: $line-height-taller;
+  line-height: $line-height-loose;
 }
 
 .#{$prefix}-text-nobr {
