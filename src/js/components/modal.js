@@ -65,7 +65,7 @@ export default class Modal extends Component {
         this.innerModalAttribute = 'data-rvt-modal-inner'
         this.triggerAttribute = 'data-rvt-modal-trigger'
         this.closeButtonAttribute = 'data-rvt-modal-close'
-        this.dialogAttribute = this.dialogAttribute
+        this.dialogAttribute = 'data-rvt-modal-dialog'
 
         this.innerModalSelector = `[${this.innerModalAttribute}]`
         this.triggerSelector = `[${this.triggerAttribute}]`
