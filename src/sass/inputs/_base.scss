@@ -32,7 +32,7 @@
 
   &-textarea {
     height: $spacing-base * 15;
-    line-height: 1.5;
+    line-height: $line-height-base;
     overflow: auto; // Remove scrollbar in IE
   }
 

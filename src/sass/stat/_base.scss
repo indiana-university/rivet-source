@@ -31,7 +31,7 @@
 
   &__number {
     font-size: $ts-41;
-    line-height: 1.2;
+    line-height: $line-height-tight;
   }
 
   &__description {

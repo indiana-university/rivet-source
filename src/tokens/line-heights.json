@@ -1,0 +1,16 @@
+{
+  "line-height": {
+    "base": {
+      "value": "1.5"
+    },
+    "title": {
+      "value": "1.2"
+    },
+    "tight": {
+      "value": "1.2"
+    },
+    "loose": {
+      "value": "1.65"
+    }
+  }
+}
