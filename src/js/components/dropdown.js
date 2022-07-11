@@ -198,6 +198,7 @@ export default class Dropdown extends Component {
       _setOpenState () {
         this.toggleElement.setAttribute('aria-expanded', 'true')
         this.menuElement.removeAttribute('hidden')
+        this.firstMenuItem.focus()
 
         this.isOpen = true
       },
