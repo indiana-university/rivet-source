@@ -394,6 +394,8 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _handleDownKey (event) {
+        event.preventDefault()
+        
         if (!this._isOpen()) { this.open() }
 
         this._eventOriginatedInsideMenu(event)
