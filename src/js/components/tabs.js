@@ -160,18 +160,22 @@ export default class Tabs extends Component {
 
         switch (event.keyCode) {
           case keyCodes.left:
+            event.preventDefault()
             this._focusPreviousTab()
             break
 
           case keyCodes.right:
+            event.preventDefault()
             this._focusNextTab()
             break
 
           case keyCodes.home:
+            event.preventDefault()
             this._focusFirstTab()
             break
 
           case keyCodes.end:
+            event.preventDefault()
             this._focusLastTab()
             break
         }
