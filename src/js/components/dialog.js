@@ -65,7 +65,6 @@ export default class Dialog extends Component {
         this.innerDialogAttribute = 'data-rvt-dialog-inner'
         this.triggerAttribute = 'data-rvt-dialog-trigger'
         this.closeButtonAttribute = 'data-rvt-dialog-close'
-        this.dialogAttribute = 'data-rvt-dialog-dialog'
 
         this.innerDialogSelector = `[${this.innerDialogAttribute}]`
         this.triggerSelector = `[${this.triggerAttribute}]`
