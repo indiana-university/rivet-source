@@ -1,40 +1,40 @@
-{% render '@button', { content: buttonText, attributes: [{ label: "data-rvt-modal-trigger", value: id }]}, true %}
+{% render '@button', { content: buttonText, attributes: [{ label: "data-rvt-dialog-trigger", value: id }]}, true %}
 
-<div class="rvt-modal"
+<div class="rvt-dialog"
   id="{{ id }}"
   role="dialog"
   tabindex="-1"
   hidden
-  aria-labelledby="{{ modalTitleId }}"
-  data-rvt-modal="{{ id }}"
+  aria-labelledby="{{ dialogTitleId }}"
+  data-rvt-dialog="{{ id }}"
   {% if dialog %}
-    data-rvt-modal-dialog
+    data-rvt-dialog-dialog
   {% endif %}
   {% for attribute in attributes %}
     {{ attribute.label }}="{{ attribute.value }}"
   {% endfor %}>
-  <div class="rvt-modal__inner" data-rvt-modal-inner>
-    <header class="rvt-modal__header">
-        <h1 class="rvt-modal__title" id="{{ modalTitledId }}">{{ modalTitle }}</h1>
+  <div class="rvt-dialog__inner" data-rvt-dialog-inner>
+    <header class="rvt-dialog__header">
+        <h1 class="rvt-dialog__title" id="{{ dialogTitleId }}">{{ dialogTitle }}</h1>
     </header>
     {% if form %}
     <form id="{{ formId }}">
-      <div class="rvt-modal__body">
-        {{ modalBody | safe }}
+      <div class="rvt-dialog__body">
+        {{ dialogBody | safe }}
       </div>
     </form>
     {% else %}
-    <div class="rvt-modal__body">
-      {{ modalBody | safe }}
+    <div class="rvt-dialog__body">
+      {{ dialogBody | safe }}
     </div>
     {% endif %}
-    <div class="rvt-modal__controls">
+    <div class="rvt-dialog__controls">
       {% for control in controls %}
         {% render '@button', { content: control.text, attributes: control.attributes, modifier: control.modifier }, true %}
       {% endfor %}
     </div>
     {% if not dialog %}
-    <button class="rvt-button rvt-button--plain rvt-modal__close" data-rvt-modal-close="{{ id }}" role="button">
+    <button class="rvt-button rvt-button--plain rvt-dialog__close" data-rvt-dialog-close="{{ id }}" role="button">
       <span class="rvt-sr-only">Close</span>
       {% include "@includes--close" %}
     </button>

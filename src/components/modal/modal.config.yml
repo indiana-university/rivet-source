@@ -1,12 +1,12 @@
-title: Modal
+title: Dialog
 status: "ready"
 collated: true
 context:
-  buttonText: "Modal example"
-  id: "modalExample"
-  modalTitleId: "modal-example-title"
-  modalTitle: "Modal Title"
-  modalBody: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <a href="#0">incididunt ut labore</a> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  buttonText: "Dialog example"
+  id: "dialogExample"
+  dialogTitleId: "dialog-example-title"
+  dialogTitle: "Dialog Title"
+  dialogBody: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <a href="#0">incididunt ut labore</a> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   controls:
     - text: "I want to continue"
       attributes:
@@ -14,24 +14,24 @@ context:
           value: "button"
     - text: "No"
       attributes:
-        - label: "data-rvt-modal-close"
-          value: "modalExample"
+        - label: "data-rvt-dialog-close"
+          value: "dialogExample"
         - label: "role"
           value: "button"
     - text: "No, please cancel"
       attributes:
-        - label: "data-rvt-modal-close"
-          value: "modalExample"
+        - label: "data-rvt-dialog-close"
+          value: "dialogExample"
         - label: "role"
           value: "button"
 variants:
   - name: "with-form"
     context:
-      buttonText: "Modal with form"
-      id: "modalWithForm"
+      buttonText: "Dialog with form"
+      id: "dialogWithForm"
       formId: "test-form"
-      modalFormTitle: "modal-form-title"
-      modalBody: <div class="m-bottom-sm"><label class="rvt-label" for="the-title">Title</label><input class="rvt-text-input" type="text" id="the-title"></div><label class="rvt-label" for="description">Description</label><textarea class="rvt-textarea" id="description"></textarea><fieldset><legend class="rvt-ts-23 rvt-m-bottom-sm"><strong>Select dropdown</strong> default</legend><label class="rvt-label" for="select-demo">Select input:</label><select class="rvt-select m-bottom-md" id="select-demo"><option value="">Option One</option><option value="">Option Two</option><option value="">Option Three</option><option value="">Option Four</option></select></fieldset><fieldset class="rvt-m-top-xl"><legend class="rvt-ts-20 rvt-text-bold">Category</legend><ul class="rvt-list-plain"><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-3"><label class="rvt-label" for="checkbox-3" class="m-right-sm">Option one</label></li><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-4"><label class="rvt-label" for="checkbox-4">Option two</label></li><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-4-disable" disabled><label class="rvt-label" for="checkbox-4-disable">Option three disabled</label></li><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-5" disabled checked><label class="rvt-label" for="checkbox-5">Option four checked and disabled</label></li></ul></fieldset>
+      dialogFormTitle: "dialog-form-title"
+      dialogBody: <div class="m-bottom-sm"><label class="rvt-label" for="the-title">Title</label><input class="rvt-text-input" type="text" id="the-title"></div><label class="rvt-label" for="description">Description</label><textarea class="rvt-textarea" id="description"></textarea><fieldset><legend class="rvt-ts-23 rvt-m-bottom-sm"><strong>Select dropdown</strong> default</legend><label class="rvt-label" for="select-demo">Select input:</label><select class="rvt-select m-bottom-md" id="select-demo"><option value="">Option One</option><option value="">Option Two</option><option value="">Option Three</option><option value="">Option Four</option></select></fieldset><fieldset class="rvt-m-top-xl"><legend class="rvt-ts-20 rvt-text-bold">Category</legend><ul class="rvt-list-plain"><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-3"><label class="rvt-label" for="checkbox-3" class="m-right-sm">Option one</label></li><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-4"><label class="rvt-label" for="checkbox-4">Option two</label></li><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-4-disable" disabled><label class="rvt-label" for="checkbox-4-disable">Option three disabled</label></li><li><input class="rvt-checkbox" type="checkbox" name="checkbox-demo" id="checkbox-5" disabled checked><label class="rvt-label" for="checkbox-5">Option four checked and disabled</label></li></ul></fieldset>
       controls:
         - text: OK
           attributes:
@@ -39,18 +39,18 @@ variants:
               value: "button"
         - text: Cancel
           attributes:
-            - label: "data-rvt-modal-close"
-              value: "modalWithForm"
+            - label: "data-rvt-dialog-close"
+              value: "dialogWithForm"
             - label: "role"
               value: "button"
-  - name: "modal-with-dialog"
+  - name: "dialog-with-dialog"
     context:
       dialog: true
-      buttonText: "Modal dialog"
-      id: "modalDialogExample"
-      modalTitleId: "modal-dialog-title"
-      modalTitle: "Modal Dialog"
-      modalBody: "<p>A modal dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
+      buttonText: "Dialog dialog"
+      id: "dialogDialogExample"
+      dialogTitleId: "dialog-dialog-title"
+      dialogTitle: "Dialog Dialog"
+      dialogBody: "<p>A dialog dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
       controls:
         - text: "Yes"
           attributes:
@@ -58,21 +58,21 @@ variants:
               value: "button"
         - text: "No, thanks"
           attributes:
-            - label: "data-rvt-modal-close"
-              value: "modalDialogExample"
+            - label: "data-rvt-dialog-close"
+              value: "dialogDialogExample"
             - label: "role"
               value: "button"
   - name: "confirmation-dialog"
     context:
       dialog: true
-      buttonText: "Confirmation modal dialog"
-      id: "modalConfirmation"
-      modalTitle: "Delete item"
-      modalTitleId: "modal-title-confirmation"
-      modalBody: "<p class='m-top-remove m-bottom-xl' id='modal-description-confirmation'>Are you sure you want to <strong>delete your progress</strong>? This modal is a dialog and can not be dismissed by clicking outside of the modal on the background.</p>"
+      buttonText: "Confirmation dialog dialog"
+      id: "dialogConfirmation"
+      dialogTitle: "Delete item"
+      dialogTitleId: "dialog-title-confirmation"
+      dialogBody: "<p class='m-top-remove m-bottom-xl' id='dialog-description-confirmation'>Are you sure you want to <strong>delete your progress</strong>? This dialog is a dialog and can not be dismissed by clicking outside of the dialog on the background.</p>"
       attributes:
         - label: "aria-describedby"
-          value: "modal-description-confirmation"
+          value: "dialog-description-confirmation"
       controls:
         - text: "Delete my progress"
           modifier: "-danger"
@@ -82,7 +82,7 @@ variants:
         - text: "Cancel"
           modifier: "-secondary"
           attributes:
-            - label: "data-rvt-modal-close"
-              value: "modalConfirmation"
+            - label: "data-rvt-dialog-close"
+              value: "dialogConfirmation"
             - label: "role"
               value: "button"
