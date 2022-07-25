@@ -265,7 +265,7 @@ export default class Dialog extends Component {
 
         if (!this._isOpen()) { return }
 
-        if (this._isDialog()) { return }
+        if (this._shouldCloseOnClickOutside()) { return }
 
         this.close()
       },
@@ -284,15 +284,16 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns true if the dialog is a dialog. (Dialog dialogs can't be
-       * closed by clicking outside the dialog or hitting the Escape key.)
+       * Returns true if the dialog should close if the user clicks outside
+       * of the dialog.
        *
        * @private
-       * @returns {boolean} Dialog is dialog
+       * @returns {boolean} Dialog should close on click outside
        ***********************************************************************/
 
-      _isDialog () {
-        return this.isDialog
+      _shouldCloseOnClickOutside () {
+        // TODO: Implement in separate pull request
+        return false
       },
 
       /************************************************************************
@@ -311,7 +312,7 @@ export default class Dialog extends Component {
             break
 
           case keyCodes.escape:
-            if (!this._isDialog()) { this.close() }
+            if (!this._shouldCloseOnClickOutside()) { this.close() }
             break
         }
       },
