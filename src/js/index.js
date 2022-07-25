@@ -18,10 +18,10 @@ import './polyfills/remove'
 
 import Accordion from './components/accordion'
 import Alert from './components/alert'
+import Dialog from './components/dialog'
 import Disclosure from './components/disclosure'
 import Dropdown from './components/dropdown'
 import FileInput from './components/fileInput'
-import Modal from './components/modal'
 import Sidenav from './components/sidenav'
 import Tabs from './components/tabs'
 
@@ -35,7 +35,7 @@ function init () {
   Disclosure.initAll()
   Dropdown.initAll()
   FileInput.initAll()
-  Modal.initAll()
+  Dialog.initAll()
   Sidenav.initAll()
   Tabs.initAll()
 }
@@ -47,10 +47,10 @@ function init () {
 export {
   Accordion,
   Alert,
+  Dialog,
   Disclosure,
   Dropdown,
   FileInput,
-  Modal,
   Sidenav,
   Tabs,
   init
