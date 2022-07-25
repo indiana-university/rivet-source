@@ -13,7 +13,7 @@ import keyCodes from '../utilities/keyCodes'
  * @see https://v2.rivet.iu.edu/docs/components/modal/
  *****************************************************************************/
 
-export default class Modal extends Component {
+export default class Dialog extends Component {
 
   /****************************************************************************
    * Gets the modal's CSS selector.
