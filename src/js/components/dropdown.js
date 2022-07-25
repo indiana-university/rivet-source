@@ -282,7 +282,7 @@ export default class Dropdown extends Component {
 
       /************************************************************************
        * Handles click events broadcast to the document that are related to
-       * the dropdown but did not originate inside the modal itself.
+       * the dropdown but did not originate inside the dropdown itself.
        *
        * @param {Event} event - Click event
        ***********************************************************************/
