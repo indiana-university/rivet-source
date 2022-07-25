@@ -47,10 +47,10 @@ function init () {
 export {
   Accordion,
   Alert,
+  Dialog,
   Disclosure,
   Dropdown,
   FileInput,
-  Modal,
   Sidenav,
   Tabs,
   init
