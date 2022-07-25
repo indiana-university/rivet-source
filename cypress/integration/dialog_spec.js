@@ -148,7 +148,7 @@ describe('Rivet dialog dialog interactions', function () {
 
     cy.get('@dialogDialog').should('be.visible');
 
-    cy.get('body').click();
+    cy.get('body').click(0, 0);
 
     cy.get('@dialogDialog').should('be.visible');
   });
