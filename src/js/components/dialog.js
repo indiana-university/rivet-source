@@ -7,23 +7,23 @@ import Component from './component'
 import keyCodes from '../utilities/keyCodes'
 
 /******************************************************************************
- * The modal component can be used to present content in a smaller window that
+ * The dialog component can be used to present content in a smaller window that
  * is displayed on top of the main application or site content.
  *
- * @see https://v2.rivet.iu.edu/docs/components/modal/
+ * @see https://v2.rivet.iu.edu/docs/components/dialog/
  *****************************************************************************/
 
 export default class Dialog extends Component {
 
   /****************************************************************************
-   * Gets the modal's CSS selector.
+   * Gets the dialog's CSS selector.
    *
    * @static
    * @returns {string} The CSS selector
    ***************************************************************************/
 
   static get selector () {
-    return '[data-rvt-modal]'
+    return '[data-rvt-dialog]'
   }
 
   /****************************************************************************
@@ -39,7 +39,7 @@ export default class Dialog extends Component {
     return {
 
       /************************************************************************
-       * Initializes the modal.
+       * Initializes the dialog.
        ***********************************************************************/
 
       init () {
@@ -51,43 +51,43 @@ export default class Dialog extends Component {
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
         Component.bindMethodToDOMElement(this, 'focusTrigger', this.focusTrigger)
-        Component.bindMethodToDOMElement(this, 'focusModal', this.focusModal)
+        Component.bindMethodToDOMElement(this, 'focusDialog', this.focusDialog)
       },
 
       /************************************************************************
-       * Initializes modal child element selectors.
+       * Initializes dialog child element selectors.
        *
        * @private
        ***********************************************************************/
 
       _initSelectors () {
-        this.modalAttribute = 'data-rvt-modal'
-        this.innerModalAttribute = 'data-rvt-modal-inner'
-        this.triggerAttribute = 'data-rvt-modal-trigger'
-        this.closeButtonAttribute = 'data-rvt-modal-close'
-        this.dialogAttribute = 'data-rvt-modal-dialog'
+        this.dialogAttribute = 'data-rvt-dialog'
+        this.innerDialogAttribute = 'data-rvt-dialog-inner'
+        this.triggerAttribute = 'data-rvt-dialog-trigger'
+        this.closeButtonAttribute = 'data-rvt-dialog-close'
+        this.dialogAttribute = 'data-rvt-dialog-dialog'
 
-        this.innerModalSelector = `[${this.innerModalAttribute}]`
+        this.innerDialogSelector = `[${this.innerDialogAttribute}]`
         this.triggerSelector = `[${this.triggerAttribute}]`
         this.closeButtonSelector = `[${this.closeButtonAttribute}]`
       },
 
       /************************************************************************
-       * Initializes modal child elements.
+       * Initializes dialog child elements.
        *
        * @private
        ***********************************************************************/
 
       _initElements () {
-        const modalId = this.element.getAttribute(this.modalAttribute)
+        const dialogId = this.element.getAttribute(this.dialogAttribute)
 
-        this.innerModal = this.element.querySelector(this.innerModalSelector)
-        this.triggerButton = document.querySelector(`[${this.triggerAttribute} = "${modalId}"]`)
+        this.innerDialog = this.element.querySelector(this.innerDialogSelector)
+        this.triggerButton = document.querySelector(`[${this.triggerAttribute} = "${dialogId}"]`)
         this.closeButtons = this.element.querySelectorAll(this.closeButtonSelector)
       },
 
       /************************************************************************
-       * Initializes modal state properties.
+       * Initializes dialog state properties.
        *
        * @private
        ***********************************************************************/
@@ -99,7 +99,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Binds the modal instance to handler methods for relevant events that
+       * Binds the dialog instance to handler methods for relevant events that
        * originate outside the component's root DOM element.
        *
        * @private
@@ -111,7 +111,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Called when the modal is added to the DOM.
+       * Called when the dialog is added to the DOM.
        ***********************************************************************/
 
       connected () {
@@ -124,20 +124,20 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns true if the modal should be open on page load.
+       * Returns true if the dialog should be open on page load.
        *
        * @private
-       * @returns {boolean} Modal should be open
+       * @returns {boolean} Dialog should be open
        ***********************************************************************/
 
       _shouldBeOpenByDefault () {
-        return this.element.hasAttribute('data-rvt-modal-open-on-init')
+        return this.element.hasAttribute('data-rvt-dialog-open-on-init')
       },
 
       /************************************************************************
        * Adds event handlers for the trigger button. The trigger button event
        * handlers must be set manually rather than using onClick because the
-       * trigger button exists outside the modal component's root DOM element.
+       * trigger button exists outside the dialog component's root DOM element.
        *
        * @private
        ***********************************************************************/
@@ -149,10 +149,10 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns true if the modal has an associated trigger button.
+       * Returns true if the dialog has an associated trigger button.
        *
        * @private
-       * @returns {boolean} Modal has trigger button
+       * @returns {boolean} Dialog has trigger button
        ***********************************************************************/
 
       _hasTriggerButton () {
@@ -160,7 +160,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Adds event handlers to the document that are related to the modal.
+       * Adds event handlers to the document that are related to the dialog.
        *
        * @private
        ***********************************************************************/
@@ -170,7 +170,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Called when the modal is removed from the DOM.
+       * Called when the dialog is removed from the DOM.
        ***********************************************************************/
 
       disconnected () {
@@ -193,7 +193,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Removes document event handlers related to the modal.
+       * Removes document event handlers related to the dialog.
        *
        * @private
        ***********************************************************************/
@@ -203,7 +203,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Handles click events broadcast to the modal. For click events related
+       * Handles click events broadcast to the dialog. For click events related
        * to the trigger button and document, see the _onTriggerClick() and
        * _onDocumentClick() methods, respectively.
        *
@@ -219,10 +219,10 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns true if the modal is open.
+       * Returns true if the dialog is open.
        *
        * @private
-       * @returns {boolean} Modal is open
+       * @returns {boolean} Dialog is open
        ***********************************************************************/
 
       _isOpen () {
@@ -231,7 +231,7 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Returns true if the given click event originated inside one of the
-       * modal's "close" buttons.
+       * dialog's "close" buttons.
        *
        * @private
        * @param {Event} event - Click event
@@ -243,7 +243,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Handles click events broadcast to the modal's trigger button.
+       * Handles click events broadcast to the dialog's trigger button.
        *
        * @param {Event} event - Click event
        ***********************************************************************/
@@ -256,13 +256,13 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Handles click events broadcast to the document that are related to
-       * the modal but did not originate inside the modal itself.
+       * the dialog but did not originate inside the dialog itself.
        *
        * @param {Event} event - Click event
        ***********************************************************************/
 
       _onDocumentClick (event) {
-        if (this._clickOriginatedInsideModalOrTrigger(event)) { return }
+        if (this._clickOriginatedInsideDialogOrTrigger(event)) { return }
 
         if (!this._isOpen()) { return }
 
@@ -273,23 +273,23 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Returns true if the given click event originated inside the inner
-       * modal or modal trigger button.
+       * dialog or dialog trigger button.
        *
        * @param {Event} event - Click event
-       * @returns {boolean} Click originated inside inner modal or trigger
+       * @returns {boolean} Click originated inside inner dialog or trigger
        ***********************************************************************/
 
-      _clickOriginatedInsideModalOrTrigger (event) {
-        return event.target.closest(this.innerModalSelector) ||
+      _clickOriginatedInsideDialogOrTrigger (event) {
+        return event.target.closest(this.innerDialogSelector) ||
                event.target.closest(this.triggerSelector)
       },
 
       /************************************************************************
-       * Returns true if the modal is a dialog. (Dialog modals can't be closed
-       * by clicking outside the modal or hitting the Escape key.)
+       * Returns true if the dialog is a dialog. (Dialog dialogs can't be
+       * closed by clicking outside the dialog or hitting the Escape key.)
        *
        * @private
-       * @returns {boolean} Modal is dialog
+       * @returns {boolean} Dialog is dialog
        ***********************************************************************/
 
       _isDialog () {
@@ -297,7 +297,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Handles keydown events broadcast to the modal.
+       * Handles keydown events broadcast to the dialog.
        *
        * @param {Event} event - Keydown event
        ***********************************************************************/
@@ -318,7 +318,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Sets the modal's list of focusable child elements.
+       * Sets the dialog's list of focusable child elements.
        *
        * @private
        ***********************************************************************/
@@ -345,8 +345,8 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Handles the user tabbing backward through the modal, trapping focus
-       * within the modal if necessary.
+       * Handles the user tabbing backward through the dialog, trapping focus
+       * within the dialog if necessary.
        *
        * @private
        * @param {Event} event - Keydown event
@@ -361,10 +361,10 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Returns true if focus should be trapped to prevent the user from
-       * tabbing backward out of the modal.
+       * tabbing backward out of the dialog.
        *
        * @private
-       * @returns {boolean} Modal is dialog
+       * @returns {boolean} Should trap backward tab focus
        ***********************************************************************/
 
       _shouldTrapBackwardTabFocus () {
@@ -373,8 +373,8 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Handles the user tabbing forward through the modal, trapping focus
-       * within the modal if necessary.
+       * Handles the user tabbing forward through the dialog, trapping focus
+       * within the dialog if necessary.
        *
        * @private
        * @param {Event} event - Keydown event
@@ -390,10 +390,10 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Returns true if focus should be trapped to prevent the user from
-       * tabbing forward out of the modal.
+       * tabbing forward out of the dialog.
        *
        * @private
-       * @returns {boolean} Modal is dialog
+       * @returns {boolean} Dialog is dialog
        ***********************************************************************/
 
       _shouldTrapForwardTabFocus () {
@@ -401,20 +401,20 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Opens the modal.
+       * Opens the dialog.
        ***********************************************************************/
 
       open () {
         if (this._isOpen()) { return }
 
-        if (!this._eventDispatched('modalOpened')) { return }
+        if (!this._eventDispatched('dialogOpened')) { return }
 
         this._setOpenState()
-        this.focusModal()
+        this.focusDialog()
       },
 
       /************************************************************************
-       * Sets the modal's state properties to represent it being open.
+       * Sets the dialog's state properties to represent it being open.
        *
        * @private
        ***********************************************************************/
@@ -422,25 +422,25 @@ export default class Dialog extends Component {
       _setOpenState () {
         this.isOpen = true
         this.element.removeAttribute('hidden')
-        document.body.classList.add('rvt-modal-open')
+        document.body.classList.add('rvt-dialog-open')
       },
 
       /************************************************************************
-       * Moves focus to the modal.
+       * Moves focus to the dialog.
        ***********************************************************************/
 
-      focusModal () {
+      focusDialog () {
         this.element.focus()
       },
 
       /************************************************************************
-       * Closes the modal.
+       * Closes the dialog.
        ***********************************************************************/
 
       close () {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('modalClosed')) { return }
+        if (!this._eventDispatched('dialogClosed')) { return }
 
         this._setClosedState()
 
@@ -450,7 +450,7 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Sets the modal's state properties to represent it being closed.
+       * Sets the dialog's state properties to represent it being closed.
        *
        * @private
        ***********************************************************************/
@@ -458,16 +458,16 @@ export default class Dialog extends Component {
       _setClosedState () {
         this.isOpen = false
         this.element.setAttribute('hidden', '')
-        document.body.classList.remove('rvt-modal-open')
+        document.body.classList.remove('rvt-dialog-open')
       },
 
       /************************************************************************
-       * Moves focus to the modal's trigger button.
+       * Moves focus to the dialog's trigger button.
        ***********************************************************************/
 
       focusTrigger () {
         if (!this._hasTriggerButton()) {
-          console.warn(`Could not find a trigger button with for modal ID '${this.id}'`)
+          console.warn(`Could not find a trigger button for dialog ID '${this.id}'`)
           return
         }
 
