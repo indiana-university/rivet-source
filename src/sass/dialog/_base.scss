@@ -27,15 +27,39 @@
   padding-bottom: 5rem;
 
   &__inner {
-    position: relative;
-    top: 5rem;
+    position: absolute;
     max-width: 600px;
     width: 90%;
     background-color: $color-white-base;
-    margin: 0 auto;
-    margin-bottom: 5rem;
     border-radius: $spacing-xxs;
     overflow: hidden;
+    left: 0;
+    right: 0;
+    margin: ($spacing-xxl * 1.5) auto;
+  }
+
+  &--top-left &__inner {
+    top: $spacing-lg !important;
+    left: $spacing-lg !important;
+    margin: 0 !important;
+  }
+
+  &--top-right &__inner {
+    top: $spacing-lg !important;
+    right: $spacing-lg !important;
+    margin: 0 0 0 auto !important;
+  }
+
+  &--bottom-left &__inner {
+    bottom: $spacing-lg !important;
+    left: $spacing-lg !important;
+    margin: 0 !important;
+  }
+
+  &--bottom-right &__inner {
+    bottom: $spacing-lg !important;
+    right: $spacing-lg !important;
+    margin: 0 0 0 auto !important;
   }
 
   &__close {
