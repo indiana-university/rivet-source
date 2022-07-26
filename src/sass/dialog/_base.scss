@@ -22,9 +22,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba($color-black-base, .85);
   overflow-y: scroll;
   padding-bottom: 5rem;
+
+  &[data-rvt-dialog-modal] {
+    background-color: rgba($color-black-base, .85);
+  }
 
   &__inner {
     position: relative;
@@ -36,6 +39,11 @@
     margin-bottom: 5rem;
     border-radius: $spacing-xxs;
     overflow: hidden;
+  }
+
+  &:not([data-rvt-dialog-modal]) &__inner {
+    border: 1px solid $color-black-100;
+    box-shadow: $shadow-standard;
   }
 
   &__close {

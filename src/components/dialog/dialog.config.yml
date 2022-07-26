@@ -2,7 +2,7 @@ title: Dialog
 status: "ready"
 collated: true
 context:
-  buttonText: "Dialog example"
+  buttonText: "Non-modal dialog"
   id: "dialogExample"
   dialogTitleId: "dialog-example-title"
   dialogTitle: "Dialog Title"
@@ -27,7 +27,7 @@ context:
 variants:
   - name: "with-form"
     context:
-      buttonText: "Dialog with form"
+      buttonText: "Non-modal dialog with form"
       id: "dialogWithForm"
       formId: "test-form"
       dialogFormTitle: "dialog-form-title"
@@ -43,14 +43,14 @@ variants:
               value: "dialogWithForm"
             - label: "role"
               value: "button"
-  - name: "dialog-with-dialog"
+  - name: "modal-dialog"
     context:
-      dialog: true
-      buttonText: "Dialog dialog"
-      id: "dialogDialogExample"
-      dialogTitleId: "dialog-dialog-title"
-      dialogTitle: "Dialog Dialog"
-      dialogBody: "<p>A dialog dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
+      modal: true
+      buttonText: "Modal dialog"
+      id: "modalDialogExample"
+      dialogTitleId: "modal-dialog-title"
+      dialogTitle: "Modal Dialog"
+      dialogBody: "<p>A modal dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
       controls:
         - text: "Yes"
           attributes:
@@ -64,8 +64,8 @@ variants:
               value: "button"
   - name: "confirmation-dialog"
     context:
-      dialog: true
-      buttonText: "Confirmation dialog dialog"
+      modal: true
+      buttonText: "Confirmation modal dialog"
       id: "dialogConfirmation"
       dialogTitle: "Delete item"
       dialogTitleId: "dialog-title-confirmation"

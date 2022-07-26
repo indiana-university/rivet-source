@@ -7,8 +7,8 @@
   hidden
   aria-labelledby="{{ dialogTitleId }}"
   data-rvt-dialog="{{ id }}"
-  {% if dialog %}
-    data-rvt-dialog-dialog
+  {% if modal %}
+    data-rvt-dialog-modal
   {% endif %}
   {% for attribute in attributes %}
     {{ attribute.label }}="{{ attribute.value }}"

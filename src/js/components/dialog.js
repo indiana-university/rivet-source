@@ -65,6 +65,7 @@ export default class Dialog extends Component {
         this.innerDialogAttribute = 'data-rvt-dialog-inner'
         this.triggerAttribute = 'data-rvt-dialog-trigger'
         this.closeButtonAttribute = 'data-rvt-dialog-close'
+        this.modalAttribute = 'data-rvt-dialog-modal'
 
         this.innerDialogSelector = `[${this.innerDialogAttribute}]`
         this.triggerSelector = `[${this.triggerAttribute}]`
@@ -94,7 +95,7 @@ export default class Dialog extends Component {
       _initProperties () {
         this.id = this.element.getAttribute('id')
         this.isOpen = false
-        this.isDialog = this.element.hasAttribute(this.dialogAttribute)
+        this.isModal = this.element.hasAttribute(this.modalAttribute)
       },
 
       /************************************************************************
@@ -292,8 +293,7 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _shouldCloseOnClickOutside () {
-        // TODO: Implement in separate pull request
-        return false
+        return ! this.isModal
       },
 
       /************************************************************************
