@@ -422,7 +422,10 @@ export default class Dialog extends Component {
       _setOpenState () {
         this.isOpen = true
         this.element.removeAttribute('hidden')
-        document.body.classList.add('rvt-dialog-open')
+
+        if (this.isModal) {
+          document.body.classList.add('rvt-dialog-prevent-scroll')
+        }
       },
 
       /************************************************************************
@@ -458,7 +461,7 @@ export default class Dialog extends Component {
       _setClosedState () {
         this.isOpen = false
         this.element.setAttribute('hidden', '')
-        document.body.classList.remove('rvt-dialog-open')
+        document.body.classList.remove('rvt-dialog-prevent-scroll')
       },
 
       /************************************************************************
