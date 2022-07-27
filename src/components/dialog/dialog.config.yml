@@ -6,7 +6,7 @@ context:
   id: "dialogExample"
   dialogTitleId: "dialog-example-title"
   dialogTitle: "Dialog Title"
-  dialogBody: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor <a href="#0">incididunt ut labore</a> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  dialogBody: <p>The default non-modal dialog sits on top of the page content and isn't dismissed when the user clicks outside of it. A developer can use special CSS classes to position the dialog at a corner of the page instead of the middle.</p>
   controls:
     - text: "I want to continue"
       attributes:
@@ -50,7 +50,7 @@ variants:
       id: "modalDialogExample"
       dialogTitleId: "modal-dialog-title"
       dialogTitle: "Modal Dialog"
-      dialogBody: "<p>A modal dialog:</p><ul><li>Is not dismissable i.e. doesn't have an (X) button</li><li>Requires user input before they continue their work</li></ul>"
+      dialogBody: "<p>A modal dialog sits on top of the content and darkens the page behind it. The user can dismiss it by clicking anywhere outside the dialog or by using the close buttons.</p>"
       controls:
         - text: "Yes"
           attributes:
@@ -60,29 +60,5 @@ variants:
           attributes:
             - label: "data-rvt-dialog-close"
               value: "dialogDialogExample"
-            - label: "role"
-              value: "button"
-  - name: "confirmation-dialog"
-    context:
-      modal: true
-      buttonText: "Confirmation modal dialog"
-      id: "dialogConfirmation"
-      dialogTitle: "Delete item"
-      dialogTitleId: "dialog-title-confirmation"
-      dialogBody: "<p class='m-top-remove m-bottom-xl' id='dialog-description-confirmation'>Are you sure you want to <strong>delete your progress</strong>? This dialog is a dialog and can not be dismissed by clicking outside of the dialog on the background.</p>"
-      attributes:
-        - label: "aria-describedby"
-          value: "dialog-description-confirmation"
-      controls:
-        - text: "Delete my progress"
-          modifier: "-danger"
-          attributes:
-            - label: "role"
-              value: "button"
-        - text: "Cancel"
-          modifier: "-secondary"
-          attributes:
-            - label: "data-rvt-dialog-close"
-              value: "dialogConfirmation"
             - label: "role"
               value: "button"
