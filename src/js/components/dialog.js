@@ -62,11 +62,10 @@ export default class Dialog extends Component {
 
       _initSelectors () {
         this.dialogAttribute = 'data-rvt-dialog'
-        this.innerDialogAttribute = 'data-rvt-dialog-inner'
         this.triggerAttribute = 'data-rvt-dialog-trigger'
         this.closeButtonAttribute = 'data-rvt-dialog-close'
+        this.modalAttribute = 'data-rvt-dialog-modal'
 
-        this.innerDialogSelector = `[${this.innerDialogAttribute}]`
         this.triggerSelector = `[${this.triggerAttribute}]`
         this.closeButtonSelector = `[${this.closeButtonAttribute}]`
       },
@@ -80,7 +79,6 @@ export default class Dialog extends Component {
       _initElements () {
         const dialogId = this.element.getAttribute(this.dialogAttribute)
 
-        this.innerDialog = this.element.querySelector(this.innerDialogSelector)
         this.triggerButton = document.querySelector(`[${this.triggerAttribute} = "${dialogId}"]`)
         this.closeButtons = this.element.querySelectorAll(this.closeButtonSelector)
       },
@@ -94,7 +92,7 @@ export default class Dialog extends Component {
       _initProperties () {
         this.id = this.element.getAttribute('id')
         this.isOpen = false
-        this.isDialog = this.element.hasAttribute(this.dialogAttribute)
+        this.isModal = this.element.hasAttribute(this.modalAttribute)
       },
 
       /************************************************************************
@@ -271,15 +269,15 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns true if the given click event originated inside the inner
-       * dialog or dialog trigger button.
+       * Returns true if the given click event originated inside the dialog or
+       * dialog trigger button.
        *
        * @param {Event} event - Click event
-       * @returns {boolean} Click originated inside inner dialog or trigger
+       * @returns {boolean} Click originated inside dialog or trigger button
        ***********************************************************************/
 
       _clickOriginatedInsideDialogOrTrigger (event) {
-        return event.target.closest(this.innerDialogSelector) ||
+        return this.element.contains(event.target) ||
                event.target.closest(this.triggerSelector)
       },
 
@@ -292,8 +290,7 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _shouldCloseOnClickOutside () {
-        // TODO: Implement in separate pull request
-        return false
+        return ! this.isModal
       },
 
       /************************************************************************
@@ -422,7 +419,10 @@ export default class Dialog extends Component {
       _setOpenState () {
         this.isOpen = true
         this.element.removeAttribute('hidden')
-        document.body.classList.add('rvt-dialog-open')
+
+        if (this.isModal) {
+          document.body.classList.add('rvt-dialog-prevent-scroll')
+        }
       },
 
       /************************************************************************
@@ -458,7 +458,7 @@ export default class Dialog extends Component {
       _setClosedState () {
         this.isOpen = false
         this.element.setAttribute('hidden', '')
-        document.body.classList.remove('rvt-dialog-open')
+        document.body.classList.remove('rvt-dialog-prevent-scroll')
       },
 
       /************************************************************************

@@ -6,25 +6,29 @@
 @use 'sass:math';
 
 /**
- * This class gets applied to the body of the document when the dialog
+ * This class gets applied to the body of the document when a modal dialog
  * is open so that the dialog scrolls but not the content of the body.
  * It's removed when the dialog is closed making the body scrollable again.
  */
 
-.#{$prefix}-dialog-open {
+.#{$prefix}-dialog-prevent-scroll {
   overflow: hidden;
 }
 
 .#{$prefix}-dialog {
-  z-index: map.get($z-index, '1000');
-  position: fixed;
-  top: 0;
+  border: 1px solid $color-black-100;
+  box-shadow: $shadow-standard;
+  position: absolute;
+  max-width: 600px;
+  width: 90%;
+  background-color: $color-white-base;
+  top: $spacing-xxl * 2;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba($color-black-base, .85);
-  overflow-y: scroll;
-  padding-bottom: 5rem;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: $spacing-xxs;
+  z-index: map.get($z-index, '1000');
 
   &__inner {
     position: absolute;
@@ -60,6 +64,10 @@
     bottom: $spacing-lg !important;
     right: $spacing-lg !important;
     margin: 0 0 0 auto !important;
+  }
+  
+  &[data-rvt-dialog-modal] {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, .85);
   }
 
   &__close {
