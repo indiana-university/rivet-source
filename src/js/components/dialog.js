@@ -43,6 +43,7 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       init () {
+        this._rearrangeDOM()
         this._initSelectors()
         this._initElements()
         this._initProperties()
@@ -106,6 +107,12 @@ export default class Dialog extends Component {
       _bindExternalEventHandlers () {
         this._onTriggerClick = this._onTriggerClick.bind(this)
         this._onDocumentClick = this._onDocumentClick.bind(this)
+      },
+
+      _rearrangeDOM() {
+        const body = document.body
+        const referenceElement = body.firstElementChild
+        body.insertBefore(this.element, referenceElement)
       },
 
       /************************************************************************
@@ -381,7 +388,7 @@ export default class Dialog extends Component {
       _handleForwardTab (event) {
         if (this._shouldTrapForwardTabFocus()) {
           event.preventDefault()
-          
+
           this.firstFocusableChildElement.focus()
         }
       },
@@ -451,13 +458,28 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
+       * Returns an array of all current direct children of the document body
+       * @private
+       * @returns {HTMLElement[]}
+       ***********************************************************************/
+
+      _getDirectChildrenOfBody() {
+        return Array.prototype.slice.call(
+          document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
+        )
+      },
+
+      /************************************************************************
        * Disables interaction with page elements behind the dialog.
        *
        * @private
        ***********************************************************************/
 
       _disablePageInteraction () {
-        // TODO: Implement this method
+        this._getDirectChildrenOfBody().forEach(child => {
+          child.setAttribute('inert', '')
+          child.setAttribute('aria-hidden', 'true')
+        })
       },
 
       /************************************************************************
@@ -499,7 +521,10 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _enablePageInteraction () {
-        // TODO: Implement this method
+        this._getDirectChildrenOfBody().forEach(child => {
+          child.removeAttribute('inert')
+          child.removeAttribute('aria-hidden')
+        })
       },
 
       /************************************************************************
