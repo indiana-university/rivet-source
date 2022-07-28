@@ -46,6 +46,7 @@ variants:
   - name: "modal-dialog"
     context:
       modal: true
+      disablePageInteraction: true
       buttonText: "Modal dialog"
       id: "modalDialogExample"
       dialogTitleId: "modal-dialog-title"
