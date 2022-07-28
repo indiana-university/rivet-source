@@ -65,6 +65,7 @@ export default class Dialog extends Component {
         this.triggerAttribute = 'data-rvt-dialog-trigger'
         this.closeButtonAttribute = 'data-rvt-dialog-close'
         this.modalAttribute = 'data-rvt-dialog-modal'
+        this.disablePageInteractionAttribute = 'data-rvt-dialog-disable-page-interaction'
 
         this.triggerSelector = `[${this.triggerAttribute}]`
         this.closeButtonSelector = `[${this.closeButtonAttribute}]`
@@ -408,6 +409,10 @@ export default class Dialog extends Component {
 
         this._setOpenState()
         this.focusDialog()
+
+        if (this._shouldDisablePageInteraction()) {
+          this._disablePageInteraction()
+        }
       },
 
       /************************************************************************
@@ -434,6 +439,28 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
+       * Returns true if interaction should be disabled for page elements
+       * behind the dialog.
+       *
+       * @private
+       * @returns {boolean} Should disable page interaction
+       ***********************************************************************/
+
+      _shouldDisablePageInteraction () {
+        return this.element.hasAttribute(this.disablePageInteractionAttribute)
+      },
+
+      /************************************************************************
+       * Disables interaction with page elements behind the dialog.
+       *
+       * @private
+       ***********************************************************************/
+
+      _disablePageInteraction () {
+        // TODO: Implement this method
+      },
+
+      /************************************************************************
        * Closes the dialog.
        ***********************************************************************/
 
@@ -443,6 +470,10 @@ export default class Dialog extends Component {
         if (!this._eventDispatched('dialogClosed')) { return }
 
         this._setClosedState()
+
+        if (this._shouldDisablePageInteraction()) {
+          this._enablePageInteraction()
+        }
 
         if (this._hasTriggerButton()) {
           this.focusTrigger()
@@ -459,6 +490,16 @@ export default class Dialog extends Component {
         this.isOpen = false
         this.element.setAttribute('hidden', '')
         document.body.classList.remove('rvt-dialog-prevent-scroll')
+      },
+
+      /************************************************************************
+       * Enables interaction with page elements behind the dialog.
+       *
+       * @private
+       ***********************************************************************/
+
+      _enablePageInteraction () {
+        // TODO: Implement this method
       },
 
       /************************************************************************
