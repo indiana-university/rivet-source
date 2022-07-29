@@ -46,7 +46,7 @@ export default class Dialog extends Component {
         this._initSelectors()
         this._initElements()
         this._initProperties()
-        this._rearrangeAndSetUpDOM()
+        this._makeDialogFirstElementInBody()
         this._bindExternalEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
@@ -116,7 +116,7 @@ export default class Dialog extends Component {
        * @private
        ***********************************************************************/
 
-      _rearrangeAndSetUpDOM () {
+      _makeDialogFirstElementInBody () {
         if (this.isModal) {
           this.element.setAttribute('aria-modal', 'true')
         }
