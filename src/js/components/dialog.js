@@ -122,8 +122,8 @@ export default class Dialog extends Component {
         }
 
         const body = document.body
-        const referenceElement = body.firstElementChild
-        body.insertBefore(this.element, referenceElement)
+        const currentFirstElement = body.firstElementChild
+        body.insertBefore(this.element, currentFirstElement)
       },
 
       /************************************************************************
