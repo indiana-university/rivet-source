@@ -46,6 +46,7 @@ export default class Dialog extends Component {
         this._initSelectors()
         this._initElements()
         this._initProperties()
+        this._initAttributes()
         this._makeDialogFirstElementInBody()
         this._bindExternalEventHandlers()
 
@@ -98,6 +99,18 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
+       * Initializes dialog attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initAttributes () {
+        if (this.isModal) {
+          this.element.setAttribute('aria-modal', 'true')
+        }
+      },
+
+      /************************************************************************
        * Rearranges the DOM so that the dialog becomes the first element in
        * the document body.
        *
@@ -105,10 +118,6 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _makeDialogFirstElementInBody () {
-        if (this.isModal) {
-          this.element.setAttribute('aria-modal', 'true')
-        }
-
         const body = document.body
         const currentFirstElement = body.firstElementChild
         body.insertBefore(this.element, currentFirstElement)
