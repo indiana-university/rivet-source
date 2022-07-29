@@ -479,13 +479,13 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Returns an array of all current direct children of the document body.
-       * 
+       *
        * @private
        * @returns {HTMLElement[]} Direct children of body
        ***********************************************************************/
 
       _getDirectChildrenOfBody() {
-        return Array.prototype.slice.call(
+        return Array.from(
           document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
         )
       },
