@@ -36,28 +36,28 @@
 
   &[data-#{$prefix}-dialog-top-left] {
     left: $spacing-xl !important;
-    top: $spacing-xl !important;
     right: inherit !important;
+    top: $spacing-xl !important;
   }
 
   &[data-#{$prefix}-dialog-top-right] {
+    left: inherit !important;
     right: $spacing-xl !important;
     top: $spacing-xl !important;
-    left: inherit !important;
   }
 
   &[data-#{$prefix}-dialog-bottom-left] {
     left: $spacing-xl !important;
-    bottom: $spacing-xl !important;
     right: inherit !important;
     top: inherit !important;
+    bottom: $spacing-xl !important;
   }
 
   &[data-#{$prefix}-dialog-bottom-right] {
-    right: $spacing-xl !important;
-    bottom: $spacing-xl !important;
     left: inherit !important;
+    right: $spacing-xl !important;
     top: inherit !important;
+    bottom: $spacing-xl !important;
   }
 
   &__close {
