@@ -30,30 +30,30 @@
   border-radius: $spacing-xxs;
   z-index: map.get($z-index, '1000');
 
-  &[data-rvt-dialog-darken-page] {
+  &[data-#{$prefix}-dialog-darken-page] {
     box-shadow: 0 0 0 9999px rgba($color-black-base, .85);
   }
 
-  &[data-rvt-dialog-top-left] {
+  &[data-#{$prefix}-dialog-top-left] {
     left: $spacing-xl !important;
     top: $spacing-xl !important;
     right: inherit !important;
   }
 
-  &[data-rvt-dialog-top-right] {
+  &[data-#{$prefix}-dialog-top-right] {
     right: $spacing-xl !important;
     top: $spacing-xl !important;
     left: inherit !important;
   }
 
-  &[data-rvt-dialog-bottom-left] {
+  &[data-#{$prefix}-dialog-bottom-left] {
     left: $spacing-xl !important;
     bottom: $spacing-xl !important;
     right: inherit !important;
     top: inherit !important;
   }
 
-  &[data-rvt-dialog-bottom-right] {
+  &[data-#{$prefix}-dialog-bottom-right] {
     right: $spacing-xl !important;
     bottom: $spacing-xl !important;
     left: inherit !important;
@@ -146,7 +146,7 @@
     }
   }
 
-  .#{$prefix}-button[data-rvt-dialog-close] > * {
+  .#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
     pointer-events: none;
   }
 
