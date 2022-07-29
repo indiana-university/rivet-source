@@ -98,18 +98,6 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Binds the dialog instance to handler methods for relevant events that
-       * originate outside the component's root DOM element.
-       *
-       * @private
-       ***********************************************************************/
-
-      _bindExternalEventHandlers () {
-        this._onTriggerClick = this._onTriggerClick.bind(this)
-        this._onDocumentClick = this._onDocumentClick.bind(this)
-      },
-
-      /************************************************************************
        * Rearranges the DOM so that the dialog becomes the first element in
        * the document body.
        *
@@ -124,6 +112,18 @@ export default class Dialog extends Component {
         const body = document.body
         const currentFirstElement = body.firstElementChild
         body.insertBefore(this.element, currentFirstElement)
+      },
+
+      /************************************************************************
+       * Binds the dialog instance to handler methods for relevant events that
+       * originate outside the component's root DOM element.
+       *
+       * @private
+       ***********************************************************************/
+
+      _bindExternalEventHandlers () {
+        this._onTriggerClick = this._onTriggerClick.bind(this)
+        this._onDocumentClick = this._onDocumentClick.bind(this)
       },
 
       /************************************************************************
