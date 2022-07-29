@@ -465,9 +465,10 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns an array of all current direct children of the document body
+       * Returns an array of all current direct children of the document body.
+       * 
        * @private
-       * @returns {HTMLElement[]}
+       * @returns {HTMLElement[]} Direct children of body
        ***********************************************************************/
 
       _getDirectChildrenOfBody() {
