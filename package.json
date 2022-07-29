@@ -59,6 +59,7 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-stylelint": "^13.0.0",
     "gulp-terser": "^1.2.0",
+    "inert-polyfill": "^0.2.5",
     "postcss": "^8.3.11",
     "postcss-scss": "^2.0.0",
     "rimraf": "^3.0.2",
