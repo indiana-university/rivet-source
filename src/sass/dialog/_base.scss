@@ -30,8 +30,8 @@
   border-radius: $spacing-xxs;
   z-index: map.get($z-index, '1000');
 
-  &[data-rvt-dialog-modal] {
-    box-shadow: 0 0 0 9999px rgba(0, 0, 0, .85);
+  &[data-rvt-dialog-darken-page] {
+    box-shadow: 0 0 0 9999px rgba($color-black-base, .85);
   }
 
   &__close {
