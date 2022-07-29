@@ -43,10 +43,10 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       init () {
-        this._rearrangeDOM()
         this._initSelectors()
         this._initElements()
         this._initProperties()
+        this._rearrangeAndSetUpDOM()
         this._bindExternalEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
@@ -109,7 +109,14 @@ export default class Dialog extends Component {
         this._onDocumentClick = this._onDocumentClick.bind(this)
       },
 
-      _rearrangeDOM() {
+      _rearrangeAndSetUpDOM() {
+        // Per the aria specs, we need to add this attribute only if the dialog
+        // is used as a modal dialog. This seemed like the best place to do it
+        // While were doing other DOM setup.
+        if(this.isModal) {
+          this.element.setAttribute('aria-modal', 'true')
+        }
+
         const body = document.body
         const referenceElement = body.firstElementChild
         body.insertBefore(this.element, referenceElement)
