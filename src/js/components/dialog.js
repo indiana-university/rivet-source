@@ -465,19 +465,6 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
-       * Returns an array of all current direct children of the document body.
-       * 
-       * @private
-       * @returns {HTMLElement[]} Direct children of body
-       ***********************************************************************/
-
-      _getDirectChildrenOfBody() {
-        return Array.prototype.slice.call(
-          document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
-        )
-      },
-
-      /************************************************************************
        * Disables interaction with page elements behind the dialog.
        *
        * @private
@@ -488,6 +475,19 @@ export default class Dialog extends Component {
           child.setAttribute('inert', '')
           child.setAttribute('aria-hidden', 'true')
         })
+      },
+
+      /************************************************************************
+       * Returns an array of all current direct children of the document body.
+       * 
+       * @private
+       * @returns {HTMLElement[]} Direct children of body
+       ***********************************************************************/
+
+      _getDirectChildrenOfBody() {
+        return Array.prototype.slice.call(
+          document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
+        )
       },
 
       /************************************************************************
