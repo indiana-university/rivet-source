@@ -1,3 +1,7 @@
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
 {% render '@button', { content: buttonText, attributes: [{ label: "data-rvt-dialog-trigger", value: id }]}, true %}
 
 <div class="rvt-dialog"
@@ -7,6 +11,9 @@
   hidden
   aria-labelledby="{{ dialogTitleId }}"
   data-rvt-dialog="{{ id }}"
+  {% if disablePageInteraction %}
+    data-rvt-dialog-disable-page-interaction
+  {% endif %}
   {% if modal %}
     data-rvt-dialog-modal
   {% endif %}

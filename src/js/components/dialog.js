@@ -46,6 +46,8 @@ export default class Dialog extends Component {
         this._initSelectors()
         this._initElements()
         this._initProperties()
+        this._initAttributes()
+        this._makeDialogFirstElementInBody()
         this._bindExternalEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
@@ -65,6 +67,7 @@ export default class Dialog extends Component {
         this.triggerAttribute = 'data-rvt-dialog-trigger'
         this.closeButtonAttribute = 'data-rvt-dialog-close'
         this.modalAttribute = 'data-rvt-dialog-modal'
+        this.disablePageInteractionAttribute = 'data-rvt-dialog-disable-page-interaction'
 
         this.triggerSelector = `[${this.triggerAttribute}]`
         this.closeButtonSelector = `[${this.closeButtonAttribute}]`
@@ -93,6 +96,31 @@ export default class Dialog extends Component {
         this.id = this.element.getAttribute('id')
         this.isOpen = false
         this.isModal = this.element.hasAttribute(this.modalAttribute)
+      },
+
+      /************************************************************************
+       * Initializes dialog attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initAttributes () {
+        if (this.isModal) {
+          this.element.setAttribute('aria-modal', 'true')
+        }
+      },
+
+      /************************************************************************
+       * Rearranges the DOM so that the dialog becomes the first element in
+       * the document body.
+       *
+       * @private
+       ***********************************************************************/
+
+      _makeDialogFirstElementInBody () {
+        const body = document.body
+        const currentFirstElement = body.firstElementChild
+        body.insertBefore(this.element, currentFirstElement)
       },
 
       /************************************************************************
@@ -380,7 +408,7 @@ export default class Dialog extends Component {
       _handleForwardTab (event) {
         if (this._shouldTrapForwardTabFocus()) {
           event.preventDefault()
-          
+
           this.firstFocusableChildElement.focus()
         }
       },
@@ -408,6 +436,10 @@ export default class Dialog extends Component {
 
         this._setOpenState()
         this.focusDialog()
+
+        if (this._shouldDisablePageInteraction()) {
+          this._disablePageInteraction()
+        }
       },
 
       /************************************************************************
@@ -434,6 +466,44 @@ export default class Dialog extends Component {
       },
 
       /************************************************************************
+       * Returns true if interaction should be disabled for page elements
+       * behind the dialog.
+       *
+       * @private
+       * @returns {boolean} Should disable page interaction
+       ***********************************************************************/
+
+      _shouldDisablePageInteraction () {
+        return this.element.hasAttribute(this.disablePageInteractionAttribute)
+      },
+
+      /************************************************************************
+       * Disables interaction with page elements behind the dialog.
+       *
+       * @private
+       ***********************************************************************/
+
+      _disablePageInteraction () {
+        this._getDirectChildrenOfBody().forEach(child => {
+          child.setAttribute('inert', '')
+          child.setAttribute('aria-hidden', 'true')
+        })
+      },
+
+      /************************************************************************
+       * Returns an array of all current direct children of the document body.
+       *
+       * @private
+       * @returns {HTMLElement[]} Direct children of body
+       ***********************************************************************/
+
+      _getDirectChildrenOfBody() {
+        return Array.from(
+          document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
+        )
+      },
+
+      /************************************************************************
        * Closes the dialog.
        ***********************************************************************/
 
@@ -443,6 +513,10 @@ export default class Dialog extends Component {
         if (!this._eventDispatched('dialogClosed')) { return }
 
         this._setClosedState()
+
+        if (this._shouldDisablePageInteraction()) {
+          this._enablePageInteraction()
+        }
 
         if (this._hasTriggerButton()) {
           this.focusTrigger()
@@ -459,6 +533,19 @@ export default class Dialog extends Component {
         this.isOpen = false
         this.element.setAttribute('hidden', '')
         document.body.classList.remove('rvt-dialog-prevent-scroll')
+      },
+
+      /************************************************************************
+       * Enables interaction with page elements behind the dialog.
+       *
+       * @private
+       ***********************************************************************/
+
+      _enablePageInteraction () {
+        this._getDirectChildrenOfBody().forEach(child => {
+          child.removeAttribute('inert')
+          child.removeAttribute('aria-hidden')
+        })
       },
 
       /************************************************************************
