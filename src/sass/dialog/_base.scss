@@ -36,29 +36,35 @@
   }
 
   &[data-#{$prefix}-dialog-top-left] {
-    left: $spacing-xl !important;
-    right: inherit !important;
-    top: $spacing-xl !important;
+    top: $spacing-xl;
+    left: $spacing-xl;
+    bottom: auto;
+    right: auto;
+    transform: none;
   }
 
   &[data-#{$prefix}-dialog-top-right] {
-    left: inherit !important;
-    right: $spacing-xl !important;
-    top: $spacing-xl !important;
+    top: $spacing-xl;
+    right: $spacing-xl;
+    left: auto;
+    bottom: auto;
+    transform: none;
   }
 
   &[data-#{$prefix}-dialog-bottom-left] {
-    left: $spacing-xl !important;
-    right: inherit !important;
-    top: inherit !important;
-    bottom: $spacing-xl !important;
+    top: auto;
+    right: auto;
+    bottom: $spacing-xl;
+    left: $spacing-xl;
+    transform: none;
   }
 
   &[data-#{$prefix}-dialog-bottom-right] {
-    left: inherit !important;
-    right: $spacing-xl !important;
-    top: inherit !important;
-    bottom: $spacing-xl !important;
+    top: auto;
+    right: $spacing-xl;
+    bottom: $spacing-xl;
+    left: auto;
+    transform: none;
   }
 
   &__close {
