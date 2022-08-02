@@ -16,18 +16,19 @@
 }
 
 .#{$prefix}-dialog {
-  border: 1px solid $color-black-100;
-  box-shadow: $shadow-standard;
-  position: absolute;
-  max-width: 600px;
-  width: 90%;
   background-color: $color-white-base;
-  top: $spacing-xxl * 2;
+  border-radius: $spacing-xs;
+  box-shadow: $shadow-heavy;
   left: 0;
+  margin: auto;
+  max-width: var(--dialog-max-width, 37.5rem);
+  max-height: 100%;
+  overflow: auto;
+  position: fixed;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: $spacing-xxs;
+  top: 40%;
+  transform: translateY(-40%);
+  width: 90%;
   z-index: map.get($z-index, '1000');
 
   &[data-#{$prefix}-dialog-darken-page] {
