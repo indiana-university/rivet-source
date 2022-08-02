@@ -116,10 +116,6 @@
     padding: $spacing-sm;
   }
 
-  &--confirmation &__body {
-    text-align: center;
-  }
-
   &__controls {
     padding: $spacing-sm;
     display: flex;
@@ -145,18 +141,6 @@
 
   .#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
     pointer-events: none;
-  }
-
-  &--small &__inner {
-    max-width: 500px;
-  }
-
-  &--medium {
-    max-width: 800px;
-  }
-
-  &--large {
-    max-width: 1040px;
   }
 }
 
