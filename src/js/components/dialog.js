@@ -82,10 +82,15 @@ export default class Dialog extends Component {
       _initElements () {
         const dialogId = this.element.getAttribute(this.dialogAttribute)
 
-        this.triggerButtons = document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)
-        this.lastClickedTriggerButton = null
-        this.closeButtons = this.element.querySelectorAll(this.closeButtonSelector)
+        this.triggerButtons = Array.from(
+          document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)
+        )
 
+        this.closeButtons = Array.from(
+          this.element.querySelectorAll(this.closeButtonSelector)
+        )
+        
+        this.lastClickedTriggerButton = null
       },
 
       /************************************************************************
