@@ -58,6 +58,10 @@ variants:
           content: "Danger"
           modifier: "-danger-secondary"
           size: "small"
+    - name: "link"
+      context:
+          content: "Link-style button"
+          modifier: "-link"
     - name: "dropdown"
       context:
           content: "Dropdown"

@@ -2,10 +2,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-alert {
-  background-color: $color-black-100;
-  border-left: $spacing-xxs solid $color-black-400;
+  background-color: $color-black-000;
+  border-left: $spacing-xxs solid $color-black-500;
   padding: $spacing-sm;
   position: relative;
 
@@ -50,12 +51,12 @@
     height: $spacing-md;
 
     &:hover {
-      background-color: rgba(0, 0, 0, .15);
+      background-color: rgb(0 0 0 / .15);
     }
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 $spacing-xxs/2 $color-blue-600 !important;
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-blue-400 !important;
     }
   }
 }
@@ -72,7 +73,11 @@
 
 .#{$prefix}-alert--info {
   background-color: $color-blue-000;
-  border-left-color: $color-blue-600;
+  border-left-color: $color-blue-500;
+  color: $color-blue-700;
+}
+
+.#{$prefix}-alert--info .#{$prefix}-alert__dismiss {
   color: $color-blue-700;
 }
 
@@ -82,17 +87,27 @@
   color: $color-green-700;
 }
 
-.#{$prefix}-alert--message,
-.#{$prefix}-alert--warning {
-  background-color: $color-yellow-000;
-  border-left-color: $color-yellow-200;
-  color: $color-yellow-700;
+.#{$prefix}-alert--success .#{$prefix}-alert__dismiss {
+  color: $color-green-700;
 }
 
-.#{$prefix}-alert--error,
+.#{$prefix}-alert--warning {
+  background-color: $color-gold-000;
+  border-left-color: $color-gold-500;
+  color: $color-gold-700;
+}
+
+.#{$prefix}-alert--warning .#{$prefix}-alert__dismiss {
+  color: $color-gold-700;
+}
+
 .#{$prefix}-alert--danger {
   background-color: $color-orange-000;
   border-left-color: $color-orange-500;
+  color: $color-orange-700;
+}
+
+.#{$prefix}-alert--danger .#{$prefix}-alert__dismiss {
   color: $color-orange-700;
 }
 
@@ -106,7 +121,7 @@
   padding: 0;
 
   &__item {
-    line-height: 1.5;
+    line-height: $line-height-base;
   }
 
   &__item:not(first-child) {
@@ -145,7 +160,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 $spacing-xxs/2 $color-orange-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-orange-500;
     border-color: $color-orange-500;
   }
 }

@@ -1,168 +1,362 @@
-/**
+/******************************************************************************
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
- */
-import Component from './component';
-import { nodeListToArray } from '../utilities/domHelpers';
-import keyCodes from '../utilities/keyCodes';
+ *****************************************************************************/
+
+import Component from './component'
+import keyCodes from '../utilities/keyCodes'
+
+/******************************************************************************
+ * The tabs component allows the user to switch between related groups of
+ * content without having to leave the page.
+ *
+ * @see https://v2.rivet.iu.edu/docs/components/tabs/
+ *****************************************************************************/
 
 export default class Tabs extends Component {
-  static get selector() {
-    return '[data-rvt-tabs]';
+
+  /****************************************************************************
+   * Gets the tabs component's CSS selector.
+   *
+   * @static
+   * @returns {string} The CSS selector
+   ***************************************************************************/
+
+  static get selector () {
+    return '[data-rvt-tabs]'
   }
 
-  static get methods() {
+  /****************************************************************************
+   * Gets an object containing the methods that should be attached to the
+   * component's root DOM element. Used by wicked-elements to initialize a DOM
+   * element with Web Component-like behavior.
+   *
+   * @static
+   * @returns {Object} Object with component methods
+   ***************************************************************************/
+
+  static get methods () {
     return {
-      init() {
-        console.log('Tabs::init()');
-        
-        this.tablist = this.element.querySelector('[role="tablist"]');
-        this.tabAttribute = 'data-rvt-tab';
-        this.tabSelector = `[${this.tabAttribute}]`;
-        this.tabs = nodeListToArray(
-          this.element.querySelectorAll(this.tabSelector)
-        );
-        this.panelAttribute = 'data-rvt-tab-panel';
-        this.panelSelector = `[${this.panelAttribute}]`;
-        this.panels = nodeListToArray(
-          this.element.querySelectorAll(this.panelSelector)
-        );
 
-        // Determine if a specific panel has been initialized with the data-rvt-tab-init attribute, otherwise, use the first tab
-        let initialPanel;
-        this.panels.forEach((panel, index) => {
-          if (panel.hasAttribute('data-rvt-tab-init')) {
-            initialPanel = panel;
-          } else {
-            this.tabs[index].setAttribute('tabindex', '-1');
-          }
-        });
+      /************************************************************************
+       * Initializes the tabs component.
+       ***********************************************************************/
 
-        // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-        this.openOnInit = initialPanel.getAttribute(this.panelAttribute) || this.panels[0].getAttribute(this.panelAttribute);
+      init () {
+        this._initSelectors()
+        this._initElements()
 
-        console.log(this.openOnInit);
-
-        // bind methods
-        Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab);
-
-        this._handleClick = this._handleClick.bind(this);
-        this._handleKeydown = this._handleKeydown.bind(this);
+        Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab)
       },
 
-      connected() {
-        Component.dispatchComponentAddedEvent(this.element);
+      /************************************************************************
+       * Initializes tabs component child element selectors.
+       *
+       * @private
+       ***********************************************************************/
 
-        this.activateTab(this.openOnInit);
-        
-        this.tablist.addEventListener('click', this._handleClick, false);
-        this.tablist.addEventListener('keydown', this._handleKeydown, false);
+      _initSelectors () {
+        this.tabAttribute = `data-rvt-tab`
+        this.panelAttribute = `data-rvt-tab-panel`
+
+        this.tabSelector = `[${this.tabAttribute}]`
+        this.panelSelector = `[${this.panelAttribute}]`
+        this.tablistSelector = '[role="tablist"]'
+        this.initialTabSelector = '[data-rvt-tab-init]'
       },
 
-      disconnected() {
-        Component.dispatchComponentRemovedEvent(this.element);
+      /************************************************************************
+       * Initializes tabs component child elements.
+       *
+       * @private
+       ***********************************************************************/
 
-        this.tablist.removeEventListener('click', this._handleClick, false);
-        this.tablist.removeEventListener('keydown', this._handleKeydown, false);
+      _initElements () {
+        this.tablist = this.element.querySelector(this.tablistSelector)
+        this.tabs = Array.from(this.element.querySelectorAll(this.tabSelector))
+        this.panels = Array.from(this.element.querySelectorAll(this.panelSelector))
       },
 
-      _handleClick(event) {
-        const currentTab = event.target.closest(this.tabSelector);
-        // If not a tab, ignore
-        if (!currentTab) return;
-    
-        // Get the data-rvt-tab value
-        const tabId = currentTab.getAttribute(this.tabAttribute);
-    
-        // Activate tab
-        this.activateTab(tabId);
+      /************************************************************************
+       * Called when the tabs component is added to the DOM.
+       ***********************************************************************/
+
+      connected () {
+        Component.dispatchComponentAddedEvent(this.element)
+
+        this._activateInitialTab()
       },
 
-      _handleKeydown(event) {
-        const currentTab = event.target.closest(this.tabSelector);
-        // If not a tab, ignore
-        if (!currentTab) return;
-    
-        // Create an array of all the focusable elements within the modal
-        const nextTab = this.tabs.indexOf(currentTab) + 1;
-        const prevTab = this.tabs.indexOf(currentTab) - 1;
-    
+      /************************************************************************
+       * Activates the tabs component's initial tab. Defaults to the first tab
+       * in the component unless the data-rvt-tab-init attribute is used.
+       *
+       * @private
+       ***********************************************************************/
+
+      _activateInitialTab () {
+        const initialTab = this.element.querySelector(this.initialTabSelector)
+        const firstTab = this.panels[0]
+
+        initialTab
+          ? this.activateTab(initialTab.getAttribute(this.panelAttribute))
+          : this.activateTab(firstTab.getAttribute(this.panelAttribute))
+      },
+
+      /************************************************************************
+       * Called when the tabs component is removed from the DOM.
+       ***********************************************************************/
+
+      disconnected () {
+        Component.dispatchComponentRemovedEvent(this.element)
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the tabs component.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      onClick (event) {
+        if (!this._eventOriginatedInsideTab(event)) { return }
+
+        this.activateTab(this._getClickedTabId(event))
+      },
+
+      /************************************************************************
+       * Returns true if the given event originated inside a tab.
+       *
+       * @private
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside a tab
+       ***********************************************************************/
+
+      _eventOriginatedInsideTab (event) {
+        return event.target.closest(this.tabSelector)
+      },
+
+      /************************************************************************
+       * Returns the ID of the clicked tab.
+       *
+       * @private
+       * @param {Event} event - Click event
+       * @returns {string} Clicked tab ID
+       ***********************************************************************/
+
+      _getClickedTabId (event) {
+        return event.target.closest(this.tabSelector).getAttribute(this.tabAttribute)
+      },
+
+      /************************************************************************
+       * Handles keydown events broadcast to the tabs component.
+       *
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      onKeydown (event) {
+        if (!this._eventOriginatedInsideTab(event)) { return }
+
+        this._setNeighboringTabIndexes(event)
+
         switch (event.keyCode) {
-          case keyCodes.right || keyCodes.down: {
-            !this.tabs[nextTab] ? this.tabs[0].focus() : this.tabs[nextTab].focus();
-            break;
-          }
-    
-          case keyCodes.down: {
-            !this.tabs[nextTab] ? this.tabs[0].focus() : this.tabs[nextTab].focus();
-            break;
-          }
-    
-          case keyCodes.left: {
-            !this.tabs[prevTab]
-              ? this.tabs[this.tabs.length - 1].focus()
-              : this.tabs[prevTab].focus();
-            break;
-          }
-    
-          case keyCodes.up: {
-            !this.tabs[prevTab]
-              ? this.tabs[this.tabs.length - 1].focus()
-              : this.tabs[prevTab].focus();
-            break;
-          }
-    
-          case keyCodes.end: {
-            this.tabs[this.tabs.length - 1].focus();
-            break;
-          }
-    
-          case keyCodes.home: {
-            this.tabs[0].focus();
-            break;
-          }
-    
-          default: {
-            break;
-          }
+          case keyCodes.left:
+            event.preventDefault()
+            this._focusPreviousTab()
+            break
+
+          case keyCodes.right:
+            event.preventDefault()
+            this._focusNextTab()
+            break
+
+          case keyCodes.home:
+            event.preventDefault()
+            this._focusFirstTab()
+            break
+
+          case keyCodes.end:
+            event.preventDefault()
+            this._focusLastTab()
+            break
         }
       },
 
-      activateTab(tabId) {
-        const tab = this.element.querySelector(
-          `[${this.panelAttribute}="${tabId}"]`
-        );
+      /************************************************************************
+       * Sets the indexes of the tab before and after the one from which the
+       * given keydown event originated. Used to determine which tabs should
+       * receive focus when the left and right arrow keys are pressed.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
 
-        if (!tab) {
-          console.warn(`No such tab '${tabId}' in Tabs.activateTab()`);
-          return;
+      _setNeighboringTabIndexes (event) {
+        const currentTab = event.target.closest(this.tabSelector)
+
+        this.previousTabIndex = this.tabs.indexOf(currentTab) - 1
+        this.nextTabIndex = this.tabs.indexOf(currentTab) + 1
+      },
+
+      /************************************************************************
+       * Moves focus to the tab before the one that currently has focus. If
+       * focus is currently on the first tab, move focus to the last tab.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusPreviousTab () {
+        this.tabs[this.previousTabIndex]
+          ? this.tabs[this.previousTabIndex].focus()
+          : this.tabs[this.tabs.length - 1].focus()
+      },
+
+      /************************************************************************
+       * Moves focus to the tab after the one that currently has focus. If
+       * focus is currently on the last tab, move focus to the first tab.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusNextTab () {
+        this.tabs[this.nextTabIndex]
+          ? this.tabs[this.nextTabIndex].focus()
+          : this.tabs[0].focus()
+      },
+
+      /************************************************************************
+       * Moves focus to the first tab.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusFirstTab () {
+        this.tabs[0].focus()
+      },
+
+      /************************************************************************
+       * Moves focus to the last tab.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusLastTab () {
+        this.tabs[this.tabs.length - 1].focus()
+      },
+
+      /************************************************************************
+       * Activates the tab with the given ID.
+       *
+       * @param {string} tabId - ID of tab to activate
+       ***********************************************************************/
+
+      activateTab (tabId) {
+        this._setTabToActivate(tabId)
+
+        if (!this._tabToActivateExists()) {
+          console.warn(`No such tab '${tabId}' in activateTab()`)
+          return
         }
 
-        const activationEvent = Component.dispatchCustomEvent(
+        if (!this._tabActivatedEventDispatched()) { return }
+
+        this._deactivateUnselectedTabs()
+        this._activateSelectedTab()
+      },
+
+      /************************************************************************
+       * Updates the component's state to store references to the tab to
+       * activate. Used by tab activation submethods to validate a tab
+       * activation request and determine which panels should be shown or
+       * hidden.
+       *
+       * @private
+       * @param {string} tabId - ID of tab to activate
+       ***********************************************************************/
+
+      _setTabToActivate (tabId) {
+        this.tabToActivate = this.element.querySelector(`[${this.tabAttribute} = "${tabId}"]`)
+        this.panelToActivate = this.element.querySelector(`[${this.panelAttribute} = "${tabId}"]`)
+      },
+
+      /************************************************************************
+       * Returns true if the tab to activate actually exists in the DOM.
+       *
+       * @private
+       * @returns {boolean} Tab to activate exists
+       ***********************************************************************/
+
+      _tabToActivateExists () {
+        return this.tabToActivate && this.panelToActivate
+      },
+
+      /************************************************************************
+       * Returns true if the custom "tab activated" event was successfully
+       * dispatched.
+       *
+       * @private
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _tabActivatedEventDispatched () {
+        const dispatched = Component.dispatchCustomEvent(
           'tabActivated',
-          this.element, 
-          { tab }
-        );
-    
-        if (!activationEvent) return;
-    
-        const trigger = this.element.querySelector(
-          `[${this.tabAttribute}="${tab.dataset.rvtTabPanel}"]`
-        );
-    
+          this.element,
+          { tab: this.panelToActivate }
+        )
+
+        return dispatched
+      },
+
+      /************************************************************************
+       * Deactivates all tabs that aren't the selected tab to activate.
+       *
+       * @private
+       ***********************************************************************/
+
+      _deactivateUnselectedTabs () {
         this.panels.forEach((panel, index) => {
-          if (panel.getAttribute(this.panelAttribute) !== tab.dataset.rvtTabPanel) {
-            // Deactivate the appropriate tab/panel pair
-            panel.setAttribute('hidden', '');
-            this.tabs[index].setAttribute('aria-selected', 'false');
-            this.tabs[index].setAttribute('tabindex', '-1');
+          if (!this._panelShouldBeActivated(panel)) {
+            this._deactivateTab(panel, index)
           }
-        });
-    
-        // Activate the appropriate tab/panel pair
-        tab.removeAttribute('hidden');
-        trigger.setAttribute('aria-selected', 'true');
-        trigger.removeAttribute('tabindex');
+        })
+      },
+
+      /************************************************************************
+       * Returns true if the given panel should be activated.
+       *
+       * @private
+       * @param {HTMLElement} panel - Panel element
+       * @returns {boolean} Panel should be activated
+       ***********************************************************************/
+
+      _panelShouldBeActivated (panel) {
+        panel.getAttribute(this.panelAttribute) !== this.panelToActivate.dataset.rvtTabPanel
+      },
+
+      /************************************************************************
+       * Deactivates the given tab.
+       *
+       * @private
+       * @param {HTMLElement} panel - Panel element to hide
+       * @param {string} tabIndex - Index of tab to deactivate
+       ***********************************************************************/
+
+      _deactivateTab (panel, tabIndex) {
+        panel.setAttribute('hidden', '')
+        this.tabs[tabIndex].setAttribute('aria-selected', 'false')
+        this.tabs[tabIndex].setAttribute('tabindex', '-1')
+      },
+
+      /************************************************************************
+       * Activates the currently selected tab.
+       *
+       * @private
+       ***********************************************************************/
+
+      _activateSelectedTab () {
+        this.tabToActivate.setAttribute('aria-selected', 'true')
+        this.tabToActivate.removeAttribute('tabindex')
+        this.panelToActivate.removeAttribute('hidden')
       }
     }
   }

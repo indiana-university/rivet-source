@@ -16,8 +16,8 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'hidden')
-      .and('not.be.visible');
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
   });
 
   it('Should be able to open the dropdown', function() {
@@ -60,6 +60,18 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_MENU).should('not.be.visible');
   });
 
+  it('Should be able to close the dropdown by clicking outside', function () {
+    cy.get(DROPDOWN_TOGGLE).click();
+
+    cy.get(DROPDOWN_MENU)
+      .should('be.visible')
+      .and('not.have.attr', 'hidden');
+
+    cy.get('body').click('topLeft');
+
+    cy.get(DROPDOWN_MENU).should('not.be.visible');
+  });
+
   it('Should be able to close with .close() method', function() {
     cy.window().then(win => {
       var dropdown = win.document.querySelector(DROPDOWN);
@@ -69,8 +81,8 @@ describe('Dropdown Interaction', function() {
     cy.get(DROPDOWN_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DROPDOWN_MENU)
-      .should('have.attr', 'hidden')
-      .and('not.be.visible');
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
   });
 
   it('Should be able to open with .open() method', function() {

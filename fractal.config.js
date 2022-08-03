@@ -62,7 +62,7 @@ const myCustomizedTheme = mandelbrot({
   },
   format: 'yaml',
   panels: ['notes', 'view', 'html', 'resources', 'info'],
-  scripts: ['default', '/js/vendor.js'],
+  scripts: ['default'],
   favicon: '/img/favicon.ico',
   information: [
     {
@@ -91,7 +91,7 @@ fractal.web.set('builder.dest', '_build');
  * BrowserSync options
  */
 fractal.web.set('server.syncOptions', {
-  open: true
+  open: false
 });
 
 const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-file {
   display: flex;
@@ -33,14 +34,14 @@
   input[type='file']:focus + label {
     outline: none;
     /* stylelint-disable */
-    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600 !important;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400 !important;
     /* stylelint-enable */
   }
 
   input[type='file']:disabled + label {
     background-color: $color-black-100;
-    color: $color-black-700;
-    border-color: $color-black-400;
+    color: $color-black-400;
+    border-color: $color-black-200;
     cursor: not-allowed;
   }
 
@@ -49,7 +50,7 @@
 
     span {
       font-weight: $font-weight-bold;
-      line-height: 1.5;
+      line-height: $line-height-base;
       margin-right: $spacing-sm;
       display: inline-block;
     }

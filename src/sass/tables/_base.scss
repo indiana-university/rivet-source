@@ -2,12 +2,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
-/**
- * Tables
- */
-
-table {
+table,
+.#{$prefix}-table {
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
@@ -20,7 +18,7 @@ tr th {
 }
 
 thead {
-  border-bottom: 1px solid $color-black-200;
+  border-bottom: 1px solid $color-black-100;
   background-color: $color-black-000;
 
   th,
@@ -32,7 +30,7 @@ thead {
 }
 
 tr {
-  border-bottom: 1px solid $color-black-200;
+  border-bottom: 1px solid $color-black-100;
 }
 
 tr td {
@@ -57,7 +55,7 @@ tr td {
 }
 
 .#{$prefix}-table-compact {
-  line-height: 1.2;
+  line-height: $line-height-tight;
 
   tr th,
   tr td {
@@ -66,15 +64,58 @@ tr td {
 }
 
 .#{$prefix}-table-cells {
-  border-top: 1px solid $color-black-200;
+  border-top: 1px solid $color-black-100;
 
   tr td,
   tr th {
-    border-right: 1px solid $color-black-200;
+    border-right: 1px solid $color-black-100;
   }
 
   tr td:first-child,
   tr th:first-child {
-    border-left: 1px solid $color-black-200;
+    border-left: 1px solid $color-black-100;
+  }
+}
+
+/**
+ * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
+ * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+ */
+.#{$prefix}-table-responsive[role='region'][tabindex] {
+  border: 1px solid $color-black-100;
+  border-radius: $spacing-xs;
+  overflow: auto;
+
+  /* stylelint-disable */
+  background:
+    linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
+    radial-gradient(
+      farthest-side at 0% 50%,
+      rgba(36, 19, 66, 0.2),
+      rgba(36, 19, 66, 0)
+    ),
+    radial-gradient(
+        farthest-side at 100% 50%,
+        rgba(36, 19, 66, 0.2),
+        rgba(36, 19, 66, 0)
+      )
+      0 100%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-position: 0 0, 100%, 0 0, 100%;
+  background-attachment: local, local, scroll, scroll;
+  /* stylelint-enable */
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2.5) $color-blue-400;
+  }
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-table-responsive[role='region'][tabindex] {
+    border: none;
   }
 }

@@ -3,9 +3,9 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-social {
-  background-color: $color-crimson-base;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-sm;
+  background-color: $color-crimson-500;
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
 
   &__list {
     display: flex;
@@ -13,6 +13,8 @@
     list-style: none;
     padding: 0;
     justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
 
     li {
       margin-top: 0;

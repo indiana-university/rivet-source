@@ -1,9 +1,9 @@
 <h2 class="rvt-m-tb-md">Base flex class</h2>
 <div class="rvt-flex">
-  {% for text in flexText %}
-    <div class="flex-demo rvt-grow-1 rvt-items-center">
-      <div class="flex-demo-inner">Item {{ text }}</div>
-    </div>
+  {% for item in ["One", "Two", "Three", "Four", "Five"] %}
+  <div class="flex-demo rvt-grow-1 rvt-items-center">
+    <div class="flex-demo-inner">Item {{ item }}</div>
+  </div>
   {% endfor %}
 </div>
 

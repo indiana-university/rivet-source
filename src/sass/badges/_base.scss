@@ -11,12 +11,12 @@
   display: inline-block;
 
   /**
-   * We set the type size to a percent here so that if the bade is used
+   * We set the type size to a percent here so that if the badge is used
    * inside another element that uses a "ts-*" type scale utility,
    * the badge will inherit that size.
    */
   font-size: 88%;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-medium;
   letter-spacing: .02rem;
   line-height: 1.6;
 
@@ -24,7 +24,7 @@
    * Use ems here so that padding stays proportional if parent
    * element font size changes.
    */
-  padding: .03125em .5rem;
+  padding: .0313rem .5rem;
   -webkit-font-smoothing: antialiased;
   -osx-font-smoothing: grayscale;
 
@@ -38,36 +38,31 @@ a.#{$prefix}-badge {
 
   &:hover {
     color: $color-black-base;
-    background-color: $color-black-200;
-    border-color: $color-black-200;
+    background-color: $color-black-000;
   }
 
   &--info:hover,
   &--info-secondary:hover {
-    background-color: $color-blue-700;
-    border-color: $color-blue-700;
-    color: $color-white-base;
+    background-color: $color-blue-000;
+    color: $color-blue-600;
   }
 
   &--success:hover,
   &--success-secondary:hover {
-    background-color: $color-green-700;
-    border-color: $color-green-700;
-    color: $color-white-base;
+    background-color: $color-green-000;
+    color: $color-green-600;
   }
 
   &--warning:hover,
   &--warning-secondary:hover {
-    background-color: $color-yellow-700;
-    border-color: $color-yellow-700;
-    color: $color-white-base;
+    background-color: $color-gold-000;
+    color: $color-black-600;
   }
 
   &--danger:hover,
   &--danger-secondary:hover {
-    background-color: $color-orange-700;
-    border-color: $color-orange-700;
-    color: $color-white-base;
+    background-color: $color-orange-000;
+    color: $color-orange-600;
   }
 
   &:focus {
@@ -76,14 +71,14 @@ a.#{$prefix}-badge {
 }
 
 .#{$prefix}-badge--info {
-  background-color: $color-blue-600;
-  border-color: $color-blue-600;
+  background-color: $color-blue-500;
+  border-color: $color-blue-500;
   color: $color-white-base;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-blue-600;
-    color: $color-blue-600;
+    border-color: $color-blue-100;
+    color: $color-blue-500;
   }
 }
 
@@ -94,20 +89,20 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-green-500;
+    border-color: $color-green-100;
     color: $color-green-500;
   }
 }
 
 .#{$prefix}-badge--warning {
-  background-color: $color-yellow-200;
-  border-color: $color-yellow-200;
-  color: $color-black-900;
+  background-color: $color-gold-400;
+  border-color: $color-gold-400;
+  color: $color-black-700;
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-yellow-200;
-    color: $color-black-900;
+    border-color: $color-gold-100;
+    color: $color-black-500;
   }
 }
 
@@ -118,7 +113,7 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: transparent;
-    border-color: $color-orange-500;
+    border-color: $color-orange-100;
     color: $color-orange-500;
   }
 }

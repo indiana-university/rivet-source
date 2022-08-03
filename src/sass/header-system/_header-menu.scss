@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use 'sass:math';
 
 /**
  * FIXME: Speculative ID menu stuff. This is from an old prototype, but might be
@@ -6,8 +7,8 @@
  */
 
 .#{$prefix}-global-toggle--id {
-  background-color: $color-crimson-base;
-  border-color: $color-crimson-base;
+  background-color: $color-crimson-500;
+  border-color: $color-crimson-500;
   color: $color-white-base;
   overflow: hidden;
   border: none;
@@ -33,6 +34,7 @@
   left: -3rem;
   margin: 0 $spacing-md;
   position: absolute;
+
   // Magic number here to get the menus to line up with bottom of global header
   top: 3rem;
   background-color: $color-black-000;
@@ -59,10 +61,10 @@
   }
 
   &__toggle:hover {
-    background: $color-blue-base;
+    background: $color-blue-500;
     color: $color-white-base;
-    outline: $spacing-xxs/2 solid $color-blue-base;
-    outline-offset: $spacing-xxs/2;
+    outline: math.div($spacing-xxs, 2) solid $color-blue-500;
+    outline-offset: math.div($spacing-xxs, 2);
   }
 
   &__list {
@@ -74,6 +76,22 @@
     align-items: center;
     display: flex;
     margin: 0;
+  }
+
+  &__item--current {
+    position: relative;
+    padding-left: .5rem;
+  }
+
+  &__item--current::before {
+    background-color: $color-crimson-500;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: .25rem;
   }
 
   &__item:not(:first-child) {
@@ -92,8 +110,8 @@
 
   &__link:hover,
   &__link:focus {
-    color: $color-blue-base;
-    outline: .125rem solid $color-blue-base;
+    color: $color-blue-500;
+    outline: .125rem solid $color-blue-400;
     outline-offset: .125rem;
   }
 
@@ -143,10 +161,12 @@
     left: unset;
     font-size: $ts-14;
     align-items: center;
+    width: auto;
 
     &__list {
       display: flex;
       padding: 0;
+      margin: 0;
 
       li:not(:first-child) {
         border-top: none;
@@ -176,18 +196,32 @@
       position: relative;
     }
 
+    &__item--current &__link {
+      color: $color-crimson-500;
+    }
+
+    &__item--current::before {
+      content: none;
+    }
+
     &__item--current::after {
       content: '';
       display: block;
-      background-color: $color-crimson-base;
+      background-color: $color-crimson-500;
       width: 100%;
       height: $spacing-xxs * 1.2;
       position: absolute;
       bottom: -$spacing-md * 1.1;
     }
 
+    &__item--current &__toggle {
+      background-color: $color-orange-000;
+      color: $color-crimson-500;
+    }
+
     &__submenu {
       position: absolute;
+
       // Magic number to get optical positioning right
       top: 3.1 * $spacing-sm;
       right: 0;
@@ -204,7 +238,7 @@
     }
 
     &__submenu a:hover {
-      background-color: $color-blue-base;
+      background-color: $color-blue-500;
       color: $color-white-base;
     }
 

@@ -1,45 +1,28 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
+@use 'sass:map';
+@use 'sass:string';
 @use '../core' as *;
 
-/* stylelint-disable */
+@each $key, $value in map.get($tokens, 'color') {
+  @each $color-name, $color-hex in $value {
+    @if string.index($color-name, 'base') {
+      .rvt-color-#{$key} {
+        color: $color-hex !important;
+      }
 
-// Did this work?
+      .rvt-bg-#{$key} {
+        background-color: $color-hex !important;
+      }
+    } @else {
+      .rvt-color-#{$key}-#{$color-name} {
+        color: $color-hex !important;
+      }
 
-@each $variable, $hex in $colors {
-  @if str-index($variable,'base') {
-    $initial: str-index($variable, '-base');
-    $colorVar: str-slice($variable, 0, ($initial - 1));
-
-    .#{$prefix}-color-#{$colorVar} {
-      color: #{$hex} !important;
-    }
-  }
-
-  @else {
-    .#{$prefix}-color-#{$variable} {
-      color: #{$hex} !important;
-    }
-  }
-}
-
-// Generate background-color utility classes
-@each $variable, $hex in $colors {
-  @if str-index($variable,'base') {
-    $initial: str-index($variable, '-base');
-    $bgVar: str-slice($variable, 0, ($initial - 1));
-
-    .#{$prefix}-bg-#{$bgVar} {
-      background-color: #{$hex} !important;
-    }
-  }
-
-  @else {
-    .#{$prefix}-bg-#{$variable} {
-      background-color: #{$hex} !important;
+      .rvt-bg-#{$key}-#{$color-name} {
+        background-color: $color-hex !important;
+      }
     }
   }
 }
-
-/* stylelint-enable */

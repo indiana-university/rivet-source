@@ -1,8 +1,7 @@
 {% include "@header-system-main-nav" %}
 <main class="rvt-layout__wrapper">
   {%- set heroActions -%}
-  <a class="rvt-button rvt-button--link" href="/components/preview/list-page-articles">Read more about this</a>
-  <a class="rvt-button rvt-button--plain" href="/components/preview/list-page-people">Also this action</a>
+  <a class="rvt-cta rvt-cta--button" href="/components/preview/list-page-articles">Read more about this</a>
   {%- endset -%}
   
   {% render "@hero-area", {
@@ -13,7 +12,7 @@
     }
   }, true %}
   
-  <div class="rvt-p-tb-xl">
+  <div class="rvt-p-bottom-xl">
     <div class="rvt-border-bottom rvt-border-top">  
       <div class="{{ siteContainer }}">
         {% render "@stat-group", true %}
@@ -85,4 +84,4 @@
     </div>
   </div>
 </main>
-{% include "@footer-system" %}
+{% include "@footer-system-all" %}

@@ -2,145 +2,94 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
+@use 'sass:math';
 
 .#{$prefix}-tabs {
+  background-color: $color-white-base;
+  border: 1px solid $color-black-100;
+  border-radius: $spacing-xs;
+
+  &__tablist {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__tab {
-    background-color: $color-black-100;
-    border-top: 1px solid $color-black-300;
-    border-right: 1px solid $color-black-300;
-    border-left: 1px solid $color-black-300;
-    border-bottom: none;
-    border-radius: 0;
-    color: $color-black-700;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $color-black-100;
+    color: $color-black-500;
     cursor: pointer;
-    display: block;
+    flex-grow: 1;
     line-height: 1;
-    margin-right: $spacing-xs;
-    padding: $spacing-xs $spacing-md;
+    padding: $spacing-sm $spacing-sm;
     position: relative;
-    text-align: left;
-    transition: box-shadow .2s ease;
-    width: 100%;
-    z-index: map-get($z-index, '100');
+    z-index: map.get($z-index, '100');
 
-    &:last-child {
-      border-bottom: 1px solid $color-black-300;
-      margin-right: 0;
+    &:not(:first-child) {
+      border-left: 1px solid $color-black-100;
+
+      // Fixes double border when tabs wrap on to multiple lines
+      margin-left: -1px;
     }
 
-    &:first-child {
-      border-top-right-radius: $spacing-xxs;
-      border-top-left-radius: $spacing-xxs;
-    }
-
-    &:focus,
     &:hover {
-      background-color: $color-blue-600;
-      border-color: $color-blue-600;
-      color: $color-white-base;
+      background-color: $color-blue-000;
+      color: $color-blue-500;
+    }
+
+    &:hover::after {
+      background-color: $color-blue-500;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: $spacing-xxs;
+      left: 0;
+      position: absolute;
+      width: 100%;
     }
 
     &:focus {
-      /* stylelint-disable */
-      box-shadow:
-        0 0 0 $spacing-xxs/2 $color-white-base,
-        0 0 0 $spacing-xxs $color-blue-600;
-      /* stylelint-enable */
+      outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+      outline-offset: math.div($spacing-xxs, 2);
+      background-color: $color-blue-000;
+    }
+
+    &:focus:not(:focus-visible) {
       outline: none;
-      z-index: map-get($z-index, '1000');
     }
   }
 
   &__tab[aria-selected='true'] {
-    background-color: $color-blue-600;
-    border-color: $color-blue-600;
-    color: $color-white-base;
+    background-color: $color-orange-000;
+  }
+
+  &__tab[aria-selected='true']:hover {
+    color: $color-black-500;
+  }
+
+  &__tab[aria-selected='true']::after {
+    bottom: 0;
+    background-color: $color-crimson-500;
+    content: '';
+    display: block;
+    height: $spacing-xxs;
+    left: 0;
+    position: absolute;
+    width: 100%;
   }
 
   &__panel {
-    border: 1px solid $color-black-300;
-    border-bottom-right-radius: $spacing-xxs;
-    border-bottom-left-radius: $spacing-xxs;
-    margin-top: -1px;
-    padding: $spacing-md;
-    transition: box-shadow .2s ease;
+    padding: $spacing-sm;
 
     &:focus {
-      box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-600;
+      outline: math.div($spacing-xxs, 2) solid $color-blue-500;
+      outline-offset: math.div($spacing-xxs, 2) * -1;
+    }
+
+    &:focus:not(:focus-visible) {
       outline: none;
     }
-  }
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-tabs {
-    &__tab {
-      border-top-right-radius: $spacing-xxs;
-      border-top-left-radius: $spacing-xxs;
-      display: inline-block;
-      text-align: center;
-      width: auto;
-      border-bottom: 1px solid $color-black-300;
-    }
-
-    &__tablist {
-      display: flex;
-    }
-
-    &__panel {
-      border-top-right-radius: $spacing-xxs;
-    }
-  }
-}
-
-/**
- * Vertical tabs
- */
-@include mq($breakpoint-md) {
-  .#{$prefix}-tabs--vertical {
-    border: 1px solid $color-black-300;
-    border-radius: $spacing-xxs;
-    display: flex;
-    justify-content: space-between;
-
-    .#{$prefix}-tabs__tablist {
-      border-right: 1px solid $color-black-300;
-      display: block;
-      flex-basis: 250px;
-      flex-grow: 0;
-      min-width: 250px;
-    }
-
-    .#{$prefix}-tabs__tab {
-      border-right: none;
-      border-radius: 0;
-      border-top: none;
-      border-bottom: 1px solid $color-black-300;
-      border-left: none;
-      width: 100%;
-
-      &[aria-selected='true']:first-child {
-        border-top-left-radius: $spacing-xxs;
-      }
-    }
-
-    .#{$prefix}-tabs__panel {
-      border: none;
-      flex-grow: 1;
-    }
-  }
-}
-
-/**
- * Fitted tabs
- */
-
-.#{$prefix}-tabs--fitted {
-  .#{$prefix}-tabs__tab {
-    flex-grow: 1;
-  }
-
-  .#{$prefix}-tabs__panel {
-    border-top-right-radius: 0;
   }
 }

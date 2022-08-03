@@ -1,3 +1,49 @@
 title: Sidenav
 label: Sidenav
 status: "wip"
+context:
+  label: "Optional label"
+  items:
+    -
+      text: "Item one"
+      url: "#"
+    -
+      text: "Item two"
+      url: "#"
+      current: true
+      children:
+        -
+          text: "Child item one"
+          url: "#"
+        -
+          text: "Child item two"
+          url: "#"
+          children:
+            -
+              text: "Third item one"
+              url: "#"
+            -
+              text: "Third item one"
+              url: "#"
+              children:
+                -
+                  text: "Fourth item one"
+                  url: "#"
+                -
+                  text: "Fourth item one"
+                  url: "#"
+            -
+              text: "Third item one"
+              url: "#"
+        -
+          text: "Child item three"
+          url: "#"
+    -
+      text: "Item three"
+      url: "#"
+    -
+      text: "Item four"
+      url: "#"
+    -
+      text: "Item five"
+      url: "#"

@@ -3,21 +3,24 @@
 .rvt-prose {
   // Benton sans feels really compact and can benefit from a little extra
   // line-height here.
-  line-height: 1.65;
+  line-height: $line-height-loose;
 
   h1 {
     font-size: $ts-32;
   }
 
-  h2,
-  h3 {
+  h2 {
     font-size: $ts-23;
+  }
+
+  h3 {
+    font-size: $ts-20;
   }
 
   h4,
   h5,
   h6 {
-    font-size: $ts-20;
+    font-size: $ts-18;
   }
 
   h1,
@@ -29,9 +32,15 @@
     // Reset the flow space here to put more space before headings.
     --flow-space: 3rem;
 
-    font-weight: $font-weight-bold;
-    line-height: 1.2;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-tight;
     scroll-margin-top: $spacing-md;
+  }
+
+  :where(p),
+  :where(li),
+  :where(td) {
+    color: $color-black-400;
   }
 
   > img,

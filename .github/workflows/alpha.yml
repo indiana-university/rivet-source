@@ -4,10 +4,11 @@ on:
   push:
     tags:
       - 'v**-alpha**'
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -19,7 +20,7 @@ jobs:
 
   publish-npm:
     needs: build
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -33,7 +34,7 @@ jobs:
 
   create-release:
     needs: publish-npm
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1

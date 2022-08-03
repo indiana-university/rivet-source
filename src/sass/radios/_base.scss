@@ -2,15 +2,16 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
-$padding: 3rem / 16;
+$padding: math.div(3rem, 16);
 
 .#{$prefix}-radio {
   display: inline-block;
   padding-left: $spacing-lg;
   position: relative;
 
-  input[type=radio] {
+  input[type='radio'] {
     cursor: pointer;
     height: $spacing-md;
     left: 0;
@@ -25,70 +26,70 @@ $padding: 3rem / 16;
     padding-left: $spacing-md;
   }
 
-  &--sr-only-label input[type=radio] {
+  &--sr-only-label input[type='radio'] {
     width: $spacing-md;
   }
 
-  &--sr-only-label input[type=radio] ~ label {
+  &--sr-only-label input[type='radio'] ~ label {
     height: 0;
     overflow: hidden;
     padding: 0;
     width: 0;
   }
 
-  input[type=radio] ~ label {
+  input[type='radio'] ~ label {
     cursor: pointer;
     display: inline-block;
-    line-height: 1.5;
+    line-height: $line-height-base;
   }
 
-  input[type=radio] ~ label::before {
+  input[type='radio'] ~ label::before {
     background-color: $color-white-base;
-    border: ($spacing-xxs / 2) solid $color-black-500;
+    border: math.div($spacing-xxs, 2) solid $color-black-300;
     border-radius: $spacing-sm;
     box-shadow: inset 0 0 0 $padding $color-white-base;
     content: '';
     display: inline-block;
     height: $spacing-sm;
-    left: ($spacing-xxs / 2);
+    left: math.div($spacing-xxs, 2);
     position: absolute;
-    top: ($spacing-xxs / 2);
+    top: math.div($spacing-xxs, 2);
     width: $spacing-sm;
   }
 
-  input[type=radio]:checked ~ label::before {
-    background-color: $color-blue-600;
-    border-color: $color-blue-600;
+  input[type='radio']:checked ~ label::before {
+    background-color: $color-blue-500;
+    border-color: $color-blue-500;
   }
 
-  input[type=radio]:focus ~ label::before {
-    border-color: $color-blue-600;
+  input[type='radio']:focus ~ label::before {
+    border-color: $color-blue-500;
     box-shadow:
       inset 0 0 0 $padding $color-white-base,
       0 0 0 $spacing-xxs $color-blue-200;
   }
 
-  input[type=radio]:disabled {
+  input[type='radio']:disabled {
     cursor: default;
   }
 
-  input[type=radio]:disabled ~ label {
-    color: $color-black-700;
+  input[type='radio']:disabled ~ label {
+    color: $color-black-500;
     cursor: default;
   }
 
-  input[type=radio]:disabled ~ label::before {
+  input[type='radio']:disabled ~ label::before {
     background-color: $color-black-100;
     border-color: $color-black-300;
     box-shadow: inset 0 0 0 $padding $color-black-100;
   }
 
-  input[type=radio]:disabled:checked ~ label::before {
+  input[type='radio']:disabled:checked ~ label::before {
     background-color: $color-black-300;
   }
 
   &__description {
-    color: $color-black-600;
+    color: $color-black-400;
     display: block;
     font-size: $ts-14;
   }

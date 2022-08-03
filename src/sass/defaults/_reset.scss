@@ -21,12 +21,12 @@ html * {
 }
 
 body {
-  color: $color-black-base;
+  color: $color-black-500;
   font-family: $font-base;
   height: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: $line-height-base;
 }
 
 /**
@@ -54,7 +54,7 @@ hr {
 
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 

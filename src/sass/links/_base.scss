@@ -2,25 +2,26 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 a,
 .#{$prefix}-link {
-  color: $color-blue-600;
+  color: $color-blue-500;
 
   &:hover {
-    color: $color-blue-900;
+    color: $color-blue-700;
   }
 
   &:focus {
-    outline: $spacing-xxs/2 solid $color-blue-600;
-    outline-offset: $spacing-xxs/2;
+    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+    outline-offset: math.div($spacing-xxs, 2);
   }
 
   a:visited {
     /**
      * TODO: Come up with a better color for the :visited state.
      */
-    color: $color-blue-900;
+    color: $color-blue-500;
   }
 }
 
@@ -36,6 +37,14 @@ a,
 .#{$prefix}-link--bold,
 .#{$prefix}-link-bold {
   font-weight: $font-weight-bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.#{$prefix}-link-plain {
   text-decoration: none;
 
   &:hover {

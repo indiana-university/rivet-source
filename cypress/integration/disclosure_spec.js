@@ -14,8 +14,9 @@ describe('Disclosure Interaction', function() {
     cy.get(DISCLOSURE_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DISCLOSURE_TARGET)
-      .should('have.attr', 'hidden')
-      .and('not.be.visible');
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
+      
   });
 
   it('Should be able to open the disclosure', function() {
@@ -68,8 +69,8 @@ describe('Disclosure Interaction', function() {
     cy.get(DISCLOSURE_TOGGLE).should('have.attr', 'aria-expanded', 'false');
 
     cy.get(DISCLOSURE_TARGET)
-      .should('have.attr', 'hidden')
-      .and('not.be.visible');
+      .should('not.be.visible')
+      .and('have.attr', 'hidden');
   });
 
   it('Should fire a rvt:disclosureOpened custom event with correct element references', function() {

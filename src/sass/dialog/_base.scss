@@ -1,0 +1,149 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+@use 'sass:map';
+@use 'sass:math';
+
+/**
+ * This class gets applied to the body of the document when a modal dialog
+ * is open so that the dialog scrolls but not the content of the body.
+ * It's removed when the dialog is closed making the body scrollable again.
+ */
+
+.#{$prefix}-dialog-prevent-scroll {
+  overflow: hidden;
+}
+
+.#{$prefix}-dialog {
+  background-color: $color-white-base;
+  border-radius: $spacing-xs;
+  box-shadow: $shadow-heavy;
+  left: 0;
+  margin: auto;
+  max-width: 37.5rem;
+  max-height: 100%;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 40%;
+  transform: translateY(-40%);
+  width: 90%;
+  z-index: map.get($z-index, '1000');
+
+  &[data-#{$prefix}-dialog-darken-page] {
+    box-shadow: 0 0 0 9999px rgba($color-black-base, .85);
+  }
+
+  &[data-#{$prefix}-dialog-top-left] {
+    top: $spacing-xl;
+    left: $spacing-xl;
+    bottom: auto;
+    right: auto;
+    transform: none;
+  }
+
+  &[data-#{$prefix}-dialog-top-right] {
+    top: $spacing-xl;
+    right: $spacing-xl;
+    left: auto;
+    bottom: auto;
+    transform: none;
+  }
+
+  &[data-#{$prefix}-dialog-bottom-left] {
+    top: auto;
+    right: auto;
+    bottom: $spacing-xl;
+    left: $spacing-xl;
+    transform: none;
+  }
+
+  &[data-#{$prefix}-dialog-bottom-right] {
+    top: auto;
+    right: $spacing-xl;
+    bottom: $spacing-xl;
+    left: auto;
+    transform: none;
+  }
+
+  &__close {
+    background-color: transparent;
+    border: none;
+    border-radius: $spacing-xxs;
+    position: absolute;
+    right: $spacing-sm;
+    top: 1.1rem;
+    padding: $spacing-xs;
+    height: auto;
+
+    /**
+     * Helps vertically center icon on hover.
+     */
+    line-height: .5;
+    display: inline-block;
+    color: $color-black-base;
+
+    &:hover {
+      background-color: $color-blue-500;
+      color: $color-white-base;
+    }
+
+    &:focus {
+      outline: none;
+      /* stylelint-disable */
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
+      /* stylelint-enable */
+    }
+  }
+
+  &__header {
+    padding: $spacing-md $spacing-sm;
+    border-bottom: 1px solid $color-black-100;
+  }
+
+  &__title {
+    font-size: $ts-20;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+  }
+
+  &__body {
+    padding: $spacing-sm;
+  }
+
+  &__controls {
+    padding: $spacing-sm;
+    display: flex;
+    border-top: 1px solid $color-black-100;
+    background-color: $color-black-000;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+
+    .#{$prefix}-button {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    @include mq($breakpoint-sm) {
+      justify-content: flex-end;
+
+      .#{$prefix}-button {
+        width: auto;
+      }
+    }
+  }
+
+  .#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
+    pointer-events: none;
+  }
+}
+
+.#{$prefix}-dialog[hidden] {
+  display: none;
+}
+
+.#{$prefix}-dialog:not([hidden]) {
+  display: block;
+}

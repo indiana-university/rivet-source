@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-lockup {
   display: inline-flex;
@@ -16,16 +17,17 @@
     line-height: 1.1;
     font-size: $ts-12;
     color: $color-black-500;
-    margin-top: $spacing-xxs/2;
+    margin-top: math.div($spacing-xxs, 2);
   }
 
   &__tab {
     align-items: center;
-    background-color: $color-crimson-base;
+    background-color: $color-crimson-500;
     color: $color-white-base;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
+
     // Magic numbers to get the display right.
     width: 1.75rem;
     height: 2.125rem;
@@ -34,6 +36,7 @@
   &__trident {
     flex-shrink: 0;
     flex-grow: 1;
+
     // Magic numbers to get the display right.
     width: 1.1875rem;
     height: 1.4375rem;

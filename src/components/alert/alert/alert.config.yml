@@ -20,9 +20,9 @@ variants:
           id: "warning"
           title: "Unsaved Changes"
           message: "Your changes have not been saved. To save your changes, click ‘Save my changes’ or click ‘Cancel’ to exit without saving."
-    - name: "error"
+    - name: "danger"
       context:
-          type: "error"
-          id: "error"
+          type: "danger"
+          id: "danger"
           title: "Incorrect User ID or Password"
           message: "The user ID and password you entered do not match. Please check your entries and try again."

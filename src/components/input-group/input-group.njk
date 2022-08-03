@@ -10,9 +10,9 @@
       <div class="rvt-input-group__text" id="{{ id }}">{{ text }}</div>
     {% endif %}
   </div>
-  <input class="rvt-text-input rvt-input-group__input" type="text" id="{{ id }}">
+  <input class="rvt-input rvt-input-group__input" type="text" id="{{ id }}">
   {% else %}
-  <input class="rvt-text-input rvt-input-group__input" type="text" id="{{ id }}">
+  <input class="rvt-input rvt-input-group__input" type="text" id="{{ id }}">
   <div class="rvt-input-group__append">
     {% if type === "button" %}
       {% render "@button", { content: content, modifier: modifier }, true %}

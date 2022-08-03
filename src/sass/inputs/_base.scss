@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix} {
-  &-input[type],
-  &-input:not([type]),
+  &-input,
   &-text-input,
   &-textarea,
   &-select {
     display: block;
     width: 100%;
     border-radius: $spacing-xxs;
-    background-color: inherit;
-    border: 1px solid $color-black-400;
+    background-color: $color-white-base;
+    border: 1px solid $color-black-300;
     padding: $spacing-xs;
     height: $spacing-xl;
     line-height: 1;
@@ -21,21 +21,26 @@
     /**
      * Prefixes get rid of browser default select element styles.
      */
+
+    /* stylelint-disable  */
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
     appearance: none;
+    /* stylelint-enable */
   }
 
   &-textarea {
     height: $spacing-base * 15;
-    line-height: 1.5;
+    line-height: $line-height-base;
     overflow: auto; // Remove scrollbar in IE
   }
 
   &-input[type='search'] {
     height: auto;
+    /* stylelint-disable  */
     -webkit-appearance: none;
+    /* stylelint-enable */
   }
 
   &-select {
@@ -49,9 +54,11 @@
     /**
      * Prefixes get rid of browser default select element styles.
      */
+     /* stylelint-disable  */
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
+    /* stylelint-enable */
     appearance: none;
   }
 
@@ -61,6 +68,7 @@
   &-textarea:disabled,
   &-select:disabled {
     background-color: $color-black-100;
+    border-color: $color-black-300;
     cursor: not-allowed;
   }
 
@@ -70,18 +78,16 @@
   &-textarea:focus,
   &-select:focus {
     outline: none;
-    /* stylelint-disable */
-    box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
-    /* stylelint-enable */
-    transition: box-shadow .2s ease;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-blue-400;
   }
 
   &-label {
     display: inline-block;
     font-size: $ts-14;
-    line-height: 1;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-xs;
+  }
+
+  &-label + * {
+    margin-top: $spacing-xxs;
   }
 
   &-fieldset {
@@ -94,6 +100,7 @@
     margin: 0;
     font-weight: $font-weight-regular;
     display: block;
+    width: 100%;
   }
 
   &-select[multiple] {

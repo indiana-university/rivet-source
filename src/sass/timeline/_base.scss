@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-timeline {
   position: relative;
@@ -14,21 +15,8 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: $spacing-xxs;
+    width: 1px;
     background: $color-black-100;
-  }
-
-  &__item::after {
-    margin-left: 0;
-    border: solid transparent;
-    content: ' ';
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-right-color: $color-black-100;
-    border-width: $spacing-sm;
-    top: .4rem;
   }
 
   &__item {
@@ -37,37 +25,41 @@
   }
 
   /**
-   *  The marker for the timeline visually only looks good at 12px (.75rem). This results in several magic numbers related to the placement of other items such as the &__item::after (above) and date labels (where applicable). This also results in cascading magic numbers for placement of elements such as &__content for variant timelines.
+   *  The marker for the timeline visually only looks good at 12px (.75rem). This results in several magic numbers
+   *  related to the placement of other items such as the &__item::after (above) and date labels (where applicable).
+   *   This also results in cascading magic numbers for placement of elements such as &__content for variant timelines.
    */
 
   &__marker {
-    width: $spacing-sm*.75;
-    height: $spacing-sm*.75;
+    width: $spacing-sm * .75;
+    height: $spacing-sm * .75;
     position: absolute;
     color: $color-white-base;
-    background: $color-blue-600;
+    background: $color-crimson-500;
     border-radius: 50%;
-    box-shadow: 0 0 0 $spacing-xxs $color-black-100;
-    margin-top: $spacing-sm;
+    box-shadow: 0 0 0 $spacing-xxs $color-white-base, 0 0 0 math.div($spacing-xs, 1.5) $color-black-100;
+    top: $spacing-lg;
   }
 
   &__content {
     padding: $spacing-md;
     margin-left: $spacing-lg;
     background-color: $color-white-base;
-    border-radius: $spacing-xxs;
+    border-radius: $spacing-xs;
     box-shadow: $shadow-standard;
     border: none;
   }
 
   &__heading {
-    font-size: $ts-26;
-    font-weight: $font-weight-bold;
+    font-size: $ts-23;
+    font-weight: $font-weight-regular;
   }
 
   &__date {
     font-size: $ts-14;
-    color: $color-black-700;
+    color: $color-crimson-500;
+    margin-top: $spacing-xxs;
+    display: inline-block;
   }
 }
 
@@ -98,12 +90,12 @@
 @include mq($breakpoint-md) {
   .#{$prefix}-timeline {
     &__date--label {
-      left: -$spacing-sm*11.25;
+      left: -$spacing-sm * 11.25;
       right: auto;
       text-align: right;
       position: absolute;
       display: block;
-      top: $spacing-sm*.75;
+      top: $spacing-sm * 1.75;
       margin-left: auto;
       margin-top: auto;
       margin-right: auto;
@@ -114,11 +106,11 @@
   .#{$prefix}-timeline--right {
     .#{$prefix}-timeline__date--label {
       left: auto;
-      right: -$spacing-sm*11.25;
+      right: -$spacing-sm * 11.25;
       text-align: left;
       position: absolute;
       display: block;
-      top: $spacing-sm*.75;
+      top: $spacing-sm * .75;
       margin-left: auto;
       margin-top: auto;
       margin-right: auto;
@@ -135,14 +127,14 @@
     .#{$prefix}-timeline__row {
       display: flex;
       flex-wrap: wrap;
-      margin-right: -$spacing-sm*.75;
-      margin-left: -$spacing-sm*.75;
+      margin-right: -$spacing-sm * .75;
+      margin-left: -$spacing-sm * .75;
     }
 
     .#{$prefix}-timeline__item {
       flex-basis: 50%;
       max-width: 50%;
-      padding: 0 $spacing-sm*.75;
+      padding: 0 $spacing-sm * .75;
       width: 100%;
     }
 
@@ -176,7 +168,7 @@
 
     .#{$prefix}-timeline__content {
       margin-left: 0;
-      margin-right: $spacing-sm*.75;
+      margin-right: $spacing-sm * .75;
     }
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__content {
@@ -186,26 +178,26 @@
 
     .#{$prefix}-timeline__date--label {
       left: auto;
-      right: -$spacing-sm*11.75;
+      right: -$spacing-sm * 11.75;
       text-align: left;
       position: absolute;
       display: block;
       top: auto;
-      margin-top: -$spacing-sm*3.15;
-      width: $spacing-sm*10;
+      margin-top: -$spacing-sm * 3.15;
+      width: $spacing-sm * 10;
     }
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__date--label {
-      left: -$spacing-sm*11.5;
+      left: -$spacing-sm * 11.5;
       right: auto;
       text-align: right;
       position: absolute;
       display: block;
-      top: $spacing-sm*.75;
+      top: $spacing-sm * .75;
       margin-left: auto;
       margin-top: auto;
       margin-right: auto;
-      width: $spacing-sm*10;
+      width: $spacing-sm * 10;
     }
   }
 }

@@ -12,8 +12,12 @@
   &[href]:hover {
     transform: scale(1.1);
     box-shadow: $shadow-heavy;
-    color: $color-crimson-base;
+    color: $color-crimson-500;
     border-radius: $spacing-xs;
+  }
+
+  &[href]:focus {
+    transition: none;
   }
 
   &__content {
@@ -27,11 +31,12 @@
 
   &__number {
     font-size: $ts-41;
-    line-height: 1.2;
+    line-height: $line-height-tight;
   }
 
   &__description {
-    color: $color-black-500;
+    color: $color-black-400;
+    font-weight: $font-weight-medium;
     font-size: $ts-14;
     letter-spacing: .025rem;
 

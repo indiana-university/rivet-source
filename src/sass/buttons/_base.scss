@@ -2,19 +2,15 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
-
-%button-focus {
-  outline: none;
-  box-shadow: 0 0 0 $spacing-xxs/2 $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
-}
+@use 'sass:math';
 
 .#{$prefix}-button {
-  background-color: $color-blue-600;
-  border: $spacing-xxs/2 solid $color-blue-600;
+  background-color: $color-blue-500;
+  border: math.div($spacing-xxs, 2) solid $color-blue-500;
   border-radius: $spacing-xxs;
   color: $color-white-base;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: $font-weight-medium;
   line-height: 1;
   text-decoration: none;
   position: relative;
@@ -22,7 +18,6 @@
   padding: 0 $spacing-sm * .75;
   display: inline-flex;
   align-items: center;
-  transition: box-shadow .2s ease;
 
   // Initially hide any loaders if they're being used inside buttons.
 
@@ -35,46 +30,50 @@
   }
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2.5) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
+    outline: none;
   }
 
   &:hover {
-    background-color: $color-blue-700;
-    border-color: $color-blue-700;
+    background-color: $color-blue-600;
+    border-color: $color-blue-600;
     color: $color-white-base;
   }
 
   &:active {
-    background-color: $color-blue-800;
-    border-color: $color-blue-800;
+    background-color: $color-blue-700;
+    border-color: $color-blue-700;
   }
 
   &:disabled,
   &:disabled:hover {
-    background-color: $color-black-100;
-    color: $color-black-700;
-    border-color: $color-black-400;
+    background-color: $color-black-000;
+    color: $color-black-400;
+    border-color: $color-black-300;
     cursor: not-allowed;
   }
 }
 
 .#{$prefix}-button--secondary {
   background-color: transparent;
-  color: $color-blue-600;
+  border-color: $color-blue-100;
+  color: $color-blue-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
+    outline: none;
   }
 
   &:hover {
-    background-color: $color-blue-100;
-    border-color: $color-blue-600;
-    color: $color-blue-800;
+    background-color: $color-blue-000;
+    border-color: $color-blue-100;
+    color: $color-blue-600;
   }
 
   &:active {
-    background-color: $color-blue-200;
-    color: $color-blue-800;
+    background-color: $color-blue-100;
+    border-color: $color-blue-200;
+    color: $color-blue-600;
   }
 }
 
@@ -83,7 +82,8 @@
   border-color: $color-green-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-400;
+    outline: none;
   }
 
   &:hover {
@@ -93,30 +93,31 @@
   }
 
   &:active {
-    background-color: $color-green-800;
-    border-color: $color-green-800;
+    background-color: $color-green-700;
+    border-color: $color-green-700;
   }
 }
 
 .#{$prefix}-button--success-secondary {
   background-color: transparent;
-  border-color: $color-green-500;
+  border-color: $color-green-100;
   color: $color-green-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-400;
+    outline: none;
   }
 
   &:hover {
     background-color: $color-green-000;
-    border-color: $color-green-500;
-    color: $color-green-700;
+    border-color: $color-green-100;
+    color: $color-green-600;
   }
 
   &:active {
     background-color: $color-green-100;
-    border-color: $color-green-500;
-    color: $color-green-800;
+    border-color: $color-green-200;
+    color: $color-green-600;
   }
 }
 
@@ -125,79 +126,101 @@
   border-color: $color-orange-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-400;
+    outline: none;
   }
 
   &:hover {
-    background-color: $color-orange-700;
-    border-color: $color-orange-700;
+    background-color: $color-orange-600;
+    border-color: $color-orange-600;
     color: $color-white-base;
   }
 
   &:active {
-    background-color: $color-orange-800;
-    border-color: $color-orange-800;
+    background-color: $color-orange-700;
+    border-color: $color-orange-700;
   }
 }
 
 .#{$prefix}-button--danger-secondary {
   background-color: transparent;
-  border-color: $color-orange-500;
+  border-color: $color-orange-100;
   color: $color-orange-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-400;
+    outline: none;
   }
 
   &:hover {
     background-color: $color-orange-000;
-    border-color: $color-orange-500;
-    color: $color-orange-700;
+    border-color: $color-orange-100;
+    color: $color-orange-600;
   }
 
   &:active {
     background-color: $color-orange-100;
-    border-color: $color-orange-500;
-    color: $color-orange-800;
+    border-color: $color-orange-200;
+    color: $color-orange-600;
   }
 }
 
 .#{$prefix}-button--small {
+  font-size: $ts-14;
   height: $spacing-md;
   line-height: 1.1;
   vertical-align: bottom;
   padding-right: $spacing-xs;
   padding-left: $spacing-xs;
-
-  &:active {
-    border-color: $color-blue-800;
-  }
 }
 
 .#{$prefix}-button--plain {
   border-color: transparent;
   background-color: transparent;
-  color: $color-blue-600;
+  color: $color-blue-500;
 
   &:focus {
-    @extend %button-focus;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
+    outline: none;
   }
 
   &:hover {
-    background-color: $color-blue-100;
+    background-color: $color-blue-000;
     border-color: transparent;
-    color: $color-blue-800;
+    color: $color-blue-600;
   }
 
   &:active {
-    background-color: $color-blue-200;
+    background-color: $color-blue-100;
     border-color: transparent;
-    color: $color-blue-800;
+    color: $color-blue-600;
   }
 
   &:disabled,
   &:disabled:hover {
     border-color: $color-black-100;
+  }
+}
+
+.#{$prefix}-button--link {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: $color-blue-500;
+  font-weight: $font-weight-medium;
+  height: initial;
+  padding: 0;
+  display: inline-flex;
+  align-items: initial;
+  transition: none;
+
+  &:hover {
+    background-color: transparent;
+    color: $color-blue-600;
+  }
+
+  &:active {
+    color: $color-blue-700;
   }
 }
 
@@ -234,15 +257,14 @@
 
 .#{$prefix}-button--loading,
 .#{$prefix}-button--loading[disabled] {
-  background-color: $color-black-100;
-  border-color: $color-black-400;
-  color: $color-black-700;
+  background-color: $color-black-000;
+  border-color: $color-black-300;
+  color: $color-black-400;
   justify-content: center;
   position: relative;
 
   &:hover {
     background-color: $color-black-100;
-    border-color: $color-black-400;
     color: $color-black-700;
   }
 
@@ -260,9 +282,9 @@
     top: 50%;
 
     /**
-         * This negative margin accounts for the width/height of the
-         * default loading indicator above.
-         */
+     * This negative margin accounts for the width/height of the
+     * default loading indicator above.
+     */
     margin-top: -.65rem;
     margin-left: -$spacing-xs;
   }

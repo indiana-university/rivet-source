@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-accordion {
   border-bottom: 1px solid $color-black-100;
@@ -15,9 +16,9 @@
     background-color: transparent;
     border: none;
     display: flex;
-    padding: $spacing-sm;
+    padding: $spacing-md $spacing-sm;
     text-align: left;
-    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
   }
 
@@ -26,28 +27,52 @@
   }
 
   &__toggle:hover {
-    background-color: $color-black-100;
+    background-color: $color-black-000;
     cursor: pointer;
   }
 
   &__toggle:focus {
-    outline: 2px solid $color-blue-base;
-    outline-offset: $spacing-xxs/2;
+    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+    outline-offset: math.div($spacing-xxs, 2);
+  }
+
+  // Undo styles for browsers that support :focus-visible
+
+  &__toggle:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Apply stronger focus styles when tab navigation is being used
+
+  &__toggle:focus-visible {
+    background-color: $color-blue-000;
   }
 
   &__toggle-text {
-    font-size: $ts-18;
-    font-weight: $font-weight-bold;
+    color: $color-black-500;
+    font-size: $ts-20;
+    font-weight: $font-weight-regular;
     line-height: 1.3;
     padding-right: $spacing-sm;
   }
 
   &__toggle-icon {
-    color: $color-black-600;
+    align-items: center;
+    color: $color-black-400;
+    display: flex;
     margin-left: auto;
   }
 
   &__panel {
-    padding: $spacing-md;
+    padding: $spacing-xs $spacing-sm $spacing-md $spacing-sm;
+  }
+
+  &__panel > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__panel > * + * {
+    margin-top: 1.5rem;
   }
 }

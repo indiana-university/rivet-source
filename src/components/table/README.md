@@ -12,6 +12,16 @@ Do **not** use tables to structure webpages. The Rivet grid is a great alternati
 
 If your data only has two dimensions, consider using a definition list as an alternative.
 
+## Responsive table wrapper
+To add low-tech responsive behavior to tables so that they are horizontally scrollable on small screens you can wrap your table in an element with the class of `.rvt-table-responsive`. See requirements below.
+
+### Requirements for responsive tables
+
+1. Add wrapper element with `.rvt-table-responsive` CSS class.
+1. Add a `role="region"` attribute
+1. Make the table wrapper focusable by adding a `tabindex="0"` attribute
+1. Associate an `aria-labelledby` attribute with the `id` on the table `<caption>` element
+
 ## Adding the markup
 
 Default tables in Rivet come with styled headers and bottom borders on row to help with readability.

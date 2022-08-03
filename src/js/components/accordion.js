@@ -1,243 +1,447 @@
-/**
- * Copyright (C) 2020 The Trustees of Indiana University
+/******************************************************************************
+ * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
- */
-import Component from './component';
-import { nodeListToArray } from '../utilities/domHelpers';
-import keyCodes from '../utilities/keyCodes';
+ *****************************************************************************/
+
+import Component from './component'
+import keyCodes from '../utilities/keyCodes'
+
+/******************************************************************************
+ * The accordion component can be used to group content into sections that can
+ * be opened and closed.
+ *
+ * @see https://v2.rivet.iu.edu/docs/components/accordion/
+ *****************************************************************************/
 
 export default class Accordion extends Component {
-  static get selector() {
-    return '[data-rvt-accordion]';
+
+  /****************************************************************************
+   * Gets the accordion's CSS selector.
+   *
+   * @static
+   * @returns {string} The CSS selector
+   ***************************************************************************/
+
+  static get selector () {
+    return '[data-rvt-accordion]'
   }
 
-  static get methods() {
+  /****************************************************************************
+   * Gets an object containing the methods that should be attached to the
+   * component's root DOM element. Used by wicked-elements to initialize a DOM
+   * element with Web Component-like behavior.
+   *
+   * @static
+   * @returns {Object} Object with component methods
+   ***************************************************************************/
+
+  static get methods () {
     return {
-      init() {
-        console.log('Accordion::init()');
 
-        this.openAllOnInit = this.element.hasAttribute('data-rvt-accordion-open-all');
-        this.triggerAttribute = 'data-rvt-accordion-trigger';
-        this.triggerSelector = `[${this.triggerAttribute}]`;
-        this.triggers = nodeListToArray(
+      /************************************************************************
+       * Initializes the accordion.
+       ***********************************************************************/
+
+      init () {
+        this._initSelectors()
+        this._initElements()
+        this._setInitialPanelStates()
+
+        Component.bindMethodToDOMElement(this, 'open', this.open)
+        Component.bindMethodToDOMElement(this, 'close', this.close)
+      },
+
+      /************************************************************************
+       * Initializes accordion child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initSelectors () {
+        this.triggerAttribute = 'data-rvt-accordion-trigger'
+        this.panelAttribute = 'data-rvt-accordion-panel'
+
+        this.triggerSelector = `[${this.triggerAttribute}]`
+        this.panelSelector = `[${this.panelAttribute}]`
+      },
+
+      /************************************************************************
+       * Initializes accordion child elements.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initElements () {
+        this.triggers = Array.from(
           this.element.querySelectorAll(this.triggerSelector)
-        );
-        
-        if (this.triggers.length < 2) {
-          console.warn(
-            'An accordion should contain *at least two* accordion triggers with the "data-rvt-accordion-trigger" attribute'
-          );
-        }
-        
-        this.panelAttribute = 'data-rvt-accordion-panel';
-        this.panelSelector = `[${this.panelAttribute}]`;
-        this.panels = nodeListToArray(
+        )
+
+        this.panels = Array.from(
           this.element.querySelectorAll(this.panelSelector)
-        );
-        
-        const initializedPanels = this.element.querySelectorAll(
-          `[data-rvt-accordion-panel-init]`
-        );
+        )
+      },
 
-        try {
-          if (initializedPanels.length > 1) {
-            console.warn('Caught');
-          }
-    
-          let initialPanel;
-    
-          // Determine if a specific panel has been initialized with the data-rvt-tab-init attribute, otherwise, use the first tab
-          this.panels.forEach((panel, index) => {
-            if (panel.hasAttribute('data-rvt-accordion-panel-init')) {
-              initialPanel = panel;
-            } else {
-              this.panels[index].setAttribute('hidden', '');
-            }
-          });
-    
-          // If a specific panel was initialized set this.openOnInit equal to it, otherwise fallback to the first panel
-          this.openOnInit = initialPanel.getAttribute(this.panelAttribute);
-        } catch (e) {
-          console.warn(
-            'Only one accordion panel should have the data-rvt-accordion-panel-init attribute. If you wish to open all panels on initialization, please apply the appropriate attribute to the data-rvt-accordion element'
-          );
+      /************************************************************************
+       * Sets the initial state of the accordion's panels.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setInitialPanelStates () {
+        this._shouldOpenAllPanels()
+          ? this._openAllPanels()
+          : this._setPanelDefaultStates()
+      },
+
+      /************************************************************************
+       * Returns true if all panels should be opened when the component is
+       * added to the DOM.
+       *
+       * @private
+       * @returns {boolean} Panels should be opened
+       ***********************************************************************/
+
+      _shouldOpenAllPanels () {
+        return this.element.hasAttribute('data-rvt-accordion-open-all')
+      },
+
+      /************************************************************************
+       * Opens all panels.
+       *
+       * @private
+       ***********************************************************************/
+
+      _openAllPanels () {
+        this.panels.forEach((panel, index) => this._openPanel(index))
+      },
+
+      /************************************************************************
+       * Sets the default open/closed state for each panel based on the ARIA
+       * attributes set by the developer.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setPanelDefaultStates () {
+        this.panels.forEach(panel => {
+          this._panelShouldBeOpen(panel)
+            ? this.open(panel.getAttribute(this.panelAttribute))
+            : this.close(panel.getAttribute(this.panelAttribute))
+        })
+      },
+
+      /************************************************************************
+       * Returns true if the given panel element should be opened on page load.
+       *
+       * @private
+       * @param {HTMLElement} panel - Panel DOM element
+       * @returns {boolean} Panel should be opened
+       ***********************************************************************/
+
+      _panelShouldBeOpen (panel) {
+        return panel.hasAttribute('data-rvt-accordion-panel-init')
+      },
+
+      /************************************************************************
+       * Called when the accordion is added to the DOM.
+       ***********************************************************************/
+
+      connected () {
+        Component.dispatchComponentAddedEvent(this.element)
+      },
+
+      /************************************************************************
+       * Called when the accordion is removed from the DOM.
+       ***********************************************************************/
+
+      disconnected () {
+        Component.dispatchComponentRemovedEvent(this.element)
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the accordion.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      onClick (event) {
+        if (!this._eventOriginatedInsideTrigger(event)) { return }
+
+        this._setTriggerToToggle(event)
+
+        this._triggerToToggleIsOpen()
+          ? this.close(this.triggerToToggleId)
+          : this.open(this.triggerToToggleId)
+      },
+
+      /************************************************************************
+       * Returns true if the given event originated inside one of the
+       * accordion's panel triggers.
+       *
+       * @private
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside panel trigger
+       ***********************************************************************/
+
+      _eventOriginatedInsideTrigger (event) {
+        return event.target.closest(this.triggerSelector)
+      },
+
+      /************************************************************************
+       * Sets references to the panel trigger to be toggled by the given click
+       * event. These references are used by other click handler submethods.
+       *
+       * @private
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      _setTriggerToToggle (event) {
+        this.triggerToToggle = event.target.closest(this.triggerSelector)
+        this.triggerToToggleId = this.triggerToToggle.getAttribute(this.triggerAttribute)
+      },
+
+      /************************************************************************
+       * Returns true if the panel trigger to toggle is already open.
+       *
+       * @private
+       * @returns {boolean} Click originated inside panel trigger
+       ***********************************************************************/
+
+      _triggerToToggleIsOpen () {
+        return this.triggerToToggle.getAttribute('aria-expanded') === 'true'
+      },
+
+      /************************************************************************
+       * Handles keydown events broadcast to the accordion.
+       *
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      onKeydown (event) {
+        if (!this._eventOriginatedInsideTrigger(event)) { return }
+
+        this._setNeighboringTriggerIndexes(event)
+
+        switch (event.keyCode) {
+          case keyCodes.up:
+            this._focusPreviousTrigger()
+            break
+
+          case keyCodes.down:
+            this._focusNextTrigger()
+            break
+
+          case keyCodes.home:
+            this._focusFirstTrigger()
+            break
+
+          case keyCodes.end:
+            this._focusLastTrigger()
+            break
         }
-    
-        // bind methods
-        Component.bindMethodToDOMElement(this, 'open', this.open);
-        Component.bindMethodToDOMElement(this, 'close', this.close);
-
-        this._handleClick = this._handleClick.bind(this);
-        this._handleKeydown = this._handleKeydown.bind(this);
       },
 
-      connected() {
-        Component.dispatchComponentAddedEvent(this.element);
+      /************************************************************************
+       * Sets the indexes of the panel trigger before and after the one from
+       * which the given keydown event originated. Used to determine which
+       * panel trigger should receive focus when the up and down arrow keys
+       * are pressed.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
 
-        this._openOnInit();
+      _setNeighboringTriggerIndexes (event) {
+        const currentTrigger = event.target.closest(this.triggerSelector)
+
+        this.previousTriggerIndex = this.triggers.indexOf(currentTrigger) - 1
+        this.nextTriggerIndex = this.triggers.indexOf(currentTrigger) + 1
       },
 
-      disconnected() {
-        Component.dispatchComponentRemovedEvent(this.element);
+      /************************************************************************
+       * Moves focus to the panel trigger before the one that currently has
+       * focus. If focus is currently on the first trigger, move focus to the
+       * last trigger.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusPreviousTrigger () {
+        this.triggers[this.previousTriggerIndex]
+          ? this.triggers[this.previousTriggerIndex].focus()
+          : this.triggers[this.triggers.length - 1].focus()
       },
 
-      onClick(event) {
-        this._handleClick(event);
+      /************************************************************************
+       * Moves focus to the panel trigger after the one that currently has
+       * focus. If focus is currently on the last trigger, move focus to the
+       * first trigger.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusNextTrigger () {
+        this.triggers[this.nextTriggerIndex]
+          ? this.triggers[this.nextTriggerIndex].focus()
+          : this.triggers[0].focus()
       },
 
-      onKeydown(event) {
-        this._handleKeydown(event);
+      /************************************************************************
+       * Moves focus to the first panel trigger.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusFirstTrigger () {
+        this.triggers[0].focus()
       },
 
-      _openOnInit() {
-        // If accordion is set to open all panels on init, open them
-        if (this.openAllOnInit === true) {
-          this.panels.forEach(panel => {
-            this.open(panel.getAttribute(this.panelAttribute));
-          });
-        } else {
-          // Keep all other accordions closed by setting their initial states
-          this.panels.forEach((panel, index) => {
-            if (panel.getAttribute(this.panelAttribute) !== this.openOnInit) {
-              // Set non-initialized accordion panels to hidden
-              this.panels[index].setAttribute('hidden', '');
-              const trigger = this.element.querySelector(
-                `[${this.triggerAttribute}="${panel.dataset.rvtAccordionPanel}"]`
-              );
-              // Set 'aria-expanded' for all non-initialized accordion triggers to 'false'
-              trigger.setAttribute('aria-expanded', 'false');
-            } else {
-              // If this.openOnInit has been set, open it on initialization
-              this.open(this.openOnInit);
-            }
-          });
+      /************************************************************************
+       * Moves focus to the last panel trigger.
+       *
+       * @private
+       ***********************************************************************/
+
+      _focusLastTrigger () {
+        this.triggers[this.triggers.length - 1].focus()
+      },
+
+      /************************************************************************
+       * Opens the panel with the given data-rvt-accordion-panel ID value.
+       *
+       * @param {string} childMenuId - Panel ID
+       ***********************************************************************/
+
+      open (panelId) {
+        this._setPanelToOpen(panelId)
+
+        if (!this._panelToOpenExists()) {
+          console.warn(`No such accordion panel '${panelId}' in open()`)
+          return
         }
+
+        if (!this._eventDispatched('accordionOpened', this.panelToOpen)) { return }
+
+        this._openPanel()
       },
 
-      _handleClick(event) {
-        const currentTrigger = event.target.closest(this.triggerSelector);
-        // If not an accordion trigger, ignore
-        if (!currentTrigger) return;
-    
-        // Get the data-rvt-accordion-trigger value
-        const currentTriggerValue = currentTrigger.getAttribute(
-          this.triggerAttribute
-        );
-    
-        // Open or close accordion
-        currentTrigger.getAttribute('aria-expanded') === 'true'
-          ? this.close(currentTriggerValue)
-          : this.open(currentTriggerValue);
+      /************************************************************************
+       * Sets references to the panel to be opened. These references are used
+       * by other submethods.
+       *
+       * @private
+       * @param {string} panelId - Panel ID
+       ***********************************************************************/
+
+      _setPanelToOpen (panelId) {
+        this.triggerToOpen = this.element.querySelector(
+          `[${this.triggerAttribute} = "${panelId}"]`
+        )
+
+        this.panelToOpen = this.element.querySelector(
+          `[${this.panelAttribute} = "${panelId}"]`
+        )
       },
 
-      _handleKeydown(event) {
-        if (
-          event.keyCode === keyCodes.up ||
-          event.keyCode === keyCodes.down ||
-          event.keyCode === keyCodes.end ||
-          event.keyCode === keyCodes.home
-        ) {
-          const accordionParent = event.target.closest('[data-rvt-accordion]');
-          // If not an accordion, ignore
-          if (!accordionParent) return;
-    
-          const currentTrigger = event.target.closest(this.triggerSelector);
-          if (!currentTrigger) return;
-    
-          // Create an array of all the focusable elements within the accordion
-          const nextTrigger = this.triggers.indexOf(currentTrigger) + 1;
-          const prevTrigger = this.triggers.indexOf(currentTrigger) - 1;
-    
-          switch (event.keyCode) {
-            case keyCodes.up: {
-              if (this.triggers[prevTrigger] === undefined) {
-                this.triggers[this.triggers.length - 1].focus();
-              } else {
-                this.triggers[prevTrigger].focus();
-              }
-              break;
-            }
-    
-            case keyCodes.down: {
-              if (this.triggers[nextTrigger] === undefined) {
-                this.triggers[0].focus();
-              } else {
-                this.triggers[nextTrigger].focus();
-              }
-              break;
-            }
-    
-            case keyCodes.end: {
-              this.triggers[this.triggers.length - 1].focus();
-              break;
-            }
-    
-            case keyCodes.home: {
-              this.triggers[0].focus();
-              break;
-            }
-    
-            default: {
-              break;
-            }
-          }
+      /************************************************************************
+       * Returns true if the panel to open actually exists in the DOM.
+       *
+       * @private
+       * @returns {boolean} Panel to open exists
+       ***********************************************************************/
+
+      _panelToOpenExists () {
+        return this.panelToOpen
+      },
+
+      /************************************************************************
+       * Expands the accordion panel to be opened.
+       *
+       * @private
+       ***********************************************************************/
+
+      _openPanel () {
+        this.triggerToOpen.setAttribute('aria-expanded', 'true')
+        this.panelToOpen.removeAttribute('hidden')
+      },
+
+      /************************************************************************
+       * Closes the panel with the given data-rvt-accordion-panel ID value.
+       *
+       * @param {string} childMenuId - Panel ID
+       ***********************************************************************/
+
+      close (panelId) {
+        this._setPanelToClose(panelId)
+
+        if (!this._panelToCloseExists()) {
+          console.warn(`No such accordion panel '${panelId}' in close()`)
+          return
         }
+
+        if (!this._eventDispatched('accordionClosed', this.panelToClose)) { return }
+
+        this._closePanel()
       },
 
-      open(panelId) {
-        const panel = this.element.querySelector(
-          `[${this.panelAttribute}="${panelId}"]`
-        );
+      /************************************************************************
+       * Sets references to the panel to be closed. These references are used
+       * by other submethods.
+       *
+       * @private
+       * @param {string} panelId - Panel ID
+       ***********************************************************************/
 
-        if (!panel) {
-          console.warn(`No such panel '${panelId}' in Accordion.open()`);
-          return;
-        }
-    
-        const activationEvent = Component.dispatchCustomEvent(
-          'accordionOpened',
+      _setPanelToClose (panelId) {
+        this.triggerToClose = this.element.querySelector(
+          `[${this.triggerAttribute} = "${panelId}"]`
+        )
+
+        this.panelToClose = this.element.querySelector(
+          `[${this.panelAttribute} = "${panelId}"]`
+        )
+      },
+
+      /************************************************************************
+       * Returns true if the panel to close actually exists in the DOM.
+       *
+       * @private
+       * @returns {boolean} Panel to close exists
+       ***********************************************************************/
+
+      _panelToCloseExists () {
+        return this.panelToClose
+      },
+
+      /************************************************************************
+       * Collapses the accordion panel to be closed.
+       *
+       * @private
+       ***********************************************************************/
+
+      _closePanel () {
+        this.triggerToClose.setAttribute('aria-expanded', 'false')
+        this.panelToClose.setAttribute('hidden', '')
+      },
+
+      /************************************************************************
+       * Returns true if the custom event with the given name was successfully
+       * dispatched.
+       *
+       * @private
+       * @param {string} name - Event name
+       * @param {HTMLElement} panel - Panel DOM element toggled by event
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _eventDispatched (name, panel) {
+        const dispatched = Component.dispatchCustomEvent(
+          name,
           this.element,
           { panel }
-        );
-    
-        if (!activationEvent) return;
-    
-        const trigger = this.element.querySelector(
-          `[${this.triggerAttribute} = "${panel.dataset.rvtAccordionPanel}"]`
-        );
+        )
 
-        console.log(`[${this.triggerAttribute} = "${panel.dataset.rvtAccordionPanel}"]`);
-    
-        // Open the appropriate accordion trigger/panel pair
-        panel.removeAttribute('hidden');
-        trigger.setAttribute('aria-expanded', 'true');
-      },
-
-      close(panelId) {
-        const panel = this.element.querySelector(
-          `[${this.panelAttribute}="${panelId}"]`
-        );
-
-        if (!panel) {
-          console.warn(`No such panel '${panelId}' in Accordion.close()`);
-          return;
-        }
-    
-        const activationEvent = Component.dispatchCustomEvent(
-          'accordionClosed',
-          this.element,
-          { panel }
-        );
-    
-        if (!activationEvent) return;
-    
-        const trigger = this.element.querySelector(
-          `[${this.triggerAttribute} = "${panel.dataset.rvtAccordionPanel}"]`
-        );
-    
-        // Close the appropriate accordion trigger/panel pair
-        panel.setAttribute('hidden', '');
-        trigger.setAttribute('aria-expanded', 'false');
+        return dispatched
       }
     }
   }

@@ -35,7 +35,7 @@
   }
 
   &__eyebrow {
-    color: $color-crimson-base;
+    color: $color-crimson-500;
     font-size: $ts-14;
     text-decoration: none;
   }
@@ -51,8 +51,9 @@
   }
 
   &__title a {
+    display: block;
     text-decoration: none;
-    color: $color-black-base;
+    color: $color-black-500;
   }
 
   &__title a::before {
@@ -86,7 +87,7 @@
   }
 
   &__title a:hover {
-    color: $color-blue-base;
+    color: $color-blue-500;
     text-decoration: underline;
   }
 
@@ -99,7 +100,7 @@
     border-top: 1px solid $color-black-100;
     flex-grow: 1;
     margin-top: $spacing-md;
-    color: $color-black-500;
+    color: $color-black-400;
     padding-top: $spacing-md;
   }
 

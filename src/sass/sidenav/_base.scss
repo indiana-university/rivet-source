@@ -2,14 +2,16 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-sidenav {
   &__label {
+    color: $color-crimson-500;
     font-size: $ts-14;
-    text-transform: uppercase;
-    color: $color-crimson-base;
     font-weight: $font-weight-bold;
+    display: block;
     letter-spacing: $spacing-sm * .04;
+    text-transform: uppercase;
   }
 
   &__list {
@@ -61,7 +63,7 @@
     text-decoration: none;
 
     &[aria-current] {
-      background-color: $color-black-000;
+      background-color: $color-orange-000;
     }
 
     &[aria-current]::before {
@@ -69,7 +71,7 @@
       display: block;
       width: .25rem;
       height: 100%;
-      background-color: $color-crimson-base;
+      background-color: $color-crimson-500;
       position: absolute;
       top: 0;
       left: 0;
@@ -77,7 +79,7 @@
 
     &:focus,
     &:hover {
-      color: $color-blue-base;
+      color: $color-blue-500;
       text-decoration: underline;
     }
   }
@@ -92,17 +94,25 @@
   }
 
   &__link[aria-current] + &__toggle {
-    background-color: $color-black-000;
+    background-color: $color-orange-000;
+
+    > svg {
+      color: $color-crimson-500;
+    }
   }
 
   &__link[aria-current] + &__toggle:hover,
   &__link[aria-current] + &__toggle:focus {
-    color: $color-black-600;
-    background-color: $color-black-100;
+    color: $color-blue-500;
+    background-color: $color-blue-000;
+
+    > svg {
+      color: $color-blue-500;
+    }
   }
 
   &__toggle {
-    color: $color-black-300;
+    color: $color-black-200;
     align-items: center;
     background: transparent;
     border: none;
@@ -124,14 +134,19 @@
     }
 
     &:focus {
-      outline: $spacing-xxs/2 solid $color-blue-base;
-      outline-offset: $spacing-xxs/2;
+      background-color: $color-blue-000;
+      color: $color-blue-500;
     }
 
-    &:focus,
     &:hover {
-      background: $color-blue-base;
-      color: $color-white-base;
+      background-color: $color-blue-000;
+      color: $color-blue-600;
+    }
+
+    &:hover,
+    &:focus {
+      outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+      outline-offset: math.div($spacing-xxs, 2);
     }
   }
 

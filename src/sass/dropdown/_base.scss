@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
+@use 'sass:math';
 
 .#{$prefix}-dropdown {
   position: relative;
@@ -12,8 +14,8 @@
   }
 
   /**
-     * This is only used to style the header dropdowns.
-     */
+   * This is only used to style the header dropdowns.
+   */
 
   &__toggle {
     display: flex;
@@ -24,8 +26,8 @@
     padding: 0;
 
     &:focus {
-      outline: $spacing-xxs/2 solid $color-blue-600;
-      outline-offset: $spacing-xxs/2;
+      outline: math.div($spacing-xxs, 2) solid $color-blue-600;
+      outline-offset: math.div($spacing-xxs, 2);
     }
 
     &:hover {
@@ -48,17 +50,17 @@
   &__menu {
     position: absolute;
     margin-top: $spacing-xs;
-    background-color: #ffffff;
+    background-color: $color-white-base;
     border-radius: $spacing-xxs;
     box-shadow: $shadow-standard;
     min-width: 12.5rem;
     padding-top: $spacing-xs;
     padding-bottom: $spacing-xs;
-    z-index: map-get($z-index, '1000');
+    z-index: map.get($z-index, '1000');
 
     /**
-         * Align the dropdown menu to the right edge of the button.
-         */
+     * Align the dropdown menu to the right edge of the button.
+     */
 
     &--right {
       right: 0;
@@ -78,12 +80,12 @@
     button {
       display: block;
       text-decoration: none;
-      color: $color-black-base;
+      color: $color-black-500;
 
       /**
-             * This padding-top and bottom value is a magic number. Sorry,
-             * it just looks better. :)
-             */
+       * This padding-top and bottom value is a magic number. Sorry,
+       * it just looks better. :)
+       */
       padding: .375rem $spacing-sm;
       background-color: transparent;
       border: none;
@@ -91,39 +93,45 @@
       text-align: left;
 
       &:hover {
-        background-color: $color-blue-600;
-        color: $color-white-base;
+        background-color: $color-blue-000;
+        color: $color-blue-500;
         text-decoration: none;
       }
 
       &:focus {
         outline: none;
-        box-shadow: inset 0 0 0 $spacing-xxs/2 $color-blue-600;
+        box-shadow: inset 0 0 0 math.div($spacing-xxs, 2) $color-blue-500;
       }
 
       &.#{$prefix}-is-selected,
       &[aria-current],
       &[aria-checked='true'] {
-        box-shadow: inset $spacing-xxs 0 0 $color-blue-600;
+        box-shadow: inset $spacing-xxs 0 0 $color-crimson-500;
+        background-color: $color-orange-000;
+        color: $color-crimson-500;
+
+        &:hover {
+          color: $color-crimson-500;
+        }
 
         &:focus {
           /* stylelint-disable */
           box-shadow:
-            inset $spacing-xxs 0 0 $color-blue-600,
-            inset 0 0 0 $spacing-xxs/2 $color-blue-600 !important;
+            inset $spacing-xxs 0 0 $color-blue-500,
+            inset 0 0 0 math.div($spacing-xxs, 2) $color-blue-500 !important;
           /* stylelint-enable */
         }
       }
     }
 
     button:disabled {
-      color: $color-black-800;
-      background-color: $color-black-100;
+      color: $color-black-400;
+      background-color: $color-black-000;
     }
   }
 
   &__menu-heading {
-    color: $color-black-700;
+    color: $color-black-400;
     padding: $spacing-sm $spacing-sm $spacing-xxs;
     font-weight: $font-weight-bold;
     font-size: $ts-14;
@@ -135,13 +143,13 @@
 
   &__menu-divider,
   &__menu-separator {
-    border-top: 1px solid $color-black-200;
+    border-top: 1px solid $color-black-100;
     margin-top: $spacing-xs;
     margin-bottom: $spacing-xs;
   }
 
   [role='group'] {
-    border-top: 1px solid $color-black-200;
+    border-top: 1px solid $color-black-100;
     margin-top: $spacing-xs;
     padding-top: $spacing-xs;
 

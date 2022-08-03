@@ -1,291 +1,460 @@
-/**
+/******************************************************************************
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
- */
+ *****************************************************************************/
 
-import Component from './component';
-import { nodeListToArray } from '../utilities/domHelpers';
-import keyCodes from '../utilities/keyCodes';
+import Component from './component'
+import keyCodes from '../utilities/keyCodes'
 
-/**
- * The Dropdown class is a descendant of the Disclosure class with additional
- * functionality needed to model a dropdown menu of options/links navigable
- * using the arrow and tab keys.
- */
+/******************************************************************************
+ * The dropdown component presents the user with a list of options that can be
+ * shown or hidden with a button.
+ *
+ * @see https://v2.rivet.iu.edu/docs/components/dropdown/
+ *****************************************************************************/
 
 export default class Dropdown extends Component {
-  static get selector() {
-    return '[data-rvt-dropdown]';
+  
+  /****************************************************************************
+   * Gets the dropdown's CSS selector.
+   *
+   * @static
+   * @returns {string} The CSS selector
+   ***************************************************************************/
+
+  static get selector () {
+    return '[data-rvt-dropdown]'
   }
 
-  static get methods() {
+  /****************************************************************************
+   * Gets an object containing the methods that should be attached to the
+   * component's root DOM element. Used by wicked-elements to initialize a DOM
+   * element with Web Component-like behavior.
+   *
+   * @static
+   * @returns {Object} Object with component methods
+   ***************************************************************************/
+
+  static get methods () {
     return {
-      init() {
-        console.log('Dropdown::init()');
 
-        this.disclosureAttribute = '[data-rvt-dropdown]';
-        this.toggleAttribute = '[data-rvt-dropdown-toggle]';
-        this.toggleDataProperty = 'dropdownToggle';
-        this.targetAttribute = '[data-rvt-dropdown-menu]';
-        this.openEventName = 'dropdownOpen';
-        this.closeEventNane = 'dropdownClose';
-        this.toggleElement = this.element.querySelector('[data-rvt-dropdown-toggle]');
-        this.targetElement = this.element.querySelector('[data-rvt-dropdown-menu]');
-        this.isOpen = false;
-        this.activeToggle = null;
-        this.activeDisclosure = null;
-        
-        const icon = this.element.querySelector('svg');
-        if (icon) {
-          icon.setAttribute('focusable', 'false');
-        }
-        
-        Component.bindMethodToDOMElement(this, 'open', this.open);
-        Component.bindMethodToDOMElement(this, 'close', this.close);
+      /************************************************************************
+       * Initializes the dropdown.
+       ***********************************************************************/
 
-        this._handleClick = this._handleClick.bind(this);
-        this._handleKeydown = this._handleKeydown.bind(this);
+      init () {
+        this._initSelectors()
+        this._initElements()
+        this._initProperties()
+        this._initMenuItems()
+        this._removeIconFromTabOrder()
+        this._bindExternalEventHandlers()
 
-        this.focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]';
+        Component.bindMethodToDOMElement(this, 'open', this.open)
+        Component.bindMethodToDOMElement(this, 'close', this.close)
       },
 
-      connected() {
-        Component.dispatchComponentAddedEvent(this.element);
-        
-        document.addEventListener('click', this._handleClick, false);
-        document.addEventListener('keydown', this._handleKeydown, false);
+      /************************************************************************
+       * Initializes dropdown child element selectors.
+       *
+       * @private
+       ***********************************************************************/
+
+       _initSelectors () {
+        this.toggleAttribute = 'data-rvt-dropdown-toggle'
+        this.menuAttribute = 'data-rvt-dropdown-menu'
+
+        this.toggleSelector = `[${this.toggleAttribute}]`
+        this.menuSelector = `[${this.menuAttribute}]`
       },
 
-      disconnected() {
-        Component.dispatchComponentRemovedEvent(this.element);
+      /************************************************************************
+       * Initializes dropdown child elements.
+       *
+       * @private
+       ***********************************************************************/
 
-        document.removeEventListener('click', this._handleClick, false);
-        document.removeEventListener('keydown', this._handleKeydown, false);
+      _initElements () {
+        this.toggleElement = this.element.querySelector(this.toggleSelector)
+        this.menuElement = this.element.querySelector(this.menuSelector)
       },
 
-      open() {
-        // Return if disabled disclosure is being opened programmatically
+      /************************************************************************
+       * Initializes dropdown state properties.
+       *
+       * @private
+       ***********************************************************************/
 
-        if (this.toggleElement.hasAttribute('disabled')) {
-          return;
-        }
-
-        // Fire a dropdownOpened event
-
-        const openEvent = Component.dispatchCustomEvent(
-          'dropdownOpened',
-          this.element
-        );
-
-        // Bail if the event was suppressed
-
-        if (!openEvent) return;
-
-        // Set the disclosure's open state to "true"
-
-        this.isOpen = true;
-        this.toggleElement.setAttribute('aria-expanded', 'true');
-
-        // Remove the 'hidden' attribute to show the element to disclose
-
-        this.targetElement.removeAttribute('hidden');
-
-        // Set currently active toggle and disclosed element
-
-        this.activeToggle = this.toggleElement;
-        this.activeDisclosure = this.targetElement;
+      _initProperties () {
+        this.isOpen = false
       },
 
-      close() {
-        /**
-         * If there isn't a currently active disclosure, then bail so close() isn't
-         * fired multiple times.
-         */
-        if (!this.activeToggle) return;
+      /************************************************************************
+       * Initializes a list of menu items in the dropdown.
+       *
+       * @private
+       ***********************************************************************/
 
-        const closeEvent = Component.dispatchCustomEvent(
-          'dropdownClosed',
-          this.element
-        );
+      _initMenuItems () {
+        const focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
 
-        if (!closeEvent) return;
-
-        this.isOpen = false;
-        this.activeToggle.setAttribute('aria-expanded', 'false');
-        this.activeDisclosure.setAttribute('hidden', '');
-
-        // Resets the state variables
-        this.activeToggle = null;
-        this.activeDisclosure = null;
+        this.menuItems = Array.from(this.menuElement.querySelectorAll(focusableElements))
+        this.firstMenuItem = this.menuItems[0]
+        this.lastMenuItem = this.menuItems[this.menuItems.length - 1]
       },
 
-      _setUpMenu(menu) {
-        const menuObject = {};
-    
-        // Create a real Array of all the focusable elements in the menu
-        const menuFocusables = nodeListToArray(
-          menu.querySelectorAll(this.focusableElements)
-        );
-    
-        // Create a property to hold an array of all focusables
-        menuObject.all = menuFocusables;
-    
-        // Create a property with a reference to the first focusable
-        menuObject.first = menuFocusables[0];
-    
-        // Create a property with a reference to the last focusable
-        menuObject.last = menuFocusables[menuFocusables.length - 1];
-    
-        return menuObject;
+      /************************************************************************
+       * Removes the arrow icon from the tab order.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeIconFromTabOrder () {
+        const icon = this.element.querySelector('svg')
+
+        if (icon) { icon.setAttribute('focusable', 'false') }
       },
 
-      _handleClick(event) {
-        const toggle = event.target.closest('[data-rvt-dropdown-toggle]');
+      /************************************************************************
+       * Binds the dropdown instance to handler methods for relevant events
+       * that originate outside the component's root DOM element.
+       *
+       * @private
+       ***********************************************************************/
 
-        // Did it come from inside open disclosure?
-        if (this.targetElement.contains(event.target)) return;
-
-        // If it came from outside component, close all open disclosures
-        if (!toggle && this.activeToggle !== null) {
-          this.close();
-          return;
-        }
-
-        // Check which toggle the click came from, and whether it's already opened
-        if (toggle !== this.toggleElement || this.isOpen) {
-          this.close();
-        } else {
-          this.open();
-        }
+      _bindExternalEventHandlers () {
+        this._onDocumentClick = this._onDocumentClick.bind(this)
       },
 
-      _shouldHandleKeydown(event) {
-        // If the keydown didn't come from within disclosure component, then bail.
-        if (!this.element.contains(event.target)) return false;
-    
-        // Delegate event to only this instance of the disclosure
-        const disclosure = event.target.closest('[data-rvt-dropdown]');
-        if (disclosure !== this.element) return false;
-    
-        return true;
+      /************************************************************************
+       * Called when the dropdown is added to the DOM.
+       ***********************************************************************/
+
+      connected () {
+        Component.dispatchComponentAddedEvent(this.element)
+
+        this._addDocumentEventHandlers()
       },
 
-      _handleKeydown(event) {
-        if (!this._shouldHandleKeydown(event)) return;
-    
+      /************************************************************************
+       * Adds event handlers to the document that are related to the dropdown.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addDocumentEventHandlers () {
+        document.addEventListener('click', this._onDocumentClick, false)
+      },
+
+      /************************************************************************
+       * Called when the dropdown is removed from the DOM.
+       ***********************************************************************/
+
+      disconnected () {
+        Component.dispatchComponentRemovedEvent(this.element)
+
+        this._removeDocumentEventHandlers()
+      },
+
+      /************************************************************************
+       * Removes document event handlers related to the dropdown.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeDocumentEventHandlers () {
+        document.removeEventListener('click', this._onDocumentClick, false)
+      },
+
+      /************************************************************************
+       * Opens the dropdown.
+       ***********************************************************************/
+
+      open () {
+        if (this._toggleElementIsDisabled()) { return }
+
+        if (!this._eventDispatched('dropdownOpened')) { return }
+
+        this._setOpenState()
+      },
+
+      /************************************************************************
+       * Returns true if the dropdown is disabled.
+       *
+       * @private
+       * @returns {boolean} Disabled state
+       ***********************************************************************/
+
+      _toggleElementIsDisabled () {
+        return this.toggleElement.hasAttribute('disabled')
+      },
+
+      /************************************************************************
+       * Sets the dropdown's state properties to represent it being open.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setOpenState () {
+        this.toggleElement.setAttribute('aria-expanded', 'true')
+        this.menuElement.removeAttribute('hidden')
+        this.firstMenuItem.focus()
+
+        this.isOpen = true
+      },
+
+      /************************************************************************
+       * Closes the dropdown.
+       ***********************************************************************/
+
+      close () {
+        if (!this._isOpen()) { return }
+
+        if (!this._eventDispatched('dropdownClosed')) { return }
+
+        this._setClosedState()
+      },
+
+      /************************************************************************
+       * Returns true if the dropdown is open.
+       *
+       * @private
+       * @returns {boolean} Dropdown is open
+       ***********************************************************************/
+
+      _isOpen () {
+        return this.isOpen
+      },
+
+      /************************************************************************
+       * Sets the dropdown's state properties to represent it being closed.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setClosedState () {
+        this.toggleElement.setAttribute('aria-expanded', 'false')
+        this.menuElement.setAttribute('hidden', '')
+
+        this.isOpen = false
+      },
+
+      /************************************************************************
+       * Returns true if the custom event with the given name was successfully
+       * dispatched.
+       *
+       * @private
+       * @param {string} name - Event name
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _eventDispatched (name) {
+        const dispatched = Component.dispatchCustomEvent(name, this.element)
+
+        return dispatched
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the disclosure.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      onClick (event) {
+        if (this._eventOriginatedInsideMenu(event)) { return }
+
+        this._isOpen()
+          ? this.close()
+          : this.open()
+      },
+
+      /************************************************************************
+       * Returns true if the given event originated inside the dropdown's menu.
+       *
+       * @private
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside menu
+       ***********************************************************************/
+
+      _eventOriginatedInsideMenu (event) {
+        return this.menuElement.contains(event.target)
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the document that are related to
+       * the dropdown but did not originate inside the dropdown itself.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      _onDocumentClick (event) {
+        if (!this._clickOriginatedOutsideDropdown(event)) { return }
+
+        if (!this._isOpen()) { return }
+
+        this.close()
+      },
+
+      /************************************************************************
+       * Returns true if the click event originated inside the dropdown.
+       *
+       * @param {Event} event - Click event
+       * @returns {boolean} Event originated outside dropdown
+       ***********************************************************************/
+
+      _clickOriginatedOutsideDropdown (event) {
+        return ! this.element.contains(event.target)
+      },
+
+      /************************************************************************
+       * Handles keydown events broadcast to the dropdown.
+       *
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      onKeydown (event) {
         switch (event.keyCode) {
-          case keyCodes.escape: {
-            if (!this.activeToggle) return;
-    
-            // If there's an open disclosure, close it.
-            this.close();
-    
-            this.toggleElement.focus();
-    
-            /**
-             * Resets the state variables so as not to interfere with other
-             * Escape key handlers/interactions
-             */
-            this.activeToggle = null;
-    
-            break;
-          }
+          case keyCodes.escape:
+            this._handleEscapeKey()
+            break
 
-          case keyCodes.down: {
-            /**
-             * Open the menu if it hasn't been opened yet.
-             * Move the focus to the first item if the menu has been opened.
-             */
-            if (!this.isOpen) {
-              this.open();
-            } else {
-              const currentMenu = this._setUpMenu(this.targetElement);
-              currentMenu.first.focus();
-            }
-    
-            /**
-             * Handle down arrow key when inside the open menu.
-             * If the event didn't come from within the menu, then bail.
-             */
-            if (!this.targetElement.contains(event.target)) break;
-    
-            /**
-             * This keeps track of which button/focusable is focused in the open menu
-             */
-            const currentMenu = this._setUpMenu(this.targetElement);
-            let currentIndex;
-    
-            for (let i = 0; i < currentMenu.all.length; i++) {
-              if (event.target == currentMenu.all[i]) {
-                currentIndex = i;
-              }
-            }
-    
-            const nextItem = currentMenu.all[currentIndex + 1];
-    
-            if (!nextItem) {
-              currentMenu.first.focus();
-    
-              return;
-            }
-    
-            nextItem.focus();
-    
-            break;
-          }
-    
-          case keyCodes.up: {
-            event.preventDefault();
-    
-            /**
-             * Handle up arrow key when inside the open menu.
-             * If the event didn't come from within the menu, then bail.
-             */
-            if (!this.targetElement.contains(event.target)) break;
-    
-            /**
-             * This keeps track of which button/focusable is focused in the open menu
-             */
-            const currentMenu = this._setUpMenu(this.targetElement);
-            let currentIndex;
-    
-            for (let i = 0; i < currentMenu.all.length; i++) {
-              if (event.target == currentMenu.all[i]) {
-                currentIndex = i;
-              }
-            }
-    
-            const previousItem = currentMenu.all[currentIndex - 1];
-    
-            if (!previousItem && currentMenu.last !== undefined) {
-              currentMenu.last.focus();
-    
-              return;
-            }
-    
-            previousItem.focus();
-    
-            break;
-          }
-    
-          case keyCodes.tab: {
-            /**
-             * Handle tab key when inside the open menu.
-             */
-            if (!this.targetElement.contains(event.target)) break;
-    
-            const currentMenu = this._setUpMenu(this.targetElement);
-    
-            // Close the dropdown when the user tabs out of the menu.
-            if (document.activeElement == currentMenu.last && !event.shiftKey) {
-              this.close();
-    
-              return;
-            }
-    
-            break;
+          case keyCodes.up:
+            this._handleUpKey(event)
+            break
+
+          case keyCodes.down:
+            this._handleDownKey(event)
+            break
+
+          case keyCodes.tab:
+            this._handleTabKey(event)
+            break
+        }
+      },
+
+      /************************************************************************
+       * Handles the user pressing the Escape key.
+       *
+       * @private
+       ***********************************************************************/
+
+      _handleEscapeKey () {
+        this.close()
+        this.toggleElement.focus()
+      },
+
+      /************************************************************************
+       * Handles the user pressing the Up arrow key.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      _handleUpKey (event) {
+        event.preventDefault()
+
+        if (!this._eventOriginatedInsideMenu(event)) { return }
+
+        this._focusPreviousMenuItem(event)
+      },
+
+      /************************************************************************
+       * Moves focus to the previous menu item in response to the given
+       * keydown event.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      _focusPreviousMenuItem (event) {
+        let currentMenuItemIndex
+
+        for (let i = 0; i < this.menuItems.length; i++) {
+          if (event.target == this.menuItems[i]) {
+            currentMenuItemIndex = i
           }
         }
+
+        const previousItem = this.menuItems[currentMenuItemIndex - 1]
+
+        if (!previousItem && this.lastMenuItem !== undefined) {
+          this.lastMenuItem.focus()
+
+          return
+        }
+
+        previousItem.focus()
+      },
+
+      /************************************************************************
+       * Handles the user pressing the Down arrow key.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      _handleDownKey (event) {
+        event.preventDefault()
+        
+        if (!this._isOpen()) { this.open() }
+
+        this._eventOriginatedInsideMenu(event)
+          ? this._focusNextMenuItem(event)
+          : this.firstMenuItem.focus()
+      },
+
+      /************************************************************************
+       * Moves focus to the next menu item in response to the given keydown
+       * event.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      _focusNextMenuItem (event) {
+        let currentMenuItemIndex
+
+        for (let i = 0; i < this.menuItems.length; i++) {
+          if (event.target == this.menuItems[i]) {
+            currentMenuItemIndex = i
+          }
+        }
+
+        const nextItem = this.menuItems[currentMenuItemIndex + 1]
+
+        if (!nextItem) {
+          this.firstMenuItem.focus()
+
+          return
+        }
+
+        nextItem.focus()
+      },
+
+      /************************************************************************
+       * Handles the user pressing the Down arrow key.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       ***********************************************************************/
+
+      _handleTabKey (event) {
+        if (!this._eventOriginatedInsideMenu(event)) { return }
+
+        if (this._userTabbedOutOfLastMenuItem(event)) { this.close() }
+      },
+
+      /************************************************************************
+       * Returns true if the user tabbed out of the last item in the dropdown
+       * menu with the given keydown event.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       * @returns {boolean} User tabbed out of last menu item
+       ***********************************************************************/
+
+      _userTabbedOutOfLastMenuItem (event) {
+        return document.activeElement == this.lastMenuItem && !event.shiftKey
       }
     }
   }

@@ -61,16 +61,14 @@
     #3: Start list of people
   -->
   <div class="{{ siteContainer }} rvt-p-tb-xl">
-    <div class="rvt-row rvt-row--loose">
+    <ul class="rvt-row rvt-row--loose">
       {% for person in people %}
-      <div class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
+      <li class="rvt-cols-6-md rvt-cols-4-lg [ rvt-flex rvt-m-bottom-xxl ]">
         <div class="rvt-card">
-          <a href="/components/preview/profile-page-with-sidebar">
-            {% render "@avatar", {
-              image: person.avatar,
-              modifier: "--lg"
-            }, true %}
-          </a>
+          {% render "@avatar", {
+            image: person.avatar,
+            modifier: "--lg"
+          }, true %}
           <div class="rvt-card__body">
             <div class="rvt-card__eyebrow">{{ person.label }}</div>
             <h2 class="rvt-card__title">
@@ -81,13 +79,13 @@
             </div>
             <div class="rvt-card__meta">
               <div class="rvt-flex rvt-items-center">
-                <svg class="rvt-color-black-400 rvt-m-right-xs" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <svg class="rvt-color-black-200 rvt-m-right-xs" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
                   <path fill="currentColor" d="M16,12.8A3.2,3.2,0,0,1,12.8,16,12.8,12.8,0,0,1,0,3.2,3.2,3.2,0,0,1,3.2,0a3,3,0,0,1,.54,0,2.84,2.84,0,0,1,.53.14l1.2,5.27-1.73.9a9.55,9.55,0,0,0,5.91,5.91l.91-1.74,5.26,1.22a2.84,2.84,0,0,1,.14.53A3,3,0,0,1,16,12.8Z"/>
                 </svg>
                 <p class="rvt-m-all-none">{{ person.phone }}</p>
               </div>
               <div class="rvt-flex rvt-items-center rvt-m-top-xs">
-                <svg class="rvt-color-black-400 rvt-m-right-xs" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
+                <svg class="rvt-color-black-200 rvt-m-right-xs" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
                   <path fill="currentColor" d="M13.5,3H2.5A1.5,1.5,0,0,0,1,4.5v8A1.5,1.5,0,0,0,2.5,14h11A1.5,1.5,0,0,0,15,12.5v-8A1.5,1.5,0,0,0,13.5,3ZM11.41,5,8,7.77,4.59,5ZM3,12V6.29L7.11,9.62l.12.08a1.5,1.5,0,0,0,1.54,0L13,6.29V12Z"/>
                 </svg>
                 <a href="#">{{ person.email }}</a>
@@ -95,9 +93,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 
   <!--
@@ -109,4 +107,4 @@
     </div>
   </div>
 </main>
-{% include "@footer-system" %}
+{% include "@footer-system-all" %}

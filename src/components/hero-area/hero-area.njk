@@ -3,7 +3,7 @@
     <div class="rvt-hero__inner">
       <div class="rvt-hero__body [ rvt-flow ]">
         <span class="rvt-hero__eyebrow">{{ eyebrow }}</span>
-        <h1 class="rvt-hero__title">{{ title }}</h1>
+        <h1 class="rvt-hero__title">{{ title | safe }}</h1>
         <div class="rvt-hero__teaser">
           {{ teaserContent | safe }}
         </div>
@@ -11,9 +11,9 @@
           {{ actions | safe }}
         </div>
       </div>
-      <div class="rvt-hero__image">
+      <div class="rvt-hero__media">
         <img src="{{ image.url }}" alt="">
-        <div class="rvt-hero__image-caption">{{ image.caption }}</div>
+        <div class="rvt-hero__media-caption">{{ image.caption }}</div>
       </div>
     </div>
   </div>
