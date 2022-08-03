@@ -82,8 +82,15 @@ export default class Dialog extends Component {
       _initElements () {
         const dialogId = this.element.getAttribute(this.dialogAttribute)
 
-        this.triggerButton = document.querySelector(`[${this.triggerAttribute} = "${dialogId}"]`)
-        this.closeButtons = this.element.querySelectorAll(this.closeButtonSelector)
+        this.triggerButtons = Array.from(
+          document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)
+        )
+
+        this.closeButtons = Array.from(
+          this.element.querySelectorAll(this.closeButtonSelector)
+        )
+        
+        this.lastClickedTriggerButton = null
       },
 
       /************************************************************************
@@ -170,7 +177,9 @@ export default class Dialog extends Component {
       _addTriggerEventHandlers () {
         if (!this._hasTriggerButton()) { return }
 
-        this.triggerButton.addEventListener('click', this._onTriggerClick, false)
+        this.triggerButtons.forEach(button => {
+          button.addEventListener('click', this._onTriggerClick, false)
+        })
       },
 
       /************************************************************************
@@ -181,7 +190,7 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _hasTriggerButton () {
-        return this.triggerButton
+        return this.triggerButtons.length
       },
 
       /************************************************************************
@@ -214,7 +223,9 @@ export default class Dialog extends Component {
       _removeTriggerEventHandlers () {
         if (!this._hasTriggerButton()) { return }
 
-        this.triggerButton.removeEventListener('click', this._onTriggerClick, false)
+        this.triggerButtons.forEach(button => {
+          button.removeEventListener('click', this._onTriggerClick, false)
+        })
       },
 
       /************************************************************************
@@ -270,19 +281,34 @@ export default class Dialog extends Component {
       /************************************************************************
        * Handles click events broadcast to the dialog's trigger button.
        *
+       * @private
        * @param {Event} event - Click event
        ***********************************************************************/
 
       _onTriggerClick (event) {
+        this._setLastClickedTriggerButton(event)
+
         this._isOpen()
           ? this.close()
           : this.open()
       },
 
       /************************************************************************
+       * Saves a reference to the last clicked trigger button.
+       *
+       * @private
+       * @param {Event} event - Trigger button click event
+       ***********************************************************************/
+
+      _setLastClickedTriggerButton (event) {
+        this.lastClickedTriggerButton = event.target.closest(this.triggerSelector)
+      },
+
+      /************************************************************************
        * Handles click events broadcast to the document that are related to
        * the dialog but did not originate inside the dialog itself.
        *
+       * @private
        * @param {Event} event - Click event
        ***********************************************************************/
 
@@ -300,6 +326,7 @@ export default class Dialog extends Component {
        * Returns true if the given click event originated inside the dialog or
        * dialog trigger button.
        *
+       * @private
        * @param {Event} event - Click event
        * @returns {boolean} Click originated inside dialog or trigger button
        ***********************************************************************/
@@ -318,7 +345,7 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _shouldCloseOnClickOutside () {
-        return ! this.isModal
+        return !this.isModal
       },
 
       /************************************************************************
@@ -497,7 +524,7 @@ export default class Dialog extends Component {
        * @returns {HTMLElement[]} Direct children of body
        ***********************************************************************/
 
-      _getDirectChildrenOfBody() {
+      _getDirectChildrenOfBody () {
         return Array.from(
           document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
         )
@@ -558,7 +585,9 @@ export default class Dialog extends Component {
           return
         }
 
-        this.triggerButton.focus()
+        this.lastClickedTriggerButton && document.body.contains(this.lastClickedTriggerButton)
+          ? this.lastClickedTriggerButton.focus()
+          : this.triggerButtons[0].focus()
       },
 
       /************************************************************************
