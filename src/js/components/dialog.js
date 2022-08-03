@@ -580,7 +580,7 @@ export default class Dialog extends Component {
           return
         }
 
-        this.lastClickedTriggerButton
+        this.lastClickedTriggerButton && document.body.contains(this.lastClickedTriggerButton)
           ? this.lastClickedTriggerButton.focus()
           : this.triggerButtons[0].focus()
       },
