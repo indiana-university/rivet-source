@@ -16,18 +16,19 @@
 }
 
 .#{$prefix}-dialog {
-  border: 1px solid $color-black-100;
-  box-shadow: $shadow-standard;
-  position: absolute;
-  max-width: 600px;
-  width: 90%;
   background-color: $color-white-base;
-  top: $spacing-xxl * 2;
+  border-radius: $spacing-xs;
+  box-shadow: $shadow-heavy;
   left: 0;
+  margin: auto;
+  max-width: 37.5rem;
+  max-height: 100%;
+  overflow: auto;
+  position: fixed;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: $spacing-xxs;
+  top: 40%;
+  transform: translateY(-40%);
+  width: 90%;
   z-index: map.get($z-index, '1000');
 
   &[data-#{$prefix}-dialog-darken-page] {
@@ -35,29 +36,35 @@
   }
 
   &[data-#{$prefix}-dialog-top-left] {
-    left: $spacing-xl !important;
-    right: inherit !important;
-    top: $spacing-xl !important;
+    top: $spacing-xl;
+    left: $spacing-xl;
+    bottom: auto;
+    right: auto;
+    transform: none;
   }
 
   &[data-#{$prefix}-dialog-top-right] {
-    left: inherit !important;
-    right: $spacing-xl !important;
-    top: $spacing-xl !important;
+    top: $spacing-xl;
+    right: $spacing-xl;
+    left: auto;
+    bottom: auto;
+    transform: none;
   }
 
   &[data-#{$prefix}-dialog-bottom-left] {
-    left: $spacing-xl !important;
-    right: inherit !important;
-    top: inherit !important;
-    bottom: $spacing-xl !important;
+    top: auto;
+    right: auto;
+    bottom: $spacing-xl;
+    left: $spacing-xl;
+    transform: none;
   }
 
   &[data-#{$prefix}-dialog-bottom-right] {
-    left: inherit !important;
-    right: $spacing-xl !important;
-    top: inherit !important;
-    bottom: $spacing-xl !important;
+    top: auto;
+    right: $spacing-xl;
+    bottom: $spacing-xl;
+    left: auto;
+    transform: none;
   }
 
   &__close {
@@ -95,10 +102,6 @@
     border-bottom: 1px solid $color-black-100;
   }
 
-  &--confirmation &__header {
-    border-bottom: none;
-  }
-
   &__title {
     font-size: $ts-20;
     font-weight: $font-weight-bold;
@@ -109,26 +112,18 @@
     padding: $spacing-sm;
   }
 
-  &--confirmation &__body {
-    text-align: center;
-  }
-
   &__controls {
     padding: $spacing-sm;
     display: flex;
     border-top: 1px solid $color-black-100;
     background-color: $color-black-000;
     flex-wrap: wrap;
+    gap: $spacing-sm;
 
     .#{$prefix}-button {
       width: 100%;
       text-align: center;
       justify-content: center;
-      margin-bottom: $spacing-sm;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
 
     @include mq($breakpoint-sm) {
@@ -136,30 +131,12 @@
 
       .#{$prefix}-button {
         width: auto;
-        margin-right: $spacing-sm;
-        margin-bottom: 0;
-
-        &:last-child {
-          margin-right: 0;
-        }
       }
     }
   }
 
   .#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
     pointer-events: none;
-  }
-
-  &--small &__inner {
-    max-width: 500px;
-  }
-
-  &--medium {
-    max-width: 800px;
-  }
-
-  &--large {
-    max-width: 1040px;
   }
 }
 

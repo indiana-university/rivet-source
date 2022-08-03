@@ -13,6 +13,9 @@
   aria-labelledby="{{ dialogTitleId }}"
   data-rvt-dialog="{{ id }}"
   {% if disablePageInteraction %}
+    data-rvt-dialog-darken-page
+  {% endif %}
+  {% if disablePageInteraction %}
     data-rvt-dialog-disable-page-interaction
   {% endif %}
   {% if modal %}
