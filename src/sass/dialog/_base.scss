@@ -102,10 +102,6 @@
     border-bottom: 1px solid $color-black-100;
   }
 
-  &--confirmation &__header {
-    border-bottom: none;
-  }
-
   &__title {
     font-size: $ts-20;
     font-weight: $font-weight-bold;
