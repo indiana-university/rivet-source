@@ -3,19 +3,6 @@
 
 @use '../core' as *;
 
-dl dt {
-  font-weight: $font-weight-bold;
-  margin-top: $spacing-sm;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-dl dd {
-  margin-left: 0;
-}
-
 .#{$prefix}-list,
 .#{$prefix}-list-inline,
 .#{$prefix}-list-plain {
@@ -51,4 +38,21 @@ dl dd {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
+}
+
+.#{$prefix}-list-description {
+  margin: 0;
+
+  :where(dt) {
+    font-weight: $font-weight-bold;
+    margin-top: $spacing-sm;
+  }
+
+  :where(dt + dt) {
+    margin-top: 0;
+  }
+
+  :where(dd) {
+    margin-left: 0;
+  }
 }

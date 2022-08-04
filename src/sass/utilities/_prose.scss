@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use '../lists';
 
 .rvt-prose {
   // Benton sans feels really compact and can benefit from a little extra
@@ -49,6 +50,10 @@
   > figure + *,
   > hr {
     --flow-space: 3rem;
+  }
+
+  > :where(dl) {
+    @extend .#{$prefix}-list-description;
   }
 
   > *:empty:not(hr) {
