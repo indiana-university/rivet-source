@@ -53,7 +53,9 @@
   }
 
   > :where(dl) {
+    /* stylelint-disable */
     @extend .#{$prefix}-list-description;
+    /* stylelint-enable */
   }
 
   > *:empty:not(hr) {

@@ -299,7 +299,7 @@ export default class Tabs extends Component {
 
       _tabActivatedEventDispatched () {
         const dispatched = Component.dispatchCustomEvent(
-          'tabActivated',
+          'TabActivated',
           this.element,
           { tab: this.panelToActivate }
         )

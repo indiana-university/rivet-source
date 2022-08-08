@@ -194,7 +194,7 @@ export default class Disclosure extends Component {
       open () {
         if (this._isDisabled()) { return }
 
-        if (!this._eventDispatched('disclosureOpened')) { return }
+        if (!this._eventDispatched('DisclosureOpened')) { return }
 
         this._setOpenState()
       },
@@ -230,7 +230,7 @@ export default class Disclosure extends Component {
       close () {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('disclosureClosed')) { return }
+        if (!this._eventDispatched('DisclosureClosed')) { return }
 
         this._setClosedState()
       },

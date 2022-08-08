@@ -14,7 +14,7 @@ import keyCodes from '../utilities/keyCodes'
  *****************************************************************************/
 
 export default class Dropdown extends Component {
-  
+
   /****************************************************************************
    * Gets the dropdown's CSS selector.
    *
@@ -173,7 +173,7 @@ export default class Dropdown extends Component {
       open () {
         if (this._toggleElementIsDisabled()) { return }
 
-        if (!this._eventDispatched('dropdownOpened')) { return }
+        if (!this._eventDispatched('DropdownOpened')) { return }
 
         this._setOpenState()
       },
@@ -210,7 +210,7 @@ export default class Dropdown extends Component {
       close () {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('dropdownClosed')) { return }
+        if (!this._eventDispatched('DropdownClosed')) { return }
 
         this._setClosedState()
       },
@@ -395,7 +395,7 @@ export default class Dropdown extends Component {
 
       _handleDownKey (event) {
         event.preventDefault()
-        
+
         if (!this._isOpen()) { this.open() }
 
         this._eventOriginatedInsideMenu(event)
