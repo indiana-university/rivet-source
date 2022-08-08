@@ -1,7 +1,7 @@
 {
   "name": "rivet-core",
   "description": "Indiana University design system",
-  "homepage": "https://v2.rivet.iu.edu",
+  "homepage": "https://rivet.iu.edu",
   "version": "2.0.0-beta.4",
   "license": "BSD-3-Clause",
   "repository": {
@@ -12,8 +12,16 @@
     "url": "https://github.com/indiana-university/rivet-source/issues",
     "email": "rivet@iu.edu"
   },
-  "main": "js/rivet-esm.js",
-  "module": "js/rivet-esm.js",
+  "main": "./js/rivet-umd.js",
+  "module": "./js/rivet-esm.js",
+  "unpkg": "./js/rivet.min.js",
+  "exports": {
+    ".": {
+      "import": "./js/rivet-esm.js",
+      "require": "./js/rivet-umd.js",
+      "default": "./js/rivet-esm.js"
+    }
+  },
   "scripts": {
     "start": "gulp",
     "build": "npm run clean && gulp release",
