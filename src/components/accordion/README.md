@@ -87,8 +87,8 @@ If you use the appropriate data attribute/id combination in your markup, accordi
 
 | Event                 | Description                                                                                                                                                                                                                                                                             |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rvt:accordionOpened` | Emitted when an accordion panel is opened (using the Accordion.open() method, or the data-rvt-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id  |
-| `rvt:accordionClosed` | Emitted when an accordion panel is closed (using the Accordion.close() method, or the data-rvt-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id |
+| `rvtAccordionOpened` | Emitted when an accordion panel is opened (using the Accordion.open() method, or the data-rvt-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id  |
+| `rvtAccordionClosed` | Emitted when an accordion panel is closed (using the Accordion.close() method, or the data-rvt-accordion-trigger attribute). The value of the accordion id attribute is also passed along via the custom event’s detail property and is available to use in your scripts as event.detail.id |
 
 ## Accessibility (a11y) requirements
 

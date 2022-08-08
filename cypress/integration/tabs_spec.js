@@ -60,21 +60,21 @@ describe('Rivet tab interactions', function () {
     cy.get('[data-rvt-tab-panel="tab-2"]').should('be.visible').should('not.have.attr', 'hidden');
   });
 
-  it('Should fire a rvt:tabActivated custom event with correct element references', function() {
+  it('Should fire a rvtTtabActivated custom event with correct element references', function() {
     cy.window().then(win => {
       var tabs = win.document.querySelector('[data-rvt-tabs="tabset-1"]');
       var eventFired = false;
       var eventTabsReference;
       var eventTabPanelReference;
-      
-      win.addEventListener('rvt:tabActivated', event => {
+
+      win.addEventListener('rvtTtabActivated', event => {
         eventFired = true;
         eventTabsReference = event.target == tabs;
         eventTabPanelReference = event.detail.tab.dataset.rvtTabPanel == 'tab-1';
       });
-      
+
       tabs.activateTab('tab-1');
-      
+
       if (!eventFired) throw new Error('Did not fire tabActivated event');
       if (!eventTabsReference) throw new Error('Did not pass correct reference to emitting tabs component element');
       if (!eventTabPanelReference) throw new Error('Did not pass correct reference to activated tab element');

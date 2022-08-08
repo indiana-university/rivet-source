@@ -101,38 +101,38 @@ describe('Rivet basic dialog interactions', function () {
     cy.get('[data-rvt-dialog="dialogExample"]').should('be.focused');
   });
 
-  it('Should fire a rvt:dialogOpened custom event with correct element references', function() {
+  it('Should fire a rvtDialogOpened custom event with correct element references', function() {
     cy.window().then(win => {
       var dialog = win.document.querySelector('[data-rvt-dialog="dialogExample"]');
       var eventFired = false;
       var eventDialogReference;
-      
-      win.addEventListener('rvt:dialogOpened', event => {
+
+      win.addEventListener('rvtDialogOpened', event => {
         eventFired = true;
         eventDialogReference = event.target == dialog;
       });
-      
+
       dialog.open();
-      
+
       if (!eventFired) throw new Error('Did not fire dialogOpened event');
       if (!eventDialogReference) throw new Error('Did not pass correct reference to emitting dialog component element');
     });
   });
 
-  it('Should fire a rvt:dialogClosed custom event with correct element references', function() {
+  it('Should fire a rvtDialogClosed custom event with correct element references', function() {
     cy.window().then(win => {
       var dialog = win.document.querySelector('[data-rvt-dialog="dialogExample"]');
       var eventFired = false;
       var eventDialogReference;
-      
-      win.addEventListener('rvt:dialogClosed', event => {
+
+      win.addEventListener('rvtDialogClosed', event => {
         eventFired = true;
         eventDialogReference = event.target == dialog;
       });
-      
+
       dialog.open();
       dialog.close();
-      
+
       if (!eventFired) throw new Error('Did not fire dialogClosed event');
       if (!eventDialogReference) throw new Error('Did not pass correct reference to emitting dialog component element');
     });

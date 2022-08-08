@@ -98,37 +98,37 @@ describe('Dropdown Interaction', function() {
       .and('not.have.attr', 'hidden');
   });
 
-  it('Should fire a rvt:dropdownOpened custom event with correct element references', function() {
+  it('Should fire a rvtDropdownOpened custom event with correct element references', function() {
     cy.window().then(win => {
       var dropdown = win.document.querySelector(DROPDOWN);
       var eventFired = false;
       var eventDropdownReference;
-      
-      win.addEventListener('rvt:dropdownOpened', event => {
+
+      win.addEventListener('rvtDropdownOpened', event => {
         eventFired = true;
         eventDropdownReference = event.target == dropdown;
       });
-      
+
       dropdown.open();
-      
+
       if (!eventFired) throw new Error('Did not fire dropdownOpened event');
       if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting dropdown component element');
     });
   });
 
-  it('Should fire a rvt:dropdownClosed custom event with correct element references', function() {
+  it('Should fire a rvtDropdownClosed custom event with correct element references', function() {
     cy.window().then(win => {
       var dropdown = win.document.querySelector(DROPDOWN);
       var eventFired = false;
       var eventDropdownReference;
-      
-      win.addEventListener('rvt:dropdownClosed', event => {
+
+      win.addEventListener('rvtDropdownClosed', event => {
         eventFired = true;
         eventDropdownReference = event.target == dropdown;
       });
-      
+
       dropdown.close();
-      
+
       if (!eventFired) throw new Error('Did not fire dropdownClosed event');
       if (!eventDropdownReference) throw new Error('Did not pass correct reference to emitting dropdown component element');
     });
