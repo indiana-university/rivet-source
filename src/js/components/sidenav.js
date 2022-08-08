@@ -13,7 +13,7 @@ import Component from './component'
  *****************************************************************************/
 
 export default class Sidenav extends Component {
-  
+
   /****************************************************************************
    * Gets the sidenav's CSS selector.
    *
@@ -251,7 +251,7 @@ export default class Sidenav extends Component {
           return
         }
 
-        if (!this._eventDispatched('sidenavListOpened', this.childMenuToOpen)) { return }
+        if (!this._eventDispatched('SidenavListOpened', this.childMenuToOpen)) { return }
 
         this._openChildMenu()
       },
@@ -299,7 +299,7 @@ export default class Sidenav extends Component {
           return
         }
 
-        if (!this._eventDispatched('sidenavListClosed', this.childMenuToClose)) { return }
+        if (!this._eventDispatched('SidenavListClosed', this.childMenuToClose)) { return }
 
         this._closeChildMenu()
       },

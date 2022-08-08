@@ -129,7 +129,7 @@ export default class Alert extends Component {
 
       _dismissEventDispatched () {
         const dispatched = Component.dispatchCustomEvent(
-          'alertDismissed',
+          'AlertDismissed',
           this.element
         )
 

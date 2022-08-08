@@ -89,7 +89,7 @@ export default class Dialog extends Component {
         this.closeButtons = Array.from(
           this.element.querySelectorAll(this.closeButtonSelector)
         )
-        
+
         this.lastClickedTriggerButton = null
       },
 
@@ -459,7 +459,7 @@ export default class Dialog extends Component {
       open () {
         if (this._isOpen()) { return }
 
-        if (!this._eventDispatched('dialogOpened')) { return }
+        if (!this._eventDispatched('DialogOpened')) { return }
 
         this._setOpenState()
         this.focusDialog()
@@ -537,7 +537,7 @@ export default class Dialog extends Component {
       close () {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('dialogClosed')) { return }
+        if (!this._eventDispatched('DialogClosed')) { return }
 
         this._setClosedState()
 
