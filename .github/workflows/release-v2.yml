@@ -2,8 +2,8 @@ name: Publish release v2.x.x
 
 on:
   push:
-    branches:
-      - '2.0.0-master'
+    tags:
+      - 'v2**'
   workflow_dispatch:
 
 jobs:
