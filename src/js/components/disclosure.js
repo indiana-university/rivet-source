@@ -46,7 +46,9 @@ export default class Disclosure extends Component {
         this._initSelectors()
         this._initElements()
         this._initProperties()
+        this._setInitialDisclosureState()
         this._removeIconFromTabOrder()
+        this._bindExternalEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
@@ -88,6 +90,26 @@ export default class Disclosure extends Component {
       },
 
       /************************************************************************
+       * Sets the initial state of the disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setInitialDisclosureState () {
+        if (this._shouldBeOpenByDefault()) { this.open() }
+      },
+
+      /************************************************************************
+       * Returns true if the disclosure should be open by default.
+       *
+       * @private
+       ***********************************************************************/
+
+      _shouldBeOpenByDefault () {
+        return this.element.hasAttribute('data-rvt-disclosure-open-on-init')
+      },
+
+      /************************************************************************
        * Removes the arrow icon from the tab order.
        *
        * @private
@@ -100,11 +122,49 @@ export default class Disclosure extends Component {
       },
 
       /************************************************************************
+       * Binds the disclosure instance to handler methods for relevant events
+       * that originate outside the component's root DOM element.
+       *
+       * @private
+       ***********************************************************************/
+
+      _bindExternalEventHandlers () {
+        this._onDocumentClick = this._onDocumentClick.bind(this)
+      },
+
+      /************************************************************************
        * Called when the disclosure is added to the DOM.
        ***********************************************************************/
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+
+        if (this._shouldAddDocumentEventHandlers()) {
+          this._addDocumentEventHandlers()
+        }
+      },
+
+      /************************************************************************
+       * Returns true if document event handlers should be added for this
+       * disclosure instance.
+       *
+       * @private
+       * @returns {boolean} Should add external event handlers
+       ***********************************************************************/
+
+      _shouldAddDocumentEventHandlers () {
+        return this.element.hasAttribute('data-rvt-close-click-outside')
+      },
+
+      /************************************************************************
+       * Adds event handlers to the document that are related to the
+       * disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addDocumentEventHandlers () {
+        document.addEventListener('click', this._onDocumentClick, false)
       },
 
       /************************************************************************
@@ -113,6 +173,18 @@ export default class Disclosure extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+
+        this._removeDocumentEventHandlers()
+      },
+
+      /************************************************************************
+       * Removes document event handlers related to the disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeDocumentEventHandlers () {
+        document.removeEventListener('click', this._onDocumentClick, false)
       },
 
       /************************************************************************
@@ -122,7 +194,7 @@ export default class Disclosure extends Component {
       open () {
         if (this._isDisabled()) { return }
 
-        if (!this._eventDispatched('disclosureOpened')) { return }
+        if (!this._eventDispatched('DisclosureOpened')) { return }
 
         this._setOpenState()
       },
@@ -158,7 +230,7 @@ export default class Disclosure extends Component {
       close () {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('disclosureClosed')) { return }
+        if (!this._eventDispatched('DisclosureClosed')) { return }
 
         this._setClosedState()
       },
@@ -227,6 +299,32 @@ export default class Disclosure extends Component {
 
       _clickOriginatedInsideDisclosureTarget (event) {
         return this.targetElement.contains(event.target)
+      },
+
+      /************************************************************************
+       * Handles click events broadcast to the document that are related to
+       * the disclosure but did not originate inside the disclosure itself.
+       *
+       * @param {Event} event - Click event
+       ***********************************************************************/
+
+      _onDocumentClick (event) {
+        if (!this._clickOriginatedOutsideDisclosure(event)) { return }
+
+        if (!this._isOpen()) { return }
+
+        this.close()
+      },
+
+      /************************************************************************
+       * Returns true if the click event originated inside the disclosure.
+       *
+       * @param {Event} event - Click event
+       * @returns {boolean} Event originated outside disclosure
+       ***********************************************************************/
+
+      _clickOriginatedOutsideDisclosure (event) {
+        return ! this.element.contains(event.target)
       },
 
       /************************************************************************

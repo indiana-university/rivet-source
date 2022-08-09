@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-timeline {
   position: relative;
@@ -14,21 +15,8 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: $spacing-xxs;
+    width: 1px;
     background: $color-black-100;
-  }
-
-  &__item::after {
-    margin-left: 0;
-    border: solid transparent;
-    content: ' ';
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-right-color: $color-black-100;
-    border-width: $spacing-sm;
-    top: .4rem;
   }
 
   &__item {
@@ -47,29 +35,31 @@
     height: $spacing-sm * .75;
     position: absolute;
     color: $color-white-base;
-    background: $color-blue-500;
+    background: $color-crimson-500;
     border-radius: 50%;
-    box-shadow: 0 0 0 $spacing-xxs $color-black-100;
-    margin-top: $spacing-sm;
+    box-shadow: 0 0 0 $spacing-xxs $color-white-base, 0 0 0 math.div($spacing-xs, 1.5) $color-black-100;
+    top: $spacing-lg;
   }
 
   &__content {
     padding: $spacing-md;
     margin-left: $spacing-lg;
     background-color: $color-white-base;
-    border-radius: $spacing-xxs;
+    border-radius: $spacing-xs;
     box-shadow: $shadow-standard;
     border: none;
   }
 
   &__heading {
-    font-size: $ts-26;
-    font-weight: $font-weight-bold;
+    font-size: $ts-23;
+    font-weight: $font-weight-regular;
   }
 
   &__date {
     font-size: $ts-14;
-    color: $color-black-400;
+    color: $color-crimson-500;
+    margin-top: $spacing-xxs;
+    display: inline-block;
   }
 }
 
@@ -105,7 +95,7 @@
       text-align: right;
       position: absolute;
       display: block;
-      top: $spacing-sm * .75;
+      top: $spacing-sm * 1.75;
       margin-left: auto;
       margin-top: auto;
       margin-right: auto;

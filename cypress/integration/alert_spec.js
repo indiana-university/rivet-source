@@ -37,20 +37,20 @@ describe('Rivet alert interactions', function () {
     cy.get('@warningAlert').should('not.exist');
   });
 
-  it('Should fire a rvt:alertDismissed custom event with correct element references', function() {
+  it('Should fire a rvtAlertDismissed custom event with correct element references', function() {
     cy.window().then(win => {
       var alert = win.document.querySelector('[data-rvt-alert="warning"]');
       var eventFired = false;
       var eventAlertReference;
-      
-      win.addEventListener('rvt:alertDismissed', event => {
+
+      win.addEventListener('rvtAlertDismissed', event => {
         eventFired = true;
         eventAlertReference = event.target == alert;
       });
-      
+
       alert.dismiss();
-      
-      if (!eventFired) throw new Error('Did not fire alertDismissed event');
+
+      if (!eventFired) throw new Error('Did not fire AlertDismissed event');
       if (!eventAlertReference) throw new Error('Did not pass correct reference to emitting alert component element');
     });
   });

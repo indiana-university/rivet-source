@@ -10,6 +10,7 @@ context:
     -
       text: "Item two"
       url: "#"
+      current: true
       children:
         -
           text: "Child item one"
@@ -40,7 +41,6 @@ context:
     -
       text: "Item three"
       url: "#"
-      current: true
     -
       text: "Item four"
       url: "#"

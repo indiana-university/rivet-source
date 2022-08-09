@@ -5,8 +5,7 @@
 @use 'sass:math';
 
 .#{$prefix} {
-  &-input[type],
-  &-input:not([type]),
+  &-input,
   &-text-input,
   &-textarea,
   &-select {
@@ -33,7 +32,7 @@
 
   &-textarea {
     height: $spacing-base * 15;
-    line-height: 1.5;
+    line-height: $line-height-base;
     overflow: auto; // Remove scrollbar in IE
   }
 

@@ -40,7 +40,7 @@ $padding: math.div(3rem, 16);
   input[type='radio'] ~ label {
     cursor: pointer;
     display: inline-block;
-    line-height: 1.5;
+    line-height: $line-height-base;
   }
 
   input[type='radio'] ~ label::before {

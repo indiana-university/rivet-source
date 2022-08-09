@@ -6,36 +6,65 @@
 @use 'sass:math';
 
 /**
- * This class gets applied to the body of the document when the modal
- * is open so that the modal scrolls but not the content of the body.
- * It's removed when the modal is closed making the body scrollable again.
+ * This class gets applied to the body of the document when a modal dialog
+ * is open so that the dialog scrolls but not the content of the body.
+ * It's removed when the dialog is closed making the body scrollable again.
  */
 
-.#{$prefix}-modal-open {
+.#{$prefix}-dialog-prevent-scroll {
   overflow: hidden;
 }
 
-.#{$prefix}-modal {
-  z-index: map.get($z-index, '1000');
-  position: fixed;
-  top: 0;
+.#{$prefix}-dialog {
+  background-color: $color-white-base;
+  border-radius: $spacing-xs;
+  box-shadow: $shadow-heavy;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba($color-black-base, .85);
-  overflow-y: scroll;
-  padding-bottom: 5rem;
+  margin: auto;
+  max-width: 37.5rem;
+  max-height: 100%;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 40%;
+  transform: translateY(-40%);
+  width: 90%;
+  z-index: map.get($z-index, '1000');
 
-  &__inner {
-    position: relative;
-    top: 5rem;
-    max-width: 600px;
-    width: 90%;
-    background-color: $color-white-base;
-    margin: 0 auto;
-    margin-bottom: 5rem;
-    border-radius: $spacing-xxs;
-    overflow: hidden;
+  &[data-#{$prefix}-dialog-darken-page] {
+    box-shadow: 0 0 0 9999px rgba($color-black-base, .85);
+  }
+
+  &[data-#{$prefix}-dialog-top-left] {
+    top: $spacing-xl;
+    left: $spacing-xl;
+    bottom: auto;
+    right: auto;
+    transform: none;
+  }
+
+  &[data-#{$prefix}-dialog-top-right] {
+    top: $spacing-xl;
+    right: $spacing-xl;
+    left: auto;
+    bottom: auto;
+    transform: none;
+  }
+
+  &[data-#{$prefix}-dialog-bottom-left] {
+    top: auto;
+    right: auto;
+    bottom: $spacing-xl;
+    left: $spacing-xl;
+    transform: none;
+  }
+
+  &[data-#{$prefix}-dialog-bottom-right] {
+    top: auto;
+    right: $spacing-xl;
+    bottom: $spacing-xl;
+    left: auto;
+    transform: none;
   }
 
   &__close {
@@ -73,10 +102,6 @@
     border-bottom: 1px solid $color-black-100;
   }
 
-  &--confirmation &__header {
-    border-bottom: none;
-  }
-
   &__title {
     font-size: $ts-20;
     font-weight: $font-weight-bold;
@@ -87,26 +112,18 @@
     padding: $spacing-sm;
   }
 
-  &--confirmation &__body {
-    text-align: center;
-  }
-
   &__controls {
     padding: $spacing-sm;
     display: flex;
     border-top: 1px solid $color-black-100;
     background-color: $color-black-000;
     flex-wrap: wrap;
+    gap: $spacing-sm;
 
     .#{$prefix}-button {
       width: 100%;
       text-align: center;
       justify-content: center;
-      margin-bottom: $spacing-sm;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
 
     @include mq($breakpoint-sm) {
@@ -114,37 +131,19 @@
 
       .#{$prefix}-button {
         width: auto;
-        margin-right: $spacing-sm;
-        margin-bottom: 0;
-
-        &:last-child {
-          margin-right: 0;
-        }
       }
     }
   }
 
-  .#{$prefix}-button[data-rvt-modal-close] > * {
+  .#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
     pointer-events: none;
-  }
-
-  &--small &__inner {
-    max-width: 500px;
-  }
-
-  &--medium {
-    max-width: 800px;
-  }
-
-  &--large {
-    max-width: 1040px;
   }
 }
 
-.#{$prefix}-modal[hidden] {
+.#{$prefix}-dialog[hidden] {
   display: none;
 }
 
-.#{$prefix}-modal:not([hidden]) {
+.#{$prefix}-dialog:not([hidden]) {
   display: block;
 }

@@ -320,7 +320,7 @@ export default class Accordion extends Component {
           return
         }
 
-        if (!this._eventDispatched('accordionOpened', this.panelToOpen)) { return }
+        if (!this._eventDispatched('AccordionOpened', this.panelToOpen)) { return }
 
         this._openPanel()
       },
@@ -379,7 +379,7 @@ export default class Accordion extends Component {
           return
         }
 
-        if (!this._eventDispatched('accordionClosed', this.panelToClose)) { return }
+        if (!this._eventDispatched('AccordionClosed', this.panelToClose)) { return }
 
         this._closePanel()
       },

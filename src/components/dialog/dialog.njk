@@ -1,0 +1,52 @@
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum hic officia amet totam esse sapiente fugit! Distinctio est ab at cum aspernatur, minima obcaecati consequuntur id eum nulla libero voluptatem?</p>
+{% render '@button', { content: buttonText, attributes: [{ label: "data-rvt-dialog-trigger", value: id }]}, true %}
+{% render '@button', { content: buttonText + ' 2', attributes: [{ label: "data-rvt-dialog-trigger", value: id }]}, true %}
+
+<div class="rvt-dialog"
+  id="{{ id }}"
+  role="dialog"
+  tabindex="-1"
+  hidden
+  aria-labelledby="{{ dialogTitleId }}"
+  data-rvt-dialog="{{ id }}"
+  {% if disablePageInteraction %}
+    data-rvt-dialog-darken-page
+  {% endif %}
+  {% if disablePageInteraction %}
+    data-rvt-dialog-disable-page-interaction
+  {% endif %}
+  {% if modal %}
+    data-rvt-dialog-modal
+  {% endif %}
+  {% for attribute in attributes %}
+    {{ attribute.label }}="{{ attribute.value }}"
+  {% endfor %}>
+  <header class="rvt-dialog__header">
+      <h1 class="rvt-dialog__title" id="{{ dialogTitleId }}">{{ dialogTitle }}</h1>
+  </header>
+  {% if form %}
+  <form id="{{ formId }}">
+    <div class="rvt-dialog__body">
+      {{ dialogBody | safe }}
+    </div>
+  </form>
+  {% else %}
+  <div class="rvt-dialog__body">
+    {{ dialogBody | safe }}
+  </div>
+  {% endif %}
+  <div class="rvt-dialog__controls">
+    {% for control in controls %}
+      {% render '@button', { content: control.text, attributes: control.attributes, modifier: control.modifier }, true %}
+    {% endfor %}
+  </div>
+  {% if not dialog %}
+  <button class="rvt-button rvt-button--plain rvt-dialog__close" data-rvt-dialog-close="{{ id }}" role="button">
+    <span class="rvt-sr-only">Close</span>
+    {% include "@includes--close" %}
+  </button>
+  {% endif %}
+</div>

@@ -9,6 +9,23 @@ const rename = require('gulp-rename')
 const rollup = require('rollup')
 const strip = require('gulp-strip-comments')
 
+async function compileUMD() {
+  try {
+    const bundle = await rollup.rollup({
+      input: './src/js/index.js',
+      plugins: [nodeResolve()]
+    });
+
+    await bundle.write({
+      file: './static/js/rivet-umd.js',
+      format: 'umd',
+      name: 'Rivet'
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 async function compileIIFE() {
   try {
     const bundle = await rollup.rollup({
@@ -53,12 +70,18 @@ async function compileESM() {
 
 // Copy JS files from 'static' to 'js'
 function distJS() {
-  return src(['./static/js/rivet-esm.js', './static/js/rivet-iife.js'], {
+  return src(['./static/js/rivet-esm.js', './static/js/rivet-iife.js', './static/js/rivet-umd.js'], {
     base: './static/js'
   }).pipe(dest('./js'));
 }
 
 // Strip out comments from JS files
+function stripUMD() {
+  return src('./js/rivet-umd.js')
+    .pipe(strip())
+    .pipe(dest('./js'));
+}
+
 function stripIIFE() {
   return src('./js/rivet-iife.js')
     .pipe(strip())
@@ -79,6 +102,10 @@ function minifyJS() {
 }
 
 function headerJS(callback) {
+  src('./js/rivet-umd.js')
+    .pipe(header(bannerText, { package: pkg }))
+    .pipe(dest('./js/'));
+
   src('./js/rivet-iife.js')
     .pipe(header(bannerText, { package: pkg }))
     .pipe(dest('./js/'));
@@ -98,9 +125,21 @@ function watchJS(callback) {
   watch(
     'src/js/**/*.js',
     { ignoreInitial: false },
-    series(compileIIFE, compileESM)
+    series(compileUMD, compileIIFE, compileESM)
   );
   callback();
 }
 
-module.exports = { compileIIFE, compileESM, distJS, stripIIFE, stripESM, minifyJS, headerJS, watchJS, transpileIIFE }
+module.exports = {
+  compileUMD,
+  compileIIFE,
+  compileESM,
+  distJS,
+  stripUMD,
+  stripIIFE,
+  stripESM,
+  minifyJS,
+  headerJS,
+  watchJS,
+  transpileIIFE
+}

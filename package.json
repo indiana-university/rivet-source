@@ -1,8 +1,8 @@
 {
   "name": "rivet-core",
   "description": "Indiana University design system",
-  "homepage": "https://v2.rivet.iu.edu",
-  "version": "2.0.0-beta.4",
+  "homepage": "https://rivet.iu.edu",
+  "version": "2.0.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -12,8 +12,16 @@
     "url": "https://github.com/indiana-university/rivet-source/issues",
     "email": "rivet@iu.edu"
   },
-  "main": "js/rivet-esm.js",
-  "module": "js/rivet-esm.js",
+  "main": "./js/rivet-umd.js",
+  "module": "./js/rivet-esm.js",
+  "unpkg": "./js/rivet.min.js",
+  "exports": {
+    ".": {
+      "import": "./js/rivet-esm.js",
+      "require": "./js/rivet-umd.js",
+      "default": "./js/rivet-esm.js"
+    }
+  },
   "scripts": {
     "start": "gulp",
     "build": "npm run clean && gulp release",
@@ -24,7 +32,7 @@
     "cypress:browser": "cypress open",
     "cypress:serve": "gulp headless",
     "cypress:test": "cypress run",
-    "clean": "rm -rf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
+    "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build",
     "lint": "standard 'src/js'"
   },
@@ -59,8 +67,10 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-stylelint": "^13.0.0",
     "gulp-terser": "^1.2.0",
+    "inert-polyfill": "^0.2.5",
     "postcss": "^8.3.11",
     "postcss-scss": "^2.0.0",
+    "rimraf": "^3.0.2",
     "rollup": "^1.26.5",
     "sass": "^1.49.0",
     "standard": "^16.0.4",

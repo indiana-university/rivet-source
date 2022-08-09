@@ -93,8 +93,8 @@
       text-align: left;
 
       &:hover {
-        background-color: $color-blue-500;
-        color: $color-white-base;
+        background-color: $color-blue-000;
+        color: $color-blue-500;
         text-decoration: none;
       }
 
@@ -106,7 +106,13 @@
       &.#{$prefix}-is-selected,
       &[aria-current],
       &[aria-checked='true'] {
-        box-shadow: inset $spacing-xxs 0 0 $color-blue-500;
+        box-shadow: inset $spacing-xxs 0 0 $color-crimson-500;
+        background-color: $color-orange-000;
+        color: $color-crimson-500;
+
+        &:hover {
+          color: $color-crimson-500;
+        }
 
         &:focus {
           /* stylelint-disable */
