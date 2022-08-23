@@ -177,22 +177,26 @@ var Tabs = (function() {
 
     switch (event.keyCode) {
       case KEYS.right:
+        event.preventDefault()
         !tabs[nextTab] ?
           tabs[0].focus() :
           tabs[nextTab].focus();
 
         break;
       case KEYS.left:
+        event.preventDefault()
         !tabs[prevTab] ?
           tabs[tabs.length - 1].focus() :
           tabs[prevTab].focus();
 
         break;
       case KEYS.end:
+        event.preventDefault()
         tabs[tabs.length - 1].focus();
 
         break;
       case KEYS.home:
+        event.preventDefault()
         tabs[0].focus();
 
         break;

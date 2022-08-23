@@ -86,6 +86,10 @@ var Dropdown = (function() {
     // eslint-disable-next-line no-undef
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
 
+    // Focus first menu item
+    var menuItems = _setUpMenu(menu);
+    menuItems.first.focus();
+
     // Execute supplied callback function if it exists
     if (callback && typeof callback === 'function') {
       callback();
@@ -278,6 +282,7 @@ var Dropdown = (function() {
     switch (event.keyCode) {
       // Handle down key
       case KEYS.down:
+        event.preventDefault()
         var toggle = event.target.closest('[' + TOGGLE_ATTR + ']');
 
         /**
@@ -335,6 +340,8 @@ var Dropdown = (function() {
          * TODO: This needs to be refactored into something reusable - lots of
          * repetition here.
          */
+
+        event.preventDefault()
 
         // Handle up arrow key when inside the open menu.
         if (event.target.closest('#' + activeMenu) !== null) {
