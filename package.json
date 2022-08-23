@@ -30,14 +30,14 @@
     "index.html"
   ],
   "devDependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "1.9.1",
     "@actions/github": "^4.0.0",
-    "@frctl/fractal": "^1.2.0-beta.2",
-    "@frctl/mandelbrot": "^1.2.1",
+    "@frctl/fractal": "1.5.14",
+    "@frctl/mandelbrot": "1.10.2",
     "@frctl/nunjucks": "^2.0.1",
     "@octokit/rest": "^18.2.1",
     "autoprefixer": "^7.1.2",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "2.27.10",
     "chai": "^4.1.2",
     "cypress": "^3.4.1",
     "eslint-config-rivet": "^1.0.0",
