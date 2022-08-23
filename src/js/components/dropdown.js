@@ -86,6 +86,10 @@ var Dropdown = (function() {
     // eslint-disable-next-line no-undef
     fireCustomEvent(toggle, TOGGLE_ATTR, 'dropdownOpen');
 
+    // Focus first menu item
+    var menuItems = _setUpMenu(menu);
+    menuItems.first.focus();
+
     // Execute supplied callback function if it exists
     if (callback && typeof callback === 'function') {
       callback();
