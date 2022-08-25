@@ -77,6 +77,7 @@ variants:
       title: 'Heading and buttons'
       id: 'dropdownHeadingButtons'
       buttons: true
+      externalButton: true
       items:
         - text: 'Notify all'
           attributes:

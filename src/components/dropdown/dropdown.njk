@@ -45,3 +45,15 @@
   {% endif %}
   </div>
 </div>
+
+{% if externalButton %}
+  <button class="rvt-button rvt-button--secondary" data-trigger-dropdown>Trigger dropdown .open()</button>
+  <script>
+    const externalButton = document.querySelector('[data-trigger-dropdown]')
+    const dropdown = document.querySelector('[data-rvt-dropdown]')
+
+    externalButton.addEventListener('click', event => {
+      dropdown.open()
+    })
+  </script>
+{% endif %}
