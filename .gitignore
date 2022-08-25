@@ -7,7 +7,6 @@ static
 .vscode
 cypress/videos
 cypress/screenshots
-.npmrc
 .env
 *.tgz
 
