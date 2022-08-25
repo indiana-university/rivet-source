@@ -47,7 +47,7 @@
 </div>
 
 {% if externalButton %}
-  <button class="rvt-button rvt-button--secondary" data-trigger-dropdown>Trigger dropdown .open()</button>
+  <button class="rvt-button rvt-button--secondary" data-trigger-dropdown data-rvt-dropdown-toggle="{{ id }}">Trigger dropdown .open()</button>
   <script>
     const externalButton = document.querySelector('[data-trigger-dropdown]')
     const dropdown = document.querySelector('[data-rvt-dropdown]')

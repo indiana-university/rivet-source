@@ -75,7 +75,12 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _initElements () {
-        this.toggleElement = this.element.querySelector(this.toggleSelector)
+        this.toggleElements = Array.from(
+          document.querySelectorAll(this.toggleSelector)
+        )
+        
+        this.primaryToggleElement = this.toggleElements[0]
+        this.externalToggleElements = this.toggleElements.slice(1)
         this.menuElement = this.element.querySelector(this.menuSelector)
       },
 
@@ -186,7 +191,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _toggleElementIsDisabled () {
-        return this.toggleElement.hasAttribute('disabled')
+        return this.primaryToggleElement.hasAttribute('disabled')
       },
 
       /************************************************************************
@@ -196,7 +201,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _setOpenState () {
-        this.toggleElement.setAttribute('aria-expanded', 'true')
+        this.primaryToggleElement.setAttribute('aria-expanded', 'true')
         this.menuElement.removeAttribute('hidden')
         this.firstMenuItem.focus()
 
@@ -233,7 +238,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _setClosedState () {
-        this.toggleElement.setAttribute('aria-expanded', 'false')
+        this.primaryToggleElement.setAttribute('aria-expanded', 'false')
         this.menuElement.setAttribute('hidden', '')
 
         this.isOpen = false
@@ -290,6 +295,8 @@ export default class Dropdown extends Component {
       _onDocumentClick (event) {
         if (!this._clickOriginatedOutsideDropdown(event)) { return }
 
+        if (this._clickOriginatedInExternalToggleElement(event)) { return }
+
         if (!this._isOpen()) { return }
 
         this.close()
@@ -304,6 +311,18 @@ export default class Dropdown extends Component {
 
       _clickOriginatedOutsideDropdown (event) {
         return ! this.element.contains(event.target)
+      },
+
+      /************************************************************************
+       * Returns true if the click event originated inside an external toggle
+       * button associated with the dropdown.
+       *
+       * @param {Event} event - Click event
+       * @returns {boolean} Event originated inside external toggle button
+       ***********************************************************************/
+
+      _clickOriginatedInExternalToggleElement(event) {
+        return this.externalToggleElements.some(el => el == event.target)
       },
 
       /************************************************************************
@@ -340,7 +359,7 @@ export default class Dropdown extends Component {
 
       _handleEscapeKey () {
         this.close()
-        this.toggleElement.focus()
+        this.primaryToggleElement.focus()
       },
 
       /************************************************************************
