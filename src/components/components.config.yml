@@ -20,6 +20,7 @@ context:
         -
           text: "Sub Three"
           url: "#"
+          current: true
         -
           text: "Sub Three"
           url: "#"

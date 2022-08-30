@@ -238,8 +238,11 @@
     }
 
     &__submenu a:hover {
-      background-color: $color-blue-500;
-      color: $color-white-base;
+      // These styles are marked !important to override the dropdown component's
+      // default styles for navigation items marked aria-current
+      background-color: $color-blue-500 !important;
+      color: $color-white-base !important;
+      box-shadow: none !important; 
     }
 
     &__submenu-item {

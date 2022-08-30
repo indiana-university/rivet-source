@@ -26,7 +26,7 @@
           <!-- Dropdown links -->
           {% for subItem in navItem.children %}
           <li class="rvt-header-menu__submenu-item">
-            <a class="rvt-header-menu__submenu-link" href="{{ subItem.url }}">{{ subItem.text }}</a>
+            <a class="rvt-header-menu__submenu-link" href="{{ subItem.url }}" {% if subItem.current %}aria-current="page"{% endif %}>{{ subItem.text }}</a>
           </li>
           {% endfor %}
           
