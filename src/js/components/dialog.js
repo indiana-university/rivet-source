@@ -332,8 +332,15 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _clickOriginatedInsideDialogOrTrigger (event) {
-        return this.element.contains(event.target) ||
-               event.target.closest(this.triggerSelector)
+
+        // This method uses event.path.some() to walk up the DOM tree to
+        // determine if the event target was within the dialog instead of
+        // this.element.contains(). It does so to prevent this method from
+        // returning a false negative if a click event originating inside
+        // the dialog removed its target from the DOM.
+
+        return event.target.closest(this.triggerSelector) ||
+               event.path.some(el => el.dataset && 'rvtDialog' in el.dataset)
       },
 
       /************************************************************************
