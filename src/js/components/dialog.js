@@ -340,7 +340,7 @@ export default class Dialog extends Component {
         // the dialog removed its target from the DOM.
 
         return event.target.closest(this.triggerSelector) ||
-               event.path.some(el => el.dataset && 'rvtDialog' in el.dataset)
+               event.composedPath().some(el => el.dataset && 'rvtDialog' in el.dataset)
       },
 
       /************************************************************************
