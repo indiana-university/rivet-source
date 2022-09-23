@@ -1,5 +1,6 @@
 @use '../core' as *;
 @use '../lists';
+@use '../utilities/elements';
 
 .rvt-prose {
   // Benton sans feels really compact and can benefit from a little extra
@@ -55,6 +56,12 @@
   > :where(dl) {
     /* stylelint-disable */
     @extend .#{$prefix}-list-description;
+    /* stylelint-enable */
+  }
+
+  :where(code) {
+    /* stylelint-disable */
+    @extend .#{$prefix}-code;
     /* stylelint-enable */
   }
 
