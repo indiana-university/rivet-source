@@ -9,6 +9,9 @@
     "serif": {
       "value": "'GeorgiaPro', Georgia, 'Times New Roman', Times, serif"
     },
+    "mono": {
+      "value": "monospace"
+    },
     "weight": {
       "bold": {
         "value": "700"
