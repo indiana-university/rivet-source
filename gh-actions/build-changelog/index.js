@@ -6,7 +6,7 @@ async function run() {
     const myToken = core.getInput('GITHUB_TOKEN');
     const tag = core.getInput('tag_name', { required: true });
     const label = tag.substr(10, tag.length - 1);
-    const query = `type:pr+label:${label}`;
+    const query = `repo:indiana-university/rivet-source+type:pr+label:${label}`;
     const octokit = new GitHub(myToken);
 
     const { data: pullRequest } = await octokit.search.issuesAndPullRequests({
