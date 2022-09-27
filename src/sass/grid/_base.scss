@@ -122,6 +122,7 @@ $gutter: math.div($spacing-md, 2);
      * big for their parent .#{$prefix}-row__cols.
      */
     min-width: 0;
+    display: block;
   }
 }
 
