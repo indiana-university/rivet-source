@@ -50,3 +50,27 @@
 .#{$prefix}-border-radius-circle {
   border-radius: 999rem !important;
 }
+
+.#{$prefix}-border-color-blue {
+  border-color: $color-blue-100 !important;
+}
+
+.#{$prefix}-border-color-crimson {
+  border-color: $color-crimson-100 !important;
+}
+
+.#{$prefix}-border-color-gold {
+  border-color: $color-gold-100 !important;
+}
+
+.#{$prefix}-border-color-green {
+  border-color: $color-green-100 !important;
+}
+
+.#{$prefix}-border-color-orange {
+  border-color: $color-orange-100 !important;
+}
+
+.#{$prefix}-border-color-purple {
+  border-color: $color-purple-100 !important;
+}
