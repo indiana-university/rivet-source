@@ -26,8 +26,6 @@
     "start": "gulp",
     "build": "npm run clean && gulp release",
     "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
-    "fix:css": "stylelint 'src/sass/**/*.scss' --fix",
-    "fix:js": "standard 'src/js' --fix",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build",
     "lint": "standard 'src/js'"
