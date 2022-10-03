@@ -54,7 +54,7 @@
     "faker": "^5.5.3",
     "inert-polyfill": "^0.2.5",
     "rimraf": "^3.0.2",
-    "rollup": "^1.26.5",
+    "rollup": "^2.79.1",
     "sass": "^1.49.0",
     "standard": "^16.0.4",
     "start-server-and-test": "^1.10.6",
