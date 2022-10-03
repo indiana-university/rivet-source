@@ -53,8 +53,6 @@
     "browser-sync": "^2.27.7",
     "faker": "^5.5.3",
     "inert-polyfill": "^0.2.5",
-    "postcss": "^8.3.11",
-    "postcss-scss": "^2.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^1.26.5",
     "sass": "^1.49.0",
