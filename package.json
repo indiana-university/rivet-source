@@ -53,6 +53,7 @@
     "autoprefixer": "^7.1.2",
     "browser-sync": "^2.27.7",
     "faker": "^5.5.3",
+    "fs-jetpack": "^5.0.0",
     "inert-polyfill": "^0.2.5",
     "rimraf": "^3.0.2",
     "rollup": "^2.79.1",
