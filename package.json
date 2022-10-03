@@ -28,10 +28,6 @@
     "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html",
     "fix:css": "stylelint 'src/sass/**/*.scss' --fix",
     "fix:js": "standard 'src/js' --fix",
-    "test": "start-server-and-test cypress:serve http://localhost:3000 cypress:test",
-    "cypress:browser": "cypress open",
-    "cypress:serve": "gulp headless",
-    "cypress:test": "cypress run",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "prepublishOnly": "npm run build",
     "lint": "standard 'src/js'"
@@ -55,7 +51,6 @@
     "@rollup/plugin-node-resolve": "^11.2.0",
     "autoprefixer": "^7.1.2",
     "browser-sync": "^2.27.7",
-    "cypress": "^9.0.0",
     "faker": "^5.5.3",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
