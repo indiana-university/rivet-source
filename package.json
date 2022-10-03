@@ -60,9 +60,7 @@
     "sass": "^1.49.0",
     "standard": "^16.0.4",
     "start-server-and-test": "^1.10.6",
-    "style-dictionary": "^3.1.1",
-    "stylelint": "^14.0.1",
-    "stylelint-config-rivet-scss": "^1.0.1"
+    "style-dictionary": "^3.1.1"
   },
   "dependencies": {
     "uninstall": "0.0.0",
