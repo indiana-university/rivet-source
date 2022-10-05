@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "npm-run-all clean set-node-env compile-tokens compile-sass compile-js dist-css dist-sass dist-js",
+    "build": "npm-run-all clean set-node-env compile-tokens compile-sass compile-js dist-css dist-sass dist-js move-example",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "set-node-env": "node ./tasks/set-node-env.js",
     "compile-tokens": "node ./tasks/compile-tokens.js",
