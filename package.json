@@ -32,6 +32,7 @@
     "compile-js": "node ./tasks/compile-js.js",
     "dist-css": "node ./tasks/dist-css.js",
     "dist-js": "node ./tasks/dist-js.js",
+    "move-example": "node ./tasks/move-example.js",
     "lint": "standard 'src/js'",
     "asset:upload": "npm run clean && gulp release && zip -r rivet-gh-release.zip css js sass tokens index.html"
   },
