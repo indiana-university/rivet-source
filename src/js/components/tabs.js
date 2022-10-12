@@ -56,8 +56,8 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _initSelectors () {
-        this.tabAttribute = `data-rvt-tab`
-        this.panelAttribute = `data-rvt-tab-panel`
+        this.tabAttribute = 'data-rvt-tab'
+        this.panelAttribute = 'data-rvt-tab-panel'
 
         this.tabSelector = `[${this.tabAttribute}]`
         this.panelSelector = `[${this.panelAttribute}]`

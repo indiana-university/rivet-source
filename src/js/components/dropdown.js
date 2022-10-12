@@ -60,7 +60,7 @@ export default class Dropdown extends Component {
        * @private
        ***********************************************************************/
 
-       _initSelectors () {
+      _initSelectors () {
         this.toggleAttribute = 'data-rvt-dropdown-toggle'
         this.menuAttribute = 'data-rvt-dropdown-menu'
 
@@ -101,8 +101,6 @@ export default class Dropdown extends Component {
         this.menuItems = Array.from(this.menuElement.querySelectorAll(focusableElements))
         this.firstMenuItem = this.menuItems[0]
         this.lastMenuItem = this.menuItems[this.menuItems.length - 1]
-
-        console.log(this.menuItems)
       },
 
       /************************************************************************
@@ -307,7 +305,7 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _clickOriginatedOutsideDropdown (event) {
-        return ! this.element.contains(event.target)
+        return !this.element.contains(event.target)
       },
 
       /************************************************************************
