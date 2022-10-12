@@ -125,4 +125,32 @@ export default class Component {
       component: element
     })
   }
+
+  /****************************************************************************
+   * Watches the component's DOM and updates references to child elements
+   * if the DOM changes.
+   *
+   * @static
+   * @param {Object} self - Component instance
+   ***************************************************************************/
+
+  static watchForDOMChanges (self) {
+    self.observer = new MutationObserver((mutationList, observer) => {
+      self._initElements()
+    })
+
+    self.observer.observe(self.element, { childList: true, subtree: true })
+  }
+
+  /****************************************************************************
+   * Stop watching the component's DOM for changes.
+   *
+   * @static
+   * @param {Object} self - Component instance
+   ***************************************************************************/
+
+  static stopWatchingForDOMChanges (self) {
+    self.observer.disconnect()
+  }
+
 }

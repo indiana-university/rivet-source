@@ -148,23 +148,7 @@ export default class Accordion extends Component {
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
-
-        this._watchForDOMChanges()
-      },
-
-      /************************************************************************
-       * Watches the component's DOM and updates references to child elements
-       * if the DOM changes.
-       *
-       * @private
-       ***********************************************************************/
-
-      _watchForDOMChanges () {
-        this.observer = new MutationObserver((mutationList, observer) => {
-          this._initElements()
-        })
-
-        this.observer.observe(this.element, { childList: true, subtree: true })
+        Component.watchForDOMChanges(self)
       },
 
       /************************************************************************
@@ -173,18 +157,7 @@ export default class Accordion extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
-
-        this._stopWatchingForDOMChanges()
-      },
-
-      /************************************************************************
-       * Stop watching the component's DOM for changes.
-       *
-       * @private
-       ***********************************************************************/
-
-      _stopWatchingForDOMChanges () {
-        this.observer.disconnect()
+        Component.stopWatchingForDOMChanges(self)
       },
 
       /************************************************************************
