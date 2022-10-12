@@ -148,6 +148,7 @@ export default class Dialog extends Component {
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+        Component.watchForDOMChanges(this)
 
         this._addTriggerEventHandlers()
         this._addDocumentEventHandlers()
@@ -209,6 +210,7 @@ export default class Dialog extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+        Component.stopWatchingForDOMChanges(this)
 
         this._removeTriggerEventHandlers()
         this._removeDocumentEventHandlers()

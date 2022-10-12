@@ -132,6 +132,7 @@ export default class Dropdown extends Component {
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+        Component.watchForDOMChanges(this)
 
         this._addDocumentEventHandlers()
       },
@@ -152,6 +153,7 @@ export default class Dropdown extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+        Component.stopWatchingForDOMChanges(this)
 
         this._removeDocumentEventHandlers()
       },
