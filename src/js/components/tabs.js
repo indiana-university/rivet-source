@@ -84,7 +84,23 @@ export default class Tabs extends Component {
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
 
+        this._watchForDOMChanges()
         this._activateInitialTab()
+      },
+
+      /************************************************************************
+       * Watches the component's DOM and updates references to child elements
+       * if the DOM changes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _watchForDOMChanges () {
+        this.observer = new MutationObserver((mutationList, observer) => {
+          this._initElements()
+        })
+
+        this.observer.observe(this.element, { childList: true, subtree: true })
       },
 
       /************************************************************************
@@ -109,6 +125,18 @@ export default class Tabs extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+
+        this._stopWatchingForDOMChanges()
+      },
+
+      /************************************************************************
+       * Stop watching the component's DOM for changes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _stopWatchingForDOMChanges () {
+        this.observer.disconnect()
       },
 
       /************************************************************************
