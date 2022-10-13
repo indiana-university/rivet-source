@@ -16,109 +16,99 @@ const { terser } = require('rollup-plugin-terser')
  *****************************************************************************/
 
 async function compile() {
-  try {
 
-    /**************************************************************************
-     * Define output file paths.
-     *************************************************************************/
+  /**************************************************************************
+   * Define output file paths.
+   *************************************************************************/
 
-    const umd = './static/js/rivet-umd.js'
-    const esm = './static/js/rivet-esm.js'
-    const iife = './static/js/rivet-iife.js'
-    const min = './static/js/rivet.min.js'
+  const umd = './static/js/rivet-umd.js'
+  const esm = './static/js/rivet-esm.js'
+  const iife = './static/js/rivet-iife.js'
+  const min = './static/js/rivet.min.js'
 
-    /**************************************************************************
-     * Bundle, minify, and add license text to JS files.
-     *************************************************************************/
+  /**************************************************************************
+   * Bundle, minify, and add license text to JS files.
+   *************************************************************************/
 
-    const bundle = await rollup.rollup({
-      input: './src/js/index.js',
-      plugins: [ nodeResolve() ]
-    })
+  const bundle = await rollup.rollup({
+    input: './src/js/index.js',
+    plugins: [ nodeResolve() ]
+  })
 
-    /**************************************************************************
-     * Compile UMD module.
-     *************************************************************************/
+  /**************************************************************************
+   * Compile UMD module.
+   *************************************************************************/
 
-    console.log('Compiling UMD module...')
-  
-    await bundle.write({
-      file: umd,
-      format: 'umd',
-      name: 'Rivet'
-    })
+  console.log('Compiling UMD module...')
 
-    /**************************************************************************
-     * Compile ES module.
-     *************************************************************************/
+  await bundle.write({
+    file: umd,
+    format: 'umd',
+    name: 'Rivet'
+  })
 
-    console.log('Compiling ES module...')
+  /**************************************************************************
+   * Compile ES module.
+   *************************************************************************/
 
-    await bundle.write({
-      file: esm,
-      format: 'es',
-      name: 'Rivet'
-    })
+  console.log('Compiling ES module...')
 
-    /**************************************************************************
-     * Compile IIFE.
-     *************************************************************************/
+  await bundle.write({
+    file: esm,
+    format: 'es',
+    name: 'Rivet'
+  })
 
-    console.log('Compiling IIFE...')
+  /**************************************************************************
+   * Compile IIFE.
+   *************************************************************************/
 
-    await bundle.write({
-      file: iife,
-      format: 'iife',
-      name: 'Rivet',
-      plugins: [
-        getBabelOutputPlugin({
-          presets: ['@babel/preset-env'],
-          allowAllFormats: true
-        })
-      ]
-    })
+  console.log('Compiling IIFE...')
 
-    /**************************************************************************
-     * Compile minified IIFE.
-     *************************************************************************/
+  await bundle.write({
+    file: iife,
+    format: 'iife',
+    name: 'Rivet',
+    plugins: [
+      getBabelOutputPlugin({
+        presets: ['@babel/preset-env'],
+        allowAllFormats: true
+      })
+    ]
+  })
 
-    console.log('Compiling minified IIFE...')
+  /**************************************************************************
+   * Compile minified IIFE.
+   *************************************************************************/
 
-    await bundle.write({
-      file: min,
-      format: 'iife',
-      name: 'Rivet',
-      plugins: [
-        getBabelOutputPlugin({
-          presets: ['@babel/preset-env'],
-          allowAllFormats: true
-        }),
-        terser({
-          format: {
-            comments: false
-          }
-        })
-      ]
-    })
+  console.log('Compiling minified IIFE...')
 
-    /**************************************************************************
-     * Prepend license text to each compiled JS file.
-     *************************************************************************/
+  await bundle.write({
+    file: min,
+    format: 'iife',
+    name: 'Rivet',
+    plugins: [
+      getBabelOutputPlugin({
+        presets: ['@babel/preset-env'],
+        allowAllFormats: true
+      }),
+      terser({
+        format: {
+          comments: false
+        }
+      })
+    ]
+  })
 
-    jetpack.write(umd, license + jetpack.read(umd))
-    jetpack.write(esm, license + jetpack.read(esm))
-    jetpack.write(iife, license + jetpack.read(iife))
-    jetpack.write(min, license + jetpack.read(min))
+  /**************************************************************************
+   * Prepend license text to each compiled JS file.
+   *************************************************************************/
 
-  } catch (error) {
+  jetpack.write(umd, license + jetpack.read(umd))
+  jetpack.write(esm, license + jetpack.read(esm))
+  jetpack.write(iife, license + jetpack.read(iife))
+  jetpack.write(min, license + jetpack.read(min))
 
-    /**************************************************************************
-     * Throw exception if compilation fails.
-     *************************************************************************/
-
-    throw new Error(error)
-
-  }
 }
 
 /******************************************************************************
