@@ -7,6 +7,7 @@ const license = require('./license')
 const jetpack = require('fs-jetpack')
 const rollup = require('rollup')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const { getBabelOutputPlugin } = require('@rollup/plugin-babel')
 const { terser } = require('rollup-plugin-terser')
 
 /******************************************************************************
@@ -68,7 +69,13 @@ async function compile() {
     await bundle.write({
       file: iife,
       format: 'iife',
-      name: 'Rivet'
+      name: 'Rivet',
+      plugins: [
+        getBabelOutputPlugin({
+          presets: ['@babel/preset-env'],
+          allowAllFormats: true
+        })
+      ]
     })
 
     /**************************************************************************
@@ -82,6 +89,10 @@ async function compile() {
       format: 'iife',
       name: 'Rivet',
       plugins: [
+        getBabelOutputPlugin({
+          presets: ['@babel/preset-env'],
+          allowAllFormats: true
+        }),
         terser({
           format: {
             comments: false
