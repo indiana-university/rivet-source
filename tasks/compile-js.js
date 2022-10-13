@@ -4,6 +4,7 @@
  *****************************************************************************/
 
 const license = require('./license')
+const jetpack = require('fs-jetpack')
 const rollup = require('rollup')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const { terser } = require('rollup-plugin-terser')
@@ -17,20 +18,21 @@ async function compile() {
   try {
 
     /**************************************************************************
+     * Define output file paths.
+     *************************************************************************/
+
+    const umd = './static/js/rivet-umd.js'
+    const esm = './static/js/rivet-esm.js'
+    const iife = './static/js/rivet-iife.js'
+    const min = './static/js/rivet.min.js'
+
+    /**************************************************************************
      * Bundle, minify, and add license text to JS files.
      *************************************************************************/
 
     const bundle = await rollup.rollup({
       input: './src/js/index.js',
-      plugins: [
-        nodeResolve(),
-        terser({
-          format: {
-            comments: false,
-            preamble: license
-          }
-        })
-      ]
+      plugins: [ nodeResolve() ]
     })
 
     /**************************************************************************
@@ -40,20 +42,8 @@ async function compile() {
     console.log('Compiling UMD module...')
   
     await bundle.write({
-      file: './static/js/rivet-umd.js',
+      file: umd,
       format: 'umd',
-      name: 'Rivet'
-    })
-
-    /**************************************************************************
-     * Compile IIFE.
-     *************************************************************************/
-
-    console.log('Compiling IIFE...')
-
-    await bundle.write({
-      file: './static/js/rivet-iife.js',
-      format: 'iife',
       name: 'Rivet'
     })
 
@@ -64,10 +54,50 @@ async function compile() {
     console.log('Compiling ES module...')
 
     await bundle.write({
-      file: './static/js/rivet-esm.js',
+      file: esm,
       format: 'es',
       name: 'Rivet'
     })
+
+    /**************************************************************************
+     * Compile IIFE.
+     *************************************************************************/
+
+    console.log('Compiling IIFE...')
+
+    await bundle.write({
+      file: iife,
+      format: 'iife',
+      name: 'Rivet'
+    })
+
+    /**************************************************************************
+     * Compile minified IIFE.
+     *************************************************************************/
+
+    console.log('Compiling minified IIFE...')
+
+    await bundle.write({
+      file: min,
+      format: 'iife',
+      name: 'Rivet',
+      plugins: [
+        terser({
+          format: {
+            comments: false
+          }
+        })
+      ]
+    })
+
+    /**************************************************************************
+     * Prepend license text to each compiled JS file.
+     *************************************************************************/
+
+    jetpack.write(umd, license + jetpack.read(umd))
+    jetpack.write(esm, license + jetpack.read(esm))
+    jetpack.write(iife, license + jetpack.read(iife))
+    jetpack.write(min, license + jetpack.read(min))
 
   } catch (error) {
 

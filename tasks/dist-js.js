@@ -26,7 +26,7 @@ jetpack.copy('./static/js/rivet-esm.js', './js/rivet-esm.js', { overwrite: true 
 jetpack.copy('./static/js/rivet-iife.js', './js/rivet-iife.js', { overwrite: true })
 
 /******************************************************************************
- * Copy IIFE to distribution folder as rivet.min.js.
+ * Copy minified JS to distribution folder.
  *****************************************************************************/
 
-jetpack.copy('./static/js/rivet-iife.js', './js/rivet.min.js', { overwrite: true })
+jetpack.copy('./static/js/rivet.min.js', './js/rivet.min.js', { overwrite: true })
