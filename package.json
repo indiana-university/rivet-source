@@ -25,8 +25,7 @@
   "scripts": {
     "build": "npm-run-all clean compile-tokens compile-sass compile-js dist-css dist-sass dist-js move-example",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
-    "compile-tokens": "node ./tasks/compile-tokens.js --production",
-    "compile-tokens-dev": "node ./tasks/compile-tokens.js",
+    "compile-tokens": "node ./tasks/compile-tokens.js",
     "compile-sass": "node ./tasks/compile-sass.js",
     "compile-js": "node ./tasks/compile-js.js",
     "dist-sass": "node ./tasks/dist-sass.js",
