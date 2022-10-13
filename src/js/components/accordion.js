@@ -148,6 +148,7 @@ export default class Accordion extends Component {
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+        Component.watchForDOMChanges(this)
       },
 
       /************************************************************************
@@ -156,6 +157,7 @@ export default class Accordion extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+        Component.stopWatchingForDOMChanges(this)
       },
 
       /************************************************************************

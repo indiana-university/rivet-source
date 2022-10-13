@@ -56,8 +56,8 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _initSelectors () {
-        this.tabAttribute = `data-rvt-tab`
-        this.panelAttribute = `data-rvt-tab-panel`
+        this.tabAttribute = 'data-rvt-tab'
+        this.panelAttribute = 'data-rvt-tab-panel'
 
         this.tabSelector = `[${this.tabAttribute}]`
         this.panelSelector = `[${this.panelAttribute}]`
@@ -83,6 +83,7 @@ export default class Tabs extends Component {
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
+        Component.watchForDOMChanges(this)
 
         this._activateInitialTab()
       },
@@ -109,6 +110,7 @@ export default class Tabs extends Component {
 
       disconnected () {
         Component.dispatchComponentRemovedEvent(this.element)
+        Component.stopWatchingForDOMChanges(this)
       },
 
       /************************************************************************
