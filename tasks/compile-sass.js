@@ -27,7 +27,7 @@ const minifiedCss = sass.compile('./src/sass/rivet.scss', { style: 'compressed' 
  * Add prefixes and license to non-minified CSS.
  *****************************************************************************/
 
-postcss([autoprefixer]).process(expandedCss.css).then(result => {
+postcss([autoprefixer]).process(expandedCss.css, { from: undefined }).then(result => {
   jetpack.write('./static/css/rivet.css', license + ' ' + result.css)
 })
 
@@ -35,6 +35,6 @@ postcss([autoprefixer]).process(expandedCss.css).then(result => {
  * Add prefixes and license to minified CSS.
  *****************************************************************************/
 
-postcss([autoprefixer]).process(minifiedCss.css).then(result => {
+postcss([autoprefixer]).process(minifiedCss.css, { from: undefined }).then(result => {
   jetpack.write('./static/css/rivet.min.css', license + ' ' + result.css)
 })
