@@ -2,10 +2,59 @@
 
 <ul class="rvt-list-plain">
   {% for border in borders %}
+  <!-- Gray -->
   <li class="rvt-m-top-md">
-    <div class="rvt-border-{{ border }} rvt-p-all-md {% if border == 'radius' %} rvt-bg-crimson-500 rvt-color-white{% endif %}">
+    <div class="rvt-border-{{ border }} rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
       <span>Border {{ border }}</span>
     </div>
   </li>
+
+  <!-- Blue -->
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-{{ border }} rvt-border-color-blue rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Border {{ border }} blue</span>
+    </div>
+  </li>
+
+  <!-- Crimson -->
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-{{ border }} rvt-border-color-crimson rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Border {{ border }} crimson</span>
+    </div>
+  </li>
+
+  <!-- Gold -->
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-{{ border }} rvt-border-color-gold rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Border {{ border }} gold</span>
+    </div>
+  </li>
+
+  <!-- Green -->
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-{{ border }} rvt-border-color-green rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Border {{ border }} green</span>
+    </div>
+  </li>
+
+  <!-- Orange -->
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-{{ border }} rvt-border-color-orange rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Border {{ border }} orange</span>
+    </div>
+  </li>
+
+  <!-- Purple -->
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-{{ border }} rvt-border-color-purple rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Border {{ border }} purple</span>
+    </div>
+  </li>
   {% endfor %}
+
+  <li class="rvt-m-top-md">
+    <div class="rvt-border-all rvt-border-radius rvt-border-color-green rvt-bg-green-000 rvt-p-all-md {% if border == 'radius' %} rvt-bg-black-100{% endif %}">
+      <span>Test green border box</span>
+    </div>
+  </li>
 </ul>

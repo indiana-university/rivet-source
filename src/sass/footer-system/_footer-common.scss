@@ -8,12 +8,4 @@
   a:focus {
     outline-color: $color-white-base;
   }
-
-  a.#{$prefix}-button:focus {
-    box-shadow: 0 0 0 .125rem $color-crimson-500, 0 0 0 $spacing-xxs $color-white-base;
-  }
-
-  a.#{$prefix}-button:hover {
-    background-color: $color-blue-500;
-  }
 }
