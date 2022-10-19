@@ -8,11 +8,12 @@
   }
 
   &-code {
+    color: $color-crimson-400;
+    font-size: $ts-16;
     font-family: monospace;
-    background-color: $color-black-100;
+    background-color: $color-black-000;
     display: inline-block;
     padding: .125rem .25rem;
-    color: $color-blue-500;
     border-radius: $spacing-xxs;
   }
 
