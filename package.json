@@ -43,6 +43,7 @@
     "index.html"
   ],
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
     "@actions/core": "^1.6.0",
     "@actions/github": "^2.1.1",
     "@babel/core": "^7.7.2",
