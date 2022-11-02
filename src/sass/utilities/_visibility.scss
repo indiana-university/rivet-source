@@ -16,6 +16,11 @@
     .#{$prefix}-hide-#{$variable}-down {
       display: block !important;
     }
+
+    th.#{$prefix}-hide-#{$variable}-down,
+    td.#{$prefix}-hide-#{$variable}-down {
+      display: table-cell !important;
+    }
   }
 
   @include mq($size) {
