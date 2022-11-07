@@ -1,7 +1,11 @@
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     open: 'local'
   })
+
+  eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
   return {
     dir: {
