@@ -23,6 +23,8 @@
     }
   },
   "scripts": {
+    "start": "npm-run-all build serve",
+    "serve": "ELEVENTY_ENV=dev npx eleventy --serve",
     "build": "npm-run-all clean compile-tokens compile-sass compile-js dist-css dist-sass dist-js move-example",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "compile-tokens": "node ./tasks/compile-tokens.js",
