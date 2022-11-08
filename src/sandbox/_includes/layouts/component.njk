@@ -16,8 +16,18 @@
     </li>
   </ul>
 
-  {% for preview in collections[component] %}
-    <iframe src="{{ preview.url }}" data-variant="{{ preview.data.title | slug }}"></iframe>
-  {% endfor %}
+  <div class="preview" data-pane-preview>
+    {% for preview in collections[component] %}
+      <iframe src="{{ preview.url }}" data-variant="{{ preview.data.title | slug }}"></iframe>
+    {% endfor %}
+  </div>
+
+  <div data-pane-html>
+    {% for variant in collections[component] %}
+      <div class="html" data-html="{{ variant.data.title | slug }}">
+{%- highlight "html" -%}{{ variant.templateContent | safe }}{%- endhighlight -%}
+      </div>
+    {% endfor %}
+  </div>
     
 {% endblock content %}
