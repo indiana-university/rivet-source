@@ -25,6 +25,31 @@ main {
   margin-bottom: 1rem;
 }
 
+.sidebar h2 {
+  color: #243142;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar nav li:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
+.sidebar nav li a {
+  color: #4C5A69;
+  text-decoration: none;
+}
+
+.sidebar nav li a.current {
+  font-weight: bold;
+  color: #006298;
+}
+
 .welcome {
   border-radius: 9px;
   border: 1px #ededeb dashed;
