@@ -8,6 +8,15 @@ main {
   grid-template-columns: 1fr 4fr;
 }
 
+.welcome {
+  border-radius: 9px;
+  border: 1px #ededeb dashed;
+  color: #243142;
+  margin: 1.8rem;
+  padding: 1.8rem;
+  text-align: center;
+}
+
 .sidebar, .content {
   font-family: sans-serif;
   height: 100vh;
@@ -26,9 +35,12 @@ main {
 }
 
 .sidebar h2 {
+  border-bottom: 1px #cecece solid;
   color: #243142;
   font-size: 1rem;
   padding-top: 1rem;
+  padding-bottom: .75rem;
+  margin-bottom: 1rem;
 }
 
 .sidebar nav ul {
@@ -50,13 +62,19 @@ main {
   color: #006298;
 }
 
-.welcome {
-  border-radius: 9px;
-  border: 1px #ededeb dashed;
-  color: #243142;
-  margin: 1.8rem;
-  padding: 1.8rem;
-  text-align: center;
+.sidebar .variants {
+  padding-top: 1rem;
+  padding-bottom: 0;
+}
+
+.sidebar .variants li {
+  font-size: .87rem;
+}
+
+.sidebar .variants li:before {
+  content: "—";
+  color: #A0ABB4;
+  padding-right: .3rem;
 }
 
 .view-options {
