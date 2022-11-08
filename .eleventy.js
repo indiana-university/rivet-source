@@ -6,8 +6,9 @@ module.exports = function(eleventyConfig) {
     open: 'local'
   })
 
-  eleventyConfig.addPassthroughCopy('src/sandbox/sandbox.css')
-  eleventyConfig.addWatchTarget('./src/sandbox/sandbox.css')
+  eleventyConfig.addPassthroughCopy('src/sandbox/css/sandbox.css')
+  eleventyConfig.addPassthroughCopy('css/rivet.min.css')
+  eleventyConfig.addPassthroughCopy('js/rivet.min.js')
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin)
