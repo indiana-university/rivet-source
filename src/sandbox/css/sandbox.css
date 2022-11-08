@@ -18,7 +18,7 @@ main {
 }
 
 .sidebar, .content {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
 }
 
@@ -29,13 +29,13 @@ main {
 
 .sidebar h1 {
   color: #243142;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
 .sidebar h2 {
-  border-bottom: 1px #cecece solid;
+  border-bottom: 1px #cecece dashed;
   color: #243142;
   font-size: 1rem;
   padding-top: 1rem;
@@ -81,7 +81,7 @@ main {
   box-sizing: border-box;
   display: flex;
   list-style: none;
-  padding: 2rem 1.5rem .6rem 1.5rem;
+  padding: 2rem 1.5rem .7rem 1.5rem;
   margin: 0;
   border-bottom: 1px #ededeb solid;
   width: 100%;
