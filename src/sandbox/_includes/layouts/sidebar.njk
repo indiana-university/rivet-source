@@ -2,7 +2,7 @@
 <nav>
   <ul>
     {% for component in collections.component %}
-      <li><a href="{{ component.url }}">{{ component.data.title }}</a></li>
+      <li><a {% if component.url == page.url %}class="current"{% endif %} href="{{ component.url }}">{{ component.data.title }}</a></li>
     {% endfor %}
   </ul>
 </nav>
