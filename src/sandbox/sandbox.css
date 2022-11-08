@@ -1,0 +1,35 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.sidebar, .content {
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: #ededeb;
+  padding: 1.8rem;
+}
+
+.sidebar h1 {
+  color: #243142;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.welcome {
+  border-radius: 9px;
+  border: 1px #ededeb dashed;
+  color: #243142;
+  margin: 1.8rem;
+  padding: 1.8rem;
+  text-align: center;
+}

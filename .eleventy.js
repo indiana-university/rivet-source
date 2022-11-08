@@ -6,6 +6,9 @@ module.exports = function(eleventyConfig) {
     open: 'local'
   })
 
+  eleventyConfig.addPassthroughCopy('src/sandbox/sandbox.css')
+  eleventyConfig.addWatchTarget('./src/sandbox/sandbox.css')
+
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin)
 
