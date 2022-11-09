@@ -35,7 +35,8 @@
     "dist-js": "node ./tasks/dist-js.js",
     "move-example": "node ./tasks/move-example.js",
     "lint": "standard 'src/js'",
-    "asset:upload": "npm run build && zip -r rivet-gh-release.zip css js sass tokens index.html"
+    "asset:upload": "npm run build && zip -r rivet-gh-release.zip css js sass tokens index.html",
+    "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
   },
   "files": [
     "css/**/*",
