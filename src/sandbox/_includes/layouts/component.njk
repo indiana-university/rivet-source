@@ -29,7 +29,7 @@
 
     <div class="preview" data-pane-preview>
       {% for preview in collections[component] %}
-        <iframe src="{{ preview.url }}" data-variant="{{ preview.data.title | slug }}"></iframe>
+        <iframe {% if not preview.data.padding %}class="padded"{% endif %} src="{{ preview.url }}" data-variant="{{ preview.data.title | slug }}"></iframe>
       {% endfor %}
     </div>
 

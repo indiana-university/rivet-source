@@ -132,6 +132,10 @@ iframe {
   overflow-y: scroll;
 }
 
+iframe.padded {
+  padding: 1.8rem;
+}
+
 .html {
   padding: 0 1.8rem;
    /* hack display:grid needed to keep pre tag from breaking out of its parent */
