@@ -1,33 +1,44 @@
 {% extends 'layouts/base.njk' %}
 
 {% block content %}
-  <ul class="view-options">
-    <li><a href="#" data-tab="preview" class="current">Preview</a></li>
-    <li><a href="#" data-tab="html">HTML</a></li>
-    <li><a href="#" target="_blank" data-preview>
-      View in new window
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-          <g fill="currentColor">
-            <path d="M10.75,15H2.25A1.25,1.25,0,0,1,1,13.75V5.25A1.25,1.25,0,0,1,2.25,4H6A1,1,0,0,1,6,6H3v7h7V10a1,1,0,0,1,2,0v3.75A1.25,1.25,0,0,1,10.75,15Z"/>
-            <path d="M14.71,1.29A1,1,0,0,0,13.87,1l-.12,0H9A1,1,0,0,0,9,3h2.59L7.29,7.29A1,1,0,1,0,8.71,8.71L13,4.41V7a1,1,0,0,0,2,0V2.25a1.17,1.17,0,0,0,0-.12A1,1,0,0,0,14.71,1.29Z"/>
-          </g>
-        </svg>
-      </a>
-    </li>
-  </ul>
+  <div data-component>
+    <ul class="view-options">
+      <li><a href="#" data-tab="preview" class="current">Preview</a></li>
+      <li><a href="#" data-tab="html">HTML</a></li>
+      <li>
+        <a href="#" target="_blank" data-preview-button>
+          <span>View in new window</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <g fill="currentColor">
+              <path d="M10.75,15H2.25A1.25,1.25,0,0,1,1,13.75V5.25A1.25,1.25,0,0,1,2.25,4H6A1,1,0,0,1,6,6H3v7h7V10a1,1,0,0,1,2,0v3.75A1.25,1.25,0,0,1,10.75,15Z"/>
+              <path d="M14.71,1.29A1,1,0,0,0,13.87,1l-.12,0H9A1,1,0,0,0,9,3h2.59L7.29,7.29A1,1,0,1,0,8.71,8.71L13,4.41V7a1,1,0,0,0,2,0V2.25a1.17,1.17,0,0,0,0-.12A1,1,0,0,0,14.71,1.29Z"/>
+            </g>
+          </svg>
+        </a>
+        <a href="#" data-copy-code-button>
+          <span>Copy source code</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <g fill="currentColor">
+              <path d="M4,10.23H1.92V2H8V3h2V2A2,2,0,0,0,8,0H1.92a2,2,0,0,0-2,2v8.23a2,2,0,0,0,2,2H4Z"/>
+              <path d="M14,16H8a2,2,0,0,1-2-2V7A2,2,0,0,1,8,5h6a2,2,0,0,1,2,2v7A2,2,0,0,1,14,16ZM8,7v7h6V7Z"/>
+            </g>
+          </svg>
+        </a>
+      </li>
+    </ul>
 
-  <div class="preview" data-pane-preview>
-    {% for preview in collections[component] %}
-      <iframe src="{{ preview.url }}" data-variant="{{ preview.data.title | slug }}"></iframe>
-    {% endfor %}
-  </div>
+    <div class="preview" data-pane-preview>
+      {% for preview in collections[component] %}
+        <iframe src="{{ preview.url }}" data-variant="{{ preview.data.title | slug }}"></iframe>
+      {% endfor %}
+    </div>
 
-  <div data-pane-html>
-    {% for variant in collections[component] %}
-      <div class="html" data-html="{{ variant.data.title | slug }}">
-{%- highlight "html" -%}{{ variant.templateContent | safe }}{%- endhighlight -%}
-      </div>
-    {% endfor %}
+    <div data-pane-html>
+      {% for variant in collections[component] %}
+        <div class="html" data-html="{{ variant.data.title | slug }}">
+  {%- highlight "html" -%}{{ variant.templateContent | safe }}{%- endhighlight -%}
+        </div>
+      {% endfor %}
+    </div>
   </div>
-    
 {% endblock content %}

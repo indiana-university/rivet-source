@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addPassthroughCopy('src/sandbox/css/sandbox.css')
+  eleventyConfig.addPassthroughCopy('src/sandbox/js/sandbox.js')
   eleventyConfig.addPassthroughCopy('css/rivet.min.css')
   eleventyConfig.addPassthroughCopy('js/rivet.min.js')
 

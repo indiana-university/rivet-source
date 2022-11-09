@@ -25,6 +25,7 @@ main {
 .sidebar {
   background-color: #ededeb;
   padding: 1.8rem;
+  box-sizing: border-box;
 }
 
 .sidebar h1 {
@@ -123,13 +124,16 @@ iframe {
   border: 0;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  height: 660px;
+  overflow-y: scroll;
 }
 
 .html {
   padding: 0 1.8rem;
    /* hack display:grid needed to keep pre tag from breaking out of its parent */
   display: grid;
+  height: 660px;
+  overflow-y: scroll;
 }
 
 pre {
@@ -143,4 +147,11 @@ pre[class*=language-] {
 code {
   font-size: 16px;
   line-height: 1.8;
+}
+
+[data-copy-code-button],
+[data-pane-html],
+[data-html],
+[data-variant] {
+  display: none;
 }
