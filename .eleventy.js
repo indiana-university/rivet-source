@@ -1,5 +1,6 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const eleventySyntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight")
+const sortCollectionByOrder = require("./src/sandbox/filters/sort-collection-by-order")
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
@@ -13,6 +14,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin)
+
+  eleventyConfig.addFilter('sortCollectionByOrder', sortCollectionByOrder)
 
   return {
     dir: {

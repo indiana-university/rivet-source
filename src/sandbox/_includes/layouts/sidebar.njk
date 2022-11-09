@@ -6,7 +6,7 @@
         <li>
           <a class="current" href="{{ component.url }}">{{ component.data.title }}</a>
           <ul class="variants">
-            {% for variant in collections[component.data.component] %}
+            {% for variant in collections[component.data.component] | sortCollectionByOrder %}
               <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
             {% endfor %}
           </ul>
@@ -26,7 +26,7 @@
         <li>
           <a class="current" href="{{ utility.url }}">{{ utility.data.title }}</a>
           <ul class="variants">
-            {% for variant in collections[utility.data.utility] %}
+            {% for variant in collections[utility.data.utility] | sortCollectionByOrder %}
               <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
             {% endfor %}
           </ul>
