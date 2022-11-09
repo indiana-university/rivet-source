@@ -1,7 +1,7 @@
 <h2>Components</h2>
 <nav>
   <ul>
-    {% for component in collections.component %}
+    {% for component in collections.component | sortCollectionByTitle %}
       {% if component.url == page.url %}
         <li>
           <a class="current" href="{{ component.url }}">{{ component.data.title }}</a>
@@ -13,26 +13,6 @@
         </li>
       {% else %}
         <li><a href="{{ component.url }}">{{ component.data.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
-
-<h2>Utilities</h2>
-<nav>
-  <ul>
-    {% for utility in collections.utility %}
-      {% if utility.url == page.url %}
-        <li>
-          <a class="current" href="{{ utility.url }}">{{ utility.data.title }}</a>
-          <ul class="variants">
-            {% for variant in collections[utility.data.utility] | sortCollectionByOrder %}
-              <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{{ utility.url }}">{{ utility.data.title }}</a></li>
       {% endif %}
     {% endfor %}
   </ul>

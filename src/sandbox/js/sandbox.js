@@ -121,10 +121,7 @@ if (componentPage) {
     componentEvents.forEach(componentEvent => {
       previews.forEach(iframe => {
         iframe.contentDocument.addEventListener(componentEvent, event => {
-          eventInspector.innerHTML = `
-            <strong>${componentEvent}</strong><br><br>
-            <code>${Object.keys(event.detail).map(k => `${k}: ${event.detail[k]}`).join(', ')}</code>
-          `
+          eventInspector.textContent = componentEvent
           eventInspector.style.display = 'block'
           setTimeout(() => {
             eventInspector.style.display = 'none'
