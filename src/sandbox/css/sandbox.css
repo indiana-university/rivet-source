@@ -159,3 +159,14 @@ code {
 [data-variant] {
   display: none;
 }
+
+.event-inspector {
+  display: none;
+  position: fixed;
+  right: 64px;
+  bottom: 64px;
+  padding: 1rem;
+  background-color: #243142;
+  color: #fff;
+  border-radius: .25rem;
+}

@@ -40,5 +40,11 @@
         </div>
       {% endfor %}
     </div>
+
+    {% if events %}
+      <div class="event-inspector" data-event-inspector="{% for event in events %}{{ event }},{% endfor %}">
+        Event inspector
+      </div>
+    {% endif %}
   </div>
 {% endblock content %}

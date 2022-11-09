@@ -13,6 +13,7 @@ if (componentPage) {
   const htmlPane = componentPage.querySelector('[data-pane-html]')
   const previews = Array.from(previewPane.querySelectorAll('[data-variant]'))
   const codeBlocks = Array.from(htmlPane.querySelectorAll('[data-html]'))
+  const eventInspector = componentPage.querySelector('[data-event-inspector]')
 
   // Show first variant preview
 
@@ -111,5 +112,26 @@ if (componentPage) {
 
     copyExample(copyTarget)
   })
+
+  // Add event listeners for component custom event inspector
+
+  if (eventInspector) {
+    const componentEvents = eventInspector.dataset.eventInspector.split(',').slice(0, -1)
+    
+    componentEvents.forEach(componentEvent => {
+      previews.forEach(iframe => {
+        iframe.contentDocument.addEventListener(componentEvent, event => {
+          eventInspector.innerHTML = `
+            <strong>${componentEvent}</strong><br><br>
+            <code>${Object.keys(event.detail).map(k => `${k}: ${event.detail[k]}`).join(', ')}</code>
+          `
+          eventInspector.style.display = 'block'
+          setTimeout(() => {
+            eventInspector.style.display = 'none'
+          }, 3000)
+        })
+      })
+    })
+  }
 
 }
