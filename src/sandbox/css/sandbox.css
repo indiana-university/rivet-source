@@ -58,6 +58,10 @@ main {
   text-decoration: none;
 }
 
+.sidebar nav li a:hover {
+  color: #006298;
+}
+
 .sidebar nav li a.current {
   font-weight: bold;
   color: #006298;
