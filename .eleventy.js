@@ -9,17 +9,17 @@ module.exports = function(eleventyConfig) {
     open: 'local',
     files: [
       {
-        match: ["css/rivet.min.css"],
+        match: ["css/rivet.css"],
         fn: function (event, file) {
           console.log(`[Browsersync] Rivet CSS file changed, updating and reloading browser`)
-          jetpack.copy('./css/rivet.min.css', './dist/css/rivet.min.css', { overwrite: true })
+          jetpack.copy('./css/rivet.css', './dist/css/rivet.css', { overwrite: true })
         }
       },
       {
-        match: ["js/rivet.min.js"],
+        match: ["js/rivet-iife.js"],
         fn: function (event, file) {
           console.log(`[Browsersync] Rivet JS file changed, updating and reloading browser`)
-          jetpack.copy('./js/rivet.min.js', './dist/js/rivet.min.js', { overwrite: true })
+          jetpack.copy('./js/rivet-iife.js', './dist/js/rivet-iife.js', { overwrite: true })
         }
       }
     ]
@@ -27,8 +27,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('src/sandbox/css/sandbox.css')
   eleventyConfig.addPassthroughCopy('src/sandbox/js/sandbox.js')
-  eleventyConfig.addPassthroughCopy('css/rivet.min.css')
-  eleventyConfig.addPassthroughCopy('js/rivet.min.js')
+  eleventyConfig.addPassthroughCopy('css/rivet.css')
+  eleventyConfig.addPassthroughCopy('js/rivet-iife.js')
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin)
