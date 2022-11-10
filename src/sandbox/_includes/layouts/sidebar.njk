@@ -17,3 +17,23 @@
     {% endfor %}
   </ul>
 </nav>
+
+<h2>Utilities</h2>
+<nav>
+  <ul>
+    {% for utility in collections.utility | sortCollectionByTitle %}
+      {% if utility.url == page.url %}
+        <li>
+          <a class="current" href="{{ utility.url }}">{{ utility.data.title }}</a>
+          <ul class="variants">
+            {% for variant in collections[utility.data.component] | sortCollectionByOrder %}
+              <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li><a href="{{ utility.url }}">{{ utility.data.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
