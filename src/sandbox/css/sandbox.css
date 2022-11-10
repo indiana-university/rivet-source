@@ -35,6 +35,11 @@ main {
   margin-bottom: 1rem;
 }
 
+.sidebar h1 a {
+  color: #243142;
+  text-decoration: none;
+}
+
 .sidebar h2 {
   border-bottom: 1px #cecece dashed;
   color: #243142;
