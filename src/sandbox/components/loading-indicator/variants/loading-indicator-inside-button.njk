@@ -1,0 +1,12 @@
+---
+tags: loading-indicator
+title: Loading indicator inside button
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 2
+---
+<button class="rvt-button rvt-button--loading" aria-busy="true" disabled>
+  <span class="rvt-button__content">Update settings</span>
+  <div class="rvt-loader rvt-loader--xs" aria-label="Content loading"></div>
+</button>
