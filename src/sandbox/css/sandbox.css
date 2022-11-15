@@ -26,6 +26,8 @@ main {
   background-color: #ededeb;
   padding: 1.8rem;
   box-sizing: border-box;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .sidebar h1 {
@@ -79,6 +81,7 @@ main {
 
 .sidebar .variants li {
   font-size: .87rem;
+  line-height: 1.5;
 }
 
 .sidebar .variants li:before {
