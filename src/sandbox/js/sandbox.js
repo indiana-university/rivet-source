@@ -19,6 +19,10 @@ if (componentPage) {
 
   showPreview(previews[0].dataset.variant)
 
+  // Scroll sidebar to selected component
+
+  document.querySelector(`li a.current`).scrollIntoView({ block: 'center' })
+
   // Define function to show preview with given ID
 
   function showPreview(id) {
