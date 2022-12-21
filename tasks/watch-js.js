@@ -18,7 +18,7 @@ const watcher = rollup.watch({
   input: './src/js/index.js',
   plugins: [ nodeResolve() ],
   output: {
-    file: './static/js/rivet-iife.js',
+    file: './js/rivet-iife.js',
     format: 'iife',
     name: 'Rivet',
     plugins: [
@@ -27,16 +27,5 @@ const watcher = rollup.watch({
         allowAllFormats: true
       })
     ]
-  }
-})
-
-/******************************************************************************
- * Copy rebuilt IIFE to distribution folder.
- *****************************************************************************/
-
-watcher.on('event', (event) => {
-  if (event.code === 'BUNDLE_END') {
-    console.log('Change detected to JS, rebuilding...')
-    jetpack.copy('./static/js/rivet-iife.js', './js/rivet-iife.js', { overwrite: true })
   }
 })
