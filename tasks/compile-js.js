@@ -21,10 +21,10 @@ async function compile() {
    * Define output file paths.
    *************************************************************************/
 
-  const umd = './static/js/rivet-umd.js'
-  const esm = './static/js/rivet-esm.js'
-  const iife = './static/js/rivet-iife.js'
-  const min = './static/js/rivet.min.js'
+  const umd = './js/rivet-umd.js'
+  const esm = './js/rivet-esm.js'
+  const iife = './js/rivet-iife.js'
+  const min = './js/rivet.min.js'
 
   /**************************************************************************
    * Bundle, minify, and add license text to JS files.
