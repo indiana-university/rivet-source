@@ -1,0 +1,71 @@
+---
+tags: dialog
+title: Dialog form
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 4
+---
+<button type="button" class="rvt-button" data-rvt-dialog-trigger="dialog-form">
+  <span>Dialog with form</span>
+</button>
+<div class="rvt-dialog" id="dialog-form" role="dialog" tabindex="-1" aria-labelledby="dialog-title" data-rvt-dialog="dialog-form" data-rvt-dialog-modal data-rvt-dialog-darken-page data-rvt-dialog-disable-page-interaction hidden>
+  <header class="rvt-dialog__header">
+    <h1 class="rvt-dialog__title" id="dialog-title">Dialog title</h1>
+  </header>
+  <div class="rvt-dialog__body">
+    <div class="m-bottom-sm">
+      <label class="rvt-label" for="the-title">Title</label>
+      <input class="rvt-text-input" type="text" id="the-title">
+    </div>
+    <label class="rvt-label" for="description">Description</label>
+    <textarea class="rvt-textarea" id="description"></textarea>
+    <fieldset class="rvt-fieldset">
+      <legend class="rvt-ts-20 rvt-m-bottom-sm"><strong>Select dropdown</strong> default</legend>
+      <label class="rvt-label" for="select-demo">Select input:</label>
+      <select class="rvt-select m-bottom-md" id="select-demo">
+        <option value="">Option One</option>
+        <option value="">Option Two</option>
+        <option value="">Option Three</option>
+        <option value="">Option Four</option>
+      </select>
+    </fieldset>
+    <fieldset class="rvt-fieldset rvt-m-top-xl">
+      <legend class="rvt-ts-20 rvt-text-bold">Category</legend>
+      <ul class="rvt-list-inline">
+        <li>
+          <div class="rvt-checkbox">
+            <input type="checkbox" name="checkbox-demo" id="checkbox-1" checked>
+            <label for="checkbox-1">Option one</label>
+          </div>
+        </li>
+        <li>
+          <div class="rvt-checkbox">
+            <input type="checkbox" name="checkbox-demo" id="checkbox-2">
+            <label for="checkbox-2">Option two</label>
+          </div>
+        </li>
+        <li>
+          <div class="rvt-checkbox">
+            <input type="checkbox" name="checkbox-demo" id="checkbox-3">
+            <label for="checkbox-3">Option three</label>
+          </div>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+  <div class="rvt-dialog__controls">
+    <button type="button" class="rvt-button" role="button">
+      <span>Submit</span>
+    </button>
+    <button type="button" class="rvt-button" data-rvt-dialog-close="dialog-form" role="button">
+      <span>Cancel</span>
+    </button>
+  </div>
+  <button class="rvt-button rvt-button--plain rvt-dialog__close" data-rvt-dialog-close="dialog-form" role="button">
+    <span class="rvt-sr-only">Close</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+    </svg>
+  </button>
+</div>

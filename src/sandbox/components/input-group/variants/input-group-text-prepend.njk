@@ -1,0 +1,15 @@
+---
+tags: input-group
+title: Input with text, prepend
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 4
+---
+<label for="text-prepend-example" class="rvt-sr-only">Website</label>
+<div class="rvt-input-group">
+  <div class="rvt-input-group__prepend">
+    <div class="rvt-input-group__text" id="website-text">https://</div>
+  </div>
+  <input class="rvt-text-input rvt-input-group__input" type="text" id="text-prepend-example" aria-describedby="website-text">
+</div>

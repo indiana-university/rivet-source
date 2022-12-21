@@ -28,7 +28,7 @@ const minifiedCss = sass.compile('./src/sass/rivet.scss', { style: 'compressed' 
  *****************************************************************************/
 
 postcss([autoprefixer]).process(expandedCss.css, { from: undefined }).then(result => {
-  jetpack.write('./static/css/rivet.css', license + ' ' + result.css)
+  jetpack.write('./css/rivet.css', license + ' ' + result.css)
 })
 
 /******************************************************************************
@@ -36,5 +36,16 @@ postcss([autoprefixer]).process(expandedCss.css, { from: undefined }).then(resul
  *****************************************************************************/
 
 postcss([autoprefixer]).process(minifiedCss.css, { from: undefined }).then(result => {
-  jetpack.write('./static/css/rivet.min.css', license + ' ' + result.css)
+  jetpack.write('./css/rivet.min.css', license + ' ' + result.css)
+})
+
+/******************************************************************************
+ * Copy raw Sass files to distribution folder.
+ *****************************************************************************/
+
+console.log('Copying Sass files to distribution folder...')
+
+jetpack.copy('./src/sass', './sass', { 
+  overwrite: true,
+  matching: '*.scss'
 })

@@ -1,0 +1,38 @@
+---
+tags: sidenav
+title: Sidenav with dropdown
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 2
+---
+<nav class="rvt-sidenav" aria-labelledby="sidenav-label" data-rvt-sidenav>
+  <span class="rvt-sidenav__label" id="sidenav-label">Section pages</span>
+  <ul class="rvt-sidenav__list">
+    <li class="rvt-sidenav__item">
+      <a href="#" class="rvt-sidenav__link">Section nav one</a>
+    </li>
+    <li class="rvt-sidenav__item">
+      <a href="#" class="rvt-sidenav__link" aria-current="page">Section nav two</a>
+    </li>
+    <li class="rvt-sidenav__item">
+      <div class="rvt-sidenav__item-wrapper">
+        <a href="#" class="rvt-sidenav__link">Section nav three</a>
+        <button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle="toggle-1">
+          <span class="rvt-sr-only">Expand or hide links nested under the third section</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"/>
+          </svg>
+        </button>
+      </div>
+      <ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1">
+        <li class="rvt-sidenav__item">
+          <a href="#" class="rvt-sidenav__link">Level two</a>
+        </li>
+        <li class="rvt-sidenav__item">
+          <a href="#" class="rvt-sidenav__link">Level two</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

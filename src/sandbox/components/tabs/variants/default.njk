@@ -1,0 +1,48 @@
+---
+tags: tabs
+title: Default tabs
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<div class="rvt-tabs" data-rvt-tabs="tabset-1">
+  <div class="rvt-tabs__tablist" role="tablist" aria-label="Rivet tabs">
+    <button class="rvt-tabs__tab" role="tab" data-rvt-tab="tab-1" id="t-one">
+      Tab one
+    </button>
+    <button class="rvt-tabs__tab" role="tab" data-rvt-tab="tab-2" id="t-two">
+      Tab two
+    </button>
+    <button class="rvt-tabs__tab" role="tab" data-rvt-tab="tab-3" id="t-three">
+      Tab three
+    </button>
+    <button class="rvt-tabs__tab" role="tab" data-rvt-tab="tab-4" id="t-four">
+      Tab four
+    </button>
+  </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-1" aria-labelledby="t-one" data-rvt-tab-panel="tab-1">
+    <span class="rvt-ts-23 rvt-text-bold">Become the best version of yourself at IU</span>
+    <p>
+      Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.
+    </p>
+  </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-2" aria-labelledby="t-two" data-rvt-tab-panel="tab-2">
+    <span class="rvt-ts-23 rvt-text-bold">Find your calling</span>
+    <p>
+      IU offers more than 2,300 different programs of study. Not sure what to focus on? No problem. Browse by interest area to find options you'd enjoy pursuing.
+    </p>
+  </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-3" aria-labelledby="t-three" data-rvt-tab-panel="tab-3" data-rvt-tab-init>
+    <span class="rvt-ts-23 rvt-text-bold">Pursue your passion or explore the possibilities</span>
+    <p>
+      From nursing to criminal justice, epidemiology to environmental science, social work to cybersecurity, and more than 900 academic programs in between, IU gives you the power to study whatever sparks your interest, with the support of world-class professors and faculty who care about your success.
+    </p>
+  </div>
+  <div class="rvt-tabs__panel" tabindex="0" role="tabpanel" id="tab-4" aria-labelledby="t-four" data-rvt-tab-panel="tab-4">
+    <span class="rvt-ts-23 rvt-text-bold">Find your ideal campus life at IU</span>
+    <p>
+      Each of our nine campuses offers a welcoming, inclusive environment that feels like home, whatever your background, interests, or goals. Whether you want a Big Ten college experience, the dynamic pace of an urban research university, the community feeling of a regional campus close to home, or the flexibility of a fully online degree program, you’ll find it at IU.
+    </p>
+  </div>
+</div>

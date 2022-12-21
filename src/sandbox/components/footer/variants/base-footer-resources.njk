@@ -1,0 +1,90 @@
+---
+tags: footer
+title: Footer with resource links
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: false
+order: 3
+---
+<!-- Footer resources module -->
+<div aria-labelledby="resources-heading" class="rvt-footer-resources" role="complementary">
+  <!-- Heading for people using screen readers -->
+  <h2 class="rvt-sr-only" id="resources-heading">Additional resources</h2>
+  <div class="rvt-container-lg">
+    <div class="rvt-row">
+      <!-- Address -->
+      <div class="rvt-cols-3-md">
+        <h3 class="rvt-footer-resources__heading">Indiana University</h3>
+        <div class="rvt-footer-resources__text-block">
+          107 S. Indiana Avenue<br />
+          Bloomington, IN<br />
+          47405-7000
+        </div>
+      </div>
+      <!-- Categorized list of resource links -->
+      <div class="rvt-cols-3-md">
+        <h3 class="rvt-footer-resources__heading">Services</h3>
+        <ul class="rvt-footer-resources__list">
+          <li class="rvt-footer-resources__list-item">
+            <a href="https://canvas.iu.edu">Canvas</a>
+          </li>
+          <li class="rvt-footer-resources__list-item">
+            <a href="https://one.iu.edu">One.IU</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Categorized list of resource links -->
+      <div class="rvt-cols-3-md">
+        <h3 class="rvt-footer-resources__heading">Email</h3>
+        <ul class="rvt-footer-resources__list">
+          <li class="rvt-footer-resources__list-item">
+            <a href="https://uits.iu.edu/exchange">Outlook Web Access</a>
+          </li>
+          <li class="rvt-footer-resources__list-item">
+            <a href="https://google.iu.edu">Gmail at IU</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Categorized list of resource links -->
+      <div class="rvt-cols-3-md">
+        <h3 class="rvt-footer-resources__heading">Find</h3>
+        <ul class="rvt-footer-resources__list">
+          <li class="rvt-footer-resources__list-item">
+            <a href="https://directory.iu.edu/">People Directory</a>
+          </li>
+          <li class="rvt-footer-resources__list-item">
+            <a href="https://jobs.iu.edu/">Jobs at IU</a>
+          </li>
+          <li class="rvt-footer-resources__list-item">
+            <a href="/nondiscrimination/index.html">Non-discrimination Notice</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Base footer -->
+<footer class="rvt-footer-base">
+  <div class="rvt-container-lg">
+    <div class="rvt-footer-base__inner">
+      <!-- IU trident -->
+      <div class="rvt-footer-base__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <polygon fill="currentColor" points="15.3 3.19 15.3 5 16.55 5 16.55 15.07 13.9 15.07 13.9 1.81 15.31 1.81 15.31 0 8.72 0 8.72 1.81 10.12 1.81 10.12 15.07 7.45 15.07 7.45 5 8.7 5 8.7 3.19 2.5 3.19 2.5 5 3.9 5 3.9 16.66 6.18 18.98 10.12 18.98 10.12 21.67 8.72 21.67 8.72 24 15.3 24 15.3 21.67 13.9 21.67 13.9 18.98 17.82 18.98 20.09 16.66 20.09 5 21.5 5 21.5 3.19 15.3 3.19" fill="#231f20"/>
+        </svg>
+      </div>
+      <!-- List of links -->
+      <ul class="rvt-footer-base__list">
+        <li class="rvt-footer-base__item">
+          <a class="rvt-footer-base__link" href="https://accessibility.iu.edu/assistance/">Accessibility</a>
+        </li>
+        <li class="rvt-footer-base__item">
+          <a class="rvt-footer-base__link" href="#">Privacy Notice</a>
+        </li>
+        <li class="rvt-footer-base__item">
+          <a class="rvt-footer-base__link" href="#">Copyright</a> © 2021 The Trustees of <a class="rvt-footer-base__link" href="https://www.iu.edu">Indiana University</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

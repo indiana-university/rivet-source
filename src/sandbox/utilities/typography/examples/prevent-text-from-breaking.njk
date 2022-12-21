@@ -1,0 +1,23 @@
+---
+tags: typography
+title: Prevent text breaking
+layout: layouts/preview.njk
+permalink: /utilities/preview/{{ title | slug}}/
+padding: true
+order: 7
+---
+<form>
+  <fieldset class="rvt-fieldset">
+    <legend class="rvt-sr-only">Checkbox list</legend>
+    <ul class="rvt-list-reset">
+      <li class="rvt-checkbox rvt-m-bottom-sm">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-1">
+        <label for="checkbox-1" class="rvt-m-right-sm rvt-text-nobr">The label for this checkbox is quite long, but will not break onto a new line</label>
+      </li>
+      <li class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-2">
+        <label for="checkbox-2">Option two</label>
+      </li>
+    </ul>
+  </fieldset>
+</form>

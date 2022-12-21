@@ -1,0 +1,44 @@
+---
+tags: checkbox
+title: Default checkboxes
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<fieldset class="rvt-fieldset">
+  <legend class="rvt-sr-only">Checkbox list</legend>
+  <ul class="rvt-list-plain rvt-width-xl">
+    <li>
+      <div class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-1">
+        <label for="checkbox-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-2" disabled>
+        <label for="checkbox-2">Option two</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-3" disabled checked>
+        <label for="checkbox-3">Option three</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-checkbox">
+        <input aria-describedby="checkbox-description" type="checkbox" name="checkbox-demo" id="checkbox-long">
+        <label for="checkbox-long">Just a quick note</label>
+        <div id="checkbox-description" class="rvt-checkbox__description">This checkbox has a really long label that can wrap on to two lines and still have nice left alignment.</div>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-checkbox rvt-checkbox--sr-only-label">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-hidden-label">
+        <label for="checkbox-hidden-label">This label text is visually hidden</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>

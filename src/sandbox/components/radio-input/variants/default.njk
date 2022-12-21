@@ -1,0 +1,38 @@
+---
+tags: radio-input
+title: Default radio input
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<fieldset class="rvt-fieldset">
+  <legend class="rvt-text-bold">Radio input (default)</legend>
+  <ul class="rvt-list-plain">
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-1" id="radio-1-1">
+        <label for="radio-1-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-1" id="radio-1-2">
+        <label for="radio-1-2">Option two</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-1" id="radio-1-3" checked disabled>
+        <label for="radio-1-3">Option three</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-radio">
+        <input type="radio" name="radio-group-1" id="radio-1-4" aria-describedby="radio-1-4-description">
+        <label for="radio-1-4">Option one</label>
+        <div id="radio-1-4-description" class="rvt-radio__description">This is a description for the radio button.</div>
+      </div>
+    </li>
+  </ul>
+</fieldset>

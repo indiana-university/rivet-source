@@ -1,0 +1,119 @@
+---
+tags: z-index
+title: Set z-index
+layout: layouts/preview.njk
+permalink: /utilities/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<style>
+  .z-example {
+    height: 550px;
+    position: relative;
+  }
+
+  .z-example div {
+    padding: 1.5rem;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    margin-top: -0.5rem;
+    position: absolute;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .z-example div:nth-child(1) {
+    top: 0;
+    left: 0;
+    background-color: aqua;
+  }
+
+  .z-example div:nth-child(2) {
+    background-color: tomato;
+    top: 3rem;
+    left: 3rem;
+  }
+
+  .z-example div:nth-child(3) {
+    top: 6rem;
+    left: 6rem;
+    background-color: dodgerblue;
+  }
+
+  .z-example div:nth-child(4) {
+    top: 9rem;
+    left: 9rem;
+    background-color: blueviolet;
+  }
+
+  .z-example div:nth-child(5) {
+    top: 12rem;
+    left: 12rem;
+    background-color: coral;
+  }
+
+  .z-example div:nth-child(6) {
+    top: 15rem;
+    left: 15rem;
+    background-color: yellowgreen;
+  }
+
+  .z-example div:nth-child(7) {
+    top: 18rem;
+    left: 18rem;
+    background-color: palevioletred;
+  }
+
+  .z-example div:nth-child(8) {
+    top: 21rem;
+    left: 21rem;
+    background-color: green;
+  }
+
+  .z-example div:nth-child(9) {
+    top: 24rem;
+    left: 24rem;
+    background-color: crimson;
+  }
+
+  .z-example div:nth-child(10) {
+    top: 27rem;
+    left: 27rem;
+    background-color: cornflowerblue;
+  }
+</style>
+<div class="z-example">
+  <div class="rvt-z-1000">
+      1000
+  </div>
+  <div class="rvt-z-900">
+      900
+  </div>
+  <div class="rvt-z-800">
+      800
+  </div>
+  <div class="rvt-z-700">
+      700
+  </div>
+  <div class="rvt-z-600">
+      600
+  </div>
+  <div class="rvt-z-500">
+      500
+  </div>
+  <div class="rvt-z-400">
+      400
+  </div>
+  <div class="rvt-z-300">
+      300
+  </div>
+  <div class="rvt-z-200">
+      200
+  </div>
+  <div class="rvt-z-100">
+      100
+  </div>
+</div>
