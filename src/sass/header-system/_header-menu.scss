@@ -196,6 +196,10 @@
       position: relative;
     }
 
+    &__item--current {
+      padding-left: 0;
+    }
+
     &__item--current &__link {
       color: $color-crimson-500;
     }
@@ -208,7 +212,7 @@
       content: '';
       display: block;
       background-color: $color-crimson-500;
-      width: 92.5%;
+      width: 100%;
       height: $spacing-xxs * 1.2;
       position: absolute;
       bottom: -$spacing-md * 1.1;
