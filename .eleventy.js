@@ -8,20 +8,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     open: 'local',
     files: [
-      {
-        match: ["css/rivet.css"],
-        fn: function (event, file) {
-          console.log(`[Browsersync] Rivet CSS file changed, updating and reloading browser`)
-          jetpack.copy('./css/rivet.css', './dist/css/rivet.css', { overwrite: true })
-        }
-      },
-      {
-        match: ["js/rivet-iife.js"],
-        fn: function (event, file) {
-          console.log(`[Browsersync] Rivet JS file changed, updating and reloading browser`)
-          jetpack.copy('./js/rivet-iife.js', './dist/js/rivet-iife.js', { overwrite: true })
-        }
-      }
+      './dist/css/rivet.css',
+      './dist/js/rivet-iife.js'
     ]
   })
 

@@ -18,7 +18,7 @@ const watcher = rollup.watch({
   input: './src/js/index.js',
   plugins: [ nodeResolve() ],
   output: {
-    file: './js/rivet-iife.js',
+    file: './dist/js/rivet-iife.js',
     format: 'iife',
     name: 'Rivet',
     plugins: [

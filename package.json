@@ -33,7 +33,7 @@
     "compile-sass": "node ./tasks/compile-sass.js",
     "compile-js": "node ./tasks/compile-js.js",
     "watch-js": "node ./tasks/watch-js.js",
-    "watch-sass": "sass --watch ./src/sass/rivet.scss ./css/rivet.css",
+    "watch-sass": "sass --watch ./src/sass/rivet.scss ./dist/css/rivet.css",
     "move-example": "node ./tasks/move-example.js",
     "lint": "standard 'src/js'",
     "asset:upload": "npm run build && zip -r rivet-gh-release.zip css js sass tokens index.html",
