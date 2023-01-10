@@ -1,0 +1,55 @@
+---
+tags: alert
+title: Default alert
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<!-- Default -->
+<div class="rvt-alert rvt-alert--info" role="alert" aria-labelledby="information-alert-title" data-rvt-alert="info">
+  <div class="rvt-alert__title" id="information-alert-title">Scheduled System Maintenance</div>
+  <p class="rvt-alert__message">This system will be unavailable on August 1st due to scheduled system maintenance. Please check back on August 2nd.</p>
+  <button class="rvt-alert__dismiss" data-rvt-alert-close>
+    <span class="rvt-sr-only">Dismiss this alert</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+    </svg>
+  </button>
+</div>
+
+<!-- Success -->
+<div class="rvt-alert rvt-alert--success [ rvt-m-top-md ]" role="alert" aria-labelledby="success-alert-title" data-rvt-alert="success">
+  <div class="rvt-alert__title" id="success-alert-title">Thank you!</div>
+  <p class="rvt-alert__message">We have received your application. Check your email in a few weeks to find out if you’ve been admitted.</p>
+  <button class="rvt-alert__dismiss" data-rvt-alert-close>
+    <span class="rvt-sr-only">Dismiss this alert</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+    </svg>
+  </button>
+</div>
+
+<!-- Warning -->
+<div class="rvt-alert rvt-alert--warning [ rvt-m-top-md ]" role="alert" aria-labelledby="warning-alert-title" data-rvt-alert="warning">
+  <div class="rvt-alert__title" id="warning-alert-title">Unsaved Changes</div>
+  <p class="rvt-alert__message">Your changes have not been saved. To save your changes, click ‘Save my changes’ or click ‘Cancel’ to exit without saving.</p>
+  <button class="rvt-alert__dismiss" data-rvt-alert-close>
+    <span class="rvt-sr-only">Dismiss this alert</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+    </svg>
+  </button>
+</div>
+
+<!-- Error -->
+<div class="rvt-alert rvt-alert--danger [ rvt-m-top-md ]" role="alert" aria-labelledby="error-alert-title" data-rvt-alert="error">
+  <div class="rvt-alert__title" id="error-alert-title">Incorrect User ID or Password</div>
+  <p class="rvt-alert__message">The user ID and password you entered do not match. Please check your entries and try again.</p>
+  <button class="rvt-alert__dismiss" data-rvt-alert-close>
+    <span class="rvt-sr-only">Dismiss this alert</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+    </svg>
+  </button>
+</div>

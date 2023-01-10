@@ -1,0 +1,17 @@
+---
+tags: input-group
+title: Input with button, append
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<label for="search" class="rvt-label rvt-sr-only">Search</label>
+<div class="rvt-input-group">
+  <input class="rvt-text-input rvt-input-group__input" type="text" id="search">
+  <div class="rvt-input-group__append">
+    <button type="button" class="rvt-button">
+    <span>Search docs</span>
+    </button>
+  </div>
+</div>

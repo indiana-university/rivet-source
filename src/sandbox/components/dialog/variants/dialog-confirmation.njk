@@ -1,0 +1,27 @@
+---
+tags: dialog
+title: Confirmation dialog
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 3
+---
+<button type="button" class="rvt-button rvt-button--danger" data-rvt-dialog-trigger="dialog-confirmation">
+  <span>Delete files</span>
+</button>
+<div class="rvt-dialog" id="dialog-confirmation" role="dialog" tabindex="-1" aria-labelledby="dialog-title" aria-describedby="dialog-description" data-rvt-dialog="dialog-confirmation" data-rvt-dialog-modal data-rvt-dialog-darken-page data-rvt-dialog-disable-page-interaction hidden>
+  <header class="rvt-dialog__header">
+    <h1 class="rvt-dialog__title" id="dialog-title">Delete files</h1>
+  </header>
+  <div class="rvt-dialog__body">
+    <p class="m-top-remove m-bottom-xl" id="dialog-description">Are you sure you want to <strong>delete your files</strong>? This action cannot be undone.</p>
+  </div>
+  <div class="rvt-dialog__controls">
+    <button type="button" class="rvt-button rvt-button--danger" role="button">
+      <span>Delete my files</span>
+    </button>
+    <button type="button" class="rvt-button rvt-button--secondary" data-rvt-dialog-close="dialog-confirmation" role="button">
+      <span>Cancel</span>
+    </button>
+  </div>
+</div>

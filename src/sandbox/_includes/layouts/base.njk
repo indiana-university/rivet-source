@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link href="https://unpkg.com/prismjs@v1.x/themes/prism.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/sandbox.css">
+</head>
+<body>
+  <main>
+    <div class="sidebar">
+      <h1><a href="/">Rivet Design System</a></h1>
+      {% include 'layouts/sidebar.njk' %}
+    </div>
+    <div class="content">
+      {%- block content -%}
+        {{ content | safe }}
+      {%- endblock -%}
+    </div>
+  </main>
+  <script src="/js/sandbox.js"></script>
+</body>
+</html>

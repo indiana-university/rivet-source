@@ -1,0 +1,22 @@
+---
+tags: sidenav
+title: Default sidenav
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<nav class="rvt-sidenav" aria-labelledby="sidenav-label" data-rvt-sidenav>
+  <span class="rvt-sidenav__label" id="sidenav-label">Section pages</span>
+  <ul class="rvt-sidenav__list">
+    <li class="rvt-sidenav__item">
+      <a href="#" class="rvt-sidenav__link">Section nav one</a>
+    </li>
+    <li class="rvt-sidenav__item">
+      <a href="#" class="rvt-sidenav__link" aria-current="page">Section nav two</a>
+    </li>
+    <li class="rvt-sidenav__item">
+      <a href="#" class="rvt-sidenav__link">Section nav three</a>
+    </li>
+  </ul>
+</nav>
