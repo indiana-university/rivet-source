@@ -24,6 +24,7 @@ import Disclosure from './components/disclosure'
 import Dropdown from './components/dropdown'
 import FileInput from './components/fileInput'
 import Sidenav from './components/sidenav'
+import Switch from './components/switch'
 import Tabs from './components/tabs'
 
 /******************************************************************************
@@ -38,6 +39,7 @@ function init () {
   FileInput.initAll()
   Dialog.initAll()
   Sidenav.initAll()
+  Switch.initAll()
   Tabs.initAll()
 }
 
@@ -53,6 +55,7 @@ export {
   Dropdown,
   FileInput,
   Sidenav,
+  Switch,
   Tabs,
   init
 }
