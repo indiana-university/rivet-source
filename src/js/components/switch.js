@@ -43,8 +43,11 @@ export default class Switch extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initProperties()
+        this._setInitialState()
 
-        Component.bindMethodToDOMElement(this, 'someMethod', this.someMethod)
+        Component.bindMethodToDOMElement(this, 'switchOn', this.switchOn)
+        Component.bindMethodToDOMElement(this, 'switchOff', this.switchOff)
       },
 
       /************************************************************************
@@ -54,7 +57,11 @@ export default class Switch extends Component {
        ***********************************************************************/
 
       _initSelectors () {
-        // Initialize component child element selectors here
+        this.onAttribute = 'data-rvt-switch-on'
+        this.offAttribute = 'data-rvt-switch-off'
+
+        this.onSelector = `[${this.onAttribute}]`
+        this.offSelector = `[${this.offAttribute}]`
       },
 
       /************************************************************************
@@ -64,7 +71,40 @@ export default class Switch extends Component {
        ***********************************************************************/
 
       _initElements () {
-        // Initialize component child elements here
+        this.onElement = this.element.querySelector(this.onSelector)
+        this.offElement = this.element.querySelector(this.offSelector)
+      },
+
+      /************************************************************************
+       * Initializes switch state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        this.on = false
+      },
+
+      /************************************************************************
+       * Sets the initial state of the switch.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setInitialState () {
+        this.element.setAttribute('aria-checked', 'false')
+
+        if (this._shouldBeOnByDefault()) { this.switchOn() }
+      },
+
+      /************************************************************************
+       * Returns true if the switch should be toggled on by default.
+       *
+       * @private
+       ***********************************************************************/
+
+      _shouldBeOnByDefault () {
+        return this.element.hasAttribute('data-rvt-switch-on')
       },
 
       /************************************************************************
@@ -84,11 +124,84 @@ export default class Switch extends Component {
       },
 
       /************************************************************************
-       * Do something with the switch.
+       * Handles click events broadcast to the switch.
+       *
+       * @param {Event} event - Click event
        ***********************************************************************/
 
-      someMethod () {
-        // Do something with the switch
+      onClick (event) {
+        this._isOn()
+          ? this.switchOff()
+          : this.switchOn()
+      },
+
+      /************************************************************************
+       * Returns true if the switch is toggled on.
+       ***********************************************************************/
+
+      _isOn () {
+        return this.on
+      },
+
+      /************************************************************************
+       * Toggle the switch on.
+       ***********************************************************************/
+
+      switchOn () {
+        if (this._isOn()) { return }
+
+        if (!this._eventDispatched('SwitchToggledOn')) { return }
+
+        this._setOnState()
+      },
+
+      /************************************************************************
+       * Sets the switch's state properties to represent it being on.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setOnState () {
+        this.on = true
+        this.element.setAttribute('aria-checked', 'true')
+      },
+
+      /************************************************************************
+       * Toggle the switch off.
+       ***********************************************************************/
+
+      switchOff () {
+        if (!this._isOn()) { return }
+
+        if (!this._eventDispatched('SwitchToggledOff')) { return }
+
+        this._setOffState()
+      },
+
+      /************************************************************************
+       * Sets the switch's state properties to represent it being off.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setOffState () {
+        this.on = false
+        this.element.setAttribute('aria-checked', 'false')
+      },
+
+      /************************************************************************
+       * Returns true if the custom event with the given name was successfully
+       * dispatched.
+       *
+       * @private
+       * @param {string} name - Event name
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _eventDispatched (name) {
+        const dispatched = Component.dispatchCustomEvent(name, this.element)
+
+        return dispatched
       }
     }
   }
