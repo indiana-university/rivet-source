@@ -4,5 +4,95 @@
 @use '../core' as *;
 
 .#{$prefix}-switch {
-  // Styles here
+  align-items: center;
+  background: none;
+  background-color: $color-black-200;
+  border: $spacing-xxs/2 solid $color-black-300;
+  border-radius: $spacing-xxs;
+  display: flex;
+  font-weight: $font-weight-medium;;
+  height: $spacing-xl;
+  line-height: 1.1;
+  padding: $spacing-xxs;
+  position: relative;
+  -webkit-appearance: none;
+
+  &::after {
+    background-color: $color-black-000;
+    border-radius: $spacing-xxs;
+    content: " ";
+    height: $spacing-md + $spacing-xxs;
+    left: $spacing-xxs;
+    position: absolute;
+    top: $spacing-xxs;
+    transition: transform .2s ease;
+    width: $spacing-lg + $spacing-xxs;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 $spacing-xxs/2 $color-black-000, 0 0 0 $spacing-xxs $color-blue-500;
+    outline: none;
+    transition: box-shadow .2s ease;
+  }
+
+  &[aria-checked="true"] {
+    background-color: $color-blue-500;
+    border-color: $color-blue-500;
+    color: $color-black-000;
+  }
+
+  &[aria-checked="true"]::after {
+    transform: translate($spacing-xl + $spacing-xxs, 0);
+  }
+
+  &__on,
+  &__off {
+    border-radius: $spacing-xxs;
+    padding: ($spacing-xxs + .15) $spacing-xs;
+    transition: all .2s ease;
+  }
+
+  &--danger[aria-checked="true"] {
+    background-color: $color-orange-500;
+    border-color: $color-orange-500;
+  }
+
+  &--success[aria-checked="true"] {
+    background-color: $color-green-500;
+    border-color: $color-green-500;
+  }
+
+  &--small {
+    height: $spacing-md;
+    padding: $spacing-xxs/2;
+
+    &::after {
+      height: $spacing-sm;
+      left: $spacing-xxs/2;
+      top: $spacing-xxs/2;
+      width: $spacing-md;
+    }
+
+    &[aria-checked="true"]::after {
+      /**
+       * NOTE: This is a magic number to make spacing around the small switch
+       * "handle" appear optically the same on all sides.
+       */
+      transform: translate($spacing-lg + .1rem, 0);
+    }
+  }
+
+  &--small &__on,
+  &--small &__off {
+    font-size: $ts-14;
+    padding: $spacing-xxs/2 $spacing-xxs;
+  }
+
+  &[aria-checked="true"] &__off {
+    visibility: hidden;
+  }
+
+  &[aria-checked="false"] &__on {
+    visibility: hidden;
+  }
 }
