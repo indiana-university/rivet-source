@@ -10,3 +10,14 @@ order: 1
   <span class="rvt-switch__on">On</span>
   <span class="rvt-switch__off">Off</span>
 </button>
+<script>
+  document.addEventListener('rvtSwitchToggledOn', event => {
+    alert(`Switch toggled ON (switch ID '${event.target.dataset.rvtSwitch}')`)
+    console.log(event)
+  })
+
+  document.addEventListener('rvtSwitchToggledOff', event => {
+    alert(`Switch toggled OFF (switch ID '${event.target.dataset.rvtSwitch}')`)
+    console.log(event)
+  })
+</script>
