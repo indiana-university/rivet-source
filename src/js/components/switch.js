@@ -42,38 +42,11 @@ export default class Switch extends Component {
        ***********************************************************************/
 
       init () {
-        this._initSelectors()
-        this._initElements()
         this._initProperties()
         this._setInitialState()
 
         Component.bindMethodToDOMElement(this, 'switchOn', this.switchOn)
         Component.bindMethodToDOMElement(this, 'switchOff', this.switchOff)
-      },
-
-      /************************************************************************
-       * Initializes switch child element selectors.
-       *
-       * @private
-       ***********************************************************************/
-
-      _initSelectors () {
-        this.onAttribute = 'data-rvt-switch-on'
-        this.offAttribute = 'data-rvt-switch-off'
-
-        this.onSelector = `[${this.onAttribute}]`
-        this.offSelector = `[${this.offAttribute}]`
-      },
-
-      /************************************************************************
-       * Initializes switch child elements.
-       *
-       * @private
-       ***********************************************************************/
-
-      _initElements () {
-        this.onElement = this.element.querySelector(this.onSelector)
-        this.offElement = this.element.querySelector(this.offSelector)
       },
 
       /************************************************************************
