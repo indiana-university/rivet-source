@@ -263,7 +263,10 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       onClick (event) {
-        if (this._eventOriginatedInsideMenu(event)) { return }
+        if (
+          this._eventOriginatedInsideMenu(event) || 
+          this._eventOriginatedInsideHyperlink(event)
+        ) { return }
 
         this._isOpen()
           ? this.close()
@@ -283,6 +286,18 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Returns true if the given event originated inside a hyperlink.
+       *
+       * @private
+       * @param {Event} event - Event
+       * @returns {boolean} Event originated inside hyperlink
+       ***********************************************************************/
+
+      _eventOriginatedInsideHyperlink (event) {
+        return event.target.closest('a')
+      },
+
+      /************************************************************************
        * Handles click events broadcast to the document that are related to
        * the dropdown but did not originate inside the dropdown itself.
        *
@@ -298,7 +313,7 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
-       * Returns true if the click event originated inside the dropdown.
+       * Returns true if the click event originated outside the dropdown.
        *
        * @param {Event} event - Click event
        * @returns {boolean} Event originated outside dropdown
