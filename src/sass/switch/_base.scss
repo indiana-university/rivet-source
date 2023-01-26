@@ -39,6 +39,10 @@
     outline: none;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &[aria-checked="true"] {
     background-color: $color-green-500;
     border-color: $color-green-500;
