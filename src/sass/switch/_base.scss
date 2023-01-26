@@ -37,7 +37,6 @@
   &:focus {
     box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-black-400;
     outline: none;
-    transition: box-shadow .2s ease;
   }
 
   &[aria-checked="true"] {
