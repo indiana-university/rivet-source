@@ -2,12 +2,13 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:math';
 
 .#{$prefix}-switch {
   align-items: center;
   background: none;
   background-color: $color-black-400;
-  border: $spacing-xxs/2 solid $color-black-400;
+  border: math.div($spacing-xxs, 2) solid $color-black-400;
   border-radius: $border-radius-circle;
   color: $color-black-100;
   display: flex;
@@ -34,7 +35,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 $spacing-xxs/2 $color-black-000, 0 0 0 $spacing-xxs $color-black-400;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-black-400;
     outline: none;
     transition: box-shadow .2s ease;
   }
@@ -45,7 +46,7 @@
     color: $color-green-100;
 
     &:focus {
-      box-shadow: 0 0 0 $spacing-xxs/2 $color-black-000, 0 0 0 $spacing-xxs $color-green-500;
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-green-500;
     }
   }
 
@@ -75,7 +76,7 @@
     color: $color-white-base;
 
     &:focus {
-      box-shadow: 0 0 0 $spacing-xxs/2 $color-black-000, 0 0 0 $spacing-xxs $color-orange-500;
+      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-orange-500;
     }
 
     &::after {
@@ -85,13 +86,13 @@
 
   &--small {
     height: $spacing-md;
-    padding: $spacing-xxs/2;
+    padding: math.div($spacing-xxs, 2);
 
     &::after {
       background-size: 12px 12px;
       height: $spacing-sm;
-      left: $spacing-xxs/2;
-      top: $spacing-xxs/2;
+      left: math.div($spacing-xxs, 2);
+      top: math.div($spacing-xxs, 2);
       width: $spacing-sm;
     }
 
@@ -107,7 +108,7 @@
   &--small &__on,
   &--small &__off {
     font-size: $ts-14;
-    padding: $spacing-xxs/2 $spacing-xxs;
+    padding: math.div($spacing-xxs, 2) $spacing-xxs;
   }
 
   &--small &__on {
