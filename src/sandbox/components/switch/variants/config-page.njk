@@ -1,0 +1,33 @@
+---
+tags: switch
+title: Switch configuration page
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 5
+---
+<div class="rvt-width-3-xl">
+  <div class="rvt-flex rvt-justify-space-between rvt-items-center rvt-border-top rvt-border-bottom rvt-p-tb-md">
+    <p>Enable email notifications</p>
+    <button class="rvt-switch" data-rvt-switch="example-switch-1" role="switch">
+      <span class="rvt-switch__on">On</span>
+      <span class="rvt-switch__off">Off</span>
+    </button>
+  </div>
+
+  <div class="rvt-flex rvt-justify-space-between rvt-items-center rvt-border-bottom rvt-p-tb-md">
+    <p>Require two-factor authentication</p>
+    <button class="rvt-switch" data-rvt-switch="example-switch-2" data-rvt-switch-on role="switch">
+      <span class="rvt-switch__on">On</span>
+      <span class="rvt-switch__off">Off</span>
+    </button>
+  </div>
+
+  <div class="rvt-flex rvt-justify-space-between rvt-items-center rvt-border-bottom rvt-p-tb-md">
+    <p>Use my location</p>
+    <button class="rvt-switch rvt-switch--danger" data-rvt-switch="example-switch-3" role="switch">
+      <span class="rvt-switch__on">On</span>
+      <span class="rvt-switch__off">Off</span>
+    </button>
+  </div>
+</div>
