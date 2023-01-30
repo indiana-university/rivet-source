@@ -1,0 +1,184 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.welcome {
+  border-radius: 9px;
+  border: 1px #ededeb dashed;
+  color: #243142;
+  margin: 1.8rem;
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.sidebar, .content {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: #ededeb;
+  padding: 1.8rem;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.sidebar h1 {
+  color: #243142;
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.sidebar h1 a {
+  color: #243142;
+  text-decoration: none;
+}
+
+.sidebar h2 {
+  border-bottom: 1px #cecece dashed;
+  color: #243142;
+  font-size: 1rem;
+  padding-top: 1rem;
+  padding-bottom: .75rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar nav li:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
+.sidebar nav li a {
+  color: #4C5A69;
+  text-decoration: none;
+}
+
+.sidebar nav li a:hover {
+  color: #006298;
+}
+
+.sidebar nav li a.current {
+  font-weight: bold;
+  color: #006298;
+}
+
+.sidebar .variants {
+  padding-top: 1rem;
+  padding-bottom: 0;
+}
+
+.sidebar .variants li {
+  font-size: .87rem;
+  line-height: 1.5;
+}
+
+.sidebar .variants li:before {
+  content: "—";
+  color: #A0ABB4;
+  padding-right: .3rem;
+}
+
+.view-options {
+  box-sizing: border-box;
+  display: flex;
+  list-style: none;
+  padding: 2rem 1.5rem .7rem 1.5rem;
+  margin: 0;
+  border-bottom: 1px #ededeb solid;
+  width: 100%;
+}
+
+.view-options li:last-child {
+  position: relative;
+  top: -11px;
+  margin-left: auto;
+}
+
+.view-options li a {
+  padding: .75rem 1.25rem;
+  color: #328BB8;
+  text-decoration: none;
+}
+
+.view-options li a:hover {
+  color: #00385F;
+}
+
+.view-options li a.current {
+  color: #243142;
+  border-top: 1px #ededeb solid;
+  border-left: 1px #ededeb solid;
+  border-right: 1px #ededeb solid;
+  border-bottom: 1px #fff solid;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.view-options svg {
+  padding-left: .5rem;
+  position: relative;
+  top: 1px;
+}
+
+iframe {
+  border: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 660px;
+  overflow-y: scroll;
+}
+
+iframe.padded {
+  padding: 1.8rem;
+}
+
+.html {
+  padding: 0 1.8rem;
+   /* hack display:grid needed to keep pre tag from breaking out of its parent */
+  display: grid;
+  height: 660px;
+  overflow-y: scroll;
+}
+
+pre {
+  overflow-x: scroll;
+}
+
+pre[class*=language-] {
+  background-color: #fff !important;
+}
+
+code {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+[data-copy-code-button],
+[data-pane-html],
+[data-html],
+[data-variant] {
+  display: none;
+}
+
+.event-inspector {
+  display: none;
+  position: fixed;
+  right: 64px;
+  bottom: 64px;
+  padding: 1rem;
+  background-color: #243142;
+  color: #fff;
+  border-radius: .25rem;
+}

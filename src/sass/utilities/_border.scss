@@ -43,12 +43,21 @@
   border-left: 0 !important;
 }
 
-.#{$prefix}-border-radius {
-  border-radius: $spacing-xxs !important;
+.#{$prefix}-border-radius-sm {
+  border-radius: $border-radius-sm !important;
+}
+
+.#{$prefix}-border-radius,
+.#{$prefix}-border-radius-md {
+  border-radius: $border-radius-md !important;
+}
+
+.#{$prefix}-border-radius-lg {
+  border-radius: $border-radius-lg !important;
 }
 
 .#{$prefix}-border-radius-circle {
-  border-radius: 999rem !important;
+  border-radius: $border-radius-circle !important;
 }
 
 .#{$prefix}-border-color-blue {

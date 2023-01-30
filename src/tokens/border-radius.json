@@ -1,0 +1,16 @@
+{
+  "border-radius": {
+    "sm": {
+      "value": ".125rem"
+    },
+    "md": {
+      "value": ".25rem"
+    },
+    "lg": {
+      "value": ".5rem"
+    },
+    "circle": {
+      "value": "999rem"
+    }
+  }
+}

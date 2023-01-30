@@ -1,0 +1,31 @@
+---
+tags: checkbox
+title: Inline checkboxes
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 2
+---
+<fieldset class="rvt-fieldset">
+  <legend class="rvt-sr-only">Checkbox list</legend>
+  <ul class="rvt-list-inline">
+    <li>
+      <div class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-1" checked>
+        <label for="checkbox-1">Option one</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-2">
+        <label for="checkbox-2">Option two</label>
+      </div>
+    </li>
+    <li>
+      <div class="rvt-checkbox">
+        <input type="checkbox" name="checkbox-demo" id="checkbox-3">
+        <label for="checkbox-3">Option three</label>
+      </div>
+    </li>
+  </ul>
+</fieldset>

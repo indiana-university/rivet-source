@@ -1,0 +1,22 @@
+---
+tags: dialog
+title: Notification
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 5
+---
+<div class="rvt-dialog" id="dialog-notification" role="dialog" tabindex="-1" hidden aria-describedby="dialog-description" data-rvt-dialog="dialog-notification" data-rvt-dialog-open-on-init data-rvt-dialog-top-right>
+  <header class="rvt-dialog__header">
+    <h1 class="rvt-dialog__title" id="dialog-title">New version available</h1>
+  </header>
+  <div class="rvt-dialog__body">
+    <p class="rvt-m-all-none" id="dialog-description">A new version of this application is available. Refresh the page to apply the update.</p>
+  </div>
+  <button class="rvt-button rvt-button--plain rvt-dialog__close" data-rvt-dialog-close="dialog-notification" role="button">
+    <span class="rvt-sr-only">Close</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z" />
+    </svg>
+  </button>
+</div>

@@ -1,0 +1,19 @@
+---
+tags: list
+title: Unordered list
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 1
+---
+<ul class="rvt-list">
+  <li>Item 1</li>
+  <li>
+    Item 2
+    <ul class="rvt-list">
+      <li>Item 2.1</li>
+      <li>Item 2.2</li>
+    </ul>
+  </li>
+  <li>Item 3</li>
+</ul>

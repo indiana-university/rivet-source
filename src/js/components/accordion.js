@@ -112,7 +112,9 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       _openAllPanels () {
-        this.panels.forEach((panel, index) => this._openPanel(index))
+        this.panels.forEach(panel => {
+          this.open(panel.getAttribute(this.panelAttribute))
+        })
       },
 
       /************************************************************************

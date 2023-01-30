@@ -1,0 +1,40 @@
+---
+tags: step-indicator
+title: Step indicator with status colors
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 3
+---
+<ol class="rvt-steps">
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Create username</span>
+      <span class="rvt-steps__indicator rvt-steps__indicator--success"><span class="rvt-sr-only">Step</span> 1</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content" aria-current="step">
+      <span class="rvt-steps__label">Personal information</span>
+      <span class="rvt-steps__indicator">2</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Records and transcripts</span>
+      <span class="rvt-steps__indicator rvt-steps__indicator--warning">3</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Supporting documents</span>
+      <span class="rvt-steps__indicator rvt-steps__indicator--danger">4</span>
+    </a>
+  </li>
+  <li class="rvt-steps__item">
+    <a href="#" class="rvt-steps__item-content">
+      <span class="rvt-steps__label">Confirmation</span>
+      <span class="rvt-steps__indicator">5</span>
+    </a>
+  </li>
+</ol>

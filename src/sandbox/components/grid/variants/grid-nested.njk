@@ -1,0 +1,27 @@
+---
+tags: grid
+title: Nested grids
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 6
+---
+<div class="rvt-container-xl">
+  <!-- Outer grid -->
+  <div class="rvt-row">
+    <div class="rvt-cols-6-md">
+      <p class="rvt-bg-blue-100">One-half</p>
+      <!-- Inner grid -->
+      <div class="rvt-row">
+        <div class="rvt-cols-6-md">
+          <p class="rvt-bg-green-100">One-quarter</p>
+        </div>
+        <div class="rvt-cols-6-md">
+          <p class="rvt-bg-green-100">One-quarter</p>
+        </div>
+      </div>
+      <!-- End inner grid -->
+    </div>
+  </div>
+  <!-- End outer grid -->
+</div>

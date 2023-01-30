@@ -1,0 +1,21 @@
+---
+tags: dialog
+title: Help widget
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+padding: true
+order: 6
+---
+<div class="rvt-dialog" id="dialog-help-widget" role="dialog" tabindex="-1" hidden aria-describedby="dialog-description" data-rvt-dialog="dialog-help-widget" data-rvt-dialog-open-on-init data-rvt-dialog-bottom-right>
+  <div class="rvt-dialog__body">
+    <p class="rvt-m-all-none" id="dialog-description">Do you need help with your task? Support center technicians are available over chat to provide live assistance.</p>
+  </div>
+  <div class="rvt-dialog__controls">
+    <button type="button" class="rvt-button" role="button">
+      <span>Chat</span>
+    </button>
+    <button type="button" class="rvt-button rvt-button--secondary" data-rvt-dialog-close="dialog-help-widget" role="button">
+      <span>No thanks</span>
+    </button>
+  </div>
+</div>
