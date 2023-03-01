@@ -66,6 +66,29 @@ export default class Switch extends Component {
        ***********************************************************************/
 
       _setInitialState () {
+        this._hideLabelsFromAssistiveTech()
+        this._setInitialToggleState()
+      },
+
+      /************************************************************************
+       * Hides the on/off text labels from assistive technology.
+       *
+       * @private
+       ***********************************************************************/
+
+      _hideLabelsFromAssistiveTech () {
+        this.element
+            .querySelectorAll('span')
+            .forEach(span => span.setAttribute('aria-hidden', true))
+      },
+
+      /************************************************************************
+       * Sets the switch's initial toggle state.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setInitialToggleState () {
         this.element.setAttribute('aria-checked', 'false')
 
         if (this._shouldBeOnByDefault()) { this.switchOn() }
