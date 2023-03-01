@@ -159,4 +159,17 @@ export default class Component {
     self.observer.disconnect()
   }
 
+  /****************************************************************************
+   * Generates a random unique ID for a component's data attributes. Rivet
+   * components and their child elements are automatically assigned IDs if the
+   * developer does not manually specify one in the markup.
+   *
+   * @static
+   * @returns {string} Unique ID
+   ***************************************************************************/
+
+  static generateUniqueId () {
+    return Math.random().toString(20).substr(2, 12)
+  }
+
 }
