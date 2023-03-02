@@ -423,7 +423,7 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _panelShouldBeActivated (panel) {
-        return panel.getAttribute(this.panelAttribute) !== this.panelToActivate.dataset.rvtTabPanel
+        return panel.getAttribute(this.panelAttribute) === this.panelToActivate.dataset.rvtTabPanel
       },
 
       /************************************************************************
