@@ -73,9 +73,18 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _initElements () {
+        
         this.tablist = this.element.querySelector(this.tablistSelector)
         this.tabs = Array.from(this.element.querySelectorAll(this.tabSelector))
         this.panels = Array.from(this.element.querySelectorAll(this.panelSelector))
+
+        // The data-rvt-tablist attribute was added in Rivet 2.4.0. To maintain
+        // backward compatibility, the code below infers which element is the
+        // tablist if the data-rvt-tablist attribute is not present.
+
+        if ( ! this.tablist) {
+          this.tablist = this.tabs[0].parentElement
+        }
       },
 
       /************************************************************************
