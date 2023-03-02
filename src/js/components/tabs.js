@@ -73,7 +73,6 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _initElements () {
-        
         this.tablist = this.element.querySelector(this.tablistSelector)
         this.tabs = Array.from(this.element.querySelectorAll(this.tabSelector))
         this.panels = Array.from(this.element.querySelectorAll(this.panelSelector))
@@ -82,7 +81,7 @@ export default class Tabs extends Component {
         // backward compatibility, the code below infers which element is the
         // tablist if the data-rvt-tablist attribute is not present.
 
-        if ( ! this.tablist) {
+        if (!this.tablist) {
           this.tablist = this.tabs[0].parentElement
         }
       },
@@ -106,24 +105,34 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _assignComponentElementIds () {
+        this._assignTabIds()
+        this._assignPanelIds()
+      },
 
-        // Tabs
+      /************************************************************************
+       * Assigns a random ID to each tab.
+       *
+       * @private
+       ***********************************************************************/
 
+      _assignTabIds () {
         this.tabs.forEach(tab => {
-          let tabId = tab.getAttribute('data-rvt-tab')
-          let panelId
+          const existingTabId = tab.getAttribute('data-rvt-tab')
 
-          if ( ! tabId) {
-            tabId = Component.generateUniqueId()
-            panelId = Component.generateUniqueId()
-            
-            Component.setAttributeIfNotSpecified(tab, 'data-rvt-tab', panelId)
-            Component.setAttributeIfNotSpecified(tab, 'id', tabId)
+          if (!existingTabId) {
+            Component.setAttributeIfNotSpecified(tab, 'data-rvt-tab', Component.generateUniqueId())
+            Component.setAttributeIfNotSpecified(tab, 'id', Component.generateUniqueId())
           }
         })
+      },
 
-        // Panels
+      /************************************************************************
+       * Assigns a random ID to each panel.
+       *
+       * @private
+       ***********************************************************************/
 
+      _assignPanelIds () {
         const numPanels = this.panels.length
 
         for (let i = 0; i < numPanels; i++) {
@@ -134,16 +143,6 @@ export default class Tabs extends Component {
           Component.setAttributeIfNotSpecified(panel, 'data-rvt-tab-panel', panelId)
           Component.setAttributeIfNotSpecified(panel, 'id', panelId)
         }
-
-        this.panels.forEach(panel => {
-          let panelId = panel.getAttribute('data-rvt-tab-panel')
-
-          if ( ! panelId) {
-            panelId = Component.generateUniqueId()
-            Component.setAttributeIfNotSpecified(panel, 'data-rvt-tab-panel', panelId)
-            Component.setAttributeIfNotSpecified(panel, 'id', panelId)
-          }
-        })
       },
 
       /************************************************************************
@@ -153,27 +152,14 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _setAriaAttributes () {
-
-        // Tablist
-
         this.tablist.setAttribute('role', 'tablist')
-
-        // Tabs
-
         this.tabs.forEach(tab => tab.setAttribute('role', 'tab'))
-
-        // Panels
-
         this.panels.forEach(panel => {
           panel.setAttribute('role', 'tabpanel')
           panel.setAttribute('tabindex', 0)
         })
 
-        // Aria labelled by
-
-        const numTabs = this.tabs.length
-
-        for (let i = 0; i < numTabs; i++) {
+        for (let i = 0; i < this.tabs.length; i++) {
           const tab = this.tabs[i]
           const panel = this.panels[i]
           const id = tab.getAttribute('id')
@@ -437,7 +423,7 @@ export default class Tabs extends Component {
        ***********************************************************************/
 
       _panelShouldBeActivated (panel) {
-        panel.getAttribute(this.panelAttribute) !== this.panelToActivate.dataset.rvtTabPanel
+        return panel.getAttribute(this.panelAttribute) !== this.panelToActivate.dataset.rvtTabPanel
       },
 
       /************************************************************************

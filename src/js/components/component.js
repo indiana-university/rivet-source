@@ -182,7 +182,7 @@ export default class Component {
   static setAttributeIfNotSpecified (element, attribute, value) {
     const existingValue = element.getAttribute(attribute)
 
-    if ( ! existingValue) {
+    if (!existingValue) {
       element.setAttribute(attribute, value)
     }
   }
