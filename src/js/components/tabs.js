@@ -107,11 +107,6 @@ export default class Tabs extends Component {
 
       _assignComponentElementIds () {
 
-        // Root tabs element
-
-        const id = Component.generateUniqueId()
-        Component.setAttributeIfNotSpecified(this.element, 'data-rvt-tabs', id)
-
         // Tabs
 
         this.tabs.forEach(tab => {
