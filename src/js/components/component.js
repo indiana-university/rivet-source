@@ -172,4 +172,19 @@ export default class Component {
     return globalSettings.prefix + '-' + Math.random().toString(20).substr(2, 12)
   }
 
+  /****************************************************************************
+   * Sets the given element attribute if no value was already specified in the
+   * component's markup.
+   *
+   * @static
+   ***************************************************************************/
+
+  static setAttributeIfNotSpecified (element, attribute, value) {
+    const existingValue = element.getAttribute(attribute)
+
+    if ( ! existingValue) {
+      element.setAttribute(attribute, value)
+    }
+  }
+
 }

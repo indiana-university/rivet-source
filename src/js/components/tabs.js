@@ -100,11 +100,8 @@ export default class Tabs extends Component {
 
         // Root tabs element
 
-        const id = this.element.getAttribute('data-rvt-tabs')
-
-        if ( ! id) {
-          this.element.setAttribute('data-rvt-tabs', Component.generateUniqueId())
-        }
+        const id = Component.generateUniqueId()
+        Component.setAttributeIfNotSpecified(this.element, 'data-rvt-tabs', id)
 
         // Tabs
 
@@ -115,9 +112,9 @@ export default class Tabs extends Component {
           if ( ! tabId) {
             tabId = Component.generateUniqueId()
             panelId = Component.generateUniqueId()
-
-            tab.setAttribute('data-rvt-tab', panelId)
-            tab.setAttribute('id', tabId)
+            
+            Component.setAttributeIfNotSpecified(tab, 'data-rvt-tab', panelId)
+            Component.setAttributeIfNotSpecified(tab, 'id', tabId)
           }
         })
 
@@ -128,13 +125,10 @@ export default class Tabs extends Component {
         for (let i = 0; i < numPanels; i++) {
           const tab = this.tabs[i]
           const panel = this.panels[i]
-          const xyz = tab.getAttribute('data-rvt-tab')
-          const tabId = tab.getAttribute('id')
-          const id = Component.generateUniqueId()
+          const panelId = tab.getAttribute('data-rvt-tab')
 
-          panel.setAttribute('data-rvt-tab-panel', xyz)
-          panel.setAttribute('id', xyz)
-          panel.setAttribute('aria-labelledby', tabId)
+          Component.setAttributeIfNotSpecified(panel, 'data-rvt-tab-panel', panelId)
+          Component.setAttributeIfNotSpecified(panel, 'id', panelId)
         }
 
         this.panels.forEach(panel => {
@@ -142,8 +136,8 @@ export default class Tabs extends Component {
 
           if ( ! panelId) {
             panelId = Component.generateUniqueId()
-            panel.setAttribute('data-rvt-tab-panel', panelId)
-            panel.setAttribute('id', panelId)
+            Component.setAttributeIfNotSpecified(panel, 'data-rvt-tab-panel', panelId)
+            Component.setAttributeIfNotSpecified(panel, 'id', panelId)
           }
         })
       },
