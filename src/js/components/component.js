@@ -169,7 +169,7 @@ export default class Component {
    ***************************************************************************/
 
   static generateUniqueId () {
-    return Math.random().toString(20).substr(2, 12)
+    return globalSettings.prefix + '-' + Math.random().toString(20).substr(2, 12)
   }
 
 }

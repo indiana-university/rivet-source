@@ -45,6 +45,7 @@ export default class Tabs extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initAttributes()
 
         Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab)
       },
@@ -61,7 +62,7 @@ export default class Tabs extends Component {
 
         this.tabSelector = `[${this.tabAttribute}]`
         this.panelSelector = `[${this.panelAttribute}]`
-        this.tablistSelector = '[role="tablist"]'
+        this.tablistSelector = '[data-rvt-tablist]'
         this.initialTabSelector = '[data-rvt-tab-init]'
       },
 
@@ -75,6 +76,112 @@ export default class Tabs extends Component {
         this.tablist = this.element.querySelector(this.tablistSelector)
         this.tabs = Array.from(this.element.querySelectorAll(this.tabSelector))
         this.panels = Array.from(this.element.querySelectorAll(this.panelSelector))
+      },
+
+      /************************************************************************
+       * Initializes dialog attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initAttributes () {
+        this._assignComponentElementIds()
+        this._setAriaAttributes()
+      },
+
+      /************************************************************************
+       * Assigns a random ID to the tabs component if an ID was not already
+       * specified in the markup.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignComponentElementIds () {
+
+        // Root tabs element
+
+        const id = this.element.getAttribute('data-rvt-tabs')
+
+        if ( ! id) {
+          this.element.setAttribute('data-rvt-tabs', Component.generateUniqueId())
+        }
+
+        // Tabs
+
+        this.tabs.forEach(tab => {
+          let tabId = tab.getAttribute('data-rvt-tab')
+          let panelId
+
+          if ( ! tabId) {
+            tabId = Component.generateUniqueId()
+            panelId = Component.generateUniqueId()
+
+            tab.setAttribute('data-rvt-tab', panelId)
+            tab.setAttribute('id', tabId)
+          }
+        })
+
+        // Panels
+
+        const numPanels = this.panels.length
+
+        for (let i = 0; i < numPanels; i++) {
+          const tab = this.tabs[i]
+          const panel = this.panels[i]
+          const xyz = tab.getAttribute('data-rvt-tab')
+          const tabId = tab.getAttribute('id')
+          const id = Component.generateUniqueId()
+
+          panel.setAttribute('data-rvt-tab-panel', xyz)
+          panel.setAttribute('id', xyz)
+          panel.setAttribute('aria-labelledby', tabId)
+        }
+
+        this.panels.forEach(panel => {
+          let panelId = panel.getAttribute('data-rvt-tab-panel')
+
+          if ( ! panelId) {
+            panelId = Component.generateUniqueId()
+            panel.setAttribute('data-rvt-tab-panel', panelId)
+            panel.setAttribute('id', panelId)
+          }
+        })
+      },
+
+      /************************************************************************
+       * Sets the tabs component's ARIA attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setAriaAttributes () {
+
+        // Tablist
+
+        this.tablist.setAttribute('role', 'tablist')
+
+        // Tabs
+
+        this.tabs.forEach(tab => tab.setAttribute('role', 'tab'))
+
+        // Panels
+
+        this.panels.forEach(panel => {
+          panel.setAttribute('role', 'tabpanel')
+          panel.setAttribute('tabindex', 0)
+        })
+
+        // Aria labelled by
+
+        const numTabs = this.tabs.length
+
+        for (let i = 0; i < numTabs; i++) {
+          const tab = this.tabs[i]
+          const panel = this.panels[i]
+          const id = tab.getAttribute('id')
+
+          panel.setAttribute('aria-labelledby', id)
+        }
       },
 
       /************************************************************************
