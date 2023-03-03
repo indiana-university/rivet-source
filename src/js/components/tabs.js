@@ -48,6 +48,7 @@ export default class Tabs extends Component {
         this._initAttributes()
 
         Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab)
+        Component.bindMethodToDOMElement(this, 'addTab', this.addTab)
       },
 
       /************************************************************************
@@ -450,6 +451,91 @@ export default class Tabs extends Component {
         this.tabToActivate.setAttribute('aria-selected', 'true')
         this.tabToActivate.removeAttribute('tabindex')
         this.panelToActivate.removeAttribute('hidden')
+      },
+
+      /************************************************************************
+       * Adds a tab with the given label to the component, along with its
+       * associated panel. Returns an object with references to both the added
+       * tab and panel:
+       *
+       * `{ tab: HTMLElement, panel: HTMLElement }`
+       *
+       * @param {string} label - Tab label
+       * @returns {object} Added tab and panel
+       ***********************************************************************/
+
+      addTab (label) {
+        const tab = this._createNewTabElement(label)
+        const panel = this._createNewPanelElement(tab)
+
+        if (!this._tabAddedEventDispatched(tab, panel)) { return }
+
+        this.tablist.appendChild(tab)
+        this.element.appendChild(panel)
+
+        return { tab, panel }
+      },
+
+      /************************************************************************
+       * Creates a new tab element to be added to the component.
+       *
+       * @private
+       * @param {string} label - Tab label
+       * @returns {HTMLElement} Tab to add
+       ***********************************************************************/
+
+      _createNewTabElement (label) {
+        const tab = document.createElement('button')
+        tab.textContent = label
+        tab.classList.add('rvt-tabs__tab')
+        tab.setAttribute(this.tabAttribute, Component.generateUniqueId())
+        tab.setAttribute('id', Component.generateUniqueId())
+        tab.setAttribute('role', 'tab')
+        tab.setAttribute('aria-selected', false)
+        tab.setAttribute('tabindex', -1)
+
+        return tab
+      },
+
+      /************************************************************************
+       * Creates a new tab panel element to be added to the component.
+       *
+       * @private
+       * @param {HTMLElement} tab - Tab associated with panel to create
+       * @returns {HTMLElement} Panel to add
+       ***********************************************************************/
+
+      _createNewPanelElement (tab) {
+        const panel = document.createElement('div')
+        panel.classList.add('rvt-tabs__panel')
+        panel.setAttribute(this.panelAttribute, tab.getAttribute(this.tabAttribute))
+        panel.setAttribute('id', tab.getAttribute(this.tabAttribute))
+        panel.setAttribute('role', 'tabpanel')
+        panel.setAttribute('tabindex', 0)
+        panel.setAttribute('aria-labelledby', tab.getAttribute('id'))
+        panel.setAttribute('hidden', true)
+
+        return panel
+      },
+
+      /************************************************************************
+       * Returns true if the custom "tab added" event was successfully
+       * dispatched.
+       *
+       * @private
+       * @param {HTMLElement} tab - Added tab
+       * @param {HTMLElement} panel - Panel associated with added tab
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _tabAddedEventDispatched (tab, panel) {
+        const dispatched = Component.dispatchCustomEvent(
+          'TabAdded',
+          this.element,
+          { tab, panel }
+        )
+
+        return dispatched
       }
     }
   }

@@ -38,3 +38,19 @@ order: 1
     </p>
   </div>
 </div>
+
+<button data-add-tab class="rvt-button rvt-m-top-xl">Add tab</button>
+
+<script>
+  document.querySelector('[data-add-tab]').addEventListener('click', event => {
+    const tabs = document.querySelector('[data-rvt-tabs]')
+
+    const addedTab = tabs.addTab('New tab')
+
+    console.log(addedTab)
+
+    addedTab.panel.innerHTML = `<h2>This is a new tab</h2><p>It's pretty great!</p>`
+  })
+
+  document.addEventListener('rvtTabAdded', event => console.log(event))
+</script>
