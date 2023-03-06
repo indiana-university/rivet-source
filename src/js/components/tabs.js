@@ -45,10 +45,12 @@ export default class Tabs extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initProperties()
         this._initAttributes()
 
         Component.bindMethodToDOMElement(this, 'activateTab', this.activateTab)
         Component.bindMethodToDOMElement(this, 'addTab', this.addTab)
+        Component.bindMethodToDOMElement(this, 'removeTab', this.removeTab)
       },
 
       /************************************************************************
@@ -85,6 +87,16 @@ export default class Tabs extends Component {
         if (!this.tablist) {
           this.tablist = this.tabs[0].parentElement
         }
+      },
+
+      /************************************************************************
+       * Initializes tabs state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        this.activeTab = null
       },
 
       /************************************************************************
@@ -451,6 +463,8 @@ export default class Tabs extends Component {
         this.tabToActivate.setAttribute('aria-selected', 'true')
         this.tabToActivate.removeAttribute('tabindex')
         this.panelToActivate.removeAttribute('hidden')
+
+        this.activeTab = this.tabToActivate
       },
 
       /************************************************************************
@@ -536,6 +550,86 @@ export default class Tabs extends Component {
         )
 
         return dispatched
+      },
+
+      /************************************************************************
+       * Removes a tab with the given data-rvt-tab attribute value.
+       *
+       * @param {string} id - ID of tab to remove
+       ***********************************************************************/
+
+      removeTab (id) {
+        const tab = this.element.querySelector(`[${this.tabAttribute}="${id}"]`)
+        const panel = this.element.querySelector(`[${this.panelAttribute} = "${id}"]`)
+
+        if (!tab) {
+          console.warn(`No such tab '${id}' in removeTab()`)
+          return
+        }
+
+        if (!panel) {
+          console.warn(`No such panel '${id}' in removeTab()`)
+          return
+        }
+
+        if (!this._tabRemovedEventDispatched(tab, panel)) { return }
+
+        if (this._removedTabWasActiveTab(tab)) {
+          this._activateTabNearestToRemovedTab(tab)
+        }
+
+        tab.remove()
+        panel.remove()
+      },
+
+      /************************************************************************
+       * Returns true if the custom "tab removed" event was successfully
+       * dispatched.
+       *
+       * @private
+       * @param {HTMLElement} tab - Removed tab
+       * @param {HTMLElement} panel - Panel associated with removed tab
+       * @returns {boolean} Event successfully dispatched
+       ***********************************************************************/
+
+      _tabRemovedEventDispatched (tab, panel) {
+        const dispatched = Component.dispatchCustomEvent(
+          'TabRemoved',
+          this.element,
+          { tab, panel }
+        )
+
+        return dispatched
+      },
+
+      /************************************************************************
+       * Returns true if the removed tab was the active tab.
+       *
+       * @private
+       * @param {HTMLElement} removedTab - Removed tab
+       * @returns {boolean} Removed tab was active tab
+       ***********************************************************************/
+
+      _removedTabWasActiveTab (removedTab) {
+        return removedTab === this.activeTab
+      },
+
+      /************************************************************************
+       * Activates the tab nearest to the removed tab.
+       *
+       * @private
+       * @param {HTMLElement} removedTab - Removed tab
+       ***********************************************************************/
+
+      _activateTabNearestToRemovedTab (removedTab) {
+        const previousTab = removedTab.previousElementSibling
+        const nextTab = removedTab.nextElementSibling
+
+        if (previousTab) {
+          this.activateTab(previousTab.dataset.rvtTab)
+        } else if (nextTab) {
+          this.activateTab(nextTab.dataset.rvtTab)
+        }
       }
     }
   }

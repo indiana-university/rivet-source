@@ -9,7 +9,7 @@ order: 1
 <div class="rvt-tabs" data-rvt-tabs>
   <div class="rvt-tabs__tablist" aria-label="Rivet tabs" data-rvt-tablist>
     <button class="rvt-tabs__tab" data-rvt-tab>Tab one</button>
-    <button class="rvt-tabs__tab" data-rvt-tab>Tab two</button>
+    <button class="rvt-tabs__tab" data-rvt-tab="remove-me">Tab two</button>
     <button class="rvt-tabs__tab" data-rvt-tab>Tab three</button>
     <button class="rvt-tabs__tab" data-rvt-tab>Tab four</button>
   </div>
@@ -19,7 +19,7 @@ order: 1
       Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.
     </p>
   </div>
-  <div class="rvt-tabs__panel" data-rvt-tab-panel>
+  <div class="rvt-tabs__panel" data-rvt-tab-panel="remove-me">
     <span class="rvt-ts-23 rvt-text-bold">Find your calling</span>
     <p>
       IU offers more than 2,300 different programs of study. Not sure what to focus on? No problem. Browse by interest area to find options you'd enjoy pursuing.
@@ -40,6 +40,7 @@ order: 1
 </div>
 
 <button data-add-tab class="rvt-button rvt-m-top-xl">Add tab</button>
+<button data-remove-tab class="rvt-button rvt-button--danger rvt-m-top-xl">Remove tab two</button>
 
 <script>
   document.querySelector('[data-add-tab]').addEventListener('click', event => {
@@ -47,9 +48,15 @@ order: 1
 
     const addedTab = tabs.addTab('New tab')
 
-    console.log(addedTab)
-
     addedTab.panel.innerHTML = `<h2>This is a new tab</h2><p>It's pretty great!</p>`
+  })
+
+  document.querySelector('[data-remove-tab]').addEventListener('click', event => {
+    const tabs = document.querySelector('[data-rvt-tabs]')
+
+    tabs.removeTab('remove-me')
+
+    event.target.disabled = true
   })
 
   document.addEventListener('rvtTabAdded', event => console.log(event))
