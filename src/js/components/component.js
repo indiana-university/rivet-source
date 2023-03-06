@@ -177,6 +177,9 @@ export default class Component {
    * component's markup.
    *
    * @static
+   * @param {HTMLElement} element - Element to set attribute on
+   * @param {string} attribute - Attribute name
+   * @param {string} value - Attribute value
    ***************************************************************************/
 
   static setAttributeIfNotSpecified (element, attribute, value) {
