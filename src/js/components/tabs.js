@@ -350,16 +350,20 @@ export default class Tabs extends Component {
       },
 
       /************************************************************************
-       * Activates the tab with the given ID.
+       * Activates the tab with the given ID or index.
        *
-       * @param {string} tabId - ID of tab to activate
+       * @param {string|number} idOrIndex - ID or index of tab to activate
        ***********************************************************************/
 
-      activateTab (tabId) {
-        this._setTabToActivate(tabId)
+      activateTab (idOrIndex) {
+        const id = this._tabIndexWasPassed(idOrIndex)
+          ? this._getTabIdFromIndex(idOrIndex)
+          : idOrIndex
+
+        this._setTabToActivate(id)
 
         if (!this._tabToActivateExists()) {
-          console.warn(`No such tab '${tabId}' in activateTab()`)
+          console.warn(`No such tab '${id}' in activateTab()`)
           return
         }
 
@@ -367,6 +371,29 @@ export default class Tabs extends Component {
 
         this._deactivateUnselectedTabs()
         this._activateSelectedTab()
+      },
+
+      /************************************************************************
+       * Activates the tab with the given ID or index.
+       *
+       * @param {string|number} idOrIndex - ID or index of tab to activate
+       ***********************************************************************/
+
+      _tabIndexWasPassed(idOrIndex) {
+        return typeof idOrIndex === 'number'
+      },
+
+      /************************************************************************
+       * Gets the ID of the tab at the given index.
+       *
+       * @private
+       * @param {number} index - Tab index
+       ***********************************************************************/
+
+      _getTabIdFromIndex(index) {
+        return this.tabs[index]
+          ? this.tabs[index].getAttribute(this.tabAttribute)
+          : null
       },
 
       /************************************************************************

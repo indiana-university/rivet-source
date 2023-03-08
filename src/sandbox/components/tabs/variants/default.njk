@@ -11,7 +11,7 @@ order: 1
     <button class="rvt-tabs__tab" data-rvt-tab>Tab one</button>
     <button class="rvt-tabs__tab" data-rvt-tab="remove-me">Tab two</button>
     <button class="rvt-tabs__tab" data-rvt-tab>Tab three</button>
-    <button class="rvt-tabs__tab" data-rvt-tab>Tab four</button>
+    <button class="rvt-tabs__tab" data-rvt-tab="tab-four">Tab four</button>
   </div>
   <div class="rvt-tabs__panel" data-rvt-tab-panel>
     <span class="rvt-ts-23 rvt-text-bold">Become the best version of yourself at IU</span>
@@ -31,7 +31,7 @@ order: 1
       From nursing to criminal justice, epidemiology to environmental science, social work to cybersecurity, and more than 900 academic programs in between, IU gives you the power to study whatever sparks your interest, with the support of world-class professors and faculty who care about your success.
     </p>
   </div>
-  <div class="rvt-tabs__panel" data-rvt-tab-panel>
+  <div class="rvt-tabs__panel" data-rvt-tab-panel="tab-four">
     <span class="rvt-ts-23 rvt-text-bold">Find your ideal campus life at IU</span>
     <p>
       Each of our nine campuses offers a welcoming, inclusive environment that feels like home, whatever your background, interests, or goals. Whether you want a Big Ten college experience, the dynamic pace of an urban research university, the community feeling of a regional campus close to home, or the flexibility of a fully online degree program, you’ll find it at IU.
@@ -40,24 +40,33 @@ order: 1
 </div>
 
 <button data-add-tab class="rvt-button rvt-m-top-xl">Add tab</button>
-<button data-remove-tab class="rvt-button rvt-button--danger rvt-m-top-xl">Remove tab two</button>
+<button data-remove-tab class="rvt-button rvt-button--danger rvt-m-left-sm">Remove tab two</button>
+<button data-activate-named-tab class="rvt-button rvt-m-left-sm">Activate tab four by ID</button>
+<button data-activate-indexed-tab class="rvt-button rvt-m-left-sm">Activate tab one by index</button>
 
 <script>
-  document.querySelector('[data-add-tab]').addEventListener('click', event => {
-    const tabs = document.querySelector('[data-rvt-tabs]')
+  const tabs = document.querySelector('[data-rvt-tabs]')
 
+  document.querySelector('[data-add-tab]').addEventListener('click', event => {
     const addedTab = tabs.addTab('New tab')
 
     addedTab.panel.innerHTML = `<h2>This is a new tab</h2><p>It's pretty great!</p>`
   })
 
   document.querySelector('[data-remove-tab]').addEventListener('click', event => {
-    const tabs = document.querySelector('[data-rvt-tabs]')
-
     tabs.removeTab('remove-me')
 
     event.target.disabled = true
   })
 
+  document.querySelector('[data-activate-named-tab]').addEventListener('click', event => {
+    tabs.activateTab('tab-four')
+  })
+
+  document.querySelector('[data-activate-indexed-tab]').addEventListener('click', event => {
+    tabs.activateTab(0)
+  })
+
   document.addEventListener('rvtTabAdded', event => console.log(event))
+  document.addEventListener('rvtTabRemoved', event => console.log(event))
 </script>
