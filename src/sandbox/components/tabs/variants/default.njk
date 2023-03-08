@@ -43,6 +43,7 @@ order: 1
 <button data-remove-tab class="rvt-button rvt-button--danger rvt-m-left-sm">Remove tab two</button>
 <button data-activate-named-tab class="rvt-button rvt-m-left-sm">Activate tab four by ID</button>
 <button data-activate-indexed-tab class="rvt-button rvt-m-left-sm">Activate tab one by index</button>
+<button data-remove-indexed-tab class="rvt-button rvt-button--danger rvt-m-left-sm">Remove tab three by index</button>
 
 <script>
   const tabs = document.querySelector('[data-rvt-tabs]')
@@ -65,6 +66,12 @@ order: 1
 
   document.querySelector('[data-activate-indexed-tab]').addEventListener('click', event => {
     tabs.activateTab(0)
+  })
+
+  document.querySelector('[data-remove-indexed-tab]').addEventListener('click', event => {
+    tabs.removeTab(2)
+
+    event.target.disabled = true
   })
 
   document.addEventListener('rvtTabAdded', event => console.log(event))

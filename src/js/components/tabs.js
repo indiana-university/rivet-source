@@ -379,7 +379,7 @@ export default class Tabs extends Component {
        * @param {string|number} idOrIndex - ID or index of tab to activate
        ***********************************************************************/
 
-      _tabIndexWasPassed(idOrIndex) {
+      _tabIndexWasPassed (idOrIndex) {
         return typeof idOrIndex === 'number'
       },
 
@@ -390,7 +390,7 @@ export default class Tabs extends Component {
        * @param {number} index - Tab index
        ***********************************************************************/
 
-      _getTabIdFromIndex(index) {
+      _getTabIdFromIndex (index) {
         return this.tabs[index]
           ? this.tabs[index].getAttribute(this.tabAttribute)
           : null
@@ -580,33 +580,55 @@ export default class Tabs extends Component {
       },
 
       /************************************************************************
-       * Removes a tab with the given data-rvt-tab attribute value.
+       * Removes a tab with the given ID or index value.
        *
-       * @param {string} id - ID of tab to remove
+       * @param {string} idOrIndex - ID or index of tab to remove
        ***********************************************************************/
 
-      removeTab (id) {
-        const tab = this.element.querySelector(`[${this.tabAttribute}="${id}"]`)
-        const panel = this.element.querySelector(`[${this.panelAttribute} = "${id}"]`)
+      removeTab (idOrIndex) {
+        const id = this._tabIndexWasPassed(idOrIndex)
+          ? this._getTabIdFromIndex(idOrIndex)
+          : idOrIndex
 
-        if (!tab) {
+        this._setTabToRemove(id)
+
+        if (!this._tabToRemoveExists()) {
           console.warn(`No such tab '${id}' in removeTab()`)
           return
         }
 
-        if (!panel) {
-          console.warn(`No such panel '${id}' in removeTab()`)
-          return
+        if (!this._tabRemovedEventDispatched()) { return }
+
+        if (this._removedTabWasActiveTab()) {
+          this._activateTabNearestToRemovedTab()
         }
 
-        if (!this._tabRemovedEventDispatched(tab, panel)) { return }
+        this._removeTab()
+      },
 
-        if (this._removedTabWasActiveTab(tab)) {
-          this._activateTabNearestToRemovedTab(tab)
-        }
+      /************************************************************************
+       * Updates the component's state to store references to the tab to
+       * remove. Used by tab removal submethods to validate a tab removal
+       * request and determine which panels should be removed from the DOM.
+       *
+       * @private
+       * @param {string} tabId - ID of tab to remove
+       ***********************************************************************/
 
-        tab.remove()
-        panel.remove()
+      _setTabToRemove (tabId) {
+        this.tabToRemove = this.element.querySelector(`[${this.tabAttribute}="${tabId}"]`)
+        this.panelToRemove = this.element.querySelector(`[${this.panelAttribute} = "${tabId}"]`)
+      },
+
+      /************************************************************************
+       * Returns true if the tab to activate actually exists in the DOM.
+       *
+       * @private
+       * @returns {boolean} Tab to remove exists
+       ***********************************************************************/
+
+      _tabToRemoveExists () {
+        return this.tabToRemove && this.panelToRemove
       },
 
       /************************************************************************
@@ -614,16 +636,17 @@ export default class Tabs extends Component {
        * dispatched.
        *
        * @private
-       * @param {HTMLElement} tab - Removed tab
-       * @param {HTMLElement} panel - Panel associated with removed tab
        * @returns {boolean} Event successfully dispatched
        ***********************************************************************/
 
-      _tabRemovedEventDispatched (tab, panel) {
+      _tabRemovedEventDispatched () {
         const dispatched = Component.dispatchCustomEvent(
           'TabRemoved',
           this.element,
-          { tab, panel }
+          {
+            tab: this.tabToRemove,
+            panel: this.panelToRemove
+          }
         )
 
         return dispatched
@@ -633,30 +656,39 @@ export default class Tabs extends Component {
        * Returns true if the removed tab was the active tab.
        *
        * @private
-       * @param {HTMLElement} removedTab - Removed tab
        * @returns {boolean} Removed tab was active tab
        ***********************************************************************/
 
-      _removedTabWasActiveTab (removedTab) {
-        return removedTab === this.activeTab
+      _removedTabWasActiveTab () {
+        return this.tabToRemove === this.activeTab
       },
 
       /************************************************************************
        * Activates the tab nearest to the removed tab.
        *
        * @private
-       * @param {HTMLElement} removedTab - Removed tab
        ***********************************************************************/
 
-      _activateTabNearestToRemovedTab (removedTab) {
-        const previousTab = removedTab.previousElementSibling
-        const nextTab = removedTab.nextElementSibling
+      _activateTabNearestToRemovedTab () {
+        const previousTab = this.tabToRemove.previousElementSibling
+        const nextTab = this.tabToRemove.nextElementSibling
 
         if (previousTab) {
           this.activateTab(previousTab.dataset.rvtTab)
         } else if (nextTab) {
           this.activateTab(nextTab.dataset.rvtTab)
         }
+      },
+
+      /************************************************************************
+       * Deletes from the DOM the tab and panel marked for removal.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeTab () {
+        this.tabToRemove.remove()
+        this.panelToRemove.remove()
       }
     }
   }
