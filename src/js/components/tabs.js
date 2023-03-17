@@ -582,7 +582,7 @@ export default class Tabs extends Component {
       /************************************************************************
        * Removes a tab with the given ID or index value.
        *
-       * @param {string} idOrIndex - ID or index of tab to remove
+       * @param {string|number} idOrIndex - ID or index of tab to remove
        ***********************************************************************/
 
       removeTab (idOrIndex) {
