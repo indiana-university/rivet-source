@@ -159,4 +159,35 @@ export default class Component {
     self.observer.disconnect()
   }
 
+  /****************************************************************************
+   * Generates a random unique ID for a component's data attributes. Rivet
+   * components and their child elements are automatically assigned IDs if the
+   * developer does not manually specify one in the markup.
+   *
+   * @static
+   * @returns {string} Unique ID
+   ***************************************************************************/
+
+  static generateUniqueId () {
+    return globalSettings.prefix + '-' + Math.random().toString(20).substr(2, 12)
+  }
+
+  /****************************************************************************
+   * Sets the given element attribute if no value was already specified in the
+   * component's markup.
+   *
+   * @static
+   * @param {HTMLElement} element - Element to set attribute on
+   * @param {string} attribute - Attribute name
+   * @param {string} value - Attribute value
+   ***************************************************************************/
+
+  static setAttributeIfNotSpecified (element, attribute, value) {
+    const existingValue = element.getAttribute(attribute)
+
+    if (!existingValue) {
+      element.setAttribute(attribute, value)
+    }
+  }
+
 }
