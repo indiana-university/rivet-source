@@ -100,7 +100,7 @@ export default class Tabs extends Component {
       },
 
       /************************************************************************
-       * Initializes dialog attributes.
+       * Initializes tabs attributes.
        *
        * @private
        ***********************************************************************/
