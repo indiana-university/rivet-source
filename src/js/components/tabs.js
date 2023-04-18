@@ -107,6 +107,7 @@ export default class Tabs extends Component {
 
       _initAttributes () {
         this._assignComponentElementIds()
+        this._setTabButtonAttributes()
         this._setAriaAttributes()
       },
 
@@ -156,6 +157,18 @@ export default class Tabs extends Component {
           Component.setAttributeIfNotSpecified(panel, 'data-rvt-tab-panel', panelId)
           Component.setAttributeIfNotSpecified(panel, 'id', panelId)
         }
+      },
+
+      /************************************************************************
+       * Adds `type="button"` to each tab's button element.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setTabButtonAttributes () {
+        this.tabs.forEach(tab => {
+          Component.setAttributeIfNotSpecified(tab, 'type', 'button')
+        })
       },
 
       /************************************************************************
