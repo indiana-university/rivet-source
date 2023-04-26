@@ -126,3 +126,26 @@
     }
   }
 }
+
+@media screen and (min-width: $breakpoint-md) {
+  .#{$prefix}-card {
+    &--horizontal {
+      flex-direction: row;
+      padding-left: $spacing-md;
+    }
+  
+    &--horizontal &__image {
+      flex-shrink: 0;
+      margin-right: $spacing-md;
+      max-width: $width-sm;
+    }
+  
+    &--horizontal &__body {
+      padding-top: 0;
+    }
+  }
+
+  .#{$prefix}-card--horizontal.#{$prefix}-card--raised {
+    padding: $spacing-md;
+  }
+}
