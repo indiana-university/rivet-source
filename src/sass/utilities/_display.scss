@@ -16,6 +16,9 @@
   padding: 0;
   position: absolute;
   width: 1px;
+  /* Set color to prevent false positives in a11y tools */
+  background-color: white !important;
+  color: black !important;
 }
 
 /* Extends the .visuallyhidden class to allow the element
