@@ -7,8 +7,8 @@
 
 @each $token, $width in $widths {
   .#{$prefix}-width-#{$token} {
-    width: 100%;
-    max-width: $width;
+    width: 100% !important;
+    max-width: $width !important;
   }
 }
 
@@ -18,8 +18,8 @@
   @include mq($size) {
     @each $token, $width in $widths {
       .#{$prefix}-width-#{$token}-#{$variable}-up {
-        width: 100%;
-        max-width: $width;
+        width: 100% !important;
+        max-width: $width !important;
       }
     }
   }

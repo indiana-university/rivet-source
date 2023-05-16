@@ -45,6 +45,7 @@ export default class Accordion extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initAttributes()
         this._setInitialPanelStates()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
@@ -79,6 +80,28 @@ export default class Accordion extends Component {
         this.panels = Array.from(
           this.element.querySelectorAll(this.panelSelector)
         )
+      },
+
+      /************************************************************************
+       * Initializes accordion attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initAttributes () {
+        this._setTriggerButtonAttributes()
+      },
+
+      /************************************************************************
+       * Adds `type="button"` to each trigger's button element.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setTriggerButtonAttributes () {
+        this.triggers.forEach(trigger => {
+          Component.setAttributeIfNotSpecified(trigger, 'type', 'button')
+        })
       },
 
       /************************************************************************
