@@ -36,7 +36,7 @@
     "watch-sass": "sass --watch ./src/sass/rivet.scss ./dist/css/rivet.css",
     "move-example": "node ./tasks/move-example.js",
     "lint": "standard 'src/js'",
-    "asset:upload": "npm run build && zip -r rivet-gh-release.zip css js sass tokens index.html",
+    "asset:upload": "npm run build && zip -r rivet.zip css js sass tokens index.html",
     "new-component": "node ./tasks/source-new-component.js",
     "sandbox-new-component": "node ./tasks/sandbox-new-component.js",
     "sandbox-deploy:test": "sh deploy-sandbox.sh",
