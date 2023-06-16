@@ -336,10 +336,12 @@ export default class Dropdown extends Component {
             break
 
           case keyCodes.up:
+            event.preventDefault()
             this._handleUpKey(event)
             break
 
           case keyCodes.down:
+            event.preventDefault()
             this._handleDownKey(event)
             break
 
