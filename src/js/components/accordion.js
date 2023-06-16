@@ -251,10 +251,12 @@ export default class Accordion extends Component {
 
         switch (event.keyCode) {
           case keyCodes.up:
+            event.preventDefault()
             this._focusPreviousTrigger()
             break
 
           case keyCodes.down:
+            event.preventDefault()
             this._focusNextTrigger()
             break
 
