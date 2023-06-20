@@ -78,19 +78,6 @@
       width: 55%;
     }
 
-    &__image::after {
-      content: '';
-      display: block;
-      background-color: $color-black-000;
-      position: absolute;
-      top: -4rem;
-      right: 0;
-      width: 50vw;
-      height: calc(100% + 8rem);
-      margin-right: calc(50% - 50vw);
-      z-index: -1;
-    }
-
     &__body {
       flex-basis: 33%;
       flex-grow: 1;
@@ -99,16 +86,6 @@
 
     &--reverse {
       flex-direction: row;
-    }
-
-    &--reverse &__image::after {
-      left: 0;
-      width: 50vw;
-      height: calc(100% + 8rem);
-
-      // position should be half what the 100% + calc statement is above
-      top: -4rem;
-      margin-left: calc(50% - 50vw);
     }
 
     &--reverse &__body {
