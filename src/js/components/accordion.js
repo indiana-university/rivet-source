@@ -89,7 +89,59 @@ export default class Accordion extends Component {
        ***********************************************************************/
 
       _initAttributes () {
-        this._setTriggerButtonAttributes()
+        this._assignComponentElementIds()
+        this._setTriggerButtonTypeAttributes()
+      },
+
+      /************************************************************************
+       * Assigns random IDs to the accordion component's child elements if
+       * IDs were not already specified in the markup.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignComponentElementIds () {
+        this._assignTriggerIds()
+        this._assignPanelIds()
+      },
+
+      /************************************************************************
+       * Assigns a random ID to each trigger.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignTriggerIds () {
+        this.triggers.forEach(trigger => {
+          const existingTriggerId = trigger.getAttribute(this.triggerAttribute)
+
+          if (!existingTriggerId) {
+            const id = Component.generateUniqueId()
+
+            Component.setAttributeIfNotSpecified(trigger, this.triggerAttribute, id)
+            Component.setAttributeIfNotSpecified(trigger, 'id', `${id}-label`)
+          }
+        })
+      },
+
+      /************************************************************************
+       * Assigns a random ID to each panel.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignPanelIds () {
+        const numPanels = this.panels.length
+
+        for (let i = 0; i < numPanels; i++) {
+          const trigger = this.triggers[i]
+          const panel = this.panels[i]
+          const panelId = trigger.getAttribute(this.triggerAttribute)
+
+          Component.setAttributeIfNotSpecified(panel, this.panelAttribute, panelId)
+          Component.setAttributeIfNotSpecified(panel, 'id', panelId)
+          Component.setAttributeIfNotSpecified(panel, 'aria-labelledby', `${panelId}-label`)
+        }
       },
 
       /************************************************************************
@@ -98,7 +150,7 @@ export default class Accordion extends Component {
        * @private
        ***********************************************************************/
 
-      _setTriggerButtonAttributes () {
+      _setTriggerButtonTypeAttributes () {
         this.triggers.forEach(trigger => {
           Component.setAttributeIfNotSpecified(trigger, 'type', 'button')
         })
