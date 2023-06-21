@@ -113,14 +113,10 @@ export default class Accordion extends Component {
 
       _assignTriggerIds () {
         this.triggers.forEach(trigger => {
-          const existingTriggerId = trigger.getAttribute(this.triggerAttribute)
+          const id = Component.generateUniqueId()
 
-          if (!existingTriggerId) {
-            const id = Component.generateUniqueId()
-
-            Component.setAttributeIfNotSpecified(trigger, this.triggerAttribute, id)
-            Component.setAttributeIfNotSpecified(trigger, 'id', `${id}-label`)
-          }
+          Component.setAttributeIfNotSpecified(trigger, this.triggerAttribute, id)
+          Component.setAttributeIfNotSpecified(trigger, 'id', `${id}-label`)
         })
       },
 

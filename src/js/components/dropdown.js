@@ -101,9 +101,9 @@ export default class Dropdown extends Component {
       _assignComponentElementIds () {
         const id = Component.generateUniqueId()
 
-        this.toggleElement.setAttribute(this.toggleAttribute, id)
-        this.menuElement.setAttribute('id', id)
-        this.menuElement.setAttribute(this.menuAttribute, id)
+        Component.setAttributeIfNotSpecified(this.toggleElement, this.toggleAttribute, id)
+        Component.setAttributeIfNotSpecified(this.menuElement, this.menuAttribute, id)
+        Component.setAttributeIfNotSpecified(this.menuElement, 'id', id)
       },
 
       /************************************************************************

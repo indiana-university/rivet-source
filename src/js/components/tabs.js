@@ -131,12 +131,8 @@ export default class Tabs extends Component {
 
       _assignTabIds () {
         this.tabs.forEach(tab => {
-          const existingTabId = tab.getAttribute('data-rvt-tab')
-
-          if (!existingTabId) {
-            Component.setAttributeIfNotSpecified(tab, 'data-rvt-tab', Component.generateUniqueId())
-            Component.setAttributeIfNotSpecified(tab, 'id', Component.generateUniqueId())
-          }
+          Component.setAttributeIfNotSpecified(tab, this.tabAttribute, Component.generateUniqueId())
+          Component.setAttributeIfNotSpecified(tab, 'id', Component.generateUniqueId())
         })
       },
 
@@ -152,9 +148,9 @@ export default class Tabs extends Component {
         for (let i = 0; i < numPanels; i++) {
           const tab = this.tabs[i]
           const panel = this.panels[i]
-          const panelId = tab.getAttribute('data-rvt-tab')
+          const panelId = tab.getAttribute(this.tabAttribute)
 
-          Component.setAttributeIfNotSpecified(panel, 'data-rvt-tab-panel', panelId)
+          Component.setAttributeIfNotSpecified(panel, this.panelAttribute, panelId)
           Component.setAttributeIfNotSpecified(panel, 'id', panelId)
         }
       },

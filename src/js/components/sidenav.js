@@ -111,11 +111,7 @@ export default class Sidenav extends Component {
 
       _assignToggleIds () {
         this.childMenuToggleButtons.forEach(toggle => {
-          const existingToggleId = toggle.getAttribute(this.toggleAttribute)
-
-          if (!existingToggleId) {
-            Component.setAttributeIfNotSpecified(toggle, this.toggleAttribute, Component.generateUniqueId())
-          }
+          Component.setAttributeIfNotSpecified(toggle, this.toggleAttribute, Component.generateUniqueId())
         })
       },
 
