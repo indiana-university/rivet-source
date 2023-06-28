@@ -44,6 +44,7 @@ export default class Sidenav extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initAttributes()
         this._setInitialChildMenuStates()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
@@ -78,6 +79,58 @@ export default class Sidenav extends Component {
         this.childMenus = Array.from(
           this.element.querySelectorAll(this.childMenuSelector)
         )
+      },
+
+      /************************************************************************
+       * Initializes sidenav attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initAttributes () {
+        this._assignComponentElementIds()
+      },
+
+      /************************************************************************
+       * Assigns random IDs to each toggle button and child menu if one was
+       * not already provided in the markup.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignComponentElementIds () {
+        this._assignToggleIds()
+        this._assignChildMenuIds()
+      },
+
+      /************************************************************************
+       * Assigns a random ID to each toggle.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignToggleIds () {
+        this.childMenuToggleButtons.forEach(toggle => {
+          Component.setAttributeIfNotSpecified(toggle, this.toggleAttribute, Component.generateUniqueId())
+        })
+      },
+
+      /************************************************************************
+       * Assigns a random ID to each child menu.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignChildMenuIds () {
+        const numMenus = this.childMenus.length
+
+        for (let i = 0; i < numMenus; i++) {
+          const toggle = this.childMenuToggleButtons[i]
+          const menu = this.childMenus[i]
+          const menuId = toggle.getAttribute(this.toggleAttribute)
+
+          Component.setAttributeIfNotSpecified(menu, this.childMenuAttribute, menuId)
+        }
       },
 
       /************************************************************************

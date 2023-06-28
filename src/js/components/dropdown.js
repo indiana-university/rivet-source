@@ -45,6 +45,7 @@ export default class Dropdown extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initAttributes()
         this._initProperties()
         this._initMenuItems()
         this._removeIconFromTabOrder()
@@ -77,6 +78,43 @@ export default class Dropdown extends Component {
       _initElements () {
         this.toggleElement = this.element.querySelector(this.toggleSelector)
         this.menuElement = this.element.querySelector(this.menuSelector)
+      },
+
+      /************************************************************************
+       * Initializes dropdown attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initAttributes () {
+        this._assignComponentElementIds()
+        this._setAriaAttributes()
+      },
+
+      /************************************************************************
+       * Assigns a random ID to the dropdown component if an ID was not
+       * already specified in the markup.
+       *
+       * @private
+       ***********************************************************************/
+
+      _assignComponentElementIds () {
+        const id = Component.generateUniqueId()
+
+        Component.setAttributeIfNotSpecified(this.toggleElement, this.toggleAttribute, id)
+        Component.setAttributeIfNotSpecified(this.menuElement, this.menuAttribute, id)
+        Component.setAttributeIfNotSpecified(this.menuElement, 'id', id)
+      },
+
+      /************************************************************************
+       * Sets the dropdown component's ARIA attributes.
+       *
+       * @private
+       ***********************************************************************/
+
+      _setAriaAttributes () {
+        this.toggleElement.setAttribute('aria-haspopup', true)
+        this.toggleElement.setAttribute('aria-expanded', false)
       },
 
       /************************************************************************
@@ -336,10 +374,12 @@ export default class Dropdown extends Component {
             break
 
           case keyCodes.up:
+            event.preventDefault()
             this._handleUpKey(event)
             break
 
           case keyCodes.down:
+            event.preventDefault()
             this._handleDownKey(event)
             break
 
