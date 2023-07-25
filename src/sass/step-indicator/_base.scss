@@ -53,7 +53,7 @@
     flex-direction: column;
   }
 
-  &__item-content[aria-current] &__indicator {
+  &__item-content[aria-current='step'] &__indicator {
     font-weight: 700;
   }
 
@@ -163,7 +163,7 @@ a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__label {
 
 a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
-a.#{$prefix}-steps__item-content[aria-current] .#{$prefix}-steps__indicator {
+a.#{$prefix}-steps__item-content[aria-current='step'] .#{$prefix}-steps__indicator {
   background-color: $color-crimson-500;
   color: $color-white-base;
   border-color: $color-crimson-500;

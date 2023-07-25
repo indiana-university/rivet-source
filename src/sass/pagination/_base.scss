@@ -51,14 +51,14 @@
     }
 
     a:focus,
-    a[aria-current]:focus {
+    a[aria-current='page']:focus {
       border-radius: inherit;
       outline: solid math.div($spacing-xxs, 2) $color-blue-400;
       outline-offset: math.div($spacing-xxs, 2);
       z-index: map.get($z-index, '1000');
     }
 
-    a[aria-current] {
+    a[aria-current='page'] {
       background-color: $color-orange-000;
       box-shadow: 0 $spacing-xxs 0 $color-crimson-500;
     }

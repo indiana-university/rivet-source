@@ -39,7 +39,7 @@
     }
   }
 
-  &__item a[aria-current] {
+  &__item a[aria-current='page'] {
     background-color: $color-orange-000;
     color: $color-crimson-500;
 
@@ -48,7 +48,7 @@
     }
   }
 
-  &__item a[aria-current]::after,
+  &__item a[aria-current='page']::after,
   &__item a:hover::after {
     content: '';
     display: block;
@@ -60,7 +60,7 @@
     position: absolute;
   }
 
-  &__item a:hover:not([aria-current]),
+  &__item a:hover:not([aria-current='page']),
   &__item button:hover {
     background-color: $color-blue-000;
     color: $color-blue-500;

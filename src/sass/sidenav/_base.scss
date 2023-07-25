@@ -62,11 +62,11 @@
     position: relative;
     text-decoration: none;
 
-    &[aria-current] {
+    &[aria-current='page'] {
       background-color: $color-orange-000;
     }
 
-    &[aria-current]::before {
+    &[aria-current='page']::before {
       content: '';
       display: block;
       width: .25rem;
@@ -89,11 +89,11 @@
     padding-bottom: $spacing-xxs * 1.2;
   }
 
-  &__item > &__list &__link[aria-current]::before {
+  &__item > &__list &__link[aria-current='page']::before {
     margin-left: -$spacing-xxs;
   }
 
-  &__link[aria-current] + &__toggle {
+  &__link[aria-current='page'] + &__toggle {
     background-color: $color-orange-000;
 
     > svg {
@@ -101,8 +101,8 @@
     }
   }
 
-  &__link[aria-current] + &__toggle:hover,
-  &__link[aria-current] + &__toggle:focus {
+  &__link[aria-current='page'] + &__toggle:hover,
+  &__link[aria-current='page'] + &__toggle:focus {
     color: $color-blue-500;
     background-color: $color-blue-000;
 
