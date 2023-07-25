@@ -104,7 +104,7 @@
       }
 
       &.#{$prefix}-is-selected,
-      &[aria-current],
+      &[aria-current]:not([aria-current='false']),
       &[aria-checked='true'] {
         box-shadow: inset $spacing-xxs 0 0 $color-crimson-500;
         background-color: $color-orange-000;
