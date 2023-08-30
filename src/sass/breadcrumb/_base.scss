@@ -43,6 +43,8 @@
     color: $color-black-400;
   }
 
+  // DEPRECATED: This variant will be removed in a future version of Rivet.
+
   &--call-out {
     background-color: $color-black-100;
     padding: $spacing-sm;
