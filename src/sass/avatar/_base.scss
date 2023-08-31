@@ -4,6 +4,7 @@
 $avatar-fonts: (
   'xs': $ts-14,
   'sm': $ts-16,
+  'rg': $ts-20,
   'md': $ts-23,
   'lg': $ts-32,
   'xl': $ts-41
@@ -11,10 +12,11 @@ $avatar-fonts: (
 
 $avatar-widths: (
   'xs': $spacing-lg,
-  'sm': $spacing-lg * 2,
+  'sm': $spacing-lg * 1.5,
+  'rg': $spacing-lg * 2,
   'md': $spacing-lg * 3,
   'lg': $spacing-lg * 4,
-  'xl': $spacing-lg * 5
+  'xl': $spacing-lg * 5,
 );
 
 .#{$prefix}-avatar {
@@ -24,11 +26,12 @@ $avatar-widths: (
   color: $color-white-base;
   display: flex;
   flex-shrink: 0;
+  font-size: $ts-20;
   font-weight: 700;
-  height: map.get($avatar-widths, 'sm');
+  height: map.get($avatar-widths, 'rg');
   justify-content: center;
   overflow: hidden;
-  width: map.get($avatar-widths, 'sm');
+  width: map.get($avatar-widths, 'rg');
 
   &__image {
     display: block;
@@ -43,6 +46,7 @@ $avatar-widths: (
   }
 
   &--sm {
+    font-size: $ts-16;
     height: map.get($avatar-widths, 'sm');
     width: map.get($avatar-widths, 'sm');
   }
