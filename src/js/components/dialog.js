@@ -128,7 +128,7 @@ export default class Dialog extends Component {
         const mountElement = document.querySelector('[data-rvt-dialog-mount]')
 
         mountElement
-          ? mountElement.appendChild(this.element)
+          ? mountElement.insertBefore(this.element, mountElement.firstElementChild)
           : document.body.insertBefore(this.element, document.body.firstElementChild)
       },
 
