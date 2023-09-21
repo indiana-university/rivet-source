@@ -85,7 +85,7 @@ export default class Dialog extends Component {
         const dialogId = this.element.getAttribute(this.dialogAttribute)
         const mountElement = document.querySelector(this.mountElementSelector)
 
-        this.mountElement = mountElement ? mountElement : document.body
+        this.mountElement = mountElement ?? document.body
 
         this.triggerButtons = Array.from(
           document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)
