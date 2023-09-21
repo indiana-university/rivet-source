@@ -64,11 +64,13 @@ export default class Dialog extends Component {
 
       _initSelectors () {
         this.dialogAttribute = 'data-rvt-dialog'
+        this.mountElementAttribute = 'data-rvt-dialog-mount'
         this.triggerAttribute = 'data-rvt-dialog-trigger'
         this.closeButtonAttribute = 'data-rvt-dialog-close'
         this.modalAttribute = 'data-rvt-dialog-modal'
         this.disablePageInteractionAttribute = 'data-rvt-dialog-disable-page-interaction'
 
+        this.mountElementSelector = `[${this.mountElementAttribute}]`
         this.triggerSelector = `[${this.triggerAttribute}]`
         this.closeButtonSelector = `[${this.closeButtonAttribute}]`
       },
@@ -81,6 +83,9 @@ export default class Dialog extends Component {
 
       _initElements () {
         const dialogId = this.element.getAttribute(this.dialogAttribute)
+        const mountElement = document.querySelector(this.mountElementSelector)
+
+        this.mountElement = mountElement ? mountElement : document.body
 
         this.triggerButtons = Array.from(
           document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)
@@ -119,17 +124,18 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Rearranges the DOM so that the dialog becomes the first element in
-       * the document body.
+       * the document body (or app container div in the case of a frontend
+       * framework like React). This rearrangement of the DOM is required for
+       * accessibility reasons.
        *
        * @private
        ***********************************************************************/
 
       _makeDialogFirstElementInBody () {
-        const mountElement = document.querySelector('[data-rvt-dialog-mount]')
-
-        mountElement
-          ? mountElement.insertBefore(this.element, mountElement.firstElementChild)
-          : document.body.insertBefore(this.element, document.body.firstElementChild)
+        this.mountElement.insertBefore(
+          this.element,
+          this.mountElement.firstElementChild
+        )
       },
 
       /************************************************************************
@@ -522,23 +528,25 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _disablePageInteraction () {
-        this._getDirectChildrenOfBody().forEach(child => {
+        this._getDirectChildrenOfBodyExceptDialog().forEach(child => {
           child.setAttribute('inert', '')
           child.setAttribute('aria-hidden', 'true')
         })
       },
 
       /************************************************************************
-       * Returns an array of all current direct children of the document body.
+       * Returns an array of all current direct children of the document body
+       * (or app container in the case of a frontend framework like React)
+       * except for the dialog itself.
        *
        * @private
        * @returns {HTMLElement[]} Direct children of body
        ***********************************************************************/
 
-      _getDirectChildrenOfBody () {
-        return Array.from(
-          document.querySelectorAll(`body > *:not([${this.dialogAttribute}])`)
-        )
+      _getDirectChildrenOfBodyExceptDialog () {
+        const directChildrenOfBody = Array.from(this.mountElement.children)
+
+        return directChildrenOfBody.filter(el => !el.hasAttribute(this.dialogAttribute))
       },
 
       /************************************************************************
@@ -580,7 +588,7 @@ export default class Dialog extends Component {
        ***********************************************************************/
 
       _enablePageInteraction () {
-        this._getDirectChildrenOfBody().forEach(child => {
+        this._getDirectChildrenOfBodyExceptDialog().forEach(child => {
           child.removeAttribute('inert')
           child.removeAttribute('aria-hidden')
         })
