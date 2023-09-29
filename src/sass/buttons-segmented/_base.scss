@@ -80,4 +80,8 @@
     border-radius: 0;
     margin-left: -2px;
   }
+
+  .#{$prefix}-dropdown:last-child > .#{$prefix}-button:not(.#{$prefix}-button--secondary) {
+    margin-left: 2px;
+  }
 }
