@@ -9,7 +9,7 @@ import Component from './component'
  * The file input component allows the user to select a file to be uploaded as
  * part of a form submission.
  *
- * @see https://rivet.iu.edu/docs/components/file-input/
+ * @see https://rivet.iu.edu/components/file-input/
  *****************************************************************************/
 
 export default class FileInput extends Component {

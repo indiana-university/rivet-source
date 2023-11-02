@@ -10,7 +10,7 @@ import keyCodes from '../utilities/keyCodes'
  * The tabs component allows the user to switch between related groups of
  * content without having to leave the page.
  *
- * @see https://rivet.iu.edu/docs/components/tabs/
+ * @see https://rivet.iu.edu/components/tabs/
  *****************************************************************************/
 
 export default class Tabs extends Component {

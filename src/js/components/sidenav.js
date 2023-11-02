@@ -9,7 +9,7 @@ import Component from './component'
  * The sidenav component can be used to add a vertical list of navigation
  * links to a sidebar. Sidenavs can contain dropdowns that reveal nested links.
  *
- * @see https://rivet.iu.edu/docs/components/sidenav/
+ * @see https://rivet.iu.edu/components/sidenav/
  *****************************************************************************/
 
 export default class Sidenav extends Component {
