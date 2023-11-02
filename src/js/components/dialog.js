@@ -87,6 +87,14 @@ export default class Dialog extends Component {
 
         this.mountElement = mountElement ?? document.body
 
+        // Trigger buttons are outside the actual dialog element (this.element)
+        // and more than one dialog might be on a page. For this reason, the
+        // selector checks that the trigger attribute value matches the dialog's
+        // ID to ensure a trigger is associated with this dialog instance.
+        // Otherwise, trigger buttons associated with other dialogs would be
+        // mistakenly associated with the current dialog instance and included
+        // in this.triggerButtons.
+
         this.triggerButtons = Array.from(
           document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)
         )
