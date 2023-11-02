@@ -11,7 +11,7 @@ A system for designing and building digital interfaces at IU—built with plain 
 
 To use Rivet on your website or web application, follow the instructions on one of the pages listed below:
 
-- [Use CSS and JavaScript via CDN](https://rivet.iu.edu/getting-started/#use-via-cdn)
+- [Use CSS and JavaScript via CDN](https://rivet.iu.edu/getting-started/#hosted-assets)
 - [Install with npm](https://www.npmjs.com/package/rivet-core)
 
 ## Contributing to Rivet
