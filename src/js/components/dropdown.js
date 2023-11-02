@@ -424,23 +424,30 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _focusPreviousMenuItem (event) {
-        let currentMenuItemIndex
-
-        for (let i = 0; i < this.menuItems.length; i++) {
-          if (event.target == this.menuItems[i]) {
-            currentMenuItemIndex = i
-          }
-        }
-
+        const currentMenuItemIndex = this._getCurrentMenuItemIndex(event)
         const previousItem = this.menuItems[currentMenuItemIndex - 1]
 
         if (!previousItem && this.lastMenuItem !== undefined) {
-          this.lastMenuItem.focus()
-
-          return
+          return this.lastMenuItem.focus()
         }
 
         previousItem.focus()
+      },
+
+      /************************************************************************
+       * Gets the index of a menu item interacted with by the user. Useful
+       * when determining which menu items come before and after the item
+       * just interacted with.
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       * @return {number} index - Index of menu item interacted with
+       ***********************************************************************/
+
+      _getCurrentMenuItemIndex (event) {
+        for (let i = 0; i < this.menuItems.length; i++) {
+          if (event.target == this.menuItems[i]) { return i }
+        }
       },
 
       /************************************************************************
@@ -469,21 +476,10 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _focusNextMenuItem (event) {
-        let currentMenuItemIndex
-
-        for (let i = 0; i < this.menuItems.length; i++) {
-          if (event.target == this.menuItems[i]) {
-            currentMenuItemIndex = i
-          }
-        }
-
+        const currentMenuItemIndex = this._getCurrentMenuItemIndex(event)
         const nextItem = this.menuItems[currentMenuItemIndex + 1]
 
-        if (!nextItem) {
-          this.firstMenuItem.focus()
-
-          return
-        }
+        if (!nextItem) { return this.firstMenuItem.focus() }
 
         nextItem.focus()
       },
