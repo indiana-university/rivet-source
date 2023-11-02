@@ -1,6 +1,6 @@
 # Rivet
 
-A system for designing and building digital interfaces at IU—built with plain HTML, CSS, and JavaScript, [Rivet](https://v2.rivet.iu.edu/) helps teams create familiar and accessible experiences across platforms.
+A system for designing and building digital interfaces at IU—built with plain HTML, CSS, and JavaScript, [Rivet](https://rivet.iu.edu/) helps teams create familiar and accessible experiences across platforms.
 
 ![GitHub](https://img.shields.io/github/license/indiana-university/rivet?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/indiana-university/rivet?style=flat-square)
@@ -11,7 +11,7 @@ A system for designing and building digital interfaces at IU—built with plain 
 
 To use Rivet on your website or web application, follow the instructions on one of the pages listed below:
 
-- [Use CSS and JavaScript via CDN](https://v2.rivet.iu.edu/docs/getting-started/#use-via-cdn)
+- [Use CSS and JavaScript via CDN](https://rivet.iu.edu/docs/getting-started/#use-via-cdn)
 - [Install with npm](https://www.npmjs.com/package/rivet-core)
 
 ## Contributing to Rivet

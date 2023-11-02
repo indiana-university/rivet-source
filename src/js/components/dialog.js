@@ -10,7 +10,7 @@ import keyCodes from '../utilities/keyCodes'
  * The dialog component can be used to present content in a smaller window that
  * is displayed on top of the main application or site content.
  *
- * @see https://v2.rivet.iu.edu/docs/components/dialog/
+ * @see https://rivet.iu.edu/docs/components/dialog/
  *****************************************************************************/
 
 export default class Dialog extends Component {

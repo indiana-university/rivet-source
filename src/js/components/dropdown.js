@@ -10,7 +10,7 @@ import keyCodes from '../utilities/keyCodes'
  * The dropdown component presents the user with a list of options that can be
  * shown or hidden with a button.
  *
- * @see https://v2.rivet.iu.edu/docs/components/dropdown/
+ * @see https://rivet.iu.edu/docs/components/dropdown/
  *****************************************************************************/
 
 export default class Dropdown extends Component {
