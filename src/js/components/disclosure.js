@@ -324,7 +324,7 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       _clickOriginatedOutsideDisclosure (event) {
-        return ! this.element.contains(event.target)
+        return !this.element.contains(event.target)
       },
 
       /************************************************************************

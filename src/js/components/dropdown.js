@@ -302,7 +302,7 @@ export default class Dropdown extends Component {
 
       onClick (event) {
         if (
-          this._eventOriginatedInsideMenu(event) || 
+          this._eventOriginatedInsideMenu(event) ||
           this._eventOriginatedInsideHyperlink(event)
         ) { return }
 

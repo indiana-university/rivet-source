@@ -186,7 +186,7 @@ export default class FileInput extends Component {
        ***********************************************************************/
 
       _getSanitizedFilename () {
-        return this.inputElement.files[0].name.replace(/[^\w\.\-]+/gi, '')
+        return this.inputElement.files[0].name.replace(/[^\w.-]+/gi, '')
       },
 
       /************************************************************************
