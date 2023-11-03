@@ -9,7 +9,7 @@ import Component from './component'
  * The switch component allows the user to toggle between "on" and "off"
  * states.
  *
- * @see https://v2.rivet.iu.edu/docs/components/switch/
+ * @see https://rivet.iu.edu/components/switch/
  *****************************************************************************/
 
 export default class Switch extends Component {

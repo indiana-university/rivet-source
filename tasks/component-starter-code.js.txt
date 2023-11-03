@@ -8,7 +8,7 @@ import Component from './component'
 /******************************************************************************
  * The {{ lowercaseName }} component does something.
  *
- * @see https://v2.rivet.iu.edu/docs/components/{{ slug }}/
+ * @see https://rivet.iu.edu/components/{{ slug }}/
  *****************************************************************************/
 
 export default class {{ className }} extends Component {

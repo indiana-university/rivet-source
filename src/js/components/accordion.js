@@ -10,7 +10,7 @@ import keyCodes from '../utilities/keyCodes'
  * The accordion component can be used to group content into sections that can
  * be opened and closed.
  *
- * @see https://v2.rivet.iu.edu/docs/components/accordion/
+ * @see https://rivet.iu.edu/components/accordion/
  *****************************************************************************/
 
 export default class Accordion extends Component {

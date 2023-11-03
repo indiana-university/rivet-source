@@ -10,7 +10,7 @@ import keyCodes from '../utilities/keyCodes'
  * The dialog component can be used to present content in a smaller window that
  * is displayed on top of the main application or site content.
  *
- * @see https://v2.rivet.iu.edu/docs/components/dialog/
+ * @see https://rivet.iu.edu/components/dialog/
  *****************************************************************************/
 
 export default class Dialog extends Component {
@@ -86,6 +86,14 @@ export default class Dialog extends Component {
         const mountElement = document.querySelector(this.mountElementSelector)
 
         this.mountElement = mountElement ?? document.body
+
+        // Trigger buttons are outside the actual dialog element (this.element)
+        // and more than one dialog might be on a page. For this reason, the
+        // selector checks that the trigger attribute value matches the dialog's
+        // ID to ensure a trigger is associated with this dialog instance.
+        // Otherwise, trigger buttons associated with other dialogs would be
+        // mistakenly associated with the current dialog instance and included
+        // in this.triggerButtons.
 
         this.triggerButtons = Array.from(
           document.querySelectorAll(`[${this.triggerAttribute} = "${dialogId}"]`)

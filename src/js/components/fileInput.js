@@ -9,7 +9,7 @@ import Component from './component'
  * The file input component allows the user to select a file to be uploaded as
  * part of a form submission.
  *
- * @see https://v2.rivet.iu.edu/docs/components/file-input/
+ * @see https://rivet.iu.edu/components/file-input/
  *****************************************************************************/
 
 export default class FileInput extends Component {
@@ -186,7 +186,7 @@ export default class FileInput extends Component {
        ***********************************************************************/
 
       _getSanitizedFilename () {
-        return this.inputElement.files[0].name.replace(/[^\w\.\-]+/gi, '')
+        return this.inputElement.files[0].name.replace(/[^\w.-]+/gi, '')
       },
 
       /************************************************************************
