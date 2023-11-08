@@ -1,0 +1,18 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+@each $size, $value in $spacing {
+  .#{$prefix}-gap-#{$size} {
+    gap: $value !important;
+  }
+
+  .#{$prefix}-gap-col-#{$size} {
+    column-gap: $value !important;
+  }
+
+  .#{$prefix}-gap-row-#{$size} {
+    row-gap: $value !important;
+  }
+}
