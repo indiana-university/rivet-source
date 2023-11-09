@@ -12,7 +12,7 @@
   border-radius: $border-radius-circle;
   color: $color-black-100;
   display: flex;
-  gap: $spacing-xs;
+  gap: 0.75rem;
   height: $spacing-xl;
   line-height: 1;
   padding: 0 0.75rem;
@@ -74,7 +74,7 @@
 
   &--medium {
     height: $spacing-lg;
-    gap: 0;
+    gap: 0.25rem;
 
     &::after {
       height: $spacing-md;
