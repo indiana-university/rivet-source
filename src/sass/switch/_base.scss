@@ -72,6 +72,8 @@
     }
   }
 
+// Medium variant is in review.
+/*
   &--medium {
     height: $spacing-lg;
     gap: 0.25rem;
@@ -85,6 +87,7 @@
       left: calc(100% - ($spacing-md + $spacing-xxs));
     }
   }
+*/
 
   &--small {
     font-size: $ts-14;
