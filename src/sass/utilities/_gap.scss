@@ -2,8 +2,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use 'sass:map';
 
-@each $size, $value in $spacing {
+$modifiers: (none: 0);
+
+@each $size, $value in map.merge($modifiers, $spacing) {
   .#{$prefix}-gap-#{$size} {
     gap: $value !important;
   }
