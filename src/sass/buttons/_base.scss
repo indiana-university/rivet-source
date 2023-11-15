@@ -13,6 +13,7 @@
   cursor: pointer;
   display: inline-flex;
   font-weight: $font-weight-medium;
+  gap: $spacing-xs;
   height: $spacing-xl;
   line-height: 1;
   padding: 0 math.div(10rem, 16);
@@ -166,15 +167,18 @@
   }
 }
 
+// Medium buttons are in review.
+/*
 .#{$prefix}-button--medium {
   height: $spacing-lg;
   padding: 0 math.div(6rem, 16);
 }
+*/
 
 .#{$prefix}-button--small {
   font-size: $ts-14;
   height: $spacing-md;
-  padding: 0 math.div(2rem, 16);
+  padding: 0 math.div(6rem, 16);
 }
 
 .#{$prefix}-button--plain {
