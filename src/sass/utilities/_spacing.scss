@@ -32,7 +32,7 @@ $spacing-sizes: (
   -4-xl: $spacing-4-xl
 );
 
-// Super gnarly loop here, but it save sooo much time
+// Super gnarly loop here, but it saves sooo much time
 
 // Based on this great example by Harry Roberts:
 // https://github.com/NHSLeadership/nightingale/blob/develop/utilities/_utilities.spacing.scss#L48
@@ -40,7 +40,7 @@ $spacing-sizes: (
 @each $direction in $spacing-directions {
   @each $size, $value in $spacing-sizes {
     // NOTE: We use !important here because we want these utilities to always
-    // produced the same result.
+    // produce the same result.
 
     // If the direction is "null", add margin to all directions.
     @if $direction == null {
@@ -166,9 +166,33 @@ $spacing-sizes: (
       margin: 0 !important;
     }
 
+    .#{$prefix}-m-tb-remove,
+    .#{$prefix}-m-tb-none {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .#{$prefix}-m-lr-remove,
+    .#{$prefix}-m-lr-none {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
     .#{$prefix}-p-all-remove,
     .#{$prefix}-p-all-none {
       padding: 0 !important;
+    }
+
+    .#{$prefix}-p-tb-remove,
+    .#{$prefix}-p-tb-none {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .#{$prefix}-p-lr-remove,
+    .#{$prefix}-p-lr-none {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 
