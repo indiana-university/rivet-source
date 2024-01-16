@@ -5,14 +5,12 @@ A system for designing and building digital interfaces at IU—built with plain 
 ![GitHub](https://img.shields.io/github/license/indiana-university/rivet?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/indiana-university/rivet?style=flat-square)
 
-![Browserstack logo](./src/components/_extras/Browserstack-logo@2x.png)
-
 ## Using Rivet
 
 To use Rivet on your website or web application, follow the instructions on one of the pages listed below:
 
 - [Use CSS and JavaScript via CDN](https://rivet.iu.edu/getting-started/#hosted-assets)
-- [Install with npm](https://www.npmjs.com/package/rivet-core)
+- [Install with npm](https://rivet.iu.edu/getting-started/#install-using-npm)
 
 ## Contributing to Rivet
 
