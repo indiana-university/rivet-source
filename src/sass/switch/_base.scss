@@ -8,13 +8,14 @@
   align-items: center;
   background: none;
   background-color: $color-black-400;
-  border: math.div($spacing-xxs, 2) solid $color-black-400;
+  border: none;
   border-radius: $border-radius-circle;
   color: $color-black-100;
   display: flex;
-  height: $spacing-xl + $spacing-xxs;
-  line-height: 1.1;
-  padding: $spacing-xxs;
+  gap: 0.75rem;
+  height: $spacing-xl;
+  line-height: 1;
+  padding: 0 0.75rem;
   position: relative;
   -webkit-appearance: none;
 
@@ -29,8 +30,7 @@
     height: $spacing-lg;
     left: $spacing-xxs;
     position: absolute;
-    top: $spacing-xxs;
-    transition: transform .2s ease;
+    transition: left .2s ease;
     width: $spacing-lg;
   }
 
@@ -55,22 +55,7 @@
 
   &[aria-checked="true"]::after {
     background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23056E41" viewBox="0 0 16 16"><path d="m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z"></path></svg>');
-    transform: translate($spacing-xl, 0);
-  }
-
-  &__on,
-  &__off {
-    border-radius: $border-radius-circle;
-    padding: ($spacing-xxs + .15) $spacing-xs;
-    transition: all .1s ease;
-  }
-
-  &__on {
-    padding-right: ($spacing-xxs + .15);
-  }
-
-  &__off {
-    padding-left: ($spacing-xxs + .15);
+    left: calc(100% - ($spacing-lg + $spacing-xxs));
   }
 
   &--danger[aria-checked="true"] {
@@ -87,46 +72,42 @@
     }
   }
 
+// Medium variant is in review.
+/*
+  &--medium {
+    height: $spacing-lg;
+    gap: 0.25rem;
+
+    &::after {
+      height: $spacing-md;
+      width: $spacing-md;
+    }
+
+    &[aria-checked="true"]::after {
+      left: calc(100% - ($spacing-md + $spacing-xxs));
+    }
+  }
+*/
+
   &--small {
+    font-size: $ts-14;
     height: $spacing-md;
-    padding: math.div($spacing-xxs, 2);
+    gap: 0;
+    padding: 0 $spacing-xs;
 
     &::after {
       background-size: ($spacing-sm * .75) ($spacing-sm * .75);
       height: $spacing-sm;
-      left: math.div($spacing-xxs, 2);
-      top: math.div($spacing-xxs, 2);
       width: $spacing-sm;
     }
 
     &[aria-checked="true"]::after {
-      /**
-       * NOTE: This is a magic number to make spacing around the small switch
-       * "handle" appear optically the same on all sides.
-       */
-      transform: translate($spacing-md * 1.25, 0);
+      left: calc(100% - ($spacing-sm + $spacing-xxs));
     }
   }
 
-  &--small &__on,
-  &--small &__off {
-    font-size: $ts-14;
-    padding: math.div($spacing-xxs, 2) $spacing-xxs;
-  }
-
-  &--small &__on {
-    padding-right: 0;
-  }
-
-  &--small &__off {
-    padding-left: 0;
-  }
-
+  &[aria-checked="false"] &__on,
   &[aria-checked="true"] &__off {
-    visibility: hidden;
-  }
-
-  &[aria-checked="false"] &__on {
     visibility: hidden;
   }
 }

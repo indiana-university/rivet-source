@@ -2,7 +2,7 @@
   "name": "rivet-core",
   "description": "Indiana University design system",
   "homepage": "https://rivet.iu.edu",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     "move-example": "node ./tasks/move-example.js",
     "lint": "standard 'src/js'",
     "changelog": "node ./tasks/generate-changelog.js",
-    "asset:upload": "npm run build && zip -r rivet.zip css js sass tokens index.html",
+    "zip": "npm run build && zip -r rivet.zip css js sass tokens index.html",
     "new-component": "node ./tasks/source-new-component.js",
     "sandbox-new-component": "node ./tasks/sandbox-new-component.js",
     "sandbox-deploy:test": "sh deploy-sandbox.sh",

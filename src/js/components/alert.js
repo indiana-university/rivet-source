@@ -9,7 +9,7 @@ import Component from './component'
  * The alert component displays brief important messages to the user like
  * errors or action confirmations.
  *
- * @see https://v2.rivet.iu.edu/docs/components/alert/
+ * @see https://rivet.iu.edu/components/alert/
  *****************************************************************************/
 
 export default class Alert extends Component {

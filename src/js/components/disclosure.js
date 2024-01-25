@@ -10,7 +10,7 @@ import keyCodes from '../utilities/keyCodes'
  * The disclosure component allows the user to show or hide additional content
  * about a topic.
  *
- * @see https://v2.rivet.iu.edu/docs/components/disclosure/
+ * @see https://rivet.iu.edu/components/disclosure/
  *****************************************************************************/
 
 export default class Disclosure extends Component {
@@ -324,7 +324,7 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       _clickOriginatedOutsideDisclosure (event) {
-        return ! this.element.contains(event.target)
+        return !this.element.contains(event.target)
       },
 
       /************************************************************************

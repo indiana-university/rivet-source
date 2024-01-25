@@ -3,33 +3,25 @@
 
 @use '../core' as *;
 
+$border-radius: 999rem;
+
 .#{$prefix}-badge {
   background-color: $color-black-100;
-  border: 2px solid $color-black-100;
-  border-radius: 999px;
+  border: calc(2rem/16) solid $color-black-100;
+  border-radius: $border-radius;
   color: $color-black-base;
   display: inline-block;
-
-  /**
-   * We set the type size to a percent here so that if the badge is used
-   * inside another element that uses a "ts-*" type scale utility,
-   * the badge will inherit that size.
-   */
-  font-size: 88%;
+  font-size: $ts-xs;
   font-weight: $font-weight-medium;
   letter-spacing: .02rem;
-  line-height: 1.6;
-
-  /**
-   * Use ems here so that padding stays proportional if parent
-   * element font size changes.
-   */
-  padding: .0313rem .5rem;
+  line-height: 1;
+  padding: calc(3rem/16) .5rem;
+  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -osx-font-smoothing: grayscale;
 
   &--secondary {
-    background-color: transparent;
+    background-color: $color-white-base;
   }
 }
 
@@ -66,7 +58,7 @@ a.#{$prefix}-badge {
   }
 
   &:focus {
-    border-radius: 999px;
+    border-radius: $border-radius;
   }
 }
 
@@ -76,7 +68,7 @@ a.#{$prefix}-badge {
   color: $color-white-base;
 
   &-secondary {
-    background-color: transparent;
+    background-color: $color-white-base;
     border-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -88,7 +80,7 @@ a.#{$prefix}-badge {
   color: $color-white-base;
 
   &-secondary {
-    background-color: transparent;
+    background-color: $color-white-base;
     border-color: $color-green-100;
     color: $color-green-500;
   }
@@ -100,7 +92,7 @@ a.#{$prefix}-badge {
   color: $color-black-700;
 
   &-secondary {
-    background-color: transparent;
+    background-color: $color-white-base;
     border-color: $color-gold-100;
     color: $color-black-500;
   }
@@ -112,7 +104,7 @@ a.#{$prefix}-badge {
   color: $color-white-base;
 
   &-secondary {
-    background-color: transparent;
+    background-color: $color-white-base;
     border-color: $color-orange-100;
     color: $color-orange-500;
   }
