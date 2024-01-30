@@ -34,10 +34,6 @@
       text-decoration: underline;
     }
 
-    &-text {
-      margin-right: $spacing-xs;
-    }
-
     &[aria-expanded='true'] > svg {
       transform: rotate(180deg);
     }
