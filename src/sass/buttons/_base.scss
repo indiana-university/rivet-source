@@ -5,19 +5,21 @@
 @use 'sass:math';
 
 .#{$prefix}-button {
+  align-items: center;
   background-color: $color-blue-500;
   border: math.div($spacing-xxs, 2) solid $color-blue-500;
   border-radius: $spacing-xxs;
   color: $color-white-base;
   cursor: pointer;
-  font-weight: $font-weight-medium;
-  line-height: 1;
-  text-decoration: none;
-  position: relative;
-  height: $spacing-xl;
-  padding: 0 $spacing-sm * .75;
   display: inline-flex;
-  align-items: center;
+  font-weight: $font-weight-medium;
+  gap: $spacing-xs;
+  height: $spacing-xl;
+  line-height: 1;
+  padding: 0 math.div(10rem, 16);
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
 
   // Initially hide any loaders if they're being used inside buttons.
 
@@ -55,7 +57,7 @@
 }
 
 .#{$prefix}-button--secondary {
-  background-color: transparent;
+  background-color: $color-white-base;
   border-color: $color-blue-100;
   color: $color-blue-500;
 
@@ -99,7 +101,7 @@
 }
 
 .#{$prefix}-button--success-secondary {
-  background-color: transparent;
+  background-color: $color-white-base;
   border-color: $color-green-100;
   color: $color-green-500;
 
@@ -143,7 +145,7 @@
 }
 
 .#{$prefix}-button--danger-secondary {
-  background-color: transparent;
+  background-color: $color-white-base;
   border-color: $color-orange-100;
   color: $color-orange-500;
 
@@ -165,13 +167,18 @@
   }
 }
 
+// Medium variant is in review.
+/*
+.#{$prefix}-button--medium {
+  height: $spacing-lg;
+  padding: 0 math.div(6rem, 16);
+}
+*/
+
 .#{$prefix}-button--small {
   font-size: $ts-14;
   height: $spacing-md;
-  line-height: 1.1;
-  vertical-align: bottom;
-  padding-right: $spacing-xs;
-  padding-left: $spacing-xs;
+  padding: 0 math.div(6rem, 16);
 }
 
 .#{$prefix}-button--plain {
