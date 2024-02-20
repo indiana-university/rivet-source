@@ -13,7 +13,7 @@ module.exports = {
         }
       ]
     },
-    "src/sass/core/css": {
+    "src/sass/core/css-custom-properties": {
       transformGroup: 'scss',
       buildPath: 'src/sass/core/',
       prefix: 'rvt',
