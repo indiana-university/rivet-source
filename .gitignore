@@ -25,3 +25,4 @@ cypress/screenshots
 /src/sass/core/maps/*.scss
 !/src/sass/core/maps/_index.scss
 /src/sass/core/variables.scss
+/src/sass/core/css-custom-properties.scss
