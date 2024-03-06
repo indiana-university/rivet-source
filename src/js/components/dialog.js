@@ -5,6 +5,7 @@
 
 import Component from './component'
 import keyCodes from '../utilities/keyCodes'
+import SUPPRESS_EVENT from '../utilities/suppressEvent'
 
 /******************************************************************************
  * The dialog component can be used to present content in a smaller window that
@@ -479,12 +480,15 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Opens the dialog.
+       * 
+       * @param {boolean} suppressEvent - Suppress open event
        ***********************************************************************/
 
-      open () {
+      open (suppressEvent = false) {
         if (this._isOpen()) { return }
 
-        if (!this._eventDispatched('DialogOpened')) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('DialogOpened')) { return }
 
         this._setOpenState()
         this.focusDialog()
@@ -559,12 +563,15 @@ export default class Dialog extends Component {
 
       /************************************************************************
        * Closes the dialog.
+       * 
+       * @param {boolean} suppressEvent - Suppress close event
        ***********************************************************************/
 
-      close () {
+      close (suppressEvent = false) {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('DialogClosed')) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('DialogClosed')) { return }
 
         this._setClosedState()
 
