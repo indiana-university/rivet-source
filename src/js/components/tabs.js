@@ -5,6 +5,7 @@
 
 import Component from './component'
 import keyCodes from '../utilities/keyCodes'
+import SUPPRESS_EVENT from '../utilities/suppressEvent'
 
 /******************************************************************************
  * The tabs component allows the user to switch between related groups of
@@ -213,8 +214,8 @@ export default class Tabs extends Component {
         const firstTab = this.panels[0]
 
         initialTab
-          ? this.activateTab(initialTab.getAttribute(this.panelAttribute))
-          : this.activateTab(firstTab.getAttribute(this.panelAttribute))
+          ? this.activateTab(initialTab.getAttribute(this.panelAttribute), SUPPRESS_EVENT)
+          : this.activateTab(firstTab.getAttribute(this.panelAttribute), SUPPRESS_EVENT)
       },
 
       /************************************************************************
@@ -362,9 +363,10 @@ export default class Tabs extends Component {
        * Activates the tab with the given ID or index.
        *
        * @param {string|number} idOrIndex - ID or index of tab to activate
+       * @param {boolean} suppressEvent - Suppress tab activated event
        ***********************************************************************/
 
-      activateTab (idOrIndex) {
+      activateTab (idOrIndex, suppressEvent = false) {
         const id = this._tabIndexWasPassed(idOrIndex)
           ? this._getTabIdFromIndex(idOrIndex)
           : idOrIndex
@@ -376,7 +378,8 @@ export default class Tabs extends Component {
           return
         }
 
-        if (!this._tabActivatedEventDispatched()) { return }
+        if (!suppressEvent)
+          if (!this._tabActivatedEventDispatched()) { return }
 
         this._deactivateUnselectedTabs()
         this._activateSelectedTab()
@@ -511,14 +514,16 @@ export default class Tabs extends Component {
        * `{ tab: HTMLElement, panel: HTMLElement }`
        *
        * @param {string} label - Tab label
+       * @param {boolean} suppressEvent - Suppress add tab event
        * @returns {object} Added tab and panel
        ***********************************************************************/
 
-      addTab (label) {
+      addTab (label, suppressEvent = false) {
         const tab = this._createNewTabElement(label)
         const panel = this._createNewPanelElement(tab)
 
-        if (!this._tabAddedEventDispatched(tab, panel)) { return }
+        if (!suppressEvent)
+          if (!this._tabAddedEventDispatched(tab, panel)) { return }
 
         this.tablist.appendChild(tab)
         this.element.appendChild(panel)
