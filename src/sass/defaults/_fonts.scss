@@ -18,6 +18,19 @@
 
 @font-face {
   font-family: BentonSans;
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  src: url('https://fonts.iu.edu/fonts/benton-sans-italic.eot');
+  src:
+    url('https://fonts.iu.edu/fonts/benton-sans-italic.eot?#iefix') format('embedded-opentype'),
+    url('https://fonts.iu.edu/fonts/benton-sans-italic.woff') format('woff'),
+    url('https://fonts.iu.edu/fonts/benton-sans-italic.ttf') format('truetype'),
+    url('https://fonts.iu.edu/fonts/benton-sans-italic.svg#BentonSansItalic') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: BentonSans;
   font-style: normal;
   font-weight: $font-weight-medium;
   src: url('https://fonts.iu.edu/fonts/benton-sans-medium.eot');
@@ -78,5 +91,18 @@
     url('https://fonts.iu.edu/fonts/georgia-pro-bold.woff') format('woff'),
     url('https://fonts.iu.edu/fonts/georgia-pro-bold.ttf') format('truetype'),
     url('https://fonts.iu.edu/fonts/georgia-pro-bold.svg#GeorgiaProBold') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: GeorgiaPro;
+  font-style: italic;
+  font-weight: $font-weight-bold;
+  src: url('https://fonts.iu.edu/fonts/georgia-pro-bold-italic.eot');
+  src:
+    url('https://fonts.iu.edu/fonts/georgia-pro-bold-italic.eot?#iefix') format('embedded-opentype'),
+    url('https://fonts.iu.edu/fonts/georgia-pro-bold-italic.woff') format('woff'),
+    url('https://fonts.iu.edu/fonts/georgia-pro-bold-italic.ttf') format('truetype'),
+    url('https://fonts.iu.edu/fonts/georgia-pro-bold-italic.svg#GeorgiaProBoldItalic') format('svg');
   font-display: swap;
 }
