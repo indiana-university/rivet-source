@@ -4,6 +4,7 @@
  *****************************************************************************/
 
 import Component from './component'
+import SUPPRESS_EVENT from '../utilities/suppressEvent'
 
 /******************************************************************************
  * The switch component allows the user to toggle between "on" and "off"
@@ -91,7 +92,7 @@ export default class Switch extends Component {
       _setInitialToggleState () {
         this.element.setAttribute('aria-checked', 'false')
 
-        if (this._shouldBeOnByDefault()) { this.switchOn() }
+        if (this._shouldBeOnByDefault()) { this.switchOn(SUPPRESS_EVENT) }
       },
 
       /************************************************************************
@@ -142,12 +143,15 @@ export default class Switch extends Component {
 
       /************************************************************************
        * Toggle the switch on.
+       * 
+       * @param {boolean} suppressEvent - Suppress switch-on event
        ***********************************************************************/
 
-      switchOn () {
+      switchOn (suppressEvent = false) {
         if (this._isOn()) { return }
 
-        if (!this._eventDispatched('SwitchToggledOn')) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('SwitchToggledOn')) { return }
 
         this._setOnState()
       },
@@ -165,12 +169,15 @@ export default class Switch extends Component {
 
       /************************************************************************
        * Toggle the switch off.
+       * 
+       * @param {boolean} suppressEvent - Suppress switch-off event
        ***********************************************************************/
 
-      switchOff () {
+      switchOff (suppressEvent = false) {
         if (!this._isOn()) { return }
 
-        if (!this._eventDispatched('SwitchToggledOff')) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('SwitchToggledOff')) { return }
 
         this._setOffState()
       },

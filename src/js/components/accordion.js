@@ -5,6 +5,7 @@
 
 import Component from './component'
 import keyCodes from '../utilities/keyCodes'
+import SUPPRESS_EVENT from '../utilities/suppressEvent'
 
 /******************************************************************************
  * The accordion component can be used to group content into sections that can
@@ -184,7 +185,7 @@ export default class Accordion extends Component {
 
       _openAllPanels () {
         this.panels.forEach(panel => {
-          this.open(panel.getAttribute(this.panelAttribute))
+          this.open(panel.getAttribute(this.panelAttribute), SUPPRESS_EVENT)
         })
       },
 
@@ -198,8 +199,8 @@ export default class Accordion extends Component {
       _setPanelDefaultStates () {
         this.panels.forEach(panel => {
           this._panelShouldBeOpen(panel)
-            ? this.open(panel.getAttribute(this.panelAttribute))
-            : this.close(panel.getAttribute(this.panelAttribute))
+            ? this.open(panel.getAttribute(this.panelAttribute), SUPPRESS_EVENT)
+            : this.close(panel.getAttribute(this.panelAttribute), SUPPRESS_EVENT)
         })
       },
 
@@ -387,9 +388,10 @@ export default class Accordion extends Component {
        * Opens the panel with the given data-rvt-accordion-panel ID value.
        *
        * @param {string} childMenuId - Panel ID
+       * @param {boolean} suppressEvent - Suppress open event
        ***********************************************************************/
 
-      open (panelId) {
+      open (panelId, suppressEvent = false) {
         this._setPanelToOpen(panelId)
 
         if (!this._panelToOpenExists()) {
@@ -397,7 +399,8 @@ export default class Accordion extends Component {
           return
         }
 
-        if (!this._eventDispatched('AccordionOpened', this.panelToOpen)) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('AccordionOpened', this.panelToOpen)) { return }
 
         this._openPanel()
       },
@@ -446,17 +449,19 @@ export default class Accordion extends Component {
        * Closes the panel with the given data-rvt-accordion-panel ID value.
        *
        * @param {string} childMenuId - Panel ID
+       * @param {boolean} suppressEvent - Suppress close event
        ***********************************************************************/
 
-      close (panelId) {
+      close (panelId, suppressEvent = false) {
         this._setPanelToClose(panelId)
 
         if (!this._panelToCloseExists()) {
           console.warn(`No such accordion panel '${panelId}' in close()`)
           return
         }
-
-        if (!this._eventDispatched('AccordionClosed', this.panelToClose)) { return }
+        
+        if (!suppressEvent)
+          if (!this._eventDispatched('AccordionClosed', this.panelToClose)) { return }
 
         this._closePanel()
       },

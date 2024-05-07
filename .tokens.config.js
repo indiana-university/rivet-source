@@ -13,6 +13,17 @@ module.exports = {
         }
       ]
     },
+    "src/sass/core/css-custom-properties": {
+      transformGroup: 'scss',
+      buildPath: 'src/sass/core/',
+      prefix: 'rvt',
+      files: [
+        {
+          destination: 'css-custom-properties.scss',
+          format: 'css/variables'
+        }
+      ]
+    },
     "tokens/sass": {
       transformGroup: 'scss',
       buildPath: 'tokens/sass/',

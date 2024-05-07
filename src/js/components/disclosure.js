@@ -5,6 +5,7 @@
 
 import Component from './component'
 import keyCodes from '../utilities/keyCodes'
+import SUPPRESS_EVENT from '../utilities/suppressEvent'
 
 /******************************************************************************
  * The disclosure component allows the user to show or hide additional content
@@ -96,7 +97,7 @@ export default class Disclosure extends Component {
        ***********************************************************************/
 
       _setInitialDisclosureState () {
-        if (this._shouldBeOpenByDefault()) { this.open() }
+        if (this._shouldBeOpenByDefault()) { this.open(SUPPRESS_EVENT) }
       },
 
       /************************************************************************
@@ -189,12 +190,15 @@ export default class Disclosure extends Component {
 
       /************************************************************************
        * Opens the disclosure.
+       * 
+       * @param {boolean} suppressEvent - Suppress open event
        ***********************************************************************/
 
-      open () {
+      open (suppressEvent = false) {
         if (this._isDisabled()) { return }
 
-        if (!this._eventDispatched('DisclosureOpened')) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('DisclosureOpened')) { return }
 
         this._setOpenState()
       },
@@ -225,12 +229,15 @@ export default class Disclosure extends Component {
 
       /************************************************************************
        * Closes the disclosure.
+       * 
+       * @param {boolean} suppressEvent - Suppress open event
        ***********************************************************************/
 
-      close () {
+      close (suppressEvent = false) {
         if (!this._isOpen()) { return }
 
-        if (!this._eventDispatched('DisclosureClosed')) { return }
+        if (!suppressEvent)
+          if (!this._eventDispatched('DisclosureClosed')) { return }
 
         this._setClosedState()
       },

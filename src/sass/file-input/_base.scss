@@ -25,10 +25,6 @@
     flex-grow: 0;
     width: inherit;
     display: flex;
-
-    span {
-      margin-right: $spacing-xs;
-    }
   }
 
   input[type='file']:focus + label {
@@ -51,7 +47,6 @@
     span {
       font-weight: $font-weight-bold;
       line-height: $line-height-base;
-      margin-right: $spacing-sm;
       display: inline-block;
     }
   }
