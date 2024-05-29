@@ -101,7 +101,8 @@ $gutter: math.div($spacing-md, 2);
   }
 
   &--loose {
-    margin: 0 ($gutter * -2);
+    margin-left: $gutter * -2;
+    margin-right: $gutter * -2;
   }
 
   &--loose > [class^='#{$prefix}-cols'] {
@@ -109,7 +110,8 @@ $gutter: math.div($spacing-md, 2);
   }
 
   &--tight {
-    margin: 0 ($gutter * -.75);
+    margin-left: $gutter * -.75;
+    margin-right: $gutter * -.75;
   }
 
   &--tight > [class^='#{$prefix}-cols'] {
