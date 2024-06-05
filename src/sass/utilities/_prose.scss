@@ -65,7 +65,7 @@
     /* stylelint-enable */
   }
 
-  > *:empty:not(hr) {
+  > *:empty:not(br):not(hr):not(img) {
     display: none;
   }
 }
