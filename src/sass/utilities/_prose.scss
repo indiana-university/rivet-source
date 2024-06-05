@@ -65,7 +65,7 @@
     /* stylelint-enable */
   }
 
-  > *:empty:not(br):not(embed):not(hr):not(input):not(img):not(wbr) {
+  > *:empty:not(br,embed,hr,input,img,wbr) {
     display: none;
   }
 }
