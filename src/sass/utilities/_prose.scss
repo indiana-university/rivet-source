@@ -65,7 +65,7 @@
     /* stylelint-enable */
   }
 
-  > *:empty:not(br):not(hr):not(img) {
+  > *:empty:not(area):not(br):not(embed):not(hr):not(input):not(img):not(wbr) {
     display: none;
   }
 }
