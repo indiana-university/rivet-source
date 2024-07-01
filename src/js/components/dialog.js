@@ -406,6 +406,9 @@ export default class Dialog extends Component {
           'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="-1"]'
         )
 
+        this.focusableChildElements = Array.from(this.focusableChildElements)
+        this.focusableChildElements = this.focusableChildElements.filter(el => el.checkVisibility()) // Exclude hidden elements
+
         this.firstFocusableChildElement = this.focusableChildElements[0]
         this.lastFocusableChildElement = this.focusableChildElements[this.focusableChildElements.length - 1]
       },
