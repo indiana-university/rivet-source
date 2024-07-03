@@ -407,7 +407,7 @@ export default class Dialog extends Component {
         )
 
         this.focusableChildElements = Array.from(this.focusableChildElements)
-        this.focusableChildElements = this.focusableChildElements.filter(el => el.checkVisibility()) // Exclude hidden elements
+        this.focusableChildElements = this.focusableChildElements.filter(el => el.clientHeight > 0) // Exclude hidden elements
 
         this.firstFocusableChildElement = this.focusableChildElements[0]
         this.lastFocusableChildElement = this.focusableChildElements[this.focusableChildElements.length - 1]
