@@ -26,6 +26,10 @@
     padding: 0;
 
     &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
       outline: math.div($spacing-xxs, 2) solid $color-blue-600;
       outline-offset: math.div($spacing-xxs, 2);
     }
@@ -96,6 +100,10 @@
 
       &:focus {
         outline: none;
+      }
+
+      &:focus-visible {
+        outline: none;
         box-shadow: inset 0 0 0 math.div($spacing-xxs, 2) $color-blue-500;
       }
 
@@ -111,6 +119,10 @@
         }
 
         &:focus {
+          outline: none;
+        }
+
+        &:focus-visible {
           /* stylelint-disable */
           box-shadow:
             inset $spacing-xxs 0 0 $color-blue-500,

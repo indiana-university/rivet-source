@@ -73,6 +73,11 @@
       border-right: 1px solid $color-black-100;
       flex-direction: row-reverse;
       padding-right: $spacing-md;
+
+      &:only-child {
+        border-right: 0;
+        padding-right: 0;
+      }
     }
 
     &__next {
