@@ -140,22 +140,9 @@ export default class Sidenav extends Component {
        ***********************************************************************/
 
       _setInitialChildMenuStates () {
-        this._setChildMenuDefaultAriaAttributes()
         this._shouldOpenAllChildMenus()
           ? this._openAllChildMenus()
           : this._setChildMenuDefaultStates()
-      },
-
-      /************************************************************************
-       * Sets the default ARIA attributes for the sidenav's child menus.
-       *
-       * @private
-       ***********************************************************************/
-
-      _setChildMenuDefaultAriaAttributes () {
-        this.childMenuToggleButtons.forEach(
-          toggleButton => toggleButton.setAttribute('aria-haspopup', 'true')
-        )
       },
 
       /************************************************************************
