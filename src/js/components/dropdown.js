@@ -81,6 +81,16 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Initializes dropdown state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        this.isOpen = false
+      },
+
+      /************************************************************************
        * Initializes a list of menu items in the dropdown.
        *
        * @private
@@ -148,16 +158,6 @@ export default class Dropdown extends Component {
         // non-hyperlink element is present
         
         return this.menuItems.some(i => i.tagName != 'A')
-      },
-
-      /************************************************************************
-       * Initializes dropdown state properties.
-       *
-       * @private
-       ***********************************************************************/
-
-      _initProperties () {
-        this.isOpen = false
       },
 
       /************************************************************************
