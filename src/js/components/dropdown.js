@@ -45,9 +45,9 @@ export default class Dropdown extends Component {
       init () {
         this._initSelectors()
         this._initElements()
-        this._initAttributes()
         this._initProperties()
         this._initMenuItems()
+        this._initAttributes()
         this._removeIconFromTabOrder()
         this._bindExternalEventHandlers()
 
@@ -78,6 +78,30 @@ export default class Dropdown extends Component {
       _initElements () {
         this.toggleElement = this.element.querySelector(this.toggleSelector)
         this.menuElement = this.element.querySelector(this.menuSelector)
+      },
+
+      /************************************************************************
+       * Initializes dropdown state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        this.isOpen = false
+      },
+
+      /************************************************************************
+       * Initializes a list of menu items in the dropdown.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initMenuItems () {
+        const focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
+
+        this.menuItems = Array.from(this.menuElement.querySelectorAll(focusableElements))
+        this.firstMenuItem = this.menuItems[0]
+        this.lastMenuItem = this.menuItems[this.menuItems.length - 1]
       },
 
       /************************************************************************
@@ -113,32 +137,27 @@ export default class Dropdown extends Component {
        ***********************************************************************/
 
       _setAriaAttributes () {
-        this.toggleElement.setAttribute('aria-haspopup', true)
         this.toggleElement.setAttribute('aria-expanded', false)
+
+        if (this._isMenu()) {
+          this.menuElement.setAttribute('role', 'menu')
+          this.toggleElement.setAttribute('aria-haspopup', 'menu')
+        }
       },
 
       /************************************************************************
-       * Initializes dropdown state properties.
+       * Determines if the dropdown is a menu for the purposes of ARIA
+       * attributes.
        *
        * @private
+       * @returns {boolean} Dropdown is menu
        ***********************************************************************/
 
-      _initProperties () {
-        this.isOpen = false
-      },
-
-      /************************************************************************
-       * Initializes a list of menu items in the dropdown.
-       *
-       * @private
-       ***********************************************************************/
-
-      _initMenuItems () {
-        const focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
-
-        this.menuItems = Array.from(this.menuElement.querySelectorAll(focusableElements))
-        this.firstMenuItem = this.menuItems[0]
-        this.lastMenuItem = this.menuItems[this.menuItems.length - 1]
+      _isMenu () {
+        // Consider the dropdown a menu of action buttons if at least one
+        // non-hyperlink element is present
+        
+        return this.menuItems.some(i => i.tagName != 'A')
       },
 
       /************************************************************************
