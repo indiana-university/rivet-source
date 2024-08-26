@@ -1,42 +1,47 @@
 @use '../core' as *;
 
 .#{$prefix}-card {
+  background-color: $color-white-base;
   position: relative;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  border: 1px solid $color-black-100;
 
-  &--raised {
-    background-color: $color-white-base;
-    border-radius: $spacing-xs;
-    box-shadow: $shadow-heavy;
+  &--feature  &__title {
+    font-family: $font-condensed;
+    font-weight: $font-weight-black;
+    font-size: $ts-26;
+    text-transform: uppercase;
+    color: $color-crimson-500;
+    letter-spacing: .04rem;
+  }
+
+  &--feature &__title a {
+    text-decoration: none;
+    color: $color-crimson-500;
+  }
+
+  &--feature &__title a::before {
+    content: none;
   }
 
   &__image img {
     display: block;
     width: 100%;
-    border-radius: $spacing-xs;
-  }
-
-  &--raised &__image img {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
   }
 
   &__body {
-    padding-top: $spacing-sm;
+    padding: $spacing-md;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
-  &--raised &__body {
-    padding: $spacing-sm;
-  }
-
   &__eyebrow {
     color: $color-crimson-500;
     font-size: $ts-14;
+    font-family: $font-mono;
     text-decoration: none;
   }
 
@@ -44,10 +49,14 @@
     text-decoration: underline;
   }
 
+  &__eyebrow + &__title {
+    margin-top: $spacing-sm;
+  }
+
   &__title {
     font-size: $ts-20;
     padding-right: $spacing-xl;
-    line-height: 1.3;
+    line-height: 1.1;
   }
 
   &__title a {
@@ -97,11 +106,17 @@
   }
 
   &__content {
-    border-top: 1px solid $color-black-100;
     flex-grow: 1;
-    margin-top: $spacing-md;
     color: $color-black-400;
     padding-top: $spacing-md;
+
+    > * {
+      margin: 0;
+    }
+
+    > * + * {
+      margin-top: $spacing-lg;
+    }
   }
 
   &__meta {
@@ -118,11 +133,7 @@
 @media screen and (min-width: $breakpoint-sm) {
   .#{$prefix}-card {
     &__body {
-      padding-top: $spacing-md;
-    }
-
-    &--raised &__body {
-      padding: $spacing-md;
+      padding: $spacing-xl;
     }
   }
 }
@@ -163,7 +174,7 @@
       & a::before {
         margin-top: -$spacing-sm;
       }
-    } 
+    }
   }
 }
 
