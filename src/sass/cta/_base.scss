@@ -28,19 +28,17 @@
   }
 
   &--button {
-    background-color: $color-crimson-500;
-    border: math.div($spacing-xxs, 2) solid $color-crimson-500;
-    border-color: $color-crimson-500;
-    border-radius: $spacing-xxs;
-    box-shadow: $shadow-standard;
-    color: $color-white-base;
+    background-color: $color-white-base;
+    border: 1px solid $color-crimson-200;
+    border-color: $color-crimson-100;
+    color: $color-crimson-500;
     height: $spacing-xl;
-    padding: 0 $spacing-sm * .75;
+    padding: $spacing-md $spacing-md;
     display: inline-flex;
     align-items: center;
 
     &::after {
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
       top: 0;
     }
 
@@ -60,6 +58,7 @@
 
       &::after {
         transform: translate($spacing-xxs, 0);
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
       }
     }
 
