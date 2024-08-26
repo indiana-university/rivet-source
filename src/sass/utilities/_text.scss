@@ -13,15 +13,23 @@
   letter-spacing: .04rem;
 }
 
-.#{$prefix}-text-bold {
+.#{$prefix}-text-black,
+.#{$prefix}-font-black {
+  font-weight: $font-weight-black !important;
+}
+
+.#{$prefix}-text-bold,
+.#{$prefix}-font-bold {
   font-weight: $font-weight-bold !important;
 }
 
-.#{$prefix}-text-medium {
+.#{$prefix}-text-medium,
+.#{$prefix}-font-medium {
   font-weight: $font-weight-medium !important;
 }
 
-.#{$prefix}-text-regular {
+.#{$prefix}-text-regular,
+.#{$prefix}-font-regular {
   font-weight: $font-weight-regular !important;
 }
 
@@ -51,6 +59,10 @@
 
 .#{$prefix}-text-nobr {
   white-space: nowrap;
+}
+
+.#{$prefix}-font-condensed {
+  font-family: $font-condensed;
 }
 
 .#{$prefix}-font-sans {
