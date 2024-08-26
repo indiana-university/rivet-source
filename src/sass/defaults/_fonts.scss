@@ -4,6 +4,42 @@
 @use '../core' as *;
 
 @font-face {
+  font-family: BentonSansCond;
+  src: url('https://fonts.iu.edu/fonts/benton-sans-cond-regular.eot');
+  src: url('https://fonts.iu.edu/fonts/benton-sans-cond-regular.eot?#iefix') format('embedded-opentype'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-regular.woff') format('woff'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-regular.ttf') format('truetype'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-regular.svg#BentonSansCondRegular') format('svg');
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: BentonSansCond;
+  src: url('https://fonts.iu.edu/fonts/benton-sans-cond-black.eot');
+  src: url('https://fonts.iu.edu/fonts/benton-sans-cond-black.eot?#iefix') format('embedded-opentype'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-black.woff') format('woff'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-black.ttf') format('truetype'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-black.svg#BentonSansCondBlack') format('svg');
+  font-style: normal;
+  font-weight: $font-weight-black;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: BentonSansCond;
+  src: url('https://fonts.iu.edu/fonts/benton-sans-cond-bold.eot');
+  src: url('https://fonts.iu.edu/fonts/benton-sans-cond-bold.eot?#iefix') format('embedded-opentype'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-bold.woff') format('woff'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-bold.ttf') format('truetype'),
+       url('https://fonts.iu.edu/fonts/benton-sans-cond-bold.svg#BentonSansCondBold') format('svg');
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  font-display: swap;
+}
+
+@font-face {
   font-family: BentonSans;
   font-style: normal;
   font-weight: $font-weight-regular;
