@@ -2,24 +2,24 @@
 
 .#{$prefix}-card {
   background-color: $color-white-base;
-  position: relative;
+  border: 1px solid $color-black-100;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  border: 1px solid $color-black-100;
+  position: relative;
 
   &--feature  &__title {
+    color: $color-crimson-500;
     font-family: $font-condensed;
     font-weight: $font-weight-black;
     font-size: $ts-26;
-    text-transform: uppercase;
-    color: $color-crimson-500;
     letter-spacing: .04rem;
+    text-transform: uppercase;
   }
 
   &--feature &__title a {
-    text-decoration: none;
     color: $color-crimson-500;
+    text-decoration: none;
   }
 
   &--feature &__title a::before {
@@ -32,10 +32,10 @@
   }
 
   &__body {
-    padding: $spacing-md;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: $spacing-md;
   }
 
   &__eyebrow {
@@ -55,31 +55,31 @@
 
   &__title {
     font-size: $ts-20;
-    padding-right: $spacing-xl;
     line-height: 1.1;
+    padding-right: $spacing-xl;
   }
 
   &__title a {
+    color: $color-black-500;
     display: block;
     text-decoration: none;
-    color: $color-black-500;
   }
 
   &__title a::before {
-    content: '';
-    border-radius: 999rem;
-    display: block;
-    width: $spacing-sm;
-    height: $spacing-sm;
     background-color: $color-blue-000;
-    padding: $spacing-xs;
-    position: absolute;
-    right: $spacing-xs;
+    border-radius: 999rem;
     background-size: $spacing-sm $spacing-sm;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
     background-repeat: no-repeat;
     background-position: center;
+    content: '';
+    display: block;
+    height: $spacing-sm;
+    padding: $spacing-xs;
+    position: absolute;
+    right: $spacing-xs;
     transition: all .2s ease;
+    width: $spacing-sm;
   }
 
   &--raised &__title a::before {
@@ -87,12 +87,12 @@
   }
 
   &--clickable &__title a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
     bottom: 0;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
   }
 
   &__title a:hover {
@@ -101,13 +101,13 @@
   }
 
   &__title a:hover::before {
-    transform: translate($spacing-xs, 0);
     background-color: $color-blue-100;
+    transform: translate($spacing-xs, 0);
   }
 
   &__content {
-    flex-grow: 1;
     color: $color-black-400;
+    flex-grow: 1;
     padding-top: $spacing-md;
 
     > * {
@@ -148,8 +148,8 @@
 
   &--horizontal &__image {
     flex-shrink: 0;
-    width: 25%;
     max-width: var(--image-max-width, 180px);
+    width: 25%;
 
     @media screen and (min-width: $breakpoint-md) {
       width: 33%;
