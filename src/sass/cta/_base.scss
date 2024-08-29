@@ -2,14 +2,16 @@
 @use 'sass:math';
 
 .#{$prefix}-cta {
+  --rvt-cta-color-default: #{$color-crimson-500};
+
   text-decoration: none;
   display: inline-block;
   font-weight: $font-weight-medium;
+  color: var(--rvt-cta-color-default);
 
   &::after {
     content: '';
-    color: $color-blue-500;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
     background-repeat: no-repeat;
     background-position: center;
     margin-left: $spacing-xs;
@@ -22,8 +24,10 @@
   }
 
   &:hover {
+    color: $color-crimson-700;
     &::after {
       transform: translate($spacing-xs, 0);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%235a0c0c" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
     }
   }
 
@@ -101,4 +105,10 @@
     border-color: $color-blue-100;
     color: $color-blue-700;
   }
+}
+
+// Dark theme
+
+.rvt-bg-dark :not(.rvt-cta--button) {
+  color: $color-white-base;
 }

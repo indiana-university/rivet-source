@@ -1,43 +1,48 @@
 @use '../core' as *;
 
 .rvt-billboard {
+  --rvt-billboard-title-text: #{$color-crimson-500};
+  --rvt-billboard-body-text: #{$color-black-400};
+
   position: relative;
-  gap: $spacing-lg;
+
+  &__eyebrow {
+    font-size: $ts-12;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+    color: var(--rvt-billboard-title-text);
+    margin: 0;
+  }
+
+  &__eyebrow + &__title {
+    margin-top: $spacing-xs;
+  }
 
   &__title {
-    font-size: $ts-29;
-    position: relative;
-
-    // Creates clear space for crimson "dash"
-    margin-top: $spacing-sm;
-  }
-
-  &__title::before {
-    content: '';
-    display: block;
-    position: absolute;
-    background-color: $color-crimson-500;
-    width: $spacing-lg;
-
-    // HACK: This is a magic number
-
-    height: $spacing-xs;
-    top: -$spacing-sm;
-  }
-
-  &__title--plain::before {
-    content: none;
+    font-size: $ts-26;
+    text-transform: uppercase;
+    font-family: $font-condensed;
+    letter-spacing: .04rem;
+    line-height: 1.2;
+    color: var(--rvt-billboard-title-text);
+    font-weight: $font-weight-black;
   }
 
   &__body {
-    margin-top: $spacing-xl;
+    margin-top: $spacing-md;
   }
 
   &__content {
-    color: $color-black-400;
-    margin-top: $spacing-sm;
+    color: var(--rvt-billboard-body-text);
+    margin-top: $spacing-lg;
+  }
 
-    --flow-space: 1.5rem;
+  &__content > * {
+    margin: 0;
+  }
+
+  &__content > * + * {
+    margin-top: $spacing-lg;
   }
 
   &__image {
@@ -47,7 +52,6 @@
   &__image img {
     width: 100%;
     display: block;
-    border-radius: $spacing-xs;
   }
 
   &--center &__body {
@@ -71,26 +75,38 @@
 
 @include mq($breakpoint-md) {
   .rvt-billboard {
+    align-items: center;
     display: flex;
     flex-direction: row-reverse;
 
+    &__title {
+      font-size: $ts-29;
+    }
+
     &__image {
-      width: 55%;
+      width: 50%;
+    }
+
+    &__image img {
+      min-height: 100%;
+      object-fit: cover;
     }
 
     &__body {
-      flex-basis: 33%;
-      flex-grow: 1;
-      padding-right: $spacing-xl;
+      width: 50%;
+      margin-top: 0;
+      padding-inline: $spacing-xxl;
     }
 
     &--reverse {
       flex-direction: row;
     }
-
-    &--reverse &__body {
-      padding-right: 0;
-      padding-left: $spacing-xl;
-    }
   }
+}
+
+// Dark theme
+
+.rvt-bg-dark .rvt-billboard {
+  --rvt-billboard-title-text: #{$color-white-base};
+  --rvt-billboard-body-text: #{$color-white-base};
 }
