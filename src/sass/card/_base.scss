@@ -50,11 +50,12 @@
   }
 
   &__eyebrow + &__title {
-    margin-top: $spacing-sm;
+    margin-top: $spacing-xs;
   }
 
   &__title {
-    font-size: $ts-20;
+    font-size: $ts-18;
+    font-weight: $font-weight-medium;
     line-height: 1.1;
     padding-right: $spacing-xl;
   }
@@ -66,24 +67,30 @@
   }
 
   &__title a::before {
-    background-color: $color-blue-000;
-    border-radius: 999rem;
     background-size: $spacing-sm $spacing-sm;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23243142" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
     background-repeat: no-repeat;
     background-position: center;
     content: '';
     display: block;
     height: $spacing-sm;
-    padding: $spacing-xs;
     position: absolute;
-    right: $spacing-xs;
+    right: $spacing-md;
     transition: all .2s ease;
     width: $spacing-sm;
   }
 
+  &__title a:hover::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+  }
+
+  &--raised {
+    box-shadow: $shadow-heavy;
+    border: none;
+  }
+
   &--raised &__title a::before {
-    right: $spacing-md;
+    right: $spacing-lg;
   }
 
   &--clickable &__title a::after {
@@ -96,12 +103,11 @@
   }
 
   &__title a:hover {
-    color: $color-blue-500;
+    color: $color-crimson-500;
     text-decoration: underline;
   }
 
   &__title a:hover::before {
-    background-color: $color-blue-100;
     transform: translate($spacing-xs, 0);
   }
 
@@ -133,7 +139,7 @@
 @media screen and (min-width: $breakpoint-sm) {
   .#{$prefix}-card {
     &__body {
-      padding: $spacing-xl;
+      padding: $spacing-lg;
     }
   }
 }
