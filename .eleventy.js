@@ -3,13 +3,14 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const eleventySyntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight")
 const sortCollectionByOrder = require("./src/sandbox/filters/sort-collection-by-order")
 const sortCollectionByTitle = require("./src/sandbox/filters/sort-collection-by-title")
+const { watch } = require('browser-sync')
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.setBrowserSyncConfig({
-    open: 'local',
-    files: [
-      './dist/css/rivet.css',
-      './dist/js/rivet-iife.js'
+
+  eleventyConfig.setServerOptions({
+    watch: [
+      'dist/css/*.css',
+      'dist/js/*.js'
     ]
   })
 
