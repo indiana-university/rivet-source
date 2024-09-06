@@ -1,0 +1,63 @@
+@use '../core' as *;
+
+.#{$prefix}-hero,
+.#{$prefix}-section-intro {
+  &--feature &__inner {
+    border-bottom: none;
+  }
+
+  &--feature &__body {
+    text-align: center;
+    flex-basis: auto;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  &--feature &__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--feature &__eyebrow:not(nav) {
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: $spacing-xxs * .5;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--feature &__title {
+    margin-top: 0;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-hero,
+  .#{$prefix}-section-intro {
+    &--feature &__title {
+      font-size: 4.125rem;
+    }
+
+    &--feature &__teaser {
+      max-width: 75%;
+      margin-inline: auto;
+    }
+  }
+}
+
+// @include mq($breakpoint-xl) {
+//   .#{$prefix}-hero,
+//     .#{$prefix}-section-intro {
+//     &--feature &__title {
+//       font-size: 5.1875rem;
+//     }
+//   }
+// }
+
+// test image feature component
+
+.rvt-image-feature {
+  img {
+    margin-inline: auto;
+  }
+}
