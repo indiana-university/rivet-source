@@ -13,7 +13,7 @@
   }
 
   &__eyebrow {
-    color: $color-crimson-500;
+    color: var(--rvt-color-hero-eyebrow, #{$color-crimson-500});
     font-size: $ts-14;
     display: block;
   }
@@ -38,10 +38,6 @@
     margin-top: $spacing-lg;
   }
 
-  &__media img {
-    border-radius: $spacing-xs;
-  }
-
   &__media iframe {
     width: 100%;
   }
@@ -62,7 +58,7 @@
   }
 
   &__media-caption {
-    color: $color-black-400;
+    color: var(--rvt-color-hero-media-caption, #{$color-black-400});
     font-size: $ts-14;
     padding-top: $spacing-xs;
     padding-left: $spacing-xs;
@@ -77,6 +73,8 @@
     margin-top: $spacing-md;
   }
 
+  // DEPRECATED: This should not be used moving forward.
+  // Use the .rvt-bg-dark helper wrapper class instead
   &--bg-dark {
     // Default to crimson background with --dark modifier
 
@@ -155,4 +153,13 @@
       margin-top: 0;
     }
   }
+}
+
+// Dark theme
+
+.rvt-bg-dark .#{$prefix}-hero {
+  --rvt-color-hero-title: #{$color-white-base};
+  --rvt-color-hero-teaser: #{$color-white-base};
+  --rvt-color-hero-eyebrow: #{$color-white-base};
+  --rvt-color-hero-media-caption: #{$color-white-base};
 }
