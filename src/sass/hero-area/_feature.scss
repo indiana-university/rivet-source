@@ -1,24 +1,34 @@
 @use '../core' as *;
 
-.#{$prefix}-hero,
-.#{$prefix}-section-intro {
-  &--feature &__inner {
+.#{$prefix}-hero {
+  &--feature &__inner,
+  &--section &__inner {
     border-bottom: none;
   }
 
-  &--feature &__body {
+  &--feature &__body,
+  &--section &__body {
     text-align: center;
     flex-basis: auto;
     padding-right: 0;
+  }
+
+  &--feature &__body {
     max-width: 100%;
   }
 
-  &--feature &__actions {
+  &--section &__body {
+    margin-inline: auto;
+  }
+
+  &--feature &__actions,
+  &--section &__actions {
     display: flex;
     justify-content: center;
   }
 
-  &--feature &__eyebrow:not(nav) {
+  &--feature &__eyebrow:not(nav),
+  &--section &__eyebrow:not(nav) {
     font-family: $font-mono;
     text-transform: uppercase;
     letter-spacing: $spacing-xxs * .5;
@@ -26,14 +36,14 @@
     margin-bottom: 0;
   }
 
-  &--feature &__title {
+  &--feature &__title,
+  &--section &__title {
     margin-top: 0;
   }
 }
 
 @include mq($breakpoint-lg) {
-  .#{$prefix}-hero,
-  .#{$prefix}-section-intro {
+  .#{$prefix}-hero {
     &--feature &__title {
       font-size: 4.125rem;
     }
@@ -44,15 +54,6 @@
     }
   }
 }
-
-// @include mq($breakpoint-xl) {
-//   .#{$prefix}-hero,
-//     .#{$prefix}-section-intro {
-//     &--feature &__title {
-//       font-size: 5.1875rem;
-//     }
-//   }
-// }
 
 // test image feature component
 
