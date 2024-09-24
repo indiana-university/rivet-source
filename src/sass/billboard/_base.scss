@@ -93,7 +93,8 @@
     }
 
     &__body {
-      width: 50%;
+      flex-basis: 50%;
+      flex-grow: 1;
       margin-top: 0;
       padding-inline: $spacing-xxl;
     }
