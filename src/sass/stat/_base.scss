@@ -29,18 +29,23 @@
     justify-content: center;
   }
 
+  &__image + * {
+    margin-top: $spacing-md;
+  }
+
   &__number {
     font-size: $ts-41;
     line-height: $line-height-tight;
+    font-family: $font-mono;
+    font-weight: $font-weight-bold;
+    color: $color-crimson-500;
   }
 
   &__description {
-    color: $color-black-400;
+    color: $color-crimson-500;
     font-weight: $font-weight-medium;
     font-size: $ts-14;
     letter-spacing: .025rem;
-
-    --flow-space: 0;
   }
 }
 
