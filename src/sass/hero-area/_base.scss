@@ -5,7 +5,7 @@
   &__inner {
     padding-top: $spacing-md;
     padding-bottom: $spacing-lg;
-    border-bottom: 1px solid $color-black-100;
+    // border-bottom: 1px solid $color-black-100;
   }
 
   &__body {
@@ -92,8 +92,9 @@
 @include mq($breakpoint-md) {
   .#{$prefix}-hero {
     &__inner {
-      display: flex;
       align-items: end;
+      display: flex;
+      gap: $spacing-xl;
       padding-top: $spacing-xxl;
       padding-bottom: $spacing-xxl;
     }
@@ -103,10 +104,14 @@
       flex-shrink: 0;
       flex-basis: 66%;
       max-width: 75%;
-      padding-right: $spacing-xxl;
 
       // This helps optically center the hero body content vertically.
       margin-top: 0;
+    }
+
+    &__body + * {
+      flex-grow: 1;
+      flex-basis: 33%;
     }
 
     &__title {
@@ -131,7 +136,6 @@
       gap: $spacing-md;
       margin-top: $spacing-lg;
       display: flex;
-      flex-grow: 1;
       flex-wrap: wrap;
     }
 
