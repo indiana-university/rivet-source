@@ -1,0 +1,119 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+@use 'sass:math';
+
+.#{$prefix}-list-hub {
+  &__title {
+    color: var(--rvt-color-list-hub-title, #{$color-crimson-500});
+    font-family: $font-mono;
+    font-size: $ts-14;
+    letter-spacing: math.div($spacing-xxs, 2);
+    text-transform: uppercase;
+  }
+
+  &__list {
+    list-style: ' ';
+    padding-left: 0;
+    margin-top: $spacing-xs;
+    margin-bottom: 0;
+  }
+
+  &__item {
+    border-top: 1px solid var(--rvt-color-list-hub-border, #{$color-black-100});
+    padding-block: $spacing-sm;
+    padding-inline: $spacing-sm;
+  }
+
+  &__eyebrow {
+    color: var(--rvt-color-list-hub-eyebrow, #{$color-crimson-500});
+    font-family: $font-mono;
+    font-size: $ts-12;
+    padding-inline-start: $spacing-md;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: $ts-18;
+    font-weight: $font-weight-medium;
+    color: var(--rvt-color-list-hub-link, #{$color-black-500});
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__link:hover {
+    color: var(--rvt-color-list-hub-link-hover, #{$color-crimson-500});
+    text-decoration: underline;
+  }
+
+  &__link::before {
+    flex-shrink: 0;
+    content: '';
+    width: $spacing-sm;
+    height: $spacing-sm;
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='%23263245' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.74228e-08 7.12593L10.8439 7.12593L6.73661 2.27186L8.26339 0.97998L14.31 8.12593L8.26339 15.2719L6.73661 13.98L10.8439 9.12593L0 9.12593L8.74228e-08 7.12593Z' /%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: all .2s ease;
+  }
+
+  &__link:hover::before {
+    transform: translate($spacing-xxs, 0);
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='%23990000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.74228e-08 7.12593L10.8439 7.12593L6.73661 2.27186L8.26339 0.97998L14.31 8.12593L8.26339 15.2719L6.73661 13.98L10.8439 9.12593L0 9.12593L8.74228e-08 7.12593Z' /%3E%3C/svg%3E%0A");
+  }
+
+  &__content {
+    padding-inline-start: $spacing-md;
+    margin-block-start: $spacing-xs;
+    color: var(--rvt-color-list-hub-content, #{$color-black-400});
+
+      > ul {
+        list-style-type: disc;
+      }
+  }
+
+  &__content > * {
+    margin: 0;
+  }
+
+  &__content > * + * {
+    margin-top: $spacing-lg;
+  }
+}
+
+// Themes - common
+.#{$prefix}-theme-crimson,
+.#{$prefix}-theme-dark {
+  --rvt-color-list-hub-border: #{$color-white-base};
+  --rvt-color-list-hub-eyebrow: #{$color-black-100};
+  --rvt-color-list-hub-title: #{$color-white-base};
+  --rvt-color-list-hub-link: #{$color-white-base};
+  --rvt-color-list-hub-link-hover: #{$color-white-base};
+  --rvt-color-list-hub-content: #{$color-white-base};
+}
+
+.#{$prefix}-theme-crimson .#{$prefix}-list-hub,
+.#{$prefix}-theme-dark .#{$prefix}-list-hub {
+  &__link::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.74228e-08 7.12593L10.8439 7.12593L6.73661 2.27186L8.26339 0.97998L14.31 8.12593L8.26339 15.2719L6.73661 13.98L10.8439 9.12593L0 9.12593L8.74228e-08 7.12593Z' /%3E%3C/svg%3E%0A");
+  }
+
+  &__content a {
+    color: $color-blue-200;
+  }
+}
+
+// Themes - specific
+.#{$prefix}-theme-crimson {
+  --rvt-color-list-hub-border: #{$color-crimson-200};
+  --rvt-color-list-hub-eyebrow: #{$color-crimson-100};
+}
+
+.#{$prefix}-theme-dark {
+  --rvt-color-list-hub-border: #{$color-black-400};
+  --rvt-color-list-hub-eyebrow: #{$color-black-100};
+}
