@@ -1,0 +1,12 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.#{$prefix}-theme-crimson {
+  background-color: $color-crimson-500;
+}
+
+.#{$prefix}-theme-dark {
+  background-color: $color-black-500;
+}
