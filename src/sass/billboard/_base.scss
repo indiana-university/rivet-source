@@ -1,8 +1,6 @@
 @use '../core' as *;
 
 .rvt-billboard {
-  --rvt-billboard-title-text: #{$color-crimson-500};
-  --rvt-billboard-body-text: #{$color-black-400};
 
   position: relative;
 
@@ -10,7 +8,7 @@
     font-size: $ts-12;
     letter-spacing: .125rem;
     text-transform: uppercase;
-    color: var(--rvt-billboard-title-text);
+    color: var(--rvt-color-billboard-eyebrow, #{$color-crimson-500});
     margin: 0;
   }
 
@@ -24,7 +22,7 @@
     font-family: $font-condensed;
     letter-spacing: .04rem;
     line-height: 1.2;
-    color: var(--rvt-billboard-title-text);
+    color: var(--rvt-color-billboard-title, #{$color-crimson-500});
     font-weight: $font-weight-black;
   }
 
@@ -33,7 +31,7 @@
   }
 
   &__content {
-    color: var(--rvt-billboard-body-text);
+    color: var(--rvt-color-billboard-body-text, #{$color-black-400});
     margin-top: $spacing-lg;
   }
 
@@ -105,9 +103,16 @@
   }
 }
 
-// Dark theme
+// Themes
 
-.rvt-bg-dark .rvt-billboard {
-  --rvt-billboard-title-text: #{$color-white-base};
-  --rvt-billboard-body-text: #{$color-white-base};
+.rvt-theme-crimson {
+  --rvt-color-billboard-eyebrow: #{$color-crimson-100};
+  --rvt-color-billboard-title: #{$color-white-base};
+  --rvt-color-billboard-body-text: #{$color-crimson-100};
+}
+
+.rvt-theme-dark {
+  --rvt-color-billboard-eyebrow: #{$color-black-100};
+  --rvt-color-billboard-title: #{$color-white-base};
+  --rvt-color-billboard-body-text: #{$color-black-100};
 }
