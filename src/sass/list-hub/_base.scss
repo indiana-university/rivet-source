@@ -54,7 +54,7 @@
     content: '';
     width: $spacing-sm;
     height: $spacing-sm;
-    background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='%23263245' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.74228e-08 7.12593L10.8439 7.12593L6.73661 2.27186L8.26339 0.97998L14.31 8.12593L8.26339 15.2719L6.73661 13.98L10.8439 9.12593L0 9.12593L8.74228e-08 7.12593Z' /%3E%3C/svg%3E%0A");
+    @extend %right-arrow-dark;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
@@ -63,7 +63,7 @@
 
   &__link:hover::before {
     transform: translate($spacing-xxs, 0);
-    background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='%23990000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.74228e-08 7.12593L10.8439 7.12593L6.73661 2.27186L8.26339 0.97998L14.31 8.12593L8.26339 15.2719L6.73661 13.98L10.8439 9.12593L0 9.12593L8.74228e-08 7.12593Z' /%3E%3C/svg%3E%0A");
+    @extend %right-arrow-crimson;
   }
 
   &__content {
@@ -99,7 +99,7 @@
 .#{$prefix}-theme-crimson .#{$prefix}-list-hub,
 .#{$prefix}-theme-dark .#{$prefix}-list-hub {
   &__link::before {
-    background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.74228e-08 7.12593L10.8439 7.12593L6.73661 2.27186L8.26339 0.97998L14.31 8.12593L8.26339 15.2719L6.73661 13.98L10.8439 9.12593L0 9.12593L8.74228e-08 7.12593Z' /%3E%3C/svg%3E%0A");
+    @extend %right-arrow-white;
   }
 
   &__content a {

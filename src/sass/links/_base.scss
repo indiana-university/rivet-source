@@ -6,10 +6,10 @@
 
 a,
 .#{$prefix}-link {
-  color: $color-blue-500;
+  color: var(--rvt-color-link, #{$color-blue-500});
 
   &:hover {
-    color: $color-blue-700;
+    color: var(--rvt-color-link-hover, #{$color-blue-700});
   }
 
   &:focus {
@@ -49,5 +49,53 @@ a,
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.#{$prefix}-link-cta,
+.#{$prefix}-link--cta {
+  --rvt-color-link-cta: #{$color-crimson-500};
+  --rvt-color-link-cta-hover: #{$color-crimson-700};
+
+  text-decoration: none;
+  display: inline-block;
+  font-weight: $font-weight-medium;
+  color: var(--rvt-color-link-cta);
+
+  &::after {
+    content: '';
+    @extend %right-arrow-crimson;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: $spacing-xs;
+    display: inline-block;
+    width: $spacing-sm;
+    height: $spacing-sm;
+    position: relative;
+    top: $spacing-xxs * .8;
+    transition: all .2s ease;
+  }
+
+  &:hover {
+    color: var(--rvt-color-link-cta-hover);
+
+    &::after {
+      transform: translate($spacing-xs, 0);
+      @extend %right-arrow-dark-crimson;
+    }
+  }
+}
+
+// Themes
+.#{$prefix}-theme-crimson .#{$prefix}-link-cta,
+.#{$prefix}-theme-dark .#{$prefix}-link-cta {
+  --rvt-color-link-cta: #{$color-white-base};
+
+  &::after {
+    @extend %right-arrow-white;
+  }
+
+  &:hover {
+    --rvt-color-link-cta-hover: #{$color-white-base};
   }
 }

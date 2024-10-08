@@ -1,7 +1,7 @@
 const componentPage = document.querySelector('[data-component]')
 
 if (componentPage) {
-  
+
   // Get elements
 
   const previewTab = componentPage.querySelector('[data-tab="preview"]')
@@ -26,9 +26,9 @@ if (componentPage) {
   // Define function to show preview with given ID
 
   function showPreview(id) {
-    
+
     // Hide all previews
-    
+
     previews.forEach(preview => preview.style.display = 'none')
     codeBlocks.forEach(block => block.style.display = 'none')
     document.querySelectorAll('[data-variant-select]').forEach(select => select.classList.remove('current'))
@@ -42,7 +42,7 @@ if (componentPage) {
     previewButton.href = preview.src
     copyCodeButton.dataset.target = preview.dataset.variant
     document.querySelector(`[data-variant-select="${preview.dataset.variant}"]`).classList.add('current')
-  
+
   }
 
   // Define function to copy code block
@@ -51,7 +51,7 @@ if (componentPage) {
     const range = document.createRange()
     range.selectNode(copyTarget)
     window.getSelection().addRange(range)
-  
+
     try {
       document.execCommand('copy')
 
@@ -63,11 +63,11 @@ if (componentPage) {
     } catch (error) {
       console.log(error)
     }
-  
+
     // Removes the current selection so that subsequent copy actions work
     window.getSelection().removeAllRanges();
   }
-  
+
   // Add event listeners to tabs
 
   previewTab.addEventListener('click', event => {
@@ -121,7 +121,7 @@ if (componentPage) {
 
   if (eventInspector) {
     const componentEvents = eventInspector.dataset.eventInspector.split(',').slice(0, -1)
-    
+
     componentEvents.forEach(componentEvent => {
       previews.forEach(iframe => {
         iframe.contentDocument.addEventListener(componentEvent, event => {

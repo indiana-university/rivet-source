@@ -5,294 +5,288 @@
 @use 'sass:math';
 
 .#{$prefix}-button {
-  align-items: center;
-  background-color: $color-blue-500;
-  border: math.div($spacing-xxs, 2) solid $color-blue-500;
-  border-radius: $spacing-xxs;
-  color: $color-white-base;
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: $font-weight-medium;
-  gap: $spacing-xs;
-  height: $spacing-xl;
-  line-height: 1;
-  padding: 0 math.div(10rem, 16);
-  position: relative;
+  --rvt-color-button: #{$color-crimson-500};
+  --rvt-color-button-bg: #{$color-orange-000};
+  --rvt-color-button-hover: #{$color-crimson-700};
+  --rvt-color-button-bg-hover: #{$color-crimson-000};
+  --rvt-color-button-border: #{$color-orange-000};
+  --rvt-color-border-hover: #{$color-orange-000};
+  --rvt-button-border-width: 1px;
+  --rvt-button-border-radius: 0;
+  --rvt-gap-button: #{$spacing-xs};
+  --rvt-padding-button: 0 #{$spacing-sm};
+  --rvt-font-weight-button: #{$font-weight-medium};
+  --rvt-height-button: #{$spacing-sm * 3};
+  --rvt-outline-width-button: 2px;
+  --rvt-color-outline-button: #{$color-crimson-500};
+
   text-decoration: none;
-  white-space: nowrap;
+  line-height: 1.1;
+  height: var(--rvt-height-button);
+  padding: var(--rvt-padding-button);
+  font-weight: var(--rvt-font-weight-button);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rvt-gap-button);
+  background: var(--rvt-color-button-bg);
+  color: var(--rvt-color-button);
+  cursor: pointer;
+  border: var(--rvt-button-border-width) solid var(--rvt-color-button-border);
+  border-radius: var(--rvt-button-border-radius);
 
-  // Initially hide any loaders if they're being used inside buttons.
-
-  .#{$prefix}-loader {
-    display: none;
-  }
-
-  &::-moz-focus-inner {
-    border: 0;
+  &:hover {
+    background-color: var(--rvt-color-button-bg-hover);
+    color: var(--rvt-color-button-hover);
+    border-color: var(--rvt-color-border-hover);
   }
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2.5) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
-    outline: none;
+    outline: var(--rvt-outline-width-button) solid var(--rvt-color-outline-button);
+    outline-offset: var(--rvt-outline-width-button);
   }
 
-  &:hover {
-    background-color: $color-blue-600;
-    border-color: $color-blue-600;
-    color: $color-white-base;
-  }
-
-  &:active {
-    background-color: $color-blue-700;
-    border-color: $color-blue-700;
-  }
-
-  &:disabled,
-  &:disabled:hover {
-    background-color: $color-black-000;
-    color: $color-black-400;
-    border-color: $color-black-300;
+  &:disabled {
+    --rvt-color-button: #{$color-black-300};
+    --rvt-color-button-hover: #{$color-black-300};
+    --rvt-color-button-bg: #{$color-black-000};
+    --rvt-color-button-bg-hover: #{$color-black-000};
+    --rvt-color-button-border: #{$color-black-000};
     cursor: not-allowed;
   }
+
+  &--outline {
+    --rvt-color-button-bg: #{$color-white-base};
+    --rvt-color-button-border: #{$color-orange-100};
+  }
+
+  &--solid {
+    --rvt-color-button-bg: #{$color-crimson-500};
+    --rvt-color-button-border: #{$color-crimson-500};
+    --rvt-color-button: #{$color-white-base};
+  }
+
+  &--solid:hover {
+    --rvt-color-button-hover: #{$color-white-base};
+    --rvt-color-button-bg-hover: #{$color-crimson-700};
+    --rvt-color-button-border: #{$color-crimson-700};
+  }
 }
 
-.#{$prefix}-button--secondary {
-  background-color: $color-white-base;
-  border-color: $color-blue-100;
-  color: $color-blue-500;
+a.#{$prefix}-button {
+  &::after {
+    @extend %right-arrow-crimson;
+    content: " ";
+    width: $spacing-sm;
+    height: $spacing-sm;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .2s ease;
+  }
+
+  &:hover::after {
+    transform: translate($spacing-xxs, 0);
+  }
+}
+
+a[href^="http"].#{$prefix}-button::after {
+  @extend %up-arrow-crimson;
+}
+
+a[href^="#"].#{$prefix}-button::after {
+  @extend %down-arrow-crimson;
+}
+
+a.#{$prefix}-button--solid::after {
+  @extend %right-arrow-white;
+}
+
+a[href^="http"].#{$prefix}-button--solid::after {
+   @extend %up-arrow-white;
+}
+
+a[href^="#"].#{$prefix}-button--solid::after {
+  @extend %down-arrow-white;
+}
+
+// Themes
+// Crimson theme - default variant
+.#{$prefix}-theme-crimson .rvt-button {
+  --rvt-color-button: #{$color-white-base};
+  --rvt-color-button-bg: #{$color-crimson-500};
+  --rvt-color-button-border: #{$color-crimson-500};
+  --rvt-color-button-hover: #{$color-white-base};
+  --rvt-color-button-bg-hover: #{$color-crimson-500};
+  --rvt-color-border-hover: #{$color-white-base};
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
-    outline: none;
-  }
-
-  &:hover {
-    background-color: $color-blue-000;
-    border-color: $color-blue-100;
-    color: $color-blue-600;
-  }
-
-  &:active {
-    background-color: $color-blue-100;
-    border-color: $color-blue-200;
-    color: $color-blue-600;
+    --rvt-color-outline-button: #{$color-white-base};
   }
 }
 
-.#{$prefix}-button--success {
-  background-color: $color-green-500;
-  border-color: $color-green-500;
+.#{$prefix}-theme-crimson a.#{$prefix}-button::after {
+  @extend %right-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button::after {
+  @extend %down-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button::after {
+  @extend %up-arrow-white;
+}
+
+// Crimson theme - solid variant
+.#{$prefix}-theme-crimson .rvt-button--solid {
+  --rvt-color-button: #{$color-crimson-500};
+  --rvt-color-button-bg: #{$color-white-base};
+  --rvt-color-button-hover: #{$color-white-base};
+  --rvt-color-button-bg-hover: #{$color-crimson-500};
+  --rvt-color-button-border: #{$color-white-base};
+}
+// TODO: When using @extend for these background images
+// there were some specificity problems where the default
+// Crimson theme button variant was overriding these background
+// images. That's why we're not using @extend here.
+.#{$prefix}-theme-crimson a.#{$prefix}-button--solid::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+}
+
+.#{$prefix}-theme-crimson a.#{$prefix}-button--solid:hover::after {
+  @extend %right-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid::after {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23990000' height='16' viewBox='0 0 16 16' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 1v10.844L2.146 7.737.854 9.263 8 15.31l7.146-6.047-1.292-1.526L9 11.844V1H7Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid:hover::after {
+  @extend %down-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--solid::after {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23990000' height='16' viewBox='0 0 16 16' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.586 4H4V2h10v10h-2V5.414l-8.293 8.293-1.414-1.414L10.586 4Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--solid:hover::after {
+  @extend %up-arrow-white;
+}
+
+// Crimson theme - outline variant
+.#{$prefix}-theme-crimson .rvt-button--outline {
+  --rvt-color-button: #{$color-white-base};
+  --rvt-color-button-bg: #{$color-crimson-500};
+  --rvt-color-button-hover: #{$color-crimson-500};
+  --rvt-color-button-bg-hover: #{$color-white-base};
+  --rvt-color-button-border: #{$color-white-base};
+}
+
+.#{$prefix}-theme-crimson a.#{$prefix}-button--outline::after {
+  @extend %right-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a.#{$prefix}-button--outline:hover::after {
+  @extend %right-arrow-crimson;
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--outline::after {
+  @extend %down-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--outline:hover::after {
+  @extend %down-arrow-crimson;
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--outline::after {
+  @extend %up-arrow-white;
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--outline:hover::after {
+  @extend %up-arrow-crimson;
+}
+
+// Dark Theme - default variant
+.#{$prefix}-theme-dark .rvt-button {
+  --rvt-color-button: #{$color-white-base};
+  --rvt-color-button-bg: #{$color-black-500};
+  --rvt-color-button-border: #{$color-black-500};
+  --rvt-color-button-hover: #{$color-white-base};
+  --rvt-color-button-bg-hover: #{$color-black-base};
+  --rvt-color-border-hover: #{$color-white-base};
 
   &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-400;
-    outline: none;
-  }
-
-  &:hover {
-    background-color: $color-green-700;
-    border-color: $color-green-700;
-    color: $color-white-base;
-  }
-
-  &:active {
-    background-color: $color-green-700;
-    border-color: $color-green-700;
+    --rvt-color-outline-button: #{$color-white-base};
   }
 }
 
-.#{$prefix}-button--success-secondary {
-  background-color: $color-white-base;
-  border-color: $color-green-100;
-  color: $color-green-500;
-
-  &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-green-400;
-    outline: none;
-  }
-
-  &:hover {
-    background-color: $color-green-000;
-    border-color: $color-green-100;
-    color: $color-green-600;
-  }
-
-  &:active {
-    background-color: $color-green-100;
-    border-color: $color-green-200;
-    color: $color-green-600;
-  }
+.#{$prefix}-theme-dark a.#{$prefix}-button::after {
+  @extend %right-arrow-white;
 }
 
-.#{$prefix}-button--danger {
-  background-color: $color-orange-500;
-  border-color: $color-orange-500;
-
-  &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-400;
-    outline: none;
-  }
-
-  &:hover {
-    background-color: $color-orange-600;
-    border-color: $color-orange-600;
-    color: $color-white-base;
-  }
-
-  &:active {
-    background-color: $color-orange-700;
-    border-color: $color-orange-700;
-  }
+.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button::after {
+  @extend %down-arrow-white;
 }
 
-.#{$prefix}-button--danger-secondary {
-  background-color: $color-white-base;
-  border-color: $color-orange-100;
-  color: $color-orange-500;
-
-  &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-orange-400;
-    outline: none;
-  }
-
-  &:hover {
-    background-color: $color-orange-000;
-    border-color: $color-orange-100;
-    color: $color-orange-600;
-  }
-
-  &:active {
-    background-color: $color-orange-100;
-    border-color: $color-orange-200;
-    color: $color-orange-600;
-  }
+.#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button::after {
+  @extend %up-arrow-white;
 }
 
-// Medium variant is in review.
-/*
-.#{$prefix}-button--medium {
-  height: $spacing-lg;
-  padding: 0 math.div(6rem, 16);
-}
-*/
-
-.#{$prefix}-button--small {
-  font-size: $ts-14;
-  height: $spacing-md;
-  padding: 0 math.div(6rem, 16);
+// Dark theme - outline variant
+.#{$prefix}-theme-dark .rvt-button--outline {
+  --rvt-color-button-bg-hover: #{$color-white-base};
+  --rvt-color-button-hover: #{$color-black-500};
+  --rvt-color-button-border: #{$color-white-base};
 }
 
-.#{$prefix}-button--plain {
-  border-color: transparent;
-  background-color: transparent;
-  color: $color-blue-500;
-
-  &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400;
-    outline: none;
-  }
-
-  &:hover {
-    background-color: $color-blue-000;
-    border-color: transparent;
-    color: $color-blue-600;
-  }
-
-  &:active {
-    background-color: $color-blue-100;
-    border-color: transparent;
-    color: $color-blue-600;
-  }
-
-  &:disabled,
-  &:disabled:hover {
-    border-color: $color-black-100;
-  }
+.#{$prefix}-theme-dark a.#{$prefix}-button--outline::after {
+  @extend %right-arrow-white;
 }
 
-.#{$prefix}-button--link {
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  color: $color-blue-500;
-  font-weight: $font-weight-medium;
-  height: initial;
-  padding: 0;
-  display: inline-flex;
-  align-items: initial;
-  transition: none;
-
-  &:hover {
-    background-color: transparent;
-    color: $color-blue-600;
-  }
-
-  &:active {
-    color: $color-blue-700;
-  }
+.#{$prefix}-theme-dark a.#{$prefix}-button--outline:hover::after {
+  @extend %right-arrow-dark;
 }
 
-.#{$prefix}-button-group {
-  display: flex;
-
-  > *:not(:last-child) {
-    margin-right: $spacing-sm;
-  }
+.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button--outline::after {
+  @extend %down-arrow-white;
 }
 
-/**
- * Right align buttons.
- */
-
-.#{$prefix}-button-group--right {
-  justify-content: flex-end;
+.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button--outline:hover::after {
+  @extend %down-arrow-dark;
 }
 
-/**
- * Full-width buttons.
- */
-
-.#{$prefix}-button--full-width {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button--outline::after {
+  @extend %up-arrow-white;
 }
 
-/**
- * Loading state - used in tandem with the Rivet loading indicator
- * found in components/24-loading-indicator/
- */
+.#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button--outline:hover::after {
+  @extend %up-arrow-dark;
+}
 
-.#{$prefix}-button--loading,
-.#{$prefix}-button--loading[disabled] {
-  background-color: $color-black-000;
-  border-color: $color-black-300;
-  color: $color-black-400;
-  justify-content: center;
-  position: relative;
+// Dark theme - solid variant
+.#{$prefix}-theme-dark .rvt-button--solid {
+  --rvt-color-button-bg: #{$color-white-base};
+  --rvt-color-button: #{$color-black-500};
+}
 
-  &:hover {
-    background-color: $color-black-100;
-    color: $color-black-700;
-  }
+.#{$prefix}-theme-dark a.#{$prefix}-button--solid::after {
+  @extend %right-arrow-dark;
+}
 
-  .#{$prefix}-button__content {
-    color: transparent;
-  }
+.#{$prefix}-theme-dark a.#{$prefix}-button--solid:hover::after {
+  @extend %right-arrow-white;
+}
 
-  .#{$prefix}-loader {
-    border-bottom-color: $color-black-400;
-    border-right-color: $color-black-400;
-    border-top-color: $color-black-400;
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
+.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button--solid::after {
+  @extend %down-arrow-dark;
+}
 
-    /**
-     * This negative margin accounts for the width/height of the
-     * default loading indicator above.
-     */
-    margin-top: -.65rem;
-    margin-left: -$spacing-xs;
-  }
+.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button--solid:hover::after {
+  @extend %down-arrow-white;
+}
+
+.#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button--solid::after {
+  @extend %up-arrow-dark;
+}
+
+.#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button--solid:hover::after {
+  @extend %up-arrow-white;
 }

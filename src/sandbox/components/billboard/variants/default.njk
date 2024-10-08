@@ -4,22 +4,23 @@ title: Billboard - Default
 layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
 order: 1
+classes: rvt-p-all-xxl
 ---
-<div class="rvt-container-lg">
-  <div class="rvt-billboard">
-    <div class="rvt-billboard__image">
-      <img src="https://rivet.iu.edu/img/placeholder/billboard-2.webp" alt="Student in vintage-style Indiana University t-shirt">
-    </div>
-    <div class="rvt-billboard__body">
-      <p class="rvt-billboard__eyebrow">Section name</p>
-      <h2 class="rvt-billboard__title">Become the best version of yourself at IU</h2>
-      <div class="rvt-billboard__content">
-        <p>Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.</p>
-        <div class="rvt-flex rvt-gap-md rvt-items-center">
-          <a class="rvt-cta rvt-cta--button" href="#">Explore more of IU</a>
-          <a class="rvt-cta" href="#">Explore more of IU</a>
-        </div>
+<div class="rvt-billboard">
+  <div class="rvt-billboard__image">
+    <img src="https://rivet.iu.edu/img/placeholder/billboard-2.webp" alt="Student in vintage-style Indiana University t-shirt">
+  </div>
+  <div class="rvt-billboard__body">
+    <p class="rvt-billboard__eyebrow">Section name</p>
+    <h2 class="rvt-billboard__title">Become the best version of yourself at IU</h2>
+    <div class="rvt-billboard__content">
+      <p>Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.</p>
+      <div class="rvt-flex rvt-gap-md rvt-items-center">
+        <a class="rvt-button rvt-button--outline" href="/#">Explore more of IU</a>
+        <a class="rvt-button" href="/#">Get help</a>
       </div>
     </div>
   </div>
 </div>
+
+{% include "partials/theme-switcher.njk" %}

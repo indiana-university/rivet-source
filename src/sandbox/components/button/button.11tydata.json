@@ -1,0 +1,29 @@
+{
+  "variants": ["default", "outline", "solid"],
+  "buttons": [
+    {
+      "text": "Button link",
+      "type": "link",
+      "url": "/some/url"
+    },
+    {
+      "text": "External button link",
+      "type": "external-link",
+      "url": "https://rivet.iu.edu"
+    },
+    {
+      "text": "In-page button link",
+      "type": "in-page-link",
+      "url": "#in-page"
+    },
+    {
+      "text": "Default Button",
+      "type": "button"
+    },
+    {
+      "text": "<rvt-icon name='download'></rvt-icon><span>Button with icon</span>",
+      "type": "button",
+      "hasIcon": true
+    }
+  ]
+}

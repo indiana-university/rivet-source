@@ -1,25 +1,22 @@
 ---
 tags: button
-title: Button - Default
+title: Button - Crimson theme
 layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
 padding: true
 order: 1
+classes: rvt-theme-crimson
 ---
 {% for variant in variants %}
   <div class="rvt-flex rvt-gap-md rvt-m-top-md">
     {% for button in buttons %}
     {% if button.type == 'button' %}
       {% if button.hasIcon %}
-      <button type="button" class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}">
+      <button class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}">
         {{ button.text | safe }}
       </button>
       {% else %}
-      <button
-        type="button"
-        class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
-        {% if button.isDisabled %}disabled{% endif %}
-      >
+      <button class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}">
         {{ button.text }}
       </button>
       {% endif %}
@@ -29,6 +26,3 @@ order: 1
     {% endfor %}
   </div>
 {% endfor %}
-
-{% include "partials/theme-switcher.njk" %}
-

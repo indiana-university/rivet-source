@@ -1,0 +1,39 @@
+<hr class="rvt-m-top-3-xl">
+<div class="rvt-flex rvt-gap-sm rvt-m-top-lg">
+  <button class="rvt-button" type="button" data-rvt-theme-toggle="crimson">Crimson theme</button>
+  <button class="rvt-button" type="button" data-rvt-theme-toggle="dark">Dark theme</button>
+  <button class="rvt-button" type="button" data-rvt-theme-toggle="default">Default theme</button>
+</div>
+
+<script>
+// Theme switcher
+const main = document.querySelector('main');
+
+document.addEventListener('click', function(event) {
+  // State
+  let currentTheme;
+
+  // Config
+  const themeList = [
+    'crimson',
+    'dark',
+    'default',
+    'blue'
+  ];
+
+  // DOM Set up
+  const themeToggle = event.target.closest('[data-rvt-theme-toggle]');
+  if (!themeToggle) return;
+  currentTheme = themeToggle.dataset.rvtThemeToggle;
+
+  // Toggle theme
+  themeList.forEach((item, index) => {
+    if (item !== currentTheme || item === 'default') {
+      main.classList.remove(`rvt-theme-${item}`)
+    } else {
+      main.classList.add(`rvt-theme-${item}`);
+    }
+  })
+
+});
+</script>
