@@ -5,21 +5,40 @@
 @use 'sass:math';
 
 .#{$prefix}-accordion {
-  border-bottom: 1px solid $color-black-100;
+  --rvt-color-accordion-bg: #{$color-white-base};
+  --rvt-color-accordion-border: #{$color-black-100};
+  --rvt-color-accordion-summary: #{$color-black-500};
+  --rvt-color-accordion-summary-bg: #{$color-white-base};
+  --rvt-color-accordion-summary-hover: #{$color-crimson-500};
+  --rvt-color-accordion-summary-bg-hover: #{$color-orange-000};
+  --rvt-color-accordion-summary-active: #{$color-crimson-500};
+  --rvt-color-accordion-summary-bg-active: #{$color-white-base};
+  --rvt-accordion-panel-color: #{$color-black-500};
+  --rvt-color-accordion-outline-focus: #{$color-crimson-500};
+  --rvt-color-accordion-bg-focus: #{$color-orange-000};
 
-  &__summary {
-    border-top: 1px solid $color-black-100;
+  background-color: var(--rvt-color-accordion-bg);
+  border: 1px solid var(--rvt-color-accordion-border);
+
+  &__summary:not(:first-child) {
+    border-top: 1px solid var(--rvt-color-accordion-border);
   }
 
   &__toggle {
     align-items: center;
     background-color: transparent;
     border: none;
+    color: var(--rvt-color-accordion-summary);
     display: flex;
-    padding: $spacing-md $spacing-sm;
+    padding: $spacing-md;
     text-align: left;
     appearance: none;
     width: 100%;
+  }
+
+  &__toggle[aria-expanded='true'] {
+    color: var(--rvt-color-accordion-summary-active);
+    background-color: var(--rvt-color-accordion-summary-bg-active);
   }
 
   &__toggle[aria-expanded='true'] &__icon-bar {
@@ -27,12 +46,13 @@
   }
 
   &__toggle:hover {
-    background-color: $color-black-000;
+    color: var(--rvt-color-accordion-summary-hover);
+    background-color: var(--rvt-color-accordion-summary-bg-hover);
     cursor: pointer;
   }
 
   &__toggle:focus {
-    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+    outline: math.div($spacing-xxs, 2) solid var(--rvt-color-accordion-outline-focus);
     outline-offset: math.div($spacing-xxs, 2);
   }
 
@@ -45,26 +65,26 @@
   // Apply stronger focus styles when tab navigation is being used
 
   &__toggle:focus-visible {
-    background-color: $color-blue-000;
+    background-color: var(--rvt-color-accordion-bg-focus);
   }
 
   &__toggle-text {
-    color: $color-black-500;
-    font-size: $ts-20;
-    font-weight: $font-weight-regular;
+    font-size: $ts-18;
+    font-weight: $font-weight-medium;
     line-height: 1.3;
     padding-right: $spacing-sm;
   }
 
   &__toggle-icon {
     align-items: center;
-    color: $color-black-400;
     display: flex;
     margin-left: auto;
   }
 
   &__panel {
-    padding: $spacing-xs $spacing-sm $spacing-md $spacing-sm;
+    padding: $spacing-md;
+    border-top: 1px solid var(--rvt-color-accordion-border);
+    color: var(--rvt-accordion-panel-color);
   }
 
   &__panel > * {
@@ -75,4 +95,33 @@
   &__panel > * + * {
     margin-top: 1.5rem;
   }
+}
+
+// Themes
+// Crimson theme
+.#{$prefix}-theme-crimson .#{$prefix}-accordion {
+  --rvt-color-accordion-bg: #{$color-crimson-500};
+  --rvt-color-accordion-border: #{$color-crimson-200};
+  --rvt-color-accordion-summary: #{$color-white-base};
+  --rvt-color-accordion-summary-hover: #{$color-white-base};
+  --rvt-color-accordion-summary-bg-hover: #{$color-crimson-600};
+  --rvt-color-accordion-summary-active: #{$color-orange-000};
+  --rvt-color-accordion-summary-bg-active: #{$color-crimson-600};
+  --rvt-accordion-panel-color: #{$color-white-base};
+  --rvt-color-accordion-outline-focus: #{$color-white-base};
+  --rvt-color-accordion-bg-focus: #{$color-crimson-600};
+}
+
+// Dark theme
+.#{$prefix}-theme-dark .#{$prefix}-accordion {
+  --rvt-color-accordion-bg: #{$color-black-500};
+  --rvt-color-accordion-border: #{$color-black-300};
+  --rvt-color-accordion-summary: #{$color-white-base};
+  --rvt-color-accordion-summary-hover: #{$color-white-base};
+  --rvt-color-accordion-summary-bg-hover: #{$color-black-600};
+  --rvt-color-accordion-summary-active: #{$color-white-base};
+  --rvt-color-accordion-summary-bg-active: #{$color-black-600};
+  --rvt-accordion-panel-color: #{$color-white-base};
+  --rvt-color-accordion-outline-focus: #{$color-white-base};
+  --rvt-color-accordion-bg-focus: #{$color-black-600};
 }

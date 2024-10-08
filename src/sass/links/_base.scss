@@ -87,6 +87,13 @@ a,
 }
 
 // Themes
+.#{$prefix}-theme-crimson a,
+.#{$prefix}-theme-crimson .#{$prefix}-link,
+.#{$prefix}-theme-dark a,
+.#{$prefix}-theme-dark .#{$prefix}-link {
+  --rvt-color-link: #{$color-blue-200};
+}
+
 .#{$prefix}-theme-crimson .#{$prefix}-link-cta,
 .#{$prefix}-theme-dark .#{$prefix}-link-cta {
   --rvt-color-link-cta: #{$color-white-base};
