@@ -1,3 +1,6 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 @use "sass:string";
 
 @mixin bg-icon-arrow-right($hex-value) {
@@ -28,4 +31,10 @@
   // Converts Sass hex color to a string for interpolation
   $hex-color: '#{$hex-value}';
   background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 9H1V7h14v2Z"></path></svg>');
+}
+
+@mixin bg-icon-chevron-right($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23#{string.slice($hex-color, 2)}" width="12" height="12" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"/></svg>');
 }
