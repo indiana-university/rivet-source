@@ -64,7 +64,7 @@ a,
 
   &::after {
     content: '';
-    @extend %right-arrow-crimson;
+    @include bg-icon-arrow-right($color-crimson-500);
     background-repeat: no-repeat;
     background-position: center;
     margin-left: $spacing-xs;
@@ -81,7 +81,7 @@ a,
 
     &::after {
       transform: translate($spacing-xs, 0);
-      @extend %right-arrow-dark-crimson;
+      @include bg-icon-arrow-right($color-black-500);
     }
   }
 }
@@ -99,7 +99,7 @@ a,
   --rvt-color-link-cta: #{$color-white-base};
 
   &::after {
-    @extend %right-arrow-white;
+    @include bg-icon-arrow-right($color-white-base);;
   }
 
   &:hover {

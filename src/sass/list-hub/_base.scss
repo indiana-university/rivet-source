@@ -54,7 +54,7 @@
     content: '';
     width: $spacing-sm;
     height: $spacing-sm;
-    @extend %right-arrow-dark;
+    @include bg-icon-arrow-right($color-black-500);
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
@@ -63,7 +63,7 @@
 
   &__link:hover::before {
     transform: translate($spacing-xxs, 0);
-    @extend %right-arrow-crimson;
+    @include bg-icon-arrow-right($color-crimson-500);
   }
 
   &__content {
@@ -99,7 +99,7 @@
 .#{$prefix}-theme-crimson .#{$prefix}-list-hub,
 .#{$prefix}-theme-dark .#{$prefix}-list-hub {
   &__link::before {
-    @extend %right-arrow-white;
+    @include bg-icon-arrow-right($color-white-base);;
   }
 
   &__content a {

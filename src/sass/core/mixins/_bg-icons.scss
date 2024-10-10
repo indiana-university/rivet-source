@@ -1,0 +1,31 @@
+@use "sass:string";
+
+@mixin bg-icon-arrow-right($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23#{string.slice($hex-color, 2)}" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+}
+
+@mixin bg-icon-arrow-up-right($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.586 4H4V2h10v10h-2V5.414l-8.293 8.293-1.414-1.414L10.586 4Z"></path></svg>');
+}
+
+@mixin bg-icon-arrow-down($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 1v10.844L2.146 7.737.854 9.263 8 15.31l7.146-6.047-1.292-1.526L9 11.844V1H7Z"></path></svg>');
+}
+
+@mixin bg-icon-plus($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 7V.5h2V7h6.5v2H9v6.5H7V9H.5V7H7Z"></path></svg>');
+}
+
+@mixin bg-icon-minus($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 9H1V7h14v2Z"></path></svg>');
+}
