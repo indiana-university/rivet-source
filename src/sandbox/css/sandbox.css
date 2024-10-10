@@ -182,3 +182,8 @@ code {
   color: #fff;
   border-radius: .25rem;
 }
+
+.preview,
+.preview > iframe {
+  min-height: calc(100vh - 63px);
+}
