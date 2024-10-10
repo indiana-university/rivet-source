@@ -34,13 +34,28 @@
     text-align: left;
     appearance: none;
     width: 100%;
+
+    &::after {
+      content: ' ';
+      width: $spacing-sm;
+      height: $spacing-sm;
+      margin-left: auto;
+      @include bg-icon-plus($color-black-500);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 
   &__toggle[aria-expanded='true'] {
     color: var(--rvt-color-accordion-summary-active);
     background-color: var(--rvt-color-accordion-summary-bg-active);
+
+    &::after {
+      @include bg-icon-minus($color-crimson-500);
+    }
   }
 
+  // DEPRECATED: Icon is now handle as a background image of the toggle
   &__toggle[aria-expanded='true'] &__icon-bar {
     display: none;
   }
@@ -75,10 +90,9 @@
     padding-right: $spacing-sm;
   }
 
+  // DEPRECATED: Icon is now handle as a background image of the toggle
   &__toggle-icon {
-    align-items: center;
-    display: flex;
-    margin-left: auto;
+    display: none !important;
   }
 
   &__panel {
@@ -98,6 +112,17 @@
 }
 
 // Themes
+// Common
+.#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle::after,
+.#{$prefix}-theme-dark .#{$prefix}-accordion__toggle::after {
+  @include bg-icon-plus($color-white-base);
+}
+
+.#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle[aria-expanded='true']::after,
+.#{$prefix}-theme-dark .#{$prefix}-accordion__toggle[aria-expanded='true']::after {
+  @include bg-icon-minus($color-white-base);
+}
+
 // Crimson theme
 .#{$prefix}-theme-crimson .#{$prefix}-accordion {
   --rvt-color-accordion-bg: #{$color-crimson-500};
