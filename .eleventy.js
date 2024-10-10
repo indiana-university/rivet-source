@@ -25,6 +25,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter('sortCollectionByOrder', sortCollectionByOrder)
   eleventyConfig.addFilter('sortCollectionByTitle', sortCollectionByTitle)
 
+  eleventyConfig.addShortcode('uniqueQueryString', () => `${ Date.now() }`);
+
   return {
     dir: {
       input: "src/sandbox",
