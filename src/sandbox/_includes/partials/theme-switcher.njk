@@ -1,7 +1,7 @@
 <hr class="rvt-m-top-3-xl">
 <div class="rvt-flex rvt-gap-sm rvt-m-top-lg">
-  <button class="rvt-button" type="button" data-rvt-theme-toggle="crimson">Crimson theme</button>
-  <button class="rvt-button" type="button" data-rvt-theme-toggle="dark">Dark theme</button>
+  <button class="rvt-button rvt-button--outline" type="button" data-rvt-theme-toggle="crimson">Crimson theme</button>
+  <button class="rvt-button rvt-button--outline" type="button" data-rvt-theme-toggle="dark">Dark theme</button>
   <button class="rvt-button" type="button" data-rvt-theme-toggle="default">Default theme</button>
 </div>
 
@@ -27,7 +27,7 @@ document.addEventListener('click', function(event) {
   currentTheme = themeToggle.dataset.rvtThemeToggle;
 
   // Toggle theme
-  themeList.forEach((item, index) => {
+  themeList.forEach((item) => {
     if (item !== currentTheme || item === 'default') {
       main.classList.remove(`rvt-theme-${item}`)
     } else {
