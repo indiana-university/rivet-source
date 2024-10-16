@@ -37,3 +37,23 @@
     {% endfor %}
   </ul>
 </nav>
+
+<h2>Layouts</h2>
+<nav>
+  <ul>
+    {% for layout in collections.layout | sortCollectionByTitle %}
+      {% if layout.url == page.url %}
+        <li>
+          <a class="current" href="{{ layout.url }}">{{ layout.data.title }}</a>
+          <ul class="variants">
+            {% for variant in collections[layout.data.component] | sortCollectionByOrder %}
+              <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li><a href="{{ layout.url }}">{{ layout.data.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
