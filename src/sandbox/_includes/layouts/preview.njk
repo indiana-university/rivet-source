@@ -6,11 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>{{ title }}</title>
-  <link rel="stylesheet" href="/css/rivet.css?={%- uniqueQueryString -%}">
-  <link rel="stylesheet" href="https://unpkg.com/rivet-stickers@0.3.0/dist/rivet-sticker-element.css">
-  <script type="module" src="https://unpkg.com/rivet-stickers@0.3.0/dist/rivet-stickers.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/rivet-icons@3.0.0/dist/rivet-icon-element.css">
-  <script type="module" src="https://unpkg.com/rivet-icons@3.0.0/dist/rivet-icons.js"></script>
+  {% include "partials/rivet-assets.njk" %}
 </head>
 <body>
   <main class="{% if padding %}rvt-p-all-xxl{% endif %} {% if classes %}{{ classes }}{% endif %}">
