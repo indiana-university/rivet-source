@@ -1,11 +1,13 @@
 @use '../core' as *;
 
 .#{$prefix}-hero {
+  container-type: inline-size;
+  container-name: hero;
 
   &__inner {
-    padding-top: $spacing-md;
-    padding-bottom: $spacing-lg;
-    // border-bottom: 1px solid $color-black-100;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
   }
 
   &__body {
@@ -64,13 +66,17 @@
     padding-left: $spacing-xs;
   }
 
+  &__actions {
+    align-items: center;
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__actions > * {
     width: 100%;
     justify-content: center;
-  }
-
-  &__actions > *:not(:first-child) {
-    margin-top: $spacing-md;
   }
 
   // DEPRECATED: This should not be used moving forward.
@@ -93,18 +99,12 @@
   .#{$prefix}-hero {
     &__inner {
       align-items: end;
-      display: flex;
-      gap: $spacing-xl;
-      padding-top: $spacing-xxl;
-      padding-bottom: $spacing-xxl;
+      flex-direction: row;
     }
 
     &__body {
       flex-grow: 1;
-      flex-shrink: 0;
       flex-basis: 66%;
-      max-width: 75%;
-
       // This helps optically center the hero body content vertically.
       margin-top: 0;
     }
@@ -131,30 +131,31 @@
       margin-top: 1rem;
     }
 
-    &__actions {
-      align-items: center;
-      gap: $spacing-md;
-      margin-top: $spacing-lg;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
     &__actions > * {
       flex-grow: 0;
       flex-shrink: 0;
       width: auto;
     }
 
-    // Undo top margins needed on small screens
-
-    &__actions > *:not(:first-child) {
-      margin-top: 0;
-    }
-
     &__media {
       flex-grow: 1;
       flex-basis: 50%;
       margin-top: 0;
+    }
+  }
+}
+
+@container hero (max-width: 900px) {
+  .rvt-hero {
+    &__inner {
+      flex-direction: column;
+      align-items: start;
+      border-bottom: 1px solid $color-black-100;
+      padding-bottom: $spacing-xl;
+    }
+
+    &__body + * {
+      width: 100%;
     }
   }
 }
