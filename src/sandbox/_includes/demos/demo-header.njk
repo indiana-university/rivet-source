@@ -1,0 +1,79 @@
+<header class="rvt-header-wrapper">
+  <!-- Hidden link for keyboard users to skip to main content -->
+  <a class="rvt-header-wrapper__skip-link" href="#main-content">Skip to main content</a>
+  <div class="rvt-header-global">
+    <div class="rvt-container">
+      <div class="rvt-header-global__inner">
+        <div class="rvt-header-global__logo-slot">
+          <a class="rvt-lockup" href="/">
+            <!-- Trident logo -->
+            <div class="rvt-lockup__tab">
+              <svg xmlns="http://www.w3.org/2000/svg" class="rvt-lockup__trident" viewBox="0 0 28 34">
+                <path d="M-3.34344e-05 4.70897H8.83308V7.174H7.1897V21.1426H10.6134V2.72321H8.83308V0.121224H18.214V2.65476H16.2283V21.1426H19.7889V7.174H18.214V4.64047H27.0471V7.174H25.0614V23.6761L21.7746 26.8944H16.2967V30.455H18.214V33.8787H8.76463V30.592H10.6819V26.8259H5.20403L1.91726 23.6077V7.174H-3.34344e-05V4.70897Z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <!-- Website or application title -->
+            <div class="rvt-lockup__body">
+              <span class="rvt-lockup__title">Rivet Design System</span>
+              <span class="rvt-lockup__subtitle">Indiana University</span>
+            </div>
+          </a>
+        </div>
+        <!-- Header controls -->
+        <div class="rvt-header-global__controls">
+          <!-- Navigation -->
+          <div data-rvt-disclosure="menu" data-rvt-close-click-outside>
+            <!-- Menu button that shows/hides navigation on smaller screens -->
+            <button aria-expanded="false" class="rvt-global-toggle rvt-global-toggle--menu rvt-hide-lg-up" data-rvt-disclosure-toggle="menu">
+              <span class="rvt-sr-only">Menu</span>
+              <svg class="rvt-global-toggle__open" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">  <path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"/></svg>
+              <svg class="rvt-global-toggle__close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">  <path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"/></svg>
+            </button>
+            <!-- Navigation links -->
+            <nav aria-label="Main" class="rvt-header-menu" data-rvt-disclosure-target="menu" hidden>
+              <ul class="rvt-header-menu__list">
+                <!-- Navigation link without dropdown -->
+                <li class="rvt-header-menu__item">
+                  <a class="rvt-header-menu__link" href="#">Nav Item One</a>
+                </li>
+                <!-- Navigation link marked as the current page -->
+                <li class="rvt-header-menu__item rvt-header-menu__item--current">
+                  <a class="rvt-header-menu__link" href="#" aria-current="page">Nav Item Two</a>
+                </li>
+                <!-- Navigation link with dropdown -->
+                <li class="rvt-header-menu__item">
+                  <div class="rvt-header-menu__dropdown rvt-dropdown" data-rvt-dropdown="primary-nav-1">
+                    <div class="rvt-header-menu__group">
+                      <!-- Link that appears in header -->
+                      <a class="rvt-header-menu__link" href="#">Nav Item Three</a>
+                      <!-- Button that shows/hides dropdown links -->
+                      <button aria-expanded="false" class="rvt-dropdown__toggle rvt-header-menu__toggle" data-rvt-dropdown-toggle="primary-nav-1">
+                        <span class="rvt-sr-only">More sub-navigation links</span>
+                        <svg class="rvt-global-toggle__open" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">  <path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"/></svg>
+                      </button>
+                    </div>
+                    <!-- Dropdown menu -->
+                    <div class="rvt-header-menu__submenu rvt-dropdown__menu rvt-dropdown__menu--right" data-rvt-dropdown-menu="primary-nav-1" hidden>
+                      <ul class="rvt-header-menu__submenu-list">
+                        <!-- Dropdown links -->
+                        <li class="rvt-header-menu__submenu-item">
+                          <a class="rvt-header-menu__submenu-link" href="#">Sub Item One</a>
+                        </li>
+                        <li class="rvt-header-menu__submenu-item">
+                          <a class="rvt-header-menu__submenu-link" href="#">Sub Item Two</a>
+                        </li>
+                        <li class="rvt-header-menu__submenu-item">
+                          <a class="rvt-header-menu__submenu-link" href="#">Sub Item Three</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
