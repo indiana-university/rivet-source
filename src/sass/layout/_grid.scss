@@ -1,0 +1,41 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.rvt-grid {
+  display: grid;
+  gap: var(--rvt-grid-gap, #{$spacing-md});
+
+  & + & {
+    margin-top: var(--rvt-grid-gap);
+  }
+}
+
+ul.rvt-grid,
+ol.rvt-grid {
+  list-style: "";
+  padding-left: 0;
+  padding-inline-start: 0;
+}
+
+@include mq($breakpoint-md) {
+  .rvt-grid--2,
+  .rvt-grid--3,
+  .rvt-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .rvt-grid--3,
+  .rvt-grid--4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include mq($breakpoint-xl) {
+  .rvt-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,21 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.rvt-section {
+  padding-block: var(--rvt-padding-block-section, #{$spacing-md});
+}
+
+@include mq($breakpoint-md) {
+  .#{$prefix}-section {
+    --rvt-padding-block-section: #{$spacing-xl};
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-section {
+    --rvt-padding-block-section: #{$spacing-xxl};
+  }
+}
+

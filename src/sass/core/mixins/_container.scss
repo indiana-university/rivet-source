@@ -1,0 +1,10 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../variables' as *;
+
+@mixin container($max-width) {
+  margin-inline: auto;
+  max-width: var(--rvt-container-max-width, $max-width);
+  padding-inline: var(--rvt-container-padding-inline, #{$spacing-md});
+}
