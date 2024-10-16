@@ -1,8 +1,11 @@
 @use '../core' as *;
 
-.rvt-billboard {
-
+.#{$prefix}-billboard {
   position: relative;
+
+  & + & {
+    margin-top: $spacing-lg;
+  }
 
   &__eyebrow {
     font-size: $ts-12;
@@ -28,6 +31,7 @@
 
   &__body {
     margin-top: $spacing-md;
+    padding: $spacing-md;
   }
 
   &__content {
@@ -72,10 +76,14 @@
 }
 
 @include mq($breakpoint-md) {
-  .rvt-billboard {
+  .#{$prefix}-billboard {
     align-items: center;
     display: flex;
     flex-direction: row-reverse;
+
+    & + & {
+      margin-top: 0;
+    }
 
     &__title {
       font-size: $ts-29;

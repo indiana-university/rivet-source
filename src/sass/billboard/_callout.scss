@@ -1,0 +1,81 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+// Temp Callout component
+.#{$prefix}-callout {
+  background-color: var(--rvt-color-callout-bg, #{$color-white-base});
+  border: 1px solid var(--rvt-border-callout, #{$color-black-100});
+  container-type: inline-size;
+  container-name: callout;
+
+  &__inner {
+    padding: $spacing-sm;
+  }
+
+  &__eyebrow {
+    color: var(--rvt-color-callout-eyebrow, #{$color-crimson-500});
+    font-size: $ts-12;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: $ts-26;
+    text-transform: uppercase;
+    font-family: $font-condensed;
+    letter-spacing: .04rem;
+    line-height: 1.2;
+    color: var(--rvt-color-callout-title, #{$color-crimson-500});
+    font-weight: $font-weight-black;
+  }
+
+  &__content {
+    color: var(--rvt-color-callout-content, #{$color-black-400});
+    margin-top: $spacing-md;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+  }
+
+  &--theme-crimson {
+    --rvt-color-callout-bg: #{$color-orange-000};
+    --rvt-border-callout: #{$color-orange-000};
+  }
+
+  &--theme-crimson &__content {
+    --rvt-color-callout-content: #{$color-crimson-500};
+  }
+}
+
+@container callout (min-width: 840px) {
+  .#{$prefix}-callout {
+    &__inner {
+      max-width: 75%;
+      margin-inline: auto;
+      padding-block: $spacing-xxl;
+      display: flex;
+      gap: $spacing-lg;
+    }
+
+    &__title {
+      font-size: $ts-29;
+    }
+
+    &__actions {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.#{$prefix}-theme-crimson.#{$prefix}-callout {
+  --rvt-border-callout: #{$color-orange-000};
+
+  background-color: $color-orange-000;
+}
