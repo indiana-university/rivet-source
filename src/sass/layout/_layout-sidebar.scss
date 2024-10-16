@@ -1,0 +1,49 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.#{$prefix}-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.#{$prefix}-layout-sidebar {
+  display: grid;
+  gap: $spacing-md;
+  @include container($breakpoint-xl);
+
+  &__sidebar {
+    padding-block-start: $spacing-md;
+  }
+
+  &__main {
+    padding-block-end: $spacing-md;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-layout-sidebar {
+    height: 100%;
+    grid-template-columns: 320px 1fr;
+    gap: $spacing-xxl;
+
+    &__sidebar {
+      border-right: 1px solid $color-black-100;
+    }
+
+    &__main,
+    &__sidebar {
+      padding-block: $spacing-xxl;
+    }
+
+    &__mobile-toggle {
+      display: none;
+    }
+  }
+}

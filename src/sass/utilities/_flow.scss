@@ -3,7 +3,8 @@
 
 @use '../core' as *;
 
-.rvt-flow > * {
+.rvt-flow > *,
+.rvt-stack > * {
   // This acts as a reset of sorts to create an even starting point in
   // terms of vertical margin.
   margin-bottom: 0;
@@ -13,8 +14,16 @@
 // With every direct child of the flow utility zeroed out we can create
 // consistent vertical space.
 
-.rvt-flow > * + * {
+.rvt-flow > * + *,
+.rvt-stack > * + * {
   margin-top: 1rem; // Fallback for browsers that don't support var()
-  margin-top: var(--flow-space, 1rem);
+  margin-top: var(--rvt-stack-space, #{$spacing-lg});
   margin-bottom: 0;
+}
+
+@include mq($breakpoint-md) {
+  .rvt-flow > * + *,
+  .rvt-stack > * + * {
+    --rvt-stack-space: #{$spacing-xxl};
+  }
 }

@@ -2,10 +2,20 @@
 @use '../lists';
 @use '../utilities/elements';
 
-.rvt-prose {
-  // Benton sans feels really compact and can benefit from a little extra
-  // line-height here.
+.rvt-prose,
+.rvt-rich-text {
+  --rvt-rich-text-stack-space: #{$spacing-md};
+
   line-height: $line-height-loose;
+  max-width: 80ch;
+
+  > * {
+    margin: 0;
+  }
+
+  > * + * {
+    margin-top: var(--rvt-rich-text-stack-space);
+  }
 
   h1 {
     font-size: $ts-32;
@@ -32,7 +42,7 @@
   h5,
   h6 {
     // Reset the flow space here to put more space before headings.
-    --flow-space: 3rem;
+    --rvt-rich-text-stack-space: #{$spacing-lg};
 
     font-weight: $font-weight-regular;
     line-height: $line-height-tight;
@@ -41,7 +51,8 @@
 
   :where(p),
   :where(li),
-  :where(td) {
+  :where(td),
+  :where(dt) {
     color: $color-black-400;
   }
 
@@ -49,8 +60,9 @@
   > img + *,
   > figure,
   > figure + *,
-  > hr {
-    --flow-space: 3rem;
+  > hr,
+  > hr + * {
+    --rvt-rich-text-stack-space: #{$spacing-xl};
   }
 
   > :where(dl) {
@@ -67,5 +79,40 @@
 
   > *:empty:not(br,embed,hr,input,img,wbr) {
     display: none;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .rvt-prose,
+  .rvt-rich-text {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      --rvt-rich-text-stack-space: #{$spacing-xxl};
+    }
+
+    :where(p),
+    :where(li),
+    :where(td),
+    :where(dt) {
+      font-size: $ts-18;
+    }
+
+    h2 {
+      font-size: $ts-29;
+    }
+
+    h3 {
+      font-size: $ts-23;
+    }
+
+    h4,
+    h5,
+    h6 {
+      font-size: $ts-20;
+    }
   }
 }
