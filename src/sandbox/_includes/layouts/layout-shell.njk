@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{{ title }}</title>
+  {% include "partials/rivet-assets.njk" %}
+  <style>
+    .debug .rvt-stack > * {
+      border: 3px solid var(--rvt-color-green-300);
+    }
+
+    .debug .rvt-rich-text > * {
+      border: 2px solid var(--rvt-color-orange-300);
+    }
+  </style>
+</head>
+<body class="{% if classes %}{{ classes }}{% endif %}">
+  {{ content | safe }}
+  <script src="/js/rivet-iife.js"></script>
+  <script>Rivet.init()</script>
+  <script>
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'd') {
+        document.body.classList.toggle('debug')
+      }
+    });
+
+  </script>
+</body>
+</html>
