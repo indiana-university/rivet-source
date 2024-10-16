@@ -2,19 +2,18 @@
 @use 'sass:math';
 
 .#{$prefix}-quote {
-  text-align: center;
+  --rvt-color-quote-text: #{$color-crimson-500};
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 1rem;
 
   &::before {
     display: block;
     content: '';
     width: math.div(65, 16) * $spacing-sm;
     height: math.div(50, 16) * $spacing-sm;
-    margin: 0 auto;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 65 50" xmlns="http://www.w3.org/2000/svg"><path fill="%23CBD3D7" d="M35.7549 49.3837V23.7618L47.8682 0.939697H63.2059L56.3179 20.6197H64.1909V49.3837H35.7549ZM53.4989 22.6197L60.3869 2.9397H49.0709L37.7549 24.2597V47.3837H62.1909V22.6197H53.4989ZM0.00292969 49.3837V23.7682L11.944 0.939697H27.4761L20.4241 20.6197H28.2749V49.3837H0.00292969ZM17.5829 22.6197L24.6349 2.9397H13.1549L2.00293 24.2597V47.3837H26.2749V22.6197H17.5829Z" /></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 50"><path fill="%23990000" d="M35.7549 49.3837V23.7618L47.8682 0.939697H63.2059L56.3179 20.6197H64.1909V49.3837H35.7549ZM53.4989 22.6197L60.3869 2.9397H49.0709L37.7549 24.2597V47.3837H62.1909V22.6197H53.4989ZM0.00292969 49.3837V23.7682L11.944 0.939697H27.4761L20.4241 20.6197H28.2749V49.3837H0.00292969ZM17.5829 22.6197L24.6349 2.9397H13.1549L2.00293 24.2597V47.3837H26.2749V22.6197H17.5829Z"/></svg>');
   }
 
   &--image::before {
@@ -23,32 +22,26 @@
   }
 
   &__text {
-    font-family: $font-serif;
+    font-family: $font-condensed;
+    text-transform: uppercase;
+    font-weight: $font-weight-black;
     font-size: $ts-26;
     margin: 0;
-    color: $color-black-400;
+    color: var(--rvt-color-quote-text);
+
+    p {
+      margin: 0;
+    }
   }
 
   &__citation {
-    --flow-space: 2rem;
-  }
-
-  &__citation::before {
-    content: '';
-    display: block;
-    height: math.div($spacing-sm, 16);
-    width: $spacing-xl;
-    background-color: $color-black-100;
-    position: relative;
-    top: -$spacing-md;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0;
   }
 
   &__title,
   &__subtitle {
     display: block;
-    color: $color-black-400;
+    color: var(--rvt-color-quote-text);
   }
 
   &__title {
@@ -59,7 +52,8 @@
 @include mq($breakpoint-md) {
   .#{$prefix}-quote {
     &__text {
-      font-size: $ts-32;
+      font-size: $ts-52;
+      line-height: $line-height-tight;
     }
   }
 }
