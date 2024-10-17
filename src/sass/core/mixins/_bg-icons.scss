@@ -38,3 +38,9 @@
   $hex-color: '#{$hex-value}';
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23#{string.slice($hex-color, 2)}" width="12" height="12" viewBox="0 0 16 16"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"/></svg>');
 }
+
+@mixin bg-icon-quote($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 50"><path fill="%23#{string.slice($hex-color, 2)}" d="M35.7549 49.3837V23.7618L47.8682 0.939697H63.2059L56.3179 20.6197H64.1909V49.3837H35.7549ZM53.4989 22.6197L60.3869 2.9397H49.0709L37.7549 24.2597V47.3837H62.1909V22.6197H53.4989ZM0.00292969 49.3837V23.7682L11.944 0.939697H27.4761L20.4241 20.6197H28.2749V49.3837H0.00292969ZM17.5829 22.6197L24.6349 2.9397H13.1549L2.00293 24.2597V47.3837H26.2749V22.6197H17.5829Z"/></svg>');
+}
