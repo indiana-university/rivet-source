@@ -54,6 +54,7 @@
       // --------------------
       // 20rem / 2 = 10rem
       margin-left: calc(-50vw + calc(50% - 10rem));
+      padding-block: $spacing-lg;
     }
 
     &__breakout-inner {

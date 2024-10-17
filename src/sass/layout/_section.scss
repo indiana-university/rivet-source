@@ -3,7 +3,7 @@
 
 @use '../core' as *;
 
-.rvt-section {
+.#{$prefix}-section {
   padding-block: var(--rvt-padding-block-section, #{$spacing-md});
 }
 
@@ -11,6 +11,10 @@
   .#{$prefix}-section {
     --rvt-padding-block-section: #{$spacing-xl};
   }
+}
+
+.#{$prefix}-section.rvt-theme-light + .#{$prefix}-section.rvt-theme-light {
+  padding-block-start: calc(var(--rvt-padding-block-section) / 2);
 }
 
 @include mq($breakpoint-lg) {
