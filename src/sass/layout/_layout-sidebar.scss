@@ -7,6 +7,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  // overflow-x: hidden;
 
   main {
     flex-grow: 1;
@@ -16,7 +17,7 @@
 .#{$prefix}-layout-sidebar {
   display: grid;
   gap: $spacing-md;
-  @include container($breakpoint-xl);
+  @include container;
 
   &__sidebar {
     padding-block-start: $spacing-md;
@@ -30,7 +31,7 @@
 @include mq($breakpoint-lg) {
   .#{$prefix}-layout-sidebar {
     height: 100%;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: ($spacing-sm * 16) 1fr;
     gap: $spacing-xxl;
 
     &__sidebar {
@@ -44,6 +45,19 @@
 
     &__mobile-toggle {
       display: none;
+    }
+
+    &__breakout {
+      width: 100vw;
+      // 16rem = sidebar width
+      // 4rem = grid gap
+      // --------------------
+      // 20rem / 2 = 10rem
+      margin-left: calc(-50vw + calc(50% - 10rem));
+    }
+
+    &__breakout-inner {
+      @include container($breakpoint-xl);
     }
   }
 }

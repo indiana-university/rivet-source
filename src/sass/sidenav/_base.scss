@@ -8,9 +8,9 @@
   &__label {
     color: $color-crimson-500;
     font-size: $ts-14;
-    font-weight: $font-weight-bold;
+    font-family: $font-mono;
     display: block;
-    letter-spacing: $spacing-sm * .04;
+    letter-spacing: $spacing-sm * .125;
     text-transform: uppercase;
   }
 
@@ -34,10 +34,12 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 0; // resets Rivet default margin-top
+    border-top: 1px solid $color-black-100;
   }
 
   &__item &__item {
-    border-left: $spacing-xxs solid $color-black-100;
+    // border-left: $spacing-xxs solid $color-black-100;
+    border-top: none;
   }
 
   &__item &__list {
@@ -52,18 +54,18 @@
   }
 
   &__link {
-    font-size: $ts-14;
+    font-weight: $font-weight-medium;
     color: $color-black-base;
     flex-grow: 1;
-    padding-top: $spacing-xs;
-    padding-right: $spacing-xs;
-    padding-bottom: $spacing-xs;
+    padding-top: $spacing-sm;
+    padding-right: $spacing-sm;
+    padding-bottom: $spacing-sm;
     padding-left: $spacing-sm;
     position: relative;
     text-decoration: none;
 
     &[aria-current='page'] {
-      background-color: $color-orange-000;
+      color: $color-crimson-500;
     }
 
     &[aria-current='page']::before {
