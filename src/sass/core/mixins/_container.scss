@@ -7,4 +7,8 @@
   margin-inline: auto;
   max-width: var(--rvt-container-max-width, $max-width);
   padding-inline: var(--rvt-container-padding-inline, #{$spacing-md});
+
+  @media (min-width: $breakpoint-lg) {
+    --rvt-container-padding-inline: #{$spacing-xl};
+  }
 }
