@@ -3,6 +3,10 @@
 
 @use '../core' as *;
 
+.#{$prefix}-theme-light {
+  background-color: $color-white-base;
+}
+
 .#{$prefix}-theme-crimson {
   background-color: $color-crimson-500;
 }

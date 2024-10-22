@@ -6,6 +6,10 @@
 .rvt-container {
   @include container;
 
+  & + & {
+    margin-top: $spacing-xl;
+  }
+
   &--fluid {
     max-width: 100%;
   }

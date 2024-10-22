@@ -14,7 +14,7 @@
 }
 
 .#{$prefix}-section.rvt-theme-light + .#{$prefix}-section.rvt-theme-light {
-  padding-block-start: calc(var(--rvt-padding-block-section) / 2);
+  padding-block-start: 0;
 }
 
 @include mq($breakpoint-lg) {

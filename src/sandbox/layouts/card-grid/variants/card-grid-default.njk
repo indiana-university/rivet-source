@@ -1,0 +1,138 @@
+---
+tags: card-grid
+title: Card grid - Default
+layout: layouts/layout-shell.njk
+permalink: /layouts/preview/{{ title | slug}}/
+order: 1
+classes: rvt-page
+---
+{% include "demos/demo-header.njk" %}
+<main>
+  <div class="rvt-section rvt-theme-crimson">
+    <div class="rvt-container">
+      <div class="rvt-hero">
+        <div class="rvt-hero__inner">
+          <div class="rvt-hero__body">
+            <span class="rvt-hero__eyebrow">
+              <nav role="navigation" aria-label="Breadcrumbs">
+                <ol class="rvt-breadcrumbs">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Tier two</a></li>
+                  <li aria-current="page">Tier three</li>
+                </ol>
+              </nav>
+            </span>
+            <h1 class="rvt-hero__title">{ This headline should not exceed 16 characters }</h1>
+            <div class="rvt-hero__teaser">
+              <p>{ Intro body copy should not exceed one concise paragraph. }</p>
+            </div>
+            <div class="rvt-hero__actions">
+              <a class="rvt-cta rvt-cta--button" href="#">{ Lorem Ipsum }</a>
+            </div>
+          </div>
+          <div class="rvt-card rvt-card--raised rvt-card--clickable">
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">Category</div>
+              <h2 class="rvt-card__title">
+                <a href="#">Find your ideal campus life at IU</a>
+              </h2>
+              <div class="rvt-card__content [ rvt-ts-14 ]">
+                <p>Organizations, innovating the future, and making an impact on their communities and the world.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      {% include "demos/demo-billboard.njk" %}
+    </div>
+  </div>
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-rich-text">
+        <div>
+          <span class="rvt-ts-14 rvt-font-mono">Showing { X of X } { Resources }</span>
+          <h2>{ Optional Category Title (6) }</h2>
+        </div>
+        <p>{ Optional description copy should not exceed one concise paragraph. }</p>
+      </div>
+    </div>
+
+    <div class="rvt-container">
+      <ul class="rvt-grid rvt-grid--3">
+        {% for card in range(0, 6) %}
+        <li>
+          <div class="rvt-card">
+            <div class="rvt-card__image">
+              <img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+            </div>
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title">
+                <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+              </h2>
+              <div class="rvt-card__content">
+                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              </div>
+              <div class="rvt-card__meta">
+                <time>{Jun 21,2024}</time>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div><!-- End first card grid -->
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-rich-text">
+        <div>
+          <span class="rvt-ts-14 rvt-font-mono">Showing { X of X } { Resources }</span>
+          <h2>{ Optional Category Title (6) }</h2>
+        </div>
+        <p>{ Optional description copy should not exceed one concise paragraph. }</p>
+      </div>
+    </div>
+
+    <div class="rvt-container">
+      <ul class="rvt-grid rvt-grid--3">
+        {% for card in range(0, 6) %}
+        <li>
+          <div class="rvt-card">
+            <div class="rvt-card__image">
+              <img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+            </div>
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title">
+                <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+              </h2>
+              <div class="rvt-card__content">
+                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              </div>
+              <div class="rvt-card__meta">
+                <time>{Jun 21,2024}</time>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="rvt-flex rvt-justify-center rvt-m-top-xxl">
+        {% include "demos/demo-pagination.njk" %}
+      </div>
+    </div>
+  </div><!-- End second card grid -->
+
+
+
+</main>
+{% include "demos/demo-footer.njk" %}

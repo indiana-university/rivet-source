@@ -28,6 +28,10 @@ ol.rvt-grid {
 }
 
 @include mq($breakpoint-lg) {
+  .rvt-grid {
+    gap: $spacing-lg;
+  }
+
   .rvt-grid--3,
   .rvt-grid--4 {
     grid-template-columns: repeat(3, 1fr);

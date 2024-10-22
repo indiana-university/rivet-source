@@ -8,17 +8,18 @@ classes: rvt-page
 ---
 {% include "demos/demo-header.njk" %}
 <main>
+  <div class="rvt-section rvt-border-bottom">
+    <div class="rvt-container">
+      {% include "demos/demo-hero.njk" %}
+    </div>
+  </div>
   <div class="rvt-layout-sidebar">
     <div class="rvt-layout-sidebar__sidebar" id="sidebar-main-content">
       {% include "demos/demo-sidenav.njk" %}
     </div>
     <div class="rvt-layout-sidebar__main">
 
-      {% include "demos/demo-hero.njk" %}
-
-      <div class="rvt-stack rvt-p-top-xl">
-
-        {% include "demos/demo-cards.njk" %}
+      <div class="rvt-stack">
 
         <div class="rvt-rich-text">
           <h2>Start with a heading</h2>
@@ -38,7 +39,7 @@ classes: rvt-page
           <a href="#" class="rvt-cta">Test CTA</a>
         </div>
 
-        <div class="rvt-layout-sidebar__breakout">
+        <div class="rvt-layout-sidebar__breakout rvt-theme-light">
           <div class="rvt-layout-sidebar__breakout-inner">
 
             <div class="rvt-quote">
@@ -68,6 +69,8 @@ classes: rvt-page
             <li>Item four</li>
           </ul>
         </div>
+
+        {% include "demos/demo-list-hub.njk" %}
 
       </div>
 

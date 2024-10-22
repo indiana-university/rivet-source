@@ -142,6 +142,10 @@
       flex-basis: 50%;
       margin-top: 0;
     }
+
+    &--padded {
+      padding-block: $spacing-xl;
+    }
   }
 }
 
@@ -150,7 +154,6 @@
     &__inner {
       flex-direction: column;
       align-items: start;
-      border-bottom: 1px solid $color-black-100;
       padding-bottom: $spacing-xl;
     }
 
