@@ -6,7 +6,6 @@
 // Temp Callout component
 .#{$prefix}-callout {
   background-color: var(--rvt-color-callout-bg, #{$color-white-base});
-  border: 1px solid var(--rvt-border-callout, #{$color-black-100});
   container-type: inline-size;
   container-name: callout;
 
@@ -45,7 +44,6 @@
 
   &--theme-crimson {
     --rvt-color-callout-bg: #{$color-orange-000};
-    --rvt-border-callout: #{$color-orange-000};
   }
 
   &--theme-crimson &__content {

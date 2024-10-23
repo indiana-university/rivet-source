@@ -56,5 +56,19 @@
     &__breakout-inner {
       @include container($breakpoint-xl);
     }
+
+    &--single-column {
+      grid-template-columns: 1fr;
+    }
+
+    &--single-column &__main {
+      max-width: 80ch;
+      margin-inline: auto;
+    }
+
+    &--single-column &__breakout {
+      // Breakout styles for single column...
+      margin-left: calc(50% - 50vw);
+    }
   }
 }

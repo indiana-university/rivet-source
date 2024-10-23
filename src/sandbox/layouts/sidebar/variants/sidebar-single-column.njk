@@ -1,6 +1,6 @@
 ---
 tags: sidebar
-title: Sidebar - Default
+title: Sidebar - Single column
 layout: layouts/layout-shell.njk
 permalink: /layouts/preview/{{ title | slug}}/
 order: 1
@@ -19,10 +19,7 @@ classes: rvt-page
     <hr aria-hidden="true" class="rvt-m-all-none">
   </div>
 
-  <div class="rvt-layout-sidebar">
-    <div class="rvt-layout-sidebar__sidebar" id="sidebar-main-content">
-      {% include "demos/demo-sidenav.njk" %}
-    </div>
+  <div class="rvt-layout-sidebar rvt-layout-sidebar--single-column">
     <div class="rvt-layout-sidebar__main">
 
       <div class="rvt-stack">
@@ -48,7 +45,7 @@ classes: rvt-page
         <div class="rvt-layout-sidebar__breakout rvt-theme-light">
           <div class="rvt-layout-sidebar__breakout-inner">
 
-            <div class="rvt-quote">
+            {# <div class="rvt-quote">
               <blockquote class="rvt-quote__text">
                 <p>One of the reasons I chose IU is because when I got there, it just felt like a really nice community.</p>
               </blockquote>
@@ -56,7 +53,9 @@ classes: rvt-page
                 <span class="rvt-quote__title">Author Name</span>
                 <span class="rvt-quote__subtitle">Writer of books, PhD</span>
               </p>
-            </div>
+            </div> #}
+
+            {% include "demos/demo-cards.njk" %}
 
           </div>
         </div>
