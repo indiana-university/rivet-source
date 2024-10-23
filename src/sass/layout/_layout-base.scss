@@ -14,7 +14,7 @@
   }
 }
 
-.#{$prefix}-layout-sidebar {
+.#{$prefix}-layout-base {
   display: grid;
   gap: $spacing-md;
   @include container;
@@ -29,7 +29,7 @@
 }
 
 @include mq($breakpoint-lg) {
-  .#{$prefix}-layout-sidebar {
+  .#{$prefix}-layout-base {
     height: 100%;
     grid-template-columns: ($spacing-sm * 16) 1fr;
     gap: $spacing-xxl;
