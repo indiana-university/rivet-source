@@ -3,13 +3,17 @@
 
 @use '../core' as *;
 
-.rvt-grid {
+.#{$prefix}-grid {
   display: grid;
   gap: var(--rvt-grid-gap, #{$spacing-md});
 
   & + & {
     margin-top: var(--rvt-grid-gap);
   }
+}
+
+.rvt-grid--tight {
+  --rvt-grid-gap: 0;
 }
 
 ul.rvt-grid,
@@ -29,7 +33,11 @@ ol.rvt-grid {
 
 @include mq($breakpoint-lg) {
   .rvt-grid {
-    gap: $spacing-lg;
+    --rvt-grid-gap: #{$spacing-lg};
+  }
+
+  .rvt-grid--tight {
+    --rvt-grid-gap: #{$spacing-sm};
   }
 
   .rvt-grid--3,

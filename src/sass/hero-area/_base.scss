@@ -36,36 +36,6 @@
     color: var(--rvt-color-hero-teaser, #{$color-black-400});
   }
 
-  &__media {
-    margin-top: $spacing-lg;
-  }
-
-  &__media iframe {
-    width: 100%;
-  }
-
-  @supports (aspect-ratio: 3 / 2) {
-    &__media iframe {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16 / 9;
-    }
-
-    &__media img {
-      aspect-ratio: 3 / 2;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__media-caption {
-    color: var(--rvt-color-hero-media-caption, #{$color-black-400});
-    font-size: $ts-14;
-    padding-top: $spacing-xs;
-    padding-left: $spacing-xs;
-  }
-
   &__actions {
     align-items: center;
     gap: $spacing-md;
@@ -77,21 +47,6 @@
   &__actions > * {
     width: 100%;
     justify-content: center;
-  }
-
-  // DEPRECATED: This should not be used moving forward.
-  // Use the .rvt-theme-* helper wrapper class instead
-  &--bg-dark {
-    // Default to crimson background with --dark modifier
-
-    background-color: $color-crimson-500;
-  }
-
-  &--bg-dark &__eyebrow,
-  &--bg-dark &__title,
-  &--bg-dark &__teaser,
-  &--bg-dark &__media-caption {
-    color: $color-white-base;
   }
 }
 
@@ -120,7 +75,7 @@
 
     &__teaser {
       font-size: $ts-20;
-      margin-top: $spacing-lg;
+      margin-top: $spacing-md;
     }
 
     &__teaser > * {
@@ -135,12 +90,6 @@
       flex-grow: 0;
       flex-shrink: 0;
       width: auto;
-    }
-
-    &__media {
-      flex-grow: 1;
-      flex-basis: 50%;
-      margin-top: 0;
     }
 
     &--padded {
@@ -168,5 +117,4 @@
   --rvt-color-hero-title: #{$color-white-base};
   --rvt-color-hero-teaser: #{$color-white-base};
   --rvt-color-hero-eyebrow: #{$color-white-base};
-  --rvt-color-hero-media-caption: #{$color-white-base};
 }

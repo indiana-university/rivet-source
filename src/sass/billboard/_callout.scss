@@ -10,7 +10,7 @@
   container-name: callout;
 
   &__inner {
-    padding: $spacing-sm;
+    padding: $spacing-md;
   }
 
   &__eyebrow {
@@ -51,7 +51,7 @@
   }
 }
 
-@container callout (min-width: 840px) {
+@container callout (min-width: 900px) {
   .#{$prefix}-callout {
     &__inner {
       max-width: 75%;

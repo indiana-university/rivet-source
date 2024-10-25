@@ -38,14 +38,12 @@
   }
 
   &__item &__item {
-    // border-left: $spacing-xxs solid $color-black-100;
     border-top: none;
+    border-top: 1px solid $color-black-100;
   }
 
   &__item &__list {
     margin-left: $spacing-sm;
-    margin-top: $spacing-sm;
-    margin-bottom: $spacing-sm;
   }
 
   &__item-wrapper {
@@ -87,8 +85,7 @@
   }
 
   &__item &__item &__link {
-    padding-top: $spacing-xxs * 1.2;
-    padding-bottom: $spacing-xxs * 1.2;
+    font-weight: $font-weight-regular;
   }
 
   &__item > &__list &__link[aria-current='page']::before {
