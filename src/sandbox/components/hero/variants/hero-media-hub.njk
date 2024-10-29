@@ -1,12 +1,12 @@
 ---
 tags: hero
-title: Hero - Default
+title: Hero - Media hub
 layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
 padding: false
 order: 1
 ---
-<div class="rvt-hero">
+<div class="rvt-hero rvt-hero--media-hub">
   <div class="rvt-hero__inner">
 
     <div class="rvt-hero__body">
@@ -23,28 +23,16 @@ order: 1
       <div class="rvt-hero__teaser">
         <p>Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.</p>
       </div>
-      <div class="rvt-hero__actions">
-        <a href="/#" class="rvt-button">Discover careers</a>
-      </div>
     </div>
 
-    <div class="rvt-hero__callout">
-      <div class="rvt-card rvt-card--raised rvt-card--clickable">
-        <div class="rvt-card__body">
-          <div class="rvt-card__eyebrow">Category</div>
-          <h2 class="rvt-card__title">
-            <a href="#">Find your ideal campus life at IU</a>
-          </h2>
-          <div class="rvt-card__content [ rvt-ts-14 ]">
-            <p>Organizations, innovating the future, and making an impact on their communities and the world.</p>
-          </div>
-        </div>
+    <div class="rvt-hero__actions">
+        <a href="/#" class="rvt-button rvt-button--solid">Discover careers</a>
+        <a href="/#" class="rvt-button rvt-button--outline">See all degrees</a>
       </div>
-    </div>
 
-    {# <div class="rvt-hero__media">
-      <img src="https://picsum.photos/id/29/600/400" alt="">
-    </div> #}
+    {% include "demos/demo-media-hub.njk" %}
+
+    <!-- This should be its own reusable component outside the hero -->
 
   </div>
 </div>

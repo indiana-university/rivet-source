@@ -7,7 +7,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // overflow-x: hidden;
+  overflow-x: hidden;
 
   main {
     flex-grow: 1;
@@ -24,7 +24,7 @@
   }
 
   &__main {
-    padding-block-end: $spacing-md;
+    padding-block: $spacing-md;
   }
 }
 
@@ -54,7 +54,7 @@
     }
 
     &__breakout-inner {
-      @include container($breakpoint-xl);
+      @include container;
     }
 
     &--single-column {

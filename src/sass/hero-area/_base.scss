@@ -1,23 +1,26 @@
 @use '../core' as *;
 
+$_hero-grid-gap: $spacing-lg;
+
 .#{$prefix}-hero {
-  container-type: inline-size;
-  container-name: hero;
-
   &__inner {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-xl;
-  }
-
-  &__body {
-    margin-top: $spacing-md;
+    display: grid;
+    gap: $_hero-grid-gap;
   }
 
   &__eyebrow {
     color: var(--rvt-color-hero-eyebrow, #{$color-crimson-500});
     font-size: $ts-14;
     display: block;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: .125rem;
+  }
+
+  &__eyebrow > :not(.rvt-breadcrumbs) {
+    font-family: $font-sans;
+    text-transform: none;
+    letter-spacing: normal;
   }
 
   &__title {
@@ -36,37 +39,111 @@
     color: var(--rvt-color-hero-teaser, #{$color-black-400});
   }
 
+  &__title + &__actions,
+  &__teaser + &__actions {
+    margin-top: $spacing-md;
+  }
+
   &__actions {
-    align-items: center;
-    gap: $spacing-md;
-    margin-top: $spacing-lg;
     display: flex;
+    gap: $spacing-sm;
     flex-wrap: wrap;
   }
 
   &__actions > * {
-    width: 100%;
-    justify-content: center;
+    flex-grow: 999;
   }
 }
 
 @include mq($breakpoint-md) {
   .#{$prefix}-hero {
     &__inner {
-      align-items: end;
-      flex-direction: row;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto auto;
     }
 
     &__body {
-      flex-grow: 1;
-      flex-basis: 66%;
-      // This helps optically center the hero body content vertically.
-      margin-top: 0;
+      grid-row: 1 / 2;
+      grid-column: 1 / 5;
     }
 
-    &__body + * {
-      flex-grow: 1;
-      flex-basis: 33%;
+    &__title {
+      font-size: $ts-41;
+    }
+
+    &--feature &__title {
+      font-size: $ts-46;
+    }
+
+    &--feature &__body {
+      grid-row: 1 / 2;
+      grid-column: 1 / 7;
+      text-align: center;
+      padding-bottom: $spacing-lg;
+    }
+
+    &--feature &__actions {
+      justify-content: center;
+    }
+
+    &--feature &__quick-links {
+      grid-column: 1 / 7;
+    }
+
+    &--feature &__media {
+      grid-column: 1 / 7;
+      margin-top: -$_hero-grid-gap;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--feature &__media-caption {
+      text-align: right;
+      width: 100%;
+      display: block;
+    }
+
+    &--feature .#{$prefix}-media-hub {
+      grid-row: 2 / 3;
+      grid-column: 1 / 7;
+    }
+
+    &--split &__media {
+      justify-self: center;
+      align-self: center;
+    }
+
+    &--media-hub &__body {
+      grid-row: 1 / 2;
+    }
+
+    &--media-hub &__actions {
+      justify-self: end;
+      align-self: end;
+    }
+
+    &--media-hub .#{$prefix}-media-hub {
+      grid-row: 2 / 3;
+      grid-column: 1 / 7;
+    }
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-hero {
+    &__body {
+      grid-row: 1/ 3;
+      grid-column: 1 / 5;
+    }
+
+    &__callout {
+      grid-row: 1 / 3;
+      grid-column: 5 / 7;
+      align-self: end;
     }
 
     &__title {
@@ -83,7 +160,7 @@
     }
 
     &__teaser > * + * {
-      margin-top: 1rem;
+      margin-top: $spacing-sm;
     }
 
     &__actions > * {
@@ -92,29 +169,85 @@
       width: auto;
     }
 
-    &--padded {
-      padding-block: $spacing-xl;
+    &--feature &__title {
+      font-size: 4.125rem;
+    }
+
+    &--feature &__quick-links {
+      grid-row: 2 / 3;
+      grid-column: 1 / 3;
+      // From here down is a bit of a hack to get
+      // the quick links to alight to the bottom
+      // of the container when using the crimson/dark
+      // version of the list-hub
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+
+      > * {
+        margin-top: auto;
+      } // End hack
+    }
+
+    &--feature &__media {
+      grid-row: 2 / 3;
+      grid-column: 1 / 7;
+      margin-top: 0;
+    }
+
+    &--feature &__quick-links + &__media {
+      grid-row: 2 / 3;
+      grid-column: 3 / 7;
+    }
+
+    &--split &__body {
+      grid-row: 1 / 3;
+      grid-column: 1 / 4;
+      align-self: center;
+    }
+
+    &--split &__body > &__quick-links {
+      margin-top: $_hero-grid-gap;
+    }
+
+    &--split &__media {
+      grid-row: 1 / 3;
+      grid-column: 4 / 7;
+    }
+
+    &--media-hub &__actions {
+      grid-row: 1 / 2;
+      grid-column: 5 / 7;
+      align-self: end;
     }
   }
 }
 
-@container hero (max-width: 900px) {
-  .rvt-hero {
-    &__inner {
-      flex-direction: column;
-      align-items: start;
-      padding-bottom: $spacing-xl;
-    }
-
-    &__body + * {
-      width: 100%;
+@include mq($breakpoint-xxl) {
+  .#{$prefix}-hero {
+    &--feature &__body {
+      grid-column: 2 / 6;
     }
   }
 }
 
 // Themes
-.#{$prefix}-theme-crimson {
+.#{$prefix}-theme-crimson,
+.#{$prefix}-theme-dark {
   --rvt-color-hero-title: #{$color-white-base};
   --rvt-color-hero-teaser: #{$color-white-base};
   --rvt-color-hero-eyebrow: #{$color-white-base};
+}
+
+.#{$prefix}-theme-crimson.#{$prefix}-hero,
+.#{$prefix}-theme-dark.#{$prefix}-hero {
+  &__quick-links {
+    padding: $_hero-grid-gap;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-hero--feature .#{$prefix}-theme-crimson.#{$prefix}-hero__quick-links {
+    margin-right: -$_hero-grid-gap;
+  }
 }

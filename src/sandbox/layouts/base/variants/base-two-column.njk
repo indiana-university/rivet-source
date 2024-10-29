@@ -40,26 +40,31 @@ classes: rvt-page
             <li>Item three</li>
             <li>Item four</li>
           </ul>
-          <img src="https://picsum.photos/id/29/1600/900" alt="">
+          {# <img src="https://picsum.photos/id/29/1600/900" alt=""> #}
+        </div>
+        <figure class="rvt-media-hub">
+          <div class="rvt-media-hub__3">
+            <img src="https://picsum.photos/id/44/800/450" alt="">
+          </div>
+          <div class="rvt-media-hub__3">
+            <img src="https://picsum.photos/id/23/800/450" alt="">
+          </div>
+          <div class="rvt-media-hub__6">
+            <img src="https://picsum.photos/id/19/800/450" alt="">
+          </div>
+        </figure>
+
+        <div class="rvt-rich-text">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nostrum adipisci, non fugit modi delectus neque labore debitis, eos repellat perspiciatis voluptate voluptatibus libero dignissimos. Harum, consequuntur! Modi, iusto accusamus.</p>
           <a href="#" class="rvt-cta">Test CTA</a>
         </div>
 
         <div class="rvt-layout-base__breakout rvt-theme-light">
           <div class="rvt-layout-base__breakout-inner">
-
-            <div class="rvt-quote">
-              <blockquote class="rvt-quote__text">
-                <p>One of the reasons I chose IU is because when I got there, it just felt like a really nice community.</p>
-              </blockquote>
-              <p class="rvt-quote__citation">
-                <span class="rvt-quote__title">Author Name</span>
-                <span class="rvt-quote__subtitle">Writer of books, PhD</span>
-              </p>
-            </div>
-
+            {% include "demos/demo-quote.njk" %}
           </div>
         </div>
+
 
         <div class="rvt-rich-text">
           <h2>Start block Heading 2 text</h2>

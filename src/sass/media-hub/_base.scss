@@ -1,0 +1,66 @@
+@use '../core' as *;
+
+.#{$prefix}-media-hub {
+  display: grid;
+  gap: $spacing-sm;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto auto;
+
+  img {
+    max-width: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__16x9 > * {
+    aspect-ratio: 16 / 9;
+  }
+
+  &__4x3 > * {
+    aspect-ratio: 4 / 3;
+  }
+
+  &__1x1 > * {
+    aspect-ratio: 1 / 1;
+  }
+
+  &__caption {
+    grid-column: span 6;
+    padding: 0;
+  }
+
+  &__2 {
+    grid-column: span 2;
+  }
+
+  &__3 {
+    grid-column: span 3;
+  }
+
+  &__4 {
+    grid-column: span 4;
+  }
+
+  &__6 {
+    grid-column: span 6;
+  }
+
+  &--no-gap {
+    gap: 0;
+  }
+}
+
+// @media (max-width: $breakpoint-md) {
+//   .#{$prefix}-media-hub {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
