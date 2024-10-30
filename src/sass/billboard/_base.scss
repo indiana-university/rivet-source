@@ -11,7 +11,7 @@
     font-size: $ts-12;
     letter-spacing: .125rem;
     text-transform: uppercase;
-    color: var(--rvt-color-billboard-eyebrow, #{$color-crimson-500});
+    color: var(--rvt-theme-accent-title);
     margin: 0;
   }
 
@@ -25,7 +25,7 @@
     font-family: $font-condensed;
     letter-spacing: .04rem;
     line-height: 1.2;
-    color: var(--rvt-color-billboard-title, #{$color-crimson-500});
+    color: var(--rvt-theme-accent-title);
     font-weight: $font-weight-black;
   }
 
@@ -35,7 +35,7 @@
   }
 
   &__content {
-    color: var(--rvt-color-billboard-body-text, #{$color-black-400});
+    color: var(--rvt-theme-text-subtle);
     margin-top: $spacing-lg;
   }
 
@@ -109,18 +109,4 @@
       flex-direction: row;
     }
   }
-}
-
-// Themes
-
-.rvt-theme-crimson {
-  --rvt-color-billboard-eyebrow: #{$color-crimson-100};
-  --rvt-color-billboard-title: #{$color-white-base};
-  --rvt-color-billboard-body-text: #{$color-crimson-100};
-}
-
-.rvt-theme-dark {
-  --rvt-color-billboard-eyebrow: #{$color-black-100};
-  --rvt-color-billboard-title: #{$color-white-base};
-  --rvt-color-billboard-body-text: #{$color-black-100};
 }

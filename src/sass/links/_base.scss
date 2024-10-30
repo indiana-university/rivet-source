@@ -6,14 +6,15 @@
 
 a,
 .#{$prefix}-link {
-  color: var(--rvt-color-link, #{$color-blue-500});
+  color: var(--rvt-theme-interactive);
 
   &:hover {
-    color: var(--rvt-color-link-hover, #{$color-blue-700});
+    color: var(--rvt-theme-interactive-darker);
+    text-decoration: none;
   }
 
   &:focus {
-    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
+    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-lighter);
     outline-offset: math.div($spacing-xxs, 2);
   }
 
@@ -54,13 +55,10 @@ a,
 
 .#{$prefix}-link-cta,
 .#{$prefix}-link--cta {
-  --rvt-color-link-cta: #{$color-crimson-500};
-  --rvt-color-link-cta-hover: #{$color-crimson-700};
-
   text-decoration: none;
   display: inline-block;
   font-weight: $font-weight-medium;
-  color: var(--rvt-color-link-cta);
+  color: var(--rvt-theme-accent);
 
   &::after {
     content: '';
@@ -77,7 +75,7 @@ a,
   }
 
   &:hover {
-    color: var(--rvt-color-link-cta-hover);
+    color: var(--rvt-theme-accent-darker);
 
     &::after {
       transform: translate($spacing-xs, 0);
@@ -87,22 +85,10 @@ a,
 }
 
 // Themes
-.#{$prefix}-theme-crimson a,
-.#{$prefix}-theme-crimson .#{$prefix}-link,
-.#{$prefix}-theme-dark a,
-.#{$prefix}-theme-dark .#{$prefix}-link {
-  --rvt-color-link: #{$color-blue-200};
-}
 
 .#{$prefix}-theme-crimson .#{$prefix}-link-cta,
 .#{$prefix}-theme-dark .#{$prefix}-link-cta {
-  --rvt-color-link-cta: #{$color-white-base};
-
   &::after {
     @include bg-icon-arrow-right($color-white-base);;
-  }
-
-  &:hover {
-    --rvt-color-link-cta-hover: #{$color-white-base};
   }
 }

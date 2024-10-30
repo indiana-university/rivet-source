@@ -21,7 +21,7 @@ html * {
 }
 
 body {
-  color: $color-black-500;
+  color: var(--rvt-theme-text);
   font-family: $font-base;
   height: 100%;
   margin: 0;
@@ -49,7 +49,7 @@ h6 {
 hr {
   height: 1px;
   border: none;
-  background-color: $color-black-100;
+  background-color: var(--rvt-theme-border);
 }
 
 img {

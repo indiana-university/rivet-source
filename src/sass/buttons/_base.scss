@@ -5,71 +5,73 @@
 @use 'sass:math';
 
 .#{$prefix}-button {
-  --rvt-color-button: #{$color-crimson-500};
-  --rvt-color-button-bg: #{$color-orange-000};
-  --rvt-color-button-hover: #{$color-crimson-700};
-  --rvt-color-button-bg-hover: #{$color-crimson-000};
-  --rvt-color-button-border: #{$color-orange-000};
-  --rvt-color-border-hover: #{$color-orange-000};
-  --rvt-button-border-width: 1px;
-  --rvt-button-border-radius: 0;
-  --rvt-gap-button: #{$spacing-xs};
-  --rvt-padding-button: 0 #{$spacing-sm};
-  --rvt-font-weight-button: #{$font-weight-medium};
-  --rvt-height-button: #{$spacing-sm * 3};
-  --rvt-outline-width-button: 2px;
-  --rvt-color-outline-button: #{$color-crimson-500};
+  // --rvt-color-button: #{$color-crimson-500};
+  // --rvt-color-button-bg: #{$color-orange-000};
+  // --rvt-color-button-hover: #{$color-crimson-700};
+  // --rvt-color-button-bg-hover: #{$color-crimson-000};
+  // --rvt-color-button-border: #{$color-orange-000};
+  // --rvt-color-border-hover: #{$color-orange-000};
+  // --rvt-button-border-width: 1px;
+  // --rvt-button-border-radius: 0;
+  // --rvt-gap-button: #{$spacing-xs};
+  // --rvt-padding-button: 0 #{$spacing-sm};
+  // --rvt-font-weight-button: #{$font-weight-medium};
+  // --rvt-height-button: #{$spacing-sm * 3};
+  // --rvt-outline-width-button: 2px;
+  // --rvt-color-outline-button: #{$color-crimson-500};
 
   text-decoration: none;
   line-height: 1.1;
-  height: var(--rvt-height-button);
-  padding: var(--rvt-padding-button);
-  font-weight: var(--rvt-font-weight-button);
+  height: $spacing-sm * 3;
+  padding: 0 #{$spacing-sm};
+  font-weight: $font-weight-medium;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--rvt-gap-button);
-  background: var(--rvt-color-button-bg);
-  color: var(--rvt-color-button);
+  gap: $spacing-xs;
+  background: var(--rvt-theme-accent-subtle);
+  color: var(--rvt-theme-accent);
   cursor: pointer;
-  border: var(--rvt-button-border-width) solid var(--rvt-color-button-border);
-  border-radius: var(--rvt-button-border-radius);
+  border: 1px solid var(--rvt-theme-accent-subtle);
+  border-radius: 0;
 
   &:hover {
-    background-color: var(--rvt-color-button-bg-hover);
-    color: var(--rvt-color-button-hover);
-    border-color: var(--rvt-color-border-hover);
+    color: var(--rvt-theme-accent-darker);
+    border-color: var(--rvt-theme-accent-darker);
   }
 
   &:focus {
-    outline: var(--rvt-outline-width-button) solid var(--rvt-color-outline-button);
-    outline-offset: var(--rvt-outline-width-button);
+    outline: 2px solid var(--rvt-theme-accent);
+    outline-offset: 2px;
   }
 
-  &:disabled {
-    --rvt-color-button: #{$color-black-300};
-    --rvt-color-button-hover: #{$color-black-300};
-    --rvt-color-button-bg: #{$color-black-000};
-    --rvt-color-button-bg-hover: #{$color-black-000};
-    --rvt-color-button-border: #{$color-black-000};
+  // Make all theme disabled states the same
+  &:disabled,
+  &:disabled:hover {
+    color: $color-black-300;
+    background-color: $color-black-000;
+    border-color: $color-black-000;
     cursor: not-allowed;
   }
 
   &--outline {
-    --rvt-color-button-bg: #{$color-white-base};
-    --rvt-color-button-border: #{$color-orange-100};
+    border-color: var(--rvt-theme-accent-border);
+    background-color: var(--rvt-theme-bg);
+
+    &:hover {
+      background-color: var(--rvt-theme-accent-subtle);
+      color: var(--rvt-theme-accent-darker);
+    }
   }
 
   &--solid {
-    --rvt-color-button-bg: #{$color-crimson-500};
-    --rvt-color-button-border: #{$color-crimson-500};
-    --rvt-color-button: #{$color-white-base};
-  }
+    background-color: var(--rvt-theme-accent);
+    color: var(--rvt-theme-bg);
 
-  &--solid:hover {
-    --rvt-color-button-hover: #{$color-white-base};
-    --rvt-color-button-bg-hover: #{$color-crimson-700};
-    --rvt-color-button-border: #{$color-crimson-700};
+    &:hover {
+      background-color: var(--rvt-theme-accent-darker);
+      color: var(--rvt-theme-bg);
+    }
   }
 }
 
@@ -111,19 +113,6 @@ a[href^="#"].#{$prefix}-button--solid::after {
 
 // Themes
 // Crimson theme - default variant
-.#{$prefix}-theme-crimson .rvt-button {
-  --rvt-color-button: #{$color-white-base};
-  --rvt-color-button-bg: #{$color-crimson-500};
-  --rvt-color-button-border: #{$color-crimson-500};
-  --rvt-color-button-hover: #{$color-white-base};
-  --rvt-color-button-bg-hover: #{$color-crimson-500};
-  --rvt-color-border-hover: #{$color-white-base};
-
-  &:focus {
-    --rvt-color-outline-button: #{$color-white-base};
-  }
-}
-
 .#{$prefix}-theme-crimson a.#{$prefix}-button::after {
   @include bg-icon-arrow-right($color-white-base);
 }
@@ -136,49 +125,12 @@ a[href^="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-up-right($color-white-base);
 }
 
-// Crimson theme - solid variant
-.#{$prefix}-theme-crimson .rvt-button--solid {
-  --rvt-color-button: #{$color-crimson-500};
-  --rvt-color-button-bg: #{$color-white-base};
-  --rvt-color-button-hover: #{$color-white-base};
-  --rvt-color-button-bg-hover: #{$color-crimson-500};
-  --rvt-color-button-border: #{$color-white-base};
-}
-// TODO: When using @extend for these background images
-// there were some specificity problems where the default
-// Crimson theme button variant was overriding these background
-// images. That's why we're not using @extend here.
-.#{$prefix}-theme-crimson a.#{$prefix}-button--solid::after {
-  @include bg-icon-arrow-right($color-crimson-500);
-}
-
-.#{$prefix}-theme-crimson a.#{$prefix}-button--solid:hover::after {
-  @include bg-icon-arrow-right($color-white-base);
-}
-
-.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid::after {
-  @include bg-icon-arrow-down($color-crimson-500);
-}
-
-.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid:hover::after {
-  @include bg-icon-arrow-down($color-white-base);
-}
-
-.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--solid::after {
-  @include bg-icon-arrow-up-right($color-crimson-500);
-}
-
-.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--solid:hover::after {
-  @include bg-icon-arrow-up-right($color-white-base);
-}
-
 // Crimson theme - outline variant
 .#{$prefix}-theme-crimson .rvt-button--outline {
-  --rvt-color-button: #{$color-white-base};
-  --rvt-color-button-bg: #{$color-crimson-500};
-  --rvt-color-button-hover: #{$color-crimson-500};
-  --rvt-color-button-bg-hover: #{$color-white-base};
-  --rvt-color-button-border: #{$color-white-base};
+  &:hover {
+    background-color: var(--rvt-theme-accent);
+    color: var(--rvt-theme-bg)
+  }
 }
 
 .#{$prefix}-theme-crimson a.#{$prefix}-button--outline::after {
@@ -205,20 +157,39 @@ a[href^="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-up-right($color-crimson-500);
 }
 
-// Dark Theme - default variant
-.#{$prefix}-theme-dark .rvt-button {
-  --rvt-color-button: #{$color-white-base};
-  --rvt-color-button-bg: #{$color-black-500};
-  --rvt-color-button-border: #{$color-black-500};
-  --rvt-color-button-hover: #{$color-white-base};
-  --rvt-color-button-bg-hover: #{$color-black-base};
-  --rvt-color-border-hover: #{$color-white-base};
-
-  &:focus {
-    --rvt-color-outline-button: #{$color-white-base};
+// Crimson theme - solid variant
+.#{$prefix}-theme-crimson .rvt-button--solid {
+  &:hover {
+    background-color: var(--rvt-theme-bg);
+    color: var(--rvt-theme-accent);
   }
 }
 
+.#{$prefix}-theme-crimson a.#{$prefix}-button--solid::after {
+  @include bg-icon-arrow-right($color-crimson-500);
+}
+
+.#{$prefix}-theme-crimson a.#{$prefix}-button--solid:hover::after {
+  @include bg-icon-arrow-right($color-white-base);
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid::after {
+  @include bg-icon-arrow-down($color-crimson-500);
+}
+
+.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid:hover::after {
+  @include bg-icon-arrow-down($color-white-base);
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--solid::after {
+  @include bg-icon-arrow-up-right($color-crimson-500);
+}
+
+.#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button--solid:hover::after {
+  @include bg-icon-arrow-up-right($color-white-base);
+}
+
+// Dark Theme - default variant
 .#{$prefix}-theme-dark a.#{$prefix}-button::after {
   @include bg-icon-arrow-right($color-white-base);;
 }
@@ -233,9 +204,10 @@ a[href^="#"].#{$prefix}-button--solid::after {
 
 // Dark theme - outline variant
 .#{$prefix}-theme-dark .rvt-button--outline {
-  --rvt-color-button-bg-hover: #{$color-white-base};
-  --rvt-color-button-hover: #{$color-black-500};
-  --rvt-color-button-border: #{$color-white-base};
+  &:hover {
+    color: var(--rvt-theme-bg);
+    background-color: var(--rvt-theme-accent);
+  }
 }
 
 .#{$prefix}-theme-dark a.#{$prefix}-button--outline::after {
@@ -264,8 +236,10 @@ a[href^="#"].#{$prefix}-button--solid::after {
 
 // Dark theme - solid variant
 .#{$prefix}-theme-dark .rvt-button--solid {
-  --rvt-color-button-bg: #{$color-white-base};
-  --rvt-color-button: #{$color-black-500};
+  &:hover {
+    color: var(--rvt-theme-accent);
+    background-color: var(--rvt-theme-bg);
+  }
 }
 
 .#{$prefix}-theme-dark a.#{$prefix}-button--solid::after {

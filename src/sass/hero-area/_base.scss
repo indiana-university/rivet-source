@@ -9,7 +9,7 @@ $_hero-grid-gap: $spacing-lg;
   }
 
   &__eyebrow {
-    color: var(--rvt-color-hero-eyebrow, #{$color-crimson-500});
+    color: var(--rvt-theme-accent);
     font-size: $ts-14;
     display: block;
     font-family: $font-mono;
@@ -29,14 +29,14 @@ $_hero-grid-gap: $spacing-lg;
     margin-top: $spacing-xs;
     font-family: $font-condensed;
     font-weight: $font-weight-black;
-    color: var(--rvt-color-hero-title, #{$color-crimson-500});
+    color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
     letter-spacing: .04rem;
     text-wrap: balance;
   }
 
   &__teaser {
-    color: var(--rvt-color-hero-teaser, #{$color-black-400});
+    color: var(--rvt-theme-text-subtle);
   }
 
   &__title + &__actions,
@@ -52,6 +52,10 @@ $_hero-grid-gap: $spacing-lg;
 
   &__actions > * {
     flex-grow: 999;
+  }
+
+  &--feature &__quick-links + &__media {
+    margin-top: -$_hero-grid-gap;
   }
 }
 
@@ -92,7 +96,6 @@ $_hero-grid-gap: $spacing-lg;
 
     &--feature &__media {
       grid-column: 1 / 7;
-      margin-top: -$_hero-grid-gap;
 
       img {
         width: 100%;
@@ -174,6 +177,7 @@ $_hero-grid-gap: $spacing-lg;
     }
 
     &--feature &__quick-links {
+      margin-right: -$_hero-grid-gap;
       grid-row: 2 / 3;
       grid-column: 1 / 3;
       // From here down is a bit of a hack to get
@@ -192,10 +196,10 @@ $_hero-grid-gap: $spacing-lg;
     &--feature &__media {
       grid-row: 2 / 3;
       grid-column: 1 / 7;
-      margin-top: 0;
     }
 
     &--feature &__quick-links + &__media {
+      margin-top: 0;
       grid-row: 2 / 3;
       grid-column: 3 / 7;
     }
@@ -231,23 +235,10 @@ $_hero-grid-gap: $spacing-lg;
   }
 }
 
-// Themes
-.#{$prefix}-theme-crimson,
-.#{$prefix}-theme-dark {
-  --rvt-color-hero-title: #{$color-white-base};
-  --rvt-color-hero-teaser: #{$color-white-base};
-  --rvt-color-hero-eyebrow: #{$color-white-base};
-}
-
-.#{$prefix}-theme-crimson.#{$prefix}-hero,
-.#{$prefix}-theme-dark.#{$prefix}-hero {
+// Non-global theme specifics
+.#{$prefix}-hero,
+.#{$prefix}-hero {
   &__quick-links {
     padding: $_hero-grid-gap;
-  }
-}
-
-@include mq($breakpoint-lg) {
-  .#{$prefix}-hero--feature .#{$prefix}-theme-crimson.#{$prefix}-hero__quick-links {
-    margin-right: -$_hero-grid-gap;
   }
 }

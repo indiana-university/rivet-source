@@ -5,8 +5,10 @@
 @use 'sass:math';
 
 .#{$prefix}-list-hub {
+  background-color: var(--rvt-theme-bg);
+
   &__title {
-    color: var(--rvt-color-list-hub-title, #{$color-crimson-500});
+    color: var(--rvt-theme-accent);
     font-family: $font-mono;
     font-size: $ts-14;
     letter-spacing: math.div($spacing-xxs, 2);
@@ -21,13 +23,13 @@
   }
 
   &__item {
-    border-top: 1px solid var(--rvt-color-list-hub-border, #{$color-black-100});
+    border-top: 1px solid var(--rvt-theme-border);
     padding-block: $spacing-sm;
     padding-inline: $spacing-sm;
   }
 
   &__eyebrow {
-    color: var(--rvt-color-list-hub-eyebrow, #{$color-crimson-500});
+    color: var(--rvt-theme-accent);
     font-family: $font-mono;
     font-size: $ts-12;
     padding-inline-start: $spacing-md;
@@ -37,7 +39,7 @@
     text-decoration: none;
     font-size: $ts-18;
     font-weight: $font-weight-medium;
-    color: var(--rvt-color-list-hub-link, #{$color-black-500});
+    color: var(--rvt-theme-text);
     position: relative;
     display: flex;
     align-items: center;
@@ -45,7 +47,7 @@
   }
 
   &__link:hover {
-    color: var(--rvt-color-list-hub-link-hover, #{$color-crimson-500});
+    color: var(--rvt-theme-accent);
     text-decoration: underline;
   }
 
@@ -69,7 +71,7 @@
   &__content {
     padding-inline-start: $spacing-md;
     margin-block-start: $spacing-xs;
-    color: var(--rvt-color-list-hub-content, #{$color-black-400});
+    color: var(--rvt-theme-text-subtle);
 
       > ul {
         list-style-type: disc;
@@ -85,34 +87,37 @@
   }
 }
 
-.#{$prefix}-theme-crimson,
-.#{$prefix}-theme-dark {
-  --rvt-color-list-hub-border: #{$color-white-base};
-  --rvt-color-list-hub-eyebrow: #{$color-black-100};
-  --rvt-color-list-hub-title: #{$color-white-base};
-  --rvt-color-list-hub-link: #{$color-white-base};
-  --rvt-color-list-hub-link-hover: #{$color-white-base};
-  --rvt-color-list-hub-content: #{$color-white-base};
+// Non Global theme specifics
+
+.#{$prefix}-theme-light .#{$prefix}-list-hub {
+  &__link:hover {
+    color: var(--rvt-theme-accent);
+  }
+
+  &__link::before {
+    @include bg-icon-arrow-right($color-black-500);
+  }
+
+  &__link:hover::before {
+    @include bg-icon-arrow-right($color-crimson-500);
+  }
 }
 
 .#{$prefix}-theme-crimson .#{$prefix}-list-hub,
 .#{$prefix}-theme-dark .#{$prefix}-list-hub {
-  &__link::before {
-    @include bg-icon-arrow-right($color-white-base);;
-  }
-
   &__content a {
-    color: $color-blue-200;
+    color: var(--rvt-theme-interactive);
   }
-}
 
-// Themes - specific
-.#{$prefix}-theme-crimson {
-  --rvt-color-list-hub-border: #{$color-crimson-200};
-  --rvt-color-list-hub-eyebrow: #{$color-crimson-100};
-}
+  &__link::before {
+    @include bg-icon-arrow-right($color-white-base);
+  }
 
-.#{$prefix}-theme-dark {
-  --rvt-color-list-hub-border: #{$color-black-300};
-  --rvt-color-list-hub-eyebrow: #{$color-black-100};
+  &__link:hover {
+    color: var(--rvt-theme-interactive);
+  }
+
+  &__link:hover::before {
+    @include bg-icon-arrow-right($color-blue-200);
+  }
 }

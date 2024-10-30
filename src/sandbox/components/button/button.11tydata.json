@@ -21,6 +21,11 @@
       "type": "button"
     },
     {
+      "text": "Default Button",
+      "type": "button",
+      "isDisabled": true
+    },
+    {
       "text": "<rvt-icon name='download'></rvt-icon><span>Button with icon</span>",
       "type": "button",
       "hasIcon": true

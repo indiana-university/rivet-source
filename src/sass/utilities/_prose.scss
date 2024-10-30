@@ -53,7 +53,7 @@
   :where(li),
   :where(td),
   :where(dt) {
-    color: $color-black-400;
+    color: var(--rvt-theme-text);
   }
 
   > img,

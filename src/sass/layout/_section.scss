@@ -4,22 +4,12 @@
 @use '../core' as *;
 
 .#{$prefix}-section {
-  padding-block: var(--rvt-padding-block-section, #{$spacing-md});
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-section {
-    --rvt-padding-block-section: #{$spacing-xl};
-  }
+  /* @link https://utopia.fyi/clamp/calculator?a=330,1260,24—88 */
+  --rvt-padding-section-fluid: clamp(1.5rem, 0.0806rem + 6.8817vw, 5.5rem);
+  padding-block: var(--rvt-padding-section-fluid);
 }
 
 .#{$prefix}-section.rvt-theme-light + .#{$prefix}-section.rvt-theme-light {
   padding-block-start: 0;
-}
-
-@include mq($breakpoint-lg) {
-  .#{$prefix}-section {
-    --rvt-padding-block-section: #{$spacing-xxl};
-  }
 }
 

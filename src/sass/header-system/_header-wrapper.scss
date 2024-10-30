@@ -3,6 +3,7 @@
 .#{$prefix}-header-wrapper {
   box-shadow: $shadow-subtle;
   z-index: $z-index-900;
+  position: relative;
 
   &__skip-link {
     position: fixed;

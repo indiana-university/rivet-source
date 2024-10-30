@@ -30,7 +30,6 @@
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-layout-base {
-    height: 100%;
     grid-template-columns: ($spacing-sm * 16) 1fr;
     gap: $spacing-xxl;
 

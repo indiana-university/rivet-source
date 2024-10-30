@@ -3,14 +3,60 @@
 
 @use '../core' as *;
 
+:root,
 .#{$prefix}-theme-light {
-  background-color: $color-white-base;
+  --rvt-theme-bg: #{$color-white-base};
+  --rvt-theme-bg-subtle: #{$color-black-000};
+  --rvt-theme-bg-darker: #{$color-orange-000};
+  --rvt-theme-text: #{$color-black-500};
+  --rvt-theme-text-subtle: #{$color-black-400};
+  --rvt-theme-accent: #{$color-crimson-500};
+  --rvt-theme-accent-subtle: #{$color-orange-000};
+  --rvt-theme-accent-darker: #{$color-crimson-600};
+  --rvt-theme-accent-border: #{$color-orange-100};
+  --rvt-theme-accent-title: #{$color-crimson-500};
+  --rvt-theme-border: #{$color-black-100};
+  --rvt-theme-interactive: #{$color-blue-500};
+  --rvt-theme-interactive-lighter: #{$color-blue-300};
+  --rvt-theme-interactive-darker: #{$color-blue-500};
 }
 
 .#{$prefix}-theme-crimson {
-  background-color: $color-crimson-500;
+  --rvt-theme-bg: #{$color-crimson-500};
+  --rvt-theme-bg-subtle: #{$color-crimson-600};
+  --rvt-theme-bg-darker: #{$color-crimson-600};
+  --rvt-theme-text: #{$color-white-base};
+  --rvt-theme-text-subtle: #{$color-crimson-100};
+  --rvt-theme-accent: #{$color-white-base};
+  --rvt-theme-accent-subtle: #{$color-crimson-500};
+  --rvt-theme-accent-darker: #{$color-orange-000};
+  --rvt-theme-accent-border: #{$color-orange-100};
+  --rvt-theme-accent-title: #{$color-white-base};
+  --rvt-theme-border: #{$color-crimson-300};
+  --rvt-theme-interactive: #{$color-blue-200};
+  --rvt-theme-interactive-lighter: #{$color-blue-100};
+  --rvt-theme-interactive-darker: #{$color-blue-300};
 }
 
 .#{$prefix}-theme-dark {
-  background-color: $color-black-500;
+  --rvt-theme-bg: #{$color-black-500};
+  --rvt-theme-bg-subtle: #{$color-black-600};
+  --rvt-theme-bg-darker: #{$color-black-600};
+  --rvt-theme-text: #{$color-white-base};
+  --rvt-theme-text-subtle: #{$color-black-100};
+  --rvt-theme-accent: #{$color-white-base};
+  --rvt-theme-accent-subtle: #{$color-black-500};
+  --rvt-theme-accent-darker: #{$color-white-base};
+  --rvt-theme-accent-border: #{$color-black-100};
+  --rvt-theme-accent-title: #{$color-white-base};
+  --rvt-theme-border: #{$color-black-400};
+  --rvt-theme-interactive: #{$color-blue-200};
+  --rvt-theme-interactive-lighter: #{$color-blue-100};
+  --rvt-theme-interactive-darker: #{$color-blue-300};
+}
+
+[class^='rvt-theme'],
+[class*=' rvt-theme'] {
+  background-color: var(--rvt-theme-bg);
+  color: var(--rvt-theme-text);
 }

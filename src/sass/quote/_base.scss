@@ -2,10 +2,7 @@
 @use 'sass:math';
 
 .#{$prefix}-quote {
-  --rvt-color-quote-text: #{$color-crimson-500};
-  --rvt-color-quote-bg: #{$color-white-base};
-
-  background-color: var(--rvt-color-quote-bg);
+  background-color: var(--rvt-theme-bg);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -29,7 +26,7 @@
     font-weight: $font-weight-black;
     font-size: $ts-26;
     margin: 0;
-    color: var(--rvt-color-quote-text);
+    color: var(--rvt-theme-accent-title);
 
     p {
       margin: 0;
@@ -43,7 +40,7 @@
   &__title,
   &__subtitle {
     display: block;
-    color: var(--rvt-color-quote-text);
+    color: var(--rvt-theme-accent);
   }
 
   &__title {
@@ -62,10 +59,8 @@
 
 // Themes
 // Crimson theme
-.#{$prefix}-theme-crimson .#{$prefix}-quote {
-  --rvt-color-quote-text: #{$color-white-base};
-  --rvt-color-quote-bg: #{$color-crimson-500};
-
+.#{$prefix}-theme-crimson .#{$prefix}-quote,
+.#{$prefix}-theme-dark .#{$prefix}-quote {
   &::before {
     @include bg-icon-quote($color-white-base);
   }

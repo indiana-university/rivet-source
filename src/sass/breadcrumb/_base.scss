@@ -30,7 +30,7 @@
 
     a {
       text-decoration: none;
-      color: var(--rvt-color-breadcrumb-link, #{$color-black-500});
+      color: var(--rvt-theme-accent);
 
       &:hover {
         text-decoration: underline;
@@ -39,7 +39,7 @@
   }
 
   li:first-child {
-    color: var(--rvt-color-breadcrumb-link);
+    color: var(--rvt-theme-accent);
 
     &::before {
       content: none;
@@ -47,13 +47,13 @@
   }
 
   li:last-child {
-    color: var(--rvt-color-breadcrumb-link-last, $color-black-400);
+    color: var(--rvt-theme-text);
   }
 
   li[aria-current="page"] {
     text-decoration: underline;
     text-underline-offset: $spacing-xxs;
-    color: var(--rvt-color-breadcrumb-link-current, #{$color-crimson-500});
+    color: var(--rvt-theme-accent);
     font-weight: $font-weight-medium;
   }
 
@@ -70,23 +70,9 @@
   }
 }
 
-// Themes
-// Crimson theme
-.#{$prefix}-theme-crimson {
-  --rvt-color-breadcrumb-link: #{$color-white-base};
-  --rvt-color-breadcrumb-link-last: #{$color-white-base};
-  --rvt-color-breadcrumb-link-current: #{$color-white-base};
-}
-
+// Non-global theme specifics
 .#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li::before {
   @include bg-icon-chevron-right($color-orange-200);
-}
-
-// Dark theme
-.#{$prefix}-theme-dark {
-  --rvt-color-breadcrumb-link: #{$color-white-base};
-  --rvt-color-breadcrumb-link-last: #{$color-black-100};
-  --rvt-color-breadcrumb-link-current: #{$color-white-base};
 }
 
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li::before {
