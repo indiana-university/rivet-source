@@ -5,21 +5,6 @@
 @use 'sass:math';
 
 .#{$prefix}-button {
-  // --rvt-color-button: #{$color-crimson-500};
-  // --rvt-color-button-bg: #{$color-orange-000};
-  // --rvt-color-button-hover: #{$color-crimson-700};
-  // --rvt-color-button-bg-hover: #{$color-crimson-000};
-  // --rvt-color-button-border: #{$color-orange-000};
-  // --rvt-color-border-hover: #{$color-orange-000};
-  // --rvt-button-border-width: 1px;
-  // --rvt-button-border-radius: 0;
-  // --rvt-gap-button: #{$spacing-xs};
-  // --rvt-padding-button: 0 #{$spacing-sm};
-  // --rvt-font-weight-button: #{$font-weight-medium};
-  // --rvt-height-button: #{$spacing-sm * 3};
-  // --rvt-outline-width-button: 2px;
-  // --rvt-color-outline-button: #{$color-crimson-500};
-
   text-decoration: none;
   line-height: 1.1;
   height: $spacing-sm * 3;
@@ -72,6 +57,12 @@
       background-color: var(--rvt-theme-accent-darker);
       color: var(--rvt-theme-bg);
     }
+  }
+
+  &--small {
+    height: $spacing-xl;
+    padding: 0 $spacing-xs;
+    font-size: $ts-14;
   }
 }
 

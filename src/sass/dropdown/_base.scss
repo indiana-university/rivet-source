@@ -49,9 +49,8 @@
 
   &__menu {
     position: absolute;
-    margin-top: $spacing-xs;
+    top: $spacing-md;
     background-color: $color-white-base;
-    border-radius: $spacing-xxs;
     box-shadow: $shadow-standard;
     min-width: 12.5rem;
     padding-top: $spacing-xs;
@@ -81,6 +80,7 @@
       display: block;
       text-decoration: none;
       color: $color-black-500;
+      font-size: $ts-14;
 
       /**
        * This padding-top and bottom value is a magic number. Sorry,

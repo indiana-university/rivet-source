@@ -31,7 +31,6 @@ $_hero-grid-gap: $spacing-lg;
     font-weight: $font-weight-black;
     color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
-    letter-spacing: .04rem;
     text-wrap: balance;
   }
 
@@ -68,7 +67,12 @@ $_hero-grid-gap: $spacing-lg;
 
     &__body {
       grid-row: 1 / 2;
-      grid-column: 1 / 5;
+      grid-column: 1 / 7;
+    }
+
+    &__callout {
+      grid-row: 2 / 3;
+      grid-column: 1 / 7;
     }
 
     &__title {

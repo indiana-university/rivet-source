@@ -46,6 +46,7 @@
 
     font-weight: $font-weight-regular;
     line-height: $line-height-tight;
+    letter-spacing: -.015rem;
     scroll-margin-top: $spacing-md;
   }
 
@@ -102,7 +103,7 @@
     }
 
     h2 {
-      font-size: $ts-29;
+      font-size: $ts-26;
     }
 
     h3 {
