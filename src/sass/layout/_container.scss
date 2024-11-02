@@ -13,4 +13,8 @@
   &--fluid {
     max-width: 100%;
   }
+
+  &--full-bleed {
+    padding-inline: 0;
+  }
 }

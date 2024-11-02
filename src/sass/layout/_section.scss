@@ -7,6 +7,10 @@
   /* @link https://utopia.fyi/clamp/calculator?a=330,1260,24—88 */
   --rvt-padding-section-fluid: clamp(1.5rem, 0.0806rem + 6.8817vw, 5.5rem);
   padding-block: var(--rvt-padding-section-fluid);
+
+  &--collapse {
+    padding-block: 0;
+  }
 }
 
 .#{$prefix}-section.rvt-theme-light + .#{$prefix}-section.rvt-theme-light {
