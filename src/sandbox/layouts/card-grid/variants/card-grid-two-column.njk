@@ -1,0 +1,69 @@
+---
+tags: card-grid
+title: Card grid - Two column
+layout: layouts/layout-shell.njk
+permalink: /layouts/preview/{{ title | slug}}/
+order: 1
+classes: rvt-page
+---
+{% include "demos/demo-header-crimson.njk" %}
+<main>
+  <div class="rvt-section rvt-theme-crimson">
+    <div class="rvt-container">
+      {% include "demos/demo-hero.njk" %}
+    </div>
+  </div>
+
+  <div class="rvt-layout-base">
+    <div class="rvt-layout-base__sidebar" id="sidebar-main-content">
+      {% include "demos/demo-sidenav.njk" %}
+    </div>
+    <div class="rvt-layout-base__main">
+
+      {# <nav role="navigation" aria-label="Breadcrumbs" >
+        <ol class="rvt-breadcrumbs">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Tier two</a></li>
+          <li aria-current="page">Tier three</li>
+        </ol>
+      </nav> #}
+
+      <div class="rvt-stack rvt-m-top-md">
+        {% include "demos/demo-billboard.njk" %}
+        <div class="rvt-rich-text">
+          <div>
+            <span class="rvt-ts-14 rvt-font-mono">Showing { X of X } { Resources }</span>
+            <h2>{ Optional Category Title (6) }</h2>
+          </div>
+          <p>{ Optional description copy should not exceed one concise paragraph. }</p>
+        </div>
+      </div>
+
+      <ul class="rvt-grid rvt-grid--2">
+        {% for card in range(0, 6) %}
+        <li>
+          <div class="rvt-card">
+            <div class="rvt-card__image">
+              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
+            </div>
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title">
+                <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+              </h2>
+              <div class="rvt-card__content">
+                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              </div>
+              <div class="rvt-card__meta">
+                <time>{Jun 21,2024}</time>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+  </div>
+</main>
+{% include "demos/demo-footer.njk" %}

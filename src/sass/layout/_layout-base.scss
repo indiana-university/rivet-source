@@ -37,9 +37,16 @@
       border-right: 1px solid $color-black-100;
     }
 
-    &__main,
     &__sidebar {
       padding-block: $spacing-xxl;
+    }
+
+    &__main {
+      // this is a magic number to vertically align
+      // The top border of the first sidebar nav item with
+      // content in the main content column that may
+      // have a top border.
+      padding-block: $spacing-xxl + .8125rem;
     }
 
     &__breakout {

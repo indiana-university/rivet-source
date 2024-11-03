@@ -37,7 +37,7 @@ classes: rvt-page
         <li>
           <div class="rvt-card">
             <div class="rvt-card__image">
-              <img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
             </div>
             <div class="rvt-card__body">
               <div class="rvt-card__eyebrow">{Campus or category}</div>
@@ -71,25 +71,58 @@ classes: rvt-page
 
     <div class="rvt-container">
       <ul class="rvt-grid rvt-grid--3">
-        {% for card in range(0, 6) %}
+        {% for card in range(0, 4) %}
         <li>
           <div class="rvt-card">
-            <div class="rvt-card__image">
-              <img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
-            </div>
             <div class="rvt-card__body">
-              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <div class="rvt-avatar rvt-avatar--md">
+                <img class="rvt-avatar__image" src="https://rivet.iu.edu/img/placeholder/avatar-1.webp" alt="">
+              </div>
+              <div class="rvt-card__eyebrow [ rvt-m-top-sm ]">{Campus, team, or department}</div>
               <h2 class="rvt-card__title">
-                <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+                <a href="#">{First & Last Name}</a>
               </h2>
               <div class="rvt-card__content">
-                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
-              </div>
-              <div class="rvt-card__meta">
-                <time>{Jun 21,2024}</time>
+
+                <p>{Person's title}</p>
+
+                <div class="rvt-contact-info">
+                  <ul class="rvt-contact-info__icon-list">
+                    <li class="rvt-contact-info__icon-list-item">
+                      <rvt-icon name="user"></rvt-icon>
+                      <span><strong>Pronouns</strong>: She/her</span>
+                    </li>
+                    <li class="rvt-contact-info__icon-list-item">
+                      <rvt-icon name="envelope"></rvt-icon>
+                      <a href="#">info@iu.edu</a>
+                    </li>
+                    <li class="rvt-contact-info__icon-list-item">
+                      <rvt-icon name="phone"></rvt-icon>
+                      <a href="#">(812) 555-5555</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!--
+                  This is specific to profile cards, so it can pretty
+                  easily be created with utilities
+                -->
+                <div>
+                  <p class="rvt-font-mono">Areas of expertise:</p>
+                  <ul class="rvt-flex rvt-flex-row rvt-wrap rvt-gap-xs rvt-list-plain">
+                    <li class="rvt-badge rvt-badge--secondary">{UI/UX Design}</li>
+                    <li class="rvt-badge rvt-badge--secondary">{Branding}</li>
+                    <li class="rvt-badge rvt-badge--secondary">{Illustration}</li>
+                    <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
+                    <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
+                    <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
+                  </ul>
+                </div>
+
               </div>
             </div>
           </div>
+
         </li>
         {% endfor %}
       </ul>
@@ -100,7 +133,99 @@ classes: rvt-page
     </div>
   </div><!-- End second card grid -->
 
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
 
+      <div class="rvt-card rvt-card--raised">
+        <div class="rvt-card__body">
+          <div class="rvt-contact-info">
+            <div class="rvt-contact-info__inner">
+              <div class="rvt-contact-info__address">
+                <div class="rvt-contact-info__address-eyebrow">Eybrow info</div>
+                <h3 class="rvt-contact-info__address-title">Office or program</h3>
+                <address class="rvt-contact-info__address-text">
+                  <div>120 University Blvd.</div>
+                  <div>Bloomington, IN 47408</div>
+                  <div>USA</div>
+                </address>
+              </div>
+
+              <ul class="rvt-contact-info__icon-list">
+                <li class="rvt-contact-info__icon-list-item">
+                  <rvt-icon name="user"></rvt-icon>
+                  <span><strong>Pronouns</strong>: She/her</span>
+                </li>
+                <li class="rvt-contact-info__icon-list-item">
+                  <rvt-icon name="envelope"></rvt-icon>
+                  <a href="#">info@iu.edu</a>
+                </li>
+                <li class="rvt-contact-info__icon-list-item">
+                  <rvt-icon name="phone"></rvt-icon>
+                  <a href="#">(812) 555-5555</a>
+                </li>
+                <li class="rvt-contact-info__icon-list-item">
+                  <rvt-icon name="device"></rvt-icon>
+                  <a href="#">school.iu.edu</a>
+                </li>
+                <li class="rvt-contact-info__icon-list-item">
+                  <rvt-icon name="calendar"></rvt-icon>
+                  <time>Dec 21, 2024</time>
+                </li>
+                <li class="rvt-contact-info__icon-list-item [ rvt-items-start ]">
+                  <rvt-icon name="clock"></rvt-icon>
+                  <div class="rvt-contact-info__disclosure" data-rvt-disclosure="disclosure-1">
+                    <button data-rvt-disclosure-toggle aria-expanded="false">Hours</button>
+                    <div data-rvt-disclosure-target hidden>
+                      <dl class="rvt-list-description rvt-m-tb-sm">
+                        <div class="rvt-flex rvt-gap-sm rvt-justify-space-between rvt-width-xxl">
+                          <dt class="rvt-m-top-none">Monday</dt>
+                          <dd>9am–5pm</dd>
+                        </div>
+                        <div class="rvt-flex rvt-gap-sm rvt-justify-space-between rvt-width-xxl">
+                          <dt class="rvt-m-top-none">Tuesday</dt>
+                          <dd>9am–5pm</dd>
+                        </div>
+                        <div class="rvt-flex rvt-gap-sm rvt-justify-space-between rvt-width-xxl">
+                          <dt class="rvt-m-top-none">Wednesday</dt>
+                          <dd>9am–5pm</dd>
+                        </div>
+                        <div class="rvt-flex rvt-gap-sm rvt-justify-space-between rvt-width-xxl">
+                          <dt class="rvt-m-top-none">Thursday</dt>
+                          <dd>9am–5pm</dd>
+                        </div>
+                        <div class="rvt-flex rvt-gap-sm rvt-justify-space-between rvt-width-xxl">
+                          <dt class="rvt-m-top-none">Friday</dt>
+                          <dd>9am–5pm</dd>
+                        </div>
+                      </dl>
+
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- End section -->
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-grid rvt-grid--2 [ rvt-gap-xxl ]">
+
+        <div>
+          <img src="https://picsum.photos/id/33/600/400" alt="Student in vintage-style Indiana University t-shirt">
+        </div>
+
+        <div>
+          {% include "demos/demo-list-hub.njk" %}
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 </main>
 {% include "demos/demo-footer.njk" %}

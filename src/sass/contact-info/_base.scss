@@ -4,6 +4,9 @@
 @use '../core' as *;
 
 .#{$prefix}-contact-info {
+  container-type: inline-size;
+  container-name: contact;
+
   &__intro-eyebrow {
     color: var(--rvt-theme-accent-title);
     font-size: $ts-12;
@@ -30,6 +33,11 @@
     > * + * {
       margin-top: $spacing-md;
     }
+  }
+
+  &__intro-actions {
+    display: flex;
+    gap: $spacing-sm;
   }
 
   &__intro-teaser,
@@ -65,6 +73,7 @@
   &__icon-list-item {
     display: flex;
     gap: $spacing-xs;
+    color: var(--rvt-theme-text);
 
     rvt-icon {
       margin-top: $spacing-xxs;
@@ -125,5 +134,27 @@
 
   &__address + &__icon-list {
     margin-top: $spacing-md;
+  }
+}
+
+@container contact (min-width: 52em) {
+  .#{$prefix}-contact-info {
+    &__inner {
+      display: flex;
+
+      > * {
+        flex-basis: 999;
+        flex-grow: 1;
+      }
+    }
+
+    &__address + &__icon-list {
+      margin-top: 0;
+    }
+
+    &__icon-list {
+      padding-left: $spacing-lg;
+      border-left: 1px solid $color-black-100;
+    }
   }
 }
