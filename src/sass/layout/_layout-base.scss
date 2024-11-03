@@ -20,11 +20,7 @@
   @include container;
 
   &__sidebar {
-    padding-block-start: $spacing-md;
-  }
-
-  &__main {
-    padding-block: $spacing-md;
+    padding-block-start: $spacing-lg;
   }
 }
 

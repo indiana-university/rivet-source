@@ -5,6 +5,8 @@
 @use 'sass:math';
 
 .#{$prefix}-sidenav {
+  margin-top: $spacing-lg;
+
   &__label {
     color: $color-crimson-500;
     font-size: $ts-14;
@@ -153,6 +155,29 @@
   &__toggle {
     &:focus {
       z-index: $z-index-100;
+    }
+  }
+
+  &__mobile-toggle {
+    background-color: var(--rvt-theme-bg);
+    border: 2px solid var(--rvt-theme-border);
+    font-weight: $font-weight-medium;
+    height: $spacing-sm * 3;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: $spacing-sm;
+    justify-content: space-between;
+    padding-inline: $spacing-sm;
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-sidenav {
+    margin-top: 0;
+
+    &__mobile-toggle {
+      display: none;
     }
   }
 }

@@ -88,6 +88,12 @@ $_hero-grid-gap: $spacing-lg;
       font-size: $ts-41;
     }
 
+    &__actions > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: auto;
+    }
+
     &--feature &__title {
       font-size: $ts-46;
     }
@@ -191,12 +197,6 @@ $_hero-grid-gap: $spacing-lg;
 
     &__teaser > * + * {
       margin-top: $spacing-sm;
-    }
-
-    &__actions > * {
-      flex-grow: 0;
-      flex-shrink: 0;
-      width: auto;
     }
 
     &--feature &__title {

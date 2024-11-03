@@ -30,5 +30,130 @@
     });
 
   </script>
+
+  <script>
+    const navElement = document.querySelector('[data-site-header]');
+    const visibleLinks = navElement.querySelector('[data-visible-links]');
+    const buttonElement = navElement.querySelector('[data-rvt-more-toggle]');
+    const hiddenLinks = navElement.querySelector('[data-hidden-links]');
+
+    let numberOfItems = 0;
+    let totalSpace = 0;
+    let itemHideWidths = [];
+    let availableSpace;
+    let numberOfVisibleItems;
+    let requiredSpace;
+
+    // Set up initial state
+    [...visibleLinks.children].forEach(item => {
+      // "+ 16" means we're guessing at a 1rem/16px gap between each
+      // nav item. Could maybe figure a better way to calculate this
+      // but it's dependent on how the items are styled.
+      totalSpace += item.offsetWidth + 16;
+      numberOfItems += 1;
+      itemHideWidths.push(totalSpace);
+    });
+
+    function checkNav() {
+      availableSpace = visibleLinks.offsetWidth;
+      numberOfVisibleItems = [...visibleLinks.children].length;
+      requiredSpace = itemHideWidths[numberOfVisibleItems - 1];
+
+      if (requiredSpace > availableSpace) {
+        // Move last link of visible to first link of hidden
+        const lastVisibleChild = [...visibleLinks.children][numberOfVisibleItems - 1];
+        hiddenLinks.insertAdjacentElement('afterbegin', lastVisibleChild);
+        numberOfVisibleItems -= 1;
+        // Recursively call this checkNav function
+        checkNav();
+      } else if (availableSpace > itemHideWidths[numberOfVisibleItems]) {
+        // Move first link from hidden to end of visible links
+        const firstHiddenChild = [...hiddenLinks.children][0];
+        visibleLinks.insertAdjacentElement('beforeend', firstHiddenChild);
+        numberOfVisibleItems += 1;
+      }
+
+      numberOfVisibleItems === numberOfItems ?
+        buttonElement.setAttribute('hidden', '') :
+        buttonElement.removeAttribute('hidden');
+    }
+
+    const navObserver = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        checkNav();
+      }
+    });
+
+    navObserver.observe(navElement);
+
+    checkNav();
+
+    // Dropdown hover
+    const navListNode = document.querySelector('.rvt-header-menu');
+    const navListItemNodes = document.querySelectorAll('.rvt-header-menu__item');
+
+    navListNode.addEventListener('mouseover', event => {
+      const listItemNode = event.target.closest('.rvt-header-menu__item');
+      if (!listItemNode) return;
+      const listItemDropdown = listItemNode.querySelector('[data-rvt-dropdown]');
+      if (!listItemDropdown) return;
+      const listItemDropdownMenu = listItemDropdown.querySelector('[data-rvt-dropdown-menu]');
+      listItemDropdown.open();
+      listItemDropdownMenu.style.left = `-${listItemNode.offsetWidth - 16}px`;
+    });
+
+    navListNode.addEventListener('mouseout', event => {
+      const listItemNode = event.target.closest('.rvt-header-menu__item');
+      if (!listItemNode) return;
+      const listItemDropdown = listItemNode.querySelector('[data-rvt-dropdown]');
+      if (!listItemDropdown) return;
+      listItemDropdown.close();
+    });
+</script>
+<script>
+  const sideNavNode = document.querySelector('[data-rvt-sidenav="base-two-column"]');
+  const sideNavToggleNode = document.createElement('button');
+  sideNavToggleNode.classList.add('rvt-sidenav__mobile-toggle');
+  sideNavToggleNode.setAttribute('data-rvt-sidebar-toggle', '');
+  sideNavToggleNode.setAttribute('aria-expanded', false);
+  sideNavToggleNode.innerHTML = `
+    <span>Section menu</span>
+    <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
+  `;
+  sideNavNode.insertAdjacentElement('beforebegin', sideNavToggleNode);
+
+  const observer = new ResizeObserver(entries => {
+    for (const entry of entries) {
+      if (entry.target.offsetWidth > 1080) {
+        sideNavNode.removeAttribute('hidden');
+        sideNavToggleNode.setAttribute('aria-expanded', 'true');
+      } else {
+        sideNavNode.setAttribute('hidden', '');
+        sideNavToggleNode.setAttribute('aria-expanded', 'false')
+      }
+    }
+  });
+
+  observer.observe(document.querySelector('body'));
+
+  document.addEventListener('click', event => {
+    const clickedSidebarMobileToggle = event.target.closest('[data-rvt-sidebar-toggle]');
+    if (!clickedSidebarMobileToggle) return;
+
+    function showNavigation() {
+      clickedSidebarMobileToggle.setAttribute('aria-expanded', 'true');
+      sideNavNode.removeAttribute('hidden');
+    }
+
+    function hideNavigation() {
+      clickedSidebarMobileToggle.setAttribute('aria-expanded', 'false');
+      sideNavNode.setAttribute('hidden', '');
+    }
+
+    clickedSidebarMobileToggle.getAttribute('aria-expanded') === "false" ?
+      showNavigation() :
+      hideNavigation();
+  });
+</script>
 </body>
 </html>
