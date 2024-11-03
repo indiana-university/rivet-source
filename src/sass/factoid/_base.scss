@@ -1,0 +1,39 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.#{$prefix}-factoid {
+  &__item {
+    padding: $spacing-sm;
+  }
+
+  &__label {
+    font-family: $font-mono;
+    color: var(--rvt-theme-text-subtle);
+  }
+
+  &__content {
+    font-weight: $font-weight-medium;
+    color: var(--rvt-theme-text);
+  }
+
+  &__content > a {
+    color: var(--rvt-theme-accent);
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .#{$prefix}-factoid {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      flex-grow: 999;
+      flex-basis: 50%;
+      border: 1px solid var(--rvt-theme-border);
+      margin-top: -1px;
+      margin-left: -1px;
+    }
+  }
+}

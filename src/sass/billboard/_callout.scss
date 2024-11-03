@@ -51,23 +51,32 @@
   }
 }
 
-@container callout (min-width: 900px) {
+
+@container callout (min-width: 640px) {
+  .#{$prefix}-callout {
+    &__inner {
+      padding: $spacing-xxl;
+    }
+
+    &__actions {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+@container callout (min-width: 848px) {
   .#{$prefix}-callout {
     &__inner {
       max-width: 75%;
       margin-inline: auto;
-      padding-block: $spacing-xxl;
+      padding: $spacing-xxl;
       display: flex;
       gap: $spacing-lg;
     }
 
     &__title {
       font-size: $ts-29;
-    }
-
-    &__actions {
-      flex-direction: row;
-      align-items: center;
     }
   }
 }

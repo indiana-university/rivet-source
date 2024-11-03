@@ -24,6 +24,6 @@
 @include mq($breakpoint-md) {
   .rvt-flow > * + *,
   .rvt-stack > * + * {
-    --rvt-stack-space: #{$spacing-xxl};
+    --rvt-stack-space: #{$spacing-sm * 5};
   }
 }

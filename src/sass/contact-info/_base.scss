@@ -1,0 +1,129 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../core' as *;
+
+.#{$prefix}-contact-info {
+  &__intro-eyebrow {
+    color: var(--rvt-theme-accent-title);
+    font-size: $ts-12;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+  }
+
+  &__intro-title {
+    text-transform: uppercase;
+    font-family: $font-condensed;
+    font-weight: $font-weight-black;
+    color: var(--rvt-theme-accent-title);
+    font-size: $ts-29;
+  }
+
+  &__intro-teaser {
+    font-size: $ts-18;
+    color: var(--rvt-theme-text-subtle);
+
+    > * {
+      margin: 0;
+    }
+
+    > * + * {
+      margin-top: $spacing-md;
+    }
+  }
+
+  &__intro-teaser,
+  &__intro-actions {
+    margin-top: $spacing-md;
+  }
+
+  &__address-eyebrow {
+    font-size: $ts-14;
+    font-family: $font-mono;
+    color: var(--rvt-theme-accent-title);
+  }
+
+  &__address-title {
+    font-weight: $font-weight-medium;
+    font-size: $ts-20;
+  }
+
+  &__address-text {
+    margin-top: $spacing-xs;
+  }
+
+  &__icon-list {
+    list-style: '';
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__icon-list-item {
+    display: flex;
+    gap: $spacing-xs;
+
+    rvt-icon {
+      margin-top: $spacing-xxs;
+    }
+  }
+
+  &__icon-list-item a {
+    color: var(--rvt-theme-accent);
+  }
+
+  &__icon-list-item a:hover {
+    color: var(--rvt-theme-accent-darker);
+    // Optional underline offset on hover
+    text-underline-offset: $spacing-xxs;
+  }
+
+  &__disclosure {
+    width: $width-md;
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      display: inline-flex;
+      gap: $spacing-xs;
+      align-items: center;
+      text-decoration: underline;
+      color: var(--rvt-color-accent);
+    }
+
+    button::after {
+      content: "";
+      width: $spacing-sm;
+      height: $spacing-sm;
+      background-image: url('data:image/svg+xml,<svg fill="%23990000" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    button:hover {
+      cursor: pointer;
+      color: var(--rvt-theme-accent);
+      text-decoration: none;
+    }
+
+    button:hover::after {
+      background-image: url('data:image/svg+xml,<svg fill="%23243142" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+    }
+
+    button[aria-expanded="true"]::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__intro + &__address {
+    margin-top: $spacing-xl;
+  }
+
+  &__address + &__icon-list {
+    margin-top: $spacing-md;
+  }
+}
