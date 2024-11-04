@@ -11,11 +11,10 @@
   &-select {
     display: block;
     width: 100%;
-    border-radius: $spacing-xxs;
     background-color: $color-white-base;
     border: 1px solid $color-black-300;
     padding: $spacing-xs;
-    height: $spacing-xl;
+    height: $spacing-sm * 3;
     line-height: 1.1;
 
     /**
@@ -84,10 +83,11 @@
   &-label {
     display: inline-block;
     font-size: $ts-14;
+    font-weight: $font-weight-medium;
   }
 
   &-label + * {
-    margin-top: $spacing-xxs;
+    margin-top: $spacing-xs;
   }
 
   &-fieldset {

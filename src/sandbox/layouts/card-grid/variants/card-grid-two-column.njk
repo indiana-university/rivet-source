@@ -19,8 +19,62 @@ classes: rvt-page
       {% include "demos/demo-sidenav.njk" %}
     </div>
     <div class="rvt-layout-base__main">
-
       <div class="rvt-stack">
+        <form class="rvt-bg-black-000 rvt-p-all-md rvt-flex rvt-flex-column rvt-gap-md">
+
+          <div class="rvt-grid rvt-grid--2">
+            <div>
+              <label for="one" class="rvt-label">Lorem Ipsum</label>
+              <input type="text" class="rvt-input" id="one">
+            </div>
+            <div>
+              <label for="two" class="rvt-label">Lorem Ipsum</label>
+              <input type="text" class="rvt-input" id="two">
+            </div>
+            <div>
+              <label for="select-input-default" class="rvt-label">Select Input</label>
+              <select id="select-input-default" class="rvt-select">
+                <option value="option one">Option One</option>
+                <option value="option two">Option Two</option>
+                <option value="option three">Option Three</option>
+              </select>
+            </div>
+            <div>
+              <label for="three" class="rvt-label">Lorem Ipsum</label>
+              <input type="text" class="rvt-input" id="three">
+            </div>
+          </div>
+
+          <fieldset class="rvt-fieldset">
+            <legend class="rvt-font-medium rvt-ts-14">Checkbox list</legend>
+            <ul class="rvt-list-inline">
+              <li>
+                <div class="rvt-checkbox">
+                  <input type="checkbox" name="checkbox-demo" id="checkbox-1" checked>
+                  <label for="checkbox-1">Option one</label>
+                </div>
+              </li>
+              <li>
+                <div class="rvt-checkbox">
+                  <input type="checkbox" name="checkbox-demo" id="checkbox-2">
+                  <label for="checkbox-2">Option two</label>
+                </div>
+              </li>
+              <li>
+                <div class="rvt-checkbox">
+                  <input type="checkbox" name="checkbox-demo" id="checkbox-3">
+                  <label for="checkbox-3">Option three</label>
+                </div>
+              </li>
+            </ul>
+          </fieldset>
+
+          <div class="rvt-flex rvt-gap-sm rvt-justify-end">
+            <button class="rvt-button rvt-button--solid">Filter results</button>
+            <button class="rvt-button rvt-button--outline">Filter results</button>
+          </div>
+        </form>
+
         {# {% include "demos/demo-billboard.njk" %} #}
         <div class="rvt-rich-text">
           <div>

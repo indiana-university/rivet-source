@@ -45,7 +45,7 @@
     --rvt-rich-text-stack-space: #{$spacing-lg};
 
     font-weight: $font-weight-regular;
-    line-height: $line-height-tight;
+    line-height: 1.1;
     letter-spacing: -.015rem;
     scroll-margin-top: $spacing-md;
   }

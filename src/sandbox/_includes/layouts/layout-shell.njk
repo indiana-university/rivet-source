@@ -112,48 +112,50 @@
 </script>
 <script>
   const sideNavNode = document.querySelector('[data-rvt-sidenav="base-two-column"]');
-  const sideNavToggleNode = document.createElement('button');
-  sideNavToggleNode.classList.add('rvt-sidenav__mobile-toggle');
-  sideNavToggleNode.setAttribute('data-rvt-sidebar-toggle', '');
-  sideNavToggleNode.setAttribute('aria-expanded', false);
-  sideNavToggleNode.innerHTML = `
-    <span>Section menu</span>
-    <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
-  `;
-  sideNavNode.insertAdjacentElement('beforebegin', sideNavToggleNode);
+  if (sideNavNode !== null) {
+    const sideNavToggleNode = document.createElement('button');
+    sideNavToggleNode.classList.add('rvt-sidenav__mobile-toggle');
+    sideNavToggleNode.setAttribute('data-rvt-sidebar-toggle', '');
+    sideNavToggleNode.setAttribute('aria-expanded', false);
+    sideNavToggleNode.innerHTML = `
+      <span>Section menu</span>
+      <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
+    `;
+    sideNavNode.insertAdjacentElement('beforebegin', sideNavToggleNode);
 
-  const observer = new ResizeObserver(entries => {
-    for (const entry of entries) {
-      if (entry.target.offsetWidth > 1080) {
-        sideNavNode.removeAttribute('hidden');
-        sideNavToggleNode.setAttribute('aria-expanded', 'true');
-      } else {
-        sideNavNode.setAttribute('hidden', '');
-        sideNavToggleNode.setAttribute('aria-expanded', 'false')
+    const observer = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        if (entry.target.offsetWidth > 1080) {
+          sideNavNode.removeAttribute('hidden');
+          sideNavToggleNode.setAttribute('aria-expanded', 'true');
+        } else {
+          sideNavNode.setAttribute('hidden', '');
+          sideNavToggleNode.setAttribute('aria-expanded', 'false')
+        }
       }
-    }
-  });
+    });
 
-  observer.observe(document.querySelector('body'));
+    observer.observe(document.querySelector('body'));
 
-  document.addEventListener('click', event => {
-    const clickedSidebarMobileToggle = event.target.closest('[data-rvt-sidebar-toggle]');
-    if (!clickedSidebarMobileToggle) return;
+    document.addEventListener('click', event => {
+      const clickedSidebarMobileToggle = event.target.closest('[data-rvt-sidebar-toggle]');
+      if (!clickedSidebarMobileToggle) return;
 
-    function showNavigation() {
-      clickedSidebarMobileToggle.setAttribute('aria-expanded', 'true');
-      sideNavNode.removeAttribute('hidden');
-    }
+      function showNavigation() {
+        clickedSidebarMobileToggle.setAttribute('aria-expanded', 'true');
+        sideNavNode.removeAttribute('hidden');
+      }
 
-    function hideNavigation() {
-      clickedSidebarMobileToggle.setAttribute('aria-expanded', 'false');
-      sideNavNode.setAttribute('hidden', '');
-    }
+      function hideNavigation() {
+        clickedSidebarMobileToggle.setAttribute('aria-expanded', 'false');
+        sideNavNode.setAttribute('hidden', '');
+      }
 
-    clickedSidebarMobileToggle.getAttribute('aria-expanded') === "false" ?
-      showNavigation() :
-      hideNavigation();
-  });
+      clickedSidebarMobileToggle.getAttribute('aria-expanded') === "false" ?
+        showNavigation() :
+        hideNavigation();
+    });
+  }
 </script>
 </body>
 </html>

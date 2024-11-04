@@ -44,7 +44,6 @@
   input[type='checkbox'] ~ label::before {
     background-color: $color-white-base;
     border: math.div($spacing-xxs, 2) solid $color-black-300;
-    border-radius: math.div($spacing-xxs, 2);
     content: '';
     display: inline-block;
     height: $spacing-sm;
@@ -68,9 +67,8 @@
   }
 
   input[type='checkbox']:focus ~ label::before {
-    box-shadow:
-      0 0 0 math.div($spacing-xxs, 2) $color-white-base,
-      0 0 0 $spacing-xxs $color-blue-400;
+    outline: 2px solid $color-blue-400;
+    outline-offset: 2px;
   }
 
   input[type='checkbox']:disabled {

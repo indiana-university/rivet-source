@@ -53,6 +53,11 @@
     margin-top: $spacing-xs;
   }
 
+  &--feature &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .0825rem;
+  }
+
   &__title {
     font-size: $ts-18;
     font-weight: $font-weight-medium;

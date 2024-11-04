@@ -8,9 +8,9 @@ classes: rvt-page
 ---
 {% include "demos/demo-header.njk" %}
 <main>
-  <div class="rvt-section">
+  <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
-      {% include "demos/demo-hero-media-hub.njk" %}
+      {% include "demos/demo-hero.njk" %}
     </div>
   </div>
 
@@ -22,72 +22,8 @@ classes: rvt-page
   <div class="rvt-layout-base rvt-layout-base--single-column">
     <div class="rvt-layout-base__main">
 
-      <div class="rvt-stack">
+      {% include "demos/demo-details-content.njk" %}
 
-        <div class="rvt-rich-text">
-          <h2>Start with a heading</h2>
-          <p>Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis obcaecati minus, nisi rerum corrupti cum.</p>
-          <p>Lorem ipsum dolor sit amet  <a href="#">consectetur adipisicing</a> elit. Nisi aperiam voluptatum fugit deserunt accusantium repudiandae dolor consequatur, eum ad tempora quis veniam tenetur quo officia hic quam modi sit esse.</p>
-          <hr>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ea vero deserunt nulla dignissimos sapiente voluptatem quibusdam! Provident assumenda dolorem aliquam, cupiditate blanditiis numquam officiis quidem iusto recusandae maxime. Doloremque.</p>
-          <h3>Heading 3</h3>
-          <ul>
-            <li>Item one</li>
-            <li>Item two</li>
-            <li>Item three</li>
-            <li>Item four</li>
-          </ul>
-          <img src="https://picsum.photos/id/29/1600/900" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nostrum adipisci, non fugit modi delectus neque labore debitis, eos repellat perspiciatis voluptate voluptatibus libero dignissimos. Harum, consequuntur! Modi, iusto accusamus.</p>
-          <a href="#" class="rvt-link-cta">Test CTA</a>
-        </div>
-
-        <div class="rvt-layout-base__breakout ">
-          <div class="rvt-layout-base__breakout-inner">
-
-            {# <div class="rvt-quote">
-              <blockquote class="rvt-quote__text">
-                <p>One of the reasons I chose IU is because when I got there, it just felt like a really nice community.</p>
-              </blockquote>
-              <p class="rvt-quote__citation">
-                <span class="rvt-quote__title">Author Name</span>
-                <span class="rvt-quote__subtitle">Writer of books, PhD</span>
-              </p>
-            </div> #}
-
-            <figure class="rvt-media-hub">
-              <div class="rvt-media-hub__3">
-                <img src="https://picsum.photos/id/44/800/450" alt="">
-              </div>
-              <div class="rvt-media-hub__3">
-                <img src="https://picsum.photos/id/23/800/450" alt="">
-              </div>
-              <div class="rvt-media-hub__6">
-                <img src="https://picsum.photos/id/19/800/450" alt="">
-              </div>
-            </figure>
-
-          </div>
-        </div>
-
-        <div class="rvt-rich-text">
-          <h2>Start block Heading 2 text</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat in reprehenderit aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis obcaecati minus, nisi rerum corrupti cum.</p>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nisi aperiam voluptatum fugit deserunt accusantium repudiandae dolor consequatur, eum ad tempora quis veniam tenetur quo officia hic quam modi sit esse.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, ea vero deserunt nulla dignissimos sapiente voluptatem quibusdam! Provident assumenda dolorem aliquam, cupiditate blanditiis numquam officiis quidem iusto recusandae maxime. Doloremque.</p>
-          <h3>Heading 3</h3>
-          <p></p><p></p>
-          <ul>
-            <li>Item one</li>
-            <li>Item two</li>
-            <li>Item three</li>
-            <li>Item four</li>
-          </ul>
-        </div>
-
-        {% include "demos/demo-list-hub.njk" %}
-
-      </div>
 
     </div>
   </div>

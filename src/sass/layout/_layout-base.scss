@@ -26,23 +26,16 @@
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-layout-base {
-    grid-template-columns: ($spacing-sm * 16) 1fr;
+    grid-template-columns: ($spacing-sm * 18) 1fr;
     gap: $spacing-xxl;
 
     &__sidebar {
       border-right: 1px solid $color-black-100;
     }
 
-    &__sidebar {
-      padding-block: $spacing-xxl;
-    }
-
+    &__sidebar,
     &__main {
-      // this is a magic number to vertically align
-      // The top border of the first sidebar nav item with
-      // content in the main content column that may
-      // have a top border.
-      padding-block: $spacing-xxl + .8125rem;
+      padding-block: $spacing-xxl;
     }
 
     &__breakout {
