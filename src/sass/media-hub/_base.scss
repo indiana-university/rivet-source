@@ -5,6 +5,7 @@
   gap: $spacing-sm;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto auto;
+  position: relative;
 
   img {
     max-width: auto;
@@ -37,20 +38,39 @@
     padding: 0;
   }
 
-  &__2 {
+  &__1,
+  &__span-1 {
+    grid-column: span 1;
+  }
+
+  &__2,
+  &__span-2 {
     grid-column: span 2;
   }
 
-  &__3 {
+  &__3,
+  &__span-3 {
     grid-column: span 3;
   }
 
-  &__4 {
+  &__4,
+  &__span-4 {
     grid-column: span 4;
   }
 
-  &__6 {
+  &__5,
+  &__span-5 {
+    grid-column: span 5;
+  }
+
+  &__6,
+  &__span-6 {
     grid-column: span 6;
+  }
+
+  &__card {
+    grid-column: 1 / 7;
+    margin-top: -1.5rem;
   }
 
   &--no-gap {
@@ -58,9 +78,14 @@
   }
 }
 
-// @media (max-width: $breakpoint-md) {
-//   .#{$prefix}-media-hub {
-//     display: flex;
-//     flex-direction: column;
-//   }
-// }
+@include mq($breakpoint-md) {
+  .#{$prefix}-media-hub {
+    &__card {
+      margin-top: 0;
+      position: absolute;
+      bottom: 1rem;
+      right: 0;
+      grid-column: 5 / -1;
+    }
+  }
+}

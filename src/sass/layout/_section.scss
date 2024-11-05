@@ -13,7 +13,9 @@
   }
 }
 
-.#{$prefix}-section.rvt-theme-light + .#{$prefix}-section.rvt-theme-light {
+.#{$prefix}-section.rvt-theme-light + .#{$prefix}-section.rvt-theme-light,
+.#{$prefix}-section.rvt-theme-crimson + .#{$prefix}-section.rvt-theme-crimson,
+.#{$prefix}-section.rvt-theme-dark + .#{$prefix}-section.rvt-theme-dark {
   padding-block-start: 0;
 }
 

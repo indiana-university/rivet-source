@@ -2,6 +2,7 @@
 
 .#{$prefix}-billboard {
   position: relative;
+  background-color: var(--rvt-theme-bg-subtle);
 
   & + & {
     margin-top: $spacing-lg;
@@ -77,12 +78,12 @@
 
 @include mq($breakpoint-md) {
   .#{$prefix}-billboard {
-    align-items: center;
+    // align-items: center;
     display: flex;
     flex-direction: row-reverse;
 
     & + & {
-      margin-top: 0;
+      margin-top: $spacing-xxl;
     }
 
     &__title {
@@ -90,7 +91,7 @@
     }
 
     &__image {
-      width: 50%;
+      width: 66%;
     }
 
     &__image img {
@@ -99,10 +100,14 @@
     }
 
     &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       flex-basis: 50%;
       flex-grow: 1;
       margin-top: 0;
       padding-inline: $spacing-xxl;
+      padding-bottom: $spacing-xxl;
     }
 
     &--reverse {

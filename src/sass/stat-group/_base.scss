@@ -3,6 +3,7 @@
 .#{$prefix}-stat-group {
   display: flex;
   flex-wrap: wrap;
+  border-bottom: 1px solid var(--rvt-theme-border);
 
   & > * {
     flex-basis: 0;
@@ -18,6 +19,6 @@
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-stat-group > * {
-    border-right: 1px solid $color-black-100;
+    border-right: 1px solid var(--rvt-theme-border);
   }
 }

@@ -1,15 +1,15 @@
 @use '../core' as *;
 
 .#{$prefix}-card {
-  background-color: $color-white-base;
-  border: 1px solid $color-black-100;
+  background-color: var(--rvt-theme-bg);
+  border: 1px solid var(--rvt-theme-border);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   position: relative;
 
   &--feature  &__title {
-    color: $color-crimson-500;
+    color: var(--rvt-theme-accent-title);
     font-family: $font-condensed;
     font-weight: $font-weight-black;
     font-size: $ts-26;
@@ -18,7 +18,7 @@
   }
 
   &--feature &__title a {
-    color: $color-crimson-500;
+    color: var(--rvt-theme-accent-title);
     text-decoration: none;
   }
 
@@ -39,7 +39,7 @@
   }
 
   &__eyebrow {
-    color: $color-crimson-500;
+    color: var(--rvt-theme-accent);
     font-size: $ts-14;
     font-family: $font-mono;
     text-decoration: none;
@@ -66,7 +66,7 @@
   }
 
   &__title a {
-    color: $color-black-500;
+    color: var(--rvt-theme-text);
     display: block;
     text-decoration: none;
   }
@@ -108,7 +108,7 @@
   }
 
   &__title a:hover {
-    color: $color-crimson-500;
+    color: var(--rvt-theme-accent);
     text-decoration: underline;
   }
 
@@ -117,7 +117,7 @@
   }
 
   &__content {
-    color: $color-black-400;
+    color: var(--rvt-theme-text-subtle);
     flex-grow: 1;
     margin-top: $spacing-sm;
 
@@ -199,4 +199,11 @@
   .#{$prefix}-card__body {
     padding: 0;
   }
+}
+
+// Non-global theme specific
+
+.#{$prefix}-theme-crimson .#{$prefix}-card:not(.#{$prefix}-theme-light) .#{$prefix}-card__title a::before,
+.#{$prefix}-theme-dark .#{$prefix}-card:not(.#{$prefix}-theme-light) .#{$prefix}-card__title a::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"/></svg>');
 }

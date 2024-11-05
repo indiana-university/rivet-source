@@ -1,10 +1,10 @@
 @use '../core' as *;
 
 .#{$prefix}-stat {
-  color: $color-black-base;
+  color: var(--rvt-theme-text);
   text-decoration: none;
   transition: all .2s ease;
-  background-color: $color-white-base;
+  background-color: var(--rvt-theme-bg);
   display: flex;
   justify-content: center;
   padding: $spacing-xl $spacing-md;
@@ -12,7 +12,7 @@
   &[href]:hover {
     transform: scale(1.1);
     box-shadow: $shadow-heavy;
-    color: $color-crimson-500;
+    color: var(--theme-accent);
     border-radius: $spacing-xs;
   }
 
@@ -38,11 +38,11 @@
     line-height: $line-height-tight;
     font-family: $font-mono;
     font-weight: $font-weight-bold;
-    color: $color-crimson-500;
+    color: var(--rvt-theme-accent-title);
   }
 
   &__description {
-    color: $color-crimson-500;
+    color: var(--rvt-theme-accent-title);
     font-weight: $font-weight-medium;
     font-size: $ts-14;
     letter-spacing: .025rem;

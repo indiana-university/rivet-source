@@ -12,7 +12,7 @@ classes: rvt-page
     <div class="rvt-container">
       {# {% include "demos/demo-hero-landing-page.njk" %} #}
 
-      <div class="rvt-hero rvt-hero--feature">
+      <div class="rvt-hero rvt-hero--statement">
         <div class="rvt-hero__inner">
 
           <div class="rvt-hero__body">
@@ -28,6 +28,26 @@ classes: rvt-page
               <a href="/#" class="rvt-button rvt-button--outline">See all degrees</a>
             </div>
           </div>
+
+          <figure class="rvt-media-hub">
+            <div class="rvt-media-hub__6">
+              <img src="https://picsum.photos/id/67/1180/590" alt="">
+            </div>
+            {# <figcaption class="rvt-media-hub__caption">Test caption</figcaption> #}
+            <div class="rvt-media-hub__card rvt-theme-crimson">
+
+              <div class="rvt-card [ rvt-border-all-none ]">
+                <div class="rvt-card__body">
+                  <rvt-sticker name="cap" theme="crimson" size="sm"></rvt-sticker>
+                  <div class="rvt-card__eyebrow [ rvt-m-top-sm ]">{Tag or Category}</div>
+                  <h2 class="rvt-card__title">
+                    <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+                  </h2>
+                </div>
+              </div>
+
+            </div>
+          </figure>
 
         </div>
       </div><!-- End hero -->
@@ -80,15 +100,15 @@ classes: rvt-page
 
         <div class="rvt-media-hub">
           <div class="rvt-media-hub__6">
-            <img src="https://picsum.photos/id/99/1600/900" alt="">
+            <img src="https://picsum.photos/id/128/1600/900" alt="">
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-light">
-    <div class="rvt-container rvt-container--fluid rvt-border-bottom">
+  <div class="rvt-section rvt-theme-light [ rvt-p-top-none ]">
+    <div class="rvt-container rvt-container--full-bleed">
       {% include "demos/demo-stats.njk" %}
     </div>
   </div>
@@ -104,7 +124,7 @@ classes: rvt-page
 
       <div class="rvt-media-hub">
         <div class="rvt-media-hub__6 rvt-media-hub__16x9">
-         <img src="https://picsum.photos/id/44/1600/900" alt="">
+         <img src="https://picsum.photos/id/166/1600/900" alt="">
         </div>
         <div class="rvt-media-hub__3">
           <img src="https://picsum.photos/id/24/800/450" alt="">
@@ -138,21 +158,20 @@ classes: rvt-page
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-light [ rvt-p-top-none ]">
-    <div class="rvt-container rvt-container--full-bleed">
-
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
       <div class="rvt-billboard rvt-billboard--reverse">
         <div class="rvt-billboard__image">
-          <img src="https://picsum.photos/id/32/800/800" alt="Student in vintage-style Indiana University t-shirt">
+          <img src="https://picsum.photos/id/20/800/800" alt="Student in vintage-style Indiana University t-shirt">
         </div>
-        <div class="rvt-billboard__body">
-          <p class="rvt-billboard__eyebrow">Section name</p>
-          <h2 class="rvt-billboard__title">Become the best version of yourself at IU</h2>
+        <div class="rvt-billboard__body ">
+          <p class="rvt-billboard__eyebrow">{Tag or category}</p>
+          <h2 class="rvt-billboard__title">{title should not exceed 32 characters}</h2>
           <div class="rvt-billboard__content">
-            <p>Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.</p>
+            <p>{Billboard descriptions should not exceed one paragraph or 32 characters. One to two brief sentences will keep the user engaged with your content.}</p>
             <div class="rvt-flex rvt-gap-md rvt-items-center">
-              <a class="rvt-button rvt-button--outline" href="/#">Explore more of IU</a>
-              <a class="rvt-button" href="/#">Get help</a>
+              <a class="rvt-button rvt-button--outline" href="/#">{Lorem Ipusum}</a>
+              {# <a class="rvt-button" href="/#">Get help</a> #}
             </div>
           </div>
         </div>
@@ -160,21 +179,20 @@ classes: rvt-page
 
       <div class="rvt-billboard">
         <div class="rvt-billboard__image">
-          <img src="https://picsum.photos/id/33/800/800" alt="Student in vintage-style Indiana University t-shirt">
+          <img src="https://picsum.photos/id/10/800/800" alt="Student in vintage-style Indiana University t-shirt">
         </div>
         <div class="rvt-billboard__body">
-          <p class="rvt-billboard__eyebrow">Section name</p>
-          <h2 class="rvt-billboard__title">Become the best version of yourself at IU</h2>
+          <p class="rvt-billboard__eyebrow">{Tag or category}</p>
+          <h2 class="rvt-billboard__title">{title should not exceed 32 characters}</h2>
           <div class="rvt-billboard__content">
-            <p>Develop the skills you need for a rewarding career, and follow in the footsteps of more than 729,000 IU alumni who are leading organizations, innovating the future, and making an impact on their communities and the world.</p>
+            <p>{Billboard descriptions should not exceed one paragraph or 32 characters. One to two brief sentences will keep the user engaged with your content.}</p>
             <div class="rvt-flex rvt-gap-md rvt-items-center">
-              <a class="rvt-button rvt-button--outline" href="/#">Explore more of IU</a>
-              <a class="rvt-button" href="/#">Get help</a>
+              <a class="rvt-button rvt-button--outline" href="/#">{Lorem Ipusum}</a>
+              {# <a class="rvt-button" href="/#">{Lorem Ipusum}</a> #}
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -189,6 +207,77 @@ classes: rvt-page
         </div>
       </div>
 
+    </div>
+
+    <div class="rvt-container">
+      <div class="rvt-card rvt-flex-row rvt-items-center ">
+        <div class="rvt-cal [ rvt-m-all-md ]">
+          <span class="rvt-cal__month">Jan</span>
+          <span class="rvt-cal__day">20</span>
+          <span class="rvt-cal__year">2023</span>
+        </div>
+        <div class="rvt-card__body rvt-p-all-none">
+          <div class="rvt-card__eyebrow">{Tag or Category}</div>
+          <h2 class="rvt-card__title">
+            <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="rvt-container">
+      <ul class="rvt-grid rvt-grid--3">
+        {% for card in range(0, 3) %}
+        <li>
+          <div class="rvt-card">
+            <div class="rvt-card__image">
+              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 5 }}/600/400" alt="Smiling students sitting outside on a bench">
+            </div>
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title [ rvt-font-serif rvt-ts-20 ]">
+                <a href="#">{title should not exceed 32 characters}</a>
+              </h2>
+              <div class="rvt-card__content">
+                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+
+      {% include "demos/demo-quote.njk" %}
+
+    </div>
+  </div>
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+
+      {% include "demos/demo-callout.njk" %}
+
+    </div>
+  </div>
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-grid rvt-grid--2 [ rvt-gap-xxl ]">
+
+        <div>
+        <img src="https://picsum.photos/id/33/600/400" alt="Student in vintage-style Indiana University t-shirt">
+        </div>
+
+        <div>
+          {% include "demos/demo-list-hub.njk" %}
+        </div>
+
+      </div>
     </div>
   </div>
 
