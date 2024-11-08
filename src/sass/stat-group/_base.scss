@@ -3,7 +3,6 @@
 .#{$prefix}-stat-group {
   display: flex;
   flex-wrap: wrap;
-  border-bottom: 1px solid var(--rvt-theme-border);
 
   & > * {
     flex-basis: 0;
