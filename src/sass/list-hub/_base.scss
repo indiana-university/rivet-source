@@ -5,7 +5,7 @@
 @use 'sass:math';
 
 .#{$prefix}-list-hub {
-  background-color: var(--rvt-theme-bg);
+  background-color: transparent;
 
   &__title {
     color: var(--rvt-theme-accent);
