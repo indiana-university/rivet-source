@@ -21,6 +21,10 @@
     display: block;
   }
 
+  figcaption {
+    grid-column: 1 / -1;
+  }
+
   &__16x9 > * {
     aspect-ratio: 16 / 9;
   }

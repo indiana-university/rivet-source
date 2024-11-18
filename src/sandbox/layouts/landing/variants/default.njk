@@ -8,57 +8,110 @@ classes: rvt-page
 ---
 {% include "demos/demo-header.njk" %}
 <main id="main-content">
-  <div class="rvt-section rvt-theme-light">
-    <div class="rvt-container">
-      {# {% include "demos/demo-hero-landing-page.njk" %} #}
+  <!--
+    When the hero is crimson theme we need to remove the bottom section padding
+    for alignment purposes
+  -->
+  <div class="rvt-section [ rvt-theme-light ]">
 
-      <div class="rvt-hero rvt-hero--statement">
-        <div class="rvt-hero__inner">
+    <div class="rvt-hero rvt-hero--statement">
+      <div class="rvt-hero__inner">
 
-          <div class="rvt-hero__body">
-            <span class="rvt-hero__eyebrow">
-              {Section or category}
-            </span>
-            <h1 class="rvt-hero__title">{Title should not exceed 16 characters}</h1>
-            <div class="rvt-hero__teaser">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, at possimus quia consequuntur veniam sunt, facilis nemo.</p>
-            </div>
-            <div class="rvt-hero__actions">
-              <a href="/#" class="rvt-button rvt-button--solid">Discover careers</a>
-              <a href="/#" class="rvt-button rvt-button--outline">See all degrees</a>
-            </div>
+        <div class="rvt-hero__body">
+          <span class="rvt-hero__eyebrow">
+            {Section or category}
+          </span>
+          <h1 class="rvt-hero__title">{Title should not exceed 16 characters}</h1>
+          <div class="rvt-hero__teaser">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, at possimus quia consequuntur veniam sunt, facilis nemo.</p>
           </div>
+          <div class="rvt-hero__actions">
+            <a href="/#" class="rvt-button rvt-button--solid">Discover careers</a>
+            <a href="/#" class="rvt-button rvt-button--outline">See all degrees</a>
+          </div>
+        </div>
 
-          <figure class="rvt-media-hub">
-            <div class="rvt-media-hub__6">
-              <img src="https://picsum.photos/id/67/1180/590" alt="">
-            </div>
-            {# <figcaption class="rvt-media-hub__caption">Test caption</figcaption> #}
-            <div class="rvt-media-hub__card rvt-theme-crimson">
+      </div>
 
-              <div class="rvt-card [ rvt-border-all-none ]">
-                <div class="rvt-card__body">
-                  <rvt-sticker name="cap" theme="crimson" size="sm"></rvt-sticker>
-                  <div class="rvt-card__eyebrow [ rvt-m-top-sm ]">{Tag or Category}</div>
-                  <h2 class="rvt-card__title">
-                    <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
-                  </h2>
+      <div class="rvt-hero__banner">
+
+        <div class="rvt-hero__banner-callout">
+          <div class="rvt-hero__banner-callout-inner">
+
+            <div class="rvt-card rvt-card--raised rvt-card--clickable [ rvt-theme-crimson ]">
+              <div class="rvt-card__body">
+                <div class="rvt-card__eyebrow">Category</div>
+                <h2 class="rvt-card__title">
+                  <a href="#">Find your ideal campus life at IU</a>
+                </h2>
+                <div class="rvt-card__content [ rvt-ts-14 ]">
+                  <p>Organizations, innovating the future, and making an impact on their communities and the world.</p>
                 </div>
               </div>
-
             </div>
-          </figure>
 
+          </div>
         </div>
-      </div><!-- End hero -->
+
+        <div class="rvt-hero__banner-media">
+          <div>
+            <img src="https://picsum.photos/id/10/1600/800" alt="This image can have alt text now">
+          </div>
+          {# <div>
+            <img src="https://picsum.photos/id/98/800/800" alt="This image can have alt text now">
+          </div>
+          <div>
+            <img src="https://picsum.photos/id/128/800/800" alt="This image can have alt text now">
+          </div> #}
+        </div>
+      </div>
 
     </div>
   </div>
 
   <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
+      {% include "demos/demo-stats.njk" %}
+    </div>
+  </div>
 
-      <ul class="rvt-grid rvt-grid--3">
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-stack">
+        <div class="rvt-section-intro rvt-section-intro--feature">
+          <span class="rvt-section-intro__eyebrow">{Section or category}</span>
+          <h2 class="rvt-section-intro__title">{Section title not exceed 40 characters}</h2>
+          <div class="rvt-section-intro__teaser">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos adipisci perferendis, voluptas alias officiis repudiandae nemo ut ex mollitia est quaerat temporibus dolor tenetur accusamus? Soluta quos doloremque nisi voluptas!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat exercitationem eaque repudiandae culpa officia porro quidem debitis repellat quas necessitatibus maxime iste molestias magnam, assumenda modi? Vel corrupti quos necessitatibus!</p>
+          </div>
+          <div class="rvt-section-intro__actions">
+            <a class="rvt-button rvt-button--outline" href="/#0">More about CTA</a>
+          </div>
+        </div>
+
+        <div class="rvt-media-hub">
+          <div class="rvt-media-hub__6">
+            <img src="https://picsum.photos/id/128/1600/900" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="rvt-section rvt-theme-crimson">
+    <div class="rvt-container">
+
+      <div class="rvt-section-intro">
+        <span class="rvt-section-intro__eyebrow">{Section or category}</span>
+        <h2 class="rvt-section-intro__title">{Section title not exceed 40 characters}</h2>
+        <div class="rvt-section-intro__actions">
+          <a class="rvt-button rvt-button--outline" href="/#0">More about CTA</a>
+        </div>
+      </div>
+
+      <ul class="rvt-grid rvt-grid--3 [ rvt-m-top-xl ]">
         {% for card in range(0, 3) %}
         <li>
           <div class="rvt-card rvt-card--feature">
@@ -85,44 +138,14 @@ classes: rvt-page
 
   <div class="rvt-section rvt-theme-crimson">
     <div class="rvt-container">
-      <div class="rvt-stack">
-        <div class="rvt-section-intro rvt-section-intro--feature">
-          <span class="rvt-section-intro__eyebrow">{Section or category}</span>
-          <h2 class="rvt-section-intro__title">{Section title not exceed 40 characters}</h2>
-          <div class="rvt-section-intro__teaser">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos adipisci perferendis, voluptas alias officiis repudiandae nemo ut ex mollitia est quaerat temporibus dolor tenetur accusamus? Soluta quos doloremque nisi voluptas!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat exercitationem eaque repudiandae culpa officia porro quidem debitis repellat quas necessitatibus maxime iste molestias magnam, assumenda modi? Vel corrupti quos necessitatibus!</p>
-          </div>
-          <div class="rvt-section-intro__actions">
-            <a class="rvt-button rvt-button--outline" href="/#0">More about CTA</a>
-          </div>
-        </div>
-
-        <div class="rvt-media-hub">
-          <div class="rvt-media-hub__6">
-            <img src="https://picsum.photos/id/128/1600/900" alt="">
-          </div>
-        </div>
-      </div>
+      <p class="rvt-m-all-none rvt-ts-46 rvt-lh-tight rvt-font-serif rvt-p-right-4-xl-md-up">{Simple one to two sentence statement about about school or site that can also serve as a way to link to sections. Learn more about <a class="rvt-text-bold" href="#">lorem ipsum</a>.}</p>
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-light [ rvt-p-top-none ]">
-    <div class="rvt-container rvt-container--full-bleed">
-      {% include "demos/demo-stats.njk" %}
-    </div>
-  </div>
-
-  <div class="rvt-section rvt-theme-light">
-    <div class="rvt-container">
-      <p class="rvt-m-all-none rvt-ts-46 rvt-lh-tight rvt-color-crimson-500 rvt-font-serif rvt-p-right-4-xl-md-up">{Simple one to two sentence statement about about school or site that can also serve as a way to link to sections. Learn more about <a class="rvt-text-bold rvt-color-crimson-500" href="#">lorem ipsum</a>.}</p>
-    </div>
-  </div>
-
-  <div class="rvt-section rvt-theme-light">
+  <div class="rvt-section rvt-theme-crimson">
     <div class="rvt-container">
 
-      <div class="rvt-media-hub">
+      <figure class="rvt-media-hub">
         <div class="rvt-media-hub__6 rvt-media-hub__16x9">
          <img src="https://picsum.photos/id/166/1600/900" alt="">
         </div>
@@ -132,12 +155,13 @@ classes: rvt-page
         <div class="rvt-media-hub__3">
           <img src="https://picsum.photos/id/23/800/450" alt="">
         </div>
-      </div>
+        <figcaption>{Short caption or description}</figcaption>
+      </figure>
 
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-crimson">
+  <div class="rvt-section rvt-theme-light">
     <div class="rvt-container [ rvt-stack ]">
       <div class="rvt-section-intro">
         <span class="rvt-section-intro__eyebrow">{Section or category}</span>
@@ -270,7 +294,7 @@ classes: rvt-page
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-light">
+  <div class="rvt-section rvt-theme-crimson">
     <div class="rvt-container">
 
       {% include "demos/demo-quote.njk" %}
