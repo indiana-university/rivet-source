@@ -30,6 +30,10 @@ ol.rvt-grid {
   .rvt-grid--4 {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .rvt-grid--sidebar {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 @include mq($breakpoint-lg) {

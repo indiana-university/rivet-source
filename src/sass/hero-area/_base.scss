@@ -74,21 +74,13 @@ $_hero-grid-gap: $spacing-lg;
   }
 
   &--statement &__banner-callout {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: $z-index-100;
+    margin-top: $spacing-lg;
   }
 
   &--statement &__banner-callout-inner {
     @include container;
     display: flex;
     justify-content: flex-end;
-  }
-
-  &--statement &__banner-callout-inner > * {
-    max-width: 45%;
-    margin-bottom: $spacing-xl * -1;
   }
 
   &--statement &__banner-media {
@@ -155,12 +147,45 @@ $_hero-grid-gap: $spacing-lg;
       width: auto;
     }
 
-    &--feature &__title {
-      line-height: 1.1;
+    &--statement &__banner {
+      margin-top: $spacing-xl;
+    }
+
+    &--statement &__banner-callout {
+      margin-top: 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: $z-index-100;
+    }
+
+    &--statement &__banner-callout-inner > * {
+      max-width: 55%;
+      margin-bottom: $spacing-xl * -1;
+    }
+
+    &--feature &__title,
+    &--statement &__title,
+    &--split &__title {
+      line-height: 1;
+    }
+
+    &--feature &__actions {
+      min-width: 27rem;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-self: flex-end;
     }
 
     &--profile &__subtitle {
       font-size: $ts-26;
+    }
+
+    &--split &__media img {
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
@@ -184,16 +209,23 @@ $_hero-grid-gap: $spacing-lg;
       font-size: $ts-29;
     }
 
-    &--statement &__title {
-      font-size: 4.125rem;
+    &--statement &__title,
+    &--feature &__title,
+    &--split &__title {
+      font-size: 4rem;
     }
-  }
-}
 
-@include mq($breakpoint-xl) {
-  .#{$prefix}-hero {
-    &--feature &__title {
-      font-size: 4.125rem;
+    &--split &__inner {
+      gap: $spacing-xxl;
+    }
+
+    &--split &__body,
+    &--split &__media {
+      width: 50%;
+    }
+
+    &--split &__media {
+
     }
   }
 }

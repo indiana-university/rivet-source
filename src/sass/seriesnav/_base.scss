@@ -4,31 +4,10 @@
 @use '../core' as *;
 
 .#{$prefix}-seriesnav {
-  border-top: 1px solid $color-black-100;
-  border-bottom: 1px solid $color-black-100;
+  border: 1px solid $color-black-100;
 
   &__previous {
     flex-direction: row-reverse;
-  }
-
-  &__icon {
-    align-items: center;
-    color: $color-black-300;
-    border-radius: 999rem;
-    border: 1px solid $color-black-200;
-    display: flex;
-    flex-shrink: 0;
-    height: $spacing-lg;
-    justify-content: center;
-    width: $spacing-lg;
-  }
-
-  &__previous &__icon {
-    margin-right: auto;
-  }
-
-  &__next &__icon {
-    margin-left: auto;
   }
 
   &__previous &__text {
@@ -55,13 +34,32 @@
     }
   }
 
-  &__label,
   &__item {
     display: block;
   }
 
+  &__item {
+    font-weight: $font-weight-medium;
+    font-size: $ts-20;
+  }
+
   &__label {
-    color: $color-black-400;
+    color: var(--rvt-theme-accent);
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+    font-family: $font-mono;
+    letter-spacing: .05rem;
+
+    display: flex;
+    gap: $spacing-xxs;
+  }
+
+  &__previous &__label::before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: red;
   }
 }
 
@@ -82,6 +80,8 @@
 
     &__next {
       padding-left: $spacing-md;
+      justify-content: flex-end;
+      text-align: right;
     }
   }
 }

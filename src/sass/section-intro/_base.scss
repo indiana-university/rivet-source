@@ -84,12 +84,42 @@
 
 @include mq($breakpoint-md) {
   .#{$prefix}-section-intro {
-    &__title {
+    &--feature &__title {
       font-size: $ts-46;
     }
 
     &__teaser {
       font-size: $ts-20;
+    }
+  }
+}
+
+@include mq($breakpoint-lg) {
+  .#{$prefix}-section-intro {
+    &--teaser {
+      max-width: 100%;
+      display: flex;
+      gap: $spacing-lg;
+      flex-wrap: wrap;
+    }
+
+    &--teaser,
+    &__teaser {
+      text-align: left;
+    }
+
+    &--teaser &__actions {
+      margin-top: 0;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-basis: 16rem;
+      flex-grow: 1;
+    }
+
+    &--teaser &__body {
+      flex-basis: 0;
+      flex-grow: 999;
+      min-width: 50%;
     }
   }
 }

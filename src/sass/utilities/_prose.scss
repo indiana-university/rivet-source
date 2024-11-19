@@ -54,7 +54,7 @@
   :where(li),
   :where(td),
   :where(dt) {
-    color: var(--rvt-theme-text);
+    color: var(--rvt-theme-text-subtle);
   }
 
   > img,
@@ -64,6 +64,12 @@
   > hr,
   > hr + * {
     --rvt-rich-text-stack-space: #{$spacing-xl};
+  }
+
+  // Reduce the amount of stack space if a heading is
+  // immediately followed by another heading
+  > :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
+    --rvt-rich-text-stack-space: #{$spacing-sm};
   }
 
   > :where(dl) {

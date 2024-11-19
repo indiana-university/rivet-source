@@ -111,16 +111,17 @@
     });
 </script>
 <script>
+  // Sidenav mobile toggle prototype
   const sideNavNode = document.querySelector('[data-rvt-sidenav="base-two-column"]');
   if (sideNavNode !== null) {
-    const sideNavToggleNode = document.createElement('button');
-    sideNavToggleNode.classList.add('rvt-sidenav__mobile-toggle');
-    sideNavToggleNode.setAttribute('data-rvt-sidebar-toggle', '');
-    sideNavToggleNode.setAttribute('aria-expanded', false);
-    sideNavToggleNode.innerHTML = `
-      <span>Section menu</span>
-      <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
+    const template = document.createElement('template');
+    template.innerHTML = `
+      <button class="rvt-sidenav__mobile-toggle" data-rvt-sidebar-toggle="" aria-expanded="false">
+        <span>Section menu</span>
+        <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
+      </button>
     `;
+    const sideNavToggleNode = template.content.cloneNode(true).firstElementChild;
     sideNavNode.insertAdjacentElement('beforebegin', sideNavToggleNode);
 
     const observer = new ResizeObserver(entries => {

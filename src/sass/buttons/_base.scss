@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   gap: $spacing-xs;
-  background: transparent;
+  background: var(--rvt-theme-bg);
   color: var(--rvt-theme-accent);
   cursor: pointer;
   border: 1px solid var(--rvt-theme-accent-border);

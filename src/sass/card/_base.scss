@@ -208,6 +208,8 @@
   background-color: var(--rvt-theme-bg-subtle);
 }
 
+.#{$prefix}-theme-crimson.#{$prefix}-card .#{$prefix}-card__title a::before,
+.#{$prefix}-theme-dark.#{$prefix}-card .#{$prefix}-card__title a::before,
 .#{$prefix}-theme-crimson .#{$prefix}-card:not(.#{$prefix}-theme-light) .#{$prefix}-card__title a::before,
 .#{$prefix}-theme-dark .#{$prefix}-card:not(.#{$prefix}-theme-light) .#{$prefix}-card__title a::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"/></svg>');
