@@ -7,44 +7,6 @@
   container-type: inline-size;
   container-name: contact;
 
-  &__intro-eyebrow {
-    color: var(--rvt-theme-accent-title);
-    font-size: $ts-12;
-    letter-spacing: .125rem;
-    text-transform: uppercase;
-  }
-
-  &__intro-title {
-    text-transform: uppercase;
-    font-family: $font-condensed;
-    font-weight: $font-weight-black;
-    color: var(--rvt-theme-accent-title);
-    font-size: $ts-29;
-  }
-
-  &__intro-teaser {
-    font-size: $ts-18;
-    color: var(--rvt-theme-text-subtle);
-
-    > * {
-      margin: 0;
-    }
-
-    > * + * {
-      margin-top: $spacing-md;
-    }
-  }
-
-  &__intro-actions {
-    display: flex;
-    gap: $spacing-sm;
-  }
-
-  &__intro-teaser,
-  &__intro-actions {
-    margin-top: $spacing-md;
-  }
-
   &__address-eyebrow {
     font-size: $ts-14;
     font-family: $font-mono;
@@ -154,7 +116,7 @@
 
     &__icon-list {
       padding-left: $spacing-lg;
-      border-left: 1px solid $color-black-100;
+      border-left: 1px solid var(--rvt-theme-border);
     }
   }
 }
