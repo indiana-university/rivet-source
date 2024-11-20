@@ -103,6 +103,10 @@
       flex-wrap: wrap;
     }
 
+    &--teaser &__title {
+      margin-top: $spacing-xs;
+    }
+
     &--teaser,
     &__teaser {
       text-align: left;
