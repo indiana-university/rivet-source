@@ -73,33 +73,6 @@ $_hero-grid-gap: $spacing-lg;
 
   &--statement &__banner {
     margin-top: $spacing-lg;
-    position: relative;
-  }
-
-  &--statement &__banner-callout {
-    margin-top: $spacing-lg;
-  }
-
-  &--statement &__banner-callout-inner {
-    @include container;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  &--statement &__banner-media {
-    display: flex;
-    gap: $spacing-xs;
-
-    > * {
-      flex-grow: 1;
-      flex-shrink: 1;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 
   &--profile &__subtitle {
@@ -154,21 +127,26 @@ $_hero-grid-gap: $spacing-lg;
       width: auto;
     }
 
+    &--statement {
+      flex-direction: column;
+    }
+
     &--statement &__banner {
-      margin-top: $spacing-xl;
+      @include container();
     }
 
     &--statement &__banner-callout {
-      margin-top: 0;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      z-index: $z-index-100;
-    }
+      position: relative;
 
-    &--statement &__banner-callout-inner > * {
-      max-width: 55%;
-      // margin-bottom: $spacing-xl * -1;
+      > * {
+        position: absolute;
+        bottom: $spacing-xs;
+        right: 0;
+        // bottom: $spacing-sm;
+        // left: 0;
+        width: 100%;
+        max-width: 55%;
+      }
     }
 
     &--feature &__title,
