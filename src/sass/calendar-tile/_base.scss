@@ -4,15 +4,14 @@
 @use '../core' as *;
 
 .#{$prefix}-cal {
-  font-size: $ts-32;
-  font-weight: $font-weight-bold;
-  background-color: $color-black-000;
+  color: var(--rvt-theme-accent-title);
+  background-color: var(--rvt-theme-accent-subtle);
   display: inline-flex;
-  padding: .75rem $spacing-sm;
+  padding: $spacing-sm;
   line-height: 1.1;
   position: relative;
-  border-top: $spacing-xs solid $color-crimson-500;
   flex-direction: column;
+  font-family: $font-mono;
 
   &__month,
   &__day,
@@ -23,21 +22,19 @@
     text-transform: uppercase;
   }
 
-  &__month {
-    color: $color-black-700;
-    font-size: $ts-14;
+  &__month,
+  &__year {
+    letter-spacing: .075rem;
   }
 
   &__day {
-    font-weight: $font-weight-regular;
-    font-size: $ts-23;
+    font-weight: $font-weight-medium;
+    font-size: $ts-36;
     margin-top: $spacing-xxs;
+    letter-spacing: .075rem;
   }
 
   &__year {
-    color: $color-black-700;
-    font-size: $ts-14;
-    font-weight: $font-weight-regular;
     margin-top: $spacing-xxs;
   }
 }
