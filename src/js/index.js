@@ -23,6 +23,7 @@ import Dialog from './components/dialog'
 import Disclosure from './components/disclosure'
 import Dropdown from './components/dropdown'
 import FileInput from './components/fileInput'
+import PriorityNav from './components/priority-nav'
 import Sidenav from './components/sidenav'
 import Switch from './components/switch'
 import Tabs from './components/tabs'
@@ -38,6 +39,7 @@ function init () {
   Dropdown.initAll()
   FileInput.initAll()
   Dialog.initAll()
+  PriorityNav.initAll()
   Sidenav.initAll()
   Switch.initAll()
   Tabs.initAll()
