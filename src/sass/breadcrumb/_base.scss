@@ -7,9 +7,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
+  display: inline-flex;
+  padding: $spacing-xs $spacing-sm;
   flex-wrap: wrap;
   gap: $spacing-xxs * .75;
+  background-color: var(--rvt-theme-bg-subtle);
 
   li {
     line-height: 1.25rem;
@@ -23,14 +25,14 @@
       content: '';
       width: $spacing-sm;
       height: $spacing-sm;
-      @include bg-icon-chevron-right($color-black-200);
+      @include bg-icon-chevron-right($color-crimson-500);
       background-repeat: no-repeat;
       background-position: center;
     }
 
     a {
       text-decoration: none;
-      color: var(--rvt-theme-accent);
+      color: var(--rvt-theme-text);
 
       &:hover {
         text-decoration: underline;
@@ -42,7 +44,9 @@
     color: var(--rvt-theme-accent);
 
     &::before {
-      content: none;
+      @include bg-icon-home($color-black-400);
+      background-size: $spacing-sm * .875;
+      background-position: center top;
     }
   }
 
@@ -75,14 +79,15 @@
   @include bg-icon-chevron-right($color-orange-200);
 }
 
+.#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li:first-child::before {
+  @include bg-icon-home($color-white-base);
+}
+
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li::before {
   @include bg-icon-chevron-right($color-black-200);
 }
 
-// Themes - common
-.#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li:first-child::before,
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li:first-child::before {
-  content: none;
+  @include bg-icon-home($color-white-base);
 }
-
 

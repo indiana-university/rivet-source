@@ -33,9 +33,12 @@
       border-right: 1px solid $color-black-100;
     }
 
-    &__sidebar,
+    &__sidebar {
+      padding-block: $spacing-xxl * 1.25;
+    }
+
     &__main {
-      padding-block: $spacing-xxl;
+      padding-block: $spacing-md;
     }
 
     &__breakout {
