@@ -16,8 +16,8 @@
   --rvt-grid-gap: 0;
 }
 
-ul.rvt-grid,
-ol.rvt-grid {
+:where(ul.rvt-grid),
+:where(ol.rvt-grid) {
   list-style: "";
   padding-left: 0;
   padding-inline-start: 0;

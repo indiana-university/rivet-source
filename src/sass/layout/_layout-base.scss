@@ -40,12 +40,12 @@
 
     &__breakout {
       width: 100vw;
-      // 16rem = sidebar width
+      // 18rem = sidebar width
       // 4rem = grid gap
       // --------------------
-      // 20rem / 2 = 10rem
-      margin-left: calc(-50vw + calc(50% - 10rem));
-      padding-block: $spacing-lg;
+      // 22rem / 2 = 11rem
+      margin-left: calc(-50vw + calc(50% - 11rem));
+      padding-block: $spacing-xl;
     }
 
     &__breakout-inner {

@@ -161,7 +161,7 @@ $_hero-grid-gap: $spacing-lg;
 
     &--statement &__banner-callout-inner > * {
       max-width: 55%;
-      margin-bottom: $spacing-xl * -1;
+      // margin-bottom: $spacing-xl * -1;
     }
 
     &--feature &__title,

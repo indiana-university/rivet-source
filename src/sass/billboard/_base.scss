@@ -56,29 +56,10 @@
     width: 100%;
     display: block;
   }
-
-  &--center &__body {
-    text-align: center;
-    max-width: $width-xxl * 1.5;
-    margin-top: 0;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  &--center &__title {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-
-  &--center &__image {
-    display: none;
-  }
 }
 
 @include mq($breakpoint-md) {
   .#{$prefix}-billboard {
-    // align-items: center;
     display: flex;
     flex-direction: row-reverse;
 
@@ -95,7 +76,8 @@
     }
 
     &__image img {
-      min-height: 100%;
+      height: 100%;
+      width: 100%;
       object-fit: cover;
     }
 
@@ -112,6 +94,21 @@
 
     &--reverse {
       flex-direction: row;
+    }
+
+    &--compact {
+      align-items: center;
+    }
+
+    &--compact &__body {
+      justify-content: center;
+      padding-block: $spacing-md;
+      padding-inline: $spacing-xxl;
+    }
+
+    &--compact &__body,
+    &--compact &__image {
+      width: 50%;
     }
   }
 }
