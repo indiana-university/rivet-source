@@ -14,7 +14,7 @@
   }
 
   &__address-eyebrow {
-    font-size: $ts-14;
+    font-size: $ts-12;
     font-family: $font-mono;
     color: var(--rvt-theme-accent-title);
   }
@@ -24,7 +24,12 @@
     font-size: $ts-20;
   }
 
+  &__address-eyebrow + &__address-title {
+    margin-top: $spacing-xxs;
+  }
+
   &__address-text {
+    color: var(--rvt-theme-text-subtle);
     margin-top: $spacing-xs;
   }
 
