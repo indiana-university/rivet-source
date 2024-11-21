@@ -160,6 +160,34 @@ export default class Component {
   }
 
   /****************************************************************************
+   * Watches the component for resize events. Accepts a callback to perform
+   * additional updates to the component on resize.
+   *
+   * @static
+   * @param {Object} self - Component instance
+   * @param {Function} callback - Callback
+   ***************************************************************************/
+
+  static watchForResize (self, callback) {
+    self.resizeObserver = new ResizeObserver(entries => {
+      callback(entries)
+    })
+
+    self.resizeObserver.observe(self.element)
+  }
+
+  /****************************************************************************
+   * Stop watching the component for resize events.
+   *
+   * @static
+   * @param {Object} self - Component instance
+   ***************************************************************************/
+
+  static stopWatchingForResize (self) {
+    self.resizeObserver.disconnect()
+  }
+
+  /****************************************************************************
    * Generates a random unique ID for a component's data attributes. Rivet
    * components and their child elements are automatically assigned IDs if the
    * developer does not manually specify one in the markup.
