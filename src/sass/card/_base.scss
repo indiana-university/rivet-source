@@ -61,7 +61,7 @@
   &__title {
     font-size: $ts-18;
     font-weight: $font-weight-medium;
-    line-height: 1.1;
+    line-height: 1.3;
     padding-right: $spacing-xl;
   }
 
@@ -119,7 +119,7 @@
   &__content {
     color: var(--rvt-theme-text-subtle);
     flex-grow: 1;
-    margin-top: $spacing-sm;
+    margin-top: $spacing-md;
 
     > * {
       margin: 0;

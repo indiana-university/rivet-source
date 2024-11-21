@@ -28,12 +28,15 @@ $_hero-grid-gap: $spacing-lg;
   &__title {
     font-size: $ts-32;
     line-height: 1.1;
-    margin-top: $spacing-xs;
     font-family: $font-condensed;
     font-weight: $font-weight-black;
     color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
     text-wrap: balance;
+  }
+
+  &__eyebrow + &__title {
+    margin-top: $spacing-xs;
   }
 
   &__teaser {
@@ -129,6 +132,10 @@ $_hero-grid-gap: $spacing-lg;
       max-width: 90ch;
     }
 
+    &__actions {
+      gap: $spacing-md;
+    }
+
     &__callout {
       width: $width-xxl;
     }
@@ -192,9 +199,18 @@ $_hero-grid-gap: $spacing-lg;
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-hero {
+    &__eyebrow + &__title {
+      margin-top: $spacing-sm;
+    }
+
     &__teaser {
       font-size: $ts-20;
-      margin-top: $spacing-md;
+      margin-top: $spacing-lg;
+    }
+
+    &__title + &__actions,
+    &__teaser + &__actions {
+      margin-top: $spacing-xl;
     }
 
     &__teaser > * {
