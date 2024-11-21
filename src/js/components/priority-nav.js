@@ -45,6 +45,7 @@ export default class PriorityNav extends Component {
       init () {
         this._initSelectors()
         this._initElements()
+        this._initProperties()
       },
 
       /************************************************************************
@@ -57,7 +58,7 @@ export default class PriorityNav extends Component {
         this.linkListAttribute = 'data-rvt-priority-nav-links'
         this.moreMenuAttribute = 'data-rvt-priority-nav-more'
         this.moreLinksAttribute = 'data-rvt-priority-nav-more-links'
-        
+
         this.linkListSelector = `[${this.linkListAttribute}]`
         this.moreMenuSelector = `[${this.moreMenuAttribute}]`
         this.moreLinksSelector = `[${this.moreLinksAttribute}]`
@@ -80,6 +81,18 @@ export default class PriorityNav extends Component {
       },
 
       /************************************************************************
+       * Initializes priority nav state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        this.availableWidth = this.linkList.offsetWidth
+        this.usedWidth = 0
+        this.gapBetweenNavItems = 16 // pixels
+      },
+
+      /************************************************************************
        * Called when the priority nav is added to the DOM.
        ***********************************************************************/
 
@@ -99,47 +112,151 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Rearrange the priority nav, with links that don't fit in the
-       * container shifted into the More... dropdown menu.
+       * container shifted into the "More" dropdown menu.
        * 
        * @private
        ***********************************************************************/
 
       _rearrange () {
-        console.log('Rearranging priority navigation')
+        this._resetMoreMenu()
+        this._resetWidth()
+        this._hideOverflowItems()
+        this._toggleMoreMenuVisibility()
+      },
 
-        // Reset the "More" menu
-        this.moreLinks.innerHTML = '';
+      /************************************************************************
+       * Resets the content of the "More" dropdown menu.
+       * 
+       * @private
+       ***********************************************************************/
 
-        const availableWidth = this.linkList.offsetWidth;
-        console.log(availableWidth)
-        let usedWidth = 0;
+      _resetMoreMenu () {
+        this.moreLinks.innerHTML = ''
+      },
 
+      /************************************************************************
+       * Resets the width properties.
+       * 
+       * @private
+       ***********************************************************************/
+
+      _resetWidth () {
+        this.availableWidth = this.linkList.offsetWidth
+        this.usedWidth = 0
+      },
+
+      /************************************************************************
+       * Steps through each navigation item and hides those that do not fit
+       * into the "More" menu.
+       * 
+       * @private
+       ***********************************************************************/
+
+      _hideOverflowItems () {
         this.navItems.forEach(item => {
-          console.log(item.textContent)
-          item.style.display = ''; // Reset to default (inline or block)
+          this._resetNavItemVisibility(item)
 
-          const itemWidth = item.offsetWidth + 16; // +16px gap between items
-          console.log(usedWidth + itemWidth)
-          if (usedWidth + itemWidth > availableWidth) {
-            // Move item to "More" menu
-            const listItem = document.createElement('li');
-            listItem.appendChild(item.cloneNode(true));
-            this.moreLinks.appendChild(listItem);
+          if (this._shouldMoveToMoreMenu(item))
+            this._moveNavItemToMoreMenu(item)
 
-            // Hide the original item
-            item.style.display = 'none';
-            usedWidth += itemWidth;
-          } else {
-            usedWidth += itemWidth;
-          }
-        });
+          this._addNavItemWidthToUsedWidth(item)
+        })
+      },
 
-        // Show the "More" menu if it contains items
-        if (this.moreLinks.children.length > 0) {
-          this.moreMenu.style.display = '';
-        } else {
-          this.moreMenu.style.display = 'none';
-        }
+      /************************************************************************
+       * Resets the visibility of the given nav item.
+       * 
+       * @private
+       * @param {Element} item - Nav item
+       ***********************************************************************/
+
+      _resetNavItemVisibility (item) {
+        item.style.display = ''
+      },
+
+      /************************************************************************
+       * Returns true if the given nav item should be moved into the "More"
+       * menu because there is no room left for it in the priority nav element.
+       * 
+       * @private
+       * @param {Element} item - Nav item
+       * @returns {boolean} Should move nav item to "More" menu
+       ***********************************************************************/
+
+      _shouldMoveToMoreMenu (item) {
+        return this.usedWidth + item.offsetWidth + this.gapBetweenNavItems >= this.availableWidth
+      },
+
+      /************************************************************************
+       * Moves the given nav item into the "More" menu by cloning it into the
+       * "More" menu dropdown and hiding the original nav item.
+       * 
+       * @private
+       * @param {Element} item - Nav item
+       ***********************************************************************/
+
+      _moveNavItemToMoreMenu (item) {
+        const listItem = document.createElement('li')
+        listItem.appendChild(item.cloneNode(true))
+        this.moreLinks.appendChild(listItem)
+        item.style.display = 'none' // Hide original nav item
+      },
+
+      /************************************************************************
+       * Adds the width of the given nav item to the total used width of the
+       * priority nav element.
+       * 
+       * @private
+       * @param {Element} item - Nav item
+       ***********************************************************************/
+
+      _addNavItemWidthToUsedWidth (item) {
+        this.usedWidth += item.offsetWidth + this.gapBetweenNavItems
+      },
+
+      /************************************************************************
+       * Toggles the visibility of the "More" menu.
+       * 
+       * @private
+       ***********************************************************************/
+
+      _toggleMoreMenuVisibility () {
+        this._moreMenuHasLinks()
+          ? this._showMoreMenu()
+          : this._hideMoreMenu()
+      },
+
+      /************************************************************************
+       * Returns true if the "More" menu has links in it.
+       * 
+       * @private
+       * @returns {boolean} "More" menu has links
+       ***********************************************************************/
+
+      _moreMenuHasLinks () {
+        return this.moreLinks.children.length > 0
+      },
+
+      /************************************************************************
+       * Shows the "More" menu.
+       * 
+       * @private
+       ***********************************************************************/
+
+      _showMoreMenu () {
+        this.moreMenu.style.display = ''
+        this.moreMenu.removeAttribute('hidden')
+      },
+
+      /************************************************************************
+       * Hides the "More" menu.
+       * 
+       * @private
+       ***********************************************************************/
+
+      _hideMoreMenu () {
+        this.moreMenu.style.display = 'none'
+        this.moreMenu.setAttribute('hidden', true)
       }
     }
   }
