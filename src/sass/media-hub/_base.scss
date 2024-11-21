@@ -2,7 +2,7 @@
 
 .#{$prefix}-media-hub {
   display: grid;
-  gap: $spacing-sm;
+  gap: $spacing-xs;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto auto;
   position: relative;

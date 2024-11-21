@@ -28,12 +28,15 @@ $_hero-grid-gap: $spacing-lg;
   &__title {
     font-size: $ts-32;
     line-height: 1.1;
-    margin-top: $spacing-xs;
     font-family: $font-condensed;
     font-weight: $font-weight-black;
     color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
     text-wrap: balance;
+  }
+
+  &__eyebrow + &__title {
+    margin-top: $spacing-xs;
   }
 
   &__teaser {
@@ -70,33 +73,6 @@ $_hero-grid-gap: $spacing-lg;
 
   &--statement &__banner {
     margin-top: $spacing-lg;
-    position: relative;
-  }
-
-  &--statement &__banner-callout {
-    margin-top: $spacing-lg;
-  }
-
-  &--statement &__banner-callout-inner {
-    @include container;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  &--statement &__banner-media {
-    display: flex;
-    gap: $spacing-xs;
-
-    > * {
-      flex-grow: 1;
-      flex-shrink: 1;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 
   &--profile &__subtitle {
@@ -129,6 +105,10 @@ $_hero-grid-gap: $spacing-lg;
       max-width: 90ch;
     }
 
+    &__actions {
+      gap: $spacing-md;
+    }
+
     &__callout {
       width: $width-xxl;
     }
@@ -147,21 +127,26 @@ $_hero-grid-gap: $spacing-lg;
       width: auto;
     }
 
+    &--statement {
+      flex-direction: column;
+    }
+
     &--statement &__banner {
-      margin-top: $spacing-xl;
+      @include container();
     }
 
     &--statement &__banner-callout {
-      margin-top: 0;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      z-index: $z-index-100;
-    }
+      position: relative;
 
-    &--statement &__banner-callout-inner > * {
-      max-width: 55%;
-      margin-bottom: $spacing-xl * -1;
+      > * {
+        position: absolute;
+        bottom: $spacing-xs;
+        right: 0;
+        // bottom: $spacing-sm;
+        // left: 0;
+        width: 100%;
+        max-width: 55%;
+      }
     }
 
     &--feature &__title,
@@ -192,9 +177,18 @@ $_hero-grid-gap: $spacing-lg;
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-hero {
+    &__eyebrow + &__title {
+      margin-top: $spacing-sm;
+    }
+
     &__teaser {
       font-size: $ts-20;
-      margin-top: $spacing-md;
+      margin-top: $spacing-lg;
+    }
+
+    &__title + &__actions,
+    &__teaser + &__actions {
+      margin-top: $spacing-xl;
     }
 
     &__teaser > * {

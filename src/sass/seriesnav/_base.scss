@@ -4,7 +4,7 @@
 @use '../core' as *;
 
 .#{$prefix}-seriesnav {
-  border: 1px solid $color-black-100;
+  border: 1px solid var(--rvt-theme-border);
 
   &__previous {
     flex-direction: row-reverse;
@@ -19,10 +19,16 @@
     padding-right: $spacing-md;
   }
 
+  &__next {
+    border-top: 1px solid var(--rvt-theme-border);
+    padding-left: $spacing-md;
+    text-align: right;
+  }
+
   &__previous,
   &__next {
     display: flex;
-    color: $color-black-500;
+    color: var(--rvt-theme-text);
     flex-basis: 50%;
     flex-grow: 1;
     padding-top: $spacing-md;
@@ -30,12 +36,19 @@
     text-decoration: none;
 
     &:hover {
-      background-color: $color-black-000;
+      background-color: var(--rvt-theme-bg-subtle);
+      color: var(--rvt-theme-text);
     }
+  }
+
+  &__previous:hover &__item,
+  &__next:hover &__item {
+    text-decoration: underline;
   }
 
   &__item {
     display: block;
+    margin-top: $spacing-xs;
   }
 
   &__item {
@@ -49,17 +62,31 @@
     font-weight: $font-weight-medium;
     font-family: $font-mono;
     letter-spacing: .05rem;
-
     display: flex;
     gap: $spacing-xxs;
+    align-items: center;
   }
 
-  &__previous &__label::before {
+  &__next &__label {
+    justify-content: flex-end;
+  }
+
+  &__previous &__label::before,
+  &__next &__label::after {
     content: '';
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    background-color: red;
+    background-repeat: no-repeat;
+    background-size: .875rem .875rem;
+  }
+
+  &__previous &__label::before {
+    background-image: url('data:image/svg+xml,<svg fill="%23990000" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z"></path></svg>');
+  }
+
+  &__next &__label::after {
+    background-image: url('data:image/svg+xml,<svg fill="%23990000" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
   }
 }
 
@@ -67,8 +94,12 @@
   .#{$prefix}-seriesnav {
     display: flex;
 
+    &__next {
+      border-top: none;
+    }
+
     &__previous {
-      border-right: 1px solid $color-black-100;
+      border-right: 1px solid var(--rvt-theme-border);
       flex-direction: row-reverse;
       padding-right: $spacing-md;
 
@@ -76,12 +107,6 @@
         border-right: 0;
         padding-right: 0;
       }
-    }
-
-    &__next {
-      padding-left: $spacing-md;
-      justify-content: flex-end;
-      text-align: right;
     }
   }
 }

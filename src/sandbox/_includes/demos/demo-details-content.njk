@@ -1,4 +1,4 @@
-<div class="rvt-stack">
+<div class="rvt-stack rvt-m-top-lg">
 
   <div class="rvt-rich-text">
     <h2>Start with a heading</h2>
@@ -35,7 +35,12 @@
     <a href="#" class="rvt-cta">Test CTA</a>
   </div>
 
-  {% include "demos/demo-quote.njk" %}
+  <div class="rvt-layout-base__breakout rvt-section rvt-theme-light">
+    <div class="rvt-layout-base__breakout-inner">
+      {% include "demos/demo-quote.njk" %}
+    </div>
+  </div>
+
 
   <div class="rvt-rich-text">
     <h2>Start block Heading 2 text</h2>
@@ -76,11 +81,7 @@
     </div>
   </div>
 
-  <div class="rvt-card rvt-card--raised">
-    <div class="rvt-card__body [ rvt-p-all-xxl-md-up ]">
-      {% include "demos/demo-contact-info.njk" %}
-    </div>
-  </div>
+  {% include "demos/demo-contact-card.njk" %}
 
   {% include "demos/demo-list-hub.njk" %}
 

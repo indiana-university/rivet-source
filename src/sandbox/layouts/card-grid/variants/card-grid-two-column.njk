@@ -19,7 +19,7 @@ classes: rvt-page
     <div class="rvt-layout-base__main">
 
       <nav role="navigation" aria-label="Breadcrumbs">
-        <ol class="rvt-breadcrumbs [ rvt-m-bottom-lg ]">
+        <ol class="rvt-breadcrumbs">
           <li><a href="#">Home</a></li>
           <li><a href="#">{Visited page}</a></li>
           <li><a href="#">{Visited page}</a></li>
@@ -27,63 +27,29 @@ classes: rvt-page
           <li aria-current="page">{Current page}</li>
         </ol>
       </nav>
-      <div class="rvt-stack">
-        <form class="rvt-bg-black-000 rvt-p-all-md rvt-flex rvt-flex-column rvt-gap-md">
 
-          <div class="rvt-grid rvt-grid--2">
-            <div>
-              <label for="one" class="rvt-label">Lorem Ipsum</label>
-              <input type="text" class="rvt-input" id="one">
-            </div>
-            <div>
-              <label for="two" class="rvt-label">Lorem Ipsum</label>
-              <input type="text" class="rvt-input" id="two">
-            </div>
-            <div>
-              <label for="select-input-default" class="rvt-label">Select Input</label>
-              <select id="select-input-default" class="rvt-select">
-                <option value="option one">Option One</option>
-                <option value="option two">Option Two</option>
-                <option value="option three">Option Three</option>
-              </select>
-            </div>
-            <div>
-              <label for="three" class="rvt-label">Lorem Ipsum</label>
-              <input type="text" class="rvt-input" id="three">
+      <div class="rvt-stack rvt-m-top-xl">
+        <!--
+          NOTE: Need to use a square aspect ratio image in the two column version
+          due to width/height considerations.
+        -->
+        <div class="rvt-billboard rvt-billboard--reverse rvt-billboard--compact">
+          <div class="rvt-billboard__image">
+            <img src="https://picsum.photos/id/133/800/800" alt="Student in vintage-style Indiana University t-shirt">
+          </div>
+          <div class="rvt-billboard__body ">
+            <p class="rvt-billboard__eyebrow">{Tag or category}</p>
+            <h2 class="rvt-billboard__title">{title should not exceed 32 characters}</h2>
+            <div class="rvt-billboard__content">
+              <p>{Billboard descriptions should not exceed one paragraph or 32 characters. One to two brief sentences will keep the user engaged with your content.}</p>
+              <div class="rvt-flex rvt-gap-md rvt-items-center">
+                <a class="rvt-button rvt-button--outline" href="/#">{Lorem Ipusum}</a>
+                {# <a class="rvt-button" href="/#">Get help</a> #}
+              </div>
             </div>
           </div>
+        </div>
 
-          <fieldset class="rvt-fieldset">
-            <legend class="rvt-font-medium rvt-ts-14">Checkbox list</legend>
-            <ul class="rvt-list-inline">
-              <li>
-                <div class="rvt-checkbox">
-                  <input type="checkbox" name="checkbox-demo" id="checkbox-1" checked>
-                  <label for="checkbox-1">Option one</label>
-                </div>
-              </li>
-              <li>
-                <div class="rvt-checkbox">
-                  <input type="checkbox" name="checkbox-demo" id="checkbox-2">
-                  <label for="checkbox-2">Option two</label>
-                </div>
-              </li>
-              <li>
-                <div class="rvt-checkbox">
-                  <input type="checkbox" name="checkbox-demo" id="checkbox-3">
-                  <label for="checkbox-3">Option three</label>
-                </div>
-              </li>
-            </ul>
-          </fieldset>
-
-          <div class="rvt-flex rvt-gap-sm rvt-justify-end">
-            <button class="rvt-button rvt-button--solid">Filter results</button>
-            <button class="rvt-button rvt-button--outline">Filter results</button>
-          </div>
-        </form>
-
-        {# {% include "demos/demo-billboard.njk" %} #}
         <div class="rvt-rich-text">
           <div>
             <span class="rvt-ts-14 rvt-font-mono">Showing { X of X } { Resources }</span>
@@ -91,31 +57,35 @@ classes: rvt-page
           </div>
           <p>{ Optional description copy should not exceed one concise paragraph. }</p>
         </div>
-      </div>
 
-      <ul class="rvt-grid rvt-grid--2">
-        {% for card in range(0, 6) %}
-        <li>
-          <div class="rvt-card">
-            <div class="rvt-card__image">
-              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
-            </div>
-            <div class="rvt-card__body">
-              <div class="rvt-card__eyebrow">{Campus or category}</div>
-              <h2 class="rvt-card__title">
-                <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
-              </h2>
-              <div class="rvt-card__content">
-                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+        <ul class="rvt-grid rvt-grid--2 [ rvt-m-top-lg ]">
+          {% for card in range(0, 6) %}
+          <li>
+            <div class="rvt-card">
+              <div class="rvt-card__image">
+                <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
               </div>
-              <div class="rvt-card__meta">
-                <time>{Jun 21,2024}</time>
+              <div class="rvt-card__body">
+                <div class="rvt-card__eyebrow">{Campus or category}</div>
+                <h2 class="rvt-card__title">
+                  <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
+                </h2>
+                <div class="rvt-card__content">
+                  <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+                </div>
+                <div class="rvt-card__meta">
+                  <time>{Jun 21,2024}</time>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
+          </li>
+          {% endfor %}
+        </ul>
+
+        {% include "demos/demo-contact-card.njk" %}
+
+        {% include "demos/demo-list-hub.njk" %}
+      </div><!-- end stack -->
 
     </div>
   </div>

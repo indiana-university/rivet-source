@@ -13,40 +13,92 @@ classes: rvt-page
   </div>
 
   <!-- Use a container for visual alignment -->
-  <div class="rvt-section rvt-theme-light [ rvt-p-tb-none ]">
+  <div class="rvt-section rvt-theme-light rvt-p-bottom-none">
     <div class="rvt-container">
       {% include "demos/demo-factoid.njk" %}
     </div>
   </div>
 
+  <div class="rvt-container [ rvt-m-top-md ]">
+    <nav role="navigation" aria-label="Breadcrumbs">
+      <ol class="rvt-breadcrumbs">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">{Visited page}</a></li>
+        <li><a href="#">{Visited page}</a></li>
+        <li><a href="#">{Visited page}</a></li>
+        <li aria-current="page">{Current page}</li>
+      </ol>
+    </nav>
+  </div>
+
   <div class="rvt-layout-base rvt-layout-base--single-column rvt-theme-light">
-    <div class="rvt-layout-base__main [ rvt-stack ]">
+    <div class="rvt-layout-base__main">
 
-      <div class="rvt-rich-text">
-        <h2>Areas of focus</h2>
-        <p>Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis obcaecati minus, nisi rerum corrupti cum.</p>
-      </div>
-
-      <div class="rvt-rich-text">
-        <h2>About</h2>
-        <h3>{Section Topic Title (H3)}</h3>
-        <p>Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis obcaecati minus, nisi rerum corrupti cum.</p>
-      </div>
-
-      <nav class="rvt-seriesnav">
-        <a class="rvt-seriesnav__previous" href="#">
-          <div class="rvt-seriesnav__text">
-            <span class="rvt-seriesnav__label">Previous</span>
-            <span class="rvt-seriesnav__item">{This title should not exceed three lines and should have an ellipsis if it does}</span>
+      <div class="rvt-stack rvt-m-top-lg">
+        <div class="rvt-rich-text">
+          <h2>Areas of focus</h2>
+          <p>Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis obcaecati minus, nisi rerum corrupti cum.</p>
+        </div>
+        <div class="rvt-rich-text">
+          <h2>Awards &amp; Honors</h2>
+          <div class="rvt-list-hub">
+            {# <h2 class="rvt-list-hub__title">Quick links</h2> #}
+            <ul class="rvt-list-hub__list">
+              <li class="rvt-list-hub__item">
+                <div class="rvt-list-hub__link">
+                  Award Title {Curriculum Enhancement Grant}
+                </div>
+                <div class="rvt-list-hub__content">
+                  <p><strong>2017</strong>:  IUPUI Center for Teaching and Learning</p>
+                </div>
+              </li>
+              <li class="rvt-list-hub__item">
+                <div class="rvt-list-hub__link">
+                  Award Title {The Executive Journey Fellowship}
+                </div>
+                <div class="rvt-list-hub__content">
+                  <ul class="rvt-list-reset">
+                    <li>{<strong>2016</strong>:  The Journey}</li>
+                    <li>{<strong>2015</strong>:  IUSSW PhD Students}</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="rvt-list-hub__item">
+                <a class="rvt-list-hub__link" href="#">
+                  Normal title length is five
+                </a>
+              </li>
+              <li class="rvt-list-hub__item">
+                <a class="rvt-list-hub__link" href="#">
+                  Normal title length is five
+                </a>
+              </li>
+            </ul>
           </div>
-        </a>
-        <a class="rvt-seriesnav__next" href="#">
-          <div class="rvt-seriesnav__text">
-            <span class="rvt-seriesnav__label">Next</span>
-            <span class="rvt-seriesnav__item">{This title should not exceed three lines and should have an ellipsis if it does}</span>
-          </div>
-        </a>
-      </nav>
+        </div>
+
+        <div class="rvt-rich-text">
+          <h2>About</h2>
+          <h3>{Section Topic Title (H3)}</h3>
+          <p>Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis obcaecati minus, nisi rerum corrupti cum.</p>
+        </div>
+
+        <nav class="rvt-seriesnav">
+          <a class="rvt-seriesnav__previous" href="#">
+            <div class="rvt-seriesnav__text">
+              <span class="rvt-seriesnav__label">Previous</span>
+              <span class="rvt-seriesnav__item">{This title should not exceed three lines and should have an ellipsis if it does}</span>
+            </div>
+          </a>
+          <a class="rvt-seriesnav__next" href="#">
+            <div class="rvt-seriesnav__text">
+              <span class="rvt-seriesnav__label">Next</span>
+              <span class="rvt-seriesnav__item">{This title should not exceed three lines and should have an ellipsis if it does}</span>
+            </div>
+          </a>
+        </nav>
+
+      </div>
     </div>
   </div>
 </main>

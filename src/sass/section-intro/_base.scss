@@ -68,6 +68,7 @@
     position: relative;
     padding-top: $spacing-xl;
     text-align: left;
+    color: var(--rvt-theme-accent-title);
   }
 
   &--feature &__teaser::before {
@@ -101,6 +102,10 @@
       display: flex;
       gap: $spacing-lg;
       flex-wrap: wrap;
+    }
+
+    &--teaser &__title {
+      margin-top: $spacing-xs;
     }
 
     &--teaser,

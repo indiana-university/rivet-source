@@ -12,8 +12,9 @@
     color: var(--rvt-theme-accent-title);
     font-family: $font-condensed;
     font-weight: $font-weight-black;
-    font-size: $ts-26;
+    font-size: $ts-23;
     letter-spacing: .04rem;
+    line-height: $line-height-tight;
     text-transform: uppercase;
   }
 
@@ -40,7 +41,7 @@
 
   &__eyebrow {
     color: var(--rvt-theme-accent);
-    font-size: $ts-14;
+    font-size: $ts-12;
     font-family: $font-mono;
     text-decoration: none;
   }
@@ -61,7 +62,7 @@
   &__title {
     font-size: $ts-18;
     font-weight: $font-weight-medium;
-    line-height: 1.1;
+    line-height: 1.3;
     padding-right: $spacing-xl;
   }
 
@@ -119,7 +120,7 @@
   &__content {
     color: var(--rvt-theme-text-subtle);
     flex-grow: 1;
-    margin-top: $spacing-sm;
+    margin-top: $spacing-md;
 
     > * {
       margin: 0;
