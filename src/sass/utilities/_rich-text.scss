@@ -5,8 +5,6 @@
 .rvt-prose,
 .rvt-rich-text {
   --rvt-rich-text-stack-space: #{$spacing-md};
-
-  line-height: $line-height-loose;
   max-width: 80ch;
 
   > * {
@@ -36,6 +34,18 @@
   }
 
   h1,
+  h2 {
+    font-weight: $font-weight-medium;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: $font-weight-regular;
+  }
+
+  h1,
   h2,
   h3,
   h4,
@@ -43,10 +53,8 @@
   h6 {
     // Reset the flow space here to put more space before headings.
     --rvt-rich-text-stack-space: #{$spacing-lg};
-
-    font-weight: $font-weight-medium;
     line-height: 1.1;
-    letter-spacing: -.015rem;
+    letter-spacing: -.025rem;
     scroll-margin-top: $spacing-md;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -57,6 +65,19 @@
   :where(td),
   :where(dt) {
     color: var(--rvt-theme-text-subtle);
+  }
+
+  :where(ul) {
+    list-style-type: square;
+  }
+
+  :where(li + li),
+  :where(li > ul) {
+    margin-top: $spacing-sm;
+  }
+
+  :where(li)::marker {
+    color: var(--rvt-theme-accent);
   }
 
   > img,
@@ -71,7 +92,7 @@
   // Reduce the amount of stack space if a heading is
   // immediately followed by another heading
   > :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
-    --rvt-rich-text-stack-space: #{$spacing-sm};
+    --rvt-rich-text-stack-space: #{$spacing-md};
   }
 
   > :where(dl) {
@@ -94,14 +115,7 @@
 @include mq($breakpoint-lg) {
   .rvt-prose,
   .rvt-rich-text {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      --rvt-rich-text-stack-space: #{$spacing-xxl};
-    }
+
 
     :where(p),
     :where(li),
@@ -111,17 +125,17 @@
     }
 
     h2 {
-      font-size: $ts-26;
+      font-size: $ts-36;
     }
 
     h3 {
-      font-size: $ts-23;
+      font-size: $ts-29;
     }
 
     h4,
     h5,
     h6 {
-      font-size: $ts-20;
+      font-size: $ts-26;
     }
   }
 }
