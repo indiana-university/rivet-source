@@ -33,6 +33,8 @@ $_hero-grid-gap: $spacing-lg;
     color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
     text-wrap: balance;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   &__eyebrow + &__title {

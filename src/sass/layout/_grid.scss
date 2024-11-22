@@ -5,15 +5,15 @@
 
 .#{$prefix}-grid {
   display: grid;
-  gap: var(--rvt-grid-gap, #{$spacing-md});
+  gap: #{$spacing-md};
 
   & + & {
-    margin-top: var(--rvt-grid-gap);
+    margin-top: #{$spacing-md};
   }
 }
 
 .rvt-grid--tight {
-  --rvt-grid-gap: 0;
+  gap: 0;
 }
 
 :where(ul.rvt-grid),
@@ -34,15 +34,23 @@
   .rvt-grid--sidebar {
     grid-template-columns: 1fr 2fr;
   }
+
+  .rvt-grid.rvt-grid--collapse {
+    gap: 0;
+
+    > * + * {
+      margin-left: -1px;
+    }
+  }
 }
 
 @include mq($breakpoint-lg) {
   .rvt-grid {
-    --rvt-grid-gap: #{$spacing-lg};
+    gap: $spacing-lg;
   }
 
   .rvt-grid--tight {
-    --rvt-grid-gap: #{$spacing-sm};
+    gap: $spacing-sm;
   }
 
   .rvt-grid--3,

@@ -16,6 +16,8 @@
     letter-spacing: .04rem;
     line-height: $line-height-tight;
     text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   &--feature &__title a {
@@ -133,7 +135,8 @@
 
   &__meta {
     font-size: $ts-14;
-    padding-top: $spacing-md;
+    padding-top: $spacing-lg;
+    font-family: $font-mono;
   }
 
   &__meta > * {
@@ -186,6 +189,12 @@
       & a::before {
         margin-top: -$spacing-sm;
       }
+    }
+  }
+
+  @include mq($breakpoint-md) {
+    &--feature &__body {
+      padding: $spacing-xl;
     }
   }
 }

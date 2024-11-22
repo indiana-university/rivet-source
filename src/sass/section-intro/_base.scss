@@ -16,9 +16,12 @@
     font-size: $ts-36;
     line-height: $line-height-tight;
     margin-top: $spacing-sm;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   &__eyebrow {
+    font-family: $font-mono;
     font-size: $ts-12;
     letter-spacing: .125rem;
     text-transform: uppercase;
@@ -117,7 +120,7 @@
       margin-top: 0;
       justify-content: flex-end;
       align-items: flex-end;
-      flex-basis: 16rem;
+      flex-basis: 23rem;
       flex-grow: 1;
     }
 

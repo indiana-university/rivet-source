@@ -12,7 +12,7 @@ classes: rvt-page
     When the hero is crimson theme we need to remove the bottom section padding
     for alignment purposes
   -->
-  <div class="rvt-section rvt-theme-light">
+  <div class="rvt-section rvt-theme-light rvt-p-bottom-xxl">
 
     <div class="rvt-hero rvt-hero--statement">
       <div class="rvt-hero__inner">
@@ -35,24 +35,26 @@ classes: rvt-page
 
       <div class="rvt-hero__banner">
 
-        <figure class="rvt-media-hub">
-          <div class="rvt-media-hub__span-6">
-            <img src="https://picsum.photos/id/10/1600/800" alt="This image can have alt text now">
-          </div>
-          {# <div class="rvt-media-hub__2">
-            <img src="https://picsum.photos/id/23/600/800" alt="">
-          </div>
-          <div class="rvt-media-hub__2">
-            <img src="https://picsum.photos/id/19/600/800" alt="">
-          </div>
-          <div class="rvt-media-hub__2">
-            <img src="https://picsum.photos/id/27/600/800" alt="">
-          </div> #}
-        </figure>
+        <div class="rvt-media-hub">
+          <figure class="rvt-media-hub__media">
+            {# <div class="rvt-media-hub__span-6">
+              <img src="https://picsum.photos/id/10/1600/800" alt="This image can have alt text now">
+            </div> #}
+            <div class="rvt-media-hub__3">
+              <img src="https://picsum.photos/id/23/800/800" alt="">
+            </div>
+            <div class="rvt-media-hub__3">
+              <img src="https://picsum.photos/id/19/800/800" alt="">
+            </div>
+            {# <div class="rvt-media-hub__2">
+              <img src="https://picsum.photos/id/27/600/800" alt="">
+            </div> #}
+          </figure>
+        </div>
 
         <div class="rvt-hero__banner-callout">
           <div class="rvt-card rvt-card--raised rvt-card--clickable rvt-card--horizontal [ rvt-theme-crimson ]">
-            <rvt-sticker name="bike" theme="crimson" size="sm"></rvt-sticker>
+            <rvt-sticker name="megaphone" theme="crimson" size="sm"></rvt-sticker>
             <div class="rvt-card__body">
               <div class="rvt-card__eyebrow">Category</div>
               <h2 class="rvt-card__title">
@@ -114,7 +116,7 @@ classes: rvt-page
         </div>
       </div>
 
-      <ul class="rvt-grid rvt-grid--3 [ rvt-m-top-xl ]">
+      <ul class="rvt-grid rvt-grid--3 rvt-grid--collapse [ rvt-m-top-xl ]">
         {% for card in range(0, 3) %}
         <li>
           <div class="rvt-card rvt-card--feature rvt-card--clickable">
@@ -140,25 +142,23 @@ classes: rvt-page
 
   <div class="rvt-section rvt-theme-crimson">
     <div class="rvt-container">
-      <p class="rvt-m-all-none rvt-ts-46 rvt-lh-tight rvt-font-serif rvt-p-right-4-xl-md-up rvt-p-tb-xxl-md-up">{Simple one to two sentence statement about about school or site that can also serve as a way to link to sections. Learn more about <a class="rvt-text-bold" href="#">lorem ipsum</a>.}</p>
-    </div>
-  </div>
 
-  <div class="rvt-section rvt-theme-crimson">
-    <div class="rvt-container">
-
-      <figure class="rvt-media-hub">
-        <div class="rvt-media-hub__6 rvt-media-hub__16x9">
-         <img src="https://picsum.photos/id/166/1600/900" alt="">
-        </div>
-        <div class="rvt-media-hub__3">
-          <img src="https://picsum.photos/id/24/800/450" alt="">
-        </div>
-        <div class="rvt-media-hub__3">
-          <img src="https://picsum.photos/id/23/800/450" alt="">
-        </div>
-        <figcaption>{Short caption or description}</figcaption>
-      </figure>
+      <div class="rvt-media-hub">
+        <!-- Make this an optional element of the media hub -->
+        <p class="rvt-media-hub__teaser">{Simple one to two sentence statement about about school or site that can also serve as a way to link to sections. Learn more about <a href="#">lorem ipsum</a>.}</p>
+        <figure class="rvt-media-hub__media">
+          <div class="rvt-media-hub__6 rvt-media-hub__16x9">
+            <img src="https://picsum.photos/id/166/1600/900" alt="">
+          </div>
+          <div class="rvt-media-hub__3">
+            <img src="https://picsum.photos/id/24/800/450" alt="">
+          </div>
+          <div class="rvt-media-hub__3">
+            <img src="https://picsum.photos/id/23/800/450" alt="">
+          </div>
+          <figcaption>{Short caption or description}</figcaption>
+        </figure>
+      </div>
 
     </div>
   </div>
@@ -282,11 +282,11 @@ classes: rvt-page
             </div>
             <div class="rvt-card__body">
               <div class="rvt-card__eyebrow">{Campus or category}</div>
-              <h2 class="rvt-card__title [ rvt-font-serif rvt-ts-20 ]">
-                <a href="#">{title should not exceed 32 characters}</a>
+              <h2 class="rvt-card__title [ rvt-font-serif rvt-ts-23 ]">
+                <a href="#">{Title should not exceed 32 characters}</a>
               </h2>
-              <div class="rvt-card__content">
-                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              <div class="rvt-card__meta">
+                <time datetime="">October 1, 2025</time>
               </div>
             </div>
           </div>
@@ -296,7 +296,7 @@ classes: rvt-page
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-crimson">
+  <div class="rvt-section rvt-theme-crimson [ rvt-p-tb-3-xl ]">
     <div class="rvt-container">
 
       {% include "demos/demo-quote.njk" %}

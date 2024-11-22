@@ -44,10 +44,12 @@
     // Reset the flow space here to put more space before headings.
     --rvt-rich-text-stack-space: #{$spacing-lg};
 
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-medium;
     line-height: 1.1;
     letter-spacing: -.015rem;
     scroll-margin-top: $spacing-md;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   :where(p),
