@@ -4,13 +4,17 @@
 @use '../core' as *;
 
 .#{$prefix}-text-uppercase {
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 
   /**
    * All uppercase text is harder for humans to read. A little extra
    * letter spacing helps make it easier.
    */
-  letter-spacing: .04rem;
+  letter-spacing: .04rem !important;
+}
+
+.#{$prefix}-text-lowercase {
+  text-transform: lowercase !important;
 }
 
 .#{$prefix}-text-black,
@@ -46,33 +50,33 @@
 }
 
 .#{$prefix}-lh-base {
-  line-height: $line-height-base;
+  line-height: $line-height-base !important;
 }
 
 .#{$prefix}-lh-tight {
-  line-height: $line-height-tight;
+  line-height: $line-height-tight !important;
 }
 
 .#{$prefix}-lh-loose {
-  line-height: $line-height-loose;
+  line-height: $line-height-loose !important;
 }
 
 .#{$prefix}-text-nobr {
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 .#{$prefix}-font-condensed {
-  font-family: $font-condensed;
+  font-family: $font-condensed !important;
 }
 
 .#{$prefix}-font-sans {
-  font-family: $font-sans;
+  font-family: $font-sans !important;
 }
 
 .#{$prefix}-font-serif {
-  font-family: $font-serif;
+  font-family: $font-serif !important;
 }
 
 .#{$prefix}-font-mono {
-  font-family: $font-mono;
+  font-family: $font-mono !important;
 }
