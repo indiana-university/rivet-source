@@ -22,6 +22,11 @@
   &__sidebar {
     padding-block-start: $spacing-lg;
   }
+
+  &__main {
+    padding-block-start: $spacing-md;
+    padding-block-end: $spacing-md;
+  }
 }
 
 @include mq($breakpoint-lg) {
@@ -38,7 +43,7 @@
     }
 
     &__main {
-      padding-block: $spacing-md;
+      padding-block-end: $spacing-xxl;
     }
 
     &__breakout {
