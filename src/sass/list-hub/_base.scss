@@ -69,6 +69,10 @@
     @include bg-icon-arrow-right($color-crimson-500);
   }
 
+  &__item-title + &__content {
+    padding-inline-start: 0;
+  }
+
   &__content {
     padding-inline-start: $spacing-md;
     margin-block-start: $spacing-xs;
@@ -77,6 +81,12 @@
       > ul {
         list-style-type: disc;
       }
+
+      > ul li,
+      > ol li,
+      > p {
+        font-size: $ts-16;
+      }
   }
 
   &__content > * {
@@ -84,7 +94,7 @@
   }
 
   &__content > * + * {
-    margin-top: $spacing-lg;
+    margin-top: $spacing-sm;
   }
 }
 
