@@ -87,9 +87,28 @@ export default class PriorityNav extends Component {
        ***********************************************************************/
 
       _initProperties () {
-        this.availableWidth = this.linkList.offsetWidth
-        this.usedWidth = 0
-        this.gapBetweenNavItems = 16 // pixels
+        this._resetAvailableWidth()
+        this._calculateBreakpoints()
+      },
+
+      /************************************************************************
+       * Calculate the widths at which each nav item should be shown or moved
+       * into the "More" menu.
+       *
+       * @private
+       ***********************************************************************/
+
+      _calculateBreakpoints () {
+        let usedWidth = 0
+        let gapBetweenNavItems = 16 // pixels
+
+        this.breakpoints = this.navItems.map(item => {
+          let requiredWidth = usedWidth + item.offsetWidth + gapBetweenNavItems
+
+          usedWidth += item.offsetWidth + gapBetweenNavItems
+
+          return { item, requiredWidth }
+        })
       },
 
       /************************************************************************
@@ -119,7 +138,7 @@ export default class PriorityNav extends Component {
 
       _rearrange () {
         this._resetMoreMenu()
-        this._resetWidth()
+        this._resetAvailableWidth()
         this._hideOverflowItems()
         this._toggleMoreMenuVisibility()
       },
@@ -135,14 +154,13 @@ export default class PriorityNav extends Component {
       },
 
       /************************************************************************
-       * Resets the width properties.
+       * Resets the available width property.
        * 
        * @private
        ***********************************************************************/
 
-      _resetWidth () {
+      _resetAvailableWidth () {
         this.availableWidth = this.linkList.offsetWidth
-        this.usedWidth = 0
       },
 
       /************************************************************************
@@ -158,8 +176,6 @@ export default class PriorityNav extends Component {
 
           if (this._shouldMoveToMoreMenu(item))
             this._moveNavItemToMoreMenu(item)
-
-          this._addNavItemWidthToUsedWidth(item)
         })
       },
 
@@ -184,7 +200,9 @@ export default class PriorityNav extends Component {
        ***********************************************************************/
 
       _shouldMoveToMoreMenu (item) {
-        return this.usedWidth + item.offsetWidth + this.gapBetweenNavItems >= this.availableWidth
+        const itemBreakpoint = this.breakpoints.find(i => i.item == item)
+
+        return itemBreakpoint.requiredWidth >= this.availableWidth
       },
 
       /************************************************************************
@@ -200,18 +218,6 @@ export default class PriorityNav extends Component {
         listItem.appendChild(item.cloneNode(true))
         this.moreLinks.appendChild(listItem)
         item.style.display = 'none' // Hide original nav item
-      },
-
-      /************************************************************************
-       * Adds the width of the given nav item to the total used width of the
-       * priority nav element.
-       * 
-       * @private
-       * @param {Element} item - Nav item
-       ***********************************************************************/
-
-      _addNavItemWidthToUsedWidth (item) {
-        this.usedWidth += item.offsetWidth + this.gapBetweenNavItems
       },
 
       /************************************************************************
