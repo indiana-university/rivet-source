@@ -108,7 +108,7 @@
   }
 }
 
-@container contact (min-width: 52em) {
+@container contact (min-width: #{$breakpoint-md}) {
   .#{$prefix}-contact-info {
     &__inner {
       display: flex;
