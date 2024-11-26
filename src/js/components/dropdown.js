@@ -45,9 +45,9 @@ export default class Dropdown extends Component {
       init () {
         this._initSelectors()
         this._initElements()
-        this._initProperties()
         this._initMenuItems()
         this._initAttributes()
+        this._initProperties()
         this._removeIconFromTabOrder()
         this._bindExternalEventHandlers()
 
@@ -78,16 +78,6 @@ export default class Dropdown extends Component {
       _initElements () {
         this.toggleElement = this.element.querySelector(this.toggleSelector)
         this.menuElement = this.element.querySelector(this.menuSelector)
-      },
-
-      /************************************************************************
-       * Initializes dropdown state properties.
-       *
-       * @private
-       ***********************************************************************/
-
-      _initProperties () {
-        this.isOpen = false
       },
 
       /************************************************************************
@@ -161,6 +151,19 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Initializes dropdown state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        const openOnHoverAttribute = 'data-rvt-dropdown-open-on-hover'
+
+        this.isOpen = false
+        this.openOnHover = this.element.closest(`[${openOnHoverAttribute}]`)
+      },
+
+      /************************************************************************
        * Removes the arrow icon from the tab order.
        *
        * @private
@@ -181,6 +184,8 @@ export default class Dropdown extends Component {
 
       _bindExternalEventHandlers () {
         this._onDocumentClick = this._onDocumentClick.bind(this)
+        this.open = this.open.bind(this)
+        this.close = this.close.bind(this)
       },
 
       /************************************************************************
@@ -192,6 +197,9 @@ export default class Dropdown extends Component {
         Component.watchForDOMChanges(this, () => this._initMenuItems())
 
         this._addDocumentEventHandlers()
+
+        if (this.openOnHover)
+          this._addOpenOnHoverEventHandlers()
       },
 
       /************************************************************************
@@ -205,6 +213,19 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Adds event handlers for opening/closing the dropdown on hover.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addOpenOnHoverEventHandlers () {
+        const hoverElement = this.openOnHover
+
+        hoverElement.addEventListener('mouseenter', this.open, false)
+        hoverElement.addEventListener('mouseleave', this.close, false)
+      },
+
+      /************************************************************************
        * Called when the dropdown is removed from the DOM.
        ***********************************************************************/
 
@@ -213,6 +234,9 @@ export default class Dropdown extends Component {
         Component.stopWatchingForDOMChanges(this)
 
         this._removeDocumentEventHandlers()
+
+        if (this.openOnHover)
+          this._removeOpenOnHoverEventHandlers()
       },
 
       /************************************************************************
@@ -223,6 +247,19 @@ export default class Dropdown extends Component {
 
       _removeDocumentEventHandlers () {
         document.removeEventListener('click', this._onDocumentClick, false)
+      },
+
+      /************************************************************************
+       * Removes event handlers for opening/closing the dropdown on hover.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeOpenOnHoverEventHandlers () {
+        const hoverElement = this.openOnHover
+
+        hoverElement.removeEventListener('mouseenter', this.open, false)
+        hoverElement.removeEventListener('mouseleave', this.close, false)
       },
 
       /************************************************************************
