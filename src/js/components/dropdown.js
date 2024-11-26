@@ -50,9 +50,6 @@ export default class Dropdown extends Component {
         this._initProperties()
         this._removeIconFromTabOrder()
         this._bindExternalEventHandlers()
-        
-        if (this.openOnHover)
-          this._bindOpenOnHoverEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
@@ -187,19 +184,8 @@ export default class Dropdown extends Component {
 
       _bindExternalEventHandlers () {
         this._onDocumentClick = this._onDocumentClick.bind(this)
-      },
-
-      /************************************************************************
-       * Binds event handlers for opening/closing the dropdown on hover.
-       *
-       * @private
-       ***********************************************************************/
-
-      _bindOpenOnHoverEventHandlers () {
-        const hoverElement = this.openOnHover
-
-        hoverElement.addEventListener('mouseenter', e => this.open())
-        hoverElement.addEventListener('mouseleave', e => this.close())
+        this.open = this.open.bind(this)
+        this.close = this.close.bind(this)
       },
 
       /************************************************************************
@@ -211,6 +197,9 @@ export default class Dropdown extends Component {
         Component.watchForDOMChanges(this, () => this._initMenuItems())
 
         this._addDocumentEventHandlers()
+
+        if (this.openOnHover)
+          this._addOpenOnHoverEventHandlers()
       },
 
       /************************************************************************
@@ -224,6 +213,19 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Adds event handlers for opening/closing the dropdown on hover.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addOpenOnHoverEventHandlers () {
+        const hoverElement = this.openOnHover
+
+        hoverElement.addEventListener('mouseenter', this.open, false)
+        hoverElement.addEventListener('mouseleave', this.close, false)
+      },
+
+      /************************************************************************
        * Called when the dropdown is removed from the DOM.
        ***********************************************************************/
 
@@ -232,6 +234,9 @@ export default class Dropdown extends Component {
         Component.stopWatchingForDOMChanges(this)
 
         this._removeDocumentEventHandlers()
+
+        if (this.openOnHover)
+          this._removeOpenOnHoverEventHandlers()
       },
 
       /************************************************************************
@@ -242,6 +247,19 @@ export default class Dropdown extends Component {
 
       _removeDocumentEventHandlers () {
         document.removeEventListener('click', this._onDocumentClick, false)
+      },
+
+      /************************************************************************
+       * Removes event handlers for opening/closing the dropdown on hover.
+       *
+       * @private
+       ***********************************************************************/
+
+      _removeOpenOnHoverEventHandlers () {
+        const hoverElement = this.openOnHover
+
+        hoverElement.removeEventListener('mouseenter', this.open, false)
+        hoverElement.removeEventListener('mouseleave', this.close, false)
       },
 
       /************************************************************************
