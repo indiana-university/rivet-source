@@ -45,11 +45,14 @@ export default class Dropdown extends Component {
       init () {
         this._initSelectors()
         this._initElements()
-        this._initProperties()
         this._initMenuItems()
         this._initAttributes()
+        this._initProperties()
         this._removeIconFromTabOrder()
         this._bindExternalEventHandlers()
+        
+        if (this.openOnHover)
+          this._bindOpenOnHoverEventHandlers()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
@@ -78,16 +81,6 @@ export default class Dropdown extends Component {
       _initElements () {
         this.toggleElement = this.element.querySelector(this.toggleSelector)
         this.menuElement = this.element.querySelector(this.menuSelector)
-      },
-
-      /************************************************************************
-       * Initializes dropdown state properties.
-       *
-       * @private
-       ***********************************************************************/
-
-      _initProperties () {
-        this.isOpen = false
       },
 
       /************************************************************************
@@ -161,6 +154,19 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
+       * Initializes dropdown state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        const openOnHoverAttribute = 'data-rvt-dropdown-open-on-hover'
+
+        this.isOpen = false
+        this.openOnHover = this.element.closest(`[${openOnHoverAttribute}]`)
+      },
+
+      /************************************************************************
        * Removes the arrow icon from the tab order.
        *
        * @private
@@ -181,6 +187,19 @@ export default class Dropdown extends Component {
 
       _bindExternalEventHandlers () {
         this._onDocumentClick = this._onDocumentClick.bind(this)
+      },
+
+      /************************************************************************
+       * Binds event handlers for opening/closing the dropdown on hover.
+       *
+       * @private
+       ***********************************************************************/
+
+      _bindOpenOnHoverEventHandlers () {
+        const hoverElement = this.openOnHover
+
+        hoverElement.addEventListener('mouseenter', e => this.open())
+        hoverElement.addEventListener('mouseleave', e => this.close())
       },
 
       /************************************************************************
