@@ -175,12 +175,12 @@
   }
 }
 
-@include mq($breakpoint-lg) {
-  .#{$prefix}-sidenav {
-    margin-top: 0;
+// @include mq($breakpoint-lg) {
+//   .#{$prefix}-sidenav {
+//     margin-top: 0;
 
-    &__mobile-toggle {
-      display: none;
-    }
-  }
-}
+//     &__mobile-toggle {
+//       display: none;
+//     }
+//   }
+// }
