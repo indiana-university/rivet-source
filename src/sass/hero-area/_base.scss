@@ -206,9 +206,12 @@ $_hero-grid-gap: $spacing-lg;
     }
 
     &--statement &__title,
-    &--feature &__title,
-    &--split &__title {
+    &--feature &__title {
       font-size: 4rem;
+    }
+
+    &--split &__title {
+      font-size: $ts-52;
     }
 
     &--split &__inner {

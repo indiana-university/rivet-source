@@ -24,6 +24,12 @@
   margin: 0;
 }
 
+// This will make each grid list item the same/equal height.
+.rvt-grid > li {
+  flex-direction: column;
+  display: flex;
+}
+
 @include mq($breakpoint-md) {
   .rvt-grid--2,
   .rvt-grid--3,

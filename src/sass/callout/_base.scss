@@ -15,10 +15,8 @@
   }
 
   &__eyebrow {
+    @include eyebrow;
     color: $color-crimson-500;
-    font-size: $ts-12;
-    letter-spacing: .125rem;
-    text-transform: uppercase;
     margin: 0;
   }
 

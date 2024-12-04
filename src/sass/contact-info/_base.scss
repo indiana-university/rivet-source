@@ -71,8 +71,8 @@
       display: inline-flex;
       gap: $spacing-xs;
       align-items: center;
-      text-decoration: underline;
-      color: var(--rvt-color-accent);
+      color: var(--rvt-theme-accent);
+      font-weight: $font-weight-medium;
     }
 
     button::after {
@@ -88,10 +88,7 @@
       cursor: pointer;
       color: var(--rvt-theme-accent);
       text-decoration: none;
-    }
-
-    button:hover::after {
-      background-image: url('data:image/svg+xml,<svg fill="%23243142" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
+      text-decoration: underline;
     }
 
     button[aria-expanded="true"]::after {

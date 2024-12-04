@@ -85,6 +85,11 @@
     font-size: $ts-14;
     font-weight: $font-weight-medium;
     padding-block: $spacing-xs;
+
+    &:hover,
+    &:hover ~ div button {
+      color: var(--rvt-theme-accent);
+    }
   }
 
   &-menu__more {

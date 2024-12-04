@@ -134,9 +134,13 @@
   }
 
   &__meta {
-    font-size: $ts-14;
-    padding-top: $spacing-lg;
+    margin-top: $spacing-lg;
+  }
+
+  &__meta > :not([class]) {
+    font-size: $ts-12;
     font-family: $font-mono;
+    color: var(--rvt-theme-text-subtle);
   }
 
   &__meta > * {

@@ -12,7 +12,7 @@ classes: rvt-page
     {% include "demos/demo-hero.njk" %}
   </div>
 
-  <div class="rvt-section rvt-theme-light [ rvt-p-top-md ]">
+  <div class="rvt-section rvt-theme-light [ rvt-p-top-sm ]">
 
     <div class="rvt-container">
       <nav role="navigation" aria-label="Breadcrumbs">
@@ -112,7 +112,7 @@ classes: rvt-page
               <h2 class="rvt-card__title">
                 <a href="#">{First & Last Name}</a>
               </h2>
-              <div class="rvt-card__content">
+              <div class="rvt-card__content [ rvt-m-top-xs ]">
 
                 <p>{Person's title}</p>
 
@@ -132,23 +132,17 @@ classes: rvt-page
                     </li>
                   </ul>
                 </div>
-
-                <!--
-                  This is specific to profile cards, so it can pretty
-                  easily be created with utilities
-                -->
-                <div>
-                  <p class="rvt-font-mono">Areas of expertise:</p>
-                  <ul class="rvt-flex rvt-flex-row rvt-wrap rvt-gap-xs rvt-list-plain">
-                    <li class="rvt-badge rvt-badge--secondary">{UI/UX Design}</li>
-                    <li class="rvt-badge rvt-badge--secondary">{Branding}</li>
-                    <li class="rvt-badge rvt-badge--secondary">{Illustration}</li>
-                    <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
-                    <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
-                    <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
-                  </ul>
-                </div>
-
+              </div>
+              <div class="rvt-card__meta">
+                <p >Areas of expertise:</p>
+                <ul class="rvt-flex rvt-flex-row rvt-wrap rvt-gap-xs rvt-list-plain rvt-m-top-sm">
+                  <li class="rvt-badge rvt-badge--secondary">{UI/UX Design}</li>
+                  <li class="rvt-badge rvt-badge--secondary">{Branding}</li>
+                  <li class="rvt-badge rvt-badge--secondary">{Illustration}</li>
+                  <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
+                  <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
+                  <li class="rvt-badge rvt-badge--secondary">{Lorem}</li>
+                </ul>
               </div>
             </div>
           </div>

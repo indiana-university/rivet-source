@@ -21,10 +21,7 @@
   }
 
   &__eyebrow {
-    font-family: $font-mono;
-    font-size: $ts-12;
-    letter-spacing: .125rem;
-    text-transform: uppercase;
+    @include eyebrow;
     color: var(--rvt-theme-accent-title);
   }
 
@@ -77,7 +74,7 @@
   &--feature &__teaser::before {
     content: '';
     display: block;
-    width: 1px;
+    width: $spacing-xxs;
     height: $spacing-lg;
     background-color: var(--rvt-theme-accent-title);
     position: absolute;
