@@ -4,6 +4,7 @@
  *****************************************************************************/
 
 import Component from './component'
+import remToPixel from '../utilities/remToPixel'
 
 /******************************************************************************
  * The sidenav component can be used to add a vertical list of navigation
@@ -45,7 +46,9 @@ export default class Sidenav extends Component {
         this._initSelectors()
         this._initElements()
         this._initAttributes()
+        this._initProperties()
         this._setInitialChildMenuStates()
+        this._createCollapsibleContainer()
 
         Component.bindMethodToDOMElement(this, 'open', this.open)
         Component.bindMethodToDOMElement(this, 'close', this.close)
@@ -134,6 +137,33 @@ export default class Sidenav extends Component {
       },
 
       /************************************************************************
+       * Initializes sidenav state properties.
+       *
+       * @private
+       ***********************************************************************/
+
+      _initProperties () {
+        const collapseAttribute = 'data-rvt-sidenav-collapse-on-mobile'
+        const breakpointProperty = '--rvt-breakpoint-lg'
+        const documentStyles = getComputedStyle(document.documentElement)
+        
+        this.collapsible = this.element.hasAttribute(collapseAttribute)
+
+        if (this.collapsible) {
+          this.collapsed = false
+          this.documentBody = document.querySelector('body')
+          this.defaultCollapseBreakpoint = documentStyles.getPropertyValue(breakpointProperty)
+          this.collapseBreakpoint = this.element.getAttribute(collapseAttribute)
+          this.collapseBreakpoint = this.collapseBreakpoint
+            ? this.collapseBreakpoint // use value specified in attribute
+            : this.defaultCollapseBreakpoint // use default breakpoint value
+          this.collapseBreakpoint = remToPixel(this.collapseBreakpoint)
+
+          console.log(this.collapseBreakpoint)
+        }
+      },
+
+      /************************************************************************
        * Sets the initial state of the sidenav's child menus.
        *
        * @private
@@ -189,12 +219,108 @@ export default class Sidenav extends Component {
       },
 
       /************************************************************************
+       * Creates markup for a container element into which the sidenav should
+       * be collapsed on smaller screens.
+       *
+       * @private
+       ***********************************************************************/
+
+      _createCollapsibleContainer () {
+        if (!this.collapsible) return
+
+        const template = document.createElement('template')
+        const sidenavLabel = this.element.querySelector('#sidenav-label').textContent
+        
+        template.innerHTML = `
+          <button class="rvt-sidenav__mobile-toggle" data-rvt-sidebar-toggle="" aria-expanded="false" hidden>
+            <span>${sidenavLabel}</span>
+            <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
+          </button>
+        `
+
+        this.collapsibleContainer = template.content.cloneNode(true).firstElementChild
+        this.element.insertAdjacentElement('beforebegin', this.collapsibleContainer)
+
+        const self = this
+
+        document.addEventListener('click', event => {
+          const clickedSidebarMobileToggle = event.target.closest('[data-rvt-sidebar-toggle]')
+          if (!clickedSidebarMobileToggle) return
+    
+          function showNavigation() {
+            clickedSidebarMobileToggle.setAttribute('aria-expanded', 'true')
+            self.element.removeAttribute('hidden')
+          }
+    
+          function hideNavigation() {
+            clickedSidebarMobileToggle.setAttribute('aria-expanded', 'false')
+            self.element.setAttribute('hidden', '')
+          }
+    
+          clickedSidebarMobileToggle.getAttribute('aria-expanded') === "false" ?
+            showNavigation() :
+            hideNavigation()
+        })
+      },
+
+      /************************************************************************
        * Called when the sidenav is added to the DOM.
        ***********************************************************************/
 
       connected () {
         Component.dispatchComponentAddedEvent(this.element)
         Component.watchForDOMChanges(this)
+        Component.watchForDocumentResize(this, () => this._toggleCollapse())
+      },
+
+      /************************************************************************
+       * Toggles the sidenav's collapsed state.
+       *
+       * @private
+       ***********************************************************************/
+
+      _toggleCollapse () {
+        if (!this.collapsible) return
+
+        this._shouldCollapse()
+          ? this._collapse()
+          : this._expand()
+      },
+
+      /************************************************************************
+       * Returns true if the sidenav should be collapsed into a disclosure.
+       *
+       * @private
+       ***********************************************************************/
+
+      _shouldCollapse () {
+        return this.documentBody.offsetWidth <= this.collapseBreakpoint
+      },
+
+      /************************************************************************
+       * Collapses the sidenav into a disclosure menu on mobile.
+       *
+       * @private
+       ***********************************************************************/
+
+      _collapse () {
+        this.element.setAttribute('hidden', true)
+        this.collapsibleContainer.style.display = ''
+        this.collapsibleContainer.setAttribute('hidden', false)
+        this.collapsibleContainer.setAttribute('aria-expanded', false)
+      },
+
+      /************************************************************************
+       * Expands the sidenav to its full-size appearance on larger screens.
+       *
+       * @private
+       ***********************************************************************/
+
+      _expand () {
+        this.element.removeAttribute('hidden')
+        this.collapsibleContainer.style.display = 'none'
+        this.collapsibleContainer.setAttribute('hidden', true)
+        this.collapsibleContainer.setAttribute('aria-expanded', false)
       },
 
       /************************************************************************

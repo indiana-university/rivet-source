@@ -177,6 +177,25 @@ export default class Component {
   }
 
   /****************************************************************************
+   * Watches the document body for resize events. Accepts a callback to
+   * perform additional updates to the component on document body resize.
+   *
+   * @static
+   * @param {Object} self - Component instance
+   * @param {Function} callback - Callback
+   ***************************************************************************/
+
+  static watchForDocumentResize (self, callback) {
+    const documentBody = document.querySelector('body')
+
+    self.resizeObserver = new ResizeObserver(entries => {
+      callback(entries)
+    })
+
+    self.resizeObserver.observe(documentBody)
+  }
+
+  /****************************************************************************
    * Stop watching the component for resize events.
    *
    * @static
