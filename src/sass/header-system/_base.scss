@@ -64,6 +64,7 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    position: relative;
 
     button {
       background-color: transparent;
@@ -77,6 +78,31 @@
     button[aria-expanded=true] > svg {
       transform: rotate(180deg);
     }
+
+    &:has([aria-current="page"])::after {
+      content: "";
+      display: block;
+      background-color: var(--rvt-theme-accent);
+      width: 100%;
+      height: $spacing-xxs * .5;
+      position: absolute;
+      bottom: $spacing-xxs * -0.25;
+    }
+  }
+
+  &-menu__item:hover::after {
+    content: "";
+    display: block;
+    background-color: var(--rvt-theme-accent);
+    width: 100%;
+    height: $spacing-xxs * .5;
+    position: absolute;
+    bottom: $spacing-xxs * -0.25;
+  }
+
+  &-menu__item:hover button,
+  &-menu__item:hover &-menu__link {
+    color: var(--rvt-theme-accent);
   }
 
   &-menu__link {
@@ -85,11 +111,6 @@
     font-size: $ts-14;
     font-weight: $font-weight-medium;
     padding-block: $spacing-xs;
-
-    &:hover,
-    &:hover ~ div button {
-      color: var(--rvt-theme-accent);
-    }
   }
 
   &-menu__more {
