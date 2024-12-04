@@ -13,43 +13,16 @@
     margin-right: $spacing-xs;
   }
 
-  /**
-   * This is only used to style the header dropdowns.
-   */
-
-  &__toggle {
-    display: flex;
-    align-items: center;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-visible {
-      outline: math.div($spacing-xxs, 2) solid $color-blue-600;
-      outline-offset: math.div($spacing-xxs, 2);
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &[aria-expanded='true'] > svg {
-      transform: rotate(180deg);
-    }
-  }
-
   &__menu[aria-hidden='true'] {
     display: none;
   }
 
   &__menu {
     position: absolute;
-    top: $spacing-md;
+    top: 115%;
+    // Aligning this right by default so that dropdowns do not
+    // go offscreen when close to the edge of the viewport.
+    right: 0;
     background-color: $color-white-base;
     box-shadow: $shadow-standard;
     min-width: 12.5rem;
@@ -57,12 +30,10 @@
     padding-bottom: $spacing-xs;
     z-index: map.get($z-index, '1000');
 
-    /**
-     * Align the dropdown menu to the right edge of the button.
-     */
-
-    &--right {
-      right: 0;
+    //In some cases, you may need to align the dropdown menu
+    //to the left edge of the button.
+    &--left {
+      left: 0;
     }
 
     ul {
@@ -83,20 +54,13 @@
       font-size: $ts-14;
 
       /**
-       * This padding-top and bottom value is a magic number. Sorry,
-       * it just looks better. :)
+       * This padding-top and bottom value is a magic number.
        */
       padding: .375rem $spacing-sm;
       background-color: transparent;
       border: none;
       width: 100%;
       text-align: left;
-
-      &:hover {
-        background-color: $color-blue-000;
-        color: $color-blue-500;
-        text-decoration: none;
-      }
 
       &:focus {
         outline: none;
@@ -107,12 +71,18 @@
         box-shadow: inset 0 0 0 math.div($spacing-xxs, 2) $color-blue-500;
       }
 
+      &:hover {
+        background-color: $color-black-000;
+        color: $color-crimson-500;
+        text-decoration: none;
+      }
+
       &.#{$prefix}-is-selected,
       &[aria-current]:not([aria-current='false']),
       &[aria-checked='true'] {
-        box-shadow: inset $spacing-xxs 0 0 $color-crimson-500;
-        background-color: $color-orange-000;
+        background-color: $color-black-000;
         color: $color-crimson-500;
+        font-weight: $font-weight-medium;
 
         &:hover {
           color: $color-crimson-500;
@@ -167,4 +137,11 @@
       padding: 0;
     }
   }
+}
+
+// NOTE: Context specific styles
+// W need some context-specific styles when dropdowns are used in the
+// header nav.
+.#{$prefix}-header-menu__item .#{$prefix}-dropdown__menu {
+  top: 165%;
 }

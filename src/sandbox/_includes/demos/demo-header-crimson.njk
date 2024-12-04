@@ -18,16 +18,15 @@
 
     <!-- Menu slot -->
     <div class="rvt-header__controls">
-      <nav class="rvt-header-menu">
-        <ul data-visible-links class="rvt-header-menu__list">
+      <nav class="rvt-header-menu" data-rvt-priority-nav>
+        <ul class="rvt-header-menu__list" data-rvt-priority-nav-links>
           <li class="rvt-header-menu__item">
               <a class="rvt-header-menu__link" href="#">Academics</a>
           </li>
           <li class="rvt-header-menu__item">
               <a class="rvt-header-menu__link" href="#">Admissions</a>
           </li>
-
-          <li class="rvt-header-menu__item">
+          <li class="rvt-header-menu__item" data-rvt-dropdown-open-on-hover>
               <a class="rvt-header-menu__link" aria-current="page" href="#">Cost &amp; Financial Aid</a>
               <div class="rvt-dropdown" data-rvt-dropdown="example-dropdown">
                 <button data-rvt-dropdown-toggle>
@@ -42,7 +41,6 @@
                 </div>
               </div>
           </li>
-
           <li class="rvt-header-menu__item">
               <a class="rvt-header-menu__link" href="#">Research</a>
           </li>
@@ -59,22 +57,6 @@
               <a class="rvt-header-menu__link" href="#">Alumni and Giving</a>
           </li>
         </ul>
-
-        <!--
-          TODO: think about adding this markup via JS on initialization
-        -->
-        <div class="rvt-header-menu__more rvt-dropdown" data-rvt-dropdown="example-dropdown">
-          <button data-rvt-more-toggle data-rvt-dropdown-toggle>
-            <span>More</span>
-            <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path></svg>
-          </button>
-          <div class="rvt-dropdown__menu rvt-dropdown__menu--right" data-rvt-dropdown-menu hidden>
-
-            <ul data-hidden-links >
-            </ul>
-
-          </div>
-        </div>
       </nav>
     </div>
 
