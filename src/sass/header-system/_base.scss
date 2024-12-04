@@ -83,20 +83,28 @@
       content: "";
       display: block;
       background-color: var(--rvt-theme-accent);
-      width: 100%;
       height: $spacing-xxs * .5;
+      opacity: 1;
       position: absolute;
       bottom: $spacing-xxs * -0.25;
     }
   }
 
-  &-menu__item:hover::after {
+  &-menu__item::after {
     content: "";
     display: block;
     background-color: var(--rvt-theme-accent);
-    width: 100%;
     height: $spacing-xxs * .5;
     position: absolute;
+    bottom: $spacing-xxs * -1;
+    width: 100%;
+    opacity: 0;
+    transition: all .2s ease;
+  }
+
+  &-menu__item:hover::after {
+    transition: .2s;
+    opacity: 1;
     bottom: $spacing-xxs * -0.25;
   }
 
