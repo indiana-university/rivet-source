@@ -96,6 +96,8 @@
 
     &--compact {
       align-items: center;
+      background-color: var(--rvt-theme-bg);
+      border: 1px solid var(--rvt-theme-border);
     }
 
     &--compact &__body {
@@ -107,6 +109,10 @@
     &--compact &__body,
     &--compact &__image {
       width: 50%;
+    }
+
+    &--compact &__title {
+      font-size: $ts-26;
     }
   }
 }

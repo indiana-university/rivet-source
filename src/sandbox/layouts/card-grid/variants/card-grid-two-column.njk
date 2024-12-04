@@ -33,22 +33,7 @@ classes: rvt-page
           NOTE: Need to use a square aspect ratio image in the two column version
           due to width/height considerations.
         -->
-        <div class="rvt-billboard rvt-billboard--reverse rvt-billboard--compact">
-          <div class="rvt-billboard__image">
-            <img src="https://picsum.photos/id/133/800/800" alt="Student in vintage-style Indiana University t-shirt">
-          </div>
-          <div class="rvt-billboard__body ">
-            <p class="rvt-billboard__eyebrow">{Tag or category}</p>
-            <h2 class="rvt-billboard__title">{title should not exceed 32 characters}</h2>
-            <div class="rvt-billboard__content">
-              <p>{Billboard descriptions should not exceed one paragraph or 32 characters. One to two brief sentences will keep the user engaged with your content.}</p>
-              <div class="rvt-flex rvt-gap-md rvt-items-center">
-                <a class="rvt-button rvt-button--outline" href="/#">{Lorem Ipusum}</a>
-                {# <a class="rvt-button" href="/#">Get help</a> #}
-              </div>
-            </div>
-          </div>
-        </div>
+        {% include "demos/demo-billboard-compact.njk" %}
 
         <div class="rvt-rich-text">
           <div>
