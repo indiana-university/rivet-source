@@ -114,7 +114,11 @@ export default class Sidenav extends Component {
 
       _assignToggleIds () {
         this.childMenuToggleButtons.forEach(toggle => {
-          Component.setAttributeIfNotSpecified(toggle, this.toggleAttribute, Component.generateUniqueId())
+          Component.setAttributeIfNotSpecified(
+            toggle,
+            this.toggleAttribute,
+            Component.generateUniqueId()
+          )
         })
       },
 
@@ -158,8 +162,6 @@ export default class Sidenav extends Component {
             ? this.collapseBreakpoint // use value specified in attribute
             : this.defaultCollapseBreakpoint // use default breakpoint value
           this.collapseBreakpoint = remToPixel(this.collapseBreakpoint)
-
-          console.log(this.collapseBreakpoint)
         }
       },
 
@@ -219,8 +221,8 @@ export default class Sidenav extends Component {
       },
 
       /************************************************************************
-       * Creates markup for a container element into which the sidenav should
-       * be collapsed on smaller screens.
+       * Creates a container element into which the sidenav should be
+       * "collapsed" on smaller screens.
        *
        * @private
        ***********************************************************************/
@@ -228,6 +230,17 @@ export default class Sidenav extends Component {
       _createCollapsibleContainer () {
         if (!this.collapsible) return
 
+        this._prependCollapsibleContainerElement()
+        this._addCollapsibleContainerEventListeners()
+      },
+
+      /************************************************************************
+       * Inserts the collapsible container element at the top of the sidenav.
+       *
+       * @private
+       ***********************************************************************/
+
+      _prependCollapsibleContainerElement () {
         const template = document.createElement('template')
         const sidenavLabel = this.element.querySelector('#sidenav-label').textContent
         
@@ -240,26 +253,30 @@ export default class Sidenav extends Component {
 
         this.collapsibleContainer = template.content.cloneNode(true).firstElementChild
         this.element.insertAdjacentElement('beforebegin', this.collapsibleContainer)
+      },
 
+      /************************************************************************
+       * Adds event listeners to the document for expanding/collapsing the
+       * sidenav on mobile.
+       *
+       * @private
+       ***********************************************************************/
+
+      _addCollapsibleContainerEventListeners () {
         const self = this
 
         document.addEventListener('click', event => {
           const clickedSidebarMobileToggle = event.target.closest('[data-rvt-sidebar-toggle]')
+          
           if (!clickedSidebarMobileToggle) return
-    
-          function showNavigation() {
+
+          if (clickedSidebarMobileToggle.getAttribute('aria-expanded') === 'false') {
             clickedSidebarMobileToggle.setAttribute('aria-expanded', 'true')
             self.element.removeAttribute('hidden')
-          }
-    
-          function hideNavigation() {
+          } else {
             clickedSidebarMobileToggle.setAttribute('aria-expanded', 'false')
             self.element.setAttribute('hidden', '')
           }
-    
-          clickedSidebarMobileToggle.getAttribute('aria-expanded') === "false" ?
-            showNavigation() :
-            hideNavigation()
         })
       },
 
