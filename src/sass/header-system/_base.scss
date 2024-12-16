@@ -83,10 +83,10 @@
       content: "";
       display: block;
       background-color: var(--rvt-theme-accent);
-      height: $spacing-xxs * .5;
+      height: $spacing-xxs;
       opacity: 1;
       position: absolute;
-      bottom: $spacing-xxs * -0.25;
+      bottom: $spacing-xxs * -0.125;
     }
   }
 
