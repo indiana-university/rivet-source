@@ -29,9 +29,8 @@
   }
 
   &__eyebrow {
+    @include eyebrow;
     color: var(--rvt-theme-accent);
-    font-family: $font-mono;
-    font-size: $ts-12;
     padding-inline-start: $spacing-md;
   }
 

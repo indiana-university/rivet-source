@@ -19,6 +19,10 @@
     margin-top: 0;
     border: 1px solid var(--rvt-theme-border);
 
+    &:has([aria-current="page"]) {
+      border-color: var(--rvt-theme-accent);
+    }
+
     svg {
       width: 1rem;
       height: 1rem;
@@ -39,7 +43,7 @@
     }
 
     a {
-      color: $color-black-500;
+      color: var(--rvt-theme-text);
       flex-grow: 1;
       padding: $spacing-xs;
       min-width: $spacing-xl;
@@ -51,15 +55,15 @@
     }
 
     a:hover {
-      background-color: $color-blue-000;
-      color: $color-blue-500;
-      box-shadow: 0 $spacing-xxs 0 $color-blue-500;
+      background-color: var(--rvt-theme-bg-subtle);
+      color: var(--rvt-theme-accent);
+      box-shadow: 0 ($spacing-xxs * .5) 0 var(--rvt-theme-accent);
     }
 
     a:focus,
     a[aria-current='page']:focus {
       border-radius: inherit;
-      outline: solid math.div($spacing-xxs, 2) $color-blue-400;
+      outline: solid math.div($spacing-xxs, 2) var(--rvt-theme-accent);
       outline-offset: math.div($spacing-xxs, 2);
       z-index: map.get($z-index, '1000');
     }

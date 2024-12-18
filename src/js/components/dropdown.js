@@ -146,7 +146,7 @@ export default class Dropdown extends Component {
       _isMenu () {
         // Consider the dropdown a menu of action buttons if at least one
         // non-hyperlink element is present
-        
+
         return this.menuItems.some(i => i.tagName != 'A')
       },
 

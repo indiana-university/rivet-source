@@ -13,7 +13,6 @@
     font-family: $font-condensed;
     font-weight: $font-weight-black;
     font-size: $ts-23;
-    // letter-spacing: .04rem;
     line-height: $line-height-tight;
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
@@ -57,8 +56,7 @@
   }
 
   &--feature &__eyebrow {
-    text-transform: uppercase;
-    letter-spacing: .0825rem;
+    @include eyebrow;
   }
 
   &__title {
@@ -134,9 +132,13 @@
   }
 
   &__meta {
-    font-size: $ts-14;
-    padding-top: $spacing-lg;
+    margin-top: $spacing-lg;
+  }
+
+  &__meta > :not([class]) {
+    font-size: $ts-12;
     font-family: $font-mono;
+    color: var(--rvt-theme-text-subtle);
   }
 
   &__meta > * {
@@ -216,6 +218,19 @@
 .#{$prefix}-theme-crimson .#{$prefix}-card,
 .#{$prefix}-theme-dark .#{$prefix}-card {
   background-color: var(--rvt-theme-bg-subtle);
+}
+
+.#{$prefix}-theme-crimson .#{$prefix}-card--feature,
+.#{$prefix}-theme-dark .#{$prefix}-card--feature {
+  transition: background .2s ease-in-out;
+}
+
+.#{$prefix}-theme-crimson .#{$prefix}-card--feature:hover {
+  background-color: $color-crimson-700;
+}
+
+.#{$prefix}-theme-dark .#{$prefix}-card--feature:hover {
+  background-color: $color-black-700;
 }
 
 .#{$prefix}-theme-crimson.#{$prefix}-card .#{$prefix}-card__title a::before,

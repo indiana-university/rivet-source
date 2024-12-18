@@ -9,9 +9,7 @@
   }
 
   &__eyebrow {
-    font-size: $ts-12;
-    letter-spacing: .125rem;
-    text-transform: uppercase;
+    @include eyebrow;
     color: var(--rvt-theme-accent-title);
     margin: 0;
   }
@@ -98,6 +96,8 @@
 
     &--compact {
       align-items: center;
+      background-color: var(--rvt-theme-bg);
+      border: 1px solid var(--rvt-theme-border);
     }
 
     &--compact &__body {
@@ -109,6 +109,10 @@
     &--compact &__body,
     &--compact &__image {
       width: 50%;
+    }
+
+    &--compact &__title {
+      font-size: $ts-26;
     }
   }
 }

@@ -64,6 +64,7 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    position: relative;
 
     button {
       background-color: transparent;
@@ -77,6 +78,39 @@
     button[aria-expanded=true] > svg {
       transform: rotate(180deg);
     }
+
+    &:has([aria-current="page"])::after {
+      content: "";
+      display: block;
+      background-color: var(--rvt-theme-accent);
+      height: $spacing-xxs;
+      opacity: 1;
+      position: absolute;
+      bottom: $spacing-xxs * -0.125;
+    }
+  }
+
+  &-menu__item::after {
+    content: "";
+    display: block;
+    background-color: var(--rvt-theme-accent);
+    height: $spacing-xxs * .5;
+    position: absolute;
+    bottom: $spacing-xxs * -1;
+    width: 100%;
+    opacity: 0;
+    transition: all .2s ease;
+  }
+
+  &-menu__item:hover::after {
+    transition: .2s;
+    opacity: 1;
+    bottom: $spacing-xxs * -0.25;
+  }
+
+  &-menu__item:hover button,
+  &-menu__item:hover &-menu__link {
+    color: var(--rvt-theme-accent);
   }
 
   &-menu__link {

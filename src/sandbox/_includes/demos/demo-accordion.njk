@@ -1,8 +1,28 @@
 <div>
-  {# <div class="rvt-rich-text">
-    <h2>FAQs</h2>
-  </div> #}
-  <div class="rvt-accordion rvt-m-top-md" data-rvt-accordion="test-accordion">
+  <!--
+    This seems weird, but we need to wrap the heading in a
+    `rvt-rich-text` utility here to maintain consistent font/heading
+    styles. We want the `rvt-rich-text` styles to apply to the optional
+    heading, but not the accordion.
+
+    Optional heading should have the following fields:
+    - Text
+    - Heading level
+      - h2
+      - h3
+      - h4
+      - h5
+      - h6
+  -->
+  <div class="rvt-rich-text">
+    <h3>Optional accordion heading</h3>
+  </div>
+  <!--
+    When option accordion heading is present, we need to add a bit
+    of top margin to the accordion element. Otherwise, the `rvt-m-top-md`
+    utility class should not be rendered.
+  -->
+  <div class="rvt-accordion [ rvt-m-top-md ]" data-rvt-accordion="test-accordion">
     <h3 class="rvt-accordion__summary">
       <button class="rvt-accordion__toggle" data-rvt-accordion-trigger>
         <span class="rvt-accordion__toggle-text">Become the best version of yourself at IU</span>

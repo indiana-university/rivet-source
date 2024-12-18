@@ -32,7 +32,6 @@ $_hero-grid-gap: $spacing-lg;
     font-weight: $font-weight-black;
     color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
-    text-wrap: balance;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -94,16 +93,8 @@ $_hero-grid-gap: $spacing-lg;
 
 @include mq($breakpoint-md) {
   .#{$prefix}-hero {
-    &__inner {
-      flex-direction: row;
-    }
-
-    &__body,
-    &__callout {
-      flex-grow: 1;
-    }
-
     &__body {
+      flex-grow: 1;
       max-width: 90ch;
     }
 
@@ -112,11 +103,7 @@ $_hero-grid-gap: $spacing-lg;
     }
 
     &__callout {
-      width: $width-xxl;
-    }
-
-    &__callout {
-      align-self: flex-end;
+      flex-shrink: 0;
     }
 
     &__title {
@@ -144,8 +131,6 @@ $_hero-grid-gap: $spacing-lg;
         position: absolute;
         bottom: $spacing-xs;
         right: 0;
-        // bottom: $spacing-sm;
-        // left: 0;
         width: 100%;
         max-width: 55%;
       }
@@ -179,6 +164,10 @@ $_hero-grid-gap: $spacing-lg;
 
 @include mq($breakpoint-lg) {
   .#{$prefix}-hero {
+    &__inner {
+      flex-direction: row;
+    }
+
     &__eyebrow + &__title {
       margin-top: $spacing-sm;
     }
@@ -201,14 +190,23 @@ $_hero-grid-gap: $spacing-lg;
       margin-top: $spacing-sm;
     }
 
+    &__callout {
+      flex-grow: 1;
+      max-width: 33%;
+      align-self: flex-end;
+    }
+
     &--profile &__subtitle {
       font-size: $ts-29;
     }
 
     &--statement &__title,
-    &--feature &__title,
-    &--split &__title {
+    &--feature &__title {
       font-size: 4rem;
+    }
+
+    &--split &__title {
+      font-size: $ts-52;
     }
 
     &--split &__inner {

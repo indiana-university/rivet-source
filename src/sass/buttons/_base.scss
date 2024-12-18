@@ -19,6 +19,7 @@
   cursor: pointer;
   border: 1px solid var(--rvt-theme-accent-border);
   border-radius: 0;
+  transition: background .2s ease-in-out, border-color .2s ease-in-out;
 
   &:hover {
     background-color: var(--rvt-theme-accent-subtle);
@@ -105,8 +106,8 @@ a[href^="#"].#{$prefix}-button--solid::after {
 // Crimson theme - default variant
 .#{$prefix}-theme-crimson .#{$prefix}-button {
   &:hover {
-    background-color: var(--rvt-theme-accent);
-    color: var(--rvt-theme-bg)
+    background-color: var(--rvt-theme-bg-subtle);
+    color: var(--rvt-theme-text);
   }
 }
 
@@ -120,10 +121,6 @@ a[href^="#"].#{$prefix}-button--solid::after {
 
 .#{$prefix}-theme-crimson a[href^="http"].#{$prefix}-button::after {
   @include bg-icon-arrow-up-right($color-white-base);
-}
-
-.#{$prefix}-theme-crimson a.#{$prefix}-button:hover::after {
-  @include bg-icon-arrow-right($color-crimson-500);
 }
 
 // Crimson theme - solid variant
@@ -161,8 +158,8 @@ a[href^="#"].#{$prefix}-button--solid::after {
 // Dark Theme - default variant
 .#{$prefix}-theme-dark .rvt-button {
   &:hover {
-    color: var(--rvt-theme-bg);
-    background-color: var(--rvt-theme-accent);
+    background-color: var(--rvt-theme-bg-subtle);
+    color: var(--rvt-theme-text);
   }
 }
 
@@ -179,11 +176,7 @@ a[href^="#"].#{$prefix}-button--solid::after {
 }
 
 .#{$prefix}-theme-dark a.#{$prefix}-button:hover::after {
-  @include bg-icon-arrow-right($color-black-500);
-}
-
-.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button:hover::after {
-  @include bg-icon-arrow-down($color-black-500);
+  @include bg-icon-arrow-right($color-white-base);
 }
 
 .#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button::after {
@@ -191,7 +184,7 @@ a[href^="#"].#{$prefix}-button--solid::after {
 }
 
 .#{$prefix}-theme-dark a[href^="http"].#{$prefix}-button:hover::after {
-  @include bg-icon-arrow-up-right($color-black-500);
+  @include bg-icon-arrow-up-right($color-white-base);
 }
 
 // Dark theme - solid variant

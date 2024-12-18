@@ -9,6 +9,7 @@
     letter-spacing: .01rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 40ch;
 
     a {
       color: var(--rvt-theme-text);

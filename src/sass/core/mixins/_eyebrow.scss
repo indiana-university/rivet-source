@@ -1,0 +1,11 @@
+// Copyright (C) 2024 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use '../variables' as *;
+
+@mixin eyebrow {
+  font-family: $font-mono;
+  font-size: $ts-12;
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+}

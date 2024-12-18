@@ -12,7 +12,8 @@
     display: block;
     width: 100%;
     background-color: $color-white-base;
-    border: 1px solid $color-black-300;
+    border: 1px solid var(--rvt-theme-text);
+    border-radius: 0;
     padding: $spacing-xs;
     height: $spacing-sm * 3;
     line-height: 1.1;

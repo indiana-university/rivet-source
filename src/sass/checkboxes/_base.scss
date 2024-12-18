@@ -42,24 +42,24 @@
   }
 
   input[type='checkbox'] ~ label::before {
-    background-color: $color-white-base;
-    border: math.div($spacing-xxs, 2) solid $color-black-300;
+    background-color: var(--rvt-theme-bg);
+    border: math.div($spacing-xxs, 4) solid var(--rvt-theme-text);
     content: '';
     display: inline-block;
     height: $spacing-sm;
-    left: math.div($spacing-xxs, 2);
+    left: math.div($spacing-xxs, 4);
     position: absolute;
-    top: math.div($spacing-xxs, 2);
+    top: math.div($spacing-xxs, 4);
     width: $spacing-sm;
   }
 
   input[type='checkbox']:checked ~ label::before,
   input[type='checkbox']:indeterminate ~ label::before {
-    background-color: $color-blue-500;
+    background-color: var(--rvt-theme-accent);
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z"></path></svg>');
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    border-color: $color-blue-500;
+    border-color: var(--rvt-theme-accent);
   }
 
   input[type='checkbox']:indeterminate ~ label::before {
