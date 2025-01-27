@@ -34,7 +34,22 @@ classes: rvt-page
       </div><!-- end inner -->
 
       <div class="rvt-hero__banner">
+        <!--
+          Data definition notes: "Landing Page" Content Type
 
+          This "banner" element of the hero works as a "slot" where
+          you place the new Media Hub component and configure it as needed.
+          See the Media Hub sandbox examples - /components/media-hub/
+
+          Data definition notes: "Landing Page" Content Type
+          - The Media Hub used here should only allow editors to upload and
+            use the following configurations of the media hub.
+
+            1. 3 images with a 1:1 (square) aspect ratio
+            2. 2 images with a 1:1 (square) aspect ratio
+            3. 1 image with a 2:1 aspect ratio
+            4. 1 video/video embed with a 16:9 aspect ratio
+        -->
         <div class="rvt-media-hub">
           <figure class="rvt-media-hub__media">
             {# <div class="rvt-media-hub__span-6">
@@ -52,6 +67,22 @@ classes: rvt-page
           </figure>
         </div>
 
+        <!--
+          Data definition notes: "Landing Page" Content Type
+
+          This callout banner is optional. It functions the same way
+          no matter what media hub configuration is used in the hero
+          banner. (See banner/media hub notes above).
+
+          This also acts as a "slot" for a Card component. The card
+          has a crimson theme applied. It's elements include:
+            - A sticker that defaults to the megaphone, but can be
+              changed by the user by specifying a Rivet sticker ID
+              in a text field
+            - An eyebrow text field
+            - A title text field
+        -->
+
         <div class="rvt-hero__banner-callout">
           <div class="rvt-card rvt-card--raised rvt-card--clickable rvt-card--horizontal [ rvt-theme-crimson ]">
             <rvt-sticker name="megaphone" theme="crimson" size="sm"></rvt-sticker>
@@ -60,9 +91,6 @@ classes: rvt-page
               <h2 class="rvt-card__title">
                 <a href="#">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</a>
               </h2>
-              {# <div class="rvt-card__content [ rvt-ts-14 ]">
-                <p>Organizations, innovating the future, and making an impact on their communities and the world.</p>
-              </div> #}
             </div>
           </div>
         </div>
@@ -74,10 +102,41 @@ classes: rvt-page
 
   <div class="rvt-section rvt-border-top rvt-border-bottom rvt-p-top-none rvt-p-bottom-none">
     <div class="rvt-container">
+      <!--
+        Data definition notes: "Landing Page" Content Type
+
+        Stats section:
+          - Stat section is optional (show/hide via checkbox?)
+          - Minimum of 2 stats required
+          - Maximum of 4 stats allowed
+
+        Stat fields:
+          - Sticker - plain text field to specify id e.g., "globe" or "badge-check"
+          - Number - plain text field for a number - must be text so that "%" and "+" can be included
+          - Description - plain text field for description
+      -->
       {% include "demos/demo-stats.njk" %}
     </div>
   </div>
 
+  <!--
+    Data definition notes: "Landing Page" Content Type
+
+    Statement section:
+      - Statement section is optional (show/hide via checkbox?)
+
+    Section intro - fields
+      - Featured? - checkbox that conditionally applies the `--feature` variant
+      - Title - Plain text <= 40 characters
+      - Text - Rich text that allows bold, italic
+      - CTA(s) - repeater field, max of two
+        - CTA text
+        - CTA URL
+      - Image - This uses the Media Hub component
+        - Image uploader
+          - Max of 1 image or video/video embed
+          - 16:9 aspect-ratio
+  -->
   <div class="rvt-section rvt-theme-light [ rvt-p-bottom-xxl-lg-up ]">
     <div class="rvt-container">
       <div class="rvt-stack">
@@ -143,6 +202,17 @@ classes: rvt-page
   <div class="rvt-section rvt-theme-crimson">
     <div class="rvt-container">
 
+      <!--
+        Media Hub Component Data Definition
+
+        - Teaser - Text field 1-2 Sentences, does not display if empty
+        - Layout
+          - This could go several ways - The CSS for the component itself can pretty
+          much handle anything that is thrown at it, but we'll need to all for a
+          finite number of predeternined layouts similar to the current framework's
+          "Image essay" chunk. See /components/media-hub/ for layout examples
+        - Caption - Text field for optional caption
+      -->
       <div class="rvt-media-hub">
         <!-- Make this an optional element of the media hub -->
         <p class="rvt-media-hub__teaser">{Simple one to two sentence statement about about school or site that can also serve as a way to link to sections. Learn more about <a href="#">lorem ipsum</a>.}</p>
@@ -186,6 +256,12 @@ classes: rvt-page
 
   <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
+
+      <!--
+        Billboard section
+
+        - Repeater that allows user to add up to three billboards
+      -->
       <div class="rvt-billboard rvt-billboard--reverse">
         <div class="rvt-billboard__image">
           <img src="https://picsum.photos/id/20/800/800" alt="Student in vintage-style Indiana University t-shirt">
