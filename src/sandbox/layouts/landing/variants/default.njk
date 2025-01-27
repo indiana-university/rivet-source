@@ -202,6 +202,17 @@ classes: rvt-page
   <div class="rvt-section rvt-theme-crimson">
     <div class="rvt-container">
 
+      <!--
+        Media Hub Component Data Definition
+
+        - Teaser - Text field 1-2 Sentences, does not display if empty
+        - Layout
+          - This could go several ways - The CSS for the component itself can pretty
+          much handle anything that is thrown at it, but we'll need to all for a
+          finite number of predeternined layouts similar to the current framework's
+          "Image essay" chunk. See /components/media-hub/ for layout examples
+        - Caption - Text field for optional caption
+      -->
       <div class="rvt-media-hub">
         <!-- Make this an optional element of the media hub -->
         <p class="rvt-media-hub__teaser">{Simple one to two sentence statement about about school or site that can also serve as a way to link to sections. Learn more about <a href="#">lorem ipsum</a>.}</p>
@@ -245,6 +256,12 @@ classes: rvt-page
 
   <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
+
+      <!--
+        Billboard section
+
+        - Repeater that allows user to add up to three billboards
+      -->
       <div class="rvt-billboard rvt-billboard--reverse">
         <div class="rvt-billboard__image">
           <img src="https://picsum.photos/id/20/800/800" alt="Student in vintage-style Indiana University t-shirt">
