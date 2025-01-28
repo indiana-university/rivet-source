@@ -159,6 +159,10 @@ $_hero-grid-gap: $spacing-lg;
       height: 100%;
       object-fit: cover;
     }
+
+    &--split &__inner {
+      align-items: center;
+    }
   }
 }
 
