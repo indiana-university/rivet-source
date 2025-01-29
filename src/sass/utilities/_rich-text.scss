@@ -115,13 +115,15 @@
 @include mq($breakpoint-lg) {
   .rvt-prose,
   .rvt-rich-text {
-
-
     :where(p),
     :where(li),
     :where(td),
     :where(dt) {
       font-size: $ts-18;
+    }
+
+    h1 {
+      font-size: $ts-41;
     }
 
     h2 {
