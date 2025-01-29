@@ -12,10 +12,6 @@
   }
 }
 
-.rvt-grid--tight {
-  gap: 0;
-}
-
 :where(ul.rvt-grid),
 :where(ol.rvt-grid) {
   list-style: "";
@@ -57,10 +53,6 @@
 @include mq($breakpoint-lg) {
   .rvt-grid {
     gap: $spacing-lg;
-  }
-
-  .rvt-grid--tight {
-    gap: $spacing-sm;
   }
 
   .rvt-grid--3,
