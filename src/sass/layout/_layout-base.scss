@@ -27,6 +27,12 @@
     padding-block-start: $spacing-md;
     padding-block-end: $spacing-md;
   }
+
+  &--single-column &__main {
+    max-width: 80ch;
+    margin-inline: auto;
+    width: 100%;
+  }
 }
 
 @include mq($breakpoint-lg) {
@@ -60,14 +66,9 @@
       @include container;
     }
 
-    &--single-column {
-      grid-template-columns: 1fr;
-    }
-
-    &--single-column &__main {
-      max-width: 80ch;
-      margin-inline: auto;
-    }
+  &--single-column {
+    grid-template-columns: 1fr;
+  }
 
     &--single-column &__breakout {
       // Breakout styles for single column...

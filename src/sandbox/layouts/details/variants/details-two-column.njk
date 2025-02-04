@@ -1,6 +1,6 @@
 ---
-tags: base-layout
-title: Base layout - Two Column
+tags: details-layout
+title: Details layout - Two Column
 layout: layouts/layout-shell.njk
 permalink: /layouts/preview/{{ title | slug}}/
 order: 1
@@ -19,11 +19,7 @@ classes: rvt-page
 
   <div class="rvt-layout-base">
     <div class="rvt-layout-base__sidebar" id="sidebar-main-content">
-      <div class="rvt-empty-state">
-          <div class="rvt-empty-state__content">
-            <p>Base Layout - Sidebar</p>
-          </div>
-        </div>
+      {% include "demos/demo-sidenav.njk" %}
     </div>
     <div class="rvt-layout-base__main">
 
@@ -37,13 +33,10 @@ classes: rvt-page
         </ol>
       </nav>
 
+
       <div class="rvt-stack rvt-m-top-xxl">
 
-        <div class="rvt-empty-state">
-          <div class="rvt-empty-state__content">
-            <p>Base Layout - Main content...</p>
-          </div>
-        </div>
+        {% include "demos/demo-details-content.njk" %}
 
       </div>
 
