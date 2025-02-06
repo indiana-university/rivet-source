@@ -1,6 +1,6 @@
 ---
 tags: card-grid
-title: Card grid - Default
+title: Card grid - Category
 layout: layouts/layout-shell.njk
 permalink: /layouts/preview/{{ title | slug}}/
 order: 1
@@ -72,6 +72,41 @@ classes: rvt-page
       </ul>
     </div>
   </div><!-- End first card grid -->
+
+<div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-rich-text">
+        <div>
+          <span class="rvt-ts-14 rvt-font-mono">{ Optional tag }</span>
+          <h2>{ Second card grid group! }</h2>
+        </div>
+        <p>{ Optional description copy should not exceed one concise paragraph. }</p>
+      </div>
+    </div>
+
+    <div class="rvt-container">
+      <ul class="rvt-grid rvt-grid--3 rvt-grid--collapse">
+        {% for card in range(0, 6) %}
+        <li>
+          <div class="rvt-card rvt-card--feature">
+            <div class="rvt-card__image">
+              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
+            </div>
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title">
+                <a href="#">{This card title should be concise}</a>
+              </h2>
+              <div class="rvt-card__content">
+                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div><!-- End second card grid -->
 
   <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
