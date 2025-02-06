@@ -102,9 +102,9 @@
 
 // Decrease stacking space on list hub when it is used directly AFTER
 // a rich text block to introduce the list hub content.
-.#{$prefix}-stack .#{$prefix}-rich-text + .#{$prefix}-list-hub {
-  margin-top: $spacing-lg;
-}
+// .#{$prefix}-stack .#{$prefix}-rich-text + .#{$prefix}-list-hub {
+//   margin-top: $spacing-lg;
+// }
 
 // Non Global theme specifics
 
