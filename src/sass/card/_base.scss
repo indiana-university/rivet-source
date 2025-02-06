@@ -28,9 +28,18 @@
     content: none;
   }
 
+  &__image {
+    display: flex;
+    align-items: center;
+    aspect-ratio: 16 / 9;
+  }
+
   &__image img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     display: block;
     width: 100%;
+    height: 100%;
   }
 
   &__body {

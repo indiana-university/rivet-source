@@ -27,51 +27,13 @@ classes: rvt-page
     </div>
   </div>
 
-  <div class="rvt-section rvt-theme-light">
+  {# <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
 
       {% include "demos/demo-billboard-compact.njk" %}
 
     </div>
-  </div>
-
-  <div class="rvt-section rvt-theme-light">
-    <div class="rvt-container">
-      <div class="rvt-rich-text">
-        <div>
-          <span class="rvt-ts-14 rvt-font-mono">{ Optional tag }</span>
-          <h2>{ Optional Category Title }</h2>
-        </div>
-        <p>{ Optional description copy should not exceed one concise paragraph. }</p>
-      </div>
-    </div>
-
-    <div class="rvt-container">
-      <ul class="rvt-grid rvt-grid--3 rvt-grid--collapse">
-        {% for card in range(0, 6) %}
-        <li>
-          <div class="rvt-card rvt-card--feature">
-            <div class="rvt-card__image">
-              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
-            </div>
-            <div class="rvt-card__body">
-              <div class="rvt-card__eyebrow">{Campus or category}</div>
-              <h2 class="rvt-card__title">
-                <a href="#">{This card title should be concise}</a>
-              </h2>
-              <div class="rvt-card__content">
-                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
-              </div>
-              {# <div class="rvt-card__meta">
-                <time>{Jun 21,2024}</time>
-              </div> #}
-            </div>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div><!-- End first card grid -->
+  </div> #}
 
 <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
@@ -90,7 +52,7 @@ classes: rvt-page
         <li>
           <div class="rvt-card rvt-card--feature">
             <div class="rvt-card__image">
-              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/600/400" alt="Smiling students sitting outside on a bench">
+              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/800/450" alt="Smiling students sitting outside on a bench">
             </div>
             <div class="rvt-card__body">
               <div class="rvt-card__eyebrow">{Campus or category}</div>
@@ -107,6 +69,50 @@ classes: rvt-page
       </ul>
     </div>
   </div><!-- End second card grid -->
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-rich-text">
+        <div>
+          <span class="rvt-ts-14 rvt-font-mono">{ Optional tag }</span>
+          <h2>{ Optional Category Title }</h2>
+        </div>
+        <p>{ Optional description copy should not exceed one concise paragraph. }</p>
+      </div>
+    </div>
+
+    <div class="rvt-container">
+      <ul class="rvt-grid rvt-grid--3 rvt-grid--collapse">
+        {# User this hard-coded array to show different stickers no each loop #}
+        {% set stickers = ["branch", "book", "camera", "calendar", "form-check", "popper"] %}
+        {% for card in range(0, 6) %}
+        <li>
+          <div class="rvt-card rvt-card--feature">
+            <!--
+              Design specs show possible use of stickers in card image area.
+              This can be accomplished using utility classes.
+            -->
+            <div class="rvt-card__image [ rvt-flex rvt-justify-center rvt-p-tb-xx rvt-bg-black-000 ]">
+              <rvt-sticker name="{{ stickers[loop.index - 1] }}"></rvt-sticker>
+            </div>
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title">
+                <a href="#">{This card title should be concise}</a>
+              </h2>
+              <div class="rvt-card__content">
+                <p> Minus ducimus sint amet similique, saepe aut natus fuga.</p>
+              </div>
+              {# <div class="rvt-card__meta">
+                <time>{Jun 21,2024}</time>
+              </div> #}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 
   <div class="rvt-section rvt-theme-light">
     <div class="rvt-container">
