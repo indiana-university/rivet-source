@@ -98,7 +98,7 @@ a[href^="http"].#{$prefix}-button--solid::after {
    @include bg-icon-arrow-up-right($color-white-base);
 }
 
-a[href^="#"].#{$prefix}-button--solid::after {
+a[href*="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-down($color-white-base);
 }
 
@@ -115,7 +115,7 @@ a[href^="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-right($color-white-base);
 }
 
-.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button::after {
+.#{$prefix}-theme-crimson a[href*="#"].#{$prefix}-button::after {
   @include bg-icon-arrow-down($color-white-base);
 }
 
@@ -139,11 +139,11 @@ a[href^="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-right($color-white-base);
 }
 
-.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid::after {
+.#{$prefix}-theme-crimson a[href*="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-down($color-crimson-500);
 }
 
-.#{$prefix}-theme-crimson a[href^="#"].#{$prefix}-button--solid:hover::after {
+.#{$prefix}-theme-crimson a[href*="#"].#{$prefix}-button--solid:hover::after {
   @include bg-icon-arrow-down($color-white-base);
 }
 
@@ -167,7 +167,7 @@ a[href^="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-right($color-white-base);;
 }
 
-.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button::after {
+.#{$prefix}-theme-dark a[href*="#"].#{$prefix}-button::after {
   @include bg-icon-arrow-down($color-white-base);;
 }
 
@@ -203,11 +203,11 @@ a[href^="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-right($color-white-base);;
 }
 
-.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button--solid::after {
+.#{$prefix}-theme-dark a[href*="#"].#{$prefix}-button--solid::after {
   @include bg-icon-arrow-down($color-black-500);
 }
 
-.#{$prefix}-theme-dark a[href^="#"].#{$prefix}-button--solid:hover::after {
+.#{$prefix}-theme-dark a[href*="#"].#{$prefix}-button--solid:hover::after {
   @include bg-icon-arrow-down($color-white-base);;
 }
 
