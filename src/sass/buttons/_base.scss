@@ -86,7 +86,7 @@ a[href^="http"].#{$prefix}-button::after {
   @include bg-icon-arrow-up-right($color-crimson-500);
 }
 
-a[href^="#"].#{$prefix}-button::after {
+a[href*="#"].#{$prefix}-button::after {
   @include bg-icon-arrow-down($color-crimson-500);
 }
 
