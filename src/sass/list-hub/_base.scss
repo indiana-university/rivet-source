@@ -28,6 +28,11 @@
     padding-inline: $spacing-sm;
   }
 
+  // If the item is not a link remove eyebrow padding for proper alignment.
+  &__item:has(&__item-title) > &__eyebrow {
+    padding-inline-start: 0;
+  }
+
   &__eyebrow {
     @include eyebrow;
     color: var(--rvt-theme-accent);
