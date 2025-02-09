@@ -48,10 +48,10 @@
               <a class="rvt-header-menu__link" href="#">Student Support</a>
           </li>
           <li class="rvt-header-menu__item">
-              <a class="rvt-header-menu__link" href="#">Campus Life</a>
+              <a class="rvt-header-menu__link" href="#">About</a>
           </li>
           <li class="rvt-header-menu__item">
-              <a class="rvt-header-menu__link" href="#">About</a>
+              <a class="rvt-header-menu__link" href="#">Campus life</a>
           </li>
           <li class="rvt-header-menu__item">
               <a class="rvt-header-menu__link" href="#">Alumni and Giving</a>
@@ -61,13 +61,25 @@
     </div>
 
     <div class="rvt-header__buttons">
-      <button class="rvt-header__button">
-        <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2ZM0 7a7 7 0 1 1 12.606 4.192l3.101 3.1-1.414 1.415-3.1-3.1A7 7 0 0 1 0 7Z"></path></svg>
-      </button>
-      <button data-rvt-dialog-trigger="dialog-example" aria-label="Toggle menu" class="rvt-header__button rvt-header__button--mobile-menu">
+      <button data-rvt-dialog-trigger="mobile-menu" aria-label="Toggle menu" class="rvt-header__button rvt-header__button--mobile-menu">
         <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
       </button>
+      <button class="rvt-header__button" data-rvt-dialog-trigger="search-bar">
+        <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2ZM0 7a7 7 0 1 1 12.606 4.192l3.101 3.1-1.414 1.415-3.1-3.1A7 7 0 0 1 0 7Z"></path></svg>
+      </button>
+      <!--
+        TODO: the "rvt-header__buttons" element allows multiple
+        buttons in addition to the search and mobile menu buttons.
+        For example and "Apply" CTA. This needs a bit more thought
+        and design work to figure out a smaller size for CTA buttons,
+        mobile behavior, etc.
+      -->
+
+      <!-- <a href="#" class="rvt-button rvt-button--solid">Visit</a>
+      <a href="#" class="rvt-button">Apply</a> -->
     </div>
   </div><!-- end header__inner -->
-  {% include "demos/header-demos/header-mobile-menu.njk" %}
 </header>
+<!-- Mobile navigation and search includes -->
+{% include "demos/header-demos/header-mobile-menu.njk" %}
+{% include "demos/header-demos/header-search-dialog.njk" %}

@@ -26,8 +26,8 @@
  * keyboard: h5bp.com/p
  */
 
-.#{$prefix}-sr-only.focusable:active,
-.#{$prefix}-sr-only.focusable:focus {
+.#{$prefix}-sr-only.#{$prefix}-focusable:active,
+.#{$prefix}-sr-only.#{$prefix}-focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;

@@ -60,8 +60,3 @@
   background-color: var(--rvt-theme-bg);
   color: var(--rvt-theme-text);
 }
-
-[class^='rvt-theme']:last-child,
-[class*=' rvt-theme']:last-child {
-  border-bottom: 1px solid var(--rvt-theme-border);
-}
