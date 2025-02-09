@@ -94,6 +94,7 @@ export default class PriorityNav extends Component {
         moreMenuDropdown.appendChild(moreMenuDropdownList)
 
         this.element.appendChild(moreMenu)
+
       },
 
       /************************************************************************
@@ -130,7 +131,7 @@ export default class PriorityNav extends Component {
        ***********************************************************************/
 
       _calculateBreakpoints () {
-        const gapBetweenNavItems = 16 // pixels
+        const gapBetweenNavItems = 14 // pixels
         let usedWidth = 0
 
         this.breakpoints = this.navItems.map(item => {
@@ -163,7 +164,7 @@ export default class PriorityNav extends Component {
       /************************************************************************
        * Rearrange the priority nav, with links that don't fit in the
        * container shifted into the "More" dropdown menu.
-       * 
+       *
        * @private
        ***********************************************************************/
 
@@ -176,7 +177,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Resets the content of the "More" dropdown menu.
-       * 
+       *
        * @private
        ***********************************************************************/
 
@@ -186,7 +187,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Resets the available width property.
-       * 
+       *
        * @private
        ***********************************************************************/
 
@@ -197,7 +198,7 @@ export default class PriorityNav extends Component {
       /************************************************************************
        * Steps through each navigation item and hides those that do not fit
        * into the "More" menu.
-       * 
+       *
        * @private
        ***********************************************************************/
 
@@ -212,7 +213,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Resets the visibility of the given nav item.
-       * 
+       *
        * @private
        * @param {Element} item - Nav item
        ***********************************************************************/
@@ -224,7 +225,7 @@ export default class PriorityNav extends Component {
       /************************************************************************
        * Returns true if the given nav item should be moved into the "More"
        * menu because there is no room left for it in the priority nav element.
-       * 
+       *
        * @private
        * @param {Element} item - Nav item
        * @returns {boolean} Should move nav item to "More" menu
@@ -239,7 +240,7 @@ export default class PriorityNav extends Component {
       /************************************************************************
        * Moves the given nav item into the "More" menu by cloning it into the
        * "More" menu dropdown and hiding the original nav item.
-       * 
+       *
        * @private
        * @param {Element} item - Nav item
        ***********************************************************************/
@@ -253,7 +254,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Toggles the visibility of the "More" menu.
-       * 
+       *
        * @private
        ***********************************************************************/
 
@@ -265,7 +266,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Returns true if the "More" menu has links in it.
-       * 
+       *
        * @private
        * @returns {boolean} "More" menu has links
        ***********************************************************************/
@@ -276,7 +277,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Shows the "More" menu.
-       * 
+       *
        * @private
        ***********************************************************************/
 
@@ -287,7 +288,7 @@ export default class PriorityNav extends Component {
 
       /************************************************************************
        * Hides the "More" menu.
-       * 
+       *
        * @private
        ***********************************************************************/
 
