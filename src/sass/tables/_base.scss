@@ -6,6 +6,8 @@
 
 table,
 .#{$prefix}-table {
+  background-color: var(--rvt-theme-bg);
+  border: 1px solid var(--rvt-theme-border);
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
@@ -14,30 +16,35 @@ table,
 
 tr th {
   font-weight: $font-weight-regular;
-  padding: $spacing-sm;
 }
 
 thead {
-  border-bottom: 1px solid $color-black-100;
-  background-color: $color-black-000;
+  background-color: var(--rvt-theme-bg-subtle);
+
+  tr th {
+    padding-block: $spacing-sm;
+    padding-inline: $spacing-md;
+  }
 
   th,
   tr th {
-    padding: $spacing-sm;
     line-height: 1;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
   }
 }
 
 tr {
-  border-bottom: 1px solid $color-black-100;
+  border-bottom: 1px solid var(--rvt-theme-border);
 }
 
-tr td {
-  padding: $spacing-sm;
+tbody tr td,
+tbody tr th {
+  padding: $spacing-md;
 }
 
 .#{$prefix}-table-plain {
+  border: none;
+
   thead {
     background-color: transparent;
     border-bottom: none;
@@ -50,7 +57,7 @@ tr td {
 
 .#{$prefix}-table-stripes {
   tr:nth-child(even) {
-    background-color: $color-black-000;
+    background-color: var(--rvt-theme-bg-subtle);
   }
 }
 

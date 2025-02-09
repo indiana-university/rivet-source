@@ -5,8 +5,9 @@ layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
 padding: true
 order: 1
+classes: rvt-theme-light
 ---
-<table class="rvt-table">
+<table class="rvt-table rvt-table-stripes">
   <caption class="rvt-sr-only">Default table</caption>
   <thead>
     <tr>
@@ -33,3 +34,6 @@ order: 1
     </tr>
   </tbody>
 </table>
+
+
+{% include "partials/theme-switcher.njk" %}
