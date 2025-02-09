@@ -71,17 +71,45 @@ tbody tr th {
 }
 
 .#{$prefix}-table-cells {
-  border-top: 1px solid $color-black-100;
+  border-top: 1px solid var(--rvt-theme-border);
 
   tr td,
   tr th {
-    border-right: 1px solid $color-black-100;
+    border-right: 1px solid var(--rvt-theme-border);
   }
 
   tr td:first-child,
   tr th:first-child {
-    border-left: 1px solid $color-black-100;
+    border-left: var(--rvt-theme-border);
   }
+}
+
+.#{$prefix}-table--crimson {
+  thead {
+    background-color: var(--rvt-theme-accent);
+    color: var(--rvt-theme-bg);
+  }
+}
+
+// Themes
+.#{$prefix}-theme-crimson .#{$prefix}-table--crimson,
+.#{$prefix}-theme-dark .#{$prefix}-table--crimson {
+  thead {
+    background-color: var(--rvt-theme-bg-darker);
+    color: var(--rvt-theme-text);
+  }
+}
+
+.#{$prefix}-theme-light .#{$prefix}-table--crimson.rvt-table-cells thead th {
+  border-right: 1px solid var(--rvt-theme-accent);
+}
+
+.#{$prefix}-theme-crimson .#{$prefix}-table--crimson.rvt-table-cells thead th {
+  border-right: 1px solid var(--rvt-theme-border);
+}
+
+.#{$prefix}-theme-dark .#{$prefix}-table--crimson.rvt-table-cells thead th {
+  border-right: 1px solid var(--rvt-theme-border);
 }
 
 /**
