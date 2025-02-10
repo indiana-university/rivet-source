@@ -5,24 +5,65 @@ layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
 padding: true
 order: 1
+classes: rvt-theme-crimson
 ---
 <div class="rvt-timeline">
-  <div class="rvt-timeline__item">
-    <div class="rvt-timeline__marker" aria-hidden="true">
-    </div>
+  <div class="rvt-timeline__item ">
+    <div class="rvt-timeline__marker" aria-hidden="true"></div>
     <div class="rvt-timeline__content">
-      <h2 class="rvt-timeline__heading">Organize your info</h2>
-      <span class="rvt-timeline__date">Spring 2022</span>
-      <p>Before you start, you may want to make a list of all your senior year classes and high school extracurricular activities, so you’re ready to enter those in your application. Also consider whether you want to include your SAT and/or ACT test scores in your application.</p>
+      <div class="rvt-timeline__label">{ Label }</div>
+      <div class="rvt-timeline__content-inner">
+
+        <h2 class="rvt-timeline__heading">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</h2>
+        <div class="rvt-rich-text">
+          <p>{Try and keep card descriptions brief. One to three short sentences will keep the user engaged with your content.}</p>
+        </div>
+        <div class="rvt-timeline__item-dates">
+          <div class="rvt-timeline__item-dates-icon">
+            <rvt-icon name="calendar"></rvt-icon>
+          </div>
+          <dl class="rvt-list-description [ rvt-m-top-sm rvt-flex rvt-flex-column rvt-gap-xs ]">
+            {% for deadline in range(0, 3) %}
+            <div class="rvt-flex rvt-items-center rvt-gap-sm">
+              <dt class="rvt-m-top-none">Deadline title:</dt>
+              <dd>Deadline description</dd>
+            </div>
+            {% endfor %}
+          </dl>
+        </div>
+        <div class="rvt-timeline__item-actions">
+          <a href="/google" class="rvt-button">Apply now</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="rvt-timeline__item">
-    <div class="rvt-timeline__marker" aria-hidden="true">
-    </div>
+    <div class="rvt-timeline__marker" aria-hidden="true"></div>
     <div class="rvt-timeline__content">
-      <h2 class="rvt-timeline__heading">Pick your campus</h2>
-      <span class="rvt-timeline__date">Summer 2022</span>
-      <p>You can apply to any IU campus using the Apply IU app, which will ask you to select which IU campus(es) you want to send your application to. You can choose as many as you like, and you’ll only pay one application fee based on where you apply.</p>
+      <div class="rvt-timeline__label">{ Label }</div>
+      <div class="rvt-timeline__content-inner">
+
+        <h2 class="rvt-timeline__heading">{This card title should be concise and should not exceed 78 characters or 3 lines of text}</h2>
+        <div class="rvt-rich-text">
+          <p>{Try and keep card descriptions brief. One to three short sentences will keep the user engaged with your content.}</p>
+        </div>
+        <div class="rvt-timeline__item-dates">
+          <div class="rvt-timeline__item-dates-icon">
+            <rvt-icon name="calendar"></rvt-icon>
+          </div>
+          <dl class="rvt-list-description [ rvt-m-top-sm rvt-flex rvt-flex-column rvt-gap-xs ]">
+            {% for deadline in range(0, 3) %}
+            <div class="rvt-flex rvt-items-center rvt-gap-sm">
+              <dt class="rvt-m-top-none">Deadline title:</dt>
+              <dd>Deadline description</dd>
+            </div>
+            {% endfor %}
+          </dl>
+        </div>
+        <div class="rvt-timeline__item-actions">
+          <a href="/google" class="rvt-button">Apply now</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -16,12 +16,12 @@
     left: 0;
     height: 100%;
     width: 1px;
-    background: $color-black-100;
+    background: var(--rvt-theme-border);
   }
 
   &__item {
     position: relative;
-    margin: $spacing-lg 0;
+    margin-block: $spacing-lg;
   }
 
   /**
@@ -31,38 +31,71 @@
    */
 
   &__marker {
-    width: $spacing-sm * .75;
-    height: $spacing-sm * .75;
+    width: $spacing-sm;
+    height: $spacing-sm;
     position: absolute;
     color: $color-white-base;
-    background: $color-crimson-500;
+    background: var(--rvt-theme-accent);
     border-radius: 50%;
-    box-shadow: 0 0 0 $spacing-xxs $color-white-base, 0 0 0 math.div($spacing-xs, 1.5) $color-black-100;
-    top: $spacing-lg;
+    box-shadow: 0 0 0 ($spacing-xs * .85) var(--rvt-theme-bg), 0 0 0 $spacing-xs var(--rvt-theme-border);
+    top: $spacing-md * .85;
+    left: $spacing-xxs * -.85;
   }
 
   &__content {
-    padding: $spacing-md;
-    margin-left: $spacing-lg;
-    background-color: $color-white-base;
-    border-radius: $spacing-xs;
+    margin-inline-start: $spacing-lg;
+    background-color: var(--rvt-theme-bg);
     box-shadow: $shadow-standard;
     border: none;
   }
 
-  &__heading {
-    font-size: $ts-23;
-    font-weight: $font-weight-regular;
+  &__content-inner {
+    padding: $spacing-md;
   }
 
-  &__date {
+  &__label {
     font-size: $ts-14;
-    color: $color-crimson-500;
-    margin-top: $spacing-xxs;
-    display: inline-block;
+    font-family: $font-mono;
+    padding-inline: $spacing-md;
+    padding-block: $spacing-sm;
+    background-color: var(--rvt-theme-accent);
+    color: var(--rvt-theme-bg);
+  }
+
+  &__heading {
+    font-size: $ts-23;
+    font-weight: $font-weight-medium;
+  }
+
+  &__content-inner > * {
+    margin-bottom: 0;
+  }
+
+  &__content-inner > * + * {
+    margin-block-start: $spacing-md;
+  }
+
+  &__item-dates {
+    margin-block-start: $spacing-lg;
+  }
+
+  &__item-dates-icon {
+    color: var(--rvt-theme-accent);
+    width: $spacing-xl;
+    height: $spacing-xl;
+    background-color: var(--rvt-theme-accent-subtle);
+    border-radius: $border-radius-circle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item-dates + &__item-actions {
+    margin-block-start: $spacing-xl;
   }
 }
 
+// TODO: Make a decision on whether we need this variant
 .#{$prefix}-timeline--right {
   &::before {
     left: auto;
@@ -88,47 +121,10 @@
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-timeline {
-    &__date--label {
-      left: -$spacing-sm * 11.25;
-      right: auto;
-      text-align: right;
-      position: absolute;
-      display: block;
-      top: $spacing-sm * 1.75;
-      margin-left: auto;
-      margin-top: auto;
-      margin-right: auto;
-      width: 10rem;
-    }
-  }
-
-  .#{$prefix}-timeline--right {
-    .#{$prefix}-timeline__date--label {
-      left: auto;
-      right: -$spacing-sm * 11.25;
-      text-align: left;
-      position: absolute;
-      display: block;
-      top: $spacing-sm * .75;
-      margin-left: auto;
-      margin-top: auto;
-      margin-right: auto;
-      width: 10rem;
-    }
-  }
-
   .#{$prefix}-timeline--center {
     &::before {
       left: 50%;
       margin-left: 0;
-    }
-
-    .#{$prefix}-timeline__row {
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: -$spacing-sm * .75;
-      margin-left: -$spacing-sm * .75;
     }
 
     .#{$prefix}-timeline__item {
@@ -175,29 +171,7 @@
       margin-right: 0;
       margin-left: $spacing-sm;
     }
-
-    .#{$prefix}-timeline__date--label {
-      left: auto;
-      right: -$spacing-sm * 11.75;
-      text-align: left;
-      position: absolute;
-      display: block;
-      top: auto;
-      margin-top: -$spacing-sm * 3.15;
-      width: $spacing-sm * 10;
-    }
-
-    .#{$prefix}-timeline__item--right .#{$prefix}-timeline__date--label {
-      left: -$spacing-sm * 11.5;
-      right: auto;
-      text-align: right;
-      position: absolute;
-      display: block;
-      top: $spacing-sm * .75;
-      margin-left: auto;
-      margin-top: auto;
-      margin-right: auto;
-      width: $spacing-sm * 10;
-    }
   }
 }
+
+// TODO: Themes
