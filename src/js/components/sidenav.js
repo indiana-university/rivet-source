@@ -150,7 +150,7 @@ export default class Sidenav extends Component {
         const collapseAttribute = 'data-rvt-sidenav-collapse-on-mobile'
         const breakpointProperty = '--rvt-breakpoint-lg'
         const documentStyles = getComputedStyle(document.documentElement)
-        
+
         this.collapsible = this.element.hasAttribute(collapseAttribute)
 
         if (this.collapsible) {
@@ -243,7 +243,7 @@ export default class Sidenav extends Component {
       _prependCollapsibleContainerElement () {
         const template = document.createElement('template')
         const sidenavLabel = this.element.querySelector('#sidenav-label').textContent
-        
+
         template.innerHTML = `
           <button class="rvt-sidenav__mobile-toggle" data-rvt-sidebar-toggle="" aria-expanded="false" hidden>
             <span>${sidenavLabel}</span>
@@ -267,7 +267,7 @@ export default class Sidenav extends Component {
 
         document.addEventListener('click', event => {
           const clickedSidebarMobileToggle = event.target.closest('[data-rvt-sidebar-toggle]')
-          
+
           if (!clickedSidebarMobileToggle) return
 
           if (clickedSidebarMobileToggle.getAttribute('aria-expanded') === 'false') {

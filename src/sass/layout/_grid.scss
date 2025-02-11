@@ -33,10 +33,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .rvt-grid--sidebar {
-    grid-template-columns: 1fr 2fr;
-  }
-
   .rvt-grid.rvt-grid--collapse {
     gap: 0;
 
@@ -53,6 +49,12 @@
 @include mq($breakpoint-lg) {
   .rvt-grid {
     gap: $spacing-lg;
+  }
+
+  // Make the sidebar layout variant kick in once
+  // there is plenty of space for the two-column layout.
+  .rvt-grid--sidebar {
+    grid-template-columns: 1fr 2fr;
   }
 
   .rvt-grid--3,

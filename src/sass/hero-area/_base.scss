@@ -142,11 +142,13 @@ $_hero-grid-gap: $spacing-lg;
       line-height: 1;
     }
 
+    &--feature &__title {
+      font-size: 4rem;
+    }
+
     &--feature &__actions {
       min-width: 27rem;
       flex-wrap: nowrap;
-      justify-content: flex-end;
-      align-self: flex-end;
     }
 
     &--profile &__subtitle {
@@ -204,9 +206,13 @@ $_hero-grid-gap: $spacing-lg;
       font-size: $ts-29;
     }
 
-    &--statement &__title,
-    &--feature &__title {
+    &--statement &__title {
       font-size: 4rem;
+    }
+
+    &--feature &__actions {
+      justify-content: flex-end;
+      align-self: flex-end;
     }
 
     &--split &__title {
@@ -220,10 +226,6 @@ $_hero-grid-gap: $spacing-lg;
     &--split &__body,
     &--split &__media {
       width: 50%;
-    }
-
-    &--split &__media {
-
     }
   }
 }
