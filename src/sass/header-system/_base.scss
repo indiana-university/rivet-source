@@ -1,4 +1,5 @@
 @use '../core' as *;
+@use 'sass:math';
 
 .rvt-skip-link {
   position: fixed;
@@ -73,6 +74,11 @@
       align-items: center;
       justify-content: center;
       color: var(--rvt-theme-text);
+      padding-inline: math.div($spacing-xxs, 1.5);
+
+      &:focus {
+        outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-lighter);
+      }
     }
 
     button[aria-expanded=true] > svg {

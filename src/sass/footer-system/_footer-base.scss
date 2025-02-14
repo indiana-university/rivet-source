@@ -3,11 +3,11 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-base {
-  background-color: $color-crimson-500;
-  color: $color-white-base;
+  background-color: var(--rvt-theme-bg);
+  color: var(--rvt-theme-text);
 
   &__inner {
-    border-top: 1px solid rgb(255 255 255 / .25);
+    border-top: 1px solid var(--rvt-theme-border);
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -17,6 +17,7 @@
 
   &__logo {
     margin: 0 auto;
+    color: var(--rvt-theme-accent);
   }
 
   &__list {
@@ -31,12 +32,12 @@
   }
 
   &__link {
-    color: $color-white-base;
+    color: var(--rvt-theme-text);
     text-decoration: none;
 
     &:hover {
       text-decoration: underline;
-      color: $color-white-base;
+      color: var(--rvt-theme-accent);
     }
   }
 
@@ -78,7 +79,6 @@
       margin-top: 0;
       margin-right: 0;
       margin-bottom: 0;
-      justify-content: flex-end;
     }
 
     &__logo {

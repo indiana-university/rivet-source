@@ -3,13 +3,13 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-resources {
-  background-color: $color-crimson-500;
-  color: $color-white-base;
+  background-color: var(--rvt-theme-bg);
+  color: var(--rvt-theme-text);
   padding-bottom: $spacing-sm;
 
   &__heading {
     font-size: $ts-18;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
     margin-top: $spacing-md;
   }
 
@@ -29,13 +29,12 @@
   }
 
   &__list-item a {
-    color: $color-white-base;
+    color: var(--rvt-theme-text);
     display: block;
     font-size: $ts-14;
     text-decoration: none;
 
     &:hover {
-      color: $color-white-base;
       text-decoration: underline;
     }
   }

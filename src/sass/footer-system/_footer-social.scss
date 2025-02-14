@@ -3,31 +3,7 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-social {
-  background-color: $color-crimson-500;
+  background-color: var(--rvt-theme-bg);
   padding-top: $spacing-md;
   padding-bottom: $spacing-md;
-
-  &__list {
-    display: flex;
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    justify-content: center;
-    margin-top: 0;
-    margin-bottom: 0;
-
-    li {
-      margin-top: 0;
-    }
-
-    li:not(:first-child) {
-      margin-left: $spacing-xs;
-    }
-  }
-}
-
-@include mq($breakpoint-md) {
-  .#{$prefix}-footer-social__list {
-    justify-content: flex-end;
-  }
 }

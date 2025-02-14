@@ -6,6 +6,6 @@
 .#{$prefix}-footer-resources,
 .#{$prefix}-footer-base {
   a:focus {
-    outline-color: $color-white-base;
+    outline-color: var(--rvt-theme-interactive);
   }
 }
