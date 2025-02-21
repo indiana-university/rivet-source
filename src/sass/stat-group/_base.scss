@@ -1,23 +1,45 @@
 @use '../core' as *;
 
 .#{$prefix}-stat-group {
-  display: flex;
-  flex-wrap: wrap;
+  container-type: inline-size;
+  container-name: stat-group;
 
-  & > * {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-    min-width: 200px;
-  }
-
-  & > *:last-child {
-    border-right: none;
+  &__inner {
+    display: grid;
   }
 }
 
-@include mq($breakpoint-lg) {
-  .#{$prefix}-stat-group > * {
-    border-right: 1px solid var(--rvt-theme-border);
+@container stat-group (min-width: 40em) {
+  .#{$prefix}-stat-group {
+    &__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__inner > * {
+      border: 1px solid var(--rvt-theme-border);
+      margin-inline-start: -1px;
+      margin-block-start: -1px;
+    }
+  }
+}
+
+@container stat-group (min-width: 68.75em) {
+  .#{$prefix}-stat-group {
+    &__inner {
+      grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+      border-block-end: 1px solid var(--rvt-theme-border);
+    }
+
+    &__inner > * {
+      border-block-start: none;
+      border-inline-start: none;
+      border-block-end: none;
+      margin-inline-start: 0;
+      margin-block-start: 0;
+
+      &:last-child {
+        border-inline-end: none;
+      }
+    }
   }
 }

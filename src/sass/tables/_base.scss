@@ -84,7 +84,7 @@ tbody tr th {
   }
 }
 
-.#{$prefix}-table--crimson {
+.#{$prefix}-table-crimson {
   thead {
     background-color: var(--rvt-theme-accent);
     color: var(--rvt-theme-bg);
@@ -92,23 +92,23 @@ tbody tr th {
 }
 
 // Themes
-.#{$prefix}-theme-crimson .#{$prefix}-table--crimson,
-.#{$prefix}-theme-dark .#{$prefix}-table--crimson {
+.#{$prefix}-theme-crimson .#{$prefix}-table-crimson,
+.#{$prefix}-theme-dark .#{$prefix}-table-crimson {
   thead {
     background-color: var(--rvt-theme-bg-darker);
     color: var(--rvt-theme-text);
   }
 }
 
-.#{$prefix}-theme-light .#{$prefix}-table--crimson.rvt-table-cells thead th {
+.#{$prefix}-theme-light .#{$prefix}-table-crimson.rvt-table-cells thead th {
   border-right: 1px solid var(--rvt-theme-accent);
 }
 
-.#{$prefix}-theme-crimson .#{$prefix}-table--crimson.rvt-table-cells thead th {
+.#{$prefix}-theme-crimson .#{$prefix}-table-crimson.rvt-table-cells thead th {
   border-right: 1px solid var(--rvt-theme-border);
 }
 
-.#{$prefix}-theme-dark .#{$prefix}-table--crimson.rvt-table-cells thead th {
+.#{$prefix}-theme-dark .#{$prefix}-table-crimson.rvt-table-cells thead th {
   border-right: 1px solid var(--rvt-theme-border);
 }
 
@@ -117,7 +117,7 @@ tbody tr th {
  * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 .#{$prefix}-table-responsive[role='region'][tabindex] {
-  border: 1px solid $color-black-100;
+  border: 1px solid var(--rvt-theme-border);
   border-radius: $spacing-xs;
   overflow: auto;
 
@@ -151,6 +151,7 @@ tbody tr th {
 
 @include mq($breakpoint-md) {
   .#{$prefix}-table-responsive[role='region'][tabindex] {
+    border-radius: 0;
     border: none;
   }
 }

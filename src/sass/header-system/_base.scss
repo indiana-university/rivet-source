@@ -203,6 +203,7 @@
     z-index: 999;
     box-shadow: 0 0 0 9999px rgba(36, 49, 66, 0.85);
     padding-top: $spacing-lg;
+    overflow-y: auto;
   }
 
   &__button--mobile-menu-close {
