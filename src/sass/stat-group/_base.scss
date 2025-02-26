@@ -26,7 +26,7 @@
 @container stat-group (min-width: 68.75em) {
   .#{$prefix}-stat-group {
     &__inner {
-      grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
       border-block-end: 1px solid var(--rvt-theme-border);
     }
 
