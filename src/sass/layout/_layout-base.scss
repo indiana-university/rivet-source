@@ -33,6 +33,21 @@
     margin-inline: auto;
     width: 100%;
   }
+
+  &__breakout {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-block: $spacing-xl;
+  }
+
+  &__breakout-inner {
+    @include container;
+  }
+
+  &--single-column &__breakout {
+    // Breakout styles for single column...
+    margin-left: calc(50% - 50vw);
+  }
 }
 
 @include mq($breakpoint-lg) {
@@ -53,26 +68,17 @@
     }
 
     &__breakout {
-      width: 100vw;
       // 18rem = sidebar width
-      // 4rem = grid gap
-      // --------------------
-      // 22rem / 2 = 11rem
-      margin-left: calc(-50vw + calc(50% - 11rem));
-      padding-block: $spacing-xl;
+    // 4rem = grid gap
+    // --------------------
+    // 22rem / 2 = 11rem
+    margin-left: calc(-50vw + calc(50% - 11rem));
     }
 
-    &__breakout-inner {
-      @include container;
+    &--single-column {
+      grid-template-columns: 1fr;
     }
 
-  &--single-column {
-    grid-template-columns: 1fr;
-  }
 
-    &--single-column &__breakout {
-      // Breakout styles for single column...
-      margin-left: calc(50% - 50vw);
-    }
   }
 }

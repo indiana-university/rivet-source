@@ -45,6 +45,11 @@
     font-weight: $font-weight-regular;
   }
 
+  h5,
+  h6 {
+    font-weight: $font-weight-bold;
+  }
+
   h1,
   h2,
   h3,
@@ -127,17 +132,17 @@
     }
 
     h2 {
-      font-size: $ts-36;
+      font-size: $ts-32;
     }
 
     h3 {
-      font-size: $ts-29;
+      font-size: $ts-26;
     }
 
     h4,
     h5,
     h6 {
-      font-size: $ts-26;
+      font-size: $ts-23;
     }
   }
 }
