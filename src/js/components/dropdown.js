@@ -112,7 +112,6 @@ export default class Dropdown extends Component {
 
       _initAttributes () {
         this._assignComponentElementIds()
-        this._setAriaAttributes()
       },
 
       /************************************************************************
@@ -128,21 +127,6 @@ export default class Dropdown extends Component {
         Component.setAttributeIfNotSpecified(this.toggleElement, this.toggleAttribute, id)
         Component.setAttributeIfNotSpecified(this.menuElement, this.menuAttribute, id)
         Component.setAttributeIfNotSpecified(this.menuElement, 'id', id)
-      },
-
-      /************************************************************************
-       * Sets the dropdown component's ARIA attributes.
-       *
-       * @private
-       ***********************************************************************/
-
-      _setAriaAttributes () {
-        this.toggleElement.setAttribute('aria-expanded', false)
-
-        if (this._isMenu()) {
-          this.menuElement.setAttribute('role', 'menu')
-          this.toggleElement.setAttribute('aria-haspopup', 'menu')
-        }
       },
 
       /************************************************************************
