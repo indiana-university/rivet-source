@@ -1,7 +1,5 @@
 @use '../core' as *;
 
-$_hero-grid-gap: $spacing-lg;
-
 .#{$prefix}-hero {
   &__inner {
     display: flex;
@@ -74,6 +72,17 @@ $_hero-grid-gap: $spacing-lg;
 
   &--statement &__banner {
     margin-top: $spacing-lg;
+  }
+
+  &--feature &__banner {
+    margin-top: $spacing-xxl;
+  }
+
+  &--feature &__banner {
+    @include container();
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
   }
 
   &--profile &__subtitle {
@@ -210,6 +219,26 @@ $_hero-grid-gap: $spacing-lg;
       font-size: 4rem;
     }
 
+    &--feature &__banner {
+      flex-direction: row;
+      // This makes the optional quick links align to the end of the flex axis
+      align-items: flex-end;
+
+      & > *:first-child {
+        flex-grow:1;
+        // Sets the width of the left column of a hero--feature banner
+        min-width: 33%;
+      }
+
+      & > *:last-child {
+        flex-basis: 0;
+        // Makes the rest of the hero banner take up as much space as possible
+        // so that if there are no quick links the banner image takes up
+        // The full width of the container.
+        flex-grow: 999;
+      }
+    }
+
     &--feature &__actions {
       justify-content: flex-end;
       align-self: flex-end;
@@ -234,6 +263,6 @@ $_hero-grid-gap: $spacing-lg;
 .#{$prefix}-hero,
 .#{$prefix}-hero {
   &__quick-links {
-    padding: $_hero-grid-gap;
+    padding: $spacing-lg;
   }
 }
