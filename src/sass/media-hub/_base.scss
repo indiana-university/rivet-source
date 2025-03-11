@@ -73,40 +73,75 @@
     aspect-ratio: 1 / 1;
   }
 
-  &__caption {
-    grid-column: span 6;
-    padding: 0;
+  // New Layout system
+
+  &__row-full-height,
+  &__row-full {
+    grid-row: 1/-1;
   }
 
-  &__1,
-  &__span-1 {
-    grid-column: span 1;
+  &__row-top {
+    grid-row: 1/2;
   }
 
+  &__row-bottom {
+    grid-row: 2/3;
+  }
+
+  &__column-third,
   &__2,
   &__span-2 {
     grid-column: span 2;
   }
 
+  &__column-half,
   &__3,
   &__span-3 {
     grid-column: span 3;
   }
 
+  &__column-two-thirds,
   &__4,
   &__span-4 {
     grid-column: span 4;
   }
 
-  &__5,
-  &__span-5 {
-    grid-column: span 5;
-  }
-
+  &__column-full-width,
+  &__column-full,
   &__6,
   &__span-6 {
-    grid-column: span 6;
+    grid-column: 1/-1;
   }
+
+  // &__1,
+  // &__span-1 {
+  //   grid-column: span 1;
+  // }
+
+  // &__2,
+  // &__span-2 {
+  //   grid-column: span 2;
+  // }
+
+  // &__3,
+  // &__span-3 {
+  //   grid-column: span 3;
+  // }
+
+  // &__4,
+  // &__span-4 {
+  //   grid-column: span 4;
+  // }
+
+  // &__5,
+  // &__span-5 {
+  //   grid-column: span 5;
+  // }
+
+  // &__6,
+  // &__span-6 {
+  //   grid-column: span 6;
+  // }
 
   &__card {
     grid-column: 1 / 7;
