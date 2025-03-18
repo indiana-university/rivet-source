@@ -82,7 +82,7 @@
     margin-block-start: $spacing-xs;
     color: var(--rvt-theme-text-subtle);
 
-      > ul {
+      > ul:not([class]) {
         list-style-type: disc;
       }
 

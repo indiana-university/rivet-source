@@ -1,0 +1,148 @@
+---
+tags: card-grid
+title: Card grid - Events
+layout: layouts/layout-shell.njk
+permalink: /layouts/preview/{{ title | slug}}/
+order: 3
+classes: rvt-page
+---
+{% include "demos/demo-header-crimson.njk" %}
+<main>
+  <div class="rvt-section rvt-theme-crimson">
+    {% include "demos/demo-hero.njk" %}
+  </div>
+
+  <div class="rvt-section rvt-theme-light [ rvt-p-top-sm ]">
+
+    <div class="rvt-container">
+      <nav role="navigation" aria-label="Breadcrumbs">
+        <ol class="rvt-breadcrumbs">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">{Visited page}</a></li>
+          <li><a href="#">{Visited page}</a></li>
+          <li><a href="#">{Visited page}</a></li>
+          <li aria-current="page">{Current page}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{#
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+
+      {% include "demos/demo-filter-form.njk" %}
+
+    </div>
+  </div> #}
+
+  <div class="rvt-section rvt-theme-light">
+    {#
+      This type of card grid can have a section intro too if needed
+    #}
+
+    {# <div class="rvt-container">
+      <div class="rvt-rich-text">
+        <div>
+          <span class="rvt-ts-14 rvt-font-mono">Showing { X of X } { Resources }</span>
+          <h2>{ Optional Category Title (6) }</h2>
+        </div>
+        <p>{ Optional description copy should not exceed one concise paragraph. }</p>
+      </div>
+    </div> #}
+
+    <div class="rvt-container">
+      <!--
+        NOT using the "collapsed" modifier for the grid here.
+        Not using it was part of the design specs for regular
+        non-"Category" card grid items like people, etc.
+      -->
+      {# {% include "demos/demo-events-list-hub.njk" %} #}
+      <ul class="rvt-grid rvt-grid--3">
+        {% for card in range(0, 8) %}
+        <li>
+          <div class="rvt-card">
+            {# <div class="rvt-card__image rvt-p-top-lg rvt-p-lr-lg">
+              <img src="https://picsum.photos/id/{{ (loop.index + 1) * 3 }}/800/450" alt="Smiling students sitting outside on a bench">
+            </div> #}
+            <div class="rvt-card__body">
+              <div class="rvt-card__eyebrow">{Campus or category}</div>
+              <h2 class="rvt-card__title">
+                <a href="#">{Title should not exceed 32 characters}</a>
+              </h2>
+
+              <div class="rvt-contact-info [ rvt-m-top-lg ]">
+                <ul class="rvt-contact-info__icon-list">
+                  <li class="rvt-contact-info__icon-list-item">
+                    <rvt-icon name="calendar"></rvt-icon>
+                    <span class="rvt-color-black-400">
+                      <span class="rvt-sr-only">Date :</span> March 11, 2025
+                    </span>
+                  </li>
+                  <li class="rvt-contact-info__icon-list-item">
+                    <rvt-icon name="clock"></rvt-icon>
+                    <span class="rvt-color-black-400">
+                      <span class="rvt-sr-only">Time :</span> 5–6pm
+                    </span>
+                  </li>
+                  <li class="rvt-contact-info__icon-list-item">
+                    <rvt-icon name="map-pin"></rvt-icon>
+                    <span class="rvt-color-black-400">
+                      <span class="rvt-sr-only">Location :</span> Indianapolis Camus Center
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rvt-card__meta">
+                <time datetime="">October 1, 2025</time>
+                <ul class="rvt-list-reset rvt-flex rvt-gap-sm rvt-m-top-sm">
+                  <li>
+                    <span class="rvt-badge rvt-badge--secondary">{Tag Lorem 1}</span>
+                  </li>
+                  <li>
+                    <span class="rvt-badge rvt-badge--secondary">{Tag Lorem 1}</span>
+                  </li>
+                  <li>
+                    <span class="rvt-badge rvt-badge--secondary">{Tag Lorem 1}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="rvt-flex rvt-justify-center rvt-m-top-xxl">
+        {% include "demos/demo-pagination.njk" %}
+      </div>
+    </div>
+  </div><!-- End second card grid -->
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+
+      {% include "demos/demo-contact-card.njk" %}
+
+    </div>
+  </div>
+
+  <div class="rvt-section rvt-theme-light">
+    <div class="rvt-container">
+      <div class="rvt-grid rvt-grid--2 [ rvt-gap-xxl ]">
+
+        <div>
+          <img src="https://picsum.photos/id/33/600/400" alt="Student in vintage-style Indiana University t-shirt">
+        </div>
+
+        <div>
+          {% include "demos/demo-list-hub.njk" %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+{% include "demos/demo-footer.njk" %}
