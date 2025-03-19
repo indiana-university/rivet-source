@@ -111,11 +111,12 @@
       text-align: left;
     }
 
+
     &--teaser &__actions {
       margin-top: 0;
       justify-content: flex-end;
       align-items: flex-end;
-      flex-basis: 23rem;
+      flex-basis: 24rem;
       flex-grow: 1;
     }
 
@@ -123,6 +124,7 @@
       flex-basis: 0;
       flex-grow: 999;
       min-width: 50%;
+      max-width: 80ch;
     }
   }
 }
