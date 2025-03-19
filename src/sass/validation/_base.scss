@@ -71,8 +71,13 @@
  * alongside groups of form inputs like radio buttons and checkboxes
  */
 
+ .rvt-text-input + .#{$prefix}-inline-alert,
+ .rvt-select + .#{$prefix}-inline-alert,
+ .rvt-textarea + .#{$prefix}-inline-alert {
+    margin-block-start: $spacing-xs;
+ }
+
 .#{$prefix}-inline-alert {
-  margin-top: $spacing-xs;
   font-size: $ts-14;
   display: flex;
   align-items: center;
@@ -117,7 +122,6 @@
 
     &.#{$prefix}-inline-alert--is-invalid,
     &.#{$prefix}-inline-alert--danger {
-      border-left: $spacing-xxs solid $color-orange-500;
       background-color: $color-orange-000;
 
       .#{$prefix}-inline-alert__message {
@@ -126,7 +130,6 @@
     }
 
     &.#{$prefix}-inline-alert--success {
-      border-left: $spacing-xxs solid $color-green-500;
       background-color: $color-green-000;
 
       .#{$prefix}-inline-alert__message {
@@ -135,7 +138,6 @@
     }
 
     &.#{$prefix}-inline-alert--warning {
-      border-left: $spacing-xxs solid $color-gold-500;
       background-color: $color-gold-000;
 
       .#{$prefix}-inline-alert__message {
@@ -144,7 +146,6 @@
     }
 
     &.#{$prefix}-inline-alert--info {
-      border-left: $spacing-xxs solid $color-blue-500;
       background-color: $color-blue-000;
 
       .#{$prefix}-inline-alert__message {

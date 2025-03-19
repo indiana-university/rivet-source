@@ -20,6 +20,7 @@
     display: inline-flex;
     align-items: center;
     gap: $spacing-xxs * .75;
+    font-family: $font-mono;
 
     &::before {
       content: '';

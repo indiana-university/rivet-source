@@ -29,7 +29,6 @@
     font-size: $ts-16;
     color: var(--rvt-theme-text-subtle);
     margin-top: $spacing-sm;
-    text-align: center;
 
     > * {
       margin: 0;
@@ -85,8 +84,8 @@
 
 @include mq($breakpoint-md) {
   .#{$prefix}-section-intro {
-    &--feature &__title {
-      font-size: $ts-46;
+    &__title {
+      font-size: $ts-41;
     }
 
     &__teaser {
@@ -108,8 +107,7 @@
       margin-top: $spacing-xs;
     }
 
-    &--teaser,
-    &__teaser {
+    &--teaser {
       text-align: left;
     }
 

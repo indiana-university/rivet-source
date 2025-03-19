@@ -6,13 +6,30 @@
 
 .#{$prefix}-alert {
   background-color: $color-black-000;
-  border-left: $spacing-xxs solid $color-black-500;
-  padding: $spacing-sm;
+  border: $spacing-xxs * .5 solid $color-black-400;
+  padding-inline-start: $spacing-xxl * .9;
+  padding-inline-end: $spacing-sm;
+  padding-block: $spacing-sm;
   position: relative;
 
+  &::before {
+    content: '';
+    display: block;
+    width: $spacing-lg;
+    height: $spacing-lg;
+    background-color: $color-black-100;
+    border-radius: $border-radius-circle;
+    background-image: url('data:image/svg+xml,<svg fill="%23263245" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M9 7v5H7V7h2ZM8 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    top: $spacing-sm * .8125;
+    left: $spacing-sm;
+  }
+
   &__title {
-    font-weight: $font-weight-bold;
-    font-size: $ts-18;
+    font-weight: $font-weight-medium;
+    font-size: $ts-20;
 
     /**
      * We'll put bottom margin on the title here so that the .alert can
@@ -20,38 +37,36 @@
      * around all sides.
      */
     margin-bottom: $spacing-xxs;
-
-    /**
-     * Add a little padding on the right so that the title won't end up
-     * showing underneath the "X" button if it's used.
-     */
-    padding-right: $spacing-md;
+    padding-inline-end: $spacing-md;
+    position: relative;
   }
 
   &__message {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: $ts-14;
-    padding-right: $spacing-md;
+    padding-inline-end: $spacing-md;
   }
 
   &__dismiss {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    border-radius: $spacing-xxs;
     color: $color-black-base;
     cursor: pointer;
     line-height: 1;
     padding: 0;
     position: absolute;
-    top: $spacing-sm;
-    right: $spacing-sm;
+    top: $spacing-xs;
+    right: $spacing-xs;
+
     width: $spacing-md;
     height: $spacing-md;
+    background-image: url('data:image/svg+xml,<svg fill="%23263245" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: center center;
 
     &:hover {
-      background-color: rgb(0 0 0 / .15);
+      background-color: $color-black-100;
     }
 
     &:focus {
@@ -73,42 +88,82 @@
 
 .#{$prefix}-alert--info {
   background-color: $color-blue-000;
-  border-left-color: $color-blue-500;
-  color: $color-blue-700;
+  border-color: $color-blue-200;
+  color: $color-blue-500;
+}
+
+.#{$prefix}-alert--info::before {
+  background-color: $color-blue-050;
+  background-image: url('data:image/svg+xml,<svg fill="%231a51a8" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M9 7v5H7V7h2ZM8 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z"></path></svg>');
 }
 
 .#{$prefix}-alert--info .#{$prefix}-alert__dismiss {
-  color: $color-blue-700;
+  color: $color-blue-500;
+  background-image: url('data:image/svg+xml,<svg fill="%231a51a8" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');;
+
+  &:hover {
+    background-color: $color-blue-100;
+  }
 }
 
 .#{$prefix}-alert--success {
   background-color: $color-green-000;
-  border-left-color: $color-green-500;
-  color: $color-green-700;
+  border-color: $color-green-200;
+  color: $color-green-500;
+}
+
+.#{$prefix}-alert--success::before {
+  background-color: $color-green-050;
+  background-image: url('data:image/svg+xml,<svg fill="%2307641f" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 11.414 11.914 6.5 10.5 5.086 7 8.586l-1.5-1.5L4.086 8.5 7 11.414Z"></path><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z"></path></svg>');
 }
 
 .#{$prefix}-alert--success .#{$prefix}-alert__dismiss {
-  color: $color-green-700;
+  color: $color-green-500;
+  background-image: url('data:image/svg+xml,<svg fill="%2307641f" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
+
+  &:hover {
+    background-color: $color-green-100;
+  }
 }
 
 .#{$prefix}-alert--warning {
   background-color: $color-gold-000;
-  border-left-color: $color-gold-500;
-  color: $color-gold-700;
+  border-color: $color-gold-200;
+  color: $color-gold-600;
+}
+
+.#{$prefix}-alert--warning::before {
+  background-color: $color-gold-050;
+  background-image: url('data:image/svg+xml,<svg fill="%23823f03" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12 7H4v2h8V7Z"></path><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z"></path></svg>');
 }
 
 .#{$prefix}-alert--warning .#{$prefix}-alert__dismiss {
-  color: $color-gold-700;
+  color: $color-gold-600;
+  background-image: url('data:image/svg+xml,<svg fill="%23823f03" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
+
+  &:hover {
+    background-color: $color-gold-100;
+  }
 }
 
 .#{$prefix}-alert--danger {
-  background-color: $color-orange-000;
-  border-left-color: $color-orange-500;
-  color: $color-orange-700;
+  background-color: $color-crimson-000;
+  border-color: $color-crimson-200;
+  color: $color-orange-500;
+}
+
+.#{$prefix}-alert--danger::before {
+  background-color: $color-crimson-050;
+  background-image: url('data:image/svg+xml,<svg fill="%23d42206" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 9V4h2v5H7Zm1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z"></path></svg>');
 }
 
 .#{$prefix}-alert--danger .#{$prefix}-alert__dismiss {
-  color: $color-orange-700;
+  color: $color-orange-500;
+  background-image: url('data:image/svg+xml,<svg fill="%23d42206" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
+
+  &:hover {
+    background-color: $color-orange-100;
+  }
 }
 
 /**
