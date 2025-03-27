@@ -130,21 +130,6 @@ export default class Dropdown extends Component {
       },
 
       /************************************************************************
-       * Determines if the dropdown is a menu for the purposes of ARIA
-       * attributes.
-       *
-       * @private
-       * @returns {boolean} Dropdown is menu
-       ***********************************************************************/
-
-      _isMenu () {
-        // Consider the dropdown a menu of action buttons if at least one
-        // non-hyperlink element is present
-        
-        return this.menuItems.some(i => i.tagName != 'A')
-      },
-
-      /************************************************************************
        * Removes the arrow icon from the tab order.
        *
        * @private
