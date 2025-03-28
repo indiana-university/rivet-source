@@ -27,7 +27,6 @@
   .#{$prefix}-stat-group {
     &__inner {
       grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
-      border-block-end: 1px solid var(--rvt-theme-border);
     }
 
     &__inner > * {
