@@ -74,7 +74,7 @@ $padding: math.div(3rem, 16);
   }
 
   input[type='radio']:disabled ~ label {
-    color: $color-black-500;
+    color: $color-black-400;
     cursor: default;
   }
 
