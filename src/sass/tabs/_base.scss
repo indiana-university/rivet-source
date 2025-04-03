@@ -6,9 +6,8 @@
 @use 'sass:math';
 
 .#{$prefix}-tabs {
-  background-color: $color-white-base;
-  border: 1px solid $color-black-100;
-  border-radius: $spacing-xs;
+  background-color: var(--rvt-theme-bg);
+  border: 1px solid var(--rvt-theme-border);
 
   &__tablist {
     display: flex;
