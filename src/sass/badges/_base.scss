@@ -3,13 +3,11 @@
 
 @use '../core' as *;
 
-$border-radius: 999rem;
-
 .#{$prefix}-badge {
-  background-color: $color-black-100;
-  border: calc(1rem/16) solid $color-black-100;
-  border-radius: $border-radius;
-  color: $color-black-base;
+  background-color: $color-crimson-500;
+  border: calc(1rem/16) solid $color-crimson-500;
+  border-radius: $border-radius-circle;
+  color: $color-white-base;
   display: inline-block;
   font-size: $ts-xs;
   font-weight: $font-weight-medium;
@@ -22,6 +20,8 @@ $border-radius: 999rem;
 
   &--secondary {
     background-color: $color-white-base;
+    border-color: $color-crimson-500;
+    color: $color-crimson-500;
   }
 }
 
@@ -58,7 +58,19 @@ a.#{$prefix}-badge {
   }
 
   &:focus {
-    border-radius: $border-radius;
+    border-radius: $border-radius-circle;
+  }
+}
+
+.#{$prefix}-badge--neutral {
+  background-color: $color-black-100;
+  border-color: $color-black-100;
+  color: $color-black-500;
+
+  &-secondary {
+    background-color: $color-white-base;
+    border-color: $color-black-100;
+    color: $color-black-500;
   }
 }
 
