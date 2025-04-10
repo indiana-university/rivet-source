@@ -4,8 +4,8 @@
 @use '../core' as *;
 
 .#{$prefix}-badge {
-  background-color: $color-crimson-500;
-  border: calc(1rem/16) solid $color-crimson-500;
+  background-color: $color-black-500;
+  border: calc(1rem/16) solid $color-black-500;
   border-radius: $border-radius-circle;
   color: $color-white-base;
   display: inline-block;
@@ -20,8 +20,8 @@
 
   &--secondary {
     background-color: $color-white-base;
-    border-color: $color-crimson-500;
-    color: $color-crimson-500;
+    border-color: $color-black-500;
+    color: $color-black-500;
   }
 }
 
@@ -69,7 +69,7 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: $color-white-base;
-    border-color: $color-black-100;
+    border-color: $color-black-200;
     color: $color-black-500;
   }
 }
@@ -81,7 +81,7 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: $color-white-base;
-    border-color: $color-blue-100;
+    border-color: $color-blue-200;
     color: $color-blue-500;
   }
 }
@@ -93,7 +93,7 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: $color-white-base;
-    border-color: $color-green-100;
+    border-color: $color-green-200;
     color: $color-green-500;
   }
 }
@@ -105,7 +105,7 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: $color-white-base;
-    border-color: $color-gold-100;
+    border-color: $color-gold-200;
     color: $color-black-500;
   }
 }
@@ -117,7 +117,7 @@ a.#{$prefix}-badge {
 
   &-secondary {
     background-color: $color-white-base;
-    border-color: $color-orange-100;
+    border-color: $color-orange-200;
     color: $color-orange-500;
   }
 }
