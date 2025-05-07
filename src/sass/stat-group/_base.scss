@@ -8,6 +8,14 @@
     display: flex;
     flex-direction: column;
   }
+
+  &__note {
+    font-size: $ts-14;
+    font-family: $font-mono;
+    margin-block-start: $spacing-lg;
+    margin-block-end: 0;
+    color: var(--rvt-theme-accent);
+  }
 }
 
 @container stat-group (min-width: 40em) {
