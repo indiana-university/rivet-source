@@ -50,3 +50,9 @@
   $hex-color: '#{$hex-value}';
   background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m8 .798 7 4.667V15H9v-4.444H7V15H1V5.465L8 .798ZM3 6.535V13h2V8.556h6V13h2V6.535L8 3.202 3 6.535Z"></path></svg>');;
 }
+
+@mixin bg-icon-download($hex-value) {
+  // Converts Sass hex color to a string for interpolation
+  $hex-color: '#{$hex-value}';
+  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M9 7.826V1H7v6.826L4.392 5.59 3.09 7.108 8 11.318l4.91-4.21-1.302-1.518L9 7.826Z"></path><path d="M3 13v-3H1v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3h-2v3H3Z"></path></svg>');
+}

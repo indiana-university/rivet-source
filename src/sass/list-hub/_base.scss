@@ -73,6 +73,29 @@
     @include bg-icon-arrow-right($color-crimson-500);
   }
 
+  &__link[href^="http"]::before {
+    @include bg-icon-arrow-up-right($color-black-500);
+  }
+
+  &__link[href*="#"]::before {
+    @include bg-icon-arrow-down($color-black-500);
+  }
+
+  &__link[href$=".pdf"]::before,
+  &__link[href$=".docx"]::before,
+  &__link[href$=".xlsx"]::before,
+  &__link[href$=".pptx"]::before {
+    @include bg-icon-download($color-black-500);
+  }
+
+  &__link[href*="#"]:hover::before,
+  &__link[href$=".pdf"]:hover::before,
+  &__link[href$=".docx"]:hover::before,
+  &__link[href$=".xlsx"]:hover::before,
+  &__link[href$=".pptx"]:hover::before  {
+    transform: translate(0, $spacing-xxs);
+  }
+
   &__item-title + &__content {
     padding-inline-start: 0;
   }
@@ -128,11 +151,42 @@
     @include bg-icon-arrow-right($color-white-base);
   }
 
+  &__link[href^="http"]::before {
+    @include bg-icon-arrow-up-right($color-white-base);
+  }
+
+  &__link[href^="http"]:hover::before {
+    @include bg-icon-arrow-up-right($color-blue-200);
+  }
+
+  &__link[href*="#"]::before {
+    @include bg-icon-arrow-down($color-white-base);
+  }
+
+  &__link[href*="#"]:hover::before {
+    @include bg-icon-arrow-down($color-blue-200);
+  }
+
+  &__link[href$=".pdf"]::before,
+  &__link[href$=".docx"]::before,
+  &__link[href$=".xlsx"]::before,
+  &__link[href$=".pptx"]::before {
+    @include bg-icon-download($color-white-base);
+  }
+
   &__link:hover {
     color: var(--rvt-theme-interactive);
   }
 
   &__link:hover::before {
     @include bg-icon-arrow-right($color-blue-200);
+  }
+
+  &__link[href$=".pdf"]:hover::before,
+  &__link[href$=".docx"]:hover::before,
+  &__link[href$=".xlsx"]:hover::before,
+  &__link[href$=".pptx"]:hover::before  {
+    @include bg-icon-download($color-blue-200);
+    transform: translate(0, $spacing-xxs);
   }
 }
