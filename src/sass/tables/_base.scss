@@ -12,6 +12,12 @@ table,
   border-spacing: 0;
   text-align: left;
   width: 100%;
+
+  caption {
+    text-align: left;
+    font-size: $ts-20;
+    margin-bottom: $spacing-md;
+  }
 }
 
 tr th {
