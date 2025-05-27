@@ -175,12 +175,6 @@
   }
 }
 
-// @include mq($breakpoint-lg) {
-//   .#{$prefix}-sidenav {
-//     margin-top: 0;
-
-//     &__mobile-toggle {
-//       display: none;
-//     }
-//   }
-// }
+.#{$prefix}-layout-base__sidebar .#{$prefix}-sidenav {
+  margin-top: $spacing-sm;
+}

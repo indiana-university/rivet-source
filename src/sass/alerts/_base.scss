@@ -30,21 +30,44 @@
   &__title {
     font-weight: $font-weight-medium;
     font-size: $ts-20;
-
-    /**
-     * We'll put bottom margin on the title here so that the .alert can
-     * be used with the __message only and still get the proper padding
-     * around all sides.
-     */
-    margin-bottom: $spacing-xxs;
     padding-inline-end: $spacing-md;
     position: relative;
   }
 
+  // Left here for backwards compatibility. Use new "content" element below.
   &__message {
     margin-top: 0;
     margin-bottom: 0;
     padding-inline-end: $spacing-md;
+  }
+
+  &__title + &__message,
+  &__title + &__content {
+    margin-top: $spacing-xs;
+  }
+
+  &__content {
+    * {
+      margin: 0;
+    }
+
+    > * + * {
+      margin-block-start: $spacing-sm;
+    }
+
+    > ul,
+    > ol {
+      padding-left: $spacing-sm;
+    }
+
+    ul {
+      list-style-type: square;
+    }
+
+    ul > li,
+    ol > li {
+      margin-top: $spacing-sm;
+    }
   }
 
   &__dismiss {

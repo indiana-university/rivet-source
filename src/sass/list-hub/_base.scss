@@ -18,7 +18,9 @@
   &__list {
     list-style: ' ';
     padding-left: 0;
-    margin-top: $spacing-xs;
+    // Magic number to help with visual alignment when
+    // list hub is first element in a layout with a sidebar
+    margin-top: $spacing-xs * 1.5;
     margin-bottom: 0;
   }
 
