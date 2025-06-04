@@ -114,6 +114,7 @@
   &--clickable:hover {
     background-color: var(--rvt-theme-bg-subtle);
     transition: all .2s ease;
+    box-shadow: none;
   }
 
   &--clickable &__title a::after {
