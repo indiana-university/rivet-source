@@ -5,8 +5,8 @@
   text-decoration: none;
   transition: all .2s ease;
   background-color: var(--rvt-theme-bg);
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
   padding: $spacing-xl $spacing-md;
 
   &[href]:hover {
@@ -21,13 +21,13 @@
   }
 
   &__content {
-    text-align: center;
+    // text-align: center;
     font-family: $font-mono;
   }
 
   &__image {
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
   }
 
   &__image + * {
@@ -51,6 +51,6 @@
 
 @include mq($breakpoint-md) {
   .#{$prefix}-stat {
-    padding: $spacing-xxl $spacing-xl;
+    padding: $spacing-xxl;
   }
 }
