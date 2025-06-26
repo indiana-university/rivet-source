@@ -23,7 +23,8 @@
   &__text {
     font-family: $font-condensed;
     text-transform: uppercase;
-    font-weight: $font-weight-black;
+    font-weight: 850;
+    font-variation-settings: "wdth" 140;
     font-size: $ts-26;
     margin: 0;
     color: var(--rvt-theme-accent-title);

@@ -39,7 +39,12 @@
   h4,
   h5,
   h6 {
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-bold;
+    font-optical-sizing: auto;
+    font-variation-settings:
+      "wdth" 135,
+      "YTLC" 540;
+    font-style: normal;
   }
 
   h1,
@@ -51,10 +56,9 @@
     // Reset the flow space here to put more space before headings.
     --rvt-rich-text-stack-space: #{$spacing-lg};
     line-height: 1.1;
-    letter-spacing: -.025rem;
     scroll-margin-top: $spacing-md;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
   }
 
   :where(p),

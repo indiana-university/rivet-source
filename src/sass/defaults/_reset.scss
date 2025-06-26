@@ -23,6 +23,8 @@ html * {
 body {
   color: var(--rvt-theme-text);
   font-family: $font-base;
+  font-variation-settings: "wdth" 110;
+  font-weight: $font-weight-regular;
   height: 100%;
   margin: 0;
   padding: 0;

@@ -30,11 +30,12 @@
     font-size: $ts-32;
     line-height: 1.1;
     font-family: $font-condensed;
-    font-weight: $font-weight-black;
+    // font-weight: $font-weight-black;
+    // font-variation-settings: "YTUC" 740;
+    font-weight: 850;
+    font-variation-settings: "wdth" 140;
     color: var(--rvt-theme-accent-title);
     text-transform: uppercase;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   &__eyebrow + &__title {
@@ -154,10 +155,6 @@
       line-height: 1;
     }
 
-    &--feature &__title {
-      font-size: 4rem;
-    }
-
     &--feature &__actions {
       min-width: 27rem;
       flex-wrap: nowrap;
@@ -218,8 +215,9 @@
       font-size: $ts-29;
     }
 
-    &--statement &__title {
-      font-size: 4rem;
+    &--statement &__title,
+    &--feature &__title {
+      font-size: $ts-52;
     }
 
     &--feature &__banner {

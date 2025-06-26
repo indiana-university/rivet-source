@@ -36,9 +36,9 @@
 
   &__number {
     font-size: $ts-41;
-    line-height: $line-height-tight;
     font-family: $font-mono;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-black;
+    font-variation-settings: "wdth" 150;
     color: var(--rvt-theme-accent-title);
   }
 

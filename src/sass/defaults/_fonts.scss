@@ -3,9 +3,6 @@
 
 @use '../core' as *;
 
-// Temporary implementation of new mono font
-@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap");
-
 @font-face {
   font-family: BentonSansCond;
   src: url('https://fonts.iu.edu/fonts/benton-sans-cond-regular.eot');
