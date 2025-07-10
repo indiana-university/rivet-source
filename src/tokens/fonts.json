@@ -20,13 +20,13 @@
         "value": "800"
       },
       "bold": {
-        "value": "700"
+        "value": "650"
       },
       "medium": {
-        "value": "600"
+        "value": "550"
       },
       "regular": {
-        "value": "365"
+        "value": "350"
       }
     }
   }
