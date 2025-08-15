@@ -5,54 +5,54 @@
 
 :root,
 .#{$prefix}-theme-light {
-  --rvt-theme-bg: #{$color-white-base};
-  --rvt-theme-bg-subtle: #{$color-black-000};
-  --rvt-theme-bg-darker: #{$color-black-050};
-  --rvt-theme-text: #{$color-black-500};
-  --rvt-theme-text-subtle: #{$color-black-400};
-  --rvt-theme-accent: #{$color-crimson-500};
-  --rvt-theme-accent-subtle: #{$color-orange-000};
-  --rvt-theme-accent-darker: #{$color-crimson-600};
-  --rvt-theme-accent-border: #{$color-orange-200};
-  --rvt-theme-accent-title: #{$color-crimson-500};
-  --rvt-theme-border: #{$color-black-100};
-  --rvt-theme-interactive: #{$color-blue-500};
-  --rvt-theme-interactive-lighter: #{$color-blue-300};
-  --rvt-theme-interactive-darker: #{$color-blue-500};
+  --rvt-theme-bg: var(--rvt-color-base-white);
+  --rvt-theme-bg-subtle: var(--rvt-color-base-extralight);
+  --rvt-theme-bg-darker: var(--rvt-color-base-light);
+  --rvt-theme-text: var(--rvt-color-base-body);
+  --rvt-theme-text-subtle: var(--rvt-color-base-body);
+  --rvt-theme-accent: var(--rvt-color-brand-main);
+  --rvt-theme-accent-subtle: var(--rvt-color-brand-outline);
+  --rvt-theme-accent-darker: var(--rvt-color-brand-dark);
+  --rvt-theme-accent-border: var(--rvt-color-brand-outline);
+  --rvt-theme-accent-title: var(--rvt-color-brand-main);
+  --rvt-theme-border: var(--rvt-color-base-outline);
+  --rvt-theme-interactive: var(--rvt-color-brand-main);
+  --rvt-theme-interactive-lighter: var(--rvt-color-brand-outline);
+  --rvt-theme-interactive-darker: var(--rvt-color-brand-dark);
 }
 
 .#{$prefix}-theme-crimson {
-  --rvt-theme-bg: #{$color-crimson-500};
-  --rvt-theme-bg-subtle: #{$color-crimson-600};
-  --rvt-theme-bg-darker: #{$color-crimson-600};
-  --rvt-theme-text: #{$color-white-base};
-  --rvt-theme-text-subtle: #{$color-crimson-100};
-  --rvt-theme-accent: #{$color-white-base};
-  --rvt-theme-accent-subtle: #{$color-crimson-500};
-  --rvt-theme-accent-darker: #{$color-orange-000};
-  --rvt-theme-accent-border: #{$color-crimson-400};
-  --rvt-theme-accent-title: #{$color-white-base};
-  --rvt-theme-border: #{$color-crimson-400};
-  --rvt-theme-interactive: #{$color-blue-200};
-  --rvt-theme-interactive-lighter: #{$color-blue-100};
-  --rvt-theme-interactive-darker: #{$color-blue-300};
+  --rvt-theme-bg: var(--rvt-color-brand-main);
+  --rvt-theme-bg-subtle: var(--rvt-color-brand-dark);
+  --rvt-theme-bg-darker: var(--rvt-color-brand-dark);
+  --rvt-theme-text: var(--rvt-color-base-white);
+  --rvt-theme-text-subtle: var(--rvt-color-brand-light);
+  --rvt-theme-accent: var(--rvt-color-base-white);
+  --rvt-theme-accent-subtle: var(--rvt-color-brand-main);
+  --rvt-theme-accent-darker: var(--rvt-color-brand-dark);
+  --rvt-theme-accent-border: var(--rvt-color-brand-outline);
+  --rvt-theme-accent-title: var(--rvt-color-base-white);
+  --rvt-theme-border: var(--rvt-color-brand-outline);
+  --rvt-theme-interactive: var(--rvt-color-brand-extralight);
+  --rvt-theme-interactive-lighter: var(--rvt-color-brand-extralight);
+  --rvt-theme-interactive-darker: var(--rvt-color-brand-light);
 }
 
 .#{$prefix}-theme-dark {
-  --rvt-theme-bg: #{$color-black-500};
-  --rvt-theme-bg-subtle: #{$color-black-600};
-  --rvt-theme-bg-darker: #{$color-black-600};
-  --rvt-theme-text: #{$color-white-base};
-  --rvt-theme-text-subtle: #{$color-black-100};
-  --rvt-theme-accent: #{$color-white-base};
-  --rvt-theme-accent-subtle: #{$color-black-500};
-  --rvt-theme-accent-darker: #{$color-white-base};
-  --rvt-theme-accent-border: #{$color-black-100};
-  --rvt-theme-accent-title: #{$color-white-base};
-  --rvt-theme-border: #{$color-black-400};
-  --rvt-theme-interactive: #{$color-blue-200};
-  --rvt-theme-interactive-lighter: #{$color-blue-100};
-  --rvt-theme-interactive-darker: #{$color-blue-300};
+  --rvt-theme-bg: var(--rvt-color-base-main);
+  --rvt-theme-bg-subtle: var(--rvt-color-base-dark);
+  --rvt-theme-bg-darker: var(--rvt-color-base-dark);
+  --rvt-theme-text: var(--rvt-color-base-white);
+  --rvt-theme-text-subtle: var(--rvt-color-base-light);
+  --rvt-theme-accent: var(--rvt-color-base-white);
+  --rvt-theme-accent-subtle: var(--rvt-color-base-main);
+  --rvt-theme-accent-darker: var(--rvt-color-base-white);
+  --rvt-theme-accent-border: var(--rvt-color-base-light);
+  --rvt-theme-accent-title: var(--rvt-color-base-white);
+  --rvt-theme-border: var(--rvt-color-base-outline);
+  --rvt-theme-interactive: var(--rvt-color-brand-extralight);
+  --rvt-theme-interactive-lighter: var(--rvt-color-brand-extralight);
+  --rvt-theme-interactive-darker: var(--rvt-color-brand-light);
 }
 
 [class^='rvt-theme'],
