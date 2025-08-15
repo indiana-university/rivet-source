@@ -44,52 +44,48 @@ $padding: math.div(3rem, 16);
   }
 
   input[type='radio'] ~ label::before {
-    background-color: $color-white-base;
-    border: math.div($spacing-xxs, 2) solid $color-black-300;
+    background-color: var(--rvt-color-base-white);
+    border: math.div($spacing-xxs, 4) solid var(--rvt-color-base-main);
     border-radius: $spacing-sm;
-    box-shadow: inset 0 0 0 $padding $color-white-base;
+    box-shadow: inset 0 0 0 $padding var(--rvt-color-base-white);
     content: '';
     display: inline-block;
     height: $spacing-sm;
-    left: math.div($spacing-xxs, 2);
+    left: math.div(3rem, 16);
     position: absolute;
-    top: math.div($spacing-xxs, 2);
+    top: math.div(3rem, 16);
     width: $spacing-sm;
   }
 
   input[type='radio']:checked ~ label::before {
-    background-color: $color-blue-500;
-    border-color: $color-blue-500;
+    background-color: var(--rvt-color-brand-main);
+    border-color: var(--rvt-color-brand-main);
   }
 
   input[type='radio']:focus ~ label::before {
-    border-color: $color-blue-500;
-    box-shadow:
-      inset 0 0 0 $padding $color-white-base,
-      0 0 0 $spacing-xxs $color-blue-200;
+    outline: math.div(2rem, 16) solid var(--rvt-color-brand-dark);
+    outline-offset: math.div(2rem, 16);
   }
 
   input[type='radio']:disabled {
-    cursor: default;
+    cursor: not-allowed;
   }
 
   input[type='radio']:disabled ~ label {
-    color: $color-black-500;
-    cursor: default;
+    cursor: not-allowed;
   }
 
   input[type='radio']:disabled ~ label::before {
-    background-color: $color-black-100;
-    border-color: $color-black-300;
-    box-shadow: inset 0 0 0 $padding $color-black-100;
+    background-color: var(--rvt-color-base-extralight);
+    border-color: var(--rvt-color-base-outline);
+    box-shadow: inset 0 0 0 $padding var(--rvt-color-base-extralight);
   }
 
   input[type='radio']:disabled:checked ~ label::before {
-    background-color: $color-black-300;
+    background-color: var(--rvt-color-base-outline);
   }
 
   &__description {
-    color: $color-black-400;
     display: block;
     font-size: $ts-14;
   }
