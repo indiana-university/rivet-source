@@ -34,7 +34,7 @@
     width: $spacing-sm;
     height: $spacing-sm;
     position: absolute;
-    color: $color-white-base;
+    color: var(--rvt-color-base-white);
     background: var(--rvt-theme-accent);
     border-radius: 50%;
     box-shadow: 0 0 0 ($spacing-xs * .85) var(--rvt-theme-bg), 0 0 0 $spacing-xs var(--rvt-theme-border);
@@ -105,7 +105,7 @@
   .#{$prefix}-timeline__item::after {
     margin-left: 0;
     right: 0;
-    border-left-color: $color-black-100;
+    border-left-color: var(--rvt-color-base-light);
     border-right-color: transparent;
   }
 
@@ -141,14 +141,14 @@
     .#{$prefix}-timeline__item::after {
       margin-left: -$spacing-md;
       left: 100%;
-      border-left-color: $color-black-100;
+      border-left-color: var(--rvt-color-base-light);
       border-right-color: transparent;
     }
 
     .#{$prefix}-timeline__item--right::after {
       margin-left: -$spacing-sm;
       left: auto;
-      border-right-color: $color-black-100;
+      border-right-color: var(--rvt-color-base-light);
       border-left-color: transparent;
     }
 
