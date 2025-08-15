@@ -1,5 +1,48 @@
 {
   "color": {
+    "brand": {
+      "dark": {
+        "value": "#6D0808"
+      },
+      "main": {
+        "value": "#990000"
+      },
+      "outline": {
+        "value": "#DB6B57"
+      },
+      "light": {
+        "value": "#F5E3CC"
+      },
+      "extralight": {
+        "value": "#F8EFE2"
+      }
+    },
+    "base": {
+      "black": {
+        "value": "#000000"
+      },
+      "dark": {
+        "value": "{color.base.black.value}"
+      },
+      "main": {
+        "value": "#072332"
+      },
+      "body": {
+        "value": "#1B3E50"
+      },
+      "outline": {
+        "value": "#B9C1C6"
+      },
+      "light": {
+        "value": "#E0E0E0"
+      },
+      "extralight": {
+        "value": "#EEEEF0"
+      },
+      "white": {
+        "value": "#FFFFFF"
+      }
+    },
     "black": {
       "base": {
         "value": "{color.black.500.value}"
