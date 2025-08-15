@@ -26,7 +26,7 @@
       content: '';
       width: $spacing-sm;
       height: $spacing-sm;
-      @include bg-icon-chevron-right($color-crimson-500);
+      @include bg-icon-chevron-right($color-brand-main);
       background-repeat: no-repeat;
       background-position: center;
     }
@@ -45,7 +45,7 @@
     color: var(--rvt-theme-accent);
 
     &::before {
-      @include bg-icon-home($color-black-400);
+      @include bg-icon-home($color-base-main);
       background-size: $spacing-sm * .875;
       background-position: center top;
     }
@@ -65,30 +65,30 @@
   // DEPRECATED: This variant will be removed in a future version of Rivet.
 
   &--call-out {
-    background-color: $color-black-100;
+    background-color: var(--rvt-color-base-extralight);
     padding: $spacing-sm;
     border-radius: $spacing-xxs;
 
     li:last-child {
-      color: $color-black-700;
+      color: var(--rvt-color-base-body);
     }
   }
 }
 
 // Non-global theme specifics
 .#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li::before {
-  @include bg-icon-chevron-right($color-orange-200);
+  @include bg-icon-chevron-right($color-brand-light);
 }
 
 .#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li:first-child::before {
-  @include bg-icon-home($color-white-base);
+  @include bg-icon-home($color-base-white);
 }
 
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li::before {
-  @include bg-icon-chevron-right($color-black-200);
+  @include bg-icon-chevron-right($color-base-outline);
 }
 
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li:first-child::before {
-  @include bg-icon-home($color-white-base);
+  @include bg-icon-home($color-base-white);
 }
 
