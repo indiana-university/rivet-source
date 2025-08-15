@@ -47,9 +47,9 @@
     content: '';
     display: inline-block;
     height: $spacing-sm;
-    left: math.div($spacing-xxs, 4);
+    left: math.div(3rem, 16);
     position: absolute;
-    top: math.div($spacing-xxs, 4);
+    top: math.div(3rem, 16);
     width: $spacing-sm;
   }
 
@@ -67,26 +67,28 @@
   }
 
   input[type='checkbox']:focus ~ label::before {
-    outline: 2px solid $color-blue-400;
-    outline-offset: 2px;
+    outline: math.div(2rem, 16) solid var(--rvt-color-brand-dark);
+    outline-offset: math.div(2rem, 16);
   }
 
   input[type='checkbox']:disabled {
-    cursor: default;
+    cursor: not-allowed;
   }
 
   input[type='checkbox']:disabled ~ label {
-    color: $color-black-400;
-    cursor: default;
+    cursor: not-allowed;
   }
 
   input[type='checkbox']:disabled ~ label::before {
-    background-color: $color-black-100;
-    border-color: $color-black-300;
+    background-color: var(--rvt-color-base-extralight);
+    border-color: var(--rvt-color-base-outline);
+  }
+
+  input[type='checkbox']:disabled:checked ~ label::before {
+    background-color: var(--rvt-color-base-outline);
   }
 
   &__description {
-    color: $color-black-400;
     display: block;
     font-size: $ts-14;
   }
