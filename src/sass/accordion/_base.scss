@@ -28,7 +28,7 @@
       width: $spacing-sm;
       height: $spacing-sm;
       margin-left: auto;
-      @include bg-icon-plus($color-black-500);
+      @include bg-icon-plus($color-base-main);
       background-repeat: no-repeat;
       background-position: center;
     }
@@ -38,7 +38,7 @@
     color: var(--rvt-theme-accent);
 
     &::after {
-      @include bg-icon-minus($color-crimson-500);
+      @include bg-icon-minus($color-brand-main);
     }
   }
 
@@ -48,27 +48,13 @@
   }
 
   &__toggle:hover {
-    color: var(--rvt-theme-accent);
     background-color: var(--rvt-theme-bg-subtle);
     cursor: pointer;
   }
 
   &__toggle:focus {
-    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-accent);
+    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-darker);
     outline-offset: math.div($spacing-xxs, 2);
-  }
-
-  // Undo styles for browsers that support :focus-visible
-
-  &__toggle:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  // Apply stronger focus styles when tab navigation is being used
-
-  &__toggle:focus-visible {
-    background-color: var(--rvt-theme-bg-subtle);
-    color: var(--rvt-theme-accent);
   }
 
   &__toggle-text {
@@ -106,12 +92,12 @@
 // Common
 .#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle::after,
 .#{$prefix}-theme-dark .#{$prefix}-accordion__toggle::after {
-  @include bg-icon-plus($color-white-base);
+  @include bg-icon-plus($color-base-white);
 }
 
 .#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle[aria-expanded='true']::after,
 .#{$prefix}-theme-dark .#{$prefix}-accordion__toggle[aria-expanded='true']::after {
-  @include bg-icon-minus($color-white-base);
+  @include bg-icon-minus($color-base-white);
 }
 
 .#{$prefix}-theme-crimson .#{$prefix}-accordion,
