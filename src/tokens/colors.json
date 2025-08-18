@@ -1,5 +1,34 @@
 {
   "color": {
+    "base": {
+      "dark": {
+        "value": "#000000"
+      },
+      "main": {
+        "value": "#072332"
+      },
+      "body": {
+        "value": "#1B3E50"
+      },
+      "outline": {
+        "value": "#B9C1C6"
+      },
+      "light": {
+        "value": "#E0E0E0"
+      },
+      "extralight": {
+        "value": "#EEEEF0"
+      },
+      "ultralight": {
+        "value": "#FFFFFF"
+      },
+      "black": {
+        "value": "{color.base.dark}"
+      },
+      "white": {
+        "value": "{color.base.ultralight}"
+      }
+    },
     "brand": {
       "dark": {
         "value": "#6D0808"
@@ -17,30 +46,72 @@
         "value": "#F8EFE2"
       }
     },
-    "base": {
-      "black": {
-        "value": "#000000"
-      },
-      "dark": {
-        "value": "{color.base.black.value}"
+    "danger": {
+      "hover": {
+        "value": "#760518"
       },
       "main": {
-        "value": "#072332"
-      },
-      "body": {
-        "value": "#1B3E50"
+        "value": "#AB0723"
       },
       "outline": {
-        "value": "#B9C1C6"
+        "value": "#FFB8BB"
       },
-      "light": {
-        "value": "#E0E0E0"
+      "container": {
+        "value": "#FFE5E6"
       },
-      "extralight": {
-        "value": "#EEEEF0"
+      "background": {
+        "value": "#FFFAFA"
+      }
+    },
+    "info": {
+      "hover": {
+        "value": "#004080"
       },
-      "white": {
-        "value": "#FFFFFF"
+      "main": {
+        "value": "#004F9E"
+      },
+      "outline": {
+        "value": "#9ED5FD"
+      },
+      "container": {
+        "value": "#D9EEFC"
+      },
+      "background": {
+        "value": "#F5FCFF"
+      }
+    },
+    "success": {
+      "hover": {
+        "value": "#0D4A08"
+      },
+      "main": {
+        "value": "#13650B"
+      },
+      "outline": {
+        "value": "#ACEE8B"
+      },
+      "container": {
+        "value": "#DFF9D2"
+      },
+      "background": {
+        "value": "#F5FFF6"
+      }
+    },
+    "warning": {
+      "hover": {
+        "value": "#241400"
+      },
+      "main": {
+        "value": "#422400"
+      },
+      "outline": {
+        "value": "#FFD580"
+      },
+      "container": {
+        "value": "#FFECC7"
+      },
+      "background": {
+        "value": "#FFFBF0"
       }
     },
     "black": {
