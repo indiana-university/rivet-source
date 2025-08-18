@@ -10,11 +10,10 @@ a,
 
   &:hover {
     color: var(--rvt-theme-interactive-darker);
-    text-decoration: none;
   }
 
   &:focus {
-    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-lighter);
+    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-darker);
     outline-offset: math.div($spacing-xxs, 2);
   }
 
@@ -22,16 +21,16 @@ a,
     /**
      * TODO: Come up with a better color for the :visited state.
      */
-    color: $color-blue-500;
+    color: var(--rvt-theme-interactive-darker);
   }
 }
 
 .#{$prefix}-link--reverse,
 .#{$prefix}-link-reverse {
-  color: rgba($color-white-base, .8);
+  color: rgba(var(--rvt-color-base-white), .8);
 
   &:hover {
-    color: $color-white-base;
+    color: var(--rvt-color-base-white);
   }
 }
 
@@ -62,7 +61,7 @@ a,
 
   &::after {
     content: '';
-    @include bg-icon-arrow-right($color-crimson-500);
+    @include bg-icon-arrow-right($color-brand-main);
     background-repeat: no-repeat;
     background-position: center;
     margin-left: $spacing-xs;
@@ -79,7 +78,7 @@ a,
 
     &::after {
       transform: translate($spacing-xs, 0);
-      @include bg-icon-arrow-right($color-black-500);
+      @include bg-icon-arrow-right($color-base-main);
     }
   }
 }
@@ -89,6 +88,6 @@ a,
 .#{$prefix}-theme-crimson .#{$prefix}-link-cta,
 .#{$prefix}-theme-dark .#{$prefix}-link-cta {
   &::after {
-    @include bg-icon-arrow-right($color-white-base);;
+    @include bg-icon-arrow-right($color-base-white);;
   }
 }
