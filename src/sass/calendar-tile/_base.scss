@@ -4,14 +4,14 @@
 @use '../core' as *;
 
 .#{$prefix}-cal {
-  color: var(--rvt-theme-accent-title);
-  background-color: var(--rvt-theme-accent-subtle);
+  color: var(--rvt-color-theme-accent);
+  background-color: var(--rvt-color-theme-container-accent);
   display: inline-flex;
-  padding: $spacing-sm;
-  line-height: 1.1;
-  position: relative;
   flex-direction: column;
   font-family: $font-mono;
+  line-height: 1.1;
+  padding: $spacing-sm;
+  position: relative;
 
   &__month,
   &__day,
@@ -28,10 +28,10 @@
   }
 
   &__day {
-    font-weight: $font-weight-medium;
     font-size: $ts-36;
-    margin-top: $spacing-xxs;
+    font-weight: $font-weight-medium;
     letter-spacing: .075rem;
+    margin-top: $spacing-xxs;
   }
 
   &__year {
