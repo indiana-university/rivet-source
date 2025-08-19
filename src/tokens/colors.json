@@ -1,5 +1,119 @@
 {
   "color": {
+    "base": {
+      "dark": {
+        "value": "#000000"
+      },
+      "main": {
+        "value": "#072332"
+      },
+      "body": {
+        "value": "#1B3E50"
+      },
+      "border": {
+        "value": "#B9C1C6"
+      },
+      "light": {
+        "value": "#E0E0E0"
+      },
+      "extralight": {
+        "value": "#EEEEF0"
+      },
+      "ultralight": {
+        "value": "#FFFFFF"
+      },
+      "black": {
+        "value": "{color.base.dark}"
+      },
+      "white": {
+        "value": "{color.base.ultralight}"
+      }
+    },
+    "brand": {
+      "dark": {
+        "value": "#6D0808"
+      },
+      "main": {
+        "value": "#990000"
+      },
+      "border": {
+        "value": "#DB6B57"
+      },
+      "light": {
+        "value": "#F5E3CC"
+      },
+      "extralight": {
+        "value": "#F8EFE2"
+      }
+    },
+    "danger": {
+      "hover": {
+        "value": "#760518"
+      },
+      "main": {
+        "value": "#AB0723"
+      },
+      "border": {
+        "value": "#FFB8BB"
+      },
+      "container": {
+        "value": "#FFE5E6"
+      },
+      "background": {
+        "value": "#FFFAFA"
+      }
+    },
+    "info": {
+      "hover": {
+        "value": "#004080"
+      },
+      "main": {
+        "value": "#004F9E"
+      },
+      "border": {
+        "value": "#9ED5FD"
+      },
+      "container": {
+        "value": "#D9EEFC"
+      },
+      "background": {
+        "value": "#F5FCFF"
+      }
+    },
+    "success": {
+      "hover": {
+        "value": "#0D4A08"
+      },
+      "main": {
+        "value": "#13650B"
+      },
+      "border": {
+        "value": "#ACEE8B"
+      },
+      "container": {
+        "value": "#DFF9D2"
+      },
+      "background": {
+        "value": "#F5FFF6"
+      }
+    },
+    "warning": {
+      "hover": {
+        "value": "#241400"
+      },
+      "main": {
+        "value": "#422400"
+      },
+      "border": {
+        "value": "#FFD580"
+      },
+      "container": {
+        "value": "#FFECC7"
+      },
+      "background": {
+        "value": "#FFFBF0"
+      }
+    },
     "black": {
       "base": {
         "value": "{color.black.500.value}"
