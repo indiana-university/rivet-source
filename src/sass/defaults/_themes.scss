@@ -88,6 +88,6 @@
 
 [class^='rvt-theme'],
 [class*=' rvt-theme'] {
-  background-color: var(--rvt-theme-bg);
-  color: var(--rvt-theme-text);
+  background-color: var(--rvt-color-theme-background);
+  color: var(--rvt-color-theme-body);
 }
