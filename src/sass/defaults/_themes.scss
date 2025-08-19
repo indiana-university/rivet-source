@@ -6,8 +6,9 @@
 :root,
 .#{$prefix}-theme-light {
   --rvt-color-theme-accent: var(--rvt-color-brand-main);
-  --rvt-color-theme-background: var(--rvt-color-base-white);
+  --rvt-color-theme-background: var(--rvt-color-base-extralight);
   --rvt-color-theme-body: var(--rvt-color-base-body);
+  --rvt-color-theme-body-inverse: var(--rvt-color-base-extralight);
   --rvt-color-theme-border: var(--rvt-color-base-border);
   --rvt-color-theme-container: var(--rvt-color-base-light);
   --rvt-color-theme-focus: var(--rvt-color-brand-dark);

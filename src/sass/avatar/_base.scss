@@ -21,9 +21,9 @@ $avatar-widths: (
 
 .#{$prefix}-avatar {
   align-items: center;
-  background-color: var(--rvt-theme-accent);
+  background-color: var(--rvt-color-theme-accent);
   border-radius: 999rem;
-  color: var(--rvt-theme-bg);
+  color: var(--rvt-color-theme-body-inverse);
   display: flex;
   flex-shrink: 0;
   font-size: $ts-20;
