@@ -4,50 +4,56 @@
 @use '../core' as *;
 
 .#{$prefix}-breadcrumbs {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  background-color: var(--rvt-color-theme-container);
   display: inline-flex;
-  padding: $spacing-xs $spacing-sm;
   flex-wrap: wrap;
   gap: $spacing-xxs * .75;
-  background-color: var(--rvt-theme-bg-subtle);
+  list-style: none;
+  margin: 0;
+  padding: $spacing-xs $spacing-sm;
 
   li {
+    align-items: center;
+    display: inline-flex;
+    font-family: $font-mono;
+    font-size: $ts-12;
+    gap: $spacing-xxs;
     line-height: 1.25rem;
     margin-top: 0;
-    font-size: $ts-12;
-    display: inline-flex;
-    align-items: center;
-    gap: $spacing-xxs * .75;
-    font-family: $font-mono;
 
-    &::before {
+    &:not(:first-child)::before {
+      background-color: var(--rvt-color-theme-accent);
+      clip-path: path("M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z");
       content: '';
-      width: $spacing-sm;
+      display: block;
       height: $spacing-sm;
-      @include bg-icon-chevron-right($color-brand-main);
-      background-repeat: no-repeat;
-      background-position: center;
+      width: $spacing-sm;
     }
 
     a {
+      align-items: center;
+      display: inline-flex;
+      color: var(--rvt-color-theme-body);
+      gap: $spacing-xxs;
       text-decoration: none;
-      color: var(--rvt-theme-text);
 
       &:hover {
+        color: var(--rvt-color-theme-accent);
         text-decoration: underline;
       }
     }
   }
 
   li:first-child {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
 
-    &::before {
-      @include bg-icon-home($color-base-main);
-      background-size: $spacing-sm * .875;
-      background-position: center top;
+    a::before {
+      background-color: currentColor;
+      clip-path: path("m8 .798 7 4.667V15H9v-4.444H7V15H1V5.465L8 .798ZM3 6.535V13h2V8.556h6V13h2V6.535L8 3.202 3 6.535Z");
+      content: '';
+      display: block;
+      height: $spacing-sm;
+      width: $spacing-sm;
     }
   }
 
@@ -56,39 +62,9 @@
   }
 
   li[aria-current="page"] {
+    color: var(--rvt-color-theme-accent);
+    font-weight: $font-weight-medium;
     text-decoration: underline;
     text-underline-offset: $spacing-xxs;
-    color: var(--rvt-theme-accent);
-    font-weight: $font-weight-medium;
-  }
-
-  // DEPRECATED: This variant will be removed in a future version of Rivet.
-
-  &--call-out {
-    background-color: var(--rvt-color-base-extralight);
-    padding: $spacing-sm;
-    border-radius: $spacing-xxs;
-
-    li:last-child {
-      color: var(--rvt-color-base-body);
-    }
   }
 }
-
-// Non-global theme specifics
-.#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li::before {
-  @include bg-icon-chevron-right($color-brand-light);
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-breadcrumbs li:first-child::before {
-  @include bg-icon-home($color-base-white);
-}
-
-.#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li::before {
-  @include bg-icon-chevron-right($color-base-border);
-}
-
-.#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li:first-child::before {
-  @include bg-icon-home($color-base-white);
-}
-
