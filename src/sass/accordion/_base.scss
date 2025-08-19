@@ -16,7 +16,7 @@
     align-items: center;
     background-color: transparent;
     border: none;
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-heading);
     display: flex;
     padding: $spacing-md;
     text-align: left;
@@ -24,13 +24,12 @@
     width: 100%;
 
     &::after {
-      content: ' ';
-      width: $spacing-sm;
+      background-color: currentColor;
+      clip-path: path("M7 7V.5h2V7h6.5v2H9v6.5H7V9H.5V7H7Z");
+      content: "";
       height: $spacing-sm;
       margin-left: auto;
-      @include bg-icon-plus($color-base-main);
-      background-repeat: no-repeat;
-      background-position: center;
+      width: $spacing-sm;
     }
   }
 
@@ -38,7 +37,7 @@
     color: var(--rvt-color-theme-accent);
 
     &::after {
-      @include bg-icon-minus($color-brand-main);
+      clip-path: path("M15 9H1V7h14v2Z");
     }
   }
 
@@ -86,18 +85,6 @@
   &__panel > * + * {
     margin-top: 1.5rem;
   }
-}
-
-// Themes
-// Common
-.#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle::after,
-.#{$prefix}-theme-dark .#{$prefix}-accordion__toggle::after {
-  @include bg-icon-plus($color-base-white);
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle[aria-expanded='true']::after,
-.#{$prefix}-theme-dark .#{$prefix}-accordion__toggle[aria-expanded='true']::after {
-  @include bg-icon-minus($color-base-white);
 }
 
 .#{$prefix}-theme-crimson .#{$prefix}-accordion,
