@@ -4,120 +4,134 @@
 @use '../core' as *;
 
 .#{$prefix}-badge {
-  background-color: $color-black-500;
-  border: calc(1rem/16) solid $color-black-500;
+  background-color: var(--background);
+  border: calc(1rem/16) solid var(--border);
   border-radius: $border-radius-circle;
-  color: $color-white-base;
+  color: var(--main);
   display: inline-block;
   font-size: $ts-xs;
   font-weight: $font-weight-medium;
   letter-spacing: .02rem;
   line-height: 1;
   padding: calc(3rem/16) .5rem;
+  text-decoration: none;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -osx-font-smoothing: grayscale;
 
-  &--secondary {
-    background-color: $color-white-base;
-    border-color: $color-black-500;
-    color: $color-black-500;
+  &,
+  &--default {
+    --background: var(--rvt-color-base-main);
+    --background-hover: var(--rvt-color-base-dark);
+    --border: var(--rvt-color-base-main);
+    --border-hover: var(--rvt-color-base-dark);
+    --main: var(--rvt-color-base-ultralight);
+    --main-hover: var(--rvt-color-base-ultralight);
+  }
+
+  &--neutral {
+    --background: var(--rvt-color-base-light);
+    --background-hover: var(--rvt-color-base-border);
+    --border: var(--rvt-color-base-light);
+    --border-hover: var(--rvt-color-base-border);
+    --main: var(--rvt-color-base-main);
+    --main-hover: var(--rvt-color-base-dark);
+  }
+
+  &--info {
+    --background: var(--rvt-color-info-main);
+    --background-hover: var(--rvt-color-info-hover);
+    --border: var(--rvt-color-info-main);
+    --border-hover: var(--rvt-color-info-hover);
+    --main: var(--rvt-color-base-ultralight);
+    --main-hover: var(--rvt-color-base-ultralight);
+  }
+
+  &--success {
+    --background: var(--rvt-color-success-main);
+    --background-hover: var(--rvt-color-success-hover);
+    --border: var(--rvt-color-success-main);
+    --border-hover: var(--rvt-color-success-hover);
+    --main: var(--rvt-color-base-ultralight);
+    --main-hover: var(--rvt-color-base-ultralight);
+  }
+
+  &--warning {
+    --background: var(--rvt-color-warning-main);
+    --background-hover: var(--rvt-color-warning-hover);
+    --border: var(--rvt-color-warning-main);
+    --border-hover: var(--rvt-color-warning-hover);
+    --main: var(--rvt-color-base-ultralight);
+    --main-hover: var(--rvt-color-base-ultralight);
+  }
+
+  &--danger {
+    --background: var(--rvt-color-danger-main);
+    --background-hover: var(--rvt-color-danger-hover);
+    --border: var(--rvt-color-danger-main);
+    --border-hover: var(--rvt-color-danger-hover);
+    --main: var(--rvt-color-base-ultralight);
+    --main-hover: var(--rvt-color-base-ultralight);
+  }
+
+  &--secondary,
+  &--default-secondary {
+    --background: var(--rvt-color-base-ultralight);
+    --background-hover: var(--rvt-color-base-extralight);
+    --border: var(--rvt-color-base-border);
+    --border-hover: var(--rvt-color-base-border);
+    --main: var(--rvt-color-base-main);
+    --main-hover: var(--rvt-color-base-dark);
+  }
+
+  &--neutral-secondary {
+    --background: var(--rvt-color-base-extralight);
+    --background-hover: var(--rvt-color-base-light);
+    --border: var(--rvt-color-base-border);
+    --border-hover: var(--rvt-color-base-border);
+    --main: var(--rvt-color-base-main);
+    --main-hover: var(--rvt-color-base-dark);
+  }
+
+  &--info-secondary {
+    --background: var(--rvt-color-info-background);
+    --background-hover: var(--rvt-color-info-container);
+    --border: var(--rvt-color-info-border);
+    --border-hover: var(--rvt-color-info-border);
+    --main: var(--rvt-color-info-main);
+    --main-hover: var(--rvt-color-info-hover);
+  }
+
+  &--success-secondary {
+    --background: var(--rvt-color-success-background);
+    --background-hover: var(--rvt-color-success-container);
+    --border: var(--rvt-color-success-border);
+    --border-hover: var(--rvt-color-success-border);
+    --main: var(--rvt-color-success-main);
+    --main-hover: var(--rvt-color-success-hover);
+  }
+
+  &--warning-secondary {
+    --background: var(--rvt-color-warning-background);
+    --background-hover: var(--rvt-color-warning-container);
+    --border: var(--rvt-color-warning-border);
+    --border-hover: var(--rvt-color-warning-border);
+    --main: var(--rvt-color-warning-main);
+    --main-hover: var(--rvt-color-warning-hover);
+  }
+
+  &--danger-secondary {
+    --background: var(--rvt-color-danger-background);
+    --background-hover: var(--rvt-color-danger-container);
+    --border: var(--rvt-color-danger-border);
+    --border-hover: var(--rvt-color-danger-border);
+    --main: var(--rvt-color-danger-main);
+    --main-hover: var(--rvt-color-danger-hover);
   }
 }
 
-a.#{$prefix}-badge {
-  text-decoration: none;
-
-  &:hover {
-    color: $color-black-base;
-    background-color: $color-black-000;
-  }
-
-  &--info:hover,
-  &--info-secondary:hover {
-    background-color: $color-blue-000;
-    color: $color-blue-600;
-  }
-
-  &--success:hover,
-  &--success-secondary:hover {
-    background-color: $color-green-000;
-    color: $color-green-600;
-  }
-
-  &--warning:hover,
-  &--warning-secondary:hover {
-    background-color: $color-gold-000;
-    color: $color-black-600;
-  }
-
-  &--danger:hover,
-  &--danger-secondary:hover {
-    background-color: $color-orange-000;
-    color: $color-orange-600;
-  }
-
-  &:focus {
-    border-radius: $border-radius-circle;
-  }
-}
-
-.#{$prefix}-badge--neutral {
-  background-color: $color-black-100;
-  border-color: $color-black-100;
-  color: $color-black-500;
-
-  &-secondary {
-    background-color: $color-white-base;
-    border-color: $color-black-200;
-    color: $color-black-500;
-  }
-}
-
-.#{$prefix}-badge--info {
-  background-color: $color-blue-500;
-  border-color: $color-blue-500;
-  color: $color-white-base;
-
-  &-secondary {
-    background-color: $color-white-base;
-    border-color: $color-blue-200;
-    color: $color-blue-500;
-  }
-}
-
-.#{$prefix}-badge--success {
-  background-color: $color-green-500;
-  border-color: $color-green-500;
-  color: $color-white-base;
-
-  &-secondary {
-    background-color: $color-white-base;
-    border-color: $color-green-200;
-    color: $color-green-500;
-  }
-}
-
-.#{$prefix}-badge--warning {
-  background-color: $color-gold-400;
-  border-color: $color-gold-400;
-  color: $color-black-700;
-
-  &-secondary {
-    background-color: $color-white-base;
-    border-color: $color-gold-200;
-    color: $color-black-500;
-  }
-}
-
-.#{$prefix}-badge--danger {
-  background-color: $color-orange-500;
-  border-color: $color-orange-500;
-  color: $color-white-base;
-
-  &-secondary {
-    background-color: $color-white-base;
-    border-color: $color-orange-200;
-    color: $color-orange-500;
-  }
+a.#{$prefix}-badge:hover {
+  background-color: var(--background-hover);
+  border-color: var(--border-hover);
+  color: var(--main-hover);
 }
