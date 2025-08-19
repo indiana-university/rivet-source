@@ -85,7 +85,7 @@
 }
 
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li::before {
-  @include bg-icon-chevron-right($color-base-outline);
+  @include bg-icon-chevron-right($color-base-border);
 }
 
 .#{$prefix}-theme-dark .#{$prefix}-breadcrumbs li:first-child::before {

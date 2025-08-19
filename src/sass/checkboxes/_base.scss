@@ -81,11 +81,11 @@
 
   input[type='checkbox']:disabled ~ label::before {
     background-color: var(--rvt-color-base-extralight);
-    border-color: var(--rvt-color-base-outline);
+    border-color: var(--rvt-color-base-border);
   }
 
   input[type='checkbox']:disabled:checked ~ label::before {
-    background-color: var(--rvt-color-base-outline);
+    background-color: var(--rvt-color-base-border);
   }
 
   &__description {

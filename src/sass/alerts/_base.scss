@@ -6,7 +6,7 @@
 
 .#{$prefix}-alert {
   background-color: var(--rvt-color-base-extralight);
-  border: $spacing-xxs * .5 solid var(--rvt-color-base-outline);
+  border: $spacing-xxs * .5 solid var(--rvt-color-base-border);
   color: var(--rvt-color-base-body);
   padding-inline-start: $spacing-xxl * .9;
   padding-inline-end: $spacing-sm;
@@ -117,7 +117,7 @@
 
 .#{$prefix}-alert--info {
   background-color: var(--rvt-color-info-background);
-  border-color: var(--rvt-color-info-outline);
+  border-color: var(--rvt-color-info-border);
 }
 
 .#{$prefix}-alert--info::before {
@@ -135,7 +135,7 @@
 
 .#{$prefix}-alert--success {
   background-color: var(--rvt-color-success-background);
-  border-color: var(--rvt-color-success-outline);
+  border-color: var(--rvt-color-success-border);
 }
 
 .#{$prefix}-alert--success::before {
@@ -153,7 +153,7 @@
 
 .#{$prefix}-alert--warning {
   background-color: var(--rvt-color-warning-background);
-  border-color: var(--rvt-color-warning-outline);
+  border-color: var(--rvt-color-warning-border);
 }
 
 .#{$prefix}-alert--warning::before {
@@ -171,7 +171,7 @@
 
 .#{$prefix}-alert--danger {
   background-color: var(--rvt-color-danger-background);
-  border-color: var(--rvt-color-danger-outline);
+  border-color: var(--rvt-color-danger-border);
 }
 
 .#{$prefix}-alert--danger::before {
@@ -236,7 +236,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) var(--rvt-color-danger-outline);
-    border-color: var(--rvt-color-danger-outline);
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) var(--rvt-color-danger-border);
+    border-color: var(--rvt-color-danger-border);
   }
 }
