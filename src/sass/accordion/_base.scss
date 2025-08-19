@@ -5,18 +5,18 @@
 @use 'sass:math';
 
 .#{$prefix}-accordion {
-  background-color: var(--rvt-theme-bg);
-  border: 1px solid var(--rvt-theme-border);
+  background-color: var(--rvt-color-theme-background);
+  border: 1px solid var(--rvt-color-theme-border);
 
   &__summary:not(:first-child) {
-    border-top: 1px solid var(--rvt-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-border);
   }
 
   &__toggle {
     align-items: center;
     background-color: transparent;
     border: none;
-    color: var(--rvt-theme-text);
+    color: var(--rvt-color-theme-body);
     display: flex;
     padding: $spacing-md;
     text-align: left;
@@ -35,7 +35,7 @@
   }
 
   &__toggle[aria-expanded='true'] {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
 
     &::after {
       @include bg-icon-minus($color-brand-main);
@@ -48,12 +48,12 @@
   }
 
   &__toggle:hover {
-    background-color: var(--rvt-theme-bg-subtle);
+    background-color: var(--rvt-color-theme-container);
     cursor: pointer;
   }
 
   &__toggle:focus {
-    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-darker);
+    outline: math.div($spacing-xxs, 2) solid var(--rvt-color-theme-focus);
     outline-offset: math.div($spacing-xxs, 2);
   }
 
@@ -74,8 +74,8 @@
 
   &__panel {
     padding: $spacing-md;
-    border-top: 1px solid var(--rvt-theme-border);
-    color: var(--rvt-theme-text-subtle);
+    border-top: 1px solid var(--rvt-color-theme-border);
+    color: var(--rvt-color-theme-body);
   }
 
   &__panel > * {
@@ -103,6 +103,6 @@
 .#{$prefix}-theme-crimson .#{$prefix}-accordion,
 .#{$prefix}-theme-dark .#{$prefix}-accordion {
   &__panel {
-    background-color: var(--rvt-theme-bg-darker);
+    background-color: var(--rvt-color-theme-container);
   }
 }
