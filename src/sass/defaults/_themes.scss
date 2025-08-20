@@ -35,7 +35,7 @@
 .#{$prefix}-theme-crimson {
   --rvt-color-theme-accent: var(--rvt-color-brand-light);
   --rvt-color-theme-background: var(--rvt-color-brand-main);
-  --rvt-color-theme-body: var(--rvt-color-base-extralight);
+  --rvt-color-theme-body: var(--rvt-color-base-ultralight);
   --rvt-color-theme-border: var(--rvt-color-brand-border);
   --rvt-color-theme-container: var(--rvt-color-brand-dark);
   --rvt-color-theme-container-accent: var(--rvt-color-brand-dark);
@@ -62,10 +62,10 @@
 .#{$prefix}-theme-dark {
   --rvt-color-theme-accent: var(--rvt-color-brand-light);
   --rvt-color-theme-background: var(--rvt-color-base-main);
-  --rvt-color-theme-body: var(--rvt-color-base-extralight);
-  --rvt-color-theme-border: var(--rvt-color-brand-border);
+  --rvt-color-theme-body: var(--rvt-color-base-ultralight);
+  --rvt-color-theme-border: var(--rvt-color-base-border);
   --rvt-color-theme-container: var(--rvt-color-base-dark);
-  --rvt-color-theme-container-accent: var(--rvt-color-brand-dark);
+  --rvt-color-theme-container-accent: var(--rvt-color-base-dark);
   --rvt-color-theme-focus: var(--rvt-color-brand-extralight);
   --rvt-color-theme-heading: var(--rvt-color-base-ultralight);
   --rvt-color-theme-main: var(--rvt-color-base-extralight);

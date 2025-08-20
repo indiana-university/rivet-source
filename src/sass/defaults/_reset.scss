@@ -83,7 +83,7 @@ sup {
   font-size: smaller;
 }
 
-:focus {
+:focus-visible {
   outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
   outline-offset: calc(2rem/16);
 }

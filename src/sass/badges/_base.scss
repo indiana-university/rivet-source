@@ -81,7 +81,7 @@
     --border: var(--rvt-color-base-border);
     --border-hover: var(--rvt-color-base-border);
     --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-dark);
+    --main-hover: var(--rvt-color-base-main);
   }
 
   &--neutral-secondary {
@@ -90,7 +90,7 @@
     --border: var(--rvt-color-base-border);
     --border-hover: var(--rvt-color-base-border);
     --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-dark);
+    --main-hover: var(--rvt-color-base-main);
   }
 
   &--info-secondary {
@@ -99,7 +99,7 @@
     --border: var(--rvt-color-info-border);
     --border-hover: var(--rvt-color-info-border);
     --main: var(--rvt-color-info-main);
-    --main-hover: var(--rvt-color-info-hover);
+    --main-hover: var(--rvt-color-info-main);
   }
 
   &--success-secondary {
@@ -108,7 +108,7 @@
     --border: var(--rvt-color-success-border);
     --border-hover: var(--rvt-color-success-border);
     --main: var(--rvt-color-success-main);
-    --main-hover: var(--rvt-color-success-hover);
+    --main-hover: var(--rvt-color-success-main);
   }
 
   &--warning-secondary {
@@ -116,8 +116,8 @@
     --background-hover: var(--rvt-color-warning-container);
     --border: var(--rvt-color-warning-border);
     --border-hover: var(--rvt-color-warning-border);
-    --main: var(--rvt-color-warning-hover);
-    --main-hover: var(--rvt-color-warning-hover);
+    --main: var(--rvt-color-base-main);
+    --main-hover: var(--rvt-color-base-main);
   }
 
   &--danger-secondary {
@@ -126,7 +126,7 @@
     --border: var(--rvt-color-danger-border);
     --border-hover: var(--rvt-color-danger-border);
     --main: var(--rvt-color-danger-main);
-    --main-hover: var(--rvt-color-danger-hover);
+    --main-hover: var(--rvt-color-danger-main);
   }
 }
 
