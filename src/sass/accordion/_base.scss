@@ -5,7 +5,6 @@
 @use 'sass:math';
 
 .#{$prefix}-accordion {
-  --color-toggle-expanded: var(--rvt-color-theme-accent);
   background-color: var(--rvt-color-theme-background);
   border: 1px solid var(--rvt-color-theme-border);
   color: var(--rvt-color-theme-body);
@@ -35,12 +34,8 @@
     }
   }
 
-  &__toggle[aria-expanded="true"] {
-    color: var(--color-toggle-expanded);
-
-    &::after {
-      clip-path: path("M15 9H1V7h14v2Z");
-    }
+  &__toggle[aria-expanded="true"]::after {
+    clip-path: path("M15 9H1V7h14v2Z");
   }
 
   &__toggle:hover,
@@ -71,9 +66,4 @@
   &__panel > * + * {
     margin-top: 1.5rem;
   }
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-accordion,
-.#{$prefix}-theme-dark .#{$prefix}-accordion {
-  --color-toggle-expanded: var(--rvt-color-theme-heading);
 }
