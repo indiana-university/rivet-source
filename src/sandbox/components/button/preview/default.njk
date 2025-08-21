@@ -6,8 +6,10 @@ permalink: /components/preview/{{ title | slug}}/
 order: 1
 ---
 
+<div class="rvt-flex rvt-flex-column rvt-gap-lg">
+
 {% for variant in variants %}
-  <div class="rvt-flex rvt-gap-md rvt-m-top-md">
+  <div class="rvt-flex rvt-gap-sm">
     {% for button in buttons %}
     {% if button.type == 'button' %}
       {% if button.hasIcon %}
@@ -29,3 +31,5 @@ order: 1
     {% endfor %}
   </div>
 {% endfor %}
+
+</div>

@@ -6,22 +6,14 @@
 
 a,
 .#{$prefix}-link {
-  color: var(--rvt-theme-interactive);
+  color: var(--rvt-color-theme-accent);
 
   &:hover {
-    color: var(--rvt-theme-interactive-darker);
+    color: var(--rvt-color-theme-accent-alt);
   }
 
-  &:focus {
-    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-interactive-darker);
-    outline-offset: math.div($spacing-xxs, 2);
-  }
-
-  a:visited {
-    /**
-     * TODO: Come up with a better color for the :visited state.
-     */
-    color: var(--rvt-theme-interactive-darker);
+  &:visited {
+    color: var(--rvt-color-theme-accent-alt);
   }
 }
 
