@@ -3,9 +3,9 @@ tags: button
 title: Button - Default
 layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
-padding: true
 order: 1
 ---
+
 {% for variant in variants %}
   <div class="rvt-flex rvt-gap-md rvt-m-top-md">
     {% for button in buttons %}
@@ -29,6 +29,3 @@ order: 1
     {% endfor %}
   </div>
 {% endfor %}
-
-{% include "partials/theme-switcher.njk" %}
-
