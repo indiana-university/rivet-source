@@ -5,39 +5,37 @@
 @use 'sass:math';
 
 .#{$prefix}-file {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-wrap: wrap;
 
-  input[type='file'] {
-    width: .1px;
+  input[type="file"] {
     height: .1px;
     opacity: 0;
     overflow: hidden;
+    width: .1px;
   }
 
-  input[type='file'] + label {
-    font-size: $ts-base;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: $font-weight-bold;
+  input[type="file"] + label {
     cursor: pointer;
-    flex-grow: 0;
-    width: inherit;
     display: flex;
+    flex-grow: 0;
+    font-size: $ts-base;
+    font-weight: $font-weight-bold;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: inherit;
   }
 
-  input[type='file']:focus + label {
-    outline: none;
-    /* stylelint-disable */
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-400 !important;
-    /* stylelint-enable */
+  input[type="file"]:focus + label {
+    outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
+    outline-offset: calc(2rem/16);
   }
 
-  input[type='file']:disabled + label {
-    background-color: $color-black-100;
-    color: $color-black-400;
-    border-color: $color-black-200;
+  input[type="file"]:disabled + label {
+    background-color: var(--rvt-color-theme-background);
+    border-color: var(--rvt-color-theme-container);
+    color: var(--rvt-color-theme-border);
     cursor: not-allowed;
   }
 
@@ -45,9 +43,9 @@
     margin-left: $spacing-sm;
 
     span {
+      display: inline-block;
       font-weight: $font-weight-bold;
       line-height: $line-height-base;
-      display: inline-block;
     }
   }
 }
