@@ -2,67 +2,29 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
-@use 'sass:math';
 
 @include all-inputs('.#{$prefix}-validation-info') {
-  border-color: $color-blue-500;
-  box-shadow: 0 0 0 .0625rem $color-blue-500;
-  background-color: $color-blue-000;
-
-  &:focus {
-    border-color: $color-blue-400;
-
-    /* stylelint-disable */
-    box-shadow:
-      0 0 0 .125rem $color-white-base,
-      0 0 0 .25rem $color-blue-400;
-    /* stylelint-enable */
-  }
+  background-color: var(--rvt-color-info-background);
+  border-color: var(--rvt-color-info-border);
+  box-shadow: 0 0 0 .0625rem var(--rvt-color-info-border);
 }
 
 @include all-inputs('.#{$prefix}-validation-warning') {
-  border-color: $color-gold-500;
-  box-shadow: 0 0 0 .0625rem $color-gold-500;
-  background-color: $color-gold-000;
-
-  &:focus {
-    border-color: $color-gold-400;
-    /* stylelint-disable */
-    box-shadow:
-      0 0 0 .125rem $color-white-base,
-      0 0 0 .25rem $color-gold-400;
-    /* stylelint-enable */
-  }
+  background-color: var(--rvt-color-warning-background);
+  border-color: var(--rvt-color-warning-border);
+  box-shadow: 0 0 0 .0625rem var(--rvt-color-warning-border);
 }
 
 @include all-inputs('.#{$prefix}-validation-danger') {
-  border-color: $color-orange-500;
-  box-shadow: 0 0 0 .0625rem $color-orange-500;
-  background-color: $color-orange-000;
-
-  &:focus {
-    border-color: $color-orange-400;
-    /* stylelint-disable */
-    box-shadow:
-      0 0 0 .125rem $color-white-base,
-      0 0 0 .25rem $color-orange-500;
-    /* stylelint-enable */
-  }
+  background-color: var(--rvt-color-danger-background);
+  border-color: var(--rvt-color-danger-border);
+  box-shadow: 0 0 0 .0625rem var(--rvt-color-danger-border);
 }
 
 @include all-inputs('.#{$prefix}-validation-success') {
-  border-color: $color-green-500;
-  box-shadow: 0 0 0 .0625rem $color-green-500;
-  background-color: $color-green-000;
-
-  &:focus {
-    border-color: $color-green-400;
-    /* stylelint-disable */
-    box-shadow:
-      0 0 0 .125rem $color-white-base,
-      0 0 0 .25rem $color-green-500;
-    /* stylelint-enable */
-  }
+  background-color: var(--rvt-color-success-background);
+  border-color: var(--rvt-color-success-border);
+  box-shadow: 0 0 0 .0625rem var(--rvt-color-success-border);
 }
 
 /**
@@ -78,38 +40,38 @@
  }
 
 .#{$prefix}-inline-alert {
-  font-size: $ts-14;
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: $ts-14;
 
   &__icon {
-    width: $spacing-sm;
     height: $spacing-sm;
+    width: $spacing-sm;
   }
 
   &__message {
-    margin-left: $spacing-xs;
     line-height: 1;
+    margin-left: $spacing-xs;
   }
 
   &--success {
-    color: $color-green-500;
+    color: var(--rvt-color-success-main);
   }
 
   &--warning {
-    color: $color-gold-500;
+    color: var(--rvt-color-warning-main);
   }
 
   &--warning &__message {
-    color: $color-black-500;
+    color: var(--rvt-color-base-main);
   }
 
   &--danger {
-    color: $color-orange-500;
+    color: var(--rvt-color-danger-main);
   }
 
   &--info {
-    color: $color-blue-600;
+    color: var(--rvt-color-info-main);
   }
 
   /**
@@ -122,34 +84,34 @@
 
     &.#{$prefix}-inline-alert--is-invalid,
     &.#{$prefix}-inline-alert--danger {
-      background-color: $color-orange-000;
+      background-color: var(--rvt-color-danger-background);
 
       .#{$prefix}-inline-alert__message {
-        color: $color-orange-700;
+        color: var(--rvt-color-danger-main);
       }
     }
 
     &.#{$prefix}-inline-alert--success {
-      background-color: $color-green-000;
+      background-color: var(--rvt-color-success-background);
 
       .#{$prefix}-inline-alert__message {
-        color: $color-green-700;
+        color: var(--rvt-color-success-main);
       }
     }
 
     &.#{$prefix}-inline-alert--warning {
-      background-color: $color-gold-000;
+      background-color: var(--rvt-color-warning-background);
 
       .#{$prefix}-inline-alert__message {
-        color: $color-gold-700;
+        color: var(--rvt-color-warning-main);
       }
     }
 
     &.#{$prefix}-inline-alert--info {
-      background-color: $color-blue-000;
+      background-color: var(--rvt-color-info-background);
 
       .#{$prefix}-inline-alert__message {
-        color: $color-blue-600;
+        color: var(--rvt-color-info-main);
       }
     }
   }
