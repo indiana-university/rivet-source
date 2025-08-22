@@ -3,8 +3,6 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-resources {
-  background-color: var(--rvt-theme-bg);
-  color: var(--rvt-theme-text);
   padding-bottom: $spacing-sm;
 
   &__heading {
@@ -25,12 +23,11 @@
   }
 
   &__list-item {
-    margin-top: $spacing-xs;
+    margin-top: $spacing-xxs;
   }
 
   &__list-item a {
-    color: var(--rvt-theme-text);
-    display: block;
+    color: var(--rvt-color-theme-main);
     font-size: $ts-14;
     text-decoration: none;
 
@@ -44,9 +41,9 @@
    */
 
   &__button {
-    background-color: $color-white-base;
+    background-color: var(--rvt-color-theme-background);
     border-color: transparent;
-    color: $color-crimson-500;
+    color: var(--rvt-color-theme-accent);
     justify-content: center;
     margin-bottom: $spacing-sm;
     width: 100%;
@@ -55,8 +52,8 @@
 
 @include mq($breakpoint-md) {
   .#{$prefix}-footer-resources {
-    padding-top: $spacing-lg;
     padding-bottom: $spacing-lg;
+    padding-top: $spacing-lg;
 
     &__heading {
       margin-top: 0;
