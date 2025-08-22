@@ -2,66 +2,42 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
-@use 'sass:math';
 
 .#{$prefix}-disclosure {
+
   &__toggle {
     align-items: center;
     background-color: transparent;
     border: none;
-    color: $color-blue-500;
+    color: var(--rvt-color-theme-accent);
     display: flex;
     font: inherit;
-    padding-top: $spacing-xxs;
-    padding-right: $spacing-xs;
-    padding-bottom: $spacing-xxs;
-    padding-left: $spacing-md;
-    position: relative;
+    gap: $spacing-xs;
+    padding: 0;
   }
 
   &__toggle::before {
-    content: '';
-    width: $spacing-sm;
+    background-color: currentColor;
+    clip-path: path("M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z");
+    content: "";
     height: $spacing-sm;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16" id="rvt-icon-chevron-right"><path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: absolute;
-    left: 0;
+    width: $spacing-sm;
   }
 
-  &__toggle[aria-expanded='true']::before {
+  &__toggle[aria-expanded="true"]::before {
     transform: rotate(90deg);
   }
 
   &__toggle:hover {
+    color: var(--rvt-color-theme-accent-alt);
     cursor: pointer;
     text-decoration: underline;
   }
 
-  // Default focus for browsers that don't support :focus-visible
-
-  &__toggle:focus {
-    outline: math.div($spacing-xxs, 2) solid $color-blue-400;
-  }
-
-  // Undo styles for browsers that support :focus-visible
-
-  &__toggle:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  // Apply stronger focus styles when tab navigation is being used
-
-  &__toggle:focus-visible {
-    background-color: $color-blue-000;
-  }
-
   &__content {
+    box-shadow: calc(2rem/16) 0 0 var(--rvt-color-theme-border) inset;
+    margin-left: $spacing-xs;
     margin-top: $spacing-xs;
-    padding-top: $spacing-xxs;
-    padding-bottom: $spacing-xxs;
-    padding-left: $spacing-md;
-    box-shadow: $spacing-xxs 0 0 $color-black-100 inset;
+    padding-left: $spacing-sm;
   }
 }
