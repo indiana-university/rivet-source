@@ -4,16 +4,15 @@
 @use '../core' as *;
 
 .#{$prefix}-badge {
-  background-color: var(--background);
-  border: calc(1rem/16) solid var(--border);
+  background-color: var(--color-background);
   border-radius: $border-radius-circle;
-  color: var(--main);
+  color: var(--color-text);
   display: inline-block;
   font-size: $ts-xs;
   font-weight: $font-weight-medium;
   letter-spacing: .02rem;
   line-height: 1;
-  padding: calc(3rem/16) .5rem;
+  padding: calc(5rem/16) .5rem;
   text-decoration: none;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
@@ -21,117 +20,32 @@
 
   &,
   &--default {
-    --background: var(--rvt-color-base-main);
-    --background-hover: var(--rvt-color-base-dark);
-    --border: var(--rvt-color-base-main);
-    --border-hover: var(--rvt-color-base-dark);
-    --main: var(--rvt-color-base-ultralight);
-    --main-hover: var(--rvt-color-base-ultralight);
+    --color-background: var(--rvt-color-base-main);
+    --color-text: var(--rvt-color-base-ultralight);
   }
 
   &--neutral {
-    --background: var(--rvt-color-base-light);
-    --background-hover: var(--rvt-color-base-border);
-    --border: var(--rvt-color-base-light);
-    --border-hover: var(--rvt-color-base-border);
-    --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-dark);
+    --color-background: var(--rvt-color-base-light);
+    --color-text: var(--rvt-color-base-main);
   }
 
   &--info {
-    --background: var(--rvt-color-info-main);
-    --background-hover: var(--rvt-color-info-hover);
-    --border: var(--rvt-color-info-main);
-    --border-hover: var(--rvt-color-info-hover);
-    --main: var(--rvt-color-base-ultralight);
-    --main-hover: var(--rvt-color-base-ultralight);
+    --color-background: var(--rvt-color-info-main);
+    --color-text: var(--rvt-color-base-ultralight);
   }
 
   &--success {
-    --background: var(--rvt-color-success-main);
-    --background-hover: var(--rvt-color-success-hover);
-    --border: var(--rvt-color-success-main);
-    --border-hover: var(--rvt-color-success-hover);
-    --main: var(--rvt-color-base-ultralight);
-    --main-hover: var(--rvt-color-base-ultralight);
+    --color-background: var(--rvt-color-success-main);
+    --color-text: var(--rvt-color-base-ultralight);
   }
 
   &--warning {
-    --background: var(--rvt-color-warning-main);
-    --background-hover: var(--rvt-color-warning-hover);
-    --border: var(--rvt-color-warning-main);
-    --border-hover: var(--rvt-color-warning-hover);
-    --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-ultralight);
+    --color-background: var(--rvt-color-warning-main);
+    --color-text: var(--rvt-color-base-main);
   }
 
   &--danger {
-    --background: var(--rvt-color-danger-main);
-    --background-hover: var(--rvt-color-danger-hover);
-    --border: var(--rvt-color-danger-main);
-    --border-hover: var(--rvt-color-danger-hover);
-    --main: var(--rvt-color-base-ultralight);
-    --main-hover: var(--rvt-color-base-ultralight);
+    --color-background: var(--rvt-color-danger-main);
+    --color-text: var(--rvt-color-base-ultralight);;
   }
-
-  &--secondary,
-  &--default-secondary {
-    --background: var(--rvt-color-base-ultralight);
-    --background-hover: var(--rvt-color-base-extralight);
-    --border: var(--rvt-color-base-border);
-    --border-hover: var(--rvt-color-base-border);
-    --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-main);
-  }
-
-  &--neutral-secondary {
-    --background: var(--rvt-color-base-extralight);
-    --background-hover: var(--rvt-color-base-light);
-    --border: var(--rvt-color-base-border);
-    --border-hover: var(--rvt-color-base-border);
-    --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-main);
-  }
-
-  &--info-secondary {
-    --background: var(--rvt-color-info-background);
-    --background-hover: var(--rvt-color-info-container);
-    --border: var(--rvt-color-info-border);
-    --border-hover: var(--rvt-color-info-border);
-    --main: var(--rvt-color-info-main);
-    --main-hover: var(--rvt-color-info-main);
-  }
-
-  &--success-secondary {
-    --background: var(--rvt-color-success-background);
-    --background-hover: var(--rvt-color-success-container);
-    --border: var(--rvt-color-success-border);
-    --border-hover: var(--rvt-color-success-border);
-    --main: var(--rvt-color-success-main);
-    --main-hover: var(--rvt-color-success-main);
-  }
-
-  &--warning-secondary {
-    --background: var(--rvt-color-warning-background);
-    --background-hover: var(--rvt-color-warning-container);
-    --border: var(--rvt-color-warning-border);
-    --border-hover: var(--rvt-color-warning-border);
-    --main: var(--rvt-color-base-main);
-    --main-hover: var(--rvt-color-base-main);
-  }
-
-  &--danger-secondary {
-    --background: var(--rvt-color-danger-background);
-    --background-hover: var(--rvt-color-danger-container);
-    --border: var(--rvt-color-danger-border);
-    --border-hover: var(--rvt-color-danger-border);
-    --main: var(--rvt-color-danger-main);
-    --main-hover: var(--rvt-color-danger-main);
-  }
-}
-
-a.#{$prefix}-badge:hover {
-  background-color: var(--background-hover);
-  border-color: var(--border-hover);
-  color: var(--main-hover);
 }
