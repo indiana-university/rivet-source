@@ -246,11 +246,11 @@
 }
 
 .#{$prefix}-theme-crimson .#{$prefix}-card--feature:hover {
-  background-color: $color-crimson-700;
+  background-color: var(--rvt-color-theme-background);
 }
 
 .#{$prefix}-theme-dark .#{$prefix}-card--feature:hover {
-  background-color: $color-black-700;
+  background-color: var(--rvt-color-theme-background);
 }
 
 .#{$prefix}-theme-crimson.#{$prefix}-card .#{$prefix}-card__title a::before,
