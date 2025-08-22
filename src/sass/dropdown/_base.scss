@@ -3,31 +3,30 @@
 
 @use '../core' as *;
 @use 'sass:map';
-@use 'sass:math';
 
 .#{$prefix}-dropdown {
-  position: relative;
   display: inline-block;
+  position: relative;
 
   .button__text {
     margin-right: $spacing-xs;
   }
 
-  &__menu[aria-hidden='true'] {
+  &__menu[aria-hidden="true"] {
     display: none;
   }
 
   &__menu {
+    background-color: var(--rvt-color-theme-background);
+    box-shadow: $shadow-standard;
+    min-width: 12.5rem;
+    padding-bottom: $spacing-xs;
+    padding-top: $spacing-xs;
     position: absolute;
-    top: 115%;
     // Aligning this right by default so that dropdowns do not
     // go offscreen when close to the edge of the viewport.
     right: 0;
-    background-color: $color-white-base;
-    box-shadow: $shadow-standard;
-    min-width: 12.5rem;
-    padding-top: $spacing-xs;
-    padding-bottom: $spacing-xs;
+    top: 115%;
     z-index: map.get($z-index, '1000');
 
     //In some cases, you may need to align the dropdown menu
@@ -48,68 +47,45 @@
 
     a,
     button {
+      background-color: transparent;
+      border: none;
       display: block;
-      text-decoration: none;
-      color: $color-black-500;
+      color: var(--rvt-color-theme-main);
       font-size: $ts-14;
-
       /**
        * This padding-top and bottom value is a magic number.
        */
       padding: .375rem $spacing-sm;
-      background-color: transparent;
-      border: none;
-      width: 100%;
       text-align: left;
-
-      &:focus {
-        outline: none;
-      }
-
-      &:focus-visible {
-        outline: none;
-        box-shadow: inset 0 0 0 math.div($spacing-xxs, 2) $color-blue-500;
-      }
+      text-decoration: none;
+      width: 100%;
 
       &:hover {
-        background-color: $color-black-000;
-        color: $color-crimson-500;
+        background-color: var(--rvt-color-theme-container);
+        color: var(--rvt-color-theme-accent);
         text-decoration: none;
       }
 
       &.#{$prefix}-is-selected,
-      &[aria-current]:not([aria-current='false']),
-      &[aria-checked='true'] {
-        background-color: $color-black-000;
-        color: $color-crimson-500;
+      &[aria-current]:not([aria-current="false"]),
+      &[aria-checked="true"] {
+        background-color: var(--rvt-color-theme-container);
+        color: var(--rvt-color-theme-accent);
         font-weight: $font-weight-medium;
 
         &:hover {
-          color: $color-crimson-500;
-        }
-
-        &:focus {
-          outline: none;
-        }
-
-        &:focus-visible {
-          /* stylelint-disable */
-          box-shadow:
-            inset $spacing-xxs 0 0 $color-blue-500,
-            inset 0 0 0 math.div($spacing-xxs, 2) $color-blue-500 !important;
-          /* stylelint-enable */
+          color: var(--rvt-color-theme-accent);
         }
       }
     }
 
     button:disabled {
-      color: $color-black-400;
-      background-color: $color-black-000;
+      color: var(--rvt-color-theme-border);
     }
   }
 
   &__menu-heading {
-    color: $color-black-400;
+    color: var(--rvt-color-theme-main);
     padding: $spacing-sm $spacing-sm $spacing-xxs;
     font-weight: $font-weight-bold;
     font-size: $ts-14;
@@ -121,13 +97,13 @@
 
   &__menu-divider,
   &__menu-separator {
-    border-top: 1px solid $color-black-100;
-    margin-top: $spacing-xs;
+    border-top: 1px solid var(--rvt-color-theme-border);
     margin-bottom: $spacing-xs;
+    margin-top: $spacing-xs;
   }
 
-  [role='group'] {
-    border-top: 1px solid $color-black-100;
+  [role="group"] {
+    border-top: 1px solid var(--rvt-color-theme-border);
     margin-top: $spacing-xs;
     padding-top: $spacing-xs;
 
@@ -139,7 +115,7 @@
 }
 
 // NOTE: Context specific styles
-// W need some context-specific styles when dropdowns are used in the
+// We need some context-specific styles when dropdowns are used in the
 // header nav.
 .#{$prefix}-header-menu__item .#{$prefix}-dropdown__menu {
   top: 165%;
