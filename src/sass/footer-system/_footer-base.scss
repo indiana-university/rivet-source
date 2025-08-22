@@ -3,26 +3,24 @@
 @use '../core' as *;
 
 .#{$prefix}-footer-base {
-  background-color: var(--rvt-theme-bg);
-  color: var(--rvt-theme-text);
 
   &__inner {
-    border-top: 1px solid var(--rvt-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-border);
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    padding-top: $spacing-sm;
     padding-bottom: $spacing-sm;
+    padding-top: $spacing-sm;
   }
 
   &__logo {
+    color: var(--rvt-color-theme-accent);
     margin: 0 auto;
-    color: var(--rvt-theme-accent);
   }
 
   &__list {
-    padding: 0;
     list-style: none;
+    padding: 0;
     text-align: center;
   }
 
@@ -32,53 +30,24 @@
   }
 
   &__link {
-    color: var(--rvt-theme-text);
+    color: var(--rvt-color-theme-main);
     text-decoration: none;
 
     &:hover {
+      color: var(--rvt-color-theme-accent);
       text-decoration: underline;
-      color: var(--rvt-theme-accent);
     }
-  }
-
-  // Experimental "light" mode for simple sites without the need
-  // for a footer system.
-
-  &--light {
-    background-color: $color-white-base;
-    color: $color-black-500;
-  }
-
-  &--light a {
-    color: $color-black-500;
-  }
-
-  &--light a:hover {
-    color: $color-blue-500;
-    text-decoration: underline;
-  }
-
-  &--light a:focus {
-    outline-color: $color-blue-500;
-  }
-
-  &--light &__inner {
-    border-top-color: $color-black-100;
-  }
-
-  &--light &__logo {
-    color: $color-crimson-500;
   }
 }
 
 @include mq($breakpoint-md) {
   .#{$prefix}-footer-base {
     &__inner {
-      flex-direction: row;
       align-items: center;
-      margin-top: 0;
-      margin-right: 0;
+      flex-direction: row;
       margin-bottom: 0;
+      margin-right: 0;
+      margin-top: 0;
     }
 
     &__logo {
@@ -87,10 +56,10 @@
     }
 
     &__list {
-      margin-top: 0;
+      display: flex;
       margin-bottom: 0;
       margin-left: $spacing-sm;
-      display: flex;
+      margin-top: 0;
     }
 
     &__item {
