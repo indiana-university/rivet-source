@@ -4,13 +4,12 @@
 @use '../core' as *;
 
 .#{$prefix}-breadcrumbs {
-  background-color: var(--rvt-color-theme-container);
   display: inline-flex;
   flex-wrap: wrap;
   gap: $spacing-xxs * .75;
   list-style: none;
   margin: 0;
-  padding: $spacing-xs $spacing-sm;
+  padding: 0;
 
   li {
     align-items: center;
