@@ -16,13 +16,13 @@
 }
 
 .#{$prefix}-dialog {
-  background-color: $color-white-base;
+  background-color: var(--rvt-color-theme-background);
   border-radius: $spacing-xs;
   box-shadow: $shadow-heavy;
   left: 0;
   margin: auto;
-  max-width: 37.5rem;
   max-height: 100%;
+  max-width: 37.5rem;
   overflow: auto;
   position: fixed;
   right: 0;
@@ -32,38 +32,38 @@
   z-index: map.get($z-index, '1000');
 
   &[data-#{$prefix}-dialog-darken-page] {
-    box-shadow: 0 0 0 9999px rgba($color-black-base, .85);
+    box-shadow: 0 0 0 9999px rgba(var(--rvt-color-base-main), .85);
   }
 
   &[data-#{$prefix}-dialog-top-left] {
-    top: $spacing-xl;
-    left: $spacing-xl;
     bottom: auto;
+    left: $spacing-xl;
     right: auto;
+    top: $spacing-xl;
     transform: none;
   }
 
   &[data-#{$prefix}-dialog-top-right] {
-    top: $spacing-xl;
-    right: $spacing-xl;
-    left: auto;
     bottom: auto;
+    left: auto;
+    right: $spacing-xl;
+    top: $spacing-xl;
     transform: none;
   }
 
   &[data-#{$prefix}-dialog-bottom-left] {
-    top: auto;
-    right: auto;
     bottom: $spacing-xl;
     left: $spacing-xl;
+    right: auto;
+    top: auto;
     transform: none;
   }
 
   &[data-#{$prefix}-dialog-bottom-right] {
-    top: auto;
-    right: $spacing-xl;
     bottom: $spacing-xl;
     left: auto;
+    right: $spacing-xl;
+    top: auto;
     transform: none;
   }
 
@@ -71,35 +71,23 @@
     background-color: transparent;
     border: none;
     border-radius: $spacing-xxs;
+    color: var(--rvt-color-theme-main);
+    display: inline-block;
+    height: auto;
+    line-height: .5;
+    padding: $spacing-xs;
     position: absolute;
     right: $spacing-sm;
     top: 1.1rem;
-    padding: $spacing-xs;
-    height: auto;
-
-    /**
-     * Helps vertically center icon on hover.
-     */
-    line-height: .5;
-    display: inline-block;
-    color: $color-black-base;
 
     &:hover {
-      background-color: $color-blue-500;
-      color: $color-white-base;
-    }
-
-    &:focus {
-      outline: none;
-      /* stylelint-disable */
-      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-blue-600;
-      /* stylelint-enable */
+      background-color: var(--rvt-color-theme-container);
     }
   }
 
   &__header {
+    border-bottom: 1px solid var(--rvt-color-theme-border);
     padding: $spacing-md $spacing-sm;
-    border-bottom: 1px solid $color-black-100;
   }
 
   &__title {
@@ -113,17 +101,17 @@
   }
 
   &__controls {
-    padding: $spacing-sm;
+    background-color: var(--rvt-color-theme-container);
+    border-top: 1px solid var(--rvt-color-theme-border);
     display: flex;
-    border-top: 1px solid $color-black-100;
-    background-color: $color-black-000;
     flex-wrap: wrap;
     gap: $spacing-sm;
+    padding: $spacing-sm;
 
     .#{$prefix}-button {
-      width: 100%;
-      text-align: center;
       justify-content: center;
+      text-align: center;
+      width: 100%;
     }
 
     @include mq($breakpoint-sm) {
