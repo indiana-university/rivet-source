@@ -8,20 +8,20 @@
   }
 
   &-code {
-    color: $color-crimson-400;
-    font-size: $ts-16;
-    font-family: monospace;
-    background-color: $color-black-000;
-    display: inline-block;
-    padding: .125rem .25rem;
+    background-color: var(--rvt-color-theme-container);
     border-radius: $spacing-xxs;
+    color: var(--rvt-color-theme-accent);
+    display: inline-block;
+    font-family: monospace;
+    font-size: $ts-16;
+    padding: .125rem .25rem;
   }
 
   &-hr {
-    border-top: 1px solid $color-black-100;
-    border-right: none;
     border-bottom: none;
     border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--rvt-color-theme-border);
   }
 
   &-strong {
