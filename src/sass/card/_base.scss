@@ -1,24 +1,24 @@
 @use '../core' as *;
 
 .#{$prefix}-card {
-  background-color: var(--rvt-theme-bg);
-  border: 1px solid var(--rvt-theme-border);
+  background-color: var(--rvt-color-theme-background);
+  border: 1px solid var(--rvt-color-theme-border);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   position: relative;
 
-  &--feature  &__title {
-    color: var(--rvt-theme-accent-title);
-    font-weight: $font-weight-black;
+  &--feature &__title {
+    color: var(--rvt-color-theme-accent);
     font-size: $ts-23;
+    font-weight: $font-weight-black;
     line-height: $line-height-tight;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   &--feature &__title a {
-    color: var(--rvt-theme-accent-title);
+    color: var(--rvt-color-theme-accent);
     text-decoration: none;
   }
 
@@ -27,17 +27,17 @@
   }
 
   &__image {
-    display: flex;
     align-items: center;
     aspect-ratio: 16 / 9;
+    display: flex;
   }
 
   &__image img {
     aspect-ratio: 16 / 9;
-    object-fit: cover;
     display: block;
-    width: 100%;
     height: 100%;
+    object-fit: cover;
+    width: 100%;
   }
 
   &__body {
@@ -48,9 +48,9 @@
   }
 
   &__eyebrow {
-    color: var(--rvt-theme-accent);
-    font-size: $ts-12;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-mono;
+    font-size: $ts-12;
     text-decoration: none;
   }
 
@@ -68,26 +68,24 @@
 
   &__title {
     font-size: $ts-18;
-    font-weight: $font-weight-bold;
     font-variation-settings:
       "wdth" 135,
       "YTLC" 540;
+    font-weight: $font-weight-bold;
     line-height: 1.3;
     padding-right: $spacing-xl;
   }
 
   &__title a {
-    color: var(--rvt-theme-text);
+    color: var(--rvt-color-theme-main);
     display: block;
     text-decoration: none;
   }
 
   &__title a::before {
-    background-size: $spacing-sm $spacing-sm;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23243142" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    content: '';
+    background-color: currentColor;
+    clip-path: path("M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z");
+    content: "";
     display: block;
     height: $spacing-sm;
     position: absolute;
@@ -96,13 +94,9 @@
     width: $spacing-sm;
   }
 
-  &__title a:hover::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-  }
-
   &--raised {
-    box-shadow: $shadow-heavy;
     border: none;
+    box-shadow: $shadow-heavy;
   }
 
   &--raised &__title a::before {
@@ -114,31 +108,31 @@
   }
 
   &--clickable:hover {
-    background-color: var(--rvt-theme-bg-subtle);
-    transition: all .2s ease;
+    background-color: var(--rvt-color-theme-container);
     box-shadow: none;
+    transition: all .2s ease;
   }
 
   &--clickable &__title a::after {
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
+    position: absolute;
     right: 0;
     top: 0;
-    position: absolute;
   }
 
   &__title a:hover {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
     text-decoration: underline;
   }
 
   &__title a:hover::before {
-    transform: translate($spacing-xs, 0);
+    transform: translateX($spacing-xs);
   }
 
   &__content {
-    color: var(--rvt-theme-text-subtle);
+    color: var(--rvt-color-theme-body);
     flex-grow: 1;
     margin-top: $spacing-md;
 
@@ -156,14 +150,14 @@
   }
 
   &__meta > :not([class]) {
-    font-size: $ts-12;
+    color: var(--rvt-color-theme-body);
     font-family: $font-mono;
-    color: var(--rvt-theme-text-subtle);
+    font-size: $ts-12;
   }
 
   &__meta > * {
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
   }
 }
 
@@ -231,31 +225,4 @@
   .#{$prefix}-card__body {
     padding: 0;
   }
-}
-
-// Non-global theme specific
-
-.#{$prefix}-theme-crimson .#{$prefix}-card,
-.#{$prefix}-theme-dark .#{$prefix}-card {
-  background-color: var(--rvt-theme-bg-subtle);
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-card--feature,
-.#{$prefix}-theme-dark .#{$prefix}-card--feature {
-  transition: background .2s ease-in-out;
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-card--feature:hover {
-  background-color: var(--rvt-color-theme-background);
-}
-
-.#{$prefix}-theme-dark .#{$prefix}-card--feature:hover {
-  background-color: var(--rvt-color-theme-background);
-}
-
-.#{$prefix}-theme-crimson.#{$prefix}-card .#{$prefix}-card__title a::before,
-.#{$prefix}-theme-dark.#{$prefix}-card .#{$prefix}-card__title a::before,
-.#{$prefix}-theme-crimson .#{$prefix}-card:not(.#{$prefix}-theme-light) .#{$prefix}-card__title a::before,
-.#{$prefix}-theme-dark .#{$prefix}-card:not(.#{$prefix}-theme-light) .#{$prefix}-card__title a::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"/></svg>');
 }
