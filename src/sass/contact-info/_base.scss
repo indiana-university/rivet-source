@@ -4,8 +4,8 @@
 @use '../core' as *;
 
 .#{$prefix}-contact-info {
-  container-type: inline-size;
   container-name: contact;
+  container-type: inline-size;
 
   &__address {
     display: flex;
@@ -14,14 +14,14 @@
   }
 
   &__address-eyebrow {
-    font-size: $ts-12;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-mono;
-    color: var(--rvt-theme-accent-title);
+    font-size: $ts-12;
   }
 
   &__address-title {
-    font-weight: $font-weight-medium;
     font-size: $ts-20;
+    font-weight: $font-weight-medium;
   }
 
   &__address-eyebrow + &__address-title {
@@ -29,65 +29,52 @@
   }
 
   &__address-text {
-    color: var(--rvt-theme-text-subtle);
     margin-top: $spacing-xs;
   }
 
   &__icon-list {
-    list-style: '';
     display: flex;
     flex-direction: column;
     gap: $spacing-sm;
-    padding-left: 0;
-    margin-top: 0;
+    list-style: "";
     margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
   }
 
   &__icon-list-item {
+    align-items: center;
     display: flex;
     gap: $spacing-xs;
-    color: var(--rvt-theme-text);
     line-height: 1.1;
-    align-items: center;
-  }
-
-  &__icon-list-item a {
-    color: var(--rvt-theme-accent);
-  }
-
-  &__icon-list-item a:hover {
-    color: var(--rvt-theme-accent-darker);
-    // Optional underline offset on hover
-    text-underline-offset: $spacing-xxs;
   }
 
   &__disclosure {
     width: $width-md;
 
     button {
+      align-items: center;
       background: none;
       border: none;
-      padding: 0;
+      color: var(--rvt-color-theme-accent);
       display: inline-flex;
       gap: $spacing-xs;
-      align-items: center;
-      color: var(--rvt-theme-accent);
       font-weight: $font-weight-medium;
+      padding: 0;
     }
 
     button::after {
+      background-color: currentColor;
+      clip-path: path("m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z");
       content: "";
-      width: $spacing-sm;
+      display: block;
       height: $spacing-sm;
-      background-image: url('data:image/svg+xml,<svg fill="%23990000" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
-      background-position: center;
-      background-repeat: no-repeat;
+      width: $spacing-sm;
     }
 
     button:hover {
       cursor: pointer;
-      color: var(--rvt-theme-accent);
-      text-decoration: none;
+      color: var(--rvt-color-theme-accent-alt);
       text-decoration: underline;
     }
 
@@ -125,8 +112,8 @@
     }
 
     &__icon-list {
+      border-left: 1px solid var(--rvt-color-theme-border);
       padding-left: $spacing-lg;
-      border-left: 1px solid var(--rvt-theme-border);
     }
   }
 }
