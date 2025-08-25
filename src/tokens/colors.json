@@ -30,6 +30,9 @@
       }
     },
     "brand": {
+      "extradark": {
+        "value": "#510606"
+      },
       "dark": {
         "value": "#6D0808"
       },
