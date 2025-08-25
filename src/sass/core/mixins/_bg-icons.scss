@@ -8,21 +8,3 @@
   $hex-color: '#{$hex-value}';
   background-image: url('data:image/svg+xml;utf8,<svg fill="%23#{string.slice($hex-color, 2)}" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
 }
-
-@mixin bg-icon-arrow-up-right($hex-value) {
-  // Converts Sass hex color to a string for interpolation
-  $hex-color: '#{$hex-value}';
-  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.586 4H4V2h10v10h-2V5.414l-8.293 8.293-1.414-1.414L10.586 4Z"></path></svg>');
-}
-
-@mixin bg-icon-arrow-down($hex-value) {
-  // Converts Sass hex color to a string for interpolation
-  $hex-color: '#{$hex-value}';
-  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 1v10.844L2.146 7.737.854 9.263 8 15.31l7.146-6.047-1.292-1.526L9 11.844V1H7Z"></path></svg>');
-}
-
-@mixin bg-icon-download($hex-value) {
-  // Converts Sass hex color to a string for interpolation
-  $hex-color: '#{$hex-value}';
-  background-image: url('data:image/svg+xml,<svg fill="%23#{string.slice($hex-color, 2)}" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M9 7.826V1H7v6.826L4.392 5.59 3.09 7.108 8 11.318l4.91-4.21-1.302-1.518L9 7.826Z"></path><path d="M3 13v-3H1v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3h-2v3H3Z"></path></svg>');
-}
