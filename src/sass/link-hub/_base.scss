@@ -4,37 +4,36 @@
 @use '../core' as *;
 
 .#{$prefix}-link-hub {
-  list-style: none;
-  padding: 0;
   display: grid;
   grid-gap: 0 $spacing-md * 2;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  list-style: none;
+  padding: 0;
 
   &__item {
-    border-top: 1px solid $color-black-100;
+    border-top: 1px solid var(--rvt-color-theme-border);
     margin: 0;
   }
 
   &__link {
     display: block;
-    text-decoration: none;
-    padding-top: $spacing-sm;
-    padding-right: $spacing-xl;
     padding-bottom: $spacing-sm;
+    padding-right: $spacing-xl;
+    padding-top: $spacing-sm;
     position: relative;
+    text-decoration: none;
   }
 
   &__link::after {
-    content: '';
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2394D2E7" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: currentColor;
+    content: "";
+    clip-path: path("M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z");
     display: inline-block;
-    width: $spacing-sm;
     height: $spacing-sm;
     position: absolute;
-    top: $spacing-sm * 1.25;
     right: $spacing-sm;
+    top: $spacing-sm * 1.25;
+    width: $spacing-sm;
   }
 
   &__text,
@@ -47,14 +46,14 @@
   }
 
   &__text {
-    font-weight: $font-weight-regular;
     font-size: $ts-20;
+    font-weight: $font-weight-regular;
     line-height: 1.25;
   }
 
   &__description {
+    color: var(--rvt-color-theme-body);
     font-size: $ts-14;
-    color: $color-black-400;
     margin-top: $spacing-xs;
   }
 
