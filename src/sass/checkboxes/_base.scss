@@ -9,7 +9,7 @@
   padding-left: $spacing-lg;
   position: relative;
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     cursor: pointer;
     height: $spacing-md;
     left: 0;
@@ -24,27 +24,34 @@
     padding-left: $spacing-md;
   }
 
-  &--sr-only-label input[type='checkbox'] {
+  &--sr-only-label input[type="checkbox"] {
     width: $spacing-md;
   }
 
-  &--sr-only-label input[type='checkbox'] ~ label {
+  &--sr-only-label input[type="checkbox"] ~ label {
     height: 0;
     overflow: hidden;
     padding: 0;
     width: 0;
   }
 
-  input[type='checkbox'] ~ label {
+  input[type="checkbox"] ~ label {
+    --color-background: var(--rvt-color-theme-background);
+    --color-background-accent: var(--rvt-color-theme-accent);
+    --color-border: var(--rvt-color-theme-main);
+    --color-icon: var(--rvt-color-theme-body-inverse);
+    --display-icon: none;
+    --icon-check: path("m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z");
+    --icon-minus: path("M15 9H1V7h14v2Z");
     cursor: pointer;
     display: inline-block;
     line-height: $line-height-base;
   }
 
-  input[type='checkbox'] ~ label::before {
-    background-color: var(--rvt-theme-bg);
-    border: math.div($spacing-xxs, 4) solid var(--rvt-theme-text);
-    content: '';
+  input[type="checkbox"] ~ label::before {
+    background-color: var(--color-background);
+    border: math.div($spacing-xxs, 4) solid var(--color-border);
+    content: "";
     display: inline-block;
     height: $spacing-sm;
     left: math.div(3rem, 16);
@@ -53,39 +60,49 @@
     width: $spacing-sm;
   }
 
-  input[type='checkbox']:checked ~ label::before,
-  input[type='checkbox']:indeterminate ~ label::before {
-    background-color: var(--rvt-theme-accent);
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z"></path></svg>');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    border-color: var(--rvt-theme-accent);
+  input[type="checkbox"] ~ label::after {
+    background-color: var(--color-icon);
+    clip-path: var(--icon);
+    content: "";
+    display: var(--display-icon);
+    height: $spacing-sm;
+    left: calc(4rem/16);
+    position: absolute;
+    top: calc(4rem/16);
+    width: $spacing-sm;
   }
 
-  input[type='checkbox']:indeterminate ~ label::before {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16" id="rvt-icon-minus"><path d="M15 9H1V7h14v2Z"></path></svg>');
+  input[type="checkbox"]:checked ~ label {
+    --color-background: var(--rvt-color-theme-accent);
+    --color-border: var(--rvt-color-theme-accent);
+    --display-icon: block;
+    --icon: var(--icon-check);
   }
 
-  input[type='checkbox']:focus ~ label::before {
-    outline: math.div(2rem, 16) solid var(--rvt-color-brand-dark);
+  input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+  }
+
+  input[type="checkbox"]:disabled ~ label {
+    --color-background: var(--rvt-color-theme-container);
+    --color-border: var(--rvt-color-theme-border);
+    cursor: not-allowed;
+  } 
+
+  input[type="checkbox"]:disabled:checked ~ label {
+    --color-icon: var(--rvt-color-theme-border);
+  }
+
+  input[type="checkbox"]:focus ~ label::before {
+    outline: math.div(2rem, 16) solid var(--rvt-color-theme-focus);
     outline-offset: math.div(2rem, 16);
   }
 
-  input[type='checkbox']:disabled {
-    cursor: not-allowed;
-  }
-
-  input[type='checkbox']:disabled ~ label {
-    cursor: not-allowed;
-  }
-
-  input[type='checkbox']:disabled ~ label::before {
-    background-color: var(--rvt-color-base-extralight);
-    border-color: var(--rvt-color-base-border);
-  }
-
-  input[type='checkbox']:disabled:checked ~ label::before {
-    background-color: var(--rvt-color-base-border);
+  input[type="checkbox"]:indeterminate ~ label {
+    --color-background: var(--rvt-color-theme-accent);
+    --color-border: var(--rvt-color-theme-accent);
+    --display-icon: block;
+    --icon: var(--icon-minus);
   }
 
   &__description {
