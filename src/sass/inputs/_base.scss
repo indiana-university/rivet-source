@@ -9,14 +9,15 @@
   &-text-input,
   &-textarea,
   &-select {
-    display: block;
-    width: 100%;
-    background-color: $color-white-base;
-    border: 1px solid var(--rvt-theme-text);
+    background-color: var(--rvt-color-theme-background);
+    border: 1px solid var(--rvt-color-theme-main);
     border-radius: 0;
-    padding: $spacing-xs;
+    color: inherit;
+    display: block;
     height: $spacing-sm * 3;
     line-height: 1.1;
+    padding: $spacing-xs;
+    width: 100%;
 
     /**
      * Prefixes get rid of browser default select element styles.
@@ -67,18 +68,9 @@
   &-text-input:disabled,
   &-textarea:disabled,
   &-select:disabled {
-    background-color: $color-black-100;
-    border-color: $color-black-300;
+    background-color: var(--rvt-color-theme-container);
+    border-color: var(--rvt-color-theme-border);
     cursor: not-allowed;
-  }
-
-  &-input[type]:focus,
-  &-input:not([type]):focus,
-  &-text-input:focus,
-  &-textarea:focus,
-  &-select:focus {
-    outline: none;
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-blue-400;
   }
 
   &-label {
@@ -98,15 +90,15 @@
   }
 
   &-legend {
-    margin: 0;
-    font-weight: $font-weight-regular;
     display: block;
+    font-weight: $font-weight-regular;
+    margin: 0;
     width: 100%;
   }
 
   &-select[multiple] {
-    height: $spacing-xxl * 2;
     background-image: none;
+    height: $spacing-xxl * 2;
     padding-right: $spacing-xs;
   }
 
