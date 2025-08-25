@@ -4,9 +4,9 @@
 @use '../core' as *;
 
 .#{$prefix}-page {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   overflow-x: hidden;
 
   main {
@@ -15,9 +15,9 @@
 }
 
 .#{$prefix}-layout-base {
+  @include container;
   display: grid;
   gap: $spacing-md;
-  @include container;
 
   &__sidebar {
     padding-block-start: $spacing-lg;
@@ -29,15 +29,15 @@
   }
 
   &--single-column &__main {
-    max-width: 80ch;
     margin-inline: auto;
+    max-width: 80ch;
     width: 100%;
   }
 
   &__breakout {
-    width: 100vw;
     margin-left: calc(50% - 50vw);
     padding-block: $spacing-xl;
+    width: 100vw;
   }
 
   &__breakout-inner {
@@ -56,7 +56,7 @@
     gap: $spacing-xxl;
 
     &__sidebar {
-      border-right: 1px solid $color-black-100;
+      border-right: 1px solid var(--rvt-color-theme-border);
     }
 
     &__sidebar {
@@ -69,16 +69,14 @@
 
     &__breakout {
       // 18rem = sidebar width
-    // 4rem = grid gap
-    // --------------------
-    // 22rem / 2 = 11rem
-    margin-left: calc(-50vw + calc(50% - 11rem));
+      // 4rem = grid gap
+      // --------------------
+      // 22rem / 2 = 11rem
+      margin-left: calc(-50vw + calc(50% - 11rem));
     }
 
     &--single-column {
       grid-template-columns: 1fr;
     }
-
-
   }
 }
