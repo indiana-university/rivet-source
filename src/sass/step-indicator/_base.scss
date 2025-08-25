@@ -9,24 +9,23 @@
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0;
-
   /**
    * Allows content to be scrollable on smaller screens
    */
   overflow-x: scroll;
+  padding: 0;
 
   &__item {
-    text-align: center;
     flex-grow: 1;
     flex-shrink: 0;
     position: relative;
+    text-align: center;
 
     &::before {
-      content: '';
+      box-shadow: 0 ($spacing-sm * 2.9) 0 1px var(--rvt-color-theme-border);
+      content: "";
       display: block;
       width: 100%;
-      box-shadow: 0 ($spacing-sm * 2.9) 0 1px $color-black-100;
       z-index: 0;
     }
 
@@ -35,25 +34,24 @@
     }
 
     &:first-child::before {
-      position: absolute;
       left: 50%;
+      position: absolute;
     }
   }
 
   &__item-content {
-    color: $color-black-500;
-
+    align-items: center;
+    color: var(--rvt-color-theme-main);
     /**
      * If we set the link to display flex, we can use
      * flex-direction: column-reverse to add a variant where the label
      * is on the bottom.
      */
     display: inline-flex;
-    align-items: center;
     flex-direction: column;
   }
 
-  &__item-content[aria-current='step'] &__indicator {
+  &__item-content[aria-current="step"] &__indicator {
     font-weight: 700;
   }
 
@@ -63,24 +61,25 @@
   }
 
   &__item-content:focus &__indicator {
-    box-shadow: 0 0 0 $spacing-xxs $color-blue-100;
+    outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
+    outline-offset: calc(2rem/16);
   }
 
   &__label {
     display: block;
-    color: $color-black-base;
-    margin-bottom: $spacing-xs;
+    color: var(--rvt-color-theme-body);
     font-size: $ts-14;
-    padding-right: $spacing-xs;
+    margin-bottom: $spacing-xs;
     padding-left: $spacing-xs;
+    padding-right: $spacing-xs;
   }
 
   &__indicator {
     align-items: center;
-    background-color: $color-white-base;
-    border: math.div($spacing-xxs, 2) solid $color-black-100;
+    background-color: var(--rvt-color-theme-background);
+    border: math.div($spacing-xxs, 2) solid var(--rvt-color-theme-border);
     border-radius: 999rem;
-    box-shadow: 0 0 0 $spacing-xs $color-white-base;
+    box-shadow: 0 0 0 $spacing-xs var(--rvt-color-theme-background);
     display: inline-flex;
     font-weight: $font-weight-medium;
     height: $spacing-lg;
@@ -91,21 +90,21 @@
   }
 
   &__indicator--success {
-    background-color: $color-green-500;
-    border-color: $color-green-400;
-    color: $color-white-base;
+    background-color: var(--rvt-color-success-main);
+    border-color: transparent;
+    color: var(--rvt-color-theme-body-inverse);
   }
 
   &__indicator--warning {
-    background-color: $color-gold-400;
-    border-color: $color-gold-200;
-    color: $color-black-700;
+    background-color: var(--rvt-color-warning-main);
+    border-color: transparent;
+    color: var(--rvt-color-theme-body);
   }
 
   &__indicator--danger {
-    background-color: $color-orange-500;
-    border-color: $color-orange-400;
-    color: $color-white-base;
+    background-color: var(--rvt-color-danger-main);
+    border-color: transparent;
+    color: var(--rvt-color-theme-body-inverse);
   }
 
   /**
@@ -117,10 +116,10 @@
   }
 
   &--vertical &__item {
-    text-align: left;
     margin-top: 0;
     padding-top: $spacing-lg;
     position: relative;
+    text-align: left;
   }
 
   &--vertical &__item:first-child::before {
@@ -128,16 +127,16 @@
   }
 
   &--vertical &__item::before {
-    box-shadow: math.div($spacing-xxs, -2) 0 0 0 $color-black-100;
+    box-shadow: math.div($spacing-xxs, -2) 0 0 0 var(--rvt-color-theme-border);
     height: 100%;
+    left: $spacing-sm * 1.125;
     position: absolute;
     top: 0;
-    left: $spacing-sm * 1.125;
   }
 
   &--vertical &__item-content {
-    flex-direction: row-reverse;
     align-items: center;
+    flex-direction: row-reverse;
     position: relative;
   }
 
@@ -156,17 +155,16 @@ a.#{$prefix}-steps__item-content {
   text-decoration: none;
 }
 
-a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__label,
-a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__label {
+a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__label {
   text-decoration: underline;
 }
 
 a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
-a.#{$prefix}-steps__item-content[aria-current='step'] .#{$prefix}-steps__indicator {
-  background-color: $color-crimson-500;
-  color: $color-white-base;
-  border-color: $color-crimson-500;
+a.#{$prefix}-steps__item-content[aria-current="step"] .#{$prefix}-steps__indicator {
+  background-color: var(--rvt-color-theme-accent);
+  color: var(--rvt-color-theme-body-inverse);
+  border-color: transparent;
 }
 
 @include mq($breakpoint-md) {
