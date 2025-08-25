@@ -1,9 +1,9 @@
 @use '../core' as *;
 
 .rvt-layout {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   &__wrapper {
     flex-grow: 1;
@@ -18,8 +18,8 @@
   &__content {
     // This stops some overflow issues if non-breaking content starts to overflow.
     min-width: 0;
-    padding-top: $spacing-lg;
     padding-bottom: $spacing-lg;
+    padding-top: $spacing-lg;
   }
 
   &__wrapper--single &__content {
@@ -27,8 +27,8 @@
   }
 
   &__break-out {
-    margin-right: -$spacing-md;
     margin-left: -$spacing-md;
+    margin-right: -$spacing-md;
 
     img {
       width: 100%;
@@ -36,9 +36,9 @@
   }
 
   &__sidebar {
-    padding-top: $spacing-lg;
+    border-top: 1px solid var(--rvt-color-theme-border);
     padding-bottom: $spacing-lg;
-    border-top: 1px solid $color-black-100;
+    padding-top: $spacing-lg;
   }
 }
 
@@ -49,20 +49,20 @@
     }
 
     &__sidebar {
+      border-right: 1px solid var(--rvt-color-theme-border);
+      border-top: none;
       flex-basis: $width-md;
-      max-width: $width-md;
       flex-grow: 1;
       flex-shrink: 0;
+      max-width: $width-md;
       padding-top: $spacing-xxl * 1.5;
-      border-top: none;
-      border-right: 1px solid $color-black-100;
     }
 
     &__content {
       flex-grow: 1;
-      padding-top: $spacing-xxl * 1.5;
-      padding-left: $spacing-xxl;
       padding-bottom: $spacing-xxl;
+      padding-left: $spacing-xxl;
+      padding-top: $spacing-xxl * 1.5;
     }
 
     &__break-out {
@@ -91,11 +91,11 @@
     }
 
     &__feature-slot {
-      margin-right: -$spacing-xxl;
       float: right;
-      width: $width-xl;
       margin-bottom: $spacing-lg;
       margin-left: $spacing-lg;
+      margin-right: -$spacing-xxl;
+      width: $width-xl;
     }
 
     &__feature-slot + * {
