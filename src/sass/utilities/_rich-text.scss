@@ -39,12 +39,12 @@
   h4,
   h5,
   h6 {
-    font-weight: $font-weight-bold;
     font-optical-sizing: auto;
+    font-style: normal;
     font-variation-settings:
       "wdth" 135,
       "YTLC" 540;
-    font-style: normal;
+    font-weight: $font-weight-bold;
   }
 
   h1,
@@ -65,7 +65,7 @@
   :where(li),
   :where(td),
   :where(dt) {
-    color: var(--rvt-theme-text-subtle);
+    color: var(--rvt-color-theme-body);
   }
 
   :where(ul) {
@@ -78,7 +78,7 @@
   }
 
   :where(li)::marker {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
   }
 
   > img,
