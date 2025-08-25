@@ -5,10 +5,10 @@
 
 // Temp Callout component
 .#{$prefix}-callout {
-  border: 1px solid var(--rvt-theme-border);
-  background-color: var(--rvt-theme-bg);
-  container-type: inline-size;
+  border: 1px solid var(--rvt-color-theme-border);
+  background-color: var(--rvt-color-theme-background);
   container-name: callout;
+  container-type: inline-size;
 
   &__inner {
     padding: $spacing-md;
@@ -16,18 +16,18 @@
 
   &__eyebrow {
     @include eyebrow;
-    color: var(--rvt-theme-accent-title);
+    color: var(--rvt-color-theme-accent);
     margin: 0;
   }
 
   &__title {
-    font-size: $ts-26;
-    text-transform: uppercase;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-condensed;
+    font-size: $ts-26;
+    font-weight: $font-weight-black;
     letter-spacing: .04rem;
     line-height: 1.2;
-    color: var(--rvt-theme-accent-title);
-    font-weight: $font-weight-black;
+    text-transform: uppercase;
   }
 
   &__eyebrow + &__title {
@@ -35,7 +35,7 @@
   }
 
   &__content {
-    color: var(--rvt-theme-text-subtle);
+    color: var(--rvt-color-theme-body);
     margin-top: $spacing-md;
   }
 
@@ -54,8 +54,8 @@
     }
 
     &__actions {
-      flex-direction: row;
       align-items: center;
+      flex-direction: row;
     }
   }
 }
@@ -63,11 +63,11 @@
 @container callout (min-width: 1024px) {
   .#{$prefix}-callout {
     &__inner {
-      max-width: 75%;
-      margin-inline: auto;
-      padding: $spacing-xxl;
       display: flex;
       gap: $spacing-lg;
+      margin-inline: auto;
+      max-width: 75%;
+      padding: $spacing-xxl;
     }
 
     &__title {
