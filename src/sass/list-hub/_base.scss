@@ -8,7 +8,7 @@
   background-color: transparent;
 
   &__title {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
     font-family: $font-mono;
     font-size: $ts-12;
     letter-spacing: math.div($spacing-xxs, 2);
@@ -37,7 +37,7 @@
 
   &__eyebrow {
     @include eyebrow;
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
     padding-inline-start: $spacing-md;
   }
 
