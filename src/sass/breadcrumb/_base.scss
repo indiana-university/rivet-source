@@ -56,10 +56,6 @@
     }
   }
 
-  li:last-child {
-    color: var(--rvt-theme-text);
-  }
-
   li[aria-current="page"] {
     color: var(--rvt-color-theme-accent);
     font-weight: $font-weight-medium;
