@@ -146,7 +146,7 @@
 
     .#{$prefix}-timeline__item--right::after {
       border-left-color: transparent;
-      border-right-color: var(--rvt-color-base-light);
+      border-right-color: var(--rvt-color-theme-border);
       left: auto;
       margin-left: -$spacing-sm;
     }
