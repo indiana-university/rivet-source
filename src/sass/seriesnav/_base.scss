@@ -4,7 +4,7 @@
 @use '../core' as *;
 
 .#{$prefix}-seriesnav {
-  border: 1px solid var(--rvt-theme-border);
+  border: 1px solid var(--rvt-color-theme-border);
 
   &__previous {
     flex-direction: row-reverse;
@@ -20,24 +20,24 @@
   }
 
   &__next {
-    border-top: 1px solid var(--rvt-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-border);
     padding-left: $spacing-md;
     text-align: right;
   }
 
   &__previous,
   &__next {
+    color: var(--rvt-color-theme-body);
     display: flex;
-    color: var(--rvt-theme-text);
     flex-basis: 50%;
     flex-grow: 1;
-    padding-top: $spacing-md;
     padding-bottom: $spacing-md;
+    padding-top: $spacing-md;
     text-decoration: none;
 
     &:hover {
-      background-color: var(--rvt-theme-bg-subtle);
-      color: var(--rvt-theme-text);
+      background-color: var(--rvt-color-theme-container);
+      color: var(--rvt-color-theme-body);
     }
   }
 
@@ -52,20 +52,20 @@
   }
 
   &__item {
-    font-weight: $font-weight-medium;
     font-size: $ts-20;
+    font-weight: $font-weight-medium;
     line-height: $line-height-tight;
   }
 
   &__label {
-    color: var(--rvt-theme-accent);
-    text-transform: uppercase;
-    font-weight: $font-weight-medium;
-    font-family: $font-mono;
-    letter-spacing: .05rem;
-    display: flex;
-    gap: $spacing-xxs;
     align-items: center;
+    color: var(--rvt-color-theme-accent);
+    display: flex;
+    font-family: $font-mono;
+    font-weight: $font-weight-medium;
+    gap: $spacing-xxs;
+    letter-spacing: .05rem;
+    text-transform: uppercase;
   }
 
   &__next &__label {
@@ -74,20 +74,19 @@
 
   &__previous &__label::before,
   &__next &__label::after {
-    content: '';
+    background-color: currentColor;
+    content: "";
     display: inline-block;
-    width: 1rem;
     height: 1rem;
-    background-repeat: no-repeat;
-    background-size: .875rem .875rem;
+    width: 1rem;
   }
 
   &__previous &__label::before {
-    background-image: url('data:image/svg+xml,<svg fill="%23990000" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z"></path></svg>');
+    clip-path: path("M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z");
   }
 
   &__next &__label::after {
-    background-image: url('data:image/svg+xml,<svg fill="%23990000" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+    clip-path: path("M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z");
   }
 }
 
@@ -100,7 +99,7 @@
     }
 
     &__previous {
-      border-right: 1px solid var(--rvt-theme-border);
+      border-right: 1px solid var(--rvt-color-theme-border);
       flex-direction: row-reverse;
       padding-right: $spacing-md;
 
