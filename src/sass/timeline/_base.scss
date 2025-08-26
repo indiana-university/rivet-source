@@ -2,26 +2,25 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
-@use 'sass:math';
 
 .#{$prefix}-timeline {
-  position: relative;
   padding: $spacing-lg 0;
+  position: relative;
 
   &::before {
-    content: '';
+    background: var(--rvt-color-theme-border);
+    content: "";
+    height: 100%;
+    left: 0;
     margin-left: $spacing-xxs;
     position: absolute;
     top: 0;
-    left: 0;
-    height: 100%;
     width: 1px;
-    background: var(--rvt-theme-border);
   }
 
   &__item {
-    position: relative;
     margin-block: $spacing-lg;
+    position: relative;
   }
 
   /**
@@ -31,22 +30,22 @@
    */
 
   &__marker {
-    width: $spacing-sm;
-    height: $spacing-sm;
-    position: absolute;
-    color: var(--rvt-color-base-white);
-    background: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-body-inverse);
+    background: var(--rvt-color-theme-accent);
     border-radius: 50%;
-    box-shadow: 0 0 0 ($spacing-xs * .85) var(--rvt-theme-bg), 0 0 0 $spacing-xs var(--rvt-theme-border);
-    top: $spacing-md * .85;
+    box-shadow: 0 0 0 ($spacing-xs * .85) var(--rvt-color-theme-background), 0 0 0 $spacing-xs var(--rvt-color-theme-border);
+    height: $spacing-sm;
     left: $spacing-xxs * -.85;
+    position: absolute;
+    top: $spacing-md * .85;
+    width: $spacing-sm;
   }
 
   &__content {
-    margin-inline-start: $spacing-lg;
-    background-color: var(--rvt-theme-bg);
-    box-shadow: $shadow-standard;
+    background-color: var(--rvt-color-theme-background);
     border: none;
+    box-shadow: $shadow-standard;
+    margin-inline-start: $spacing-lg;
   }
 
   &__content-inner {
@@ -54,12 +53,12 @@
   }
 
   &__label {
-    font-size: $ts-14;
+    background-color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-body-inverse);
     font-family: $font-mono;
-    padding-inline: $spacing-md;
+    font-size: $ts-14;
     padding-block: $spacing-sm;
-    background-color: var(--rvt-theme-accent);
-    color: var(--rvt-theme-bg);
+    padding-inline: $spacing-md;
   }
 
   &__heading {
@@ -80,14 +79,14 @@
   }
 
   &__item-dates-icon {
-    color: var(--rvt-theme-accent);
-    width: $spacing-xl;
-    height: $spacing-xl;
-    background-color: var(--rvt-theme-accent-subtle);
-    border-radius: $border-radius-circle;
-    display: flex;
     align-items: center;
+    background-color: var(--rvt-color-theme-container);
+    border-radius: $border-radius-circle;
+    color: var(--rvt-color-theme-accent);
+    display: flex;
+    height: $spacing-xl;
     justify-content: center;
+    width: $spacing-xl;
   }
 
   &__item-dates + &__item-actions {
@@ -103,10 +102,10 @@
   }
 
   .#{$prefix}-timeline__item::after {
+    border-left-color: var(--rvt-color-theme-border);
+    border-right-color: transparent;
     margin-left: 0;
     right: 0;
-    border-left-color: var(--rvt-color-base-light);
-    border-right-color: transparent;
   }
 
   .#{$prefix}-timeline__marker {
@@ -139,22 +138,22 @@
     }
 
     .#{$prefix}-timeline__item::after {
-      margin-left: -$spacing-md;
-      left: 100%;
-      border-left-color: var(--rvt-color-base-light);
+      border-left-color: var(--rvt-color-theme-border);
       border-right-color: transparent;
+      left: 100%;
+      margin-left: -$spacing-md;
     }
 
     .#{$prefix}-timeline__item--right::after {
-      margin-left: -$spacing-sm;
-      left: auto;
-      border-right-color: var(--rvt-color-base-light);
       border-left-color: transparent;
+      border-right-color: var(--rvt-color-base-light);
+      left: auto;
+      margin-left: -$spacing-sm;
     }
 
     .#{$prefix}-timeline__marker {
-      margin-left: -$spacing-xxs;
       left: 100%;
+      margin-left: -$spacing-xxs;
     }
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__marker {
@@ -168,10 +167,8 @@
     }
 
     .#{$prefix}-timeline__item--right .#{$prefix}-timeline__content {
-      margin-right: 0;
       margin-left: $spacing-sm;
+      margin-right: 0;
     }
   }
 }
-
-// TODO: Themes
