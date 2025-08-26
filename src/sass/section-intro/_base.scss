@@ -126,13 +126,3 @@
     }
   }
 }
-
-// Non-global theme specific
-/*
-.#{$prefix}-theme-crimson .#{$prefix}-section-intro,
-.#{$prefix}-theme-dark .#{$prefix}-section-intro {
-  &--feature::before {
-    background-image: url('data:image/svg+xml,<svg width="38" height="49" viewBox="0 0 38 49" fill="%23ffffff" xmlns="http://www.w3.org/2000/svg"><path d="M12.6836 48.333V43.2806H15.2098L15.2114 38.2277H7.63282L2.58044 33.1754L2.57898 10.4383L0.0527344 10.4383V6.64902H12.6837L12.6837 10.4383L10.1575 10.4383L10.1574 30.6498L15.2098 30.6472V4.12226L12.6836 4.12483V0.335552L25.3145 0.333008V4.12229L22.7883 4.12226V30.6472L27.8407 30.6498L27.8426 10.4383L25.3164 10.4383L25.3165 6.64899H37.9474V10.4383L35.4212 10.4383L35.4208 33.1754L30.3685 38.2277H22.7899L22.7883 43.2806H25.3145V48.333H12.6836Z" /></svg>');
-  }
-}
-  */
