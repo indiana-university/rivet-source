@@ -11,7 +11,7 @@ $padding: math.div(3rem, 16);
   padding-left: $spacing-lg;
   position: relative;
 
-  input[type='radio'] {
+  input[type="radio"] {
     cursor: pointer;
     height: $spacing-md;
     left: 0;
@@ -26,29 +26,29 @@ $padding: math.div(3rem, 16);
     padding-left: $spacing-md;
   }
 
-  &--sr-only-label input[type='radio'] {
+  &--sr-only-label input[type="radio"] {
     width: $spacing-md;
   }
 
-  &--sr-only-label input[type='radio'] ~ label {
+  &--sr-only-label input[type="radio"] ~ label {
     height: 0;
     overflow: hidden;
     padding: 0;
     width: 0;
   }
 
-  input[type='radio'] ~ label {
+  input[type="radio"] ~ label {
     cursor: pointer;
     display: inline-block;
     line-height: $line-height-base;
   }
 
-  input[type='radio'] ~ label::before {
-    background-color: var(--rvt-color-base-white);
-    border: math.div($spacing-xxs, 4) solid var(--rvt-color-base-main);
+  input[type="radio"] ~ label::before {
+    background-color: var(--rvt-color-theme-background);
+    border: math.div($spacing-xxs, 4) solid var(--rvt-color-theme-main);
     border-radius: $spacing-sm;
-    box-shadow: inset 0 0 0 $padding var(--rvt-color-base-white);
-    content: '';
+    box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-background);
+    content: "";
     display: inline-block;
     height: $spacing-sm;
     left: math.div(3rem, 16);
@@ -57,32 +57,32 @@ $padding: math.div(3rem, 16);
     width: $spacing-sm;
   }
 
-  input[type='radio']:checked ~ label::before {
-    background-color: var(--rvt-color-brand-main);
-    border-color: var(--rvt-color-brand-main);
+  input[type="radio"]:checked ~ label::before {
+    background-color: var(--rvt-color-theme-accent);
+    border-color: var(--rvt-color-theme-accent);
   }
 
-  input[type='radio']:focus ~ label::before {
-    outline: math.div(2rem, 16) solid var(--rvt-color-brand-dark);
+  input[type="radio"]:focus ~ label::before {
+    outline: math.div(2rem, 16) solid var(--rvt-color-theme-focus);
     outline-offset: math.div(2rem, 16);
   }
 
-  input[type='radio']:disabled {
+  input[type="radio"]:disabled {
     cursor: not-allowed;
   }
 
-  input[type='radio']:disabled ~ label {
+  input[type="radio"]:disabled ~ label {
     cursor: not-allowed;
   }
 
-  input[type='radio']:disabled ~ label::before {
-    background-color: var(--rvt-color-base-extralight);
-    border-color: var(--rvt-color-base-border);
-    box-shadow: inset 0 0 0 $padding var(--rvt-color-base-extralight);
+  input[type="radio"]:disabled ~ label::before {
+    background-color: var(--rvt-color-theme-container);
+    border-color: var(--rvt-color-theme-border);
+    box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-container);
   }
 
-  input[type='radio']:disabled:checked ~ label::before {
-    background-color: var(--rvt-color-base-border);
+  input[type="radio"]:disabled:checked ~ label::before {
+    background-color: var(--rvt-color-theme-border);
   }
 
   &__description {
