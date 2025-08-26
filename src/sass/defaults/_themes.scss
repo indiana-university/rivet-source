@@ -3,6 +3,25 @@
 
 @use '../core' as *;
 
+/*
+base-dark
+base-main
+base-body
+base-border
+base-light
+base-extralight
+base-ultralight
+base-black
+base-white
+
+brand-extradark
+brand-dark
+brand-main
+brand-border
+brand-light
+brand-extralight
+*/
+
 :root,
 .#{$prefix}-theme-light {
   --rvt-color-theme-accent: var(--rvt-color-brand-main);

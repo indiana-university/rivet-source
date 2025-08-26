@@ -117,6 +117,23 @@
         "value": "#FFFBF0"
       }
     },
+    "shadow": {
+      "dark": {
+        "value": { "r": 36, "g": 49, "b": 66, "a": 0.85 }
+      },
+      "main": {
+        "value": { "r": 36, "g": 49, "b": 66, "a": 0.2 }
+      },
+      "light": {
+        "value": { "r": 36, "g": 49, "b": 66, "a": 0.16 }
+      },
+      "extralight": {
+        "value": { "r": 36, "g": 49, "b": 66, "a": 0.07 }
+      },
+      "ultralight": {
+        "value": { "r": 36, "g": 49, "b": 66, "a": 0 }
+      }
+    },
     "black": {
       "base": {
         "value": "{color.black.500.value}"

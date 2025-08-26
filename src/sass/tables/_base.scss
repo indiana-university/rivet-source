@@ -105,17 +105,17 @@ tbody tr th {
 .#{$prefix}-table-responsive[role='region'][tabindex] {
   /* stylelint-disable */
   background:
-    linear-gradient(to right, var(--rvt-color-theme-background) 30%, rgba(255, 255, 255, 0)),
-    linear-gradient(to right, rgba(255, 255, 255, 0), var(--rvt-color-theme-background) 70%) 0 100%,
+    linear-gradient(to right, var(--rvt-color-theme-background) 30%, var(--rvt-color-shadow-ultralight)),
+    linear-gradient(to right, var(--rvt-color-shadow-ultralight), var(--rvt-color-theme-background) 70%) 0 100%,
     radial-gradient(
       farthest-side at 0% 50%,
-      rgba(36, 19, 66, 0.2),
-      rgba(36, 19, 66, 0)
+      var(--rvt-color-shadow-main),
+      var(--rvt-color-shadow-ultralight)
     ),
     radial-gradient(
         farthest-side at 100% 50%,
-        rgba(36, 19, 66, 0.2),
-        rgba(36, 19, 66, 0)
+        var(--rvt-color-shadow-main),
+        var(--rvt-color-shadow-ultralight)
       )
       0 100%;
   background-attachment: local, local, scroll, scroll;

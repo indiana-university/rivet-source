@@ -32,7 +32,7 @@
   z-index: map.get($z-index, '1000');
 
   &[data-#{$prefix}-dialog-darken-page] {
-    box-shadow: 0 0 0 9999px rgba(var(--rvt-color-base-main), .85);
+    box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
   }
 
   &[data-#{$prefix}-dialog-top-left] {

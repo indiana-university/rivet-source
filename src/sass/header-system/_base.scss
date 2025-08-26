@@ -160,7 +160,7 @@
 
   &__search-bar {
     border-top: 1px solid var(--rvt-color-theme-border);
-    box-shadow: 0 9999px 0 9999px rgba(36, 49, 66, 0.85);
+    box-shadow: 0 9999px 0 9999px var(--rvt-color-shadow-dark);
     position: absolute;
     right: 0;
     top: 5.25rem;
@@ -189,7 +189,7 @@
 
   &__mobile-menu {
     background-color: var(--rvt-color-theme-background);
-    box-shadow: 0 0 0 9999px rgba(36, 49, 66, 0.85);
+    box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
     height: 100vh;
     overflow-y: auto;
     padding-top: $spacing-lg;
