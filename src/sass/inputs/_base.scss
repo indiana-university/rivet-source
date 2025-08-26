@@ -64,6 +64,19 @@
     padding-right: $spacing-xl;
   }
 
+  &-select > select::-ms-expand {
+    display: none;
+  }
+
+  &-select > select[multiple] {
+    height: $spacing-xxl * 2;
+    padding-right: $spacing-xs;
+  }
+
+  &-select:has(> select[multiple])::before {
+    background-color: transparent;
+  }
+
   &-input[type]:disabled,
   &-input:not([type]):disabled,
   &-text-input:disabled,
@@ -95,15 +108,5 @@
     font-weight: $font-weight-regular;
     margin: 0;
     width: 100%;
-  }
-
-  &-select[multiple] {
-    background-image: none;
-    height: $spacing-xxl * 2;
-    padding-right: $spacing-xs;
-  }
-
-  &-select::-ms-expand {
-    display: none;
   }
 }
