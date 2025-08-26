@@ -8,7 +8,7 @@
   &-input,
   &-text-input,
   &-textarea,
-  &-select {
+  &-select > select {
     background-color: var(--rvt-color-theme-background);
     border: 1px solid var(--rvt-color-theme-main);
     border-radius: 0;
@@ -45,22 +45,23 @@
   }
 
   &-select {
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333333" viewBox="0 0 16 16"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
-    background-position: right $spacing-sm center;
-    background-size: $spacing-sm $spacing-sm;
-    background-repeat: no-repeat;
-    padding-right: $spacing-xl;
-    padding-left: $spacing-xs;
+    position: relative;
+  }
 
-    /**
-     * Prefixes get rid of browser default select element styles.
-     */
-     /* stylelint-disable  */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    /* stylelint-enable */
-    appearance: none;
+  &-select::before {
+    background-color: currentColor;
+    clip-path: path("m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z");
+    content: "";
+    height: $spacing-sm;
+    pointer-events: none;
+    position: absolute;
+    right: $spacing-sm;
+    top: $spacing-sm;
+    width: $spacing-sm;
+  }
+
+  &-select > select {
+    padding-right: $spacing-xl;
   }
 
   &-input[type]:disabled,
