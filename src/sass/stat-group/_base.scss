@@ -1,8 +1,8 @@
 @use '../core' as *;
 
 .#{$prefix}-stat-group {
-  container-type: inline-size;
   container-name: stat-group;
+  container-type: inline-size;
 
   &__inner {
     display: flex;
@@ -10,11 +10,11 @@
   }
 
   &__note {
-    font-size: $ts-14;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-mono;
-    margin-block-start: $spacing-lg;
+    font-size: $ts-14;
     margin-block-end: 0;
-    color: var(--rvt-theme-accent);
+    margin-block-start: $spacing-lg;
   }
 }
 
@@ -26,12 +26,12 @@
     }
 
     &__inner > * {
-      min-width: 50%;
+      border: 1px solid var(--rvt-color-theme-border);
       flex-basis: 0;
       flex-grow: 999;
-      border: 1px solid var(--rvt-theme-border);
-      margin-inline-start: -1px;
       margin-block-start: -1px;
+      margin-inline-start: -1px;
+      min-width: 50%;
     }
   }
 }
@@ -43,11 +43,11 @@
     }
 
     &__inner > * {
+      border-block-end: none;
       border-block-start: none;
       border-inline-start: none;
-      border-block-end: none;
-      margin-inline-start: 0;
       margin-block-start: 0;
+      margin-inline-start: 0;
 
       &:last-child {
         border-inline-end: none;
@@ -55,37 +55,3 @@
     }
   }
 }
-
-// @container stat-group (min-width: 40em) {
-//   .#{$prefix}-stat-group {
-//     &__inner {
-//       grid-template-columns: 1fr 1fr;
-//     }
-
-//     &__inner > * {
-//       border: 1px solid var(--rvt-theme-border);
-//       margin-inline-start: -1px;
-//       margin-block-start: -1px;
-//     }
-//   }
-// }
-
-// @container stat-group (min-width: 68.75em) {
-//   .#{$prefix}-stat-group {
-//     &__inner {
-//       grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
-//     }
-
-//     &__inner > * {
-//       border-block-start: none;
-//       border-inline-start: none;
-//       border-block-end: none;
-//       margin-inline-start: 0;
-//       margin-block-start: 0;
-
-//       &:last-child {
-//         border-inline-end: none;
-//       }
-//     }
-//   }
-// }
