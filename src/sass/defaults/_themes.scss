@@ -28,21 +28,6 @@
   --rvt-color-theme-text-accent: var(--rvt-color-theme-accent);
   --rvt-color-theme-text-inv: var(--rvt-color-base-ultralight);
   */
-
-  --rvt-theme-bg: var(--rvt-color-base-white);
-  --rvt-theme-bg-subtle: var(--rvt-color-base-extralight);
-  --rvt-theme-bg-darker: var(--rvt-color-base-light);
-  --rvt-theme-text: var(--rvt-color-base-body);
-  --rvt-theme-text-subtle: var(--rvt-color-base-body);
-  --rvt-theme-accent: var(--rvt-color-brand-main);
-  --rvt-theme-accent-subtle: var(--rvt-color-brand-extralight);
-  --rvt-theme-accent-darker: var(--rvt-color-brand-dark);
-  --rvt-theme-accent-border: var(--rvt-color-brand-border);
-  --rvt-theme-accent-title: var(--rvt-color-brand-main);
-  --rvt-theme-border: var(--rvt-color-base-border);
-  --rvt-theme-interactive: var(--rvt-color-brand-main);
-  --rvt-theme-interactive-lighter: var(--rvt-color-brand-border);
-  --rvt-theme-interactive-darker: var(--rvt-color-brand-dark);
 }
 
 .#{$prefix}-theme-dark {
@@ -59,21 +44,6 @@
   --rvt-color-theme-heading: var(--rvt-color-base-ultralight);
   --rvt-color-theme-main: var(--rvt-color-base-ultralight);
   --rvt-color-theme-main-alt: var(--rvt-color-base-light);
-
-  --rvt-theme-bg: var(--rvt-color-base-main);
-  --rvt-theme-bg-subtle: var(--rvt-color-base-dark);
-  --rvt-theme-bg-darker: var(--rvt-color-base-dark);
-  --rvt-theme-text: var(--rvt-color-base-white);
-  --rvt-theme-text-subtle: var(--rvt-color-base-light);
-  --rvt-theme-accent: var(--rvt-color-base-white);
-  --rvt-theme-accent-subtle: var(--rvt-color-base-main);
-  --rvt-theme-accent-darker: var(--rvt-color-base-white);
-  --rvt-theme-accent-border: var(--rvt-color-base-light);
-  --rvt-theme-accent-title: var(--rvt-color-base-white);
-  --rvt-theme-border: var(--rvt-color-base-border);
-  --rvt-theme-interactive: var(--rvt-color-brand-extralight);
-  --rvt-theme-interactive-lighter: var(--rvt-color-brand-extralight);
-  --rvt-theme-interactive-darker: var(--rvt-color-brand-light);
 }
 
 .#{$prefix}-theme-crimson {
@@ -90,21 +60,6 @@
   --rvt-color-theme-heading: var(--rvt-color-base-ultralight);
   --rvt-color-theme-main: var(--rvt-color-base-ultralight);
   --rvt-color-theme-main-alt: var(--rvt-color-base-light);
-
-  --rvt-theme-bg: var(--rvt-color-brand-main);
-  --rvt-theme-bg-subtle: var(--rvt-color-brand-dark);
-  --rvt-theme-bg-darker: var(--rvt-color-brand-dark);
-  --rvt-theme-text: var(--rvt-color-base-white);
-  --rvt-theme-text-subtle: var(--rvt-color-brand-light);
-  --rvt-theme-accent: var(--rvt-color-base-white);
-  --rvt-theme-accent-subtle: var(--rvt-color-brand-main);
-  --rvt-theme-accent-darker: var(--rvt-color-brand-dark);
-  --rvt-theme-accent-border: var(--rvt-color-brand-border);
-  --rvt-theme-accent-title: var(--rvt-color-base-white);
-  --rvt-theme-border: var(--rvt-color-brand-border);
-  --rvt-theme-interactive: var(--rvt-color-brand-extralight);
-  --rvt-theme-interactive-lighter: var(--rvt-color-brand-extralight);
-  --rvt-theme-interactive-darker: var(--rvt-color-brand-light);
 }
 
 [class^='rvt-theme'],
