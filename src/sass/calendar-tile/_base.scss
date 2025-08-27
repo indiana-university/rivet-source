@@ -4,8 +4,8 @@
 @use '../core' as *;
 
 .#{$prefix}-cal {
-  color: var(--rvt-color-theme-accent);
-  background-color: var(--rvt-color-theme-accent-inverse);
+  color: var(--rvt-color-brand-main);
+  background-color: var(--rvt-color-brand-extralight);
   display: inline-flex;
   flex-direction: column;
   font-family: $font-mono;
