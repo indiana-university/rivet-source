@@ -44,9 +44,6 @@
       }
     },
     "danger": {
-      "hover": {
-        "value": "#760518"
-      },
       "main": {
         "value": "#AB0723"
       },
@@ -61,9 +58,6 @@
       }
     },
     "info": {
-      "hover": {
-        "value": "#004080"
-      },
       "main": {
         "value": "#004F9E"
       },
@@ -78,9 +72,6 @@
       }
     },
     "success": {
-      "hover": {
-        "value": "#0D4A08"
-      },
       "main": {
         "value": "#13650B"
       },
@@ -95,9 +86,6 @@
       }
     },
     "warning": {
-      "hover": {
-        "value": "#241400"
-      },
       "main": {
         "value": "#FF9602"
       },
