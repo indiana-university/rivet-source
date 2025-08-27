@@ -21,12 +21,6 @@
       },
       "ultralight": {
         "value": "#FFFFFF"
-      },
-      "black": {
-        "value": "{color.base.dark}"
-      },
-      "white": {
-        "value": "{color.base.ultralight}"
       }
     },
     "brand": {
