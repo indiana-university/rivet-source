@@ -7,17 +7,16 @@
 base-dark
 base-main
 base-body
-base-border
+base-border (rename to medium)
 base-light
 base-extralight
 base-ultralight
-base-black
-base-white
+~~base-black~~
+~~base-white~~
 
 brand-extradark
 brand-dark
 brand-main
-brand-border
 brand-light
 brand-extralight
 */
@@ -81,8 +80,9 @@ brand-extralight
   --rvt-color-theme-main-alt: var(--rvt-color-base-light);
 }
 
-[class^='rvt-theme'],
-[class*=' rvt-theme'] {
+.#{$prefix}-theme-light,
+.#{$prefix}-theme-dark,
+.#{$prefix}-theme-crimson {
   background-color: var(--rvt-color-theme-background);
   color: var(--rvt-color-theme-body);
 }

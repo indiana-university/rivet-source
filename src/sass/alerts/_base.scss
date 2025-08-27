@@ -2,12 +2,13 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use '../defaults' as *;
 @use 'sass:math';
 
 .#{$prefix}-alert {
-  background-color: var(--background);
-  border: $spacing-xxs * .5 solid var(--border);
-  color: var(--rvt-color-base-body);
+  @extend .rvt-theme-light;
+  background-color: var(--color-background);
+  border: $spacing-xxs * .25 solid var(--color-border);
   padding-inline-start: $spacing-xxl * .9;
   padding-inline-end: $spacing-sm;
   padding-block: $spacing-sm;
@@ -15,47 +16,47 @@
 
   &,
   &--default {
-    --background: var(--rvt-color-base-extralight);
-    --border: var(--rvt-color-base-border);
-    --container: var(--rvt-color-base-light);
+    --color-background: var(--rvt-color-base-extralight);
+    --color-border: var(--rvt-color-base-border);
+    --color-container: var(--rvt-color-base-light);
+    --color-main: var(--rvt-color-base-main);
     --icon: path("M10 14h5.5v-2h-1.382l-.366-.733a2.86 2.86 0 0 1-.298-1.12l-.234-4.209A5.23 5.23 0 0 0 9 1.096V0H7v1.096a5.23 5.23 0 0 0-4.22 4.842l-.234 4.209a2.86 2.86 0 0 1-.298 1.12L1.882 12H.5v2H6a2 2 0 1 0 4 0Zm1.886-2H4.114a4.86 4.86 0 0 0 .429-1.742l.234-4.209a3.228 3.228 0 0 1 6.446 0l.234 4.209A4.86 4.86 0 0 0 11.886 12Z");
-    --main: var(--rvt-color-base-main);
   }
 
   &--danger {
-    --background: var(--rvt-color-danger-background);
-    --border: var(--rvt-color-danger-border);
-    --container: var(--rvt-color-danger-container);
+    --color-background: var(--rvt-color-danger-background);
+    --color-border: var(--rvt-color-danger-border);
+    --color-container: var(--rvt-color-danger-container);
+    --color-main: var(--rvt-color-danger-main);
     --icon: path("M7 9V4h2v5H7Zm1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z");
-    --main: var(--rvt-color-danger-main);
   }
 
   &--info {
-    --background: var(--rvt-color-info-background);
-    --border: var(--rvt-color-info-border);
-    --container: var(--rvt-color-info-container);
+    --color-background: var(--rvt-color-info-background);
+    --color-border: var(--rvt-color-info-border);
+    --color-container: var(--rvt-color-info-container);
+    --color-main: var(--rvt-color-info-main);
     --icon: path("M9 7v5H7V7h2ZM8 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z");
-    --main: var(--rvt-color-info-main);
   }
 
   &--success {
-    --background: var(--rvt-color-success-background);
-    --border: var(--rvt-color-success-border);
-    --container: var(--rvt-color-success-container);
+    --color-background: var(--rvt-color-success-background);
+    --color-border: var(--rvt-color-success-border);
+    --color-container: var(--rvt-color-success-container);
+    --color-main: var(--rvt-color-success-main);
     --icon: path("M7 11.414 11.914 6.5 10.5 5.086 7 8.586l-1.5-1.5L4.086 8.5 7 11.414Z M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z");
-    --main: var(--rvt-color-success-main);
   }
 
   &--warning {
-    --background: var(--rvt-color-warning-background);
-    --border: var(--rvt-color-warning-border);
-    --container: var(--rvt-color-warning-container);
+    --color-background: var(--rvt-color-warning-background);
+    --color-border: var(--rvt-color-warning-border);
+    --color-container: var(--rvt-color-warning-container);
+    --color-main: var(--rvt-color-base-main);
     --icon: path("M12 7H4v2h8V7Z M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z");
-    --main: var(--rvt-color-warning-main);
   }
 
   &::before {
-    background-color: var(--container);
+    background-color: var(--color-container);
     border-radius: $border-radius-circle;
     content: "";
     display: block;
@@ -67,7 +68,7 @@
   }
 
   &::after {
-    background-color: var(--main);
+    background-color: var(--color-main);
     display: block;
     clip-path: var(--icon);
     content: '';
@@ -79,7 +80,7 @@
   }
 
   &__title {
-    color: var(--main);
+    color: var(--color-main);
     font-size: $ts-18;
     font-weight: $font-weight-bold;
     font-variation-settings:
@@ -111,6 +112,14 @@
       margin-block-start: $spacing-sm;
     }
 
+    a {
+      color: inherit;
+    }
+
+    a:hover {
+      color: var(--rvt-color-base-dark);
+    }
+
     > ul,
     > ol {
       padding-left: $spacing-sm;
@@ -138,17 +147,17 @@
     right: $spacing-sm;
     top: $spacing-sm;
 
-    &:hover {
-      background-color: var(--container);
-    }
-
     &::before {
-      background-color: var(--rvt-color-theme-main);
+      background-color: var(--color-main);
       content: "";
       clip-path: path("m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z");
       display: block;
       height: $spacing-sm;
       width: $spacing-sm;
+    }
+
+    &:hover::before {
+      background-color: var(--rvt-color-base-dark);
     }
   }
 }
