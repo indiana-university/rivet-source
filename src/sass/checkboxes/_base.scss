@@ -85,12 +85,13 @@
 
   input[type="checkbox"]:disabled ~ label {
     --color-background: var(--rvt-color-theme-background-strong);
-    --color-border: var(--rvt-color-theme-ui);
+    --color-border: var(--rvt-color-theme-ui-strong);
     cursor: not-allowed;
   } 
 
   input[type="checkbox"]:disabled:checked ~ label {
-    --color-icon: var(--rvt-color-theme-ui);
+    --color-background: var(--rvt-color-theme-ui-strong);
+    --color-icon: var(--rvt-color-theme-background);
   }
 
   input[type="checkbox"]:focus ~ label::before {
