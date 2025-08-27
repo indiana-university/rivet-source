@@ -5,7 +5,7 @@
 @use 'sass:math';
 
 .#{$prefix}-button {
-  --color-border: var(--rvt-color-theme-border);
+  --color-border: var(--rvt-color-theme-main);
   --color-background: var(--rvt-color-theme-background);
   --color-background-hover: var(--rvt-color-theme-container);
   --color-text: var(--rvt-color-theme-main);
