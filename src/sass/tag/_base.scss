@@ -34,12 +34,12 @@
   }
 
   &[aria-pressed="true"] {
-    background-color: var(--rvt-color-theme-main);
+    background-color: var(--rvt-color-theme-accent);
     border-color: transparent;
     color: var(--rvt-color-theme-body-inverse);
   }
 
   &[aria-pressed="true"]:hover {
-    background-color: var(--rvt-color-theme-main-alt);
+    background-color: var(--rvt-color-theme-accent-alt);
   }
 }
