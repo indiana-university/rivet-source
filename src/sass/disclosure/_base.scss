@@ -29,13 +29,13 @@
   }
 
   &__toggle:hover {
-    color: var(--rvt-color-theme-accent-alt);
+    color: var(--rvt-color-theme-accent-strong);
     cursor: pointer;
     text-decoration: underline;
   }
 
   &__content {
-    box-shadow: calc(2rem/16) 0 0 var(--rvt-color-theme-border) inset;
+    box-shadow: calc(2rem/16) 0 0 var(--rvt-color-theme-ui) inset;
     margin-left: $spacing-xs;
     margin-top: $spacing-xs;
     padding-left: $spacing-sm;

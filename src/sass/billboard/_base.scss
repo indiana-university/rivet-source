@@ -1,7 +1,7 @@
 @use '../core' as *;
 
 .#{$prefix}-billboard {
-  background-color: var(--rvt-color-theme-container-accent);
+  background-color: var(--rvt-color-theme-accent-inverse);
   position: relative;
 
   & + & {
@@ -34,7 +34,7 @@
   }
 
   &__content {
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
     margin-top: $spacing-lg;
   }
 
@@ -96,7 +96,7 @@
 
     &--compact {
       align-items: center;
-      border: 1px solid var(--rvt-color-theme-border);
+      border: 1px solid var(--rvt-color-theme-ui);
     }
 
     &--compact &__body {

@@ -22,7 +22,7 @@
     text-align: center;
 
     &::before {
-      box-shadow: 0 ($spacing-sm * 2.9) 0 1px var(--rvt-color-theme-border);
+      box-shadow: 0 ($spacing-sm * 2.9) 0 1px var(--rvt-color-theme-ui);
       content: "";
       display: block;
       width: 100%;
@@ -41,7 +41,7 @@
 
   &__item-content {
     align-items: center;
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     /**
      * If we set the link to display flex, we can use
      * flex-direction: column-reverse to add a variant where the label
@@ -61,13 +61,13 @@
   }
 
   &__item-content:focus &__indicator {
-    outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
+    outline: calc(2rem/16) solid var(--rvt-color-theme-accent-strong);
     outline-offset: calc(2rem/16);
   }
 
   &__label {
     display: block;
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
     font-size: $ts-14;
     margin-bottom: $spacing-xs;
     padding-left: $spacing-xs;
@@ -77,7 +77,7 @@
   &__indicator {
     align-items: center;
     background-color: var(--rvt-color-theme-background);
-    border: math.div($spacing-xxs, 2) solid var(--rvt-color-theme-border);
+    border: math.div($spacing-xxs, 2) solid var(--rvt-color-theme-ui);
     border-radius: 999rem;
     box-shadow: 0 0 0 $spacing-xs var(--rvt-color-theme-background);
     display: inline-flex;
@@ -92,19 +92,19 @@
   &__indicator--success {
     background-color: var(--rvt-color-success-main);
     border-color: transparent;
-    color: var(--rvt-color-theme-body-inverse);
+    color: var(--rvt-color-theme-text-inverse);
   }
 
   &__indicator--warning {
     background-color: var(--rvt-color-warning-main);
     border-color: transparent;
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
   }
 
   &__indicator--danger {
     background-color: var(--rvt-color-danger-main);
     border-color: transparent;
-    color: var(--rvt-color-theme-body-inverse);
+    color: var(--rvt-color-theme-text-inverse);
   }
 
   /**
@@ -127,7 +127,7 @@
   }
 
   &--vertical &__item::before {
-    box-shadow: math.div($spacing-xxs, -2) 0 0 0 var(--rvt-color-theme-border);
+    box-shadow: math.div($spacing-xxs, -2) 0 0 0 var(--rvt-color-theme-ui);
     height: 100%;
     left: $spacing-sm * 1.125;
     position: absolute;
@@ -163,7 +163,7 @@ a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
 a.#{$prefix}-steps__item-content[aria-current="step"] .#{$prefix}-steps__indicator {
   background-color: var(--rvt-color-theme-accent);
-  color: var(--rvt-color-theme-body-inverse);
+  color: var(--rvt-color-theme-text-inverse);
   border-color: transparent;
 }
 

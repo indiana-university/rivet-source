@@ -5,7 +5,7 @@
 
 .#{$prefix}-cal {
   color: var(--rvt-color-theme-accent);
-  background-color: var(--rvt-color-theme-container-accent);
+  background-color: var(--rvt-color-theme-accent-inverse);
   display: inline-flex;
   flex-direction: column;
   font-family: $font-mono;

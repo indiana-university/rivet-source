@@ -33,14 +33,14 @@
 
   &__item {
     align-items: center;
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     display: flex;
     flex-wrap: wrap;
     margin-top: 0; // resets Rivet default margin-top
   }
 
   &__item &__item {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
   }
 
   &__item &__list {
@@ -53,7 +53,7 @@
   }
 
   &__link {
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     flex-grow: 1;
     font-weight: $font-weight-medium;
     padding: $spacing-sm;
@@ -76,7 +76,7 @@
     }
 
     &:hover {
-      color: var(--rvt-color-theme-accent-alt);
+      color: var(--rvt-color-theme-accent-strong);
       text-decoration: underline;
     }
   }
@@ -90,7 +90,7 @@
   }
 
   &__link[aria-current="page"] + &__toggle {
-    background-color: var(--rvt-color-theme-container-accent);
+    background-color: var(--rvt-color-theme-accent-inverse);
 
     > svg {
       color: var(--rvt-color-theme-accent);
@@ -100,7 +100,7 @@
   &__link[aria-current="page"] + &__toggle:hover,
   &__link[aria-current="page"] + &__toggle:focus {
     color: var(--rvt-color-theme-accent);
-    background-color: var(--rvt-color-theme-container-accent);
+    background-color: var(--rvt-color-theme-accent-inverse);
 
     > svg {
       color: var(--rvt-color-theme-accent);
@@ -111,7 +111,7 @@
     align-items: center;
     background: none;
     border: none;
-    color: var(--rvt-color-theme-border);
+    color: var(--rvt-color-theme-ui);
     cursor: pointer;
     display: none; // Hide by default if JS doesn't load
     justify-content: center;
@@ -139,7 +139,7 @@
     }
 
     &:hover {
-      background-color: var(--rvt-color-theme-container);
+      background-color: var(--rvt-color-theme-background-strong);
       color: var(--rvt-color-theme-accent);
     }
   }
@@ -154,7 +154,7 @@
   &__mobile-toggle {
     align-items: center;
     background-color: var(--rvt-color-theme-background);
-    border: 2px solid var(--rvt-color-theme-border);
+    border: 2px solid var(--rvt-color-theme-ui);
     display: flex;
     font-weight: $font-weight-medium;
     gap: $spacing-sm;

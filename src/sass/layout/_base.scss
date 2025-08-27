@@ -36,7 +36,7 @@
   }
 
   &__sidebar {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     padding-bottom: $spacing-lg;
     padding-top: $spacing-lg;
   }
@@ -49,7 +49,7 @@
     }
 
     &__sidebar {
-      border-right: 1px solid var(--rvt-color-theme-border);
+      border-right: 1px solid var(--rvt-color-theme-ui);
       border-top: none;
       flex-basis: $width-md;
       flex-grow: 1;

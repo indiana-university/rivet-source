@@ -6,7 +6,7 @@
 
 table,
 .#{$prefix}-table {
-  border: 1px solid var(--rvt-color-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
@@ -25,7 +25,7 @@ tr th {
 }
 
 thead {
-  background-color: var(--rvt-color-theme-container);
+  background-color: var(--rvt-color-theme-background-strong);
 
   tr th {
     padding-block: $spacing-sm;
@@ -40,7 +40,7 @@ thead {
 }
 
 tr {
-  border-bottom: 1px solid var(--rvt-color-theme-border);
+  border-bottom: 1px solid var(--rvt-color-theme-ui);
 }
 
 tbody tr td,
@@ -63,7 +63,7 @@ tbody tr th {
 
 .#{$prefix}-table-stripes {
   tr:nth-child(even) {
-    background-color: var(--rvt-color-theme-container);
+    background-color: var(--rvt-color-theme-background-strong);
   }
 }
 
@@ -77,16 +77,16 @@ tbody tr th {
 }
 
 .#{$prefix}-table-cells {
-  border-top: 1px solid var(--rvt-color-theme-border);
+  border-top: 1px solid var(--rvt-color-theme-ui);
 
   tr td,
   tr th {
-    border-right: 1px solid var(--rvt-color-theme-border);
+    border-right: 1px solid var(--rvt-color-theme-ui);
   }
 
   tr td:first-child,
   tr th:first-child {
-    border-left: var(--rvt-color-theme-border);
+    border-left: var(--rvt-color-theme-ui);
   }
 }
 
@@ -124,7 +124,7 @@ tbody tr th {
   background-repeat: no-repeat;
   background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
   /* stylelint-enable */
-  border: 1px solid var(--rvt-color-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
   border-radius: $spacing-xs;
   overflow: auto;
 }

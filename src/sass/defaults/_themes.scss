@@ -6,60 +6,44 @@
 :root,
 .#{$prefix}-theme-light {
   --rvt-color-theme-accent: var(--rvt-color-brand-main);
-  --rvt-color-theme-accent-alt: var(--rvt-color-brand-dark);
+  --rvt-color-theme-accent-strong: var(--rvt-color-brand-dark);
+  --rvt-color-theme-accent-inverse: var(--rvt-color-brand-extralight);
   --rvt-color-theme-background: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-body: var(--rvt-color-base-body);
-  --rvt-color-theme-body-inverse: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-border: var(--rvt-color-base-medium);
-  --rvt-color-theme-container: var(--rvt-color-base-extralight);
-  --rvt-color-theme-container-accent: var(--rvt-color-brand-extralight);
-  --rvt-color-theme-disabled: var(--rvt-color-base-medium);
-  --rvt-color-theme-focus: var(--rvt-color-brand-dark);
-  --rvt-color-theme-heading: var(--rvt-color-base-main);
-  --rvt-color-theme-main: var(--rvt-color-base-main);
-  --rvt-color-theme-main-alt: var(--rvt-color-base-dark);
-
-  /*
-  --rvt-color-theme-background: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-background-alt: var(--rvt-color-base-extralight);
-  --rvt-color-theme-background-accent: var(--rvt-color-brand-extralight);
+  --rvt-color-theme-background-strong: var(--rvt-color-base-extralight);
+  --rvt-color-theme-background-inverse: var(--rvt-color-base-dark);
+  --rvt-color-theme-ui: var(--rvt-color-base-light);
+  --rvt-color-theme-ui-strong: var(--rvt-color-base-medium);
   --rvt-color-theme-text: var(--rvt-color-base-body);
-  --rvt-color-theme-text-alt: var(--rvt-color-base-main);
-  --rvt-color-theme-text-accent: var(--rvt-color-theme-accent);
-  --rvt-color-theme-text-inv: var(--rvt-color-base-ultralight);
-  */
+  --rvt-color-theme-text-strong: var(--rvt-color-base-main);
+  --rvt-color-theme-text-inverse: var(--rvt-color-base-ultralight);
 }
 
 .#{$prefix}-theme-dark {
   --rvt-color-theme-accent: var(--rvt-color-brand-light);
-  --rvt-color-theme-accent-alt: var(--rvt-color-brand-extralight);
+  --rvt-color-theme-accent-strong: var(--rvt-color-brand-extralight);
+  --rvt-color-theme-accent-inverse: var(--rvt-color-brand-main);
   --rvt-color-theme-background: var(--rvt-color-base-main);
-  --rvt-color-theme-body: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-body-inverse: var(--rvt-color-base-main);
-  --rvt-color-theme-border: var(--rvt-color-base-medium);
-  --rvt-color-theme-container: var(--rvt-color-base-dark);
-  --rvt-color-theme-container-accent: var(--rvt-color-base-dark);
-  --rvt-color-theme-disabled: var(--rvt-color-base-medium);
-  --rvt-color-theme-focus: var(--rvt-color-brand-extralight);
-  --rvt-color-theme-heading: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-main: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-main-alt: var(--rvt-color-base-light);
+  --rvt-color-theme-background-strong: var(--rvt-color-base-dark);
+  --rvt-color-theme-background-inverse: var(--rvt-color-base-ultralight);
+  --rvt-color-theme-ui: var(--rvt-color-base-medium);
+  --rvt-color-theme-ui-strong: var(--rvt-color-base-light);
+  --rvt-color-theme-text: var(--rvt-color-base-ultralight);
+  --rvt-color-theme-text-strong: var(--rvt-color-base-ultralight);
+  --rvt-color-theme-text-inverse: var(--rvt-color-base-main);
 }
 
 .#{$prefix}-theme-crimson {
   --rvt-color-theme-accent: var(--rvt-color-brand-light);
-  --rvt-color-theme-accent-alt: var(--rvt-color-brand-extralight);
+  --rvt-color-theme-accent-strong: var(--rvt-color-brand-extralight);
+  --rvt-color-theme-accent-inverse: var(--rvt-color-brand-main);
   --rvt-color-theme-background: var(--rvt-color-brand-main);
-  --rvt-color-theme-body: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-body-inverse: var(--rvt-color-brand-main);
-  --rvt-color-theme-border: var(--rvt-color-brand-extradark);
-  --rvt-color-theme-container: var(--rvt-color-brand-dark);
-  --rvt-color-theme-container-accent: var(--rvt-color-brand-dark);
-  --rvt-color-theme-disabled: var(--rvt-color-base-medium);
-  --rvt-color-theme-focus: var(--rvt-color-brand-extralight);
-  --rvt-color-theme-heading: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-main: var(--rvt-color-base-ultralight);
-  --rvt-color-theme-main-alt: var(--rvt-color-base-light);
+  --rvt-color-theme-background-strong: var(--rvt-color-brand-dark);
+  --rvt-color-theme-background-inverse: var(--rvt-color-brand-extralight);
+  --rvt-color-theme-ui: var(--rvt-color-base-medium);
+  --rvt-color-theme-ui-strong: var(--rvt-color-base-light);
+  --rvt-color-theme-text: var(--rvt-color-base-ultralight);
+  --rvt-color-theme-text-strong: var(--rvt-color-base-ultralight);
+  --rvt-color-theme-text-inverse: var(--rvt-color-base-main);
 }
 
 .#{$prefix}-theme-light,

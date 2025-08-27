@@ -23,7 +23,7 @@
   }
 
   &:hover {
-    color: var(--rvt-color-theme-accent-alt);
+    color: var(--rvt-color-theme-accent-strong);
 
     &::after {
       transform: translateX($spacing-xxs);

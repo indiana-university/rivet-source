@@ -5,10 +5,10 @@
 @use 'sass:math';
 
 .#{$prefix}-button {
-  --color-border: var(--rvt-color-theme-main);
+  --color-border: var(--rvt-color-theme-text-strong);
   --color-background: var(--rvt-color-theme-background);
-  --color-background-hover: var(--rvt-color-theme-container);
-  --color-text: var(--rvt-color-theme-main);
+  --color-background-hover: var(--rvt-color-theme-background-strong);
+  --color-text: var(--rvt-color-theme-text-strong);
   align-items: center;
   background: var(--color-background);
   border: 1px solid var(--color-border);
@@ -31,10 +31,10 @@
   }
 
   &--solid {
-    --color-background: var(--rvt-color-theme-main);
-    --color-background-hover: var(--rvt-color-theme-main-alt);
+    --color-background: var(--rvt-color-theme-text-strong);
+    --color-background-hover: var(--rvt-color-theme-background-inverse);
     --color-border: transparent;
-    --color-text: var(--rvt-color-theme-body-inverse);
+    --color-text: var(--rvt-color-theme-text-inverse);
   }
 
   &--plain {
@@ -50,8 +50,8 @@
   &:disabled {
     //--color-background: var(--rvt-color-theme-background);
     --color-background-hover: var(--rvt-color-theme-background);
-    //--color-border: var(--rvt-color-theme-border);
-    //--color-text: var(--rvt-color-theme-disabled);
+    //--color-border: var(--rvt-color-theme-ui);
+    //--color-text: var(--rvt-color-theme-ui-strong);
     cursor: not-allowed;
     opacity: 0.4;
   }
@@ -61,9 +61,9 @@
   }
 
   &--solid:disabled {
-    //--color-background: var(--rvt-color-theme-disabled);
-    --color-background-hover: var(--rvt-color-theme-main);
-    //--color-text: var(--rvt-color-theme-body-inverse);
+    //--color-background: var(--rvt-color-theme-ui-strong);
+    --color-background-hover: var(--rvt-color-theme-text-strong);
+    //--color-text: var(--rvt-color-theme-text-inverse);
   }
 }
 

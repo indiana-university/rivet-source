@@ -1,8 +1,8 @@
 @use '../core' as *;
 
 .#{$prefix}-empty-state {
-  background-color: var(--rvt-color-theme-container);
-  border: $spacing-xxs dashed var(--rvt-color-theme-border);
+  background-color: var(--rvt-color-theme-background-strong);
+  border: $spacing-xxs dashed var(--rvt-color-theme-ui);
   border-radius: $spacing-xs;
   display: flex;
   flex-direction: column;

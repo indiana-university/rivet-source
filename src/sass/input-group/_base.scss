@@ -43,8 +43,8 @@
   &__append &__text,
   &__prepend &__text {
     align-items: center;
-    background-color: var(--rvt-color-theme-container);
-    border: 1px solid var(--rvt-color-theme-main);
+    background-color: var(--rvt-color-theme-background-strong);
+    border: 1px solid var(--rvt-color-theme-text-strong);
     display: flex;
     height: 100%;
     padding-left: $spacing-sm * .75;

@@ -10,7 +10,7 @@
   &-textarea,
   &-select > select {
     background-color: var(--rvt-color-theme-background);
-    border: 1px solid var(--rvt-color-theme-main);
+    border: 1px solid var(--rvt-color-theme-text-strong);
     border-radius: 0;
     color: inherit;
     display: block;
@@ -82,8 +82,8 @@
   &-text-input:disabled,
   &-textarea:disabled,
   &-select:disabled {
-    background-color: var(--rvt-color-theme-container);
-    border-color: var(--rvt-color-theme-border);
+    background-color: var(--rvt-color-theme-background-strong);
+    border-color: var(--rvt-color-theme-ui);
     cursor: not-allowed;
   }
 

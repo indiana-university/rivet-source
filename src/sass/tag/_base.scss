@@ -6,9 +6,9 @@
 .#{$prefix}-tag {
   align-items: center;
   background-color: var(--rvt-color-theme-background);
-  border: calc(1rem/16) solid var(--rvt-color-theme-border);
+  border: calc(1rem/16) solid var(--rvt-color-theme-ui);
   border-radius: $border-radius-circle;
-  color: var(--rvt-color-theme-body);
+  color: var(--rvt-color-theme-text);
   cursor: pointer;
   display: inline-flex;
   font-size: $ts-xs;
@@ -30,16 +30,16 @@
   }
 
   &:hover {
-    background-color: var(--rvt-color-theme-container);
+    background-color: var(--rvt-color-theme-background-strong);
   }
 
   &[aria-pressed="true"] {
     background-color: var(--rvt-color-theme-accent);
     border-color: transparent;
-    color: var(--rvt-color-theme-body-inverse);
+    color: var(--rvt-color-theme-text-inverse);
   }
 
   &[aria-pressed="true"]:hover {
-    background-color: var(--rvt-color-theme-accent-alt);
+    background-color: var(--rvt-color-theme-accent-strong);
   }
 }

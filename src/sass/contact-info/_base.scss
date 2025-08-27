@@ -74,7 +74,7 @@
 
     button:hover {
       cursor: pointer;
-      color: var(--rvt-color-theme-accent-alt);
+      color: var(--rvt-color-theme-accent-strong);
       text-decoration: underline;
     }
 
@@ -112,7 +112,7 @@
     }
 
     &__icon-list {
-      border-left: 1px solid var(--rvt-color-theme-border);
+      border-left: 1px solid var(--rvt-color-theme-ui);
       padding-left: $spacing-lg;
     }
   }

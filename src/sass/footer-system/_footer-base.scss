@@ -5,7 +5,7 @@
 .#{$prefix}-footer-base {
 
   &__inner {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -30,7 +30,7 @@
   }
 
   &__link {
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     text-decoration: none;
 
     &:hover {

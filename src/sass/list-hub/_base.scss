@@ -25,7 +25,7 @@
   }
 
   &__item {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     padding-block: $spacing-sm;
     padding-inline: $spacing-sm;
   }
@@ -44,7 +44,7 @@
   &__link,
   &__item-title {
     align-items: center;
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     display: flex;
     font-size: $ts-18;
     font-variation-settings:
@@ -105,7 +105,7 @@
   }
 
   &__content {
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
     margin-block-start: $spacing-xs;
     padding-inline-start: $spacing-md;
 

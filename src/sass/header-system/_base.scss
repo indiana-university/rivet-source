@@ -31,10 +31,10 @@
 
   &__button {
     align-items: center;
-    background-color: var(--rvt-color-theme-container);
-    border: 1px solid var(--rvt-color-theme-border);
+    background-color: var(--rvt-color-theme-background-strong);
+    border: 1px solid var(--rvt-color-theme-ui);
     border-radius: 999rem;
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     cursor: pointer;
     display: flex;
     height: $spacing-xl;
@@ -68,7 +68,7 @@
       align-items: center;
       background-color: transparent;
       border: none;
-      color: var(--rvt-color-theme-main);
+      color: var(--rvt-color-theme-text-strong);
       display: flex;
       justify-content: center;
       padding-inline: math.div($spacing-xxs, 1.5);
@@ -113,7 +113,7 @@
   }
 
   &-menu__link {
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     font-size: $ts-14;
     font-weight: $font-weight-medium;
     padding-block: $spacing-xs;
@@ -124,10 +124,10 @@
 
     > button {
       align-items: center;
-      background-color: var(--rvt-color-theme-border);
-      border: 1px solid var(--rvt-color-theme-border);
+      background-color: var(--rvt-color-theme-ui);
+      border: 1px solid var(--rvt-color-theme-ui);
       border-radius: 999rem;
-      color: var(--rvt-color-theme-main);
+      color: var(--rvt-color-theme-text-strong);
       cursor: pointer;
       display: flex;
       font-size: $ts-14;
@@ -159,7 +159,7 @@
   }
 
   &__search-bar {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     box-shadow: 0 9999px 0 9999px var(--rvt-color-shadow-dark);
     position: absolute;
     right: 0;
@@ -179,12 +179,12 @@
   }
 
   &__search-bar input[type="text"]:focus-visible {
-    outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
+    outline: calc(2rem/16) solid var(--rvt-color-theme-accent-strong);
     outline-offset: calc(2rem/16);
   }
 
   &__search-bar ::placeholder {
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
   }
 
   &__mobile-menu {
@@ -241,14 +241,14 @@
   }
 
   &__title {
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     font-size: $ts-20;
     font-weight: $font-weight-black;
     letter-spacing: .025rem;
   }
 
   &__subtitle {
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
   }
 
   &__title,

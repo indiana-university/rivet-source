@@ -11,7 +11,7 @@
   padding: 0;
 
   &__item {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     margin: 0;
   }
 
@@ -52,7 +52,7 @@
   }
 
   &__description {
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
     font-size: $ts-14;
     margin-top: $spacing-xs;
   }

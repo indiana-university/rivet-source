@@ -6,11 +6,11 @@
 
 .#{$prefix}-accordion {
   background-color: var(--rvt-color-theme-background);
-  border: 1px solid var(--rvt-color-theme-border);
-  color: var(--rvt-color-theme-body);
+  border: 1px solid var(--rvt-color-theme-ui);
+  color: var(--rvt-color-theme-text);
 
   &__summary:not(:first-child) {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
   }
 
   &__toggle {
@@ -18,7 +18,7 @@
     appearance: none;
     background-color: transparent;
     border: none;
-    color: var(--rvt-color-theme-heading);
+    color: var(--rvt-color-theme-text-strong);
     display: flex;
     padding: $spacing-md;
     text-align: left;
@@ -40,7 +40,7 @@
 
   &__toggle:hover,
   &__summary:has(&__toggle:hover) + &__panel {
-    background-color: var(--rvt-color-theme-container);
+    background-color: var(--rvt-color-theme-background-strong);
     cursor: pointer;
   }
 

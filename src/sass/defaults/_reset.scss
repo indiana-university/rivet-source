@@ -21,7 +21,7 @@ html * {
 }
 
 body {
-  color: var(--rvt-color-theme-body);
+  color: var(--rvt-color-theme-text);
   font-family: $font-base;
   font-variation-settings: "wdth" 110;
   font-weight: $font-weight-regular;
@@ -49,7 +49,7 @@ h6 {
 }
 
 hr {
-  background-color: var(--rvt-color-theme-border);
+  background-color: var(--rvt-color-theme-ui);
   border: none;
   height: 1px;
 }
@@ -84,6 +84,6 @@ sup {
 }
 
 :focus-visible {
-  outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
+  outline: calc(2rem/16) solid var(--rvt-color-theme-accent-strong);
   outline-offset: calc(2rem/16);
 }

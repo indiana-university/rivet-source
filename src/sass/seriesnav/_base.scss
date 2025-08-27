@@ -4,7 +4,7 @@
 @use '../core' as *;
 
 .#{$prefix}-seriesnav {
-  border: 1px solid var(--rvt-color-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
 
   &__previous {
     flex-direction: row-reverse;
@@ -20,14 +20,14 @@
   }
 
   &__next {
-    border-top: 1px solid var(--rvt-color-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     padding-left: $spacing-md;
     text-align: right;
   }
 
   &__previous,
   &__next {
-    color: var(--rvt-color-theme-body);
+    color: var(--rvt-color-theme-text);
     display: flex;
     flex-basis: 50%;
     flex-grow: 1;
@@ -36,8 +36,8 @@
     text-decoration: none;
 
     &:hover {
-      background-color: var(--rvt-color-theme-container);
-      color: var(--rvt-color-theme-body);
+      background-color: var(--rvt-color-theme-background-strong);
+      color: var(--rvt-color-theme-text);
     }
   }
 
@@ -99,7 +99,7 @@
     }
 
     &__previous {
-      border-right: 1px solid var(--rvt-color-theme-border);
+      border-right: 1px solid var(--rvt-color-theme-ui);
       flex-direction: row-reverse;
       padding-right: $spacing-md;
 

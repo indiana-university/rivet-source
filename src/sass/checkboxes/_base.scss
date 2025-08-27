@@ -38,8 +38,8 @@
   input[type="checkbox"] ~ label {
     --color-background: var(--rvt-color-theme-background);
     --color-background-accent: var(--rvt-color-theme-accent);
-    --color-border: var(--rvt-color-theme-main);
-    --color-icon: var(--rvt-color-theme-body-inverse);
+    --color-border: var(--rvt-color-theme-text-strong);
+    --color-icon: var(--rvt-color-theme-text-inverse);
     --display-icon: none;
     --icon-check: path("m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z");
     --icon-minus: path("M15 9H1V7h14v2Z");
@@ -84,17 +84,17 @@
   }
 
   input[type="checkbox"]:disabled ~ label {
-    --color-background: var(--rvt-color-theme-container);
-    --color-border: var(--rvt-color-theme-border);
+    --color-background: var(--rvt-color-theme-background-strong);
+    --color-border: var(--rvt-color-theme-ui);
     cursor: not-allowed;
   } 
 
   input[type="checkbox"]:disabled:checked ~ label {
-    --color-icon: var(--rvt-color-theme-border);
+    --color-icon: var(--rvt-color-theme-ui);
   }
 
   input[type="checkbox"]:focus ~ label::before {
-    outline: math.div(2rem, 16) solid var(--rvt-color-theme-focus);
+    outline: math.div(2rem, 16) solid var(--rvt-color-theme-accent-strong);
     outline-offset: math.div(2rem, 16);
   }
 

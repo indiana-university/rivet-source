@@ -71,7 +71,7 @@
     background-color: transparent;
     border: none;
     border-radius: $spacing-xxs;
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
     display: inline-block;
     height: auto;
     line-height: .5;
@@ -81,12 +81,12 @@
     top: 1.1rem;
 
     &:hover {
-      background-color: var(--rvt-color-theme-container);
+      background-color: var(--rvt-color-theme-background-strong);
     }
   }
 
   &__header {
-    border-bottom: 1px solid var(--rvt-color-theme-border);
+    border-bottom: 1px solid var(--rvt-color-theme-ui);
     padding: $spacing-md $spacing-sm;
   }
 
@@ -101,8 +101,8 @@
   }
 
   &__controls {
-    background-color: var(--rvt-color-theme-container);
-    border-top: 1px solid var(--rvt-color-theme-border);
+    background-color: var(--rvt-color-theme-background-strong);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-sm;

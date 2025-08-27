@@ -6,7 +6,7 @@
 @use 'sass:math';
 
 .#{$prefix}-tabs {
-  border: 1px solid var(--rvt-color-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
 
   &__tablist {
     display: flex;
@@ -16,8 +16,8 @@
   &__tab {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid var(--rvt-color-theme-border);
-    color: var(--rvt-color-theme-main);
+    border-bottom: 1px solid var(--rvt-color-theme-ui);
+    color: var(--rvt-color-theme-text-strong);
     cursor: pointer;
     flex-grow: 1;
     line-height: 1;
@@ -26,23 +26,23 @@
     z-index: map.get($z-index, '100');
 
     &:not(:first-child) {
-      border-left: 1px solid var(--rvt-color-theme-border);
+      border-left: 1px solid var(--rvt-color-theme-ui);
       // Fixes double border when tabs wrap on to multiple lines
       margin-left: -1px;
     }
 
     &:hover {
-      background-color: var(--rvt-color-theme-container);
+      background-color: var(--rvt-color-theme-background-strong);
       color: var(--rvt-color-theme-accent);
     }
   }
 
   &__tab[aria-selected="true"] {
-    background-color: var(--rvt-color-theme-container);
+    background-color: var(--rvt-color-theme-background-strong);
   }
 
   &__tab[aria-selected="true"]:hover {
-    color: var(--rvt-color-theme-main);
+    color: var(--rvt-color-theme-text-strong);
   }
 
   &__tab[aria-selected="true"]::after {

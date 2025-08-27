@@ -10,7 +10,7 @@
 
 .#{$prefix}-social-link {
   align-items: center;
-  border: 1px solid var(--rvt-color-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
   border-radius: $border-radius-circle;
   display: flex;
   height: $spacing-sm * 2.25;
@@ -20,7 +20,7 @@
   &:hover {
     background-color: var(--rvt-color-theme-accent);
     border-color: var(--rvt-color-theme-accent);
-    color: var(--rvt-color-theme-body-inverse);
+    color: var(--rvt-color-theme-text-inverse);
     transition: all .2s ease;
   }
 

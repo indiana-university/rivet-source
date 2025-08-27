@@ -45,7 +45,7 @@ $padding: math.div(3rem, 16);
 
   input[type="radio"] ~ label::before {
     background-color: var(--rvt-color-theme-background);
-    border: math.div($spacing-xxs, 4) solid var(--rvt-color-theme-main);
+    border: math.div($spacing-xxs, 4) solid var(--rvt-color-theme-text-strong);
     border-radius: $spacing-sm;
     box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-background);
     content: "";
@@ -63,7 +63,7 @@ $padding: math.div(3rem, 16);
   }
 
   input[type="radio"]:focus ~ label::before {
-    outline: math.div(2rem, 16) solid var(--rvt-color-theme-focus);
+    outline: math.div(2rem, 16) solid var(--rvt-color-theme-accent-strong);
     outline-offset: math.div(2rem, 16);
   }
 
@@ -76,13 +76,13 @@ $padding: math.div(3rem, 16);
   }
 
   input[type="radio"]:disabled ~ label::before {
-    background-color: var(--rvt-color-theme-container);
-    border-color: var(--rvt-color-theme-border);
-    box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-container);
+    background-color: var(--rvt-color-theme-background-strong);
+    border-color: var(--rvt-color-theme-ui);
+    box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-background-strong);
   }
 
   input[type="radio"]:disabled:checked ~ label::before {
-    background-color: var(--rvt-color-theme-border);
+    background-color: var(--rvt-color-theme-ui);
   }
 
   &__description {

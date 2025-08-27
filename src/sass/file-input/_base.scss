@@ -28,14 +28,14 @@
   }
 
   input[type="file"]:focus + label {
-    outline: calc(2rem/16) solid var(--rvt-color-theme-focus);
+    outline: calc(2rem/16) solid var(--rvt-color-theme-accent-strong);
     outline-offset: calc(2rem/16);
   }
 
   input[type="file"]:disabled + label {
     background-color: var(--rvt-color-theme-background);
-    border-color: var(--rvt-color-theme-container);
-    color: var(--rvt-color-theme-border);
+    border-color: var(--rvt-color-theme-background-strong);
+    color: var(--rvt-color-theme-ui);
     cursor: not-allowed;
   }
 

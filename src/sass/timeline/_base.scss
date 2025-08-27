@@ -8,7 +8,7 @@
   position: relative;
 
   &::before {
-    background: var(--rvt-color-theme-border);
+    background: var(--rvt-color-theme-ui);
     content: "";
     height: 100%;
     left: 0;
@@ -30,10 +30,10 @@
    */
 
   &__marker {
-    color: var(--rvt-color-theme-body-inverse);
+    color: var(--rvt-color-theme-text-inverse);
     background: var(--rvt-color-theme-accent);
     border-radius: 50%;
-    box-shadow: 0 0 0 ($spacing-xs * .85) var(--rvt-color-theme-background), 0 0 0 $spacing-xs var(--rvt-color-theme-border);
+    box-shadow: 0 0 0 ($spacing-xs * .85) var(--rvt-color-theme-background), 0 0 0 $spacing-xs var(--rvt-color-theme-ui);
     height: $spacing-sm;
     left: $spacing-xxs * -.85;
     position: absolute;
@@ -54,7 +54,7 @@
 
   &__label {
     background-color: var(--rvt-color-theme-accent);
-    color: var(--rvt-color-theme-body-inverse);
+    color: var(--rvt-color-theme-text-inverse);
     font-family: $font-mono;
     font-size: $ts-14;
     padding-block: $spacing-sm;
@@ -80,7 +80,7 @@
 
   &__item-dates-icon {
     align-items: center;
-    background-color: var(--rvt-color-theme-container);
+    background-color: var(--rvt-color-theme-background-strong);
     border-radius: $border-radius-circle;
     color: var(--rvt-color-theme-accent);
     display: flex;
@@ -102,7 +102,7 @@
   }
 
   .#{$prefix}-timeline__item::after {
-    border-left-color: var(--rvt-color-theme-border);
+    border-left-color: var(--rvt-color-theme-ui);
     border-right-color: transparent;
     margin-left: 0;
     right: 0;
@@ -138,7 +138,7 @@
     }
 
     .#{$prefix}-timeline__item::after {
-      border-left-color: var(--rvt-color-theme-border);
+      border-left-color: var(--rvt-color-theme-ui);
       border-right-color: transparent;
       left: 100%;
       margin-left: -$spacing-md;
@@ -146,7 +146,7 @@
 
     .#{$prefix}-timeline__item--right::after {
       border-left-color: transparent;
-      border-right-color: var(--rvt-color-theme-border);
+      border-right-color: var(--rvt-color-theme-ui);
       left: auto;
       margin-left: -$spacing-sm;
     }
