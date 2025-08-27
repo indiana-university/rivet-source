@@ -13,9 +13,10 @@
   display: inline-flex;
   font-size: $ts-xs;
   font-weight: $font-weight-medium;
+  gap: $spacing-xxs;
   letter-spacing: .02rem;
   line-height: 1;
-  padding: calc(3rem/16) calc(8rem/16);
+  padding: calc(3rem/16) calc(10rem/16);
   text-decoration: none;
   white-space: nowrap;
 
