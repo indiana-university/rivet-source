@@ -6,6 +6,7 @@
 .#{$prefix}-badge {
   background-color: var(--color-background);
   border-radius: $border-radius-circle;
+  box-shadow: 0 0 0 calc(1rem/16) var(--rvt-color-base-ultralight);
   color: var(--color-text);
   display: inline-block;
   font-size: $ts-xs;
