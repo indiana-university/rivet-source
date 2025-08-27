@@ -77,7 +77,7 @@ $padding: math.div(3rem, 16);
 
   input[type="radio"]:disabled ~ label::before {
     background-color: var(--rvt-color-theme-background-strong);
-    border-color: var(--rvt-color-theme-ui);
+    border-color: var(--rvt-color-theme-ui-strong);
     box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-background-strong);
   }
 
