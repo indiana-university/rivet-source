@@ -5,118 +5,65 @@
 @use 'sass:math';
 
 .#{$prefix}-accordion {
-  background-color: var(--rvt-theme-bg);
-  border: 1px solid var(--rvt-theme-border);
+  background-color: var(--rvt-color-theme-background);
+  border: 1px solid var(--rvt-color-theme-ui);
+  color: var(--rvt-color-theme-text);
 
   &__summary:not(:first-child) {
-    border-top: 1px solid var(--rvt-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
   }
 
   &__toggle {
     align-items: center;
+    appearance: none;
     background-color: transparent;
     border: none;
-    color: var(--rvt-theme-text);
+    color: var(--rvt-color-theme-text-strong);
     display: flex;
     padding: $spacing-md;
     text-align: left;
-    appearance: none;
     width: 100%;
 
     &::after {
-      content: ' ';
-      width: $spacing-sm;
+      background-color: currentColor;
+      clip-path: path("M7 7V.5h2V7h6.5v2H9v6.5H7V9H.5V7H7Z");
+      content: "";
       height: $spacing-sm;
       margin-left: auto;
-      @include bg-icon-plus($color-black-500);
-      background-repeat: no-repeat;
-      background-position: center;
+      width: $spacing-sm;
     }
   }
 
-  &__toggle[aria-expanded='true'] {
-    color: var(--rvt-theme-accent);
-
-    &::after {
-      @include bg-icon-minus($color-crimson-500);
-    }
+  &__toggle[aria-expanded="true"]::after {
+    clip-path: path("M15 9H1V7h14v2Z");
   }
 
-  // DEPRECATED: Icon is now handle as a background image of the toggle
-  &__toggle[aria-expanded='true'] &__icon-bar {
-    display: none;
-  }
-
-  &__toggle:hover {
-    color: var(--rvt-theme-accent);
-    background-color: var(--rvt-theme-bg-subtle);
+  &__toggle:hover,
+  &__summary:has(&__toggle:hover) + &__panel {
+    background-color: var(--rvt-color-theme-background-strong);
     cursor: pointer;
-  }
-
-  &__toggle:focus {
-    outline: math.div($spacing-xxs, 2) solid var(--rvt-theme-accent);
-    outline-offset: math.div($spacing-xxs, 2);
-  }
-
-  // Undo styles for browsers that support :focus-visible
-
-  &__toggle:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  // Apply stronger focus styles when tab navigation is being used
-
-  &__toggle:focus-visible {
-    background-color: var(--rvt-theme-bg-subtle);
-    color: var(--rvt-theme-accent);
   }
 
   &__toggle-text {
     font-size: $ts-18;
-    font-weight: $font-weight-bold;
     font-variation-settings:
       "wdth" 135,
       "YTLC" 540;
+    font-weight: $font-weight-bold;
     line-height: 1.3;
     padding-right: $spacing-sm;
   }
 
-  // DEPRECATED: Icon is now handle as a background image of the toggle
-  &__toggle-icon {
-    display: none !important;
-  }
-
   &__panel {
-    padding: $spacing-md;
-    border-top: 1px solid var(--rvt-theme-border);
-    color: var(--rvt-theme-text-subtle);
+    padding: 0 $spacing-md $spacing-md;
   }
 
   &__panel > * {
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
   }
 
   &__panel > * + * {
     margin-top: 1.5rem;
-  }
-}
-
-// Themes
-// Common
-.#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle::after,
-.#{$prefix}-theme-dark .#{$prefix}-accordion__toggle::after {
-  @include bg-icon-plus($color-white-base);
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-accordion__toggle[aria-expanded='true']::after,
-.#{$prefix}-theme-dark .#{$prefix}-accordion__toggle[aria-expanded='true']::after {
-  @include bg-icon-minus($color-white-base);
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-accordion,
-.#{$prefix}-theme-dark .#{$prefix}-accordion {
-  &__panel {
-    background-color: var(--rvt-theme-bg-darker);
   }
 }

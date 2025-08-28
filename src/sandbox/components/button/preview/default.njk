@@ -3,11 +3,13 @@ tags: button
 title: Button - Default
 layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
-padding: true
 order: 1
 ---
+
+<div class="rvt-flex rvt-flex-column rvt-gap-lg">
+
 {% for variant in variants %}
-  <div class="rvt-flex rvt-gap-md rvt-m-top-md">
+  <div class="rvt-flex rvt-gap-sm">
     {% for button in buttons %}
     {% if button.type == 'button' %}
       {% if button.hasIcon %}
@@ -30,5 +32,4 @@ order: 1
   </div>
 {% endfor %}
 
-{% include "partials/theme-switcher.njk" %}
-
+</div>

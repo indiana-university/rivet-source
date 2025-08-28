@@ -8,10 +8,10 @@
   margin-top: $spacing-lg;
 
   &__label {
-    color: $color-crimson-500;
-    font-size: $ts-12;
-    font-family: $font-mono;
+    color: var(--rvt-color-theme-accent);
     display: block;
+    font-family: $font-mono;
+    font-size: $ts-12;
     letter-spacing: $spacing-sm * .125;
     text-transform: uppercase;
   }
@@ -27,21 +27,20 @@
   }
 
   &__list[hidden],
-  &__list[aria-hidden='true'] {
+  &__list[aria-hidden="true"] {
     display: none;
   }
 
   &__item {
     align-items: center;
+    border-top: 1px solid var(--rvt-color-theme-ui);
     display: flex;
     flex-wrap: wrap;
     margin-top: 0; // resets Rivet default margin-top
-    border-top: 1px solid $color-black-100;
   }
 
   &__item &__item {
-    border-top: none;
-    border-top: 1px solid $color-black-100;
+    border-top: 1px solid var(--rvt-color-theme-ui);
   }
 
   &__item &__list {
@@ -54,34 +53,30 @@
   }
 
   &__link {
-    font-weight: $font-weight-medium;
-    color: $color-black-base;
+    color: var(--rvt-color-theme-text-strong);
     flex-grow: 1;
-    padding-top: $spacing-sm;
-    padding-right: $spacing-sm;
-    padding-bottom: $spacing-sm;
-    padding-left: $spacing-sm;
+    font-weight: $font-weight-medium;
+    padding: $spacing-sm;
     position: relative;
     text-decoration: none;
 
-    &[aria-current='page'] {
-      color: $color-crimson-500;
+    &[aria-current="page"] {
+      color: var(--rvt-color-theme-accent);
     }
 
-    &[aria-current='page']::before {
-      content: '';
+    &[aria-current="page"]::before {
+      background-color: var(--rvt-color-theme-accent);
+      content: "";
       display: block;
-      width: .25rem;
       height: 100%;
-      background-color: $color-crimson-500;
+      left: 0;
       position: absolute;
       top: 0;
-      left: 0;
+      width: .25rem;
     }
 
-    &:focus,
     &:hover {
-      color: $color-blue-500;
+      color: var(--rvt-color-theme-accent-strong);
       text-decoration: underline;
     }
   }
@@ -90,40 +85,46 @@
     font-weight: $font-weight-regular;
   }
 
-  &__item > &__list &__link[aria-current='page']::before {
+  &__item > &__list &__link[aria-current="page"]::before {
     margin-left: -$spacing-xxs;
   }
 
-  &__link[aria-current='page'] + &__toggle {
-    background-color: $color-orange-000;
+  &__link[aria-current="page"] + &__toggle {
+    background-color: var(--rvt-color-theme-accent-inverse);
 
     > svg {
-      color: $color-crimson-500;
+      color: var(--rvt-color-theme-accent);
     }
   }
 
-  &__link[aria-current='page'] + &__toggle:hover,
-  &__link[aria-current='page'] + &__toggle:focus {
-    color: $color-blue-500;
-    background-color: $color-blue-000;
+  &__link[aria-current="page"] + &__toggle:hover,
+  &__link[aria-current="page"] + &__toggle:focus {
+    color: var(--rvt-color-theme-accent);
+    background-color: var(--rvt-color-theme-accent-inverse);
 
     > svg {
-      color: $color-blue-500;
+      color: var(--rvt-color-theme-accent);
     }
   }
 
   &__toggle {
-    color: $color-black-200;
     align-items: center;
-    background: transparent;
+    background: none;
     border: none;
+    color: var(--rvt-color-theme-text);
     cursor: pointer;
     display: none; // Hide by default if JS doesn't load
     justify-content: center;
     padding: 0 $spacing-md;
-    background-image: url('data:image/svg+xml,<svg fill="%23abb6c9" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
+
+    &::after {
+      background-color: currentColor;
+      clip-path: path("m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z");
+      content: "";
+      display: block;
+      height: $spacing-sm;
+      width: $spacing-sm;
+    }
 
     svg {
       display: none;
@@ -133,24 +134,13 @@
       display: block;
     }
 
-    &[aria-expanded='true'] {
+    &[aria-expanded="true"] {
       transform: rotate(180deg);
     }
 
-    &:focus {
-      background-color: $color-blue-000;
-      color: $color-blue-500;
-    }
-
     &:hover {
-      background-color: $color-blue-000;
-      color: $color-blue-600;
-    }
-
-    &:hover,
-    &:focus {
-      outline: math.div($spacing-xxs, 2) solid $color-blue-400;
-      outline-offset: math.div($spacing-xxs, 2);
+      background-color: var(--rvt-color-theme-background-strong);
+      color: var(--rvt-color-theme-accent);
     }
   }
 
@@ -162,16 +152,16 @@
   }
 
   &__mobile-toggle {
-    background-color: var(--rvt-theme-bg);
-    border: 2px solid var(--rvt-theme-border);
-    font-weight: $font-weight-medium;
-    height: $spacing-sm * 3;
-    display: flex;
     align-items: center;
-    width: 100%;
+    background-color: var(--rvt-color-theme-background);
+    border: 2px solid var(--rvt-color-theme-ui);
+    display: flex;
+    font-weight: $font-weight-medium;
     gap: $spacing-sm;
+    height: $spacing-sm * 3;
     justify-content: space-between;
     padding-inline: $spacing-sm;
+    width: 100%;
   }
 }
 

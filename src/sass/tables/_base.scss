@@ -6,18 +6,17 @@
 
 table,
 .#{$prefix}-table {
-  background-color: var(--rvt-theme-bg);
-  border: 1px solid var(--rvt-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left;
   width: 100%;
 
   caption {
-    text-align: left;
     font-size: $ts-32;
-    margin-bottom: $spacing-md;
     font-weight: $font-weight-medium;
+    margin-bottom: $spacing-md;
+    text-align: left;
   }
 }
 
@@ -26,7 +25,7 @@ tr th {
 }
 
 thead {
-  background-color: var(--rvt-theme-bg-subtle);
+  background-color: var(--rvt-color-theme-background-strong);
 
   tr th {
     padding-block: $spacing-sm;
@@ -35,13 +34,13 @@ thead {
 
   th,
   tr th {
-    line-height: 1;
     font-weight: $font-weight-medium;
+    line-height: 1;
   }
 }
 
 tr {
-  border-bottom: 1px solid var(--rvt-theme-border);
+  border-bottom: 1px solid var(--rvt-color-theme-ui);
 }
 
 tbody tr td,
@@ -64,7 +63,7 @@ tbody tr th {
 
 .#{$prefix}-table-stripes {
   tr:nth-child(even) {
-    background-color: var(--rvt-theme-bg-subtle);
+    background-color: var(--rvt-color-theme-background-strong);
   }
 }
 
@@ -78,51 +77,25 @@ tbody tr th {
 }
 
 .#{$prefix}-table-cells {
-  border-top: 1px solid var(--rvt-theme-border);
+  border-top: 1px solid var(--rvt-color-theme-ui);
 
   tr td,
   tr th {
-    border-right: 1px solid var(--rvt-theme-border);
+    border-right: 1px solid var(--rvt-color-theme-ui);
   }
 
   tr td:first-child,
   tr th:first-child {
-    border-left: var(--rvt-theme-border);
+    border-left: var(--rvt-color-theme-ui);
   }
 }
 
 .#{$prefix}-table-crimson,
 .#{$prefix}-table-feature {
   thead {
-    background-color: var(--rvt-theme-accent);
-    color: var(--rvt-theme-bg);
+    background-color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-background);
   }
-}
-
-// Themes
-.#{$prefix}-theme-crimson .#{$prefix}-table-crimson,
-.#{$prefix}-theme-crimson .#{$prefix}-table-feature,
-.#{$prefix}-theme-dark .#{$prefix}-table-crimson,
-.#{$prefix}-theme-dark .#{$prefix}-table-feature {
-  thead {
-    background-color: var(--rvt-theme-bg-darker);
-    color: var(--rvt-theme-text);
-  }
-}
-
-.#{$prefix}-theme-light .#{$prefix}-table-crimson.rvt-table-cells thead th,
-.#{$prefix}-theme-light .#{$prefix}-table-feature.rvt-table-cells thead th {
-  border-right: 1px solid var(--rvt-theme-accent);
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-table-crimson.rvt-table-cells thead th,
-.#{$prefix}-theme-crimson .#{$prefix}-table-feature.rvt-table-cells thead th {
-  border-right: 1px solid var(--rvt-theme-border);
-}
-
-.#{$prefix}-theme-dark .#{$prefix}-table-crimson.rvt-table-cells thead th,
-.#{$prefix}-theme-dark .#{$prefix}-table-feature.rvt-table-cells thead th {
-  border-right: 1px solid var(--rvt-theme-border);
 }
 
 /**
@@ -130,41 +103,35 @@ tbody tr th {
  * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
 .#{$prefix}-table-responsive[role='region'][tabindex] {
-  border: 1px solid var(--rvt-theme-border);
-  border-radius: $spacing-xs;
-  overflow: auto;
-
   /* stylelint-disable */
   background:
-    linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
-    linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
+    linear-gradient(to right, var(--rvt-color-theme-background) 30%, var(--rvt-color-shadow-ultralight)),
+    linear-gradient(to right, var(--rvt-color-shadow-ultralight), var(--rvt-color-theme-background) 70%) 0 100%,
     radial-gradient(
       farthest-side at 0% 50%,
-      rgba(36, 19, 66, 0.2),
-      rgba(36, 19, 66, 0)
+      var(--rvt-color-shadow-main),
+      var(--rvt-color-shadow-ultralight)
     ),
     radial-gradient(
         farthest-side at 100% 50%,
-        rgba(36, 19, 66, 0.2),
-        rgba(36, 19, 66, 0)
+        var(--rvt-color-shadow-main),
+        var(--rvt-color-shadow-ultralight)
       )
       0 100%;
-  background-repeat: no-repeat;
-  background-color: #fff;
-  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
-  background-position: 0 0, 100%, 0 0, 100%;
   background-attachment: local, local, scroll, scroll;
+  background-color: var(--rvt-color-theme-background);
+  background-position: 0 0, 100%, 0 0, 100%;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
   /* stylelint-enable */
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2.5) $color-blue-400;
-  }
+  border: 1px solid var(--rvt-color-theme-ui);
+  border-radius: $spacing-xs;
+  overflow: auto;
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-table-responsive[role='region'][tabindex] {
-    border-radius: 0;
+  .#{$prefix}-table-responsive[role="region"][tabindex] {
     border: none;
+    border-radius: 0;
   }
 }

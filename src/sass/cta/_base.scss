@@ -2,110 +2,45 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
-@use 'sass:math';
 
 .#{$prefix}-cta {
-  --rvt-cta-color-default: #{$color-crimson-500};
-
-  text-decoration: none;
-  display: inline-block;
+  align-items: center;
+  color: var(--rvt-color-theme-accent);
+  display: inline-flex;
   font-weight: $font-weight-medium;
-  color: var(--rvt-cta-color-default);
+  text-decoration: none;
 
   &::after {
-    content: '';
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: $spacing-xs;
-    display: inline-block;
-    width: $spacing-sm;
+    background-color: currentColor;
+    content: "";
+    clip-path: path("M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z");
+    display: block;
     height: $spacing-sm;
+    margin-left: $spacing-xs;
     position: relative;
-    top: $spacing-xxs * .8;
     transition: all .2s ease;
+    width: $spacing-sm;
   }
 
   &:hover {
-    color: $color-crimson-700;
+    color: var(--rvt-color-theme-accent-strong);
+
     &::after {
-      transform: translate($spacing-xs, 0);
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%235a0c0c" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
+      transform: translateX($spacing-xxs);
     }
   }
 
   &--button {
-    background-color: $color-white-base;
-    border: 1px solid $color-crimson-200;
-    border-color: $color-crimson-100;
-    color: $color-crimson-500;
+    background-color: var(--rvt-color-theme-background);
+    border: 1px solid var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-accent);
     height: $spacing-xl;
-    padding: $spacing-md $spacing-md;
-    display: inline-flex;
-    align-items: center;
-
-    &::after {
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23990000" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-      top: 0;
-    }
-
-    &::-moz-focus-inner {
-      border: 0;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-crimson-400;
-      outline: none;
-    }
+    padding: $spacing-md;
 
     &:hover {
-      background-color: $color-crimson-600;
-      border-color: $color-crimson-600;
-      color: $color-white-base;
-
-      &::after {
-        transform: translate($spacing-xxs, 0);
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-      }
+      background-color: var(--rvt-color-theme-accent);
+      border-color: var(--rvt-color-theme-accent);
+      color: var(--rvt-color-theme-background);
     }
-
-    &:active {
-      background-color: $color-crimson-700;
-      border-color: $color-crimson-700;
-    }
-  }
-}
-
-// Contextual styles for the CTA button When used with any "--bg-dark" component variants.
-[class*='--bg-dark'] .#{$prefix}-cta {
-  color: $color-white-base;
-
-  &:hover {
-    color: $color-blue-100;
-  }
-
-  &::after {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-white-base, 0 0 0 $spacing-xxs $color-crimson-500;
-    outline: none;
-  }
-}
-
-[class*='--bg-dark'] .#{$prefix}-cta--button {
-  background-color: $color-white-base;
-  color: $color-blue-500;
-  border-color: $color-white-base;
-
-  &::after {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23006298" viewBox="0 0 16 16"><path d="M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z"></path></svg>');
-  }
-
-  &:hover {
-    background-color: $color-blue-100;
-    border-color: $color-blue-100;
-    color: $color-blue-700;
   }
 }

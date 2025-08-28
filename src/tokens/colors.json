@@ -10,7 +10,7 @@
       "body": {
         "value": "#1B3E50"
       },
-      "border": {
+      "medium": {
         "value": "#B9C1C6"
       },
       "light": {
@@ -21,22 +21,19 @@
       },
       "ultralight": {
         "value": "#FFFFFF"
-      },
-      "black": {
-        "value": "{color.base.dark}"
-      },
-      "white": {
-        "value": "{color.base.ultralight}"
       }
     },
     "brand": {
+      "extradark": {
+        "value": "#510606"
+      },
       "dark": {
         "value": "#6D0808"
       },
       "main": {
         "value": "#990000"
       },
-      "border": {
+      "medium": {
         "value": "#DB6B57"
       },
       "light": {
@@ -47,9 +44,6 @@
       }
     },
     "danger": {
-      "hover": {
-        "value": "#760518"
-      },
       "main": {
         "value": "#AB0723"
       },
@@ -64,9 +58,6 @@
       }
     },
     "info": {
-      "hover": {
-        "value": "#004080"
-      },
       "main": {
         "value": "#004F9E"
       },
@@ -81,9 +72,6 @@
       }
     },
     "success": {
-      "hover": {
-        "value": "#0D4A08"
-      },
       "main": {
         "value": "#13650B"
       },
@@ -98,11 +86,8 @@
       }
     },
     "warning": {
-      "hover": {
-        "value": "#241400"
-      },
       "main": {
-        "value": "#422400"
+        "value": "#FF9602"
       },
       "border": {
         "value": "#FFD580"
@@ -112,6 +97,23 @@
       },
       "background": {
         "value": "#FFFBF0"
+      }
+    },
+    "shadow": {
+      "dark": {
+        "value": { "r": 7, "g": 35, "b": 50, "a": 0.85 }
+      },
+      "main": {
+        "value": { "r": 7, "g": 35, "b": 50, "a": 0.2 }
+      },
+      "light": {
+        "value": { "r": 7, "g": 35, "b": 50, "a": 0.16 }
+      },
+      "extralight": {
+        "value": { "r": 7, "g": 35, "b": 50, "a": 0.07 }
+      },
+      "ultralight": {
+        "value": { "r": 7, "g": 35, "b": 50, "a": 0 }
       }
     },
     "black": {

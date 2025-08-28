@@ -6,27 +6,27 @@
 @use 'sass:math';
 
 .#{$prefix}-pagination {
+  display: flex;
+  gap: $spacing-xs;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: $spacing-xs;
 
   &__item {
     align-items: center;
+    border: 1px solid var(--rvt-color-theme-ui);
     display: flex;
     justify-content: center;
     margin-top: 0;
-    border: 1px solid var(--rvt-theme-border);
 
     &:has([aria-current="page"]) {
-      border-color: var(--rvt-theme-accent);
+      border-color: var(--rvt-color-theme-accent);
     }
 
     svg {
-      width: 1rem;
-      height: 1rem;
       flex-shrink: 0;
+      height: 1rem;
+      width: 1rem;
     }
 
     > * {
@@ -36,42 +36,40 @@
     }
 
     > *:not(a) {
-      color: var(--rvt-theme-text-subtle);
-      padding: $spacing-xs $spacing-sm;
-      min-width: $spacing-xl;
+      color: var(--rvt-color-theme-text);
       min-height: $spacing-xl;
+      min-width: $spacing-xl;
+      padding: $spacing-xs $spacing-sm;
     }
 
     a {
-      color: var(--rvt-theme-text);
+      color: var(--rvt-color-theme-text);
+      display: flex;
       flex-grow: 1;
-      padding: $spacing-xs;
-      min-width: $spacing-xl;
+      gap: $spacing-xxs;
       min-height: $spacing-xl;
+      min-width: $spacing-xl;
+      padding: $spacing-xs;
       text-decoration: none;
       z-index: map.get($z-index, '100');
-      display: flex;
-      gap: $spacing-xxs;
     }
 
     a:hover {
-      background-color: var(--rvt-theme-bg-subtle);
-      color: var(--rvt-theme-accent);
-      box-shadow: 0 ($spacing-xxs * .5) 0 var(--rvt-theme-accent);
+      background-color: var(--rvt-color-theme-background-strong);
+      box-shadow: inset 0 ($spacing-xxs * -.5) 0 var(--rvt-color-theme-accent);
+      color: var(--rvt-color-theme-accent);
     }
 
     a:focus,
-    a[aria-current='page']:focus {
+    a[aria-current="page"]:focus {
       border-radius: inherit;
-      outline: solid math.div($spacing-xxs, 2) var(--rvt-theme-accent);
-      outline-offset: math.div($spacing-xxs, 2);
       z-index: map.get($z-index, '1000');
     }
 
-    a[aria-current='page'] {
-      background-color: var(--rvt-theme-accent);
-      color: var(--rvt-theme-bg);
-      border-color: var(--rvt-theme-accent);
+    a[aria-current="page"] {
+      background-color: var(--rvt-color-theme-accent);
+      border-color: var(--rvt-color-theme-accent);
+      color: var(--rvt-color-theme-background);
     }
   }
 }

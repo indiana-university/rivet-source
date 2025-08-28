@@ -6,8 +6,7 @@
 @use 'sass:math';
 
 .#{$prefix}-tabs {
-  background-color: var(--rvt-theme-bg);
-  border: 1px solid var(--rvt-theme-border);
+  border: 1px solid var(--rvt-color-theme-ui);
 
   &__tablist {
     display: flex;
@@ -15,10 +14,10 @@
   }
 
   &__tab {
-    border: none;
     background-color: transparent;
-    border-bottom: 1px solid $color-black-100;
-    color: $color-black-500;
+    border: none;
+    border-bottom: 1px solid var(--rvt-color-theme-ui);
+    color: var(--rvt-color-theme-text-strong);
     cursor: pointer;
     flex-grow: 1;
     line-height: 1;
@@ -27,50 +26,28 @@
     z-index: map.get($z-index, '100');
 
     &:not(:first-child) {
-      border-left: 1px solid $color-black-100;
-
+      border-left: 1px solid var(--rvt-color-theme-ui);
       // Fixes double border when tabs wrap on to multiple lines
       margin-left: -1px;
     }
 
     &:hover {
-      background-color: $color-blue-000;
-      color: $color-blue-500;
-    }
-
-    &:hover::after {
-      background-color: $color-blue-500;
-      bottom: 0;
-      content: '';
-      display: block;
-      height: $spacing-xxs;
-      left: 0;
-      position: absolute;
-      width: 100%;
-    }
-
-    &:focus {
-      outline: math.div($spacing-xxs, 2) solid $color-blue-400;
-      outline-offset: math.div($spacing-xxs, 2);
-      background-color: $color-blue-000;
-    }
-
-    &:focus:not(:focus-visible) {
-      outline: none;
+      background-color: var(--rvt-color-theme-background-strong);
+      color: var(--rvt-color-theme-accent);
     }
   }
 
-  &__tab[aria-selected='true'] {
-    background-color: $color-orange-000;
+  &__tab[aria-selected="true"] {
+    background-color: var(--rvt-color-theme-background-strong);
   }
 
-  &__tab[aria-selected='true']:hover {
-    color: $color-black-500;
+  &__tab[aria-selected="true"]:hover {
+    color: var(--rvt-color-theme-text-strong);
   }
 
-  &__tab[aria-selected='true']::after {
+  &__tab[aria-selected="true"]::after {
+    background-color: var(--rvt-color-theme-accent);
     bottom: 0;
-    background-color: $color-crimson-500;
     content: '';
     display: block;
     height: $spacing-xxs;
@@ -81,14 +58,5 @@
 
   &__panel {
     padding: $spacing-sm;
-
-    &:focus {
-      outline: math.div($spacing-xxs, 2) solid $color-blue-500;
-      outline-offset: math.div($spacing-xxs, 2) * -1;
-    }
-
-    &:focus:not(:focus-visible) {
-      outline: none;
-    }
   }
 }

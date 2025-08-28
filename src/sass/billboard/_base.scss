@@ -1,8 +1,12 @@
 @use '../core' as *;
 
 .#{$prefix}-billboard {
+  background-color: var(--rvt-color-theme-background-strong);
   position: relative;
-  background-color: var(--rvt-theme-bg-subtle);
+
+  .#{$prefix}-theme-light & {
+    background-color: var(--rvt-color-theme-accent-inverse);
+  }
 
   & + & {
     margin-top: $spacing-lg;
@@ -10,7 +14,7 @@
 
   &__eyebrow {
     @include eyebrow;
-    color: var(--rvt-theme-accent-title);
+    color: var(--rvt-color-theme-accent);
     margin: 0;
   }
 
@@ -19,13 +23,13 @@
   }
 
   &__title {
-    font-size: $ts-26;
-    text-transform: uppercase;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-condensed;
+    font-size: $ts-26;
+    font-weight: $font-weight-black;
     letter-spacing: .04rem;
     line-height: 1.2;
-    color: var(--rvt-theme-accent-title);
-    font-weight: $font-weight-black;
+    text-transform: uppercase;
   }
 
   &__body {
@@ -34,7 +38,7 @@
   }
 
   &__content {
-    color: var(--rvt-theme-text-subtle);
+    color: var(--rvt-color-theme-text);
     margin-top: $spacing-lg;
   }
 
@@ -51,8 +55,8 @@
   }
 
   &__image img {
-    width: 100%;
     display: block;
+    width: 100%;
   }
 }
 
@@ -75,19 +79,19 @@
 
     &__image img {
       height: 100%;
-      width: 100%;
       object-fit: cover;
+      width: 100%;
     }
 
     &__body {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
       flex-basis: 50%;
+      flex-direction: column;
       flex-grow: 1;
+      justify-content: flex-end;
       margin-top: 0;
-      padding-inline: $spacing-xxl;
       padding-bottom: $spacing-xxl;
+      padding-inline: $spacing-xxl;
     }
 
     &--reverse {
@@ -96,8 +100,7 @@
 
     &--compact {
       align-items: center;
-      background-color: var(--rvt-theme-bg);
-      border: 1px solid var(--rvt-theme-border);
+      border: 1px solid var(--rvt-color-theme-ui);
     }
 
     &--compact &__body {

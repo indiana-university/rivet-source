@@ -1,0 +1,40 @@
+---
+tags: tag
+title: Tag
+layout: layouts/preview.njk
+permalink: /components/preview/{{ title | slug}}/
+order: 1
+---
+
+<div class="rvt-flex rvt-gap-xs">
+  <a href="#" class="rvt-tag">Tag link</a>
+  <button class="rvt-tag">Tag button</button>
+  <button class="rvt-tag" aria-pressed="true">Tag pressed</button>
+  <button class="rvt-tag" aria-pressed="false">
+    <rvt-icon name="thumbs-up"></rvt-icon>
+    Like
+  </button>
+  <button class="rvt-tag" aria-pressed="true">
+    <rvt-icon name="thumbs-up"></rvt-icon>
+    Like
+  </button>
+  <button class="rvt-tag" aria-pressed="false">
+    <rvt-icon name="heart"></rvt-icon>
+    <span class="rvt-sr-only">Favorite</span>
+  </button>
+  <button class="rvt-tag" aria-pressed="true">
+    <rvt-icon name="heart"></rvt-icon>
+    <span class="rvt-sr-only">Favorite</span>
+  </button>
+</div>
+
+<script>
+document.addEventListener('click', (event) => {
+  const pressed = 'aria-pressed';
+  const target = event.target.closest(`[${pressed}]`);
+  if (target) {
+    const value = target.getAttribute(pressed) === 'true' ? false : true;
+    target.setAttribute(pressed, value);
+  }
+});
+</script>

@@ -7,10 +7,10 @@
 .#{$prefix}-switch {
   align-items: center;
   background: none;
-  background-color: $color-black-400;
+  background-color: var(--rvt-color-theme-text-strong);
   border: none;
   border-radius: $border-radius-circle;
-  color: $color-black-100;
+  color: var(--rvt-color-theme-background-strong);
   display: flex;
   gap: 0.75rem;
   height: $spacing-xl;
@@ -19,14 +19,11 @@
   position: relative;
   -webkit-appearance: none;
 
-  &::after {
-    background-color: $color-black-000;
+  &::before {
+    background-color: var(--rvt-color-theme-background);
     border-radius: $border-radius-circle;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%234C5A69" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
-    background-size: $spacing-sm $spacing-sm;
-    background-repeat: no-repeat;
-    background-position: center center;
     content: "";
+    display: block;
     height: $spacing-lg;
     left: $spacing-xxs;
     position: absolute;
@@ -34,9 +31,17 @@
     width: $spacing-lg;
   }
 
-  &:focus {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-black-400;
-    outline: none;
+  &::after {
+    background-color: var(--rvt-color-theme-text-strong);
+    border-radius: $border-radius-circle;
+    clip-path: path("m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z");
+    content: "";
+    display: block;
+    height: $spacing-sm;
+    left: calc(12rem/16);
+    position: absolute;
+    transition: left .2s ease;
+    width: $spacing-sm;
   }
 
   &:hover {
@@ -44,31 +49,29 @@
   }
 
   &[aria-checked="true"] {
-    background-color: $color-green-500;
-    border-color: $color-green-500;
-    color: $color-green-100;
-
-    &:focus {
-      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-green-500;
-    }
+    background-color: var(--rvt-color-success-main);
+    border-color: var(--rvt-color-success-main);
+    color: var(--rvt-color-success-background);
   }
 
-  &[aria-checked="true"]::after {
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23056E41" viewBox="0 0 16 16"><path d="m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z"></path></svg>');
+  &[aria-checked="true"]::before {
     left: calc(100% - ($spacing-lg + $spacing-xxs));
   }
 
-  &--danger[aria-checked="true"] {
-    background-color: $color-orange-500;
-    border-color: $color-orange-500;
-    color: $color-white-base;
+  &[aria-checked="true"]::after {
+    background-color: var(--rvt-color-success-main);
+    clip-path: path("m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z");
+    left: calc(100% - calc(28rem/16));
+  }
 
-    &:focus {
-      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-black-000, 0 0 0 $spacing-xxs $color-orange-500;
-    }
+  &--danger[aria-checked="true"] {
+    background-color: var(--rvt-color-danger-main);
+    border-color: var(--rvt-color-danger-main);
+    color: var(--rvt-color-base-ultralight);
 
     &::after {
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23DF3603" viewBox="0 0 16 16"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
+      background-color: var(--rvt-color-danger-main);
+      clip-path: path("m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z");
     }
   }
 
@@ -95,14 +98,22 @@
     gap: 0;
     padding: 0 $spacing-xs;
 
+    &::before {
+      height: calc(18rem/16);
+      left: calc(3rem/16);
+      width: calc(18rem/16);
+    }
+
     &::after {
-      background-size: ($spacing-sm * .75) ($spacing-sm * .75);
-      height: $spacing-sm;
-      width: $spacing-sm;
+      left: calc(4rem/16);
+    }
+
+    &[aria-checked="true"]::before {
+      left: calc(100% - calc(22rem/16));
     }
 
     &[aria-checked="true"]::after {
-      left: calc(100% - ($spacing-sm + $spacing-xxs));
+      left: calc(100% - calc(21rem/16));
     }
   }
 

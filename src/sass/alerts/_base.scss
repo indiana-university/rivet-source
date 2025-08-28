@@ -2,32 +2,85 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use '../core' as *;
+@use '../defaults' as *;
 @use 'sass:math';
 
 .#{$prefix}-alert {
-  background-color: $color-black-000;
-  border: $spacing-xxs * .5 solid $color-black-200;
+  @extend .rvt-theme-light;
+  background-color: var(--color-background);
+  border: $spacing-xxs * .25 solid var(--color-border);
   padding-inline-start: $spacing-xxl * .9;
   padding-inline-end: $spacing-sm;
   padding-block: $spacing-sm;
   position: relative;
 
+  &,
+  &--default {
+    --color-background: var(--rvt-color-base-extralight);
+    --color-border: var(--rvt-color-base-medium);
+    --color-container: var(--rvt-color-base-light);
+    --color-main: var(--rvt-color-base-main);
+    --icon: path("M10 14h5.5v-2h-1.382l-.366-.733a2.86 2.86 0 0 1-.298-1.12l-.234-4.209A5.23 5.23 0 0 0 9 1.096V0H7v1.096a5.23 5.23 0 0 0-4.22 4.842l-.234 4.209a2.86 2.86 0 0 1-.298 1.12L1.882 12H.5v2H6a2 2 0 1 0 4 0Zm1.886-2H4.114a4.86 4.86 0 0 0 .429-1.742l.234-4.209a3.228 3.228 0 0 1 6.446 0l.234 4.209A4.86 4.86 0 0 0 11.886 12Z");
+  }
+
+  &--danger {
+    --color-background: var(--rvt-color-danger-background);
+    --color-border: var(--rvt-color-danger-border);
+    --color-container: var(--rvt-color-danger-container);
+    --color-main: var(--rvt-color-danger-main);
+    --icon: path("M7 9V4h2v5H7Zm1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z");
+  }
+
+  &--info {
+    --color-background: var(--rvt-color-info-background);
+    --color-border: var(--rvt-color-info-border);
+    --color-container: var(--rvt-color-info-container);
+    --color-main: var(--rvt-color-info-main);
+    --icon: path("M9 7v5H7V7h2ZM8 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z");
+  }
+
+  &--success {
+    --color-background: var(--rvt-color-success-background);
+    --color-border: var(--rvt-color-success-border);
+    --color-container: var(--rvt-color-success-container);
+    --color-main: var(--rvt-color-success-main);
+    --icon: path("M7 11.414 11.914 6.5 10.5 5.086 7 8.586l-1.5-1.5L4.086 8.5 7 11.414Z M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z");
+  }
+
+  &--warning {
+    --color-background: var(--rvt-color-warning-background);
+    --color-border: var(--rvt-color-warning-border);
+    --color-container: var(--rvt-color-warning-container);
+    --color-main: var(--rvt-color-base-main);
+    --icon: path("M12 7H4v2h8V7Z M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z");
+  }
+
   &::before {
-    content: '';
-    display: block;
-    width: $spacing-lg;
-    height: $spacing-lg;
-    background-color: $color-black-050;
+    background-color: var(--color-container);
     border-radius: $border-radius-circle;
-    background-image: url('data:image/svg+xml,<svg fill="%23263245" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10 14h5.5v-2h-1.382l-.366-.733a2.86 2.86 0 0 1-.298-1.12l-.234-4.209A5.23 5.23 0 0 0 9 1.096V0H7v1.096a5.23 5.23 0 0 0-4.22 4.842l-.234 4.209a2.86 2.86 0 0 1-.298 1.12L1.882 12H.5v2H6a2 2 0 1 0 4 0Zm1.886-2H4.114a4.86 4.86 0 0 0 .429-1.742l.234-4.209a3.228 3.228 0 0 1 6.446 0l.234 4.209A4.86 4.86 0 0 0 11.886 12Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center center;
+    content: "";
+    display: block;
+    height: $spacing-lg;
+    left: calc(14rem/16);
     position: absolute;
-    top: $spacing-sm * .8125;
-    left: $spacing-sm;
+    top: calc(12rem/16);
+    width: $spacing-lg;
+  }
+
+  &::after {
+    background-color: var(--color-main);
+    display: block;
+    clip-path: var(--icon);
+    content: '';
+    height: $spacing-sm;
+    left: calc(22rem/16);
+    position: absolute;
+    top: calc(20rem/16);
+    width: $spacing-sm;
   }
 
   &__title {
+    color: var(--color-main);
     font-size: $ts-18;
     font-weight: $font-weight-bold;
     font-variation-settings:
@@ -59,6 +112,14 @@
       margin-block-start: $spacing-sm;
     }
 
+    a {
+      color: inherit;
+    }
+
+    a:hover {
+      color: var(--rvt-color-base-dark);
+    }
+
     > ul,
     > ol {
       padding-left: $spacing-sm;
@@ -77,119 +138,27 @@
   &__dismiss {
     background-color: transparent;
     border: none;
-    border-radius: 0;
-    color: $color-black-base;
+    border-radius: 50%;
+    color: var(--rvt-color-theme-text-strong);
     cursor: pointer;
-    line-height: 1;
-    padding: 0;
+    display: block;
+    padding: $spacing-xxs;
     position: absolute;
-    top: $spacing-xs;
-    right: $spacing-xs;
+    right: $spacing-sm;
+    top: $spacing-sm;
 
-    width: $spacing-md;
-    height: $spacing-md;
-    background-image: url('data:image/svg+xml,<svg fill="%23263245" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    &:hover {
-      background-color: $color-black-100;
+    &::before {
+      background-color: var(--color-main);
+      content: "";
+      clip-path: path("m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z");
+      display: block;
+      height: $spacing-sm;
+      width: $spacing-sm;
     }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-blue-400 !important;
+    &:hover::before {
+      background-color: var(--rvt-color-base-dark);
     }
-  }
-}
-
-/**
- * Alert modifiers
- *
- * NOTE: Old un-prefixed versions should be removed in the next major
- * version of Rivet.
- *
- * The ".alert-message" and "alert--error" class names should also be removed
- * in favor on the newer unified alert/feedback naming conventions.
- */
-
-.#{$prefix}-alert--info {
-  background-color: $color-blue-000;
-  border-color: $color-blue-200;
-  color: $color-blue-500;
-}
-
-.#{$prefix}-alert--info::before {
-  background-color: $color-blue-050;
-  background-image: url('data:image/svg+xml,<svg fill="%231a51a8" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M9 7v5H7V7h2ZM8 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z"></path></svg>');
-}
-
-.#{$prefix}-alert--info .#{$prefix}-alert__dismiss {
-  color: $color-blue-500;
-  background-image: url('data:image/svg+xml,<svg fill="%231a51a8" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');;
-
-  &:hover {
-    background-color: $color-blue-100;
-  }
-}
-
-.#{$prefix}-alert--success {
-  background-color: $color-green-000;
-  border-color: $color-green-200;
-  color: $color-green-500;
-}
-
-.#{$prefix}-alert--success::before {
-  background-color: $color-green-050;
-  background-image: url('data:image/svg+xml,<svg fill="%2307641f" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 11.414 11.914 6.5 10.5 5.086 7 8.586l-1.5-1.5L4.086 8.5 7 11.414Z"></path><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z"></path></svg>');
-}
-
-.#{$prefix}-alert--success .#{$prefix}-alert__dismiss {
-  color: $color-green-500;
-  background-image: url('data:image/svg+xml,<svg fill="%2307641f" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
-
-  &:hover {
-    background-color: $color-green-100;
-  }
-}
-
-.#{$prefix}-alert--warning {
-  background-color: $color-gold-000;
-  border-color: $color-gold-200;
-  color: $color-gold-600;
-}
-
-.#{$prefix}-alert--warning::before {
-  background-color: $color-gold-050;
-  background-image: url('data:image/svg+xml,<svg fill="%23823f03" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12 7H4v2h8V7Z"></path><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z"></path></svg>');
-}
-
-.#{$prefix}-alert--warning .#{$prefix}-alert__dismiss {
-  color: $color-gold-600;
-  background-image: url('data:image/svg+xml,<svg fill="%23823f03" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
-
-  &:hover {
-    background-color: $color-gold-100;
-  }
-}
-
-.#{$prefix}-alert--danger {
-  background-color: $color-crimson-000;
-  border-color: $color-crimson-200;
-  color: $color-orange-500;
-}
-
-.#{$prefix}-alert--danger::before {
-  background-color: $color-crimson-050;
-  background-image: url('data:image/svg+xml,<svg fill="%23d42206" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 9V4h2v5H7Zm1 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z"></path></svg>');
-}
-
-.#{$prefix}-alert--danger .#{$prefix}-alert__dismiss {
-  color: $color-orange-500;
-  background-image: url('data:image/svg+xml,<svg fill="%23d42206" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path></svg>');
-
-  &:hover {
-    background-color: $color-orange-100;
   }
 }
 
@@ -242,7 +211,7 @@
   input[type='week']:focus,
   textarea,
   select {
-    box-shadow: 0 0 0 math.div($spacing-xxs, 2) $color-orange-500;
-    border-color: $color-orange-500;
+    box-shadow: 0 0 0 math.div($spacing-xxs, 2) var(--rvt-color-danger-border);
+    border-color: var(--rvt-color-danger-border);
   }
 }

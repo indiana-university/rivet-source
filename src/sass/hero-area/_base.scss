@@ -4,37 +4,36 @@
 @use '../core' as *;
 
 .#{$prefix}-hero {
+
   &__inner {
-    display: flex;
-    gap: $spacing-lg;
-    flex-direction: column;
     @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
   }
 
   &__eyebrow {
-    color: var(--rvt-theme-accent);
-    font-size: $ts-14;
+    color: var(--rvt-color-theme-accent);
     display: block;
     font-family: $font-mono;
-    text-transform: uppercase;
+    font-size: $ts-14;
     letter-spacing: .125rem;
+    text-transform: uppercase;
   }
 
   &__eyebrow > :not(.rvt-breadcrumbs) {
     font-family: $font-sans;
-    text-transform: none;
     letter-spacing: normal;
+    text-transform: none;
   }
 
   &__title {
-    font-size: $ts-32;
-    line-height: 1.1;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-condensed;
-    // font-weight: $font-weight-black;
-    // font-variation-settings: "YTUC" 740;
-    font-weight: 850;
+    font-size: $ts-32;
     font-variation-settings: "wdth" 140;
-    color: var(--rvt-theme-accent-title);
+    font-weight: 850;
+    line-height: 1.1;
     text-transform: uppercase;
   }
 
@@ -42,12 +41,8 @@
     margin-top: $spacing-xs;
   }
 
-  &__teaser {
-    color: var(--rvt-theme-text-subtle);
-
-    > * {
-      margin-bottom: 0;
-    }
+  &__teaser > * {
+    margin-bottom: 0;
   }
 
   &__title + &__actions,
@@ -57,8 +52,8 @@
 
   &__actions {
     display: flex;
-    gap: $spacing-sm;
     flex-wrap: wrap;
+    gap: $spacing-sm;
   }
 
   &__actions > * {
@@ -66,8 +61,8 @@
   }
 
   &--statement &__body {
-    text-align: center;
     margin-inline: auto;
+    text-align: center;
   }
 
   &--statement &__actions {
@@ -90,18 +85,13 @@
   }
 
   &--profile &__subtitle {
-    font-size: $ts-20;
-    text-transform: uppercase;
+    color: var(--rvt-color-theme-accent);
     font-family: $font-condensed;
-    color: var(--rvt-theme-accent-title);
+    font-size: $ts-20;
     font-weight: $font-weight-black;
     margin: 0;
+    text-transform: uppercase;
   }
-}
-
-// Context specific adjustments for --statement variant
-.#{$prefix}-section.#{$prefix}-theme-crimson:has(.#{$prefix}-hero--statement) {
-  padding-bottom: 0;
 }
 
 @include mq($breakpoint-md) {
@@ -141,11 +131,11 @@
       position: relative;
 
       > * {
-        position: absolute;
         bottom: 0;
+        max-width: 55%;
+        position: absolute;
         right: 0;
         width: 100%;
-        max-width: 55%;
       }
     }
 
@@ -156,8 +146,8 @@
     }
 
     &--feature &__actions {
-      min-width: 27rem;
       flex-wrap: nowrap;
+      min-width: 27rem;
     }
 
     &--profile &__subtitle {
@@ -166,9 +156,9 @@
 
     &--split &__media img {
       aspect-ratio: 4 / 5;
-      width: 100%;
       height: 100%;
       object-fit: cover;
+      width: 100%;
     }
 
     &--split &__inner {
@@ -206,9 +196,9 @@
     }
 
     &__callout {
+      align-self: flex-end;
       flex-grow: 1;
       max-width: 33%;
-      align-self: flex-end;
     }
 
     &--profile &__subtitle {
@@ -221,9 +211,9 @@
     }
 
     &--feature &__banner {
-      flex-direction: row;
       // This makes the optional quick links align to the end of the flex axis
       align-items: flex-end;
+      flex-direction: row;
 
       & > *:first-child {
         flex-grow:1;
@@ -241,8 +231,8 @@
     }
 
     &--feature &__actions {
-      justify-content: flex-end;
       align-self: flex-end;
+      justify-content: flex-end;
     }
 
     &--split &__title {

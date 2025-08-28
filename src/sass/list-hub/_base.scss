@@ -8,7 +8,7 @@
   background-color: transparent;
 
   &__title {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
     font-family: $font-mono;
     font-size: $ts-12;
     letter-spacing: math.div($spacing-xxs, 2);
@@ -16,16 +16,16 @@
   }
 
   &__list {
-    list-style: ' ';
-    padding-left: 0;
+    list-style: "";
+    margin-bottom: 0;
     // Magic number to help with visual alignment when
     // list hub is first element in a layout with a sidebar
     margin-top: $spacing-xs * 1.5;
-    margin-bottom: 0;
+    padding-left: 0;
   }
 
   &__item {
-    border-top: 1px solid var(--rvt-theme-border);
+    border-top: 1px solid var(--rvt-color-theme-ui);
     padding-block: $spacing-sm;
     padding-inline: $spacing-sm;
   }
@@ -37,69 +37,67 @@
 
   &__eyebrow {
     @include eyebrow;
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
     padding-inline-start: $spacing-md;
   }
 
   &__link,
   &__item-title {
-    text-decoration: none;
+    align-items: center;
+    color: var(--rvt-color-theme-text-strong);
+    display: flex;
     font-size: $ts-18;
-    font-weight: $font-weight-bold;
     font-variation-settings:
       "wdth" 135,
       "YTLC" 540;
-    line-height: 1.3;
-    color: var(--rvt-theme-text);
-    position: relative;
-    display: flex;
-    align-items: center;
+    font-weight: $font-weight-bold;
     gap: $spacing-xs;
+    line-height: 1.3;
+    position: relative;
+    text-decoration: none;
+  }
+
+  &__link {
+    --icon-arrow-down: path("M7 1v10.844L2.146 7.737.854 9.263 8 15.31l7.146-6.047-1.292-1.526L9 11.844V1H7Z");
+    --icon-download: path("M9 7.826V1H7v6.826L4.392 5.59 3.09 7.108 8 11.318l4.91-4.21-1.302-1.518L9 7.826Z M3 13v-3H1v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3h-2v3H3Z");
+    --icon: var(--icon-arrow-down);
+    --rotate: 0;
+  }
+
+  &__link[href^="http"] {
+    --rotate: -135deg;
+  }
+
+  &__link[href*="#"] {
+    --rotate: -90deg;
+  }
+
+  &__link[href$=".docx"],
+  &__link[href$=".pdf"],
+  &__link[href$=".pptx"],
+  &__link[href$=".xlsx"] {
+    --icon: var(--icon-download);
   }
 
   &__link:hover {
-    color: var(--rvt-theme-accent);
+    color: var(--rvt-color-theme-accent);
     text-decoration: underline;
   }
 
   &__link::before {
+    background-color: currentColor;
+    clip-path: var(--icon);
+    content: "";
     flex-shrink: 0;
-    content: '';
-    width: $spacing-sm;
     height: $spacing-sm;
-    @include bg-icon-arrow-right($color-black-500);
-    background-repeat: no-repeat;
-    background-position: center;
     position: relative;
+    transform: rotate(var(--rotate));
     transition: all .2s ease;
+    width: $spacing-sm;
   }
 
   &__link:hover::before {
-    transform: translate($spacing-xxs, 0);
-    @include bg-icon-arrow-right($color-crimson-500);
-  }
-
-  &__link[href^="http"]::before {
-    @include bg-icon-arrow-up-right($color-black-500);
-  }
-
-  &__link[href*="#"]::before {
-    @include bg-icon-arrow-down($color-black-500);
-  }
-
-  &__link[href$=".pdf"]::before,
-  &__link[href$=".docx"]::before,
-  &__link[href$=".xlsx"]::before,
-  &__link[href$=".pptx"]::before {
-    @include bg-icon-download($color-black-500);
-  }
-
-  &__link[href*="#"]:hover::before,
-  &__link[href$=".pdf"]:hover::before,
-  &__link[href$=".docx"]:hover::before,
-  &__link[href$=".xlsx"]:hover::before,
-  &__link[href$=".pptx"]:hover::before  {
-    transform: translate(0, $spacing-xxs);
+    transform: rotate(var(--rotate)) translateY($spacing-xxs);
   }
 
   &__item-title + &__content {
@@ -107,9 +105,9 @@
   }
 
   &__content {
-    padding-inline-start: $spacing-md;
+    color: var(--rvt-color-theme-text);
     margin-block-start: $spacing-xs;
-    color: var(--rvt-theme-text-subtle);
+    padding-inline-start: $spacing-md;
 
       > ul:not([class]) {
         list-style-type: disc;
@@ -128,71 +126,5 @@
 
   &__content > * + * {
     margin-top: $spacing-sm;
-  }
-}
-
-// Non Global theme specifics
-
-.#{$prefix}-theme-light .#{$prefix}-list-hub {
-  &__link:hover {
-    color: var(--rvt-theme-accent);
-  }
-
-  &__link::before {
-    @include bg-icon-arrow-right($color-black-500);
-  }
-
-  &__link:hover::before {
-    @include bg-icon-arrow-right($color-crimson-500);
-  }
-}
-
-.#{$prefix}-theme-crimson .#{$prefix}-list-hub,
-.#{$prefix}-theme-dark .#{$prefix}-list-hub {
-  &__content a {
-    color: var(--rvt-theme-interactive);
-  }
-
-  &__link::before {
-    @include bg-icon-arrow-right($color-white-base);
-  }
-
-  &__link[href^="http"]::before {
-    @include bg-icon-arrow-up-right($color-white-base);
-  }
-
-  &__link[href^="http"]:hover::before {
-    @include bg-icon-arrow-up-right($color-blue-200);
-  }
-
-  &__link[href*="#"]::before {
-    @include bg-icon-arrow-down($color-white-base);
-  }
-
-  &__link[href*="#"]:hover::before {
-    @include bg-icon-arrow-down($color-blue-200);
-  }
-
-  &__link[href$=".pdf"]::before,
-  &__link[href$=".docx"]::before,
-  &__link[href$=".xlsx"]::before,
-  &__link[href$=".pptx"]::before {
-    @include bg-icon-download($color-white-base);
-  }
-
-  &__link:hover {
-    color: var(--rvt-theme-interactive);
-  }
-
-  &__link:hover::before {
-    @include bg-icon-arrow-right($color-blue-200);
-  }
-
-  &__link[href$=".pdf"]:hover::before,
-  &__link[href$=".docx"]:hover::before,
-  &__link[href$=".xlsx"]:hover::before,
-  &__link[href$=".pptx"]:hover::before  {
-    @include bg-icon-download($color-blue-200);
-    transform: translate(0, $spacing-xxs);
   }
 }
