@@ -8,7 +8,7 @@ const jetpack = require('fs-jetpack')
 const rollup = require('rollup')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const { getBabelOutputPlugin } = require('@rollup/plugin-babel')
-const { terser } = require('rollup-plugin-terser')
+const terser = require('@rollup/plugin-terser')
 
 /******************************************************************************
  * Define function to compile JS. The function must be async since Rollup
