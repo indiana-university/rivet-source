@@ -29,7 +29,7 @@
     "build": "npm-run-all clean compile-tokens compile-sass compile-js move-example",
     "watch": "run-p watch-js watch-sass",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
-    "compile-tokens": "node ./tasks/compile-tokens.js",
+    "compile-tokens": "style-dictionary build -c ./.tokens.config.js",
     "compile-sass": "node ./tasks/compile-sass.js",
     "compile-js": "node ./tasks/compile-js.js",
     "watch-js": "node ./tasks/watch-js.js",
@@ -69,7 +69,7 @@
     "rollup": "4.49.0",
     "sass": "1.91.0",
     "standard": "17.1.2",
-    "style-dictionary": "3.1.1"
+    "style-dictionary": "5.0.4"
   },
   "dependencies": {
     "@rollup/plugin-terser": "0.4.4",
