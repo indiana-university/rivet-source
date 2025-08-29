@@ -29,8 +29,9 @@ async function generate() {
    * Get all pull requests from rivet-source repo with given tag.
    *****************************************************************************/
 
-  const pullRequests = await octokit.search.issuesAndPullRequests({
-    q: `repo:indiana-university/rivet-source+type:pr+label:${tag}`
+  const pullRequests = await octokit.request('GET /search/issues', {
+    q: `repo:indiana-university/rivet-source+type:pr+label:${tag}`,
+    advanced_search: true
   })
 
   /******************************************************************************
