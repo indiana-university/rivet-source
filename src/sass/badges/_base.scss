@@ -3,7 +3,7 @@
 
 @use '../core' as *;
 
-.#{$prefix}-badge {
+:is(span, strong).#{$prefix}-badge {
   align-items: center;
   background-color: var(--color-background);
   border-radius: $border-radius-circle;
@@ -20,27 +20,15 @@
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -osx-font-smoothing: grayscale;
+}
 
-  &,
-  &--default {
-    --color-background: var(--rvt-color-base-light);
-    --color-text: var(--rvt-color-base-main);
-  }
-
-  &.#{$prefix}-badge--strong,
-  &--default.#{$prefix}-badge--strong {
-    --color-background: var(--rvt-color-base-main);
-    --color-text: var(--rvt-color-base-ultralight);
-  }
+span.#{$prefix}-badge {
+  --color-background: var(--rvt-color-base-light);
+  --color-text: var(--rvt-color-base-main);
 
   &--info {
     --color-background: var(--rvt-color-info-container);
     --color-text: var(--rvt-color-info-main);
-  }
-
-  &--info.#{$prefix}-badge--strong {
-    --color-background: var(--rvt-color-info-main);
-    --color-text: var(--rvt-color-base-ultralight);
   }
 
   &--success {
@@ -48,27 +36,37 @@
     --color-text: var(--rvt-color-success-main);
   }
 
-  &--success.#{$prefix}-badge--strong {
-    --color-background: var(--rvt-color-success-main);
-    --color-text: var(--rvt-color-base-ultralight);
-  }
-
   &--warning {
     --color-background: var(--rvt-color-warning-container);
     --color-text: var(--rvt-color-base-main);;
-  }
-
-  &--warning.#{$prefix}-badge--strong {
-    --color-background: var(--rvt-color-warning-main);
-    --color-text: var(--rvt-color-base-main);
   }
 
   &--danger {
     --color-background: var(--rvt-color-danger-container);
     --color-text: var(--rvt-color-danger-main);;
   }
+}
 
-  &--danger.#{$prefix}-badge--strong {
+strong.#{$prefix}-badge {
+  --color-background: var(--rvt-color-base-main);
+  --color-text: var(--rvt-color-base-ultralight);
+
+  &--info {
+    --color-background: var(--rvt-color-info-main);
+    --color-text: var(--rvt-color-base-ultralight);
+  }
+
+  &--success {
+    --color-background: var(--rvt-color-success-main);
+    --color-text: var(--rvt-color-base-ultralight);
+  }
+
+  &--warning {
+    --color-background: var(--rvt-color-warning-main);
+    --color-text: var(--rvt-color-base-main);
+  }
+
+  &--danger {
     --color-background: var(--rvt-color-danger-main);
     --color-text: var(--rvt-color-base-ultralight);;
   }
