@@ -42,7 +42,7 @@ module.exports = {
           format: 'css/variables'
         }
       ],
-      transforms: ['name/cti/kebab']
+      transforms: ['name/kebab']
     },
     "tokens/json": {
       transformGroup: 'js',
@@ -57,7 +57,7 @@ module.exports = {
           format: 'json/flat'
         }
       ],
-      transforms: ['name/cti/kebab']
+      transforms: ['name/kebab']
     }
   }
 }

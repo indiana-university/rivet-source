@@ -118,7 +118,7 @@
     },
     "black": {
       "base": {
-        "value": "{color.black.500.value}"
+        "value": "{color.black.500}"
       },
       "000": {
         "value": "#F7F9FB"
@@ -151,7 +151,7 @@
     },
     "blue": {
       "base": {
-        "value": "{color.blue.500.value}"
+        "value": "{color.blue.500}"
       },
       "000": {
         "value": "#F5F9FF"
@@ -184,7 +184,7 @@
     },
     "crimson": {
       "base": {
-        "value": "{color.crimson.500.value}"
+        "value": "{color.crimson.500}"
       },
       "000": {
         "value": "#FFF5F6"
@@ -217,7 +217,7 @@
     },
     "gold": {
       "base": {
-        "value": "{color.gold.500.value}"
+        "value": "{color.gold.500}"
       },
       "000": {
         "value": "#FFFBF0"
@@ -250,7 +250,7 @@
     },
     "green": {
       "base": {
-        "value": "{color.green.500.value}"
+        "value": "{color.green.500}"
       },
       "000": {
         "value": "#F4FBF4"
@@ -283,7 +283,7 @@
     },
     "orange": {
       "base": {
-        "value": "{color.orange.500.value}"
+        "value": "{color.orange.500}"
       },
       "000": {
         "value": "#FEF7F1"
@@ -316,7 +316,7 @@
     },
     "purple": {
       "base": {
-        "value": "{color.purple.500.value}"
+        "value": "{color.purple.500}"
       },
       "000": {
         "value": "#FCFBFE"

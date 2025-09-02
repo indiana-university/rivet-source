@@ -1,16 +1,16 @@
 {
   "shadow": {
     "base": {
-      "value": "0 .25rem .5rem {color.shadow.light.value}"
+      "value": "0 .25rem .5rem {color.shadow.light}"
     },
     "subtle": {
-      "value": "0 .1875rem .375rem {color.shadow.extralight.value}"
+      "value": "0 .1875rem .375rem {color.shadow.extralight}"
     },
     "standard": {
-      "value": "{shadow.base.value}"
+      "value": "{shadow.base}"
     },
     "heavy": {
-      "value": "0 .25rem 1rem {color.shadow.main.value}"
+      "value": "0 .25rem 1rem {color.shadow.main}"
     }
   }
 }
