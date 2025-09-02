@@ -18,7 +18,7 @@
   }
 
   &__content {
-    font-family: $font-mono;
+    font-family: $font-family-mono;
   }
 
   &__image + * {
@@ -27,7 +27,7 @@
 
   &__number {
     color: var(--rvt-color-theme-accent);
-    font-family: $font-mono;
+    font-family: $font-family-mono;
     font-size: $ts-41;
     font-variation-settings: "wdth" 150;
     font-weight: $font-weight-black;

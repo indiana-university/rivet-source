@@ -1,44 +1,45 @@
 {
   "spacing": {
+    "$type": "dimension",
     "base": {
-      "value": ".5rem",
-      "comment": "8px"
+      "$value": ".5rem",
+      "$description": "8px"
     },
     "xxs": {
-      "value": ".25rem",
-      "comment": "4px"
+      "$value": ".25rem",
+      "$description": "4px"
     },
     "xs": {
-      "value": ".5rem",
-      "comment": "8px"
+      "$value": ".5rem",
+      "$description": "8px"
     },
     "sm": {
-      "value": "1rem",
-      "comment": "16px"
+      "$value": "1rem",
+      "$description": "16px"
     },
     "md": {
-      "value": "1.5rem",
-      "comment": "24px"
+      "$value": "1.5rem",
+      "$description": "24px"
     },
     "lg": {
-      "value": "2rem",
-      "comment": "32px"
+      "$value": "2rem",
+      "$description": "32px"
     },
     "xl": {
-      "value": "2.5rem",
-      "comment": "40px"
+      "$value": "2.5rem",
+      "$description": "40px"
     },
     "xxl": {
-      "value": "4rem",
-      "comment": "64px"
+      "$value": "4rem",
+      "$description": "64px"
     },
     "3-xl": {
-      "value": "8rem",
-      "comment": "128px"
+      "$value": "8rem",
+      "$description": "128px"
     },
     "4-xl": {
-      "value": "12rem",
-      "comment": "192px"
+      "$value": "12rem",
+      "$description": "192px"
     }
   }
 }

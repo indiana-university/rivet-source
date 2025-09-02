@@ -1,16 +1,35 @@
 {
   "shadow": {
+    "$type": "shadow",
     "base": {
-      "value": "0 .25rem .5rem {color.shadow.light}"
+      "$value": {
+        "color": "{color.shadow.light}",
+        "offsetX": 0,
+        "offsetY": "{spacing.xxs}",
+        "blur": "{spacing.xs}",
+        "spread": 0
+      }
     },
     "subtle": {
-      "value": "0 .1875rem .375rem {color.shadow.extralight}"
+      "$value": {
+        "color": "{color.shadow.extralight}",
+        "offsetX": 0,
+        "offsetY": ".1875rem",
+        "blur": ".375rem",
+        "spread": 0
+      }
     },
     "standard": {
-      "value": "{shadow.base}"
+      "$value": "{shadow.base}"
     },
     "heavy": {
-      "value": "0 .25rem 1rem {color.shadow.main}"
+      "$value": {
+        "color": "{color.shadow.main}",
+        "offsetX": 0,
+        "offsetY": "{spacing.xxs}",
+        "blur": "{spacing.sm}",
+        "spread": 0
+      }
     }
   }
 }

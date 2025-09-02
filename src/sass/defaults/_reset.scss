@@ -22,7 +22,7 @@ html * {
 
 body {
   color: var(--rvt-color-theme-text);
-  font-family: $font-base;
+  font-family: $font-family-base;
   font-variation-settings: "wdth" 110;
   font-weight: $font-weight-regular;
   height: 100%;
@@ -65,7 +65,7 @@ figure {
 }
 
 figcaption {
-  font-family: $font-mono;
+  font-family: $font-family-mono;
   font-size: $ts-14;
   padding-top: $spacing-sm;
 }

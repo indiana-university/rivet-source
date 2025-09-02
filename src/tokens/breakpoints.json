@@ -1,19 +1,20 @@
 {
   "breakpoint": {
+    "$type": "dimension",
     "sm": {
-      "value": "30em"
+      "$value": "30em"
     },
     "md": {
-      "value": "46.25em"
+      "$value": "46.25em"
     },
     "lg": {
-      "value": "67.5em"
+      "$value": "67.5em"
     },
     "xl": {
-      "value": "78.75em"
+      "$value": "78.75em"
     },
     "xxl": {
-      "value": "87.5em"
+      "$value": "87.5em"
     }
   }
 }

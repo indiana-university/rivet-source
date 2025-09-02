@@ -4,7 +4,7 @@
 @use '../variables' as *;
 
 @mixin eyebrow {
-  font-family: $font-mono;
+  font-family: $font-family-mono;
   font-size: $ts-12;
   letter-spacing: .125rem;
   text-transform: uppercase;
