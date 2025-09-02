@@ -3,32 +3,53 @@
 
 @use '../core' as *;
 
-.#{$prefix}-badge {
+:is(span, strong).#{$prefix}-badge {
+  align-items: center;
   background-color: var(--color-background);
   border-radius: $border-radius-circle;
   box-shadow: 0 0 0 calc(1rem/16) var(--rvt-color-base-ultralight);
   color: var(--color-text);
-  display: inline-block;
+  display: inline-flex;
   font-size: $ts-xs;
   font-weight: $font-weight-medium;
+  gap: $spacing-xxs;
   letter-spacing: .02rem;
   line-height: 1;
-  padding: calc(5rem/16) .5rem;
+  padding: .25rem .5rem;
   text-decoration: none;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -osx-font-smoothing: grayscale;
+}
 
-  &,
-  &--default {
-    --color-background: var(--rvt-color-base-main);
-    --color-text: var(--rvt-color-base-ultralight);
+span.#{$prefix}-badge {
+  --color-background: var(--rvt-color-base-light);
+  --color-text: var(--rvt-color-base-main);
+
+  &--info {
+    --color-background: var(--rvt-color-info-container);
+    --color-text: var(--rvt-color-info-main);
   }
 
-  &--neutral {
-    --color-background: var(--rvt-color-base-light);
-    --color-text: var(--rvt-color-base-main);
+  &--success {
+    --color-background: var(--rvt-color-success-container);
+    --color-text: var(--rvt-color-success-main);
   }
+
+  &--warning {
+    --color-background: var(--rvt-color-warning-container);
+    --color-text: var(--rvt-color-base-main);;
+  }
+
+  &--danger {
+    --color-background: var(--rvt-color-danger-container);
+    --color-text: var(--rvt-color-danger-main);;
+  }
+}
+
+strong.#{$prefix}-badge {
+  --color-background: var(--rvt-color-base-main);
+  --color-text: var(--rvt-color-base-ultralight);
 
   &--info {
     --color-background: var(--rvt-color-info-main);

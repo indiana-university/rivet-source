@@ -1,28 +1,26 @@
 ---
-tags: tag
-title: Tag
+tags: button
+title: Button - Pressed
 layout: layouts/preview.njk
 permalink: /components/preview/{{ title | slug}}/
-order: 1
+order: 0
 ---
 
 <div class="rvt-flex rvt-gap-xs">
-  <a href="#" class="rvt-tag">Tag link</a>
-  <button class="rvt-tag">Tag button</button>
-  <button class="rvt-tag" aria-pressed="true">Tag pressed</button>
-  <button class="rvt-tag" aria-pressed="false">
+  <button class="rvt-button" aria-pressed="true">Button pressed</button>
+  <button class="rvt-button" aria-pressed="false">
     <rvt-icon name="thumbs-up"></rvt-icon>
     Like
   </button>
-  <button class="rvt-tag" aria-pressed="true">
+  <button class="rvt-button" aria-pressed="true">
     <rvt-icon name="thumbs-up"></rvt-icon>
     Like
   </button>
-  <button class="rvt-tag" aria-pressed="false">
+  <button class="rvt-button" aria-pressed="false">
     <rvt-icon name="heart"></rvt-icon>
     <span class="rvt-sr-only">Favorite</span>
   </button>
-  <button class="rvt-tag" aria-pressed="true">
+  <button class="rvt-button" aria-pressed="true">
     <rvt-icon name="heart"></rvt-icon>
     <span class="rvt-sr-only">Favorite</span>
   </button>
