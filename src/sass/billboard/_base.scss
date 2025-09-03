@@ -14,7 +14,7 @@
 
   &__eyebrow {
     @include eyebrow;
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     margin: 0;
   }
 
@@ -23,7 +23,7 @@
   }
 
   &__title {
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     font-family: $font-family-condensed;
     font-size: $ts-26;
     font-weight: $font-weight-black;

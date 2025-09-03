@@ -6,6 +6,7 @@
 .#{$prefix}-media-hub {
 
   &__teaser {
+    color: var(--rvt-color-theme-text-accent);
     font-family: $font-family-serif;
     font-size: $ts-46;
     letter-spacing: .01rem;
@@ -16,14 +17,11 @@
     -moz-osx-font-smoothing: grayscale;
 
     a {
-      color: var(--rvt-color-theme-text);
       text-decoration-thickness: $spacing-xs;
       text-underline-offset: $spacing-xs;
     }
 
     a:hover {
-      text-decoration: underline;
-      text-decoration-color: var(--rvt-color-theme-accent);
       text-decoration-thickness: $spacing-xs;
       text-underline-offset: $spacing-xs;
       transition: .2s all ease-in-out;

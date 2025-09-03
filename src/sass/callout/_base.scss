@@ -5,10 +5,17 @@
 
 // Temp Callout component
 .#{$prefix}-callout {
-  border: 1px solid var(--rvt-color-theme-ui);
-  background-color: var(--rvt-color-theme-background);
+  border: 1px solid var(--rvt-color-theme-accent-inverse);
+  background-color: var(--rvt-color-theme-accent-inverse);
+  color: var(--rvt-color-theme-text-accent);
   container-name: callout;
   container-type: inline-size;
+
+  &--alt {
+    background-color: var(--rvt-color-theme-background);
+    border-color: var(--rvt-color-theme-ui);
+    color: var(--rvt-color-theme-text);
+  }
 
   &__inner {
     padding: $spacing-md;
@@ -16,12 +23,12 @@
 
   &__eyebrow {
     @include eyebrow;
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     margin: 0;
   }
 
   &__title {
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     font-family: $font-family-condensed;
     font-size: $ts-26;
     font-weight: $font-weight-black;
@@ -35,7 +42,6 @@
   }
 
   &__content {
-    color: var(--rvt-color-theme-text);
     margin-top: $spacing-md;
   }
 

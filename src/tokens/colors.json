@@ -2,8 +2,11 @@
   "color": {
     "$type": "color",
     "base": {
-      "dark": {
+      "ultradark": {
         "$value": "#000000"
+      },
+      "dark": {
+        "$value": "#041620"
       },
       "main": {
         "$value": "#072332"
