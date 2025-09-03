@@ -15,9 +15,9 @@
 }
 
 .#{$prefix}-layout-base {
-  @include container;
   display: grid;
   gap: $spacing-md;
+  @include container;
 
   &__sidebar {
     padding-block-start: $spacing-lg;

@@ -6,10 +6,10 @@
 .#{$prefix}-hero {
 
   &__inner {
-    @include container;
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
+    @include container;
   }
 
   &__eyebrow {
@@ -78,10 +78,10 @@
   }
 
   &--feature &__banner {
-    @include container();
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
+    @include container();
   }
 
   &--profile &__subtitle {

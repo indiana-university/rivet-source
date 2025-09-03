@@ -18,10 +18,10 @@
   padding-block: $spacing-sm;
 
   &__inner {
-    @include container;
     align-items: center;
     display: flex;
     gap: $spacing-sm;
+    @include container;
   }
 
   &__controls {
