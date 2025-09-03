@@ -1,12 +1,11 @@
-const jetpack = require('fs-jetpack')
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const eleventySyntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight")
 const sortCollectionByOrder = require("./src/sandbox/filters/sort-collection-by-order")
 const sortCollectionByTitle = require("./src/sandbox/filters/sort-collection-by-title")
-const { watch } = require('browser-sync')
 
 module.exports = function(eleventyConfig) {
 
+  /*
   eleventyConfig.setServerOptions({
     watch: [
       'dist/css/*.css',
@@ -18,6 +17,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/sandbox/js/sandbox.js')
   eleventyConfig.addPassthroughCopy('css/rivet.css')
   eleventyConfig.addPassthroughCopy('js/rivet-iife.js')
+*/
+
+  // Ignore all under src except for sandbox.
+  //eleventyConfig.ignores.add('src/**');
+  //eleventyConfig.ignores.delete('src/sandbox');
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(eleventySyntaxHighlightPlugin)
@@ -29,7 +33,8 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      input: "src/sandbox",
+      input: "src",
+      includes: "sandbox/_includes",
       output: "dist"
     },
     markdownTemplateEngine: "njk",

@@ -23,6 +23,8 @@
     }
   },
   "scripts": {
+    "dev": "vite",
+    "build-vite": "vite build",
     "start": "npm-run-all build serve",
     "serve": "run-p watch eleventy",
     "eleventy": "ELEVENTY_ENV=dev npx eleventy --serve",
@@ -69,7 +71,9 @@
     "rollup": "4.49.0",
     "sass": "1.91.0",
     "standard": "17.1.2",
-    "style-dictionary": "5.0.4"
+    "style-dictionary": "5.0.4",
+    "vite": "7.1.4",
+    "vite-plugin-eleventy": "^0.3.1"
   },
   "dependencies": {
     "@rollup/plugin-terser": "0.4.4",
