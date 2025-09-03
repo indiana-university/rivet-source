@@ -82,11 +82,11 @@
   }
 
   &__previous &__label::before {
-    clip-path: path("M15 7H4.156l4.107-4.854L6.737.854.69 8l6.047 7.146 1.526-1.292L4.156 9H15V7Z");
+    clip-path: path(var(--rvt-icon-arrow-left));
   }
 
   &__next &__label::after {
-    clip-path: path("M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z");
+    clip-path: path(var(--rvt-icon-arrow-right));
   }
 }
 

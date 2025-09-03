@@ -26,7 +26,7 @@
 
     &::after {
       background-color: currentColor;
-      clip-path: path("M7 7V.5h2V7h6.5v2H9v6.5H7V9H.5V7H7Z");
+      clip-path: path(var(--rvt-icon-plus));
       content: "";
       height: $spacing-sm;
       margin-left: auto;
@@ -35,7 +35,7 @@
   }
 
   &__toggle[aria-expanded="true"]::after {
-    clip-path: path("M15 9H1V7h14v2Z");
+    clip-path: path(var(--rvt-icon-minus));
   }
 
   &__toggle:hover,

@@ -34,7 +34,7 @@
   &::after {
     background-color: var(--rvt-color-theme-text-strong);
     border-radius: $border-radius-circle;
-    clip-path: path("m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z");
+    clip-path: path(var(--rvt-icon-close));
     content: "";
     display: block;
     height: $spacing-sm;
@@ -60,7 +60,7 @@
 
   &[aria-checked="true"]::after {
     background-color: var(--rvt-color-success-main);
-    clip-path: path("m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z");
+    clip-path: path(var(--rvt-icon-check));
     left: calc(100% - calc(28rem/16));
   }
 
@@ -71,7 +71,7 @@
 
     &::after {
       background-color: var(--rvt-color-danger-main);
-      clip-path: path("m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z");
+      clip-path: path(var(--rvt-icon-close));
     }
   }
 

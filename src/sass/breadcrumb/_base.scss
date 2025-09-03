@@ -22,7 +22,7 @@
 
     &:not(:first-child)::before {
       background-color: var(--rvt-color-theme-accent);
-      clip-path: path("M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z");
+      clip-path: path(var(--rvt-icon-chevron-right));
       content: '';
       display: block;
       height: $spacing-sm;
@@ -48,7 +48,7 @@
 
     a::before {
       background-color: currentColor;
-      clip-path: path("m8 .798 7 4.667V15H9v-4.444H7V15H1V5.465L8 .798ZM3 6.535V13h2V8.556h6V13h2V6.535L8 3.202 3 6.535Z");
+      clip-path: path(var(--rvt-icon-home));
       content: '';
       display: block;
       height: $spacing-sm;

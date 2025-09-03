@@ -41,8 +41,6 @@
     --color-border: var(--rvt-color-theme-text-strong);
     --color-icon: var(--rvt-color-theme-text-inverse);
     --display-icon: none;
-    --icon-check: path("m14.914 4-9.47 9.47L1.09 8.393 2.608 7.09l2.948 3.44L13.5 2.585 14.914 4Z");
-    --icon-minus: path("M15 9H1V7h14v2Z");
     cursor: pointer;
     display: inline-block;
     line-height: $line-height-base;
@@ -62,7 +60,7 @@
 
   input[type="checkbox"] ~ label::after {
     background-color: var(--color-icon);
-    clip-path: var(--icon);
+    clip-path: path(var(--icon));
     content: "";
     display: var(--display-icon);
     height: $spacing-sm;
@@ -76,7 +74,7 @@
     --color-background: var(--rvt-color-theme-accent);
     --color-border: var(--rvt-color-theme-accent);
     --display-icon: block;
-    --icon: var(--icon-check);
+    --icon: var(--rvt-icon-check);
   }
 
   input[type="checkbox"]:disabled {
@@ -103,7 +101,7 @@
     --color-background: var(--rvt-color-theme-accent);
     --color-border: var(--rvt-color-theme-accent);
     --display-icon: block;
-    --icon: var(--icon-minus);
+    --icon: var(--rvt-icon-minus);
   }
 
   &__description {

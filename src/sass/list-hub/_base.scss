@@ -58,9 +58,7 @@
   }
 
   &__link {
-    --icon-arrow-down: path("M7 1v10.844L2.146 7.737.854 9.263 8 15.31l7.146-6.047-1.292-1.526L9 11.844V1H7Z");
-    --icon-download: path("M9 7.826V1H7v6.826L4.392 5.59 3.09 7.108 8 11.318l4.91-4.21-1.302-1.518L9 7.826Z M3 13v-3H1v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3h-2v3H3Z");
-    --icon: var(--icon-arrow-down);
+    --icon: var(--rvt-icon-arrow-down);
     --rotate: 0;
   }
 
@@ -76,7 +74,7 @@
   &__link[href$=".pdf"],
   &__link[href$=".pptx"],
   &__link[href$=".xlsx"] {
-    --icon: var(--icon-download);
+    --icon: var(--rvt-icon-download);
   }
 
   &__link:hover {
@@ -86,7 +84,7 @@
 
   &__link::before {
     background-color: currentColor;
-    clip-path: var(--icon);
+    clip-path: path(var(--icon));
     content: "";
     flex-shrink: 0;
     height: $spacing-sm;
