@@ -15,21 +15,21 @@
   &__eyebrow {
     color: var(--rvt-color-theme-accent);
     display: block;
-    font-family: $font-mono;
+    font-family: $font-family-mono;
     font-size: $ts-14;
     letter-spacing: .125rem;
     text-transform: uppercase;
   }
 
   &__eyebrow > :not(.rvt-breadcrumbs) {
-    font-family: $font-sans;
+    font-family: $font-family-sans;
     letter-spacing: normal;
     text-transform: none;
   }
 
   &__title {
     color: var(--rvt-color-theme-accent);
-    font-family: $font-condensed;
+    font-family: $font-family-condensed;
     font-size: $ts-32;
     font-variation-settings: "wdth" 140;
     font-weight: 850;
@@ -86,7 +86,7 @@
 
   &--profile &__subtitle {
     color: var(--rvt-color-theme-accent);
-    font-family: $font-condensed;
+    font-family: $font-family-condensed;
     font-size: $ts-20;
     font-weight: $font-weight-black;
     margin: 0;

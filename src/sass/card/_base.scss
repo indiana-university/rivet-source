@@ -49,7 +49,7 @@
 
   &__eyebrow {
     color: var(--rvt-color-theme-accent);
-    font-family: $font-mono;
+    font-family: $font-family-mono;
     font-size: $ts-12;
     text-decoration: none;
   }
@@ -151,7 +151,7 @@
 
   &__meta > :not([class]) {
     color: var(--rvt-color-theme-text);
-    font-family: $font-mono;
+    font-family: $font-family-mono;
     font-size: $ts-12;
   }
 

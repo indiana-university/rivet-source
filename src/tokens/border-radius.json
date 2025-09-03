@@ -1,16 +1,17 @@
 {
   "border-radius": {
+    "$type": "dimension",
     "sm": {
-      "value": ".125rem"
+      "$value": ".125rem"
     },
     "md": {
-      "value": ".25rem"
+      "$value": "{spacing.xxs}"
     },
     "lg": {
-      "value": ".5rem"
+      "$value": "{spacing.xs}"
     },
     "circle": {
-      "value": "999rem"
+      "$value": "999rem"
     }
   }
 }

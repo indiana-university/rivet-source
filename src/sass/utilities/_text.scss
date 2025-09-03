@@ -66,17 +66,17 @@
 }
 
 .#{$prefix}-font-condensed {
-  font-family: $font-condensed !important;
+  font-family: $font-family-condensed !important;
 }
 
 .#{$prefix}-font-sans {
-  font-family: $font-sans !important;
+  font-family: $font-family-sans !important;
 }
 
 .#{$prefix}-font-serif {
-  font-family: $font-serif !important;
+  font-family: $font-family-serif !important;
 }
 
 .#{$prefix}-font-mono {
-  font-family: $font-mono !important;
+  font-family: $font-family-mono !important;
 }
