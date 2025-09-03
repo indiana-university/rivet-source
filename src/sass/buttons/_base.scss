@@ -77,7 +77,7 @@
 
     &::after {
       background-color: currentColor;
-      clip-path: path(var(--rvt-icon-close-sm));
+      clip-path: path(var(--rvt-icon-close-small));
       content: "";
       display: block;
       height: $spacing-sm;
