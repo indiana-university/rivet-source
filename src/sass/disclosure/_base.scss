@@ -18,7 +18,7 @@
 
   &__toggle::before {
     background-color: currentColor;
-    clip-path: path("M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z");
+    clip-path: path(var(--rvt-icon-chevron-right));
     content: "";
     height: $spacing-sm;
     width: $spacing-sm;

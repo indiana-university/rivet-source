@@ -27,7 +27,7 @@
   &__link::after {
     background-color: currentColor;
     content: "";
-    clip-path: path("M1 7h10.844L7.737 2.146 9.263.854 15.31 8l-6.047 7.146-1.526-1.292L11.844 9H1V7Z");
+    clip-path: path(var(--rvt-icon-arrow-right));
     display: inline-block;
     height: $spacing-sm;
     position: absolute;
