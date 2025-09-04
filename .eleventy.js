@@ -34,7 +34,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      includes: "sandbox/_includes",
+      //includes: "sandbox/_includes",
       output: "dist"
     },
     markdownTemplateEngine: "njk",
