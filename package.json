@@ -25,7 +25,6 @@
   "scripts": {
     "start": "vite",
     "build": "npm-run-all clean build:tokens build:sass build:js move-example",
-    "watch": "run-p watch-js watch-sass",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
     "build:vite": "vite build",
     "build:tokens": "style-dictionary build -c ./.tokens.config.js",
