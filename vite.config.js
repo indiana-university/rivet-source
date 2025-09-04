@@ -6,7 +6,7 @@ export default {
 		eleventyPlugin()
 	],
 	build: {
-		outDir: '../../dist2',
+		outDir: '../../dist',
 		emptyOutDir: true
 	},
 	server: {

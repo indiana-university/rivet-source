@@ -2,7 +2,6 @@
 node_modules
 _build
 dist
-dist2
 static/css
 static/js/*
 !static/js/rivet-init.js
