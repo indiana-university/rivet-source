@@ -8,6 +8,11 @@
   flex-grow: 1;
   position: relative;
 
+  .rvt-theme-dark &,
+  .rvt-theme-crimson & {
+    background-color: var(--rvt-color-theme-background-strong);
+  }
+
   &--feature &__title {
     color: var(--rvt-color-theme-accent);
     font-size: $ts-23;
@@ -90,7 +95,8 @@
     text-decoration: none;
   }
 
-  &__title a::before {
+  &__title a::before,
+  &--feature::after {
     background-color: currentColor;
     clip-path: path(var(--rvt-icon-arrow-right));
     content: "";
@@ -102,6 +108,27 @@
     width: $spacing-sm;
   }
 
+  &--feature::before {
+    border-left: calc(1rem/16) solid var(--rvt-color-theme-ui);
+    border-top: calc(1rem/16) solid var(--rvt-color-theme-ui);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3rem;
+    position: absolute;
+    right: 0;
+    width: 3rem;
+  }
+
+  &--feature::after {
+    bottom: $spacing-sm;
+    right: $spacing-sm;
+  }
+
+  &--feature &__body {
+    padding: 2.5rem 4rem 2.5rem 2.5rem;
+  }
+
   &--raised {
     border: none;
     box-shadow: $shadow-heavy;
@@ -111,17 +138,7 @@
     right: $spacing-lg;
   }
 
-  &--clickable {
-    transition: all .2s ease;
-  }
-
-  &--clickable:hover {
-    background-color: var(--rvt-color-theme-background-strong);
-    box-shadow: none;
-    transition: all .2s ease;
-  }
-
-  &--clickable &__title a::after {
+  :is(&--clickable, &--feature) &__title a::after {
     bottom: 0;
     content: "";
     left: 0;
@@ -176,7 +193,7 @@
 @media screen and (min-width: $breakpoint-sm) {
   .#{$prefix}-card {
     &__body {
-      padding: $spacing-lg;
+      //padding: $spacing-lg;
     }
   }
 }
@@ -222,7 +239,7 @@
 
   @include mq($breakpoint-md) {
     &--feature &__body {
-      padding: $spacing-xl;
+      //padding: $spacing-xl;
     }
   }
 }
