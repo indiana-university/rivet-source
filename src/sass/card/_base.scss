@@ -47,8 +47,16 @@
     padding: $spacing-md;
   }
 
+  &__sticker {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__badge {
+    margin-bottom: $spacing-sm;
+  }
+
   &__eyebrow {
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     font-family: $font-family-mono;
     font-size: $ts-12;
     text-decoration: none;
@@ -59,7 +67,7 @@
   }
 
   &__eyebrow + &__title {
-    margin-top: $spacing-xs;
+    margin-top: $spacing-xxs;
   }
 
   &--feature &__eyebrow {
@@ -67,7 +75,7 @@
   }
 
   &__title {
-    font-size: $ts-18;
+    font-size: $ts-20;
     font-variation-settings:
       "wdth" 135,
       "YTLC" 540;
@@ -141,12 +149,16 @@
     }
 
     > * + * {
-      margin-top: $spacing-lg;
+      margin-top: $spacing-sm;
+    }
+
+    .rvt-list {
+      padding-left: $spacing-sm;
     }
   }
 
   &__meta {
-    margin-top: $spacing-lg;
+    margin-top: $spacing-md;
   }
 
   &__meta > :not([class]) {

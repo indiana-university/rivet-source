@@ -74,15 +74,15 @@
     gap: $spacing-xxs;
     height: $spacing-sm * 1.5;
     padding: 0 .5rem;
+  }
 
-    &::after {
-      background-color: currentColor;
-      clip-path: path(var(--rvt-icon-close-small));
-      content: "";
-      display: block;
-      height: $spacing-sm;
-      width: $spacing-sm;
-    }
+  &--dismissable::after {
+    background-color: currentColor;
+    clip-path: path(var(--rvt-icon-close-small));
+    content: "";
+    display: block;
+    height: $spacing-sm;
+    width: $spacing-sm;
   }
 
   &--icon-only {
@@ -116,6 +116,10 @@ a.#{$prefix}-button {
 
   &:hover::after {
     transform: rotate(var(--rotate)) translateX($spacing-xxs);
+  }
+
+  &--tag::after {
+    display: none;
   }
 }
 
