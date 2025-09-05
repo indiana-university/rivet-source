@@ -25,14 +25,14 @@
   "scripts": {
     "start": "vite",
     "build": "npm-run-all clean build:tokens build:sass build:js",
-    "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
+    "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip",
     "build:vite": "vite build",
     "build:tokens": "style-dictionary build -c ./.tokens.config.js",
     "build:sass": "node ./tasks/compile-sass.js",
     "build:js": "node ./tasks/compile-js.js",
     "lint": "standard 'src/js'",
     "changelog": "node ./tasks/generate-changelog.js",
-    "zip": "npm run build && zip -r rivet.zip css js sass tokens index.html",
+    "zip": "npm run build && zip -r rivet.zip css js sass tokens",
     "new-component": "node ./tasks/source-new-component.js",
     "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
   },
@@ -41,8 +41,7 @@
     "dist/**/*",
     "sass/**/*",
     "js/**/*",
-    "tokens/**/*",
-    "index.html"
+    "tokens/**/*"
   ],
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
