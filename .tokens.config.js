@@ -13,47 +13,23 @@ module.exports = {
         }
       ]
     },
-    "src/sass/core/css-custom-properties": {
+    "src/sass/core/tokens": {
       transformGroup: 'scss',
       buildPath: 'src/sass/core/',
       prefix: 'rvt',
       files: [
         {
-          destination: 'css-custom-properties.scss',
+          destination: 'tokens.css',
           format: 'css/variables'
         }
       ]
     },
-    "tokens/sass": {
-      transformGroup: 'scss',
-      buildPath: 'tokens/sass/',
-      files: [
-        {
-          destination: 'variables.scss',
-          format: 'scss/map-deep'
-        }
-      ]
-    },
-    "tokens/css": {
-      buildPath: 'tokens/css/',
-      files: [
-        {
-          destination: 'variables.css',
-          format: 'css/variables'
-        }
-      ],
-      transforms: ['name/kebab']
-    },
-    "tokens/json": {
+    "dist": {
       transformGroup: 'js',
-      buildPath: `tokens/json/`,
+      buildPath: 'dist',
       files: [
         {
-          destination: 'variables.json',
-          format: 'json'
-        },
-        {
-          destination: 'variables-flat.json',
+          destination: 'tokens.json',
           format: 'json/flat'
         }
       ],
