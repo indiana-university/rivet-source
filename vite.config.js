@@ -1,4 +1,3 @@
-import { execSync } from 'child_process';
 import { defineConfig } from 'vite';
 import bannerPlugin from 'vite-plugin-banner';
 import { eleventyPlugin } from 'vite-plugin-eleventy';
@@ -6,13 +5,6 @@ import pkg from './package.json';
 
 const libraryName = 'Rivet';
 const fileName = libraryName.toLowerCase();
-
-const styleDictionaryPlugin = {
-	name: 'style-dictionary-plugin',
-	buildStart() {
-		execSync('npm run build:tokens', { stdio: 'inherit' });
-	}
-};
 
 const license = `/*!
  * ${pkg.name} - @version ${pkg.version}
@@ -23,7 +15,6 @@ const license = `/*!
 
 const buildConfig = {
 	plugins: [
-		styleDictionaryPlugin,
 		bannerPlugin(license)
 	],
 	build: {
@@ -42,7 +33,6 @@ const buildConfig = {
 const serveConfig = {
 	root: 'src/sandbox',
 	plugins: [
-		styleDictionaryPlugin,
 		eleventyPlugin()
 	],
 	server: {

@@ -21,16 +21,17 @@
     }
   },
   "scripts": {
-    "start": "vite",
-    "build": "run-s clean build:vite zip",
+    "start": "run-s build:tokens start:server",
+    "start:server": "vite",
+    "build": "run-s build:clean build:tokens build:dist build:zip",
+    "build:clean": "rimraf ./dist ./rivet.zip",
     "build:tokens": "style-dictionary build -c ./tokens.config.json",
-    "build:vite": "vite build",
+    "build:dist": "vite build",
+    "build:zip": "zip -r rivet.zip dist",
     "changelog": "node ./tasks/generate-changelog.js",
-    "clean": "rimraf ./dist ./rivet.zip",
     "lint": "standard 'src/js'",
     "new-component": "node ./tasks/source-new-component.js",
-    "sandbox-new-component": "node ./tasks/sandbox-new-component.js",
-    "zip": "zip -r rivet.zip dist"
+    "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
   },
   "files": [
     "dist/**/*"
