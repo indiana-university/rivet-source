@@ -13,8 +13,22 @@
     background-color: var(--rvt-color-theme-background-strong);
   }
 
+  &--feature > &__sticker {
+    align-items: center;
+    aspect-ratio: 16 / 9;
+    background-color: var(--rvt-color-brand-extralight);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+
+    rvt-sticker {
+      --bg: transparent;
+      --size: 9rem;
+    }
+  }
+
   &--feature &__title {
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     font-size: $ts-23;
     font-weight: $font-weight-black;
     line-height: $line-height-tight;
@@ -23,7 +37,7 @@
   }
 
   &--feature &__title a {
-    color: var(--rvt-color-theme-accent);
+    color: var(--rvt-color-theme-text-accent);
     text-decoration: none;
   }
 
@@ -50,6 +64,10 @@
     flex-direction: column;
     flex-grow: 1;
     padding: $spacing-md;
+  }
+
+  &__body > &__image {
+    margin-bottom: $spacing-md;
   }
 
   &__sticker {
@@ -147,13 +165,25 @@
     top: 0;
   }
 
+  &--feature:has(&__title a:hover)::after {
+    background-color: var(--rvt-color-theme-text-accent);
+  }
+
   &__title a:hover {
-    color: var(--rvt-color-theme-accent);
     text-decoration: underline;
   }
 
   &__title a:hover::before {
     transform: translateX($spacing-xs);
+  }
+
+  :is(&--clickable, &--feature):focus-within {
+    outline: calc(2rem/16) solid var(--rvt-color-theme-accent-strong);
+    outline-offset: calc(2rem/16);
+  }
+
+  :is(&--clickable, &--feature) :focus {
+    outline: none;
   }
 
   &__content {
@@ -193,7 +223,7 @@
 @media screen and (min-width: $breakpoint-sm) {
   .#{$prefix}-card {
     &__body {
-      //padding: $spacing-lg;
+      padding: $spacing-lg;
     }
   }
 }
