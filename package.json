@@ -23,17 +23,13 @@
     }
   },
   "scripts": {
-    "start": "npm-run-all build serve",
-    "serve": "run-p watch eleventy",
-    "eleventy": "ELEVENTY_ENV=dev npx eleventy --serve",
-    "build": "npm-run-all clean compile-tokens compile-sass compile-js move-example",
-    "watch": "run-p watch-js watch-sass",
+    "start": "vite",
+    "build": "npm-run-all clean build:tokens build:sass build:js move-example",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
-    "compile-tokens": "style-dictionary build -c ./.tokens.config.js",
-    "compile-sass": "node ./tasks/compile-sass.js",
-    "compile-js": "node ./tasks/compile-js.js",
-    "watch-js": "node ./tasks/watch-js.js",
-    "watch-sass": "sass --watch ./src/sass/rivet.scss ./dist/css/rivet.css",
+    "build:vite": "vite build",
+    "build:tokens": "style-dictionary build -c ./.tokens.config.js",
+    "build:sass": "node ./tasks/compile-sass.js",
+    "build:js": "node ./tasks/compile-js.js",
     "move-example": "node ./tasks/move-example.js",
     "lint": "standard 'src/js'",
     "changelog": "node ./tasks/generate-changelog.js",
@@ -45,6 +41,7 @@
   },
   "files": [
     "css/**/*",
+    "dist/**/*",
     "sass/**/*",
     "js/**/*",
     "tokens/**/*",
@@ -52,7 +49,6 @@
   ],
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
-    "@11ty/eleventy-navigation": "1.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.2",
     "@babel/core": "7.28.3",
     "@babel/preset-env": "7.28.3",
@@ -66,10 +62,13 @@
     "npm-run-all": "4.1.5",
     "postcss": "8.5.6",
     "rimraf": "6.0.1",
-    "rollup": "4.49.0",
-    "sass": "1.91.0",
+    "rollup": "4.50.0",
+    "sass": "1.92.0",
     "standard": "17.1.2",
-    "style-dictionary": "5.0.4"
+    "style-dictionary": "5.0.4",
+    "vite": "7.1.4",
+    "vite-plugin-banner": "0.8.1",
+    "vite-plugin-eleventy": "0.3.1"
   },
   "dependencies": {
     "@rollup/plugin-terser": "0.4.4",
