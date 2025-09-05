@@ -24,14 +24,15 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
-    "build:tokens": "style-dictionary build -c ./.tokens.config.js",
+    "build": "run-s clean build:vite zip",
+    "build:tokens": "style-dictionary build -c ./tokens.config.json",
+    "build:vite": "vite build",
     "changelog": "node ./tasks/generate-changelog.js",
-    "clean": "rimraf ./rivet.zip",
+    "clean": "rimraf ./dist ./rivet.zip",
     "lint": "standard 'src/js'",
     "new-component": "node ./tasks/source-new-component.js",
     "sandbox-new-component": "node ./tasks/sandbox-new-component.js",
-    "zip": "npm run build && zip -r rivet.zip dist"
+    "zip": "zip -r rivet.zip dist"
   },
   "files": [
     "dist/**/*"

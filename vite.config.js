@@ -27,6 +27,7 @@ const buildConfig = {
 		bannerPlugin(license)
 	],
 	build: {
+		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
 			entry: 'src/js/index.js',

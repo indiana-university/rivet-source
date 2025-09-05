@@ -6,9 +6,9 @@ node_modules
 .env
 .idea
 .npmrc
-.tgz
 .vscode
-.zip
+*.tgz
+*.zip
 
 # Design tokens
 /tokens
