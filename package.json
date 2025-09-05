@@ -12,14 +12,12 @@
     "url": "https://github.com/indiana-university/rivet-source/issues",
     "email": "rivet@iu.edu"
   },
-  "main": "./dist/rivet.js",
   "module": "./dist/rivet.js",
   "unpkg": "./dist/rivet.js",
   "exports": {
     ".": {
-      "import": "./dist/rivet.js",
-      "require": "./dist/rivet.js",
-      "default": "./dist/rivet.js"
+      "browser": "./dist/rivet.js",
+      "import": "./dist/rivet.js"
     }
   },
   "scripts": {
