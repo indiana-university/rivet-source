@@ -17,7 +17,6 @@ cypress/screenshots
 /css
 /sass
 /js
-/index.html
 /rivet.zip
 
 # Design tokens
