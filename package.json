@@ -24,11 +24,10 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "npm-run-all clean build:tokens build:sass build:js",
+    "build": "npm-run-all clean build:tokens build:js",
     "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip",
     "build:vite": "vite build",
     "build:tokens": "style-dictionary build -c ./.tokens.config.js",
-    "build:sass": "node ./tasks/compile-sass.js",
     "build:js": "node ./tasks/compile-js.js",
     "lint": "standard 'src/js'",
     "changelog": "node ./tasks/generate-changelog.js",
@@ -39,7 +38,6 @@
   "files": [
     "css/**/*",
     "dist/**/*",
-    "sass/**/*",
     "js/**/*",
     "tokens/**/*"
   ],
@@ -51,12 +49,9 @@
     "@octokit/rest": "22.0.0",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "16.0.1",
-    "autoprefixer": "10.4.21",
-    "browser-sync": "3.0.4",
     "fs-jetpack": "5.1.0",
     "inert-polyfill": "0.2.5",
     "npm-run-all": "4.1.5",
-    "postcss": "8.5.6",
     "rimraf": "6.0.1",
     "rollup": "4.50.0",
     "sass": "1.92.0",
