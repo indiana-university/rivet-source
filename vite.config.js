@@ -30,10 +30,11 @@ const buildConfig = {
 		lib: {
 			cssFileName: fileName,
 			entry: 'src/js/index.js',
-			fileName: (format) => `${fileName}.${format}.js`,
-			formats: ['es', 'iife', 'umd'],
+			fileName: () => `${fileName}.js`,
+			formats: ['es'],
 			name: libraryName
-		}
+		},
+		sourcemap: true
 	}
 };
 
