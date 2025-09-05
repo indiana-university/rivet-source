@@ -35,9 +35,7 @@
     "changelog": "node ./tasks/generate-changelog.js",
     "zip": "npm run build && zip -r rivet.zip css js sass tokens index.html",
     "new-component": "node ./tasks/source-new-component.js",
-    "sandbox-new-component": "node ./tasks/sandbox-new-component.js",
-    "sandbox-deploy:test": "sh deploy-sandbox.sh",
-    "sandbox-deploy:live": "sh deploy-sandbox.sh -P"
+    "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
   },
   "files": [
     "css/**/*",
