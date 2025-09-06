@@ -34,7 +34,8 @@
     "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "rivet.zip"
   ],
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
