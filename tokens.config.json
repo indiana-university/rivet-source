@@ -3,33 +3,31 @@
     "src/tokens/**/*.json"
   ],
   "platforms": {
-    "src/sass/core": {
+    "scss": {
       "transformGroup": "scss",
-      "buildPath": "src/sass/core/",
       "files": [
         {
-          "destination": "variables.scss",
+          "destination": "src/sass/core/variables.scss",
           "format": "scss/map-deep"
         }
       ]
     },
-    "src/sass/core/tokens": {
-      "transformGroup": "scss",
-      "buildPath": "src/sass/core/",
+    "css": {
+      "transformGroup": "css",
       "prefix": "rvt",
       "files": [
         {
-          "destination": "tokens.css",
+          "destination": "src/sass/core/tokens.css",
           "format": "css/variables"
         }
       ]
     },
     "dist": {
       "transformGroup": "js",
-      "buildPath": "dist",
+      "prefix": "rvt",
       "files": [
         {
-          "destination": "tokens.json",
+          "destination": "dist/tokens.json",
           "format": "json/flat"
         }
       ],
