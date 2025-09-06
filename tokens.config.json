@@ -22,7 +22,7 @@
         }
       ]
     },
-    "dist": {
+    "json": {
       "transformGroup": "js",
       "prefix": "rvt",
       "files": [
