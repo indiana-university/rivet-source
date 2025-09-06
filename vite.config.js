@@ -3,9 +3,7 @@ import bannerPlugin from 'vite-plugin-banner';
 import { eleventyPlugin } from 'vite-plugin-eleventy';
 import pkg from './package.json';
 
-const libraryName = 'Rivet';
-const fileName = libraryName.toLowerCase();
-
+const [fileName] = pkg.name.split('-');
 const license = `/*!
  * ${pkg.name} - @version ${pkg.version}
  *
@@ -23,8 +21,7 @@ const buildConfig = {
 			cssFileName: fileName,
 			entry: 'src/js/index.js',
 			fileName: () => `${fileName}.js`,
-			formats: ['es'],
-			name: libraryName
+			formats: ['es']
 		},
 		sourcemap: true
 	}
