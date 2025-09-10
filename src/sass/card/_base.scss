@@ -13,6 +13,12 @@
     background-color: var(--rvt-color-theme-background-strong);
   }
 
+  &--news &__title {
+    font-family: var(--rvt-font-family-serif);
+    font-size: var(--rvt-ts-23);
+    font-weight: var(--rvt-font-weight-regular);
+  }
+
   &--feature > &__sticker {
     align-items: center;
     aspect-ratio: 3 / 2;
