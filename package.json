@@ -1,6 +1,6 @@
 {
   "name": "rivet-core",
-  "description": "Indiana University design system",
+  "description": "Rivet Design System for Indiana University",
   "homepage": "https://rivet.iu.edu",
   "version": "3.0.0-alpha.4",
   "license": "BSD-3-Clause",
@@ -12,57 +12,39 @@
     "url": "https://github.com/indiana-university/rivet-source/issues",
     "email": "rivet@iu.edu"
   },
-  "main": "./js/rivet-umd.js",
-  "module": "./js/rivet-esm.js",
-  "unpkg": "./js/rivet.min.js",
+  "module": "./dist/rivet.js",
+  "unpkg": "./dist/rivet.js",
   "exports": {
     ".": {
-      "import": "./js/rivet-esm.js",
-      "require": "./js/rivet-umd.js",
-      "default": "./js/rivet-esm.js"
+      "browser": "./dist/rivet.js",
+      "import": "./dist/rivet.js"
     }
   },
   "scripts": {
-    "start": "vite",
-    "build": "npm-run-all clean build:tokens build:sass build:js move-example",
-    "clean": "rimraf ./css ./js ./sass ./tokens ./rivet.zip ./index.html",
-    "build:vite": "vite build",
-    "build:tokens": "style-dictionary build -c ./.tokens.config.js",
-    "build:sass": "node ./tasks/compile-sass.js",
-    "build:js": "node ./tasks/compile-js.js",
-    "move-example": "node ./tasks/move-example.js",
-    "lint": "standard 'src/js'",
+    "start": "run-s build:tokens start:server",
+    "start:server": "vite",
+    "build": "run-s build:clean build:tokens build:dist build:zip",
+    "build:clean": "rimraf ./dist ./rivet.zip",
+    "build:tokens": "style-dictionary build -c ./tokens.config.json",
+    "build:dist": "vite build",
+    "build:zip": "zip -r rivet.zip dist",
     "changelog": "node ./tasks/generate-changelog.js",
-    "zip": "npm run build && zip -r rivet.zip css js sass tokens index.html",
+    "lint": "standard 'src/js'",
     "new-component": "node ./tasks/source-new-component.js",
-    "sandbox-new-component": "node ./tasks/sandbox-new-component.js",
-    "sandbox-deploy:test": "sh deploy-sandbox.sh",
-    "sandbox-deploy:live": "sh deploy-sandbox.sh -P"
+    "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
   },
   "files": [
-    "css/**/*",
     "dist/**/*",
-    "sass/**/*",
-    "js/**/*",
-    "tokens/**/*",
-    "index.html"
+    "rivet.zip"
   ],
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "5.0.2",
-    "@babel/core": "7.28.3",
-    "@babel/preset-env": "7.28.3",
     "@octokit/rest": "22.0.0",
-    "@rollup/plugin-babel": "6.0.4",
-    "@rollup/plugin-node-resolve": "16.0.1",
-    "autoprefixer": "10.4.21",
-    "browser-sync": "3.0.4",
     "fs-jetpack": "5.1.0",
     "inert-polyfill": "0.2.5",
     "npm-run-all": "4.1.5",
-    "postcss": "8.5.6",
     "rimraf": "6.0.1",
-    "rollup": "4.50.0",
     "sass": "1.92.0",
     "standard": "17.1.2",
     "style-dictionary": "5.0.4",
@@ -71,8 +53,6 @@
     "vite-plugin-eleventy": "0.3.1"
   },
   "dependencies": {
-    "@rollup/plugin-terser": "0.4.4",
-    "uninstall": "0.0.0",
     "wicked-elements": "3.1.2"
   }
 }

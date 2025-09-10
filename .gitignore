@@ -1,24 +1,14 @@
-.DS_Store
-node_modules
-_build
-dist
-static/css
-static/js/*
-!static/js/rivet-init.js
-.idea
-.vscode
-cypress/videos
 cypress/screenshots
-.npmrc
+cypress/videos
+dist
+node_modules
+.DS_Store
 .env
+.idea
+.npmrc
+.vscode
 *.tgz
-
-# Built files
-/css
-/sass
-/js
-/index.html
-/rivet.zip
+*.zip
 
 # Design tokens
 /tokens
@@ -26,3 +16,4 @@ cypress/screenshots
 !/src/sass/core/maps/_index.scss
 /src/sass/core/variables.scss
 /src/sass/core/css-custom-properties.scss
+/src/sass/core/tokens.css
