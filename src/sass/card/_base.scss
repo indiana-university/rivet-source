@@ -15,7 +15,7 @@
 
   &--feature > &__sticker {
     align-items: center;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     background-color: var(--rvt-color-brand-extralight);
     display: flex;
     justify-content: center;
@@ -47,12 +47,12 @@
 
   &__image {
     align-items: center;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     display: flex;
   }
 
   &__image img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     display: block;
     height: 100%;
     object-fit: cover;
