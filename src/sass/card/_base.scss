@@ -51,6 +51,25 @@
     content: none;
   }
 
+  &__date {
+    container-type: inline-size;
+    margin-bottom: var(--rvt-spacing-md);
+  }
+
+  &__date .rvt-cal {
+    align-items: center;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    font-size: 7cqw;
+    font-weight: 250;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .rvt-card__date .rvt-cal__day {
+    font-size: 225%;
+  }
+
   &__image {
     align-items: center;
     aspect-ratio: 3 / 2;
@@ -208,6 +227,20 @@
     .rvt-list {
       padding-left: $spacing-sm;
     }
+  }
+
+  &__event-list {
+    margin-top: var(--rvt-spacing-md);
+  }
+
+  &__event-list li {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--rvt-spacing-xs);
+  }
+
+  &__event-list li rvt-icon {
+    padding: var(--rvt-spacing-xxs) 0;
   }
 
   &__meta {
