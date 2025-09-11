@@ -1,59 +1,42 @@
-<h2>Components</h2>
-<nav>
-  <ul>
-    {% for component in collections.component | sortCollectionByTitle %}
-      {% if component.url == page.url %}
-        <li>
-          <a class="current" href="{{ component.url }}">{{ component.data.title }}</a>
-          <ul class="variants">
-            {% for variant in collections[component.data.component] | sortCollectionByOrder %}
-              <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{{ component.url }}">{{ component.data.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
+<style>
+.u-show-if-has-current:not(:has([aria-current])) {
+  display: none;
+}
+</style>
 
-<h2>Utilities</h2>
-<nav>
-  <ul>
-    {% for utility in collections.utility | sortCollectionByTitle %}
-      {% if utility.url == page.url %}
-        <li>
-          <a class="current" href="{{ utility.url }}">{{ utility.data.title }}</a>
-          <ul class="variants">
-            {% for variant in collections[utility.data.component] | sortCollectionByOrder %}
-              <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{{ utility.url }}">{{ utility.data.title }}</a></li>
-      {% endif %}
+<nav class="rvt-sidenav rvt-sidenav--compact">
+{% for section in collections.sections %}
+  {% set sectionLabel = section[0] %}
+  {% set groups = section[1] %}
+  <h2 class="rvt-sidenav__label">{{ sectionLabel }}</h2>
+  <ul class="rvt-sidenav__list">
+    {% for group in groups %}
+      {% set groupLabel = group[0] %}
+      {% set items = group[1] %}
+      {% set firstItem = items[0] %}
+      <li class="rvt-sidenav__item">
+        <a
+          class="rvt-sidenav__link"
+          href="{{ firstItem.url }}"
+        >
+          {{ groupLabel }}
+        </a>
+        <ul class="rvt-sidenav__list u-show-if-has-current">
+          {% for item in items %}
+            {% set currentItem = page.url === item.url %}
+            <li class="rvt-sidenav__item">
+              <a
+                {% if currentItem %}aria-current="page" {% endif %}
+                class="rvt-sidenav__link"
+                href="{{ item.url }}"
+              >
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
     {% endfor %}
   </ul>
-</nav>
-
-<h2>Layouts</h2>
-<nav>
-  <ul>
-    {% for layout in collections.layout | sortCollectionByTitle %}
-      {% if layout.url == page.url %}
-        <li>
-          <a class="current" href="{{ layout.url }}">{{ layout.data.title }}</a>
-          <ul class="variants">
-            {% for variant in collections[layout.data.component] | sortCollectionByOrder %}
-              <li><a href="#" data-variant-select="{{ variant.data.title | slug }}">{{ variant.data.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{{ layout.url }}">{{ layout.data.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+{% endfor %}
 </nav>
