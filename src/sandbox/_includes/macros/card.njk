@@ -1,0 +1,145 @@
+{% macro Card(showContent = true) %}
+<div class="rvt-card">
+	<div class="rvt-card__body">
+		<h2 class="rvt-card__title">
+			<a href="#">Find your ideal campus life at IU</a>
+		</h2>
+		{% if showContent %}
+		<div class="rvt-card__content [ rvt-flow ]">
+			<p>Each of our nine campuses offers a welcoming, inclusive environment that feels like home, whatever your background, interests, or goals. Whether you want a Big Ten college experience, the dynamic pace of an urban research university, the community feeling of a regional campus close to home, or the flexibility of a fully online degree program, you’ll find it at IU.</p>
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endmacro %}
+
+{% macro EventCard(type = 'plain') %}
+<div class="rvt-card rvt-card--event">
+	<div class="rvt-card__body">
+	{% if type == 'date' %}
+		<div class="rvt-card__date">
+			<div class="rvt-cal">
+				<span class="rvt-cal__month">Dec</span>
+				<span class="rvt-cal__day">21</span>
+				<span class="rvt-cal__year">2024</span>
+			</div>
+		</div>
+	{% endif %}
+	{% if type == 'image' %}
+		<div class="rvt-card__image">
+			<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+		</div>
+	{% endif %}
+		<div class="rvt-card__badge">
+			<strong class="rvt-badge">Featured</strong>
+		</div>
+		<div class="rvt-card__eyebrow">My category</div>
+		<h2 class="rvt-card__title">
+			<a href="#">Find your ideal campus life at IU</a>
+		</h2>
+		<ul class="rvt-card__event-list rvt-list-plain">
+			<li>
+				<rvt-icon name="calendar"></rvt-icon>
+				<time>Dec 21, 2024</time>
+			</li>
+			<li>
+				<rvt-icon name="clock"></rvt-icon>
+				<time>9:00 AM</time>
+			</li>
+			<li>
+				<rvt-icon name="map-pin"></rvt-icon>
+				<span>Indianapolis Campus Center</span>
+			</li>
+		</ul>
+		<div class="rvt-card__meta">
+			<time>November 5, 1955</time>
+		</div>
+		<div class="rvt-card__tags">
+			<ul class="rvt-list-inline rvt-gap-xs">
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag one</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag two</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag three</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag four</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro FeatureCard(type = 'plain', sticker = 'bike') %}
+<div class="rvt-card rvt-card--feature">
+	{% if type == 'image' %}
+	<div class="rvt-card__image">
+		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+	</div>
+	{% endif %}
+	{% if type == 'sticker' %}
+		<div class="rvt-card__sticker">
+			<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
+		</div>
+	{% endif %}
+	<div class="rvt-card__body">
+		<div class="rvt-card__badge">
+			<strong class="rvt-badge">Featured</strong>
+		</div>
+		<div class="rvt-card__eyebrow">My category</div>
+		<h2 class="rvt-card__title">
+			<a href="#">Find your ideal campus life at IU</a>
+		</h2>
+		<div class="rvt-card__content">
+			<p>Each of our nine campuses offers a welcoming, inclusive environment that feels like home, whatever your background, interests, or goals. Whether you want a Big Ten college experience, the dynamic pace of an urban research university, the community feeling of a regional campus close to home, or the flexibility of a fully online degree program, you’ll find it at IU.</p>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro NewsCard(type = 'plain', sticker = 'bike') %}
+<div class="rvt-card rvt-card--news">
+	<div class="rvt-card__body">
+	{% if type == 'image' %}
+		<div class="rvt-card__image">
+			<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+		</div>
+	{% endif %}
+	{% if type == 'sticker' %}
+		<div class="rvt-card__sticker">
+			<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
+		</div>
+	{% endif %}
+		<div class="rvt-card__badge">
+			<strong class="rvt-badge">Featured</strong>
+		</div>
+		<div class="rvt-card__eyebrow">My category</div>
+		<h2 class="rvt-card__title">
+			<a href="#">Find your ideal campus life at IU</a>
+		</h2>
+		<div class="rvt-card__meta">
+			<time>November 5, 1955</time>
+		</div>
+		<div class="rvt-card__tags">
+			<ul class="rvt-list-inline rvt-gap-xs">
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag one</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag two</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag three</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Tag four</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endmacro %}
