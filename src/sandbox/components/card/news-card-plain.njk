@@ -4,14 +4,12 @@ title: News Card - Plain
 
 {% import 'macros/card.njk' as macros %}
 
-<ul class="rvt-list-plain">
+{{ macros.NewsCard() }}
+
+<ol class="rvt-card-list rvt-m-top-xl">
+{% for i in range(0, 7) %}
 	<li>
 		{{ macros.NewsCard() }}
 	</li>
-	<li>
-		{{ macros.NewsCard() }}
-	</li>
-	<li>
-		{{ macros.NewsCard() }}
-	</li>
-</ul>
+{% endfor %}
+</ol>

@@ -143,3 +143,122 @@
 	</div>
 </div>
 {% endmacro %}
+
+{% macro ProfileCard(type = 'plain') %}
+<div class="rvt-card rvt-card--event">
+	<div class="rvt-card__body">
+		{% if type == 'avatar' %}
+		<div class="rvt-avatar rvt-avatar--md rvt-m-bottom-sm">
+			<img class="rvt-avatar__image" src="https://rivet.iu.edu/img/placeholder/avatar-1.webp" alt="">
+		</div>
+		{% endif %}
+		<div class="rvt-card__eyebrow">{Campus/Team/Department}</div>
+		<h2 class="rvt-card__title">
+			<a href="#">{First and Last Name}</a>
+		</h2>
+		<ul class="rvt-card__event-list rvt-list-plain">
+			<li>
+				<rvt-icon name="user"></rvt-icon>
+				<strong>Pronouns:</strong>
+				<span>She/Her</span>
+			</li>
+			<li>
+				<rvt-icon name="envelope"></rvt-icon>
+				<a href="mailto:example@iu.edu">example@iu.edu</a>
+			</li>
+			<li>
+				<rvt-icon name="phone"></rvt-icon>
+				<a href="tel:8124441717">(812) 444-1717</a>
+			</li>
+			<li>
+				<rvt-icon name="device"></rvt-icon>
+				<a href="#">examplesite.com</a>
+			</li>
+		</ul>
+		<div class="rvt-card__meta">
+			<span>Areas of expertise</span>
+		</div>
+		<div class="rvt-card__tags">
+			<ul class="rvt-list-inline rvt-gap-xs">
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">UI/UX Design</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Branding</a>
+				</li>
+				<li>
+					<a href="#" class="rvt-button rvt-button--tag">Illustration</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+<!--
+<div class="rvt-row">
+	<div class="rvt-cols-4-md">
+		<div class="rvt-card">
+			<div class="rvt-card__image">
+				<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+			</div>
+			<div class="rvt-card__body">
+				<h2 class="rvt-card__title">
+					<a href="#">Find your ideal campus life at IU</a>
+				</h2>
+				<div class="rvt-card__content [ rvt-flow ]">
+					<p>Each of our nine campuses offers a welcoming, inclusive environment that feels like home, whatever your background, interests, or goals. Whether you want a Big Ten college experience, the dynamic pace of an urban research university, the community feeling of a regional campus close to home, or the flexibility of a fully online degree program, you’ll find it at IU.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rvt-cols-4-md">
+		<div class="rvt-card">
+			<div class="rvt-card__image">
+				<img src="https://rivet.iu.edu/img/placeholder/list-card-1.webp" alt="Replace this value with appropriate alternative text">
+			</div>
+			<div class="rvt-card__body">
+				<h2 class="rvt-card__title">
+					<a href="#">Student clubs and organizations</a>
+				</h2>
+				<div class="rvt-card__content [ rvt-flow ]">
+					<p>Whatever you’re into, you’ll find your people here. Campus is always buzzing with the activity of student organizations, ranging from student government, campus newspapers, and IU Corps volunteer programs, all the way to a Chinese Calligraphy club, six different comedy groups, and even a quidditch team.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rvt-cols-4-md">
+		<div class="rvt-card">
+			<div class="rvt-card__image">
+				<img src="https://rivet.iu.edu/img/placeholder/list-card-5.webp" alt="Replace this value with appropriate alternative text">
+			</div>
+			<div class="rvt-card__body">
+				<h2 class="rvt-card__title">
+					<a href="#">Pursue your passion or explore the possibilities</a>
+				</h2>
+				<div class="rvt-card__content [ rvt-flow ]">
+					<p>From nursing to criminal justice, epidemiology to environmental science, social work to cybersecurity, and more than 900 academic programs in between, IU gives you the power to study whatever sparks your interest, with the support of world-class professors and faculty who care about your success.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="rvt-card rvt-card--horizontal">
+  <div class="rvt-card__image">
+    <img src="https://news.iu.edu/live/image/scale/2x/gid/2/width/150/height/150/crop/1/src_region/108,0,907,800/6570_20220420_IU_Day_LK_163.rev.1680284638.webp" alt="">
+  </div>
+  <div class="rvt-card__body">
+    <div class="rvt-card__eyebrow">Arts and Humanities</div>
+    <h2 class="rvt-card__title">
+      <a href="#">Find your ideal campus life at IU</a>
+    </h2>
+    <div class="rvt-card__content">
+      <p>Each of our nine campuses offers a welcoming, inclusive environment that feels like home.</p>
+    </div>
+    <div class="rvt-card__meta">
+      <time>May 1, 2024</time>
+    </div>
+  </div>
+</div>
+-->

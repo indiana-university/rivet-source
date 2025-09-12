@@ -1,11 +1,52 @@
 @use '../core' as *;
 
+.rvt-card-list {
+  display: grid;
+  gap: $spacing-xl;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  list-style: "";
+  padding-left: 0;
+}
+
+.rvt-card-list:has(.rvt-card--feature) {
+  gap: $spacing-sm;
+}
+
+:has(> .rvt-card) {
+  container-type: inline-size;
+}
+
+@container (width > 50rem) {
+  .rvt-card--feature .rvt-card__body {
+    padding: 0 !important;
+  }
+}
+
+@container (width > 50rem) {
+  .rvt-card:has(.rvt-card__image, .rvt-card__sticker) {
+    align-items: center;
+    display: grid;
+    //gap: $spacing-xl;
+    //grid-template-columns: minmax(12rem, calc(33% - calc(6rem/16))) 1fr;
+    grid-template-columns: minmax(12rem, calc(50% - calc(9rem/16))) 1fr;
+    //padding: $spacing-xl $spacing-xxl $spacing-xl $spacing-xl;
+  }
+
+  :is(.rvt-card__image, .rvt-card__sticker) {
+    align-self: flex-start;
+  }
+
+  .rvt-card--feature .rvt-card__body {
+    padding: 2.5rem !important;
+  }
+}
+
 .#{$prefix}-card {
   background-color: var(--rvt-color-theme-background);
   border: 1px solid var(--rvt-color-theme-ui);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  //display: flex;
+  //flex-direction: column;
+  //flex-grow: 1;
   position: relative;
 
   .rvt-theme-dark &,
@@ -85,10 +126,8 @@
   }
 
   &__body {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
     padding: $spacing-md;
+    text-wrap: pretty;
   }
 
   &__body > &__image {
@@ -169,15 +208,16 @@
   }
 
   &--feature &__body {
-    padding: 2.5rem 4rem 2.5rem 2.5rem;
+    //padding: 2.5rem 4rem 2.5rem 2.5rem;
+    padding: 2rem;
   }
 
-  &--raised {
+  &--raised:not(&--feature) {
     border: none;
     box-shadow: $shadow-heavy;
   }
 
-  &--raised &__title a::before {
+  &--raised:not(&--feature) &__title a::before {
     right: $spacing-lg;
   }
 
@@ -215,6 +255,7 @@
     color: var(--rvt-color-theme-text);
     flex-grow: 1;
     margin-top: $spacing-md;
+    max-width: 75ch;
 
     > * {
       margin: 0;
@@ -259,6 +300,7 @@
   }
 }
 
+/*
 @media screen and (min-width: $breakpoint-sm) {
   .#{$prefix}-card {
     &__body {
@@ -324,3 +366,4 @@
     padding: 0;
   }
 }
+*/

@@ -1,0 +1,15 @@
+---
+title: Feature Card - Image
+---
+
+{% import 'macros/card.njk' as macros %}
+
+{{ macros.FeatureCard(type = 'image') }}
+
+<ol class="rvt-card-list rvt-m-top-sm">
+{% for i in range(0, 7) %}
+	<li>
+		{{ macros.FeatureCard(type = 'image') }}
+	</li>
+{% endfor %}
+</ol>

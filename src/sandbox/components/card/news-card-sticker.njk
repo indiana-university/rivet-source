@@ -1,0 +1,15 @@
+---
+title: News Card - Sticker
+---
+
+{% import 'macros/card.njk' as macros %}
+
+{{ macros.NewsCard(type = 'sticker') }}
+
+<ol class="rvt-card-list rvt-m-top-xl">
+{% for i in range(0, 7) %}
+	<li>
+		{{ macros.NewsCard(type = 'sticker') }}
+	</li>
+{% endfor %}
+</ol>
