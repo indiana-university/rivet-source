@@ -15,21 +15,21 @@
 
 {% macro EventCard(type = 'plain') %}
 <div class="rvt-card rvt-card--event">
+{% if type == 'date' %}
+	<div class="rvt-card__date">
+		<div class="rvt-cal">
+			<span class="rvt-cal__month">Dec</span>
+			<span class="rvt-cal__day">21</span>
+			<span class="rvt-cal__year">2024</span>
+		</div>
+	</div>
+{% endif %}
+{% if type == 'image' %}
+	<div class="rvt-card__image">
+		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+	</div>
+{% endif %}
 	<div class="rvt-card__body">
-	{% if type == 'date' %}
-		<div class="rvt-card__date">
-			<div class="rvt-cal">
-				<span class="rvt-cal__month">Dec</span>
-				<span class="rvt-cal__day">21</span>
-				<span class="rvt-cal__year">2024</span>
-			</div>
-		</div>
-	{% endif %}
-	{% if type == 'image' %}
-		<div class="rvt-card__image">
-			<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
-		</div>
-	{% endif %}
 		<div class="rvt-card__badge">
 			<strong class="rvt-badge">Featured</strong>
 		</div>
@@ -76,16 +76,16 @@
 
 {% macro FeatureCard(type = 'plain', sticker = 'bike') %}
 <div class="rvt-card rvt-card--feature">
-	{% if type == 'image' %}
+{% if type == 'image' %}
 	<div class="rvt-card__image">
 		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
 	</div>
-	{% endif %}
-	{% if type == 'sticker' %}
-		<div class="rvt-card__sticker">
-			<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
-		</div>
-	{% endif %}
+{% endif %}
+{% if type == 'sticker' %}
+	<div class="rvt-card__sticker">
+		<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
+	</div>
+{% endif %}
 	<div class="rvt-card__body">
 		<div class="rvt-card__badge">
 			<strong class="rvt-badge">Featured</strong>
@@ -103,17 +103,17 @@
 
 {% macro NewsCard(type = 'plain', sticker = 'bike') %}
 <div class="rvt-card rvt-card--news">
+{% if type == 'image' %}
+	<div class="rvt-card__image">
+		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
+	</div>
+{% endif %}
+{% if type == 'sticker' %}
+	<div class="rvt-card__sticker">
+		<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
+	</div>
+{% endif %}
 	<div class="rvt-card__body">
-	{% if type == 'image' %}
-		<div class="rvt-card__image">
-			<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
-		</div>
-	{% endif %}
-	{% if type == 'sticker' %}
-		<div class="rvt-card__sticker">
-			<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
-		</div>
-	{% endif %}
 		<div class="rvt-card__badge">
 			<strong class="rvt-badge">Featured</strong>
 		</div>

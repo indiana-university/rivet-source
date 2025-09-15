@@ -4,3 +4,11 @@ title: Event Card - Date
 
 {% import 'macros/card.njk' as macros %}
 {{ macros.EventCard(type = 'date') }}
+
+<ol class="rvt-card-list rvt-m-top-xl">
+{% for i in range(0, 7) %}
+	<li>
+		{{ macros.EventCard(type = 'date') }}
+	</li>
+{% endfor %}
+</ol>

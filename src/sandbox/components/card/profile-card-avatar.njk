@@ -4,3 +4,11 @@ title: Profile Card - Avatar
 
 {% import 'macros/card.njk' as macros %}
 {{ macros.ProfileCard(type = 'avatar') }}
+
+<ol class="rvt-card-list rvt-m-top-xl">
+{% for i in range(0, 7) %}
+	<li>
+		{{ macros.ProfileCard(type = 'avatar') }}
+	</li>
+{% endfor %}
+</ol>
