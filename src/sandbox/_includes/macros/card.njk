@@ -13,9 +13,9 @@
 </div>
 {% endmacro %}
 
-{% macro EventCard(type = 'plain') %}
-<div class="rvt-card rvt-card--event">
-{% if type == 'date' %}
+{% macro EventCard(raised, date, image, badge, eyebrow, details, meta) %}
+<div class="rvt-card rvt-card--event{% if raised %} rvt-card--raised{% endif %}">
+{% if date %}
 	<div class="rvt-card__date">
 		<div class="rvt-cal">
 			<span class="rvt-cal__month">Dec</span>
@@ -24,20 +24,25 @@
 		</div>
 	</div>
 {% endif %}
-{% if type == 'image' %}
+{% if image %}
 	<div class="rvt-card__image">
 		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
 	</div>
 {% endif %}
 	<div class="rvt-card__body">
+	{% if badge %}
 		<div class="rvt-card__badge">
 			<strong class="rvt-badge">Featured</strong>
 		</div>
+	{% endif %}
+	{% if eyebrow %}
 		<div class="rvt-card__eyebrow">My category</div>
+	{% endif %}
 		<h2 class="rvt-card__title">
 			<a href="#">Find your ideal campus life at IU</a>
 		</h2>
-		<ul class="rvt-card__event-list rvt-list-plain">
+	{% if details %}
+		<ul class="rvt-card__details">
 			<li>
 				<rvt-icon name="calendar"></rvt-icon>
 				<time>Dec 21, 2024</time>
@@ -51,6 +56,8 @@
 				<span>Indianapolis Campus Center</span>
 			</li>
 		</ul>
+	{% endif %}
+	{% if meta %}
 		<div class="rvt-card__meta">
 			<time>November 5, 1955</time>
 		</div>
@@ -70,57 +77,69 @@
 				</li>
 			</ul>
 		</div>
+	{% endif %}
 	</div>
 </div>
 {% endmacro %}
 
-{% macro FeatureCard(type = 'plain', sticker = 'bike') %}
+{% macro FeatureCard(image, sticker, badge, eyebrow, content) %}
 <div class="rvt-card rvt-card--feature">
-{% if type == 'image' %}
+{% if image %}
 	<div class="rvt-card__image">
 		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
 	</div>
 {% endif %}
-{% if type == 'sticker' %}
+{% if sticker %}
 	<div class="rvt-card__sticker">
-		<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
+		<rvt-sticker name="pencil-ruler" theme="crimson" size="sm"></rvt-sticker>
 	</div>
 {% endif %}
 	<div class="rvt-card__body">
+	{% if badge %}
 		<div class="rvt-card__badge">
 			<strong class="rvt-badge">Featured</strong>
 		</div>
+	{% endif %}
+	{% if badge %}
 		<div class="rvt-card__eyebrow">My category</div>
+	{% endif %}
 		<h2 class="rvt-card__title">
 			<a href="#">Find your ideal campus life at IU</a>
 		</h2>
+	{% if content %}
 		<div class="rvt-card__content">
 			<p>Each of our nine campuses offers a welcoming, inclusive environment that feels like home, whatever your background, interests, or goals. Whether you want a Big Ten college experience, the dynamic pace of an urban research university, the community feeling of a regional campus close to home, or the flexibility of a fully online degree program, you’ll find it at IU.</p>
 		</div>
+	{% endif %}
 	</div>
 </div>
 {% endmacro %}
 
-{% macro NewsCard(type = 'plain', sticker = 'bike') %}
-<div class="rvt-card rvt-card--news">
-{% if type == 'image' %}
+{% macro NewsCard(raised, image, sticker, badge, eyebrow, meta) %}
+<div class="rvt-card rvt-card--news{% if raised %} rvt-card--raised{% endif %}">
+{% if image %}
 	<div class="rvt-card__image">
 		<img src="https://rivet.iu.edu/img/placeholder/list-card-3.webp" alt="Smiling students sitting outside on a bench">
 	</div>
 {% endif %}
-{% if type == 'sticker' %}
+{% if sticker %}
 	<div class="rvt-card__sticker">
-		<rvt-sticker name="{{ sticker }}" theme="crimson" size="sm"></rvt-sticker>
+		<rvt-sticker name="bike" theme="crimson" size="sm"></rvt-sticker>
 	</div>
 {% endif %}
 	<div class="rvt-card__body">
+	{% if badge %}
 		<div class="rvt-card__badge">
 			<strong class="rvt-badge">Featured</strong>
 		</div>
+	{% endif %}
+	{% if eyebrow %}
 		<div class="rvt-card__eyebrow">My category</div>
+	{% endif %}
 		<h2 class="rvt-card__title">
 			<a href="#">Find your ideal campus life at IU</a>
 		</h2>
+	{% if meta %}
 		<div class="rvt-card__meta">
 			<time>November 5, 1955</time>
 		</div>
@@ -140,27 +159,35 @@
 				</li>
 			</ul>
 		</div>
+	{% endif %}
 	</div>
 </div>
 {% endmacro %}
 
-{% macro ProfileCard(type = 'plain') %}
-<div class="rvt-card rvt-card--event">
-	<div class="rvt-card__body">
-		{% if type == 'avatar' %}
-		<div class="rvt-avatar rvt-avatar--md rvt-m-bottom-sm">
+{% macro ProfileCard(raised, avatar, eyebrow, subtitle, details, meta) %}
+<div class="rvt-card rvt-card--profile{% if raised %} rvt-card--raised{% endif %}">
+{% if avatar %}
+	<div class="rvt-card__avatar">
+		<div class="rvt-avatar rvt-avatar--md">
 			<img class="rvt-avatar__image" src="https://rivet.iu.edu/img/placeholder/avatar-1.webp" alt="">
 		</div>
-		{% endif %}
+	</div>
+{% endif %}
+	<div class="rvt-card__body">
+	{% if eyebrow %}
 		<div class="rvt-card__eyebrow">{Campus/Team/Department}</div>
+	{% endif %}
 		<h2 class="rvt-card__title">
 			<a href="#">{First and Last Name}</a>
 		</h2>
-		<ul class="rvt-card__event-list rvt-list-plain">
+	{% if subtitle %}
+		<div class="rvt-card__subtitle">{Person's Title}</div>
+	{% endif %}
+	{% if details %}
+		<ul class="rvt-card__details">
 			<li>
 				<rvt-icon name="user"></rvt-icon>
-				<strong>Pronouns:</strong>
-				<span>She/Her</span>
+				<span><strong>Pronouns:</strong> She/Her</span>
 			</li>
 			<li>
 				<rvt-icon name="envelope"></rvt-icon>
@@ -175,6 +202,8 @@
 				<a href="#">examplesite.com</a>
 			</li>
 		</ul>
+	{% endif %}
+	{% if meta %}
 		<div class="rvt-card__meta">
 			<span>Areas of expertise</span>
 		</div>
@@ -191,6 +220,7 @@
 				</li>
 			</ul>
 		</div>
+	{% endif %}
 	</div>
 </div>
 {% endmacro %}

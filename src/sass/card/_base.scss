@@ -14,6 +14,14 @@
     background-color: var(--rvt-color-theme-background-strong);
   }
 
+  :is(& + &, & + .rvt-card-list) {
+    margin-top: var(--rvt-spacing-xl);
+  }
+
+  :is(&--feature + &--feature, &--feature + .rvt-card-list) {
+    margin-top: var(--rvt-spacing-sm);
+  }
+
   &__date {
     container-type: inline-size;
     margin-bottom: var(--rvt-spacing-md);
@@ -33,7 +41,7 @@
     font-size: 225%;
   }
 
-  &__image {
+  &:not(&--feature) :is(&__avatar, &__image, &__sticker) {
     padding: var(--padding) var(--padding) 0;
   }
 
@@ -45,7 +53,7 @@
   }
 
   &__sticker {
-    margin-bottom: var(--rvt-spacing-sm);
+    display: flex;
   }
 
   &__body {
@@ -68,7 +76,7 @@
     text-decoration: underline;
   }
 
-  &__eyebrow + &__title {
+  &__title:not(:first-child) {
     margin-top: var(--rvt-spacing-xxs);
   }
 
@@ -79,26 +87,34 @@
       "YTLC" 540;
     font-weight: var(--rvt-font-weight-bold);
     line-height: 1.3;
-    padding-right: var(--rvt-spacing-xl);
   }
 
   &__title a {
     color: var(--rvt-color-theme-text-strong);
-    display: block;
+    display: flex;
+    gap: var(--rvt-spacing-xs);
+    justify-content: space-between;
     text-decoration: none;
   }
 
-  &__title a::before,
+  &__title a::after {
+    margin: calc(calc(1lh - var(--rvt-spacing-sm)) / 2) 0;
+  }
+
+  &:not(&--feature) &__title a::after,
   &--feature::after {
     background-color: currentColor;
     clip-path: path(var(--rvt-icon-arrow-right));
     content: "";
     display: block;
+    flex-shrink: 0;
     height: var(--rvt-spacing-sm);
-    position: absolute;
-    right: var(--rvt-spacing-md);
     transition: all .2s ease;
     width: var(--rvt-spacing-sm);
+  }
+
+  &__subtitle {
+    margin-top: var(--rvt-spacing-xs);
   }
 
   &--feature {
@@ -120,6 +136,7 @@
   &--feature::after {
     --position: calc((var(--padding) - 1rem) / 2);
     bottom: var(--position);
+    position: absolute;
     right: var(--position);
   }
 
@@ -178,7 +195,7 @@
     right: var(--rvt-spacing-lg);
   }
 
-  :is(&--clickable, &--feature) &__title a::after {
+  :is(&--clickable, &--feature) &__title a::before {
     bottom: 0;
     content: "";
     left: 0;
@@ -195,7 +212,7 @@
     text-decoration: underline;
   }
 
-  &__title a:hover::before {
+  &__title a:hover::after {
     transform: translateX(var(--rvt-spacing-xs));
   }
 
@@ -227,17 +244,22 @@
     }
   }
 
-  &__event-list {
-    margin-top: var(--rvt-spacing-md);
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rvt-spacing-xs);
+    list-style: "";
+    margin: var(--rvt-spacing-md) 0 0;
+    padding-left: 0;
   }
 
-  &__event-list li {
+  &__details li {
     align-items: flex-start;
     display: flex;
     gap: var(--rvt-spacing-xs);
   }
 
-  &__event-list li rvt-icon {
+  &__details li rvt-icon {
     padding: var(--rvt-spacing-xxs) 0;
   }
 
@@ -275,13 +297,13 @@
 }
 
 @container (width > 52rem) {
-  .rvt-card:has(.rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
+  .rvt-card:has(.rvt-card__avatar, .rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
     align-items: center;
     display: grid;
     grid-template-columns: minmax(12rem, calc(50% - calc(9rem/16))) 1fr;
   }
 
-  :is(.rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
+  :is(.rvt-card__avatar, .rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
     align-self: flex-start;
     padding: var(--padding) 0 var(--padding) var(--padding);
   }
@@ -302,5 +324,15 @@
   // Work on nested containers.
   .rvt-card--event .rvt-card__date .rvt-cal {
     font-size: 12cqw;
+  }
+
+  .rvt-card--news:has(.rvt-card__sticker),
+  .rvt-card--profile:has(.rvt-card__avatar) {
+    align-items: flex-start;
+    grid-template-columns: auto 1fr;
+  }
+
+  .rvt-card--profile .rvt-card__avatar .rvt-avatar {
+    --size: var(--size-lg);
   }
 }
