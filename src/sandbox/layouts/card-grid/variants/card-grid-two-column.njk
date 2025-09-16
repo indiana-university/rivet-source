@@ -35,6 +35,9 @@ classes: rvt-page
         -->
         {% include "demos/demo-billboard-compact.njk" %}
 
+        {% import 'macros/card.njk' as macros %}
+        {{ macros.FeatureCard(image = true, badge = true, eyebrow = true, content = true) }}
+
         <div class="rvt-rich-text">
           <div>
             <span class="rvt-ts-14 rvt-font-mono">Showing { X of X } { Resources }</span>

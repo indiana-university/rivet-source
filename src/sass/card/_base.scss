@@ -312,7 +312,7 @@
   }
 }
 
-@container (width > 50rem) {
+@container (width > 32rem) {
 
   .rvt-card {
     --aspect-ratio: var(--aspect-ratio-square);
@@ -325,7 +325,10 @@
     }
 
     :is(.rvt-card__date, .rvt-card__image) {
-      width: calc(var(--padding) + 16rem);
+      --min: calc(var(--padding) + 8rem);
+      --val: calc(var(--min) + 5cqw);
+      --max: calc(var(--min) + 3rem);
+      width: clamp(var(--min), var(--val), var(--max));
     }
 
     .rvt-card__body:first-child {
@@ -343,10 +346,12 @@
   .rvt-card--feature {
     --aspect-ratio: var(--aspect-ratio-rectangle);
     --padding: 2.5rem;
-    align-items: center;
 
-    :is(.rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
-      width: calc(var(--padding) + 16rem);
+    :is(.rvt-card__image, .rvt-card__sticker) {
+      --min: calc(var(--padding) + 8rem);
+      --val: calc(var(--min) + 15cqw);
+      --max: calc(var(--min) + 14rem);
+      width: clamp(var(--min), var(--val), var(--max));
     }
   }
 
