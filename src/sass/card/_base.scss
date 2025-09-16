@@ -23,14 +23,14 @@
   }
 
   .rvt-card__date {
+    --font-size: 7cqw;
     container-type: inline-size;
-    margin-bottom: var(--rvt-spacing-md);
 
     .rvt-cal {
       align-items: center;
       aspect-ratio: var(--aspect-ratio);
       display: flex;
-      font-size: 7cqw;
+      font-size: var(--font-size);
       font-weight: 250;
       justify-content: center;
       width: 100%;
@@ -78,6 +78,7 @@
       "YTLC" 540;
     font-weight: var(--rvt-font-weight-bold);
     line-height: 1.3;
+    text-wrap: balance;
 
     &:not(:first-child) {
       margin-top: var(--rvt-spacing-xxs);
@@ -306,43 +307,46 @@
   }
 }
 
-@container (width > 52rem) {
-  .rvt-card:has(.rvt-card__avatar, .rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
-    align-items: center;
+@container (width > 50rem) {
+
+  .rvt-card {
+    align-items: flex-start;
     display: grid;
-    grid-template-columns: minmax(12rem, calc(50% - calc(9rem/16))) 1fr;
+    grid-template-columns: auto 1fr;
+
+    :is(.rvt-card__avatar, .rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
+      padding: var(--padding) 0 var(--padding) var(--padding);
+    }
+
+    :is(.rvt-card__date, .rvt-card__image) {
+      width: 16rem;
+    }
+
+    .rvt-card__body:first-child {
+      grid-column: 1/3;
+    }
   }
 
-  :is(.rvt-card__avatar, .rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
-    align-self: flex-start;
-    padding: var(--padding) 0 var(--padding) var(--padding);
+  .rvt-card--event {
+    --aspect-ratio: var(--aspect-ratio-square);
+
+    .rvt-card__date {
+      --font-size: 12cqw;
+    }
   }
 
   .rvt-card--feature {
     --padding: 2.5rem;
   }
 
-  :is(.rvt-card--event, .rvt-card--news):has(.rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
-    align-items: flex-start;
-    grid-template-columns: 16rem 1fr;
-  }
-
-  :is(.rvt-card--event, .rvt-card--news) {
+  .rvt-card--news {
     --aspect-ratio: var(--aspect-ratio-square);
   }
 
-  // Work on nested containers.
-  .rvt-card--event .rvt-card__date .rvt-cal {
-    font-size: 12cqw;
-  }
+  .rvt-card--profile {
 
-  .rvt-card--news:has(.rvt-card__sticker),
-  .rvt-card--profile:has(.rvt-card__avatar) {
-    align-items: flex-start;
-    grid-template-columns: auto 1fr;
-  }
-
-  .rvt-card--profile .rvt-card__avatar .rvt-avatar {
-    --size: var(--size-lg);
+    .rvt-card__avatar .rvt-avatar {
+      --size: var(--size-lg);
+    }
   }
 }
