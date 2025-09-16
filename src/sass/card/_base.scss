@@ -158,18 +158,10 @@
   }
 
   .rvt-card__meta {
+    color: var(--rvt-color-theme-text);
+    font-family: var(--rvt-font-family-mono);
+    font-size: var(--rvt-ts-12);
     margin-top: var(--rvt-spacing-md);
-
-    > :not([class]) {
-      color: var(--rvt-color-theme-text);
-      font-family: var(--rvt-font-family-mono);
-      font-size: var(--rvt-ts-12);
-    }
-
-    > * {
-      margin-bottom: 0;
-      margin-top: 0;
-    }
   }
 }
 
