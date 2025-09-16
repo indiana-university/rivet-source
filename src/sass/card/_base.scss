@@ -41,7 +41,7 @@
     }
   }
 
-  :is(.rvt-card__avatar, .rvt-card__image, .rvt-card__sticker) {
+  :is(.rvt-card__avatar, .rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
     padding: var(--padding) var(--padding) 0;
   }
 
@@ -105,6 +105,7 @@
       }
 
       &:hover {
+        color: var(--rvt-color-theme-accent);
         text-decoration: underline;
 
         &::after {
@@ -194,6 +195,7 @@
 }
 
 .rvt-card--feature {
+  --aspect-ratio: var(--aspect-ratio-rectangle);
   --padding: 2rem;
 
   & + & {
@@ -232,17 +234,20 @@
     background-color: var(--rvt-color-theme-text-accent);
   }
 
+  .rvt-card__image {
+    padding: 0;
+  }
+
   .rvt-card__sticker {
-    align-items: center;
-    aspect-ratio: 3 / 2;
-    background-color: var(--rvt-color-brand-extralight);
-    display: flex;
-    justify-content: center;
-    margin: 0;
+    padding: 0;
 
     rvt-sticker {
       --bg: transparent;
       --size: 9rem;
+      aspect-ratio: var(--aspect-ratio);
+      background-color: var(--rvt-color-brand-extralight);
+      height: 100%;
+      width: 100%;
     }
   }
 
@@ -310,6 +315,7 @@
 @container (width > 50rem) {
 
   .rvt-card {
+    --aspect-ratio: var(--aspect-ratio-square);
     align-items: flex-start;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -319,7 +325,7 @@
     }
 
     :is(.rvt-card__date, .rvt-card__image) {
-      width: 16rem;
+      width: calc(var(--padding) + 16rem);
     }
 
     .rvt-card__body:first-child {
@@ -328,7 +334,6 @@
   }
 
   .rvt-card--event {
-    --aspect-ratio: var(--aspect-ratio-square);
 
     .rvt-card__date {
       --font-size: 12cqw;
@@ -336,11 +341,13 @@
   }
 
   .rvt-card--feature {
+    --aspect-ratio: var(--aspect-ratio-rectangle);
     --padding: 2.5rem;
-  }
+    align-items: center;
 
-  .rvt-card--news {
-    --aspect-ratio: var(--aspect-ratio-square);
+    :is(.rvt-card__date, .rvt-card__image, .rvt-card__sticker) {
+      width: calc(var(--padding) + 16rem);
+    }
   }
 
   .rvt-card--profile {
