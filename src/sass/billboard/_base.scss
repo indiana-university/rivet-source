@@ -1,121 +1,121 @@
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-billboard {
-  background-color: var(--rvt-color-theme-background-strong);
-  position: relative;
+	background-color: var(--rvt-color-theme-background-strong);
+	position: relative;
 
-  .#{$prefix}-theme-light & {
-    background-color: var(--rvt-color-theme-accent-inverse);
-  }
+	.#{$prefix}-theme-light & {
+		background-color: var(--rvt-color-theme-accent-inverse);
+	}
 
-  & + & {
-    margin-top: $spacing-lg;
-  }
+	& + & {
+		margin-top: $spacing-lg;
+	}
 
-  &__eyebrow {
-    @include eyebrow;
-    color: var(--rvt-color-theme-text-accent);
-    margin: 0;
-  }
+	&__eyebrow {
+		@include eyebrow;
+		color: var(--rvt-color-theme-text-accent);
+		margin: 0;
+	}
 
-  &__eyebrow + &__title {
-    margin-top: $spacing-xs;
-  }
+	&__eyebrow + &__title {
+		margin-top: $spacing-xs;
+	}
 
-  &__title {
-    color: var(--rvt-color-theme-text-accent);
-    font-family: $font-family-condensed;
-    font-size: $ts-26;
-    font-weight: $font-weight-black;
-    letter-spacing: .04rem;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
+	&__title {
+		color: var(--rvt-color-theme-text-accent);
+		font-family: $font-family-condensed;
+		font-size: $ts-26;
+		font-weight: $font-weight-black;
+		letter-spacing: 0.04rem;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
 
-  &__body {
-    margin-top: $spacing-md;
-    padding: $spacing-md;
-  }
+	&__body {
+		margin-top: $spacing-md;
+		padding: $spacing-md;
+	}
 
-  &__content {
-    color: var(--rvt-color-theme-text);
-    margin-top: $spacing-lg;
-  }
+	&__content {
+		color: var(--rvt-color-theme-text);
+		margin-top: $spacing-lg;
+	}
 
-  &__content > * {
-    margin: 0;
-  }
+	&__content > * {
+		margin: 0;
+	}
 
-  &__content > * + * {
-    margin-top: $spacing-lg;
-  }
+	&__content > * + * {
+		margin-top: $spacing-lg;
+	}
 
-  &__image {
-    z-index: 1;
-  }
+	&__image {
+		z-index: 1;
+	}
 
-  &__image img {
-    display: block;
-    width: 100%;
-  }
+	&__image img {
+		display: block;
+		width: 100%;
+	}
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-billboard {
-    display: flex;
-    flex-direction: row-reverse;
+	.#{$prefix}-billboard {
+		display: flex;
+		flex-direction: row-reverse;
 
-    & + & {
-      margin-top: $spacing-xxl;
-    }
+		& + & {
+			margin-top: $spacing-xxl;
+		}
 
-    &__title {
-      font-size: $ts-29;
-    }
+		&__title {
+			font-size: $ts-29;
+		}
 
-    &__image {
-      width: 66%;
-    }
+		&__image {
+			width: 66%;
+		}
 
-    &__image img {
-      height: 100%;
-      object-fit: cover;
-      width: 100%;
-    }
+		&__image img {
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
 
-    &__body {
-      display: flex;
-      flex-basis: 50%;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: flex-end;
-      margin-top: 0;
-      padding-bottom: $spacing-xxl;
-      padding-inline: $spacing-xxl;
-    }
+		&__body {
+			display: flex;
+			flex-basis: 50%;
+			flex-direction: column;
+			flex-grow: 1;
+			justify-content: flex-end;
+			margin-top: 0;
+			padding-bottom: $spacing-xxl;
+			padding-inline: $spacing-xxl;
+		}
 
-    &--reverse {
-      flex-direction: row;
-    }
+		&--reverse {
+			flex-direction: row;
+		}
 
-    &--compact {
-      align-items: center;
-      border: 1px solid var(--rvt-color-theme-ui);
-    }
+		&--compact {
+			align-items: center;
+			border: 1px solid var(--rvt-color-theme-ui);
+		}
 
-    &--compact &__body {
-      justify-content: center;
-      padding-block: $spacing-md;
-      padding-inline: $spacing-xxl;
-    }
+		&--compact &__body {
+			justify-content: center;
+			padding-block: $spacing-md;
+			padding-inline: $spacing-xxl;
+		}
 
-    &--compact &__body,
-    &--compact &__image {
-      width: 50%;
-    }
+		&--compact &__body,
+		&--compact &__image {
+			width: 50%;
+		}
 
-    &--compact &__title {
-      font-size: $ts-26;
-    }
-  }
+		&--compact &__title {
+			font-size: $ts-26;
+		}
+	}
 }

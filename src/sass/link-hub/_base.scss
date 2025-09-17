@@ -1,63 +1,63 @@
 // Copyright (C) 2022 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-link-hub {
-  display: grid;
-  grid-gap: 0 $spacing-md * 2;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  list-style: none;
-  padding: 0;
+	display: grid;
+	grid-gap: 0 $spacing-md * 2;
+	grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+	list-style: none;
+	padding: 0;
 
-  &__item {
-    border-top: 1px solid var(--rvt-color-theme-ui);
-    margin: 0;
-  }
+	&__item {
+		border-top: 1px solid var(--rvt-color-theme-ui);
+		margin: 0;
+	}
 
-  &__link {
-    display: block;
-    padding-bottom: $spacing-sm;
-    padding-right: $spacing-xl;
-    padding-top: $spacing-sm;
-    position: relative;
-    text-decoration: none;
-  }
+	&__link {
+		display: block;
+		padding-bottom: $spacing-sm;
+		padding-right: $spacing-xl;
+		padding-top: $spacing-sm;
+		position: relative;
+		text-decoration: none;
+	}
 
-  &__link::after {
-    background-color: currentColor;
-    content: "";
-    clip-path: path(var(--rvt-icon-arrow-right));
-    display: inline-block;
-    height: $spacing-sm;
-    position: absolute;
-    right: $spacing-sm;
-    top: $spacing-sm * 1.25;
-    width: $spacing-sm;
-  }
+	&__link::after {
+		background-color: currentColor;
+		content: "";
+		clip-path: path(var(--rvt-icon-arrow-right));
+		display: inline-block;
+		height: $spacing-sm;
+		position: absolute;
+		right: $spacing-sm;
+		top: $spacing-sm * 1.25;
+		width: $spacing-sm;
+	}
 
-  &__text,
-  &__description {
-    display: block;
-  }
+	&__text,
+	&__description {
+		display: block;
+	}
 
-  &__link:hover &__text {
-    text-decoration: underline;
-  }
+	&__link:hover &__text {
+		text-decoration: underline;
+	}
 
-  &__text {
-    font-size: $ts-20;
-    font-weight: $font-weight-regular;
-    line-height: 1.25;
-  }
+	&__text {
+		font-size: $ts-20;
+		font-weight: $font-weight-regular;
+		line-height: 1.25;
+	}
 
-  &__description {
-    color: var(--rvt-color-theme-text);
-    font-size: $ts-14;
-    margin-top: $spacing-xs;
-  }
+	&__description {
+		color: var(--rvt-color-theme-text);
+		font-size: $ts-14;
+		margin-top: $spacing-xs;
+	}
 
-  &--stacked {
-    display: block;
-  }
+	&--stacked {
+		display: block;
+	}
 }

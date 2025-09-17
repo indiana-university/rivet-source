@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite';
-import bannerPlugin from 'vite-plugin-banner';
-import { eleventyPlugin } from 'vite-plugin-eleventy';
-import pkg from './package.json';
+import { defineConfig } from "vite";
+import bannerPlugin from "vite-plugin-banner";
+import { eleventyPlugin } from "vite-plugin-eleventy";
+import pkg from "./package.json";
 
-const [fileName] = pkg.name.split('-');
+const [fileName] = pkg.name.split("-");
 const license = `/*!
  * ${pkg.name} - @version ${pkg.version}
  *
@@ -12,34 +12,30 @@ const license = `/*!
  */`;
 
 const buildConfig = {
-	plugins: [
-		bannerPlugin(license)
-	],
+	plugins: [bannerPlugin(license)],
 	build: {
 		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
-			entry: 'src/js/index.js',
+			entry: "src/js/index.js",
 			fileName: () => `${fileName}.js`,
-			formats: ['es']
+			formats: ["es"],
 		},
-		sourcemap: true
-	}
+		sourcemap: true,
+	},
 };
 
 const serveConfig = {
-	root: 'src/sandbox',
-	plugins: [
-		eleventyPlugin()
-	],
+	root: "src/sandbox",
+	plugins: [eleventyPlugin()],
 	server: {
-		open: true
-	}
+		open: true,
+	},
 };
 
 const commandMap = {
 	build: buildConfig,
-	serve: serveConfig
+	serve: serveConfig,
 };
 
 export default defineConfig(({ command }) => commandMap[command]);

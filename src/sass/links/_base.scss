@@ -1,53 +1,53 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 a,
 .#{$prefix}-link {
-  color: var(--rvt-color-theme-accent);
+	color: var(--rvt-color-theme-accent);
 
-  &:hover,
-  &:visited {
-    color: var(--rvt-color-theme-accent-strong);
-  }
+	&:hover,
+	&:visited {
+		color: var(--rvt-color-theme-accent-strong);
+	}
 }
 
 .#{$prefix}-link--bold,
 .#{$prefix}-link-bold {
-  font-weight: $font-weight-bold;
+	font-weight: $font-weight-bold;
 }
 
 .#{$prefix}-link--bold,
 .#{$prefix}-link-bold,
 .#{$prefix}-link-plain {
-  text-decoration: none;
+	text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .#{$prefix}-link-cta,
 .#{$prefix}-link--cta {
-  display: inline-block;
-  font-weight: $font-weight-medium;
-  text-decoration: none;
+	display: inline-block;
+	font-weight: $font-weight-medium;
+	text-decoration: none;
 
-  &::after {
-    background-color: currentColor;
-    clip-path: path(var(--rvt-icon-arrow-right));
-    content: "";
-    display: inline-block;
-    height: $spacing-sm;
-    margin-left: $spacing-xs;
-    position: relative;
-    top: $spacing-xxs * .8;
-    transition: all .2s ease;
-    width: $spacing-sm;
-  }
+	&::after {
+		background-color: currentColor;
+		clip-path: path(var(--rvt-icon-arrow-right));
+		content: "";
+		display: inline-block;
+		height: $spacing-sm;
+		margin-left: $spacing-xs;
+		position: relative;
+		top: $spacing-xxs * 0.8;
+		transition: all 0.2s ease;
+		width: $spacing-sm;
+	}
 
-  &:hover::after {
-    transform: translateX($spacing-xxs);
-  }
+	&:hover::after {
+		transform: translateX($spacing-xxs);
+	}
 }

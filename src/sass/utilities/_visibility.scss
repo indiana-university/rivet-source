@@ -1,31 +1,31 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 %start-hidden {
-  display: none !important;
+	display: none !important;
 }
 
 @each $variable, $size in $breakpoints {
-  .#{$prefix}-hide-#{$variable}-down {
-    @extend %start-hidden;
-  }
+	.#{$prefix}-hide-#{$variable}-down {
+		@extend %start-hidden;
+	}
 
-  @include mq($size) {
-    .#{$prefix}-hide-#{$variable}-down {
-      display: block !important;
-    }
+	@include mq($size) {
+		.#{$prefix}-hide-#{$variable}-down {
+			display: block !important;
+		}
 
-    th.#{$prefix}-hide-#{$variable}-down,
-    td.#{$prefix}-hide-#{$variable}-down {
-      display: table-cell !important;
-    }
-  }
+		th.#{$prefix}-hide-#{$variable}-down,
+		td.#{$prefix}-hide-#{$variable}-down {
+			display: table-cell !important;
+		}
+	}
 
-  @include mq($size) {
-    .#{$prefix}-hide-#{$variable}-up {
-      display: none !important;
-    }
-  }
+	@include mq($size) {
+		.#{$prefix}-hide-#{$variable}-up {
+			display: none !important;
+		}
+	}
 }

@@ -4,7 +4,7 @@
  *****************************************************************************/
 
 const globalSettings = {
-  prefix: 'rvt'
-}
+	prefix: "rvt",
+};
 
-export default globalSettings
+export default globalSettings;

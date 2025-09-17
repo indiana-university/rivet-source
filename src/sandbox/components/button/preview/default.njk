@@ -7,29 +7,36 @@ order: 1
 ---
 
 <div class="rvt-flex rvt-flex-column rvt-gap-lg">
-
-{% for variant in variants %}
-  <div class="rvt-flex rvt-gap-sm">
-    {% for button in buttons %}
-    {% if button.type == 'button' %}
-      {% if button.hasIcon %}
-      <button type="button" class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}">
-        {{ button.text | safe }}
-      </button>
-      {% else %}
-      <button
-        type="button"
-        class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
-        {% if button.isDisabled %}disabled{% endif %}
-      >
-        {{ button.text }}
-      </button>
-      {% endif %}
-    {% else %}
-      <a href="{{ button.url }}" class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}">{{ button.text }}</a>
-    {% endif %}
-    {% endfor %}
-  </div>
-{% endfor %}
-
+	{% for variant in variants %}
+	<div class="rvt-flex rvt-gap-sm">
+		{% for button in buttons %} {% if button.type == 'button' %} {% if
+		button.hasIcon %}
+		<button
+			type="button"
+			class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
+		>
+			{{ button.text | safe }}
+		</button>
+		{% else %}
+		<button
+			type="button"
+			class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
+			{%
+			if
+			button.isDisabled
+			%}disabled{%
+			endif
+			%}
+		>
+			{{ button.text }}
+		</button>
+		{% endif %} {% else %}
+		<a
+			href="{{ button.url }}"
+			class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
+			>{{ button.text }}</a
+		>
+		{% endif %} {% endfor %}
+	</div>
+	{% endfor %}
 </div>

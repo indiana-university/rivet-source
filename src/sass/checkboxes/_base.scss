@@ -1,111 +1,111 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
-@use 'sass:math';
+@use "../core" as *;
+@use "sass:math";
 
 .#{$prefix}-checkbox {
-  display: inline-block;
-  padding-left: $spacing-lg;
-  position: relative;
+	display: inline-block;
+	padding-left: $spacing-lg;
+	position: relative;
 
-  input[type="checkbox"] {
-    cursor: pointer;
-    height: $spacing-md;
-    left: 0;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: $spacing-lg;
-  }
+	input[type="checkbox"] {
+		cursor: pointer;
+		height: $spacing-md;
+		left: 0;
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: $spacing-lg;
+	}
 
-  &--sr-only-label {
-    padding-left: $spacing-md;
-  }
+	&--sr-only-label {
+		padding-left: $spacing-md;
+	}
 
-  &--sr-only-label input[type="checkbox"] {
-    width: $spacing-md;
-  }
+	&--sr-only-label input[type="checkbox"] {
+		width: $spacing-md;
+	}
 
-  &--sr-only-label input[type="checkbox"] ~ label {
-    height: 0;
-    overflow: hidden;
-    padding: 0;
-    width: 0;
-  }
+	&--sr-only-label input[type="checkbox"] ~ label {
+		height: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 0;
+	}
 
-  input[type="checkbox"] ~ label {
-    --color-background: var(--rvt-color-theme-background);
-    --color-background-accent: var(--rvt-color-theme-accent);
-    --color-border: var(--rvt-color-theme-text-strong);
-    --color-icon: var(--rvt-color-theme-text-inverse);
-    --display-icon: none;
-    cursor: pointer;
-    display: inline-block;
-    line-height: $line-height-base;
-  }
+	input[type="checkbox"] ~ label {
+		--color-background: var(--rvt-color-theme-background);
+		--color-background-accent: var(--rvt-color-theme-accent);
+		--color-border: var(--rvt-color-theme-text-strong);
+		--color-icon: var(--rvt-color-theme-text-inverse);
+		--display-icon: none;
+		cursor: pointer;
+		display: inline-block;
+		line-height: $line-height-base;
+	}
 
-  input[type="checkbox"] ~ label::before {
-    background-color: var(--color-background);
-    border: math.div($spacing-xxs, 4) solid var(--color-border);
-    content: "";
-    display: inline-block;
-    height: $spacing-sm;
-    left: math.div(3rem, 16);
-    position: absolute;
-    top: math.div(3rem, 16);
-    width: $spacing-sm;
-  }
+	input[type="checkbox"] ~ label::before {
+		background-color: var(--color-background);
+		border: math.div($spacing-xxs, 4) solid var(--color-border);
+		content: "";
+		display: inline-block;
+		height: $spacing-sm;
+		left: math.div(3rem, 16);
+		position: absolute;
+		top: math.div(3rem, 16);
+		width: $spacing-sm;
+	}
 
-  input[type="checkbox"] ~ label::after {
-    background-color: var(--color-icon);
-    clip-path: path(var(--icon));
-    content: "";
-    display: var(--display-icon);
-    height: $spacing-sm;
-    left: calc(4rem/16);
-    position: absolute;
-    top: calc(4rem/16);
-    width: $spacing-sm;
-  }
+	input[type="checkbox"] ~ label::after {
+		background-color: var(--color-icon);
+		clip-path: path(var(--icon));
+		content: "";
+		display: var(--display-icon);
+		height: $spacing-sm;
+		left: calc(4rem / 16);
+		position: absolute;
+		top: calc(4rem / 16);
+		width: $spacing-sm;
+	}
 
-  input[type="checkbox"]:checked ~ label {
-    --color-background: var(--rvt-color-theme-accent);
-    --color-border: var(--rvt-color-theme-accent);
-    --display-icon: block;
-    --icon: var(--rvt-icon-check);
-  }
+	input[type="checkbox"]:checked ~ label {
+		--color-background: var(--rvt-color-theme-accent);
+		--color-border: var(--rvt-color-theme-accent);
+		--display-icon: block;
+		--icon: var(--rvt-icon-check);
+	}
 
-  input[type="checkbox"]:disabled {
-    cursor: not-allowed;
-  }
+	input[type="checkbox"]:disabled {
+		cursor: not-allowed;
+	}
 
-  input[type="checkbox"]:disabled ~ label {
-    --color-background: var(--rvt-color-theme-background-strong);
-    --color-border: var(--rvt-color-theme-ui-strong);
-    cursor: not-allowed;
-  } 
+	input[type="checkbox"]:disabled ~ label {
+		--color-background: var(--rvt-color-theme-background-strong);
+		--color-border: var(--rvt-color-theme-ui-strong);
+		cursor: not-allowed;
+	}
 
-  input[type="checkbox"]:disabled:checked ~ label {
-    --color-background: var(--rvt-color-theme-ui-strong);
-    --color-icon: var(--rvt-color-theme-background);
-  }
+	input[type="checkbox"]:disabled:checked ~ label {
+		--color-background: var(--rvt-color-theme-ui-strong);
+		--color-icon: var(--rvt-color-theme-background);
+	}
 
-  input[type="checkbox"]:focus ~ label::before {
-    outline: math.div(2rem, 16) solid var(--rvt-color-theme-accent-strong);
-    outline-offset: math.div(2rem, 16);
-  }
+	input[type="checkbox"]:focus ~ label::before {
+		outline: math.div(2rem, 16) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: math.div(2rem, 16);
+	}
 
-  input[type="checkbox"]:indeterminate ~ label {
-    --color-background: var(--rvt-color-theme-accent);
-    --color-border: var(--rvt-color-theme-accent);
-    --display-icon: block;
-    --icon: var(--rvt-icon-minus);
-  }
+	input[type="checkbox"]:indeterminate ~ label {
+		--color-background: var(--rvt-color-theme-accent);
+		--color-border: var(--rvt-color-theme-accent);
+		--display-icon: block;
+		--icon: var(--rvt-icon-minus);
+	}
 
-  &__description {
-    display: block;
-    font-size: $ts-14;
-  }
+	&__description {
+		display: block;
+		font-size: $ts-14;
+	}
 }

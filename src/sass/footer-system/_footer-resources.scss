@@ -1,73 +1,73 @@
 // Related section
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-footer-resources {
-  padding-bottom: $spacing-sm;
+	padding-bottom: $spacing-sm;
 
-  &__heading {
-    font-size: $ts-18;
-    font-weight: $font-weight-medium;
-    margin-top: $spacing-md;
-  }
+	&__heading {
+		font-size: $ts-18;
+		font-weight: $font-weight-medium;
+		margin-top: $spacing-md;
+	}
 
-  &__text-block {
-    font-size: $ts-14;
-    margin-top: $spacing-sm;
-  }
+	&__text-block {
+		font-size: $ts-14;
+		margin-top: $spacing-sm;
+	}
 
-  &__list {
-    list-style: none;
-    margin-top: $spacing-xs;
-    padding-left: 0;
-  }
+	&__list {
+		list-style: none;
+		margin-top: $spacing-xs;
+		padding-left: 0;
+	}
 
-  &__list-item {
-    margin-top: $spacing-xxs;
-  }
+	&__list-item {
+		margin-top: $spacing-xxs;
+	}
 
-  &__list-item a {
-    color: var(--rvt-color-theme-text-strong);
-    font-size: $ts-14;
-    text-decoration: none;
+	&__list-item a {
+		color: var(--rvt-color-theme-text-strong);
+		font-size: $ts-14;
+		text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 
-  /**
+	/**
    * This class can be used on any button or button links needed for CTAs, etc.
    */
 
-  &__button {
-    background-color: var(--rvt-color-theme-background);
-    border-color: transparent;
-    color: var(--rvt-color-theme-accent);
-    justify-content: center;
-    margin-bottom: $spacing-sm;
-    width: 100%;
-  }
+	&__button {
+		background-color: var(--rvt-color-theme-background);
+		border-color: transparent;
+		color: var(--rvt-color-theme-accent);
+		justify-content: center;
+		margin-bottom: $spacing-sm;
+		width: 100%;
+	}
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-footer-resources {
-    padding-bottom: $spacing-lg;
-    padding-top: $spacing-lg;
+	.#{$prefix}-footer-resources {
+		padding-bottom: $spacing-lg;
+		padding-top: $spacing-lg;
 
-    &__heading {
-      margin-top: 0;
-    }
+		&__heading {
+			margin-top: 0;
+		}
 
-    &__list {
-      margin-top: $spacing-sm;
-    }
-  }
+		&__list {
+			margin-top: $spacing-sm;
+		}
+	}
 
-  // Adjust the padding of the resources component to make spacing work better
-  // visually when used together with social component.
+	// Adjust the padding of the resources component to make spacing work better
+	// visually when used together with social component.
 
-  .#{$prefix}-footer-social + .#{$prefix}-footer-resources {
-    padding-top: $spacing-xs;
-  }
+	.#{$prefix}-footer-social + .#{$prefix}-footer-resources {
+		padding-top: $spacing-xs;
+	}
 }

@@ -1,125 +1,124 @@
 // Copyright (C) 2025 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-media-hub {
+	&__teaser {
+		color: var(--rvt-color-theme-text-accent);
+		font-family: $font-family-serif;
+		font-size: $ts-46;
+		letter-spacing: 0.01rem;
+		line-height: $line-height-tight;
+		margin: 0;
+		max-width: 40ch;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
-  &__teaser {
-    color: var(--rvt-color-theme-text-accent);
-    font-family: $font-family-serif;
-    font-size: $ts-46;
-    letter-spacing: .01rem;
-    line-height: $line-height-tight;
-    margin: 0;
-    max-width: 40ch;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+		a {
+			text-decoration-thickness: $spacing-xs;
+			text-underline-offset: $spacing-xs;
+		}
 
-    a {
-      text-decoration-thickness: $spacing-xs;
-      text-underline-offset: $spacing-xs;
-    }
+		a:hover {
+			text-decoration-thickness: $spacing-xs;
+			text-underline-offset: $spacing-xs;
+			transition: 0.2s all ease-in-out;
+		}
+	}
 
-    a:hover {
-      text-decoration-thickness: $spacing-xs;
-      text-underline-offset: $spacing-xs;
-      transition: .2s all ease-in-out;
-    }
-  }
+	&__teaser + &__media {
+		margin-top: $spacing-xxl;
+	}
 
-  &__teaser + &__media {
-    margin-top: $spacing-xxl;
-  }
+	&__media {
+		display: grid;
+		gap: $spacing-xs;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: auto auto;
+		position: relative;
 
-  &__media {
-    display: grid;
-    gap: $spacing-xs;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto auto;
-    position: relative;
+		img {
+			height: 100%;
+			max-width: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
 
-    img {
-      height: 100%;
-      max-width: 100%;
-      object-fit: cover;
-      width: 100%;
-    }
+		iframe {
+			display: block;
+			height: auto;
+			max-width: 100%;
+			width: 100%;
+		}
 
-    iframe {
-      display: block;
-      height: auto;
-      max-width: 100%;
-      width: 100%;
-    }
+		figcaption {
+			grid-column: 1 / -1;
+			padding-top: 0;
+		}
+	}
 
-    figcaption {
-      grid-column: 1 / -1;
-      padding-top: 0;
-    }
-  }
+	// These aspect ratio helpers are needed to enforce aspect
+	// ratios for embedded videos
 
-  // These aspect ratio helpers are needed to enforce aspect
-  // ratios for embedded videos
+	&__16x9 > * {
+		aspect-ratio: 16 / 9;
+	}
 
-  &__16x9 > * {
-    aspect-ratio: 16 / 9;
-  }
+	&__4x3 > * {
+		aspect-ratio: 4 / 3;
+	}
 
-  &__4x3 > * {
-    aspect-ratio: 4 / 3;
-  }
+	&__1x1 > * {
+		aspect-ratio: 1 / 1;
+	}
 
-  &__1x1 > * {
-    aspect-ratio: 1 / 1;
-  }
+	// New Layout system
 
-  // New Layout system
+	&__row-full-height,
+	&__row-full {
+		grid-row: 1/-1;
+	}
 
-  &__row-full-height,
-  &__row-full {
-    grid-row: 1/-1;
-  }
+	&__row-top {
+		grid-row: 1/2;
+	}
 
-  &__row-top {
-    grid-row: 1/2;
-  }
+	&__row-bottom {
+		grid-row: 2/3;
+	}
 
-  &__row-bottom {
-    grid-row: 2/3;
-  }
+	&__column-third,
+	&__2,
+	&__span-2 {
+		grid-column: span 2;
+	}
 
-  &__column-third,
-  &__2,
-  &__span-2 {
-    grid-column: span 2;
-  }
+	&__column-half,
+	&__3,
+	&__span-3 {
+		grid-column: span 3;
+	}
 
-  &__column-half,
-  &__3,
-  &__span-3 {
-    grid-column: span 3;
-  }
+	&__column-two-thirds,
+	&__4,
+	&__span-4 {
+		grid-column: span 4;
+	}
 
-  &__column-two-thirds,
-  &__4,
-  &__span-4 {
-    grid-column: span 4;
-  }
+	&__column-full-width,
+	&__column-full,
+	&__6,
+	&__span-6 {
+		grid-column: 1/-1;
+	}
 
-  &__column-full-width,
-  &__column-full,
-  &__6,
-  &__span-6 {
-    grid-column: 1/-1;
-  }
+	&__card {
+		grid-column: 1 / 7;
+		margin-top: -1.5rem;
+	}
 
-  &__card {
-    grid-column: 1 / 7;
-    margin-top: -1.5rem;
-  }
-
-  &--no-gap {
-    gap: 0;
-  }
+	&--no-gap {
+		gap: 0;
+	}
 }

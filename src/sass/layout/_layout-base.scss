@@ -1,82 +1,82 @@
 // Copyright (C) 2024 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	overflow-x: hidden;
 
-  main {
-    flex-grow: 1;
-  }
+	main {
+		flex-grow: 1;
+	}
 }
 
 .#{$prefix}-layout-base {
-  display: grid;
-  gap: $spacing-md;
-  @include container;
+	display: grid;
+	gap: $spacing-md;
+	@include container;
 
-  &__sidebar {
-    padding-block-start: $spacing-lg;
-  }
+	&__sidebar {
+		padding-block-start: $spacing-lg;
+	}
 
-  &__main {
-    padding-block-start: $spacing-md;
-    padding-block-end: $spacing-md;
-  }
+	&__main {
+		padding-block-start: $spacing-md;
+		padding-block-end: $spacing-md;
+	}
 
-  &--single-column &__main {
-    margin-inline: auto;
-    max-width: 80ch;
-    width: 100%;
-  }
+	&--single-column &__main {
+		margin-inline: auto;
+		max-width: 80ch;
+		width: 100%;
+	}
 
-  &__breakout {
-    margin-left: calc(50% - 50vw);
-    padding-block: $spacing-xl;
-    width: 100vw;
-  }
+	&__breakout {
+		margin-left: calc(50% - 50vw);
+		padding-block: $spacing-xl;
+		width: 100vw;
+	}
 
-  &__breakout-inner {
-    @include container;
-  }
+	&__breakout-inner {
+		@include container;
+	}
 
-  &--single-column &__breakout {
-    // Breakout styles for single column...
-    margin-left: calc(50% - 50vw);
-  }
+	&--single-column &__breakout {
+		// Breakout styles for single column...
+		margin-left: calc(50% - 50vw);
+	}
 }
 
 @include mq($breakpoint-lg) {
-  .#{$prefix}-layout-base {
-    grid-template-columns: ($spacing-sm * 18) 1fr;
-    gap: $spacing-xxl;
+	.#{$prefix}-layout-base {
+		grid-template-columns: ($spacing-sm * 18) 1fr;
+		gap: $spacing-xxl;
 
-    &__sidebar {
-      border-right: 1px solid var(--rvt-color-theme-ui);
-    }
+		&__sidebar {
+			border-right: 1px solid var(--rvt-color-theme-ui);
+		}
 
-    &__sidebar {
-      padding-block: $spacing-xxl * 1.25;
-    }
+		&__sidebar {
+			padding-block: $spacing-xxl * 1.25;
+		}
 
-    &__main {
-      padding-block-end: $spacing-xxl;
-    }
+		&__main {
+			padding-block-end: $spacing-xxl;
+		}
 
-    &__breakout {
-      // 18rem = sidebar width
-      // 4rem = grid gap
-      // --------------------
-      // 22rem / 2 = 11rem
-      margin-left: calc(-50vw + calc(50% - 11rem));
-    }
+		&__breakout {
+			// 18rem = sidebar width
+			// 4rem = grid gap
+			// --------------------
+			// 22rem / 2 = 11rem
+			margin-left: calc(-50vw + calc(50% - 11rem));
+		}
 
-    &--single-column {
-      grid-template-columns: 1fr;
-    }
-  }
+		&--single-column {
+			grid-template-columns: 1fr;
+		}
+	}
 }

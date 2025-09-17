@@ -1,20 +1,20 @@
 {
-  "breakpoint": {
-    "$type": "dimension",
-    "sm": {
-      "$value": "30em"
-    },
-    "md": {
-      "$value": "46.25em"
-    },
-    "lg": {
-      "$value": "67.5em"
-    },
-    "xl": {
-      "$value": "78.75em"
-    },
-    "xxl": {
-      "$value": "87.5em"
-    }
-  }
+	"breakpoint": {
+		"$type": "dimension",
+		"sm": {
+			"$value": "30em"
+		},
+		"md": {
+			"$value": "46.25em"
+		},
+		"lg": {
+			"$value": "67.5em"
+		},
+		"xl": {
+			"$value": "78.75em"
+		},
+		"xxl": {
+			"$value": "87.5em"
+		}
+	}
 }

@@ -1,17 +1,17 @@
 {
-  "border-radius": {
-    "$type": "dimension",
-    "sm": {
-      "$value": ".125rem"
-    },
-    "md": {
-      "$value": "{spacing.xxs}"
-    },
-    "lg": {
-      "$value": "{spacing.xs}"
-    },
-    "circle": {
-      "$value": "999rem"
-    }
-  }
+	"border-radius": {
+		"$type": "dimension",
+		"sm": {
+			"$value": ".125rem"
+		},
+		"md": {
+			"$value": "{spacing.xxs}"
+		},
+		"lg": {
+			"$value": "{spacing.xs}"
+		},
+		"circle": {
+			"$value": "999rem"
+		}
+	}
 }

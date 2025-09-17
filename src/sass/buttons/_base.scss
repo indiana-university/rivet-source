@@ -1,132 +1,134 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
-@use 'sass:math';
+@use "../core" as *;
+@use "sass:math";
 
 .#{$prefix}-button {
-  --color-border: var(--rvt-color-theme-text-strong);
-  --color-background: var(--rvt-color-theme-background);
-  --color-background-hover: var(--rvt-color-theme-background-strong);
-  --color-text: var(--rvt-color-theme-text-strong);
-  align-items: center;
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 0;
-  color: var(--color-text);
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: $font-weight-medium;
-  gap: $spacing-xs;
-  height: $spacing-sm * 3;
-  justify-content: center;
-  line-height: 1.1;
-  padding: 0 #{$spacing-sm};
-  text-decoration: none;
-  transition: background .2s ease-in-out, border-color .2s ease-in-out;
+	--color-border: var(--rvt-color-theme-text-strong);
+	--color-background: var(--rvt-color-theme-background);
+	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-text: var(--rvt-color-theme-text-strong);
+	align-items: center;
+	background: var(--color-background);
+	border: 1px solid var(--color-border);
+	border-radius: 0;
+	color: var(--color-text);
+	cursor: pointer;
+	display: inline-flex;
+	font-weight: $font-weight-medium;
+	gap: $spacing-xs;
+	height: $spacing-sm * 3;
+	justify-content: center;
+	line-height: 1.1;
+	padding: 0 #{$spacing-sm};
+	text-decoration: none;
+	transition:
+		background 0.2s ease-in-out,
+		border-color 0.2s ease-in-out;
 
-  &:hover {
-    background-color: var(--color-background-hover);
-    color: var(--color-text);
-  }
+	&:hover {
+		background-color: var(--color-background-hover);
+		color: var(--color-text);
+	}
 
-  &--solid {
-    --color-background: var(--rvt-color-theme-text-strong);
-    --color-background-hover: var(--rvt-color-theme-background-inverse);
-    --color-border: transparent;
-    --color-text: var(--rvt-color-theme-text-inverse);
-  }
+	&--solid {
+		--color-background: var(--rvt-color-theme-text-strong);
+		--color-background-hover: var(--rvt-color-theme-background-inverse);
+		--color-border: transparent;
+		--color-text: var(--rvt-color-theme-text-inverse);
+	}
 
-  &--plain {
-    --color-border: transparent;
-  }
+	&--plain {
+		--color-border: transparent;
+	}
 
-  &--small {
-    font-size: $ts-14;
-    height: $spacing-xl;
-    padding: 0 $spacing-xs;
-  }
+	&--small {
+		font-size: $ts-14;
+		height: $spacing-xl;
+		padding: 0 $spacing-xs;
+	}
 
-  &:disabled {
-    //--color-background: var(--rvt-color-theme-background);
-    --color-background-hover: var(--rvt-color-theme-background);
-    //--color-border: var(--rvt-color-theme-ui);
-    //--color-text: var(--rvt-color-theme-ui-strong);
-    cursor: not-allowed;
-    opacity: 0.4;
-  }
+	&:disabled {
+		//--color-background: var(--rvt-color-theme-background);
+		--color-background-hover: var(--rvt-color-theme-background);
+		//--color-border: var(--rvt-color-theme-ui);
+		//--color-text: var(--rvt-color-theme-ui-strong);
+		cursor: not-allowed;
+		opacity: 0.4;
+	}
 
-  &--plain:disabled {
-    //--color-border: transparent;
-  }
+	&--plain:disabled {
+		//--color-border: transparent;
+	}
 
-  &--solid:disabled {
-    //--color-background: var(--rvt-color-theme-ui-strong);
-    --color-background-hover: var(--rvt-color-theme-text-strong);
-    //--color-text: var(--rvt-color-theme-text-inverse);
-  }
+	&--solid:disabled {
+		//--color-background: var(--rvt-color-theme-ui-strong);
+		--color-background-hover: var(--rvt-color-theme-text-strong);
+		//--color-text: var(--rvt-color-theme-text-inverse);
+	}
 
-  &--tag {
-    --color-border: var(--rvt-color-theme-ui-strong);
-    border-radius: $border-radius-circle;
-    display: inline-flex;
-    font-size: calc(14rem/16);
-    gap: $spacing-xxs;
-    height: $spacing-sm * 1.5;
-    padding: 0 .5rem;
-  }
+	&--tag {
+		--color-border: var(--rvt-color-theme-ui-strong);
+		border-radius: $border-radius-circle;
+		display: inline-flex;
+		font-size: calc(14rem / 16);
+		gap: $spacing-xxs;
+		height: $spacing-sm * 1.5;
+		padding: 0 0.5rem;
+	}
 
-  &--dismissable::after {
-    background-color: currentColor;
-    clip-path: path(var(--rvt-icon-close-small));
-    content: "";
-    display: block;
-    height: $spacing-sm;
-    width: $spacing-sm;
-  }
+	&--dismissable::after {
+		background-color: currentColor;
+		clip-path: path(var(--rvt-icon-close-small));
+		content: "";
+		display: block;
+		height: $spacing-sm;
+		width: $spacing-sm;
+	}
 
-  &--icon-only {
-  }
+	&--icon-only {
+	}
 
-  &[aria-pressed="true"] {
-    --color-background: var(--rvt-color-theme-accent);
-    --color-border: transparent;
-    --color-text: var(--rvt-color-theme-text-inverse);
-  }
+	&[aria-pressed="true"] {
+		--color-background: var(--rvt-color-theme-accent);
+		--color-border: transparent;
+		--color-text: var(--rvt-color-theme-text-inverse);
+	}
 
-  &[aria-pressed="true"]:hover {
-    --color-background: var(--rvt-color-theme-accent-strong);
-  }
+	&[aria-pressed="true"]:hover {
+		--color-background: var(--rvt-color-theme-accent-strong);
+	}
 }
 
 a.#{$prefix}-button {
-  --rotate: 0;
+	--rotate: 0;
 
-  &::after {
-    background-color: currentColor;
-    clip-path: path(var(--rvt-icon-arrow-right));
-    content: "";
-    display: block;
-    flex-shrink: 0;
-    height: $spacing-sm;
-    transform: rotate(var(--rotate));
-    transition: all .2s ease;
-    width: $spacing-sm;
-  }
+	&::after {
+		background-color: currentColor;
+		clip-path: path(var(--rvt-icon-arrow-right));
+		content: "";
+		display: block;
+		flex-shrink: 0;
+		height: $spacing-sm;
+		transform: rotate(var(--rotate));
+		transition: all 0.2s ease;
+		width: $spacing-sm;
+	}
 
-  &:hover::after {
-    transform: rotate(var(--rotate)) translateX($spacing-xxs);
-  }
+	&:hover::after {
+		transform: rotate(var(--rotate)) translateX($spacing-xxs);
+	}
 
-  &--tag::after {
-    display: none;
-  }
+	&--tag::after {
+		display: none;
+	}
 }
 
 a[href^="http"].#{$prefix}-button {
-  --rotate: -45deg;
+	--rotate: -45deg;
 }
 
 a[href*="#"].#{$prefix}-button {
-  --rotate: 90deg;
+	--rotate: 90deg;
 }

@@ -1,20 +1,12 @@
-{% extends 'layouts/base.njk' %}
-
-{% block content %}
-  <div>
-    <div class="rvt-p-tb-sm rvt-p-right-sm">
-      <h1 class="rvt-text-bold rvt-ts-sm">{{ title }}</h1>
-    </div>
-    <div class="rvt-border-top">
-      <div class="rvt-theme-light rvt-p-all-sm">
-        {{ content | safe }}
-      </div>
-      <div class="rvt-theme-dark rvt-p-all-sm">
-        {{ content | safe }}
-      </div>
-      <div class="rvt-theme-crimson rvt-p-all-sm">
-        {{ content | safe }}
-      </div>
-    </div>
-  </div>
+{% extends 'layouts/base.njk' %} {% block content %}
+<div>
+	<div class="rvt-p-tb-sm rvt-p-right-sm">
+		<h1 class="rvt-text-bold rvt-ts-sm">{{ title }}</h1>
+	</div>
+	<div class="rvt-border-top">
+		<div class="rvt-theme-light rvt-p-all-sm">{{ content | safe }}</div>
+		<div class="rvt-theme-dark rvt-p-all-sm">{{ content | safe }}</div>
+		<div class="rvt-theme-crimson rvt-p-all-sm">{{ content | safe }}</div>
+	</div>
+</div>
 {% endblock content %}

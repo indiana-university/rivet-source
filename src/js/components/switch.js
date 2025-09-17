@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from './component'
-import SUPPRESS_EVENT from '../utilities/suppressEvent'
+import Component from "./component";
+import SUPPRESS_EVENT from "../utilities/suppressEvent";
 
 /******************************************************************************
  * The switch component allows the user to toggle between "on" and "off"
@@ -14,199 +14,205 @@ import SUPPRESS_EVENT from '../utilities/suppressEvent'
  *****************************************************************************/
 
 export default class Switch extends Component {
+	/****************************************************************************
+	 * Gets the switch's CSS selector.
+	 *
+	 * @static
+	 * @returns {string} The CSS selector
+	 ***************************************************************************/
 
-  /****************************************************************************
-   * Gets the switch's CSS selector.
-   *
-   * @static
-   * @returns {string} The CSS selector
-   ***************************************************************************/
+	static get selector() {
+		return "[data-rvt-switch]";
+	}
 
-  static get selector () {
-    return '[data-rvt-switch]'
-  }
+	/****************************************************************************
+	 * Gets an object containing the methods that should be attached to the
+	 * component's root DOM element. Used by wicked-elements to initialize a DOM
+	 * element with Web Component-like behavior.
+	 *
+	 * @static
+	 * @returns {Object} Object with component methods
+	 ***************************************************************************/
 
-  /****************************************************************************
-   * Gets an object containing the methods that should be attached to the
-   * component's root DOM element. Used by wicked-elements to initialize a DOM
-   * element with Web Component-like behavior.
-   *
-   * @static
-   * @returns {Object} Object with component methods
-   ***************************************************************************/
+	static get methods() {
+		return {
+			/************************************************************************
+			 * Initializes the switch.
+			 ***********************************************************************/
 
-  static get methods () {
-    return {
+			init() {
+				this._initProperties();
+				this._setInitialState();
 
-      /************************************************************************
-       * Initializes the switch.
-       ***********************************************************************/
+				Component.bindMethodToDOMElement(this, "switchOn", this.switchOn);
+				Component.bindMethodToDOMElement(this, "switchOff", this.switchOff);
+			},
 
-      init () {
-        this._initProperties()
-        this._setInitialState()
+			/************************************************************************
+			 * Initializes switch state properties.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-        Component.bindMethodToDOMElement(this, 'switchOn', this.switchOn)
-        Component.bindMethodToDOMElement(this, 'switchOff', this.switchOff)
-      },
+			_initProperties() {
+				this.on = false;
+			},
 
-      /************************************************************************
-       * Initializes switch state properties.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Sets the initial state of the switch.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _initProperties () {
-        this.on = false
-      },
+			_setInitialState() {
+				this._hideLabelsFromAssistiveTech();
+				this._setInitialToggleState();
+			},
 
-      /************************************************************************
-       * Sets the initial state of the switch.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Hides the on/off text labels from assistive technology.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _setInitialState () {
-        this._hideLabelsFromAssistiveTech()
-        this._setInitialToggleState()
-      },
+			_hideLabelsFromAssistiveTech() {
+				this.element
+					.querySelectorAll("span")
+					.forEach((span) => span.setAttribute("aria-hidden", true));
+			},
 
-      /************************************************************************
-       * Hides the on/off text labels from assistive technology.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Sets the switch's initial toggle state.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _hideLabelsFromAssistiveTech () {
-        this.element
-            .querySelectorAll('span')
-            .forEach(span => span.setAttribute('aria-hidden', true))
-      },
+			_setInitialToggleState() {
+				this.element.setAttribute("aria-checked", "false");
 
-      /************************************************************************
-       * Sets the switch's initial toggle state.
-       *
-       * @private
-       ***********************************************************************/
+				if (this._shouldBeOnByDefault()) {
+					this.switchOn(SUPPRESS_EVENT);
+				}
+			},
 
-      _setInitialToggleState () {
-        this.element.setAttribute('aria-checked', 'false')
+			/************************************************************************
+			 * Returns true if the switch should be toggled on by default.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-        if (this._shouldBeOnByDefault()) { this.switchOn(SUPPRESS_EVENT) }
-      },
+			_shouldBeOnByDefault() {
+				return this.element.hasAttribute("data-rvt-switch-on");
+			},
 
-      /************************************************************************
-       * Returns true if the switch should be toggled on by default.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Called when the switch is added to the DOM.
+			 ***********************************************************************/
 
-      _shouldBeOnByDefault () {
-        return this.element.hasAttribute('data-rvt-switch-on')
-      },
+			connected() {
+				Component.dispatchComponentAddedEvent(this.element);
+			},
 
-      /************************************************************************
-       * Called when the switch is added to the DOM.
-       ***********************************************************************/
+			/************************************************************************
+			 * Called when the switch is removed from the DOM.
+			 ***********************************************************************/
 
-      connected () {
-        Component.dispatchComponentAddedEvent(this.element)
-      },
+			disconnected() {
+				Component.dispatchComponentRemovedEvent(this.element);
+			},
 
-      /************************************************************************
-       * Called when the switch is removed from the DOM.
-       ***********************************************************************/
+			/************************************************************************
+			 * Handles click events broadcast to the switch.
+			 *
+			 * @param {Event} event - Click event
+			 ***********************************************************************/
 
-      disconnected () {
-        Component.dispatchComponentRemovedEvent(this.element)
-      },
+			onClick(event) {
+				this._isOn() ? this.switchOff() : this.switchOn();
+			},
 
-      /************************************************************************
-       * Handles click events broadcast to the switch.
-       *
-       * @param {Event} event - Click event
-       ***********************************************************************/
+			/************************************************************************
+			 * Returns true if the switch is toggled on.
+			 ***********************************************************************/
 
-      onClick (event) {
-        this._isOn()
-          ? this.switchOff()
-          : this.switchOn()
-      },
+			_isOn() {
+				return this.on;
+			},
 
-      /************************************************************************
-       * Returns true if the switch is toggled on.
-       ***********************************************************************/
+			/************************************************************************
+			 * Toggle the switch on.
+			 *
+			 * @param {boolean} suppressEvent - Suppress switch-on event
+			 ***********************************************************************/
 
-      _isOn () {
-        return this.on
-      },
+			switchOn(suppressEvent = false) {
+				if (this._isOn()) {
+					return;
+				}
 
-      /************************************************************************
-       * Toggle the switch on.
-       * 
-       * @param {boolean} suppressEvent - Suppress switch-on event
-       ***********************************************************************/
+				if (!suppressEvent)
+					if (!this._eventDispatched("SwitchToggledOn")) {
+						return;
+					}
 
-      switchOn (suppressEvent = false) {
-        if (this._isOn()) { return }
+				this._setOnState();
+			},
 
-        if (!suppressEvent)
-          if (!this._eventDispatched('SwitchToggledOn')) { return }
+			/************************************************************************
+			 * Sets the switch's state properties to represent it being on.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-        this._setOnState()
-      },
+			_setOnState() {
+				this.on = true;
+				this.element.setAttribute("aria-checked", "true");
+			},
 
-      /************************************************************************
-       * Sets the switch's state properties to represent it being on.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Toggle the switch off.
+			 *
+			 * @param {boolean} suppressEvent - Suppress switch-off event
+			 ***********************************************************************/
 
-      _setOnState () {
-        this.on = true
-        this.element.setAttribute('aria-checked', 'true')
-      },
+			switchOff(suppressEvent = false) {
+				if (!this._isOn()) {
+					return;
+				}
 
-      /************************************************************************
-       * Toggle the switch off.
-       * 
-       * @param {boolean} suppressEvent - Suppress switch-off event
-       ***********************************************************************/
+				if (!suppressEvent)
+					if (!this._eventDispatched("SwitchToggledOff")) {
+						return;
+					}
 
-      switchOff (suppressEvent = false) {
-        if (!this._isOn()) { return }
+				this._setOffState();
+			},
 
-        if (!suppressEvent)
-          if (!this._eventDispatched('SwitchToggledOff')) { return }
+			/************************************************************************
+			 * Sets the switch's state properties to represent it being off.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-        this._setOffState()
-      },
+			_setOffState() {
+				this.on = false;
+				this.element.setAttribute("aria-checked", "false");
+			},
 
-      /************************************************************************
-       * Sets the switch's state properties to represent it being off.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Returns true if the custom event with the given name was successfully
+			 * dispatched.
+			 *
+			 * @private
+			 * @param {string} name - Event name
+			 * @returns {boolean} Event successfully dispatched
+			 ***********************************************************************/
 
-      _setOffState () {
-        this.on = false
-        this.element.setAttribute('aria-checked', 'false')
-      },
+			_eventDispatched(name) {
+				const dispatched = Component.dispatchCustomEvent(name, this.element);
 
-      /************************************************************************
-       * Returns true if the custom event with the given name was successfully
-       * dispatched.
-       *
-       * @private
-       * @param {string} name - Event name
-       * @returns {boolean} Event successfully dispatched
-       ***********************************************************************/
-
-      _eventDispatched (name) {
-        const dispatched = Component.dispatchCustomEvent(name, this.element)
-
-        return dispatched
-      }
-    }
-  }
+				return dispatched;
+			},
+		};
+	}
 }

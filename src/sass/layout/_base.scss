@@ -1,105 +1,105 @@
-@use '../core' as *;
+@use "../core" as *;
 
 .rvt-layout {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 
-  &__wrapper {
-    flex-grow: 1;
-    width: 100%;
-  }
+	&__wrapper {
+		flex-grow: 1;
+		width: 100%;
+	}
 
-  &__wrapper--details {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+	&__wrapper--details {
+		display: flex;
+		flex-direction: column-reverse;
+	}
 
-  &__content {
-    // This stops some overflow issues if non-breaking content starts to overflow.
-    min-width: 0;
-    padding-bottom: $spacing-lg;
-    padding-top: $spacing-lg;
-  }
+	&__content {
+		// This stops some overflow issues if non-breaking content starts to overflow.
+		min-width: 0;
+		padding-bottom: $spacing-lg;
+		padding-top: $spacing-lg;
+	}
 
-  &__wrapper--single &__content {
-    padding-left: 0;
-  }
+	&__wrapper--single &__content {
+		padding-left: 0;
+	}
 
-  &__break-out {
-    margin-left: -$spacing-md;
-    margin-right: -$spacing-md;
+	&__break-out {
+		margin-left: -$spacing-md;
+		margin-right: -$spacing-md;
 
-    img {
-      width: 100%;
-    }
-  }
+		img {
+			width: 100%;
+		}
+	}
 
-  &__sidebar {
-    border-top: 1px solid var(--rvt-color-theme-ui);
-    padding-bottom: $spacing-lg;
-    padding-top: $spacing-lg;
-  }
+	&__sidebar {
+		border-top: 1px solid var(--rvt-color-theme-ui);
+		padding-bottom: $spacing-lg;
+		padding-top: $spacing-lg;
+	}
 }
 
 @include mq($breakpoint-md) {
-  .rvt-layout {
-    &__wrapper {
-      flex-direction: row;
-    }
+	.rvt-layout {
+		&__wrapper {
+			flex-direction: row;
+		}
 
-    &__sidebar {
-      border-right: 1px solid var(--rvt-color-theme-ui);
-      border-top: none;
-      flex-basis: $width-md;
-      flex-grow: 1;
-      flex-shrink: 0;
-      max-width: $width-md;
-      padding-top: $spacing-xxl * 1.5;
-    }
+		&__sidebar {
+			border-right: 1px solid var(--rvt-color-theme-ui);
+			border-top: none;
+			flex-basis: $width-md;
+			flex-grow: 1;
+			flex-shrink: 0;
+			max-width: $width-md;
+			padding-top: $spacing-xxl * 1.5;
+		}
 
-    &__content {
-      flex-grow: 1;
-      padding-bottom: $spacing-xxl;
-      padding-left: $spacing-xxl;
-      padding-top: $spacing-xxl * 1.5;
-    }
+		&__content {
+			flex-grow: 1;
+			padding-bottom: $spacing-xxl;
+			padding-left: $spacing-xxl;
+			padding-top: $spacing-xxl * 1.5;
+		}
 
-    &__break-out {
-      margin-left: -$spacing-xxl;
-    }
+		&__break-out {
+			margin-left: -$spacing-xxl;
+		}
 
-    &__break-out,
-    &__break-out + * {
-      --flow-space: 3rem;
-    }
+		&__break-out,
+		&__break-out + * {
+			--flow-space: 3rem;
+		}
 
-    &__wrapper--single &__break-out {
-      margin-left: -$spacing-md;
-    }
-  }
+		&__wrapper--single &__break-out {
+			margin-left: -$spacing-md;
+		}
+	}
 }
 
 @include mq($breakpoint-xl) {
-  .rvt-layout {
-    &__break-out {
-      margin-right: -$spacing-xxl;
-    }
+	.rvt-layout {
+		&__break-out {
+			margin-right: -$spacing-xxl;
+		}
 
-    &__wrapper--single &__break-out {
-      margin-left: -$spacing-xxl;
-    }
+		&__wrapper--single &__break-out {
+			margin-left: -$spacing-xxl;
+		}
 
-    &__feature-slot {
-      float: right;
-      margin-bottom: $spacing-lg;
-      margin-left: $spacing-lg;
-      margin-right: -$spacing-xxl;
-      width: $width-xl;
-    }
+		&__feature-slot {
+			float: right;
+			margin-bottom: $spacing-lg;
+			margin-left: $spacing-lg;
+			margin-right: -$spacing-xxl;
+			width: $width-xl;
+		}
 
-    &__feature-slot + * {
-      margin-top: 0;
-    }
-  }
+		&__feature-slot + * {
+			margin-top: 0;
+		}
+	}
 }

@@ -1,63 +1,63 @@
 // Social section
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-footer-social {
-  background-color: var(--rvt-color-theme-background);
-  padding-bottom: $spacing-md;
-  padding-top: $spacing-md;
+	background-color: var(--rvt-color-theme-background);
+	padding-bottom: $spacing-md;
+	padding-top: $spacing-md;
 }
 
 .#{$prefix}-social-link {
-  align-items: center;
-  border: 1px solid var(--rvt-color-theme-ui);
-  border-radius: $border-radius-circle;
-  display: flex;
-  height: $spacing-sm * 2.25;
-  justify-content: center;
-  width: $spacing-sm * 2.25;
+	align-items: center;
+	border: 1px solid var(--rvt-color-theme-ui);
+	border-radius: $border-radius-circle;
+	display: flex;
+	height: $spacing-sm * 2.25;
+	justify-content: center;
+	width: $spacing-sm * 2.25;
 
-  &:hover {
-    background-color: var(--rvt-color-theme-accent);
-    border-color: var(--rvt-color-theme-accent);
-    color: var(--rvt-color-theme-text-inverse);
-    transition: all .2s ease;
-  }
+	&:hover {
+		background-color: var(--rvt-color-theme-accent);
+		border-color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-inverse);
+		transition: all 0.2s ease;
+	}
 
-  &::before {
-    --size-source: 3rem;
-    --scale: calc(1 / 3);
-    background-color: currentColor;
-    clip-path: path(var(--icon));
-    content: "";
-    display: block;
-    height: var(--size-source);
-    position: absolute;
-    transform: scale(calc(1/3));
-    width: var(--size-source);
-  }
+	&::before {
+		--size-source: 3rem;
+		--scale: calc(1 / 3);
+		background-color: currentColor;
+		clip-path: path(var(--icon));
+		content: "";
+		display: block;
+		height: var(--size-source);
+		position: absolute;
+		transform: scale(calc(1 / 3));
+		width: var(--size-source);
+	}
 
-  &--bluesky {
-    --icon: var(--rvt-icon-social-bluesky);
-  }
+	&--bluesky {
+		--icon: var(--rvt-icon-social-bluesky);
+	}
 
-  &--facebook {
-    --icon: var(--rvt-icon-social-facebook);
-  }
+	&--facebook {
+		--icon: var(--rvt-icon-social-facebook);
+	}
 
-  &--instagram {
-    --icon: var(--rvt-icon-social-instagram);
-  }
+	&--instagram {
+		--icon: var(--rvt-icon-social-instagram);
+	}
 
-  &--linkedin {
-    --icon: var(--rvt-icon-social-linkedin);
-  }
+	&--linkedin {
+		--icon: var(--rvt-icon-social-linkedin);
+	}
 
-  &--youtube {
-    --icon: var(--rvt-icon-social-youtube);
-  }
+	&--youtube {
+		--icon: var(--rvt-icon-social-youtube);
+	}
 
-  &--x {
-    --icon: var(--rvt-icon-social-x);
-  }
+	&--x {
+		--icon: var(--rvt-icon-social-x);
+	}
 }

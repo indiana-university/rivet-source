@@ -1,112 +1,112 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
-@use 'sass:math';
+@use "../core" as *;
+@use "sass:math";
 
 .#{$prefix} {
-  &-input,
-  &-text-input,
-  &-textarea,
-  &-select > select {
-    background-color: var(--rvt-color-theme-background);
-    border: 1px solid var(--rvt-color-theme-text-strong);
-    border-radius: 0;
-    color: inherit;
-    display: block;
-    height: $spacing-sm * 3;
-    line-height: 1.1;
-    padding: $spacing-xs;
-    width: 100%;
+	&-input,
+	&-text-input,
+	&-textarea,
+	&-select > select {
+		background-color: var(--rvt-color-theme-background);
+		border: 1px solid var(--rvt-color-theme-text-strong);
+		border-radius: 0;
+		color: inherit;
+		display: block;
+		height: $spacing-sm * 3;
+		line-height: 1.1;
+		padding: $spacing-xs;
+		width: 100%;
 
-    /**
+		/**
      * Prefixes get rid of browser default select element styles.
      */
 
-    /* stylelint-disable  */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    /* stylelint-enable */
-  }
+		/* stylelint-disable  */
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+		/* stylelint-enable */
+	}
 
-  &-textarea {
-    height: $spacing-base * 15;
-    line-height: $line-height-base;
-    overflow: auto; // Remove scrollbar in IE
-  }
+	&-textarea {
+		height: $spacing-base * 15;
+		line-height: $line-height-base;
+		overflow: auto; // Remove scrollbar in IE
+	}
 
-  &-input[type='search'] {
-    height: auto;
-    /* stylelint-disable  */
-    -webkit-appearance: none;
-    /* stylelint-enable */
-  }
+	&-input[type="search"] {
+		height: auto;
+		/* stylelint-disable  */
+		-webkit-appearance: none;
+		/* stylelint-enable */
+	}
 
-  &-select {
-    position: relative;
-  }
+	&-select {
+		position: relative;
+	}
 
-  &-select::before {
-    background-color: currentColor;
-    clip-path: path(var(--rvt-icon-chevron-down));
-    content: "";
-    height: $spacing-sm;
-    pointer-events: none;
-    position: absolute;
-    right: $spacing-sm;
-    top: $spacing-sm;
-    width: $spacing-sm;
-  }
+	&-select::before {
+		background-color: currentColor;
+		clip-path: path(var(--rvt-icon-chevron-down));
+		content: "";
+		height: $spacing-sm;
+		pointer-events: none;
+		position: absolute;
+		right: $spacing-sm;
+		top: $spacing-sm;
+		width: $spacing-sm;
+	}
 
-  &-select > select {
-    padding-right: $spacing-xl;
-  }
+	&-select > select {
+		padding-right: $spacing-xl;
+	}
 
-  &-select > select::-ms-expand {
-    display: none;
-  }
+	&-select > select::-ms-expand {
+		display: none;
+	}
 
-  &-select > select[multiple] {
-    height: $spacing-xxl * 2;
-    padding-right: $spacing-xs;
-  }
+	&-select > select[multiple] {
+		height: $spacing-xxl * 2;
+		padding-right: $spacing-xs;
+	}
 
-  &-select:has(> select[multiple])::before {
-    background-color: transparent;
-  }
+	&-select:has(> select[multiple])::before {
+		background-color: transparent;
+	}
 
-  &-input[type]:disabled,
-  &-input:not([type]):disabled,
-  &-text-input:disabled,
-  &-textarea:disabled,
-  &-select:disabled {
-    background-color: var(--rvt-color-theme-background-strong);
-    border-color: var(--rvt-color-theme-ui);
-    cursor: not-allowed;
-  }
+	&-input[type]:disabled,
+	&-input:not([type]):disabled,
+	&-text-input:disabled,
+	&-textarea:disabled,
+	&-select:disabled {
+		background-color: var(--rvt-color-theme-background-strong);
+		border-color: var(--rvt-color-theme-ui);
+		cursor: not-allowed;
+	}
 
-  &-label {
-    display: inline-block;
-    font-size: $ts-14;
-    font-weight: $font-weight-medium;
-  }
+	&-label {
+		display: inline-block;
+		font-size: $ts-14;
+		font-weight: $font-weight-medium;
+	}
 
-  &-label + * {
-    margin-top: $spacing-xs;
-  }
+	&-label + * {
+		margin-top: $spacing-xs;
+	}
 
-  &-fieldset {
-    border: none;
-    margin: 0;
-    padding: 0;
-  }
+	&-fieldset {
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
 
-  &-legend {
-    display: block;
-    font-weight: $font-weight-regular;
-    margin: 0;
-    width: 100%;
-  }
+	&-legend {
+		display: block;
+		font-weight: $font-weight-regular;
+		margin: 0;
+		width: 100%;
+	}
 }

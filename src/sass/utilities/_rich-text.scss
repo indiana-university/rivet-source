@@ -1,144 +1,144 @@
-@use '../core' as *;
-@use '../lists';
-@use '../utilities/elements';
+@use "../core" as *;
+@use "../lists";
+@use "../utilities/elements";
 
 .rvt-prose,
 .rvt-rich-text {
-  --rvt-rich-text-stack-space: #{$spacing-md};
-  max-width: 80ch;
+	--rvt-rich-text-stack-space: #{$spacing-md};
+	max-width: 80ch;
 
-  > * {
-    margin: 0;
-  }
+	> * {
+		margin: 0;
+	}
 
-  > * + * {
-    margin-top: var(--rvt-rich-text-stack-space);
-  }
+	> * + * {
+		margin-top: var(--rvt-rich-text-stack-space);
+	}
 
-  h1 {
-    font-size: $ts-32;
-  }
+	h1 {
+		font-size: $ts-32;
+	}
 
-  h2 {
-    font-size: $ts-23;
-  }
+	h2 {
+		font-size: $ts-23;
+	}
 
-  h3 {
-    font-size: $ts-20;
-  }
+	h3 {
+		font-size: $ts-20;
+	}
 
-  h4,
-  h5,
-  h6 {
-    font-size: $ts-18;
-  }
+	h4,
+	h5,
+	h6 {
+		font-size: $ts-18;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 135,
-      "YTLC" 540;
-    font-weight: $font-weight-bold;
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-optical-sizing: auto;
+		font-style: normal;
+		font-variation-settings:
+			"wdth" 135,
+			"YTLC" 540;
+		font-weight: $font-weight-bold;
+	}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    // Reset the flow space here to put more space before headings.
-    --rvt-rich-text-stack-space: #{$spacing-lg};
-    line-height: 1.1;
-    scroll-margin-top: $spacing-md;
-    // -webkit-font-smoothing: antialiased;
-    // -moz-osx-font-smoothing: grayscale;
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		// Reset the flow space here to put more space before headings.
+		--rvt-rich-text-stack-space: #{$spacing-lg};
+		line-height: 1.1;
+		scroll-margin-top: $spacing-md;
+		// -webkit-font-smoothing: antialiased;
+		// -moz-osx-font-smoothing: grayscale;
+	}
 
-  :where(p),
-  :where(li),
-  :where(td),
-  :where(dt) {
-    color: var(--rvt-color-theme-text);
-  }
+	:where(p),
+	:where(li),
+	:where(td),
+	:where(dt) {
+		color: var(--rvt-color-theme-text);
+	}
 
-  :where(ul) {
-    list-style-type: square;
-  }
+	:where(ul) {
+		list-style-type: square;
+	}
 
-  :where(li + li),
-  :where(li > ul) {
-    margin-top: $spacing-sm;
-  }
+	:where(li + li),
+	:where(li > ul) {
+		margin-top: $spacing-sm;
+	}
 
-  :where(li)::marker {
-    color: var(--rvt-color-theme-accent);
-  }
+	:where(li)::marker {
+		color: var(--rvt-color-theme-accent);
+	}
 
-  > img,
-  > img + *,
-  > figure,
-  > figure + *,
-  > hr,
-  > hr + * {
-    --rvt-rich-text-stack-space: #{$spacing-xl};
-  }
+	> img,
+	> img + *,
+	> figure,
+	> figure + *,
+	> hr,
+	> hr + * {
+		--rvt-rich-text-stack-space: #{$spacing-xl};
+	}
 
-  // Reduce the amount of stack space if a heading is
-  // immediately followed by another heading
-  > :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
-    --rvt-rich-text-stack-space: #{$spacing-md};
-  }
+	// Reduce the amount of stack space if a heading is
+	// immediately followed by another heading
+	> :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
+		--rvt-rich-text-stack-space: #{$spacing-md};
+	}
 
-  > :where(dl) {
-    /* stylelint-disable */
-    @extend .#{$prefix}-list-description;
-    /* stylelint-enable */
-  }
+	> :where(dl) {
+		/* stylelint-disable */
+		@extend .#{$prefix}-list-description;
+		/* stylelint-enable */
+	}
 
-  :where(code) {
-    /* stylelint-disable */
-    @extend .#{$prefix}-code;
-    /* stylelint-enable */
-  }
+	:where(code) {
+		/* stylelint-disable */
+		@extend .#{$prefix}-code;
+		/* stylelint-enable */
+	}
 
-  > *:empty:not(br,embed,hr,input,img,wbr) {
-    display: none;
-  }
+	> *:empty:not(br, embed, hr, input, img, wbr) {
+		display: none;
+	}
 }
 
 @include mq($breakpoint-lg) {
-  .rvt-prose,
-  .rvt-rich-text {
-    :where(p),
-    :where(li),
-    :where(td),
-    :where(dt) {
-      font-size: $ts-18;
-    }
+	.rvt-prose,
+	.rvt-rich-text {
+		:where(p),
+		:where(li),
+		:where(td),
+		:where(dt) {
+			font-size: $ts-18;
+		}
 
-    h1 {
-      font-size: $ts-41;
-    }
+		h1 {
+			font-size: $ts-41;
+		}
 
-    h2 {
-      font-size: $ts-32;
-    }
+		h2 {
+			font-size: $ts-32;
+		}
 
-    h3 {
-      font-size: $ts-26;
-    }
+		h3 {
+			font-size: $ts-26;
+		}
 
-    h4,
-    h5,
-    h6 {
-      font-size: $ts-23;
-    }
-  }
+		h4,
+		h5,
+		h6 {
+			font-size: $ts-23;
+		}
+	}
 }

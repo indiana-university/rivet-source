@@ -4,17 +4,17 @@
  *****************************************************************************/
 
 const keyCodes = {
-  up: 38,
-  down: 40,
-  left: 37,
-  right: 39,
-  tab: 9,
-  enter: 13,
-  escape: 27,
-  home: 36,
-  end: 35,
-  pageUp: 33,
-  pageDown: 34
-}
+	up: 38,
+	down: 40,
+	left: 37,
+	right: 39,
+	tab: 9,
+	enter: 13,
+	escape: 27,
+	home: 36,
+	end: 35,
+	pageUp: 33,
+	pageDown: 34,
+};
 
-export default keyCodes
+export default keyCodes;
