@@ -6,13 +6,13 @@
         "$value": "#000000"
       },
       "dark": {
-        "$value": "#041620"
+        "$value": "#14181A"
       },
       "main": {
-        "$value": "#072332"
+        "$value": "#1F2528"
       },
       "body": {
-        "$value": "#1B3E50"
+        "$value": "#343C42"
       },
       "medium": {
         "$value": "#B9C1C6"

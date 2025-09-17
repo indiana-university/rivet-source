@@ -53,6 +53,7 @@
   }
 
   &__link {
+    border-left: .25rem solid transparent;
     color: var(--rvt-color-theme-text-strong);
     flex-grow: 1;
     font-weight: $font-weight-medium;
@@ -61,18 +62,8 @@
     text-decoration: none;
 
     &[aria-current="page"] {
+      border-color: currentColor;
       color: var(--rvt-color-theme-accent);
-    }
-
-    &[aria-current="page"]::before {
-      background-color: var(--rvt-color-theme-accent);
-      content: "";
-      display: block;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: .25rem;
     }
 
     &:hover {
@@ -83,10 +74,6 @@
 
   &__item &__item &__link {
     font-weight: $font-weight-regular;
-  }
-
-  &__item > &__list &__link[aria-current="page"]::before {
-    margin-left: -$spacing-xxs;
   }
 
   &__link[aria-current="page"] + &__toggle {
@@ -162,6 +149,37 @@
     justify-content: space-between;
     padding-inline: $spacing-sm;
     width: 100%;
+  }
+
+  &--compact &__label + &__list {
+    margin-top: $spacing-xs;
+  }
+
+  &--compact &__item {
+    border-top: none;
+  }
+
+  &--compact &__link {
+    font-weight: var(--rvt-font-weight-normal);
+    padding: $spacing-xxs $spacing-sm;
+
+    &:hover {
+      background-color: var(--rvt-color-theme-background-strong);
+    }
+
+    &[aria-current] {
+      background-color: var(--rvt-color-theme-accent-inverse);
+    }
+  }
+
+  &--compact &__item &__list {
+    margin-left: 0;
+  }
+
+  &--compact &__item &__list &__link {
+    font-size: var(--rvt-ts-14);
+    line-height: calc(20rem/16);
+    padding-left: $spacing-lg;
   }
 }
 

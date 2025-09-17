@@ -22,6 +22,7 @@
       },
       "serif": {
         "$value": [
+          "Playfair Display",
           "GeorgiaPro",
           "Georgia",
           "Times New Roman",
