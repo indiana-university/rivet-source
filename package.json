@@ -30,7 +30,6 @@
 		"build:zip": "zip -r rivet.zip dist",
 		"changelog": "node ./tasks/generate-changelog.js",
 		"format": "prettier --write .",
-		"lint": "standard 'src/js'",
 		"new-component": "node ./tasks/source-new-component.js",
 		"sandbox-new-component": "node ./tasks/sandbox-new-component.js"
 	},
@@ -48,7 +47,6 @@
 		"prettier": "3.6.2",
 		"rimraf": "6.0.1",
 		"sass": "1.92.0",
-		"standard": "17.1.2",
 		"style-dictionary": "5.0.4",
 		"vite": "7.1.4",
 		"vite-plugin-banner": "0.8.1",
