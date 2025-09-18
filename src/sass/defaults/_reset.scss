@@ -86,4 +86,5 @@ sup {
 :focus-visible {
 	outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
 	outline-offset: calc(2rem / 16);
+	position: relative;
 }
