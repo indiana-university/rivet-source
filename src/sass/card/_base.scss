@@ -324,10 +324,8 @@
 		}
 
 		:is(.rvt-card__date, .rvt-card__image) {
-			--min: calc(var(--padding) + 8rem);
-			--val: calc(var(--min) + 5cqw);
-			--max: calc(var(--min) + 3rem);
-			width: clamp(var(--min), var(--val), var(--max));
+			--size-content: 12rem;
+			width: calc(var(--size-content) + var(--padding));
 		}
 
 		.rvt-card__body:first-child {
