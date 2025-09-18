@@ -253,7 +253,7 @@
 
 	.rvt-card__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--rvt-ts-23);
+		font-size: var(--rvt-ts-26);
 		font-weight: var(--rvt-font-weight-black);
 		line-height: var(--rvt-line-height-tight);
 		-webkit-font-smoothing: antialiased;
@@ -307,7 +307,7 @@
 	}
 }
 
-@container (width > 32rem) {
+@container (width > 48rem) {
 	.rvt-card {
 		--aspect-ratio: var(--aspect-ratio-square);
 		align-items: flex-start;
@@ -343,13 +343,12 @@
 
 	.rvt-card--feature {
 		--aspect-ratio: var(--aspect-ratio-rectangle);
-		--padding: 2.5rem;
+		--padding: var(--rvt-spacing-xl);
+		align-items: center;
 
 		:is(.rvt-card__image, .rvt-card__sticker) {
-			--min: calc(var(--padding) + 8rem);
-			--val: calc(var(--min) + 15cqw);
-			--max: calc(var(--min) + 14rem);
-			width: clamp(var(--min), var(--val), var(--max));
+			padding: 0;
+			width: 50cqw;
 		}
 	}
 
