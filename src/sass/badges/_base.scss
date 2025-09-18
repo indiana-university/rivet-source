@@ -1,73 +1,73 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 :is(span, strong).#{$prefix}-badge {
-  align-items: center;
-  background-color: var(--color-background);
-  border-radius: $border-radius-circle;
-  box-shadow: 0 0 0 calc(1rem/16) var(--rvt-color-base-ultralight);
-  color: var(--color-text);
-  display: inline-flex;
-  font-size: $ts-xs;
-  font-weight: $font-weight-medium;
-  gap: $spacing-xxs;
-  letter-spacing: .02rem;
-  line-height: 1;
-  padding: .25rem .5rem;
-  text-decoration: none;
-  white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
-  -osx-font-smoothing: grayscale;
+	align-items: center;
+	background-color: var(--color-background);
+	border-radius: $border-radius-circle;
+	box-shadow: 0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight);
+	color: var(--color-text);
+	display: inline-flex;
+	font-size: $ts-xs;
+	font-weight: $font-weight-medium;
+	gap: $spacing-xxs;
+	letter-spacing: 0.02rem;
+	line-height: 1;
+	padding: 0.25rem 0.5rem;
+	text-decoration: none;
+	white-space: nowrap;
+	-webkit-font-smoothing: antialiased;
+	-osx-font-smoothing: grayscale;
 }
 
 span.#{$prefix}-badge {
-  --color-background: var(--rvt-color-base-light);
-  --color-text: var(--rvt-color-base-main);
+	--color-background: var(--rvt-color-base-light);
+	--color-text: var(--rvt-color-base-main);
 
-  &--info {
-    --color-background: var(--rvt-color-info-container);
-    --color-text: var(--rvt-color-info-main);
-  }
+	&--info {
+		--color-background: var(--rvt-color-info-container);
+		--color-text: var(--rvt-color-info-main);
+	}
 
-  &--success {
-    --color-background: var(--rvt-color-success-container);
-    --color-text: var(--rvt-color-success-main);
-  }
+	&--success {
+		--color-background: var(--rvt-color-success-container);
+		--color-text: var(--rvt-color-success-main);
+	}
 
-  &--warning {
-    --color-background: var(--rvt-color-warning-container);
-    --color-text: var(--rvt-color-base-main);;
-  }
+	&--warning {
+		--color-background: var(--rvt-color-warning-container);
+		--color-text: var(--rvt-color-base-main);
+	}
 
-  &--danger {
-    --color-background: var(--rvt-color-danger-container);
-    --color-text: var(--rvt-color-danger-main);;
-  }
+	&--danger {
+		--color-background: var(--rvt-color-danger-container);
+		--color-text: var(--rvt-color-danger-main);
+	}
 }
 
 strong.#{$prefix}-badge {
-  --color-background: var(--rvt-color-base-main);
-  --color-text: var(--rvt-color-base-ultralight);
+	--color-background: var(--rvt-color-base-main);
+	--color-text: var(--rvt-color-base-ultralight);
 
-  &--info {
-    --color-background: var(--rvt-color-info-main);
-    --color-text: var(--rvt-color-base-ultralight);
-  }
+	&--info {
+		--color-background: var(--rvt-color-info-main);
+		--color-text: var(--rvt-color-base-ultralight);
+	}
 
-  &--success {
-    --color-background: var(--rvt-color-success-main);
-    --color-text: var(--rvt-color-base-ultralight);
-  }
+	&--success {
+		--color-background: var(--rvt-color-success-main);
+		--color-text: var(--rvt-color-base-ultralight);
+	}
 
-  &--warning {
-    --color-background: var(--rvt-color-warning-main);
-    --color-text: var(--rvt-color-base-main);
-  }
+	&--warning {
+		--color-background: var(--rvt-color-warning-main);
+		--color-text: var(--rvt-color-base-main);
+	}
 
-  &--danger {
-    --color-background: var(--rvt-color-danger-main);
-    --color-text: var(--rvt-color-base-ultralight);;
-  }
+	&--danger {
+		--color-background: var(--rvt-color-danger-main);
+		--color-text: var(--rvt-color-base-ultralight);
+	}
 }

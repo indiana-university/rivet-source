@@ -1,122 +1,122 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
-@use 'sass:map';
+@use "../core" as *;
+@use "sass:map";
 
 .#{$prefix}-dropdown {
-  display: inline-block;
-  position: relative;
+	display: inline-block;
+	position: relative;
 
-  .button__text {
-    margin-right: $spacing-xs;
-  }
+	.button__text {
+		margin-right: $spacing-xs;
+	}
 
-  &__menu[aria-hidden="true"] {
-    display: none;
-  }
+	&__menu[aria-hidden="true"] {
+		display: none;
+	}
 
-  &__menu {
-    background-color: var(--rvt-color-theme-background);
-    box-shadow: $shadow-standard;
-    min-width: 12.5rem;
-    padding-bottom: $spacing-xs;
-    padding-top: $spacing-xs;
-    position: absolute;
-    // Aligning this right by default so that dropdowns do not
-    // go offscreen when close to the edge of the viewport.
-    right: 0;
-    top: 115%;
-    z-index: map.get($z-index, '1000');
+	&__menu {
+		background-color: var(--rvt-color-theme-background);
+		box-shadow: $shadow-standard;
+		min-width: 12.5rem;
+		padding-bottom: $spacing-xs;
+		padding-top: $spacing-xs;
+		position: absolute;
+		// Aligning this right by default so that dropdowns do not
+		// go offscreen when close to the edge of the viewport.
+		right: 0;
+		top: 115%;
+		z-index: map.get($z-index, "1000");
 
-    //In some cases, you may need to align the dropdown menu
-    //to the left edge of the button.
-    &--left {
-      left: 0;
-    }
+		//In some cases, you may need to align the dropdown menu
+		//to the left edge of the button.
+		&--left {
+			left: 0;
+		}
 
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
 
-      li {
-        margin: 0;
-      }
-    }
+			li {
+				margin: 0;
+			}
+		}
 
-    a,
-    button {
-      background-color: transparent;
-      border: none;
-      display: block;
-      color: var(--rvt-color-theme-text-strong);
-      font-size: $ts-14;
-      /**
+		a,
+		button {
+			background-color: transparent;
+			border: none;
+			display: block;
+			color: var(--rvt-color-theme-text-strong);
+			font-size: $ts-14;
+			/**
        * This padding-top and bottom value is a magic number.
        */
-      padding: .375rem $spacing-sm;
-      text-align: left;
-      text-decoration: none;
-      width: 100%;
+			padding: 0.375rem $spacing-sm;
+			text-align: left;
+			text-decoration: none;
+			width: 100%;
 
-      &:hover {
-        background-color: var(--rvt-color-theme-background-strong);
-        color: var(--rvt-color-theme-accent);
-        text-decoration: none;
-      }
+			&:hover {
+				background-color: var(--rvt-color-theme-background-strong);
+				color: var(--rvt-color-theme-accent);
+				text-decoration: none;
+			}
 
-      &.#{$prefix}-is-selected,
-      &[aria-current]:not([aria-current="false"]),
-      &[aria-checked="true"] {
-        background-color: var(--rvt-color-theme-background-strong);
-        color: var(--rvt-color-theme-accent);
-        font-weight: $font-weight-medium;
+			&.#{$prefix}-is-selected,
+			&[aria-current]:not([aria-current="false"]),
+			&[aria-checked="true"] {
+				background-color: var(--rvt-color-theme-background-strong);
+				color: var(--rvt-color-theme-accent);
+				font-weight: $font-weight-medium;
 
-        &:hover {
-          color: var(--rvt-color-theme-accent);
-        }
-      }
-    }
+				&:hover {
+					color: var(--rvt-color-theme-accent);
+				}
+			}
+		}
 
-    button:disabled {
-      color: var(--rvt-color-theme-ui);
-    }
-  }
+		button:disabled {
+			color: var(--rvt-color-theme-ui);
+		}
+	}
 
-  &__menu-heading {
-    color: var(--rvt-color-theme-text-strong);
-    padding: $spacing-sm $spacing-sm $spacing-xxs;
-    font-weight: $font-weight-bold;
-    font-size: $ts-14;
+	&__menu-heading {
+		color: var(--rvt-color-theme-text-strong);
+		padding: $spacing-sm $spacing-sm $spacing-xxs;
+		font-weight: $font-weight-bold;
+		font-size: $ts-14;
 
-    &:first-child {
-      padding-top: 0;
-    }
-  }
+		&:first-child {
+			padding-top: 0;
+		}
+	}
 
-  &__menu-divider,
-  &__menu-separator {
-    border-top: 1px solid var(--rvt-color-theme-ui);
-    margin-bottom: $spacing-xs;
-    margin-top: $spacing-xs;
-  }
+	&__menu-divider,
+	&__menu-separator {
+		border-top: 1px solid var(--rvt-color-theme-ui);
+		margin-bottom: $spacing-xs;
+		margin-top: $spacing-xs;
+	}
 
-  [role="group"] {
-    border-top: 1px solid var(--rvt-color-theme-ui);
-    margin-top: $spacing-xs;
-    padding-top: $spacing-xs;
+	[role="group"] {
+		border-top: 1px solid var(--rvt-color-theme-ui);
+		margin-top: $spacing-xs;
+		padding-top: $spacing-xs;
 
-    &:first-child {
-      margin-top: 0;
-      padding: 0;
-    }
-  }
+		&:first-child {
+			margin-top: 0;
+			padding: 0;
+		}
+	}
 }
 
 // NOTE: Context specific styles
 // We need some context-specific styles when dropdowns are used in the
 // header nav.
 .#{$prefix}-header-menu__item .#{$prefix}-dropdown__menu {
-  top: 165%;
+	top: 165%;
 }

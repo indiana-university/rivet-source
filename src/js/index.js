@@ -3,48 +3,48 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import '../sass/rivet.scss';
+import "../sass/rivet.scss";
 
 /******************************************************************************
  * Polyfills
  *****************************************************************************/
 
-import './polyfills/closest'
-import './polyfills/CustomEvent'
-import './polyfills/from'
-import './polyfills/remove'
-import 'inert-polyfill'
+import "./polyfills/closest";
+import "./polyfills/CustomEvent";
+import "./polyfills/from";
+import "./polyfills/remove";
+import "inert-polyfill";
 
 /******************************************************************************
  * Components
  *****************************************************************************/
 
-import Accordion from './components/accordion'
-import Alert from './components/alert'
-import Dialog from './components/dialog'
-import Disclosure from './components/disclosure'
-import Dropdown from './components/dropdown'
-import FileInput from './components/fileInput'
-import PriorityNav from './components/priority-nav'
-import Sidenav from './components/sidenav'
-import Switch from './components/switch'
-import Tabs from './components/tabs'
+import Accordion from "./components/accordion";
+import Alert from "./components/alert";
+import Dialog from "./components/dialog";
+import Disclosure from "./components/disclosure";
+import Dropdown from "./components/dropdown";
+import FileInput from "./components/fileInput";
+import PriorityNav from "./components/priority-nav";
+import Sidenav from "./components/sidenav";
+import Switch from "./components/switch";
+import Tabs from "./components/tabs";
 
 /******************************************************************************
  * Initializes all Rivet components.
  *****************************************************************************/
 
-function init () {
-  Accordion.initAll()
-  Alert.initAll()
-  Disclosure.initAll()
-  Dropdown.initAll()
-  FileInput.initAll()
-  Dialog.initAll()
-  PriorityNav.initAll()
-  Sidenav.initAll()
-  Switch.initAll()
-  Tabs.initAll()
+function init() {
+	Accordion.initAll();
+	Alert.initAll();
+	Disclosure.initAll();
+	Dropdown.initAll();
+	FileInput.initAll();
+	Dialog.initAll();
+	PriorityNav.initAll();
+	Sidenav.initAll();
+	Switch.initAll();
+	Tabs.initAll();
 }
 
 /******************************************************************************
@@ -52,14 +52,14 @@ function init () {
  *****************************************************************************/
 
 export {
-  Accordion,
-  Alert,
-  Dialog,
-  Disclosure,
-  Dropdown,
-  FileInput,
-  Sidenav,
-  Switch,
-  Tabs,
-  init
-}
+	Accordion,
+	Alert,
+	Dialog,
+	Disclosure,
+	Dropdown,
+	FileInput,
+	Sidenav,
+	Switch,
+	Tabs,
+	init,
+};

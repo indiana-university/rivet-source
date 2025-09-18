@@ -6,41 +6,37 @@ permalink: /layouts/preview/{{ title | slug}}/
 order: 1
 classes: rvt-page
 ---
+
 {% include "demos/demo-header.njk" %}
 <main>
-  <div class="rvt-section">
-    {% include "demos/demo-hero.njk" %}
-  </div>
+	<div class="rvt-section">{% include "demos/demo-hero.njk" %}</div>
 
-  <!-- Use a container for visual alignment -->
-  <div class="rvt-container">
-    <hr aria-hidden="true" class="rvt-m-all-none">
-  </div>
+	<!-- Use a container for visual alignment -->
+	<div class="rvt-container">
+		<hr aria-hidden="true" class="rvt-m-all-none" />
+	</div>
 
-  <div class="rvt-layout-base">
-    <div class="rvt-layout-base__sidebar" id="sidebar-main-content">
-      {% include "demos/demo-sidenav.njk" %}
-    </div>
-    <div class="rvt-layout-base__main">
+	<div class="rvt-layout-base">
+		<div class="rvt-layout-base__sidebar" id="sidebar-main-content">
+			{% include "demos/demo-sidenav.njk" %}
+		</div>
+		<div class="rvt-layout-base__main">
+			<nav role="navigation" aria-label="Breadcrumbs">
+				<ol class="rvt-breadcrumbs">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">{Visited page}</a></li>
+					<li><a href="#">{Visited page}</a></li>
+					<li><a href="#">{Visited page}</a></li>
+					<li aria-current="page">{Current page}</li>
+				</ol>
+			</nav>
 
-      <nav role="navigation" aria-label="Breadcrumbs">
-        <ol class="rvt-breadcrumbs">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">{Visited page}</a></li>
-          <li><a href="#">{Visited page}</a></li>
-          <li><a href="#">{Visited page}</a></li>
-          <li aria-current="page">{Current page}</li>
-        </ol>
-      </nav>
-
-
-      <div class="rvt-stack rvt-m-top-xl">
-        {# Demo LiveWhale news list #}
-        {% include "demos/demo-details-content.njk" %}
-        {# {% include "demos/demo-events-list-hub.njk" %} #}
-      </div>
-
-    </div>
-  </div>
+			<div class="rvt-stack rvt-m-top-xl">
+				{# Demo LiveWhale news list #} {% include
+				"demos/demo-details-content.njk" %} {# {% include
+				"demos/demo-events-list-hub.njk" %} #}
+			</div>
+		</div>
+	</div>
 </main>
 {% include "demos/demo-footer.njk" %}

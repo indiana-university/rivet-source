@@ -1,137 +1,154 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
-@use 'sass:math';
+@use "../core" as *;
+@use "sass:math";
 
 table,
 .#{$prefix}-table {
-  border: 1px solid var(--rvt-color-theme-ui);
-  border-collapse: collapse;
-  border-spacing: 0;
-  text-align: left;
-  width: 100%;
+	border: 1px solid var(--rvt-color-theme-ui);
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: left;
+	width: 100%;
 
-  caption {
-    font-size: $ts-32;
-    font-weight: $font-weight-medium;
-    margin-bottom: $spacing-md;
-    text-align: left;
-  }
+	caption {
+		font-size: $ts-32;
+		font-weight: $font-weight-medium;
+		margin-bottom: $spacing-md;
+		text-align: left;
+	}
 }
 
 tr th {
-  font-weight: $font-weight-regular;
+	font-weight: $font-weight-regular;
 }
 
 thead {
-  background-color: var(--rvt-color-theme-background-strong);
+	background-color: var(--rvt-color-theme-background-strong);
 
-  tr th {
-    padding-block: $spacing-sm;
-    padding-inline: $spacing-md;
-  }
+	tr th {
+		padding-block: $spacing-sm;
+		padding-inline: $spacing-md;
+	}
 
-  th,
-  tr th {
-    font-weight: $font-weight-medium;
-    line-height: 1;
-  }
+	th,
+	tr th {
+		font-weight: $font-weight-medium;
+		line-height: 1;
+	}
 }
 
 tr {
-  border-bottom: 1px solid var(--rvt-color-theme-ui);
+	border-bottom: 1px solid var(--rvt-color-theme-ui);
 }
 
 tbody tr td,
 tbody tr th {
-  padding: $spacing-md;
+	padding: $spacing-md;
 }
 
 .#{$prefix}-table-plain {
-  border: none;
+	border: none;
 
-  thead {
-    background-color: transparent;
-    border-bottom: none;
-  }
+	thead {
+		background-color: transparent;
+		border-bottom: none;
+	}
 
-  tr {
-    border-bottom: none;
-  }
+	tr {
+		border-bottom: none;
+	}
 }
 
 .#{$prefix}-table-stripes {
-  tr:nth-child(even) {
-    background-color: var(--rvt-color-theme-background-strong);
-  }
+	tr:nth-child(even) {
+		background-color: var(--rvt-color-theme-background-strong);
+	}
 }
 
 .#{$prefix}-table-compact {
-  line-height: $line-height-tight;
+	line-height: $line-height-tight;
 
-  tr th,
-  tr td {
-    padding: .5rem;
-  }
+	tr th,
+	tr td {
+		padding: 0.5rem;
+	}
 }
 
 .#{$prefix}-table-cells {
-  border-top: 1px solid var(--rvt-color-theme-ui);
+	border-top: 1px solid var(--rvt-color-theme-ui);
 
-  tr td,
-  tr th {
-    border-right: 1px solid var(--rvt-color-theme-ui);
-  }
+	tr td,
+	tr th {
+		border-right: 1px solid var(--rvt-color-theme-ui);
+	}
 
-  tr td:first-child,
-  tr th:first-child {
-    border-left: var(--rvt-color-theme-ui);
-  }
+	tr td:first-child,
+	tr th:first-child {
+		border-left: var(--rvt-color-theme-ui);
+	}
 }
 
 .#{$prefix}-table-crimson,
 .#{$prefix}-table-feature {
-  thead {
-    background-color: var(--rvt-color-theme-accent);
-    color: var(--rvt-color-theme-background);
-  }
+	thead {
+		background-color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-background);
+	}
 }
 
 /**
  * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
  * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
-.#{$prefix}-table-responsive[role='region'][tabindex] {
-  /* stylelint-disable */
-  background:
-    linear-gradient(to right, var(--rvt-color-theme-background) 30%, var(--rvt-color-shadow-ultralight)),
-    linear-gradient(to right, var(--rvt-color-shadow-ultralight), var(--rvt-color-theme-background) 70%) 0 100%,
-    radial-gradient(
-      farthest-side at 0% 50%,
-      var(--rvt-color-shadow-main),
-      var(--rvt-color-shadow-ultralight)
-    ),
-    radial-gradient(
-        farthest-side at 100% 50%,
-        var(--rvt-color-shadow-main),
-        var(--rvt-color-shadow-ultralight)
-      )
-      0 100%;
-  background-attachment: local, local, scroll, scroll;
-  background-color: var(--rvt-color-theme-background);
-  background-position: 0 0, 100%, 0 0, 100%;
-  background-repeat: no-repeat;
-  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
-  /* stylelint-enable */
-  border: 1px solid var(--rvt-color-theme-ui);
-  border-radius: $spacing-xs;
-  overflow: auto;
+.#{$prefix}-table-responsive[role="region"][tabindex] {
+	/* stylelint-disable */
+	background:
+		linear-gradient(
+			to right,
+			var(--rvt-color-theme-background) 30%,
+			var(--rvt-color-shadow-ultralight)
+		),
+		linear-gradient(
+				to right,
+				var(--rvt-color-shadow-ultralight),
+				var(--rvt-color-theme-background) 70%
+			)
+			0 100%,
+		radial-gradient(
+			farthest-side at 0% 50%,
+			var(--rvt-color-shadow-main),
+			var(--rvt-color-shadow-ultralight)
+		),
+		radial-gradient(
+				farthest-side at 100% 50%,
+				var(--rvt-color-shadow-main),
+				var(--rvt-color-shadow-ultralight)
+			)
+			0 100%;
+	background-attachment: local, local, scroll, scroll;
+	background-color: var(--rvt-color-theme-background);
+	background-position:
+		0 0,
+		100%,
+		0 0,
+		100%;
+	background-repeat: no-repeat;
+	background-size:
+		40px 100%,
+		40px 100%,
+		14px 100%,
+		14px 100%;
+	/* stylelint-enable */
+	border: 1px solid var(--rvt-color-theme-ui);
+	border-radius: $spacing-xs;
+	overflow: auto;
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-table-responsive[role="region"][tabindex] {
-    border: none;
-    border-radius: 0;
-  }
+	.#{$prefix}-table-responsive[role="region"][tabindex] {
+		border: none;
+		border-radius: 0;
+	}
 }

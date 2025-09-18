@@ -1,46 +1,46 @@
 // Copyright (C) 2025 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-cta {
-  align-items: center;
-  color: var(--rvt-color-theme-accent);
-  display: inline-flex;
-  font-weight: $font-weight-medium;
-  text-decoration: none;
+	align-items: center;
+	color: var(--rvt-color-theme-accent);
+	display: inline-flex;
+	font-weight: $font-weight-medium;
+	text-decoration: none;
 
-  &::after {
-    background-color: currentColor;
-    content: "";
-    clip-path: path(var(--rvt-icon-arrow-right));
-    display: block;
-    height: $spacing-sm;
-    margin-left: $spacing-xs;
-    position: relative;
-    transition: all .2s ease;
-    width: $spacing-sm;
-  }
+	&::after {
+		background-color: currentColor;
+		content: "";
+		clip-path: path(var(--rvt-icon-arrow-right));
+		display: block;
+		height: $spacing-sm;
+		margin-left: $spacing-xs;
+		position: relative;
+		transition: all 0.2s ease;
+		width: $spacing-sm;
+	}
 
-  &:hover {
-    color: var(--rvt-color-theme-accent-strong);
+	&:hover {
+		color: var(--rvt-color-theme-accent-strong);
 
-    &::after {
-      transform: translateX($spacing-xxs);
-    }
-  }
+		&::after {
+			transform: translateX($spacing-xxs);
+		}
+	}
 
-  &--button {
-    background-color: var(--rvt-color-theme-background);
-    border: 1px solid var(--rvt-color-theme-accent);
-    color: var(--rvt-color-theme-accent);
-    height: $spacing-xl;
-    padding: $spacing-md;
+	&--button {
+		background-color: var(--rvt-color-theme-background);
+		border: 1px solid var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-accent);
+		height: $spacing-xl;
+		padding: $spacing-md;
 
-    &:hover {
-      background-color: var(--rvt-color-theme-accent);
-      border-color: var(--rvt-color-theme-accent);
-      color: var(--rvt-color-theme-background);
-    }
-  }
+		&:hover {
+			background-color: var(--rvt-color-theme-accent);
+			border-color: var(--rvt-color-theme-accent);
+			color: var(--rvt-color-theme-background);
+		}
+	}
 }

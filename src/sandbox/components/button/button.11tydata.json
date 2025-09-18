@@ -1,34 +1,34 @@
 {
-  "variants": ["default", "plain", "solid"],
-  "buttons": [
-    {
-      "text": "Default button",
-      "type": "button"
-    },
-    {
-      "text": "<rvt-icon name='download'></rvt-icon><span>Button with icon</span>",
-      "type": "button",
-      "hasIcon": true
-    },
-    {
-      "text": "Disabled button",
-      "type": "button",
-      "isDisabled": true
-    },
-    {
-      "text": "Button link",
-      "type": "link",
-      "url": "/some/url"
-    },
-    {
-      "text": "External button link",
-      "type": "external-link",
-      "url": "https://rivet.iu.edu"
-    },
-    {
-      "text": "In-page button link",
-      "type": "in-page-link",
-      "url": "#in-page"
-    }
-  ]
+	"variants": ["default", "plain", "solid"],
+	"buttons": [
+		{
+			"text": "Default button",
+			"type": "button"
+		},
+		{
+			"text": "<rvt-icon name='download'></rvt-icon><span>Button with icon</span>",
+			"type": "button",
+			"hasIcon": true
+		},
+		{
+			"text": "Disabled button",
+			"type": "button",
+			"isDisabled": true
+		},
+		{
+			"text": "Button link",
+			"type": "link",
+			"url": "/some/url"
+		},
+		{
+			"text": "External button link",
+			"type": "external-link",
+			"url": "https://rivet.iu.edu"
+		},
+		{
+			"text": "In-page button link",
+			"type": "in-page-link",
+			"url": "#in-page"
+		}
+	]
 }

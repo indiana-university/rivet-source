@@ -3,6 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-const SUPPRESS_EVENT = true
+const SUPPRESS_EVENT = true;
 
-export default SUPPRESS_EVENT
+export default SUPPRESS_EVENT;

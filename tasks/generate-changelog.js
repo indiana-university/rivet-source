@@ -3,51 +3,51 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-const { Octokit } = require('@octokit/rest')
+const { Octokit } = require("@octokit/rest");
 
 /******************************************************************************
  * Generate markdown for use in GitHub release notes.
  *****************************************************************************/
 
 async function generate() {
+	/******************************************************************************
+	 * Create GitHub REST API object.
+	 *****************************************************************************/
 
-  /******************************************************************************
-   * Create GitHub REST API object.
-   *****************************************************************************/
+	const octokit = new Octokit({
+		userAgent: "IU Rivet Design System",
+	});
 
-  const octokit = new Octokit({
-    userAgent: 'IU Rivet Design System'
-  })
+	/******************************************************************************
+	 * Read version tag from command line input.
+	 *****************************************************************************/
 
-  /******************************************************************************
-   * Read version tag from command line input.
-   *****************************************************************************/
+	const tag = process.argv[2].trim();
 
-  const tag = process.argv[2].trim()
+	/******************************************************************************
+	 * Get all pull requests from rivet-source repo with given tag.
+	 *****************************************************************************/
 
-  /******************************************************************************
-   * Get all pull requests from rivet-source repo with given tag.
-   *****************************************************************************/
+	const pullRequests = await octokit.request("GET /search/issues", {
+		q: `repo:indiana-university/rivet-source+type:pr+label:${tag}`,
+		advanced_search: true,
+	});
 
-  const pullRequests = await octokit.request('GET /search/issues', {
-    q: `repo:indiana-university/rivet-source+type:pr+label:${tag}`,
-    advanced_search: true
-  })
+	/******************************************************************************
+	 * Generate list of markdown links from pull requests.
+	 *****************************************************************************/
 
-  /******************************************************************************
-   * Generate list of markdown links from pull requests.
-   *****************************************************************************/
+	const markdown = pullRequests.data.items
+		.map((pr) => {
+			return `- [${pr.title}](${pr.html_url})`;
+		})
+		.join("\n");
 
-  const markdown = pullRequests.data.items.map(pr => {
-    return `- [${pr.title}](${pr.html_url})`
-  }).join('\n')
+	/******************************************************************************
+	 * Output generated markdown.
+	 *****************************************************************************/
 
-  /******************************************************************************
-   * Output generated markdown.
-   *****************************************************************************/
-
-  console.log(`\n${markdown}\n`)
-
+	console.log(`\n${markdown}\n`);
 }
 
-generate()
+generate();

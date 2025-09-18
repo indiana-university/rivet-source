@@ -1,58 +1,58 @@
 {
-  "name": "rivet-core",
-  "description": "Rivet Design System for Indiana University",
-  "homepage": "https://rivet.iu.edu",
-  "version": "3.0.0-alpha.4",
-  "license": "BSD-3-Clause",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/indiana-university/rivet-source"
-  },
-  "bugs": {
-    "url": "https://github.com/indiana-university/rivet-source/issues",
-    "email": "rivet@iu.edu"
-  },
-  "module": "./dist/rivet.js",
-  "unpkg": "./dist/rivet.js",
-  "exports": {
-    ".": {
-      "browser": "./dist/rivet.js",
-      "import": "./dist/rivet.js"
-    }
-  },
-  "scripts": {
-    "start": "run-s build:tokens start:server",
-    "start:server": "vite",
-    "build": "run-s build:clean build:tokens build:dist build:zip",
-    "build:clean": "rimraf ./dist ./rivet.zip",
-    "build:tokens": "style-dictionary build -c ./tokens.config.json",
-    "build:dist": "vite build",
-    "build:zip": "zip -r rivet.zip dist",
-    "changelog": "node ./tasks/generate-changelog.js",
-    "lint": "standard 'src/js'",
-    "new-component": "node ./tasks/source-new-component.js",
-    "sandbox-new-component": "node ./tasks/sandbox-new-component.js"
-  },
-  "files": [
-    "dist/**/*",
-    "rivet.zip"
-  ],
-  "devDependencies": {
-    "@11ty/eleventy": "3.1.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "5.0.2",
-    "@octokit/rest": "22.0.0",
-    "fs-jetpack": "5.1.0",
-    "inert-polyfill": "0.2.5",
-    "npm-run-all": "4.1.5",
-    "rimraf": "6.0.1",
-    "sass": "1.92.0",
-    "standard": "17.1.2",
-    "style-dictionary": "5.0.4",
-    "vite": "7.1.4",
-    "vite-plugin-banner": "0.8.1",
-    "vite-plugin-eleventy": "0.3.1"
-  },
-  "dependencies": {
-    "wicked-elements": "3.1.2"
-  }
+	"name": "rivet-core",
+	"description": "Rivet Design System for Indiana University",
+	"homepage": "https://rivet.iu.edu",
+	"version": "3.0.0-alpha.4",
+	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/indiana-university/rivet-source"
+	},
+	"bugs": {
+		"url": "https://github.com/indiana-university/rivet-source/issues",
+		"email": "rivet@iu.edu"
+	},
+	"module": "./dist/rivet.js",
+	"unpkg": "./dist/rivet.js",
+	"exports": {
+		".": {
+			"browser": "./dist/rivet.js",
+			"import": "./dist/rivet.js"
+		}
+	},
+	"scripts": {
+		"start": "run-s build:tokens start:server",
+		"start:server": "vite",
+		"build": "run-s build:clean build:tokens build:dist build:zip",
+		"build:clean": "rimraf ./dist ./rivet.zip",
+		"build:tokens": "style-dictionary build -c ./tokens.config.json",
+		"build:dist": "vite build",
+		"build:zip": "zip -r rivet.zip dist",
+		"changelog": "node ./tasks/generate-changelog.js",
+		"format": "prettier --write .",
+		"new-component": "node ./tasks/source-new-component.js",
+		"sandbox-new-component": "node ./tasks/sandbox-new-component.js"
+	},
+	"files": [
+		"dist/**/*",
+		"rivet.zip"
+	],
+	"devDependencies": {
+		"@11ty/eleventy": "3.1.2",
+		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.2",
+		"@octokit/rest": "22.0.0",
+		"fs-jetpack": "5.1.0",
+		"inert-polyfill": "0.2.5",
+		"npm-run-all": "4.1.5",
+		"prettier": "3.6.2",
+		"rimraf": "6.0.1",
+		"sass": "1.92.1",
+		"style-dictionary": "5.0.4",
+		"vite": "7.1.5",
+		"vite-plugin-banner": "0.8.1",
+		"vite-plugin-eleventy": "0.3.1"
+	},
+	"dependencies": {
+		"wicked-elements": "3.1.2"
+	}
 }

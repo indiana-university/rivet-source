@@ -1,119 +1,119 @@
 // Copyright (C) 2025 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-contact-info {
-  container-name: contact;
-  container-type: inline-size;
+	container-name: contact;
+	container-type: inline-size;
 
-  &__address {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-md;
-  }
+	&__address {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-md;
+	}
 
-  &__address-eyebrow {
-    color: var(--rvt-color-theme-text-accent);
-    font-family: $font-family-mono;
-    font-size: $ts-12;
-  }
+	&__address-eyebrow {
+		color: var(--rvt-color-theme-text-accent);
+		font-family: $font-family-mono;
+		font-size: $ts-12;
+	}
 
-  &__address-title {
-    font-size: $ts-20;
-    font-weight: $font-weight-medium;
-  }
+	&__address-title {
+		font-size: $ts-20;
+		font-weight: $font-weight-medium;
+	}
 
-  &__address-eyebrow + &__address-title {
-    margin-top: $spacing-xxs;
-  }
+	&__address-eyebrow + &__address-title {
+		margin-top: $spacing-xxs;
+	}
 
-  &__address-text {
-    margin-top: $spacing-xs;
-  }
+	&__address-text {
+		margin-top: $spacing-xs;
+	}
 
-  &__icon-list {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-    list-style: "";
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-left: 0;
-  }
+	&__icon-list {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-sm;
+		list-style: "";
+		margin-bottom: 0;
+		margin-top: 0;
+		padding-left: 0;
+	}
 
-  &__icon-list-item {
-    align-items: center;
-    display: flex;
-    gap: $spacing-xs;
-    line-height: 1.1;
-  }
+	&__icon-list-item {
+		align-items: center;
+		display: flex;
+		gap: $spacing-xs;
+		line-height: 1.1;
+	}
 
-  &__disclosure {
-    width: $width-md;
+	&__disclosure {
+		width: $width-md;
 
-    button {
-      align-items: center;
-      background: none;
-      border: none;
-      color: var(--rvt-color-theme-accent);
-      display: inline-flex;
-      gap: $spacing-xs;
-      font-weight: $font-weight-medium;
-      padding: 0;
-    }
+		button {
+			align-items: center;
+			background: none;
+			border: none;
+			color: var(--rvt-color-theme-accent);
+			display: inline-flex;
+			gap: $spacing-xs;
+			font-weight: $font-weight-medium;
+			padding: 0;
+		}
 
-    button::after {
-      background-color: currentColor;
-      clip-path: path(var(--rvt-icon-chevron-down));
-      content: "";
-      display: block;
-      height: $spacing-sm;
-      width: $spacing-sm;
-    }
+		button::after {
+			background-color: currentColor;
+			clip-path: path(var(--rvt-icon-chevron-down));
+			content: "";
+			display: block;
+			height: $spacing-sm;
+			width: $spacing-sm;
+		}
 
-    button:hover {
-      cursor: pointer;
-      color: var(--rvt-color-theme-accent-strong);
-      text-decoration: underline;
-    }
+		button:hover {
+			cursor: pointer;
+			color: var(--rvt-color-theme-accent-strong);
+			text-decoration: underline;
+		}
 
-    button[aria-expanded="true"]::after {
-      transform: rotate(180deg);
-    }
-  }
+		button[aria-expanded="true"]::after {
+			transform: rotate(180deg);
+		}
+	}
 
-  &__intro + &__address {
-    margin-top: $spacing-xl;
-  }
+	&__intro + &__address {
+		margin-top: $spacing-xl;
+	}
 
-  &__address + &__icon-list {
-    margin-top: $spacing-md;
-  }
+	&__address + &__icon-list {
+		margin-top: $spacing-md;
+	}
 }
 
 @container contact (min-width: #{$breakpoint-md}) {
-  .#{$prefix}-contact-info {
-    &__inner {
-      display: flex;
+	.#{$prefix}-contact-info {
+		&__inner {
+			display: flex;
 
-      > * {
-        flex-basis: 0;
-        flex-grow: 999;
-      }
-    }
+			> * {
+				flex-basis: 0;
+				flex-grow: 999;
+			}
+		}
 
-    &__address {
-      flex-direction: row;
-    }
+		&__address {
+			flex-direction: row;
+		}
 
-    &__address + &__icon-list {
-      margin-top: 0;
-    }
+		&__address + &__icon-list {
+			margin-top: 0;
+		}
 
-    &__icon-list {
-      border-left: 1px solid var(--rvt-color-theme-ui);
-      padding-left: $spacing-lg;
-    }
-  }
+		&__icon-list {
+			border-left: 1px solid var(--rvt-color-theme-ui);
+			padding-left: $spacing-lg;
+		}
+	}
 }

@@ -4,7 +4,7 @@
  *****************************************************************************/
 
 const remToPixel = (rem) => {
-  return parseInt(rem) * 16
-}
+	return parseInt(rem) * 16;
+};
 
-export default remToPixel
+export default remToPixel;

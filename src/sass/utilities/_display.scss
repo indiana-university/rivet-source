@@ -1,24 +1,24 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 /* Hide only visually, but have it available for
  * screenreaders: h5bp.com/v
  */
 
 .#{$prefix}-sr-only {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  /* Set color to prevent false positives in a11y tools */
-  background-color: white !important;
-  color: black !important;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	/* Set color to prevent false positives in a11y tools */
+	background-color: white !important;
+	color: black !important;
 }
 
 /* Extends the .visuallyhidden class to allow the element
@@ -28,26 +28,26 @@
 
 .#{$prefix}-sr-only.#{$prefix}-focusable:active,
 .#{$prefix}-sr-only.#{$prefix}-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
 }
 
 .#{$prefix}-display-block {
-  display: block !important;
+	display: block !important;
 }
 
 .#{$prefix}-display-inline-block {
-  display: inline-block !important;
+	display: inline-block !important;
 }
 
 .#{$prefix}-display-inline {
-  display: inline !important;
+	display: inline !important;
 }
 
 .#{$prefix}-display-none {
-  display: none !important;
+	display: none !important;
 }

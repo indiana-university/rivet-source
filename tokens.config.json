@@ -1,37 +1,35 @@
 {
-  "source": [
-    "src/tokens/**/*.json"
-  ],
-  "platforms": {
-    "scss": {
-      "transformGroup": "scss",
-      "files": [
-        {
-          "destination": "src/sass/core/variables.scss",
-          "format": "scss/map-deep"
-        }
-      ]
-    },
-    "css": {
-      "transformGroup": "css",
-      "prefix": "rvt",
-      "files": [
-        {
-          "destination": "src/sass/core/tokens.css",
-          "format": "css/variables"
-        }
-      ]
-    },
-    "json": {
-      "transformGroup": "js",
-      "prefix": "rvt",
-      "files": [
-        {
-          "destination": "dist/tokens.json",
-          "format": "json/flat"
-        }
-      ],
-      "transforms": ["name/kebab"]
-    }
-  }
+	"source": ["src/tokens/**/*.json"],
+	"platforms": {
+		"scss": {
+			"transformGroup": "scss",
+			"files": [
+				{
+					"destination": "src/sass/core/variables.scss",
+					"format": "scss/map-deep"
+				}
+			]
+		},
+		"css": {
+			"transformGroup": "css",
+			"prefix": "rvt",
+			"files": [
+				{
+					"destination": "src/sass/core/tokens.css",
+					"format": "css/variables"
+				}
+			]
+		},
+		"json": {
+			"transformGroup": "js",
+			"prefix": "rvt",
+			"files": [
+				{
+					"destination": "dist/tokens.json",
+					"format": "json/flat"
+				}
+			],
+			"transforms": ["name/kebab"]
+		}
+	}
 }

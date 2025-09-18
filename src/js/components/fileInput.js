@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from './component'
+import Component from "./component";
 
 /******************************************************************************
  * The file input component allows the user to select a file to be uploaded as
@@ -13,191 +13,196 @@ import Component from './component'
  *****************************************************************************/
 
 export default class FileInput extends Component {
+	/****************************************************************************
+	 * Gets the file input's CSS selector.
+	 *
+	 * @static
+	 * @returns {string} The CSS selector
+	 ***************************************************************************/
 
-  /****************************************************************************
-   * Gets the file input's CSS selector.
-   *
-   * @static
-   * @returns {string} The CSS selector
-   ***************************************************************************/
+	static get selector() {
+		return "[data-rvt-file-input]";
+	}
 
-  static get selector () {
-    return '[data-rvt-file-input]'
-  }
+	/****************************************************************************
+	 * Gets an object containing the methods that should be attached to the
+	 * component's root DOM element. Used by wicked-elements to initialize a DOM
+	 * element with Web Component-like behavior.
+	 *
+	 * @static
+	 * @returns {Object} Object with component methods
+	 ***************************************************************************/
 
-  /****************************************************************************
-   * Gets an object containing the methods that should be attached to the
-   * component's root DOM element. Used by wicked-elements to initialize a DOM
-   * element with Web Component-like behavior.
-   *
-   * @static
-   * @returns {Object} Object with component methods
-   ***************************************************************************/
+	static get methods() {
+		return {
+			/************************************************************************
+			 * Initializes the file input.
+			 ***********************************************************************/
 
-  static get methods () {
-    return {
+			init() {
+				this._initSelectors();
+				this._initElements();
+				this._initProperties();
+			},
 
-      /************************************************************************
-       * Initializes the file input.
-       ***********************************************************************/
+			/************************************************************************
+			 * Initializes file input child element selectors.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      init () {
-        this._initSelectors()
-        this._initElements()
-        this._initProperties()
-      },
+			_initSelectors() {
+				this.inputElementAttribute = "data-rvt-file-input-button";
+				this.previewElementAttribute = "data-rvt-file-input-preview";
 
-      /************************************************************************
-       * Initializes file input child element selectors.
-       *
-       * @private
-       ***********************************************************************/
+				this.inputElementSelector = `[${this.inputElementAttribute}]`;
+				this.previewElementSelector = `[${this.previewElementAttribute}]`;
+			},
 
-      _initSelectors () {
-        this.inputElementAttribute = 'data-rvt-file-input-button'
-        this.previewElementAttribute = 'data-rvt-file-input-preview'
+			/************************************************************************
+			 * Initializes file input child elements.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-        this.inputElementSelector = `[${this.inputElementAttribute}]`
-        this.previewElementSelector = `[${this.previewElementAttribute}]`
-      },
+			_initElements() {
+				this.inputElement = this.element.querySelector(
+					this.inputElementSelector,
+				);
+				this.previewElement = this.element.querySelector(
+					this.previewElementSelector,
+				);
+			},
 
-      /************************************************************************
-       * Initializes file input child elements.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Initializes file input state properties.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _initElements () {
-        this.inputElement = this.element.querySelector(this.inputElementSelector)
-        this.previewElement = this.element.querySelector(this.previewElementSelector)
-      },
+			_initProperties() {
+				this.defaultPreviewText = this.previewElement.textContent;
+			},
 
-      /************************************************************************
-       * Initializes file input state properties.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Called when the file input is added to the DOM.
+			 ***********************************************************************/
 
-      _initProperties () {
-        this.defaultPreviewText = this.previewElement.textContent
-      },
+			connected() {
+				Component.dispatchComponentAddedEvent(this.element);
+			},
 
-      /************************************************************************
-       * Called when the file input is added to the DOM.
-       ***********************************************************************/
+			/************************************************************************
+			 * Called when the file input is removed from the DOM.
+			 ***********************************************************************/
 
-      connected () {
-        Component.dispatchComponentAddedEvent(this.element)
-      },
+			disconnected() {
+				Component.dispatchComponentRemovedEvent(this.element);
+			},
 
-      /************************************************************************
-       * Called when the file input is removed from the DOM.
-       ***********************************************************************/
+			/************************************************************************
+			 * Handles change events broadcast to the file input.
+			 *
+			 * @param {Event} event - Change event
+			 ***********************************************************************/
 
-      disconnected () {
-        Component.dispatchComponentRemovedEvent(this.element)
-      },
+			onChange(event) {
+				if (this._hasAttachedFiles()) {
+					if (!this._attachEventDispatched()) {
+						return;
+					}
 
-      /************************************************************************
-       * Handles change events broadcast to the file input.
-       *
-       * @param {Event} event - Change event
-       ***********************************************************************/
+					this._hasMultipleAttachedFiles()
+						? this._showNumberOfAttachedFiles()
+						: this._showAttachedFilename();
+				} else {
+					this._resetPreviewTextToDefault();
+				}
+			},
 
-      onChange (event) {
-        if (this._hasAttachedFiles()) {
-          if (!this._attachEventDispatched()) { return }
+			/************************************************************************
+			 * Returns true if any files are attached to the file input.
+			 *
+			 * @private
+			 * @returns {boolean} Has attached files
+			 ***********************************************************************/
 
-          this._hasMultipleAttachedFiles()
-            ? this._showNumberOfAttachedFiles()
-            : this._showAttachedFilename()
-        } else {
-          this._resetPreviewTextToDefault()
-        }
-      },
+			_hasAttachedFiles() {
+				return this.inputElement.files.length > 0;
+			},
 
-      /************************************************************************
-       * Returns true if any files are attached to the file input.
-       *
-       * @private
-       * @returns {boolean} Has attached files
-       ***********************************************************************/
+			/************************************************************************
+			 * Returns true if the "file attached" custom event was successfully
+			 * dispatched.
+			 *
+			 * @private
+			 * @returns {boolean} Event successfully dispatched
+			 ***********************************************************************/
 
-      _hasAttachedFiles () {
-        return this.inputElement.files.length > 0
-      },
+			_attachEventDispatched() {
+				const files = Array.from(this.inputElement.files).map((f) => f.name);
+				const dispatched = Component.dispatchCustomEvent(
+					"FileAttached",
+					this.element,
+					{ files },
+				);
 
-      /************************************************************************
-       * Returns true if the "file attached" custom event was successfully
-       * dispatched.
-       *
-       * @private
-       * @returns {boolean} Event successfully dispatched
-       ***********************************************************************/
+				return dispatched;
+			},
 
-      _attachEventDispatched () {
-        const files = Array.from(this.inputElement.files).map(f => f.name)
-        const dispatched = Component.dispatchCustomEvent(
-          'FileAttached',
-          this.element,
-          { files }
-        )
+			/************************************************************************
+			 * Returns true if more than one file is attached to the file input.
+			 *
+			 * @private
+			 * @returns {boolean} Has multiple attached files
+			 ***********************************************************************/
 
-        return dispatched
-      },
+			_hasMultipleAttachedFiles() {
+				return this.inputElement.files.length > 1;
+			},
 
-      /************************************************************************
-       * Returns true if more than one file is attached to the file input.
-       *
-       * @private
-       * @returns {boolean} Has multiple attached files
-       ***********************************************************************/
+			/************************************************************************
+			 * Sets the file input preview text to show the number of attached files.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _hasMultipleAttachedFiles () {
-        return this.inputElement.files.length > 1
-      },
+			_showNumberOfAttachedFiles() {
+				this.previewElement.textContent =
+					this.inputElement.files.length + " files selected";
+			},
 
-      /************************************************************************
-       * Sets the file input preview text to show the number of attached files.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Sets the file input preview text to show the name of the attached
+			 * file.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _showNumberOfAttachedFiles () {
-        this.previewElement.textContent = this.inputElement.files.length + ' files selected'
-      },
+			_showAttachedFilename() {
+				this.previewElement.textContent = this._getSanitizedFilename();
+			},
 
-      /************************************************************************
-       * Sets the file input preview text to show the name of the attached
-       * file.
-       *
-       * @private
-       ***********************************************************************/
+			/************************************************************************
+			 * Sanitizes the name of the attached file for safe output.
+			 *
+			 * @private
+			 * @returns {string} Sanitized filename
+			 ***********************************************************************/
 
-      _showAttachedFilename () {
-        this.previewElement.textContent = this._getSanitizedFilename()
-      },
+			_getSanitizedFilename() {
+				return this.inputElement.files[0].name.replace(/[^\w\s.-]+/gi, "");
+			},
 
-      /************************************************************************
-       * Sanitizes the name of the attached file for safe output.
-       *
-       * @private
-       * @returns {string} Sanitized filename
-       ***********************************************************************/
+			/************************************************************************
+			 * Resets the file input preview text to its default value.
+			 *
+			 * @private
+			 ***********************************************************************/
 
-      _getSanitizedFilename () {
-        return this.inputElement.files[0].name.replace(/[^\w\s.-]+/gi, '')
-      },
-
-      /************************************************************************
-       * Resets the file input preview text to its default value.
-       *
-       * @private
-       ***********************************************************************/
-
-      _resetPreviewTextToDefault () {
-        this.previewElement.textContent = this.defaultPreviewText
-      }
-    }
-  }
+			_resetPreviewTextToDefault() {
+				this.previewElement.textContent = this.defaultPreviewText;
+			},
+		};
+	}
 }

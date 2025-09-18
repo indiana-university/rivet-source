@@ -1,259 +1,258 @@
 // Copyright (C) 2025 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-hero {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-lg;
+		@include container;
+	}
 
-  &__inner {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-lg;
-    @include container;
-  }
+	&__eyebrow {
+		color: var(--rvt-color-theme-accent);
+		display: block;
+		font-family: $font-family-mono;
+		font-size: $ts-14;
+		letter-spacing: 0.125rem;
+		text-transform: uppercase;
+	}
 
-  &__eyebrow {
-    color: var(--rvt-color-theme-accent);
-    display: block;
-    font-family: $font-family-mono;
-    font-size: $ts-14;
-    letter-spacing: .125rem;
-    text-transform: uppercase;
-  }
+	&__eyebrow > :not(.rvt-breadcrumbs) {
+		font-family: $font-family-sans;
+		letter-spacing: normal;
+		text-transform: none;
+	}
 
-  &__eyebrow > :not(.rvt-breadcrumbs) {
-    font-family: $font-family-sans;
-    letter-spacing: normal;
-    text-transform: none;
-  }
+	&__title {
+		color: var(--rvt-color-theme-accent);
+		font-family: $font-family-condensed;
+		font-size: $ts-32;
+		font-variation-settings: "wdth" 140;
+		font-weight: 850;
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
 
-  &__title {
-    color: var(--rvt-color-theme-accent);
-    font-family: $font-family-condensed;
-    font-size: $ts-32;
-    font-variation-settings: "wdth" 140;
-    font-weight: 850;
-    line-height: 1.1;
-    text-transform: uppercase;
-  }
+	&__eyebrow + &__title {
+		margin-top: $spacing-xs;
+	}
 
-  &__eyebrow + &__title {
-    margin-top: $spacing-xs;
-  }
+	&__teaser > * {
+		margin-bottom: 0;
+	}
 
-  &__teaser > * {
-    margin-bottom: 0;
-  }
+	&__title + &__actions,
+	&__teaser + &__actions {
+		margin-top: $spacing-md;
+	}
 
-  &__title + &__actions,
-  &__teaser + &__actions {
-    margin-top: $spacing-md;
-  }
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $spacing-sm;
+	}
 
-  &__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-sm;
-  }
+	&__actions > * {
+		flex-grow: 1;
+	}
 
-  &__actions > * {
-    flex-grow: 1;
-  }
+	&--statement &__body {
+		margin-inline: auto;
+		text-align: center;
+	}
 
-  &--statement &__body {
-    margin-inline: auto;
-    text-align: center;
-  }
+	&--statement &__actions {
+		justify-content: center;
+	}
 
-  &--statement &__actions {
-    justify-content: center;
-  }
+	&--statement &__banner {
+		margin-top: $spacing-lg;
+	}
 
-  &--statement &__banner {
-    margin-top: $spacing-lg;
-  }
+	&--feature &__banner {
+		margin-top: $spacing-xxl;
+	}
 
-  &--feature &__banner {
-    margin-top: $spacing-xxl;
-  }
+	&--feature &__banner {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-lg;
+		@include container();
+	}
 
-  &--feature &__banner {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-lg;
-    @include container();
-  }
-
-  &--profile &__subtitle {
-    color: var(--rvt-color-theme-accent);
-    font-family: $font-family-condensed;
-    font-size: $ts-20;
-    font-weight: $font-weight-black;
-    margin: 0;
-    text-transform: uppercase;
-  }
+	&--profile &__subtitle {
+		color: var(--rvt-color-theme-accent);
+		font-family: $font-family-condensed;
+		font-size: $ts-20;
+		font-weight: $font-weight-black;
+		margin: 0;
+		text-transform: uppercase;
+	}
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-hero {
-    &__body {
-      flex-grow: 1;
-      max-width: 90ch;
-    }
+	.#{$prefix}-hero {
+		&__body {
+			flex-grow: 1;
+			max-width: 90ch;
+		}
 
-    &__actions {
-      gap: $spacing-md;
-    }
+		&__actions {
+			gap: $spacing-md;
+		}
 
-    &__callout {
-      flex-shrink: 0;
-    }
+		&__callout {
+			flex-shrink: 0;
+		}
 
-    &__title {
-      font-size: $ts-46;
-    }
+		&__title {
+			font-size: $ts-46;
+		}
 
-    &__actions > * {
-      flex-grow: 0;
-      flex-shrink: 0;
-      width: auto;
-    }
+		&__actions > * {
+			flex-grow: 0;
+			flex-shrink: 0;
+			width: auto;
+		}
 
-    &--statement {
-      flex-direction: column;
-    }
+		&--statement {
+			flex-direction: column;
+		}
 
-    &--statement &__banner {
-      @include container();
-    }
+		&--statement &__banner {
+			@include container();
+		}
 
-    &--statement &__banner-callout {
-      position: relative;
+		&--statement &__banner-callout {
+			position: relative;
 
-      > * {
-        bottom: 0;
-        max-width: 55%;
-        position: absolute;
-        right: 0;
-        width: 100%;
-      }
-    }
+			> * {
+				bottom: 0;
+				max-width: 55%;
+				position: absolute;
+				right: 0;
+				width: 100%;
+			}
+		}
 
-    &--feature &__title,
-    &--statement &__title,
-    &--split &__title {
-      line-height: 1;
-    }
+		&--feature &__title,
+		&--statement &__title,
+		&--split &__title {
+			line-height: 1;
+		}
 
-    &--feature &__actions {
-      flex-wrap: nowrap;
-      min-width: 27rem;
-    }
+		&--feature &__actions {
+			flex-wrap: nowrap;
+			min-width: 27rem;
+		}
 
-    &--profile &__subtitle {
-      font-size: $ts-26;
-    }
+		&--profile &__subtitle {
+			font-size: $ts-26;
+		}
 
-    &--split &__media img {
-      aspect-ratio: 4 / 5;
-      height: 100%;
-      object-fit: cover;
-      width: 100%;
-    }
+		&--split &__media img {
+			aspect-ratio: 4 / 5;
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
 
-    &--split &__inner {
-      align-items: center;
-    }
-  }
+		&--split &__inner {
+			align-items: center;
+		}
+	}
 }
 
 @include mq($breakpoint-lg) {
-  .#{$prefix}-hero {
-    &__inner {
-      flex-direction: row;
-    }
+	.#{$prefix}-hero {
+		&__inner {
+			flex-direction: row;
+		}
 
-    &__eyebrow + &__title {
-      margin-top: $spacing-sm;
-    }
+		&__eyebrow + &__title {
+			margin-top: $spacing-sm;
+		}
 
-    &__teaser {
-      font-size: $ts-20;
-      margin-top: $spacing-lg;
-    }
+		&__teaser {
+			font-size: $ts-20;
+			margin-top: $spacing-lg;
+		}
 
-    &__title + &__actions,
-    &__teaser + &__actions {
-      margin-top: $spacing-xl;
-    }
+		&__title + &__actions,
+		&__teaser + &__actions {
+			margin-top: $spacing-xl;
+		}
 
-    &__teaser > * {
-      margin: 0;
-    }
+		&__teaser > * {
+			margin: 0;
+		}
 
-    &__teaser > * + * {
-      margin-top: $spacing-sm;
-    }
+		&__teaser > * + * {
+			margin-top: $spacing-sm;
+		}
 
-    &__callout {
-      align-self: flex-end;
-      flex-grow: 1;
-      max-width: 33%;
-    }
+		&__callout {
+			align-self: flex-end;
+			flex-grow: 1;
+			max-width: 33%;
+		}
 
-    &--profile &__subtitle {
-      font-size: $ts-29;
-    }
+		&--profile &__subtitle {
+			font-size: $ts-29;
+		}
 
-    &--statement &__title,
-    &--feature &__title {
-      font-size: $ts-52;
-    }
+		&--statement &__title,
+		&--feature &__title {
+			font-size: $ts-52;
+		}
 
-    &--feature &__banner {
-      // This makes the optional quick links align to the end of the flex axis
-      align-items: flex-end;
-      flex-direction: row;
+		&--feature &__banner {
+			// This makes the optional quick links align to the end of the flex axis
+			align-items: flex-end;
+			flex-direction: row;
 
-      & > *:first-child {
-        flex-grow:1;
-        // Sets the width of the left column of a hero--feature banner
-        min-width: 33%;
-      }
+			& > *:first-child {
+				flex-grow: 1;
+				// Sets the width of the left column of a hero--feature banner
+				min-width: 33%;
+			}
 
-      & > *:last-child {
-        flex-basis: 0;
-        // Makes the rest of the hero banner take up as much space as possible
-        // so that if there are no quick links the banner image takes up
-        // The full width of the container.
-        flex-grow: 999;
-      }
-    }
+			& > *:last-child {
+				flex-basis: 0;
+				// Makes the rest of the hero banner take up as much space as possible
+				// so that if there are no quick links the banner image takes up
+				// The full width of the container.
+				flex-grow: 999;
+			}
+		}
 
-    &--feature &__actions {
-      align-self: flex-end;
-      justify-content: flex-end;
-    }
+		&--feature &__actions {
+			align-self: flex-end;
+			justify-content: flex-end;
+		}
 
-    &--split &__title {
-      font-size: $ts-52;
-    }
+		&--split &__title {
+			font-size: $ts-52;
+		}
 
-    &--split &__inner {
-      gap: $spacing-xxl;
-    }
+		&--split &__inner {
+			gap: $spacing-xxl;
+		}
 
-    &--split &__body,
-    &--split &__media {
-      width: 50%;
-    }
-  }
+		&--split &__body,
+		&--split &__media {
+			width: 50%;
+		}
+	}
 }
 
 // Non-global theme specifics
 .#{$prefix}-hero,
 .#{$prefix}-hero {
-  &__quick-links {
-    padding: $spacing-lg;
-  }
+	&__quick-links {
+		padding: $spacing-lg;
+	}
 }

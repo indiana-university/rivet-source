@@ -8,8 +8,9 @@
  *****************************************************************************/
 
 if (!Element.prototype.matches) {
-  Element.prototype.matches = Element.prototype.msMatchesSelector ||
-                              Element.prototype.webkitMatchesSelector
+	Element.prototype.matches =
+		Element.prototype.msMatchesSelector ||
+		Element.prototype.webkitMatchesSelector;
 }
 
 /******************************************************************************
@@ -19,18 +20,22 @@ if (!Element.prototype.matches) {
  *****************************************************************************/
 
 if (!Element.prototype.closest) {
-  Element.prototype.closest = function (selector) {
-    var el = this
-    var ancestor = this
+	Element.prototype.closest = function (selector) {
+		var el = this;
+		var ancestor = this;
 
-    if (!document.documentElement.contains(el)) { return null }
+		if (!document.documentElement.contains(el)) {
+			return null;
+		}
 
-    do {
-      if (ancestor.matches(selector)) { return ancestor }
+		do {
+			if (ancestor.matches(selector)) {
+				return ancestor;
+			}
 
-      ancestor = ancestor.parentElement
-    } while (ancestor !== null)
+			ancestor = ancestor.parentElement;
+		} while (ancestor !== null);
 
-    return null
-  }
+		return null;
+	};
 }

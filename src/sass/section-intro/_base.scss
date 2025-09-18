@@ -1,128 +1,128 @@
 // Copyright (C) 2025 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
+@use "../core" as *;
 
 .#{$prefix}-section-intro {
-  margin-inline: auto;
-  max-width: $breakpoint-md;
-  text-align: center;
+	margin-inline: auto;
+	max-width: $breakpoint-md;
+	text-align: center;
 
-  &__title {
-    color: var(--rvt-color-theme-accent);
-    font-family: $font-family-condensed;
-    font-size: $ts-36;
-    font-weight: $font-weight-black;
-    line-height: $line-height-tight;
-    margin-top: $spacing-sm;
-    text-transform: uppercase;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+	&__title {
+		color: var(--rvt-color-theme-accent);
+		font-family: $font-family-condensed;
+		font-size: $ts-36;
+		font-weight: $font-weight-black;
+		line-height: $line-height-tight;
+		margin-top: $spacing-sm;
+		text-transform: uppercase;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 
-  &__eyebrow {
-    @include eyebrow;
-    color: var(--rvt-color-theme-accent);
-  }
+	&__eyebrow {
+		@include eyebrow;
+		color: var(--rvt-color-theme-accent);
+	}
 
-  &__teaser {
-    color: var(--rvt-color-theme-text);
-    font-size: $ts-16;
-    margin-top: $spacing-sm;
+	&__teaser {
+		color: var(--rvt-color-theme-text);
+		font-size: $ts-16;
+		margin-top: $spacing-sm;
 
-    > * {
-      margin: 0;
-    }
+		> * {
+			margin: 0;
+		}
 
-    > * + * {
-      margin-top: $spacing-md;
-    }
-  }
+		> * + * {
+			margin-top: $spacing-md;
+		}
+	}
 
-  &__actions {
-    display: flex;
-    gap: $spacing-sm;
-    justify-content: center;
-    margin-top: $spacing-xl;
-  }
+	&__actions {
+		display: flex;
+		gap: $spacing-sm;
+		justify-content: center;
+		margin-top: $spacing-xl;
+	}
 
-  &--feature::before {
-    background-color: var(--rvt-color-theme-accent);
-    clip-path: path(var(--rvt-icon-logo-iu));
-    content: "";
-    display: block;
-    height: 49px;
-    margin-inline: auto;
-    width: 38px;
-  }
+	&--feature::before {
+		background-color: var(--rvt-color-theme-accent);
+		clip-path: path(var(--rvt-icon-logo-iu));
+		content: "";
+		display: block;
+		height: 49px;
+		margin-inline: auto;
+		width: 38px;
+	}
 
-  &--feature &__eyebrow {
-    display: block;
-    padding-top: $spacing-sm;
-    position: relative;
-  }
+	&--feature &__eyebrow {
+		display: block;
+		padding-top: $spacing-sm;
+		position: relative;
+	}
 
-  &--feature &__teaser {
-    color: var(--rvt-color-theme-accent);
-    padding-top: $spacing-xl;
-    position: relative;
-    text-align: left;
-  }
+	&--feature &__teaser {
+		color: var(--rvt-color-theme-accent);
+		padding-top: $spacing-xl;
+		position: relative;
+		text-align: left;
+	}
 
-  &--feature &__teaser::before {
-    background-color: var(--rvt-color-theme-accent);
-    content: "";
-    display: block;
-    height: $spacing-lg;
-    left: 50%;
-    position: absolute;
-    top: -$spacing-xxs;
-    width: $spacing-xxs;
-  }
+	&--feature &__teaser::before {
+		background-color: var(--rvt-color-theme-accent);
+		content: "";
+		display: block;
+		height: $spacing-lg;
+		left: 50%;
+		position: absolute;
+		top: -$spacing-xxs;
+		width: $spacing-xxs;
+	}
 }
 
 @include mq($breakpoint-md) {
-  .#{$prefix}-section-intro {
-    &__title {
-      font-size: $ts-41;
-    }
+	.#{$prefix}-section-intro {
+		&__title {
+			font-size: $ts-41;
+		}
 
-    &__teaser {
-      font-size: $ts-20;
-    }
-  }
+		&__teaser {
+			font-size: $ts-20;
+		}
+	}
 }
 
 @include mq($breakpoint-lg) {
-  .#{$prefix}-section-intro {
-    &--teaser {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $spacing-lg;
-      max-width: 100%;
-    }
+	.#{$prefix}-section-intro {
+		&--teaser {
+			display: flex;
+			flex-wrap: wrap;
+			gap: $spacing-lg;
+			max-width: 100%;
+		}
 
-    &--teaser &__title {
-      margin-top: $spacing-xs;
-    }
+		&--teaser &__title {
+			margin-top: $spacing-xs;
+		}
 
-    &--teaser {
-      text-align: left;
-    }
+		&--teaser {
+			text-align: left;
+		}
 
-    &--teaser &__actions {
-      align-items: flex-end;
-      flex-basis: 24rem;
-      flex-grow: 1;
-      justify-content: flex-end;
-      margin-top: 0;
-    }
+		&--teaser &__actions {
+			align-items: flex-end;
+			flex-basis: 24rem;
+			flex-grow: 1;
+			justify-content: flex-end;
+			margin-top: 0;
+		}
 
-    &--teaser &__body {
-      flex-basis: 0;
-      flex-grow: 999;
-      max-width: 80ch;
-      min-width: 50%;
-    }
-  }
+		&--teaser &__body {
+			flex-basis: 0;
+			flex-grow: 999;
+			max-width: 80ch;
+			min-width: 50%;
+		}
+	}
 }

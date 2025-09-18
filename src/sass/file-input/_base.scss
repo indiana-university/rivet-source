@@ -1,51 +1,51 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use '../core' as *;
-@use 'sass:math';
+@use "../core" as *;
+@use "sass:math";
 
 .#{$prefix}-file {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
 
-  input[type="file"] {
-    height: .1px;
-    opacity: 0;
-    overflow: hidden;
-    width: .1px;
-  }
+	input[type="file"] {
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		width: 0.1px;
+	}
 
-  input[type="file"] + label {
-    cursor: pointer;
-    display: flex;
-    flex-grow: 0;
-    font-size: $ts-base;
-    font-weight: $font-weight-bold;
-    margin-bottom: 0;
-    margin-top: 0;
-    width: inherit;
-  }
+	input[type="file"] + label {
+		cursor: pointer;
+		display: flex;
+		flex-grow: 0;
+		font-size: $ts-base;
+		font-weight: $font-weight-bold;
+		margin-bottom: 0;
+		margin-top: 0;
+		width: inherit;
+	}
 
-  input[type="file"]:focus + label {
-    outline: calc(2rem/16) solid var(--rvt-color-theme-accent-strong);
-    outline-offset: calc(2rem/16);
-  }
+	input[type="file"]:focus + label {
+		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: calc(2rem / 16);
+	}
 
-  input[type="file"]:disabled + label {
-    background-color: var(--rvt-color-theme-background);
-    border-color: var(--rvt-color-theme-background-strong);
-    color: var(--rvt-color-theme-ui);
-    cursor: not-allowed;
-  }
+	input[type="file"]:disabled + label {
+		background-color: var(--rvt-color-theme-background);
+		border-color: var(--rvt-color-theme-background-strong);
+		color: var(--rvt-color-theme-ui);
+		cursor: not-allowed;
+	}
 
-  &__preview {
-    margin-left: $spacing-sm;
+	&__preview {
+		margin-left: $spacing-sm;
 
-    span {
-      display: inline-block;
-      font-weight: $font-weight-bold;
-      line-height: $line-height-base;
-    }
-  }
+		span {
+			display: inline-block;
+			font-weight: $font-weight-bold;
+			line-height: $line-height-base;
+		}
+	}
 }
