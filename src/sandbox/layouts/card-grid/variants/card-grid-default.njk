@@ -49,7 +49,7 @@ classes: rvt-page
 		</div>
 
 		<div class="rvt-container">
-			<ul class="rvt-grid rvt-grid--3 rvt-grid--collapse">
+			<ul class="rvt-card-list">
 				{% for card in range(0, 6) %}
 				<li>
 					<div class="rvt-card rvt-card--feature">
@@ -90,7 +90,7 @@ classes: rvt-page
 		</div>
 
 		<div class="rvt-container">
-			<ul class="rvt-grid rvt-grid--3 rvt-grid--collapse">
+			<ul class="rvt-card-list">
 				{# User this hard-coded array to show different stickers no each loop #}
 				{% set stickers = ["branch", "book", "camera", "calendar", "form-check",
 				"popper"] %} {% for card in range(0, 6) %}
