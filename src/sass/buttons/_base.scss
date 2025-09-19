@@ -1,15 +1,15 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-.rvt-button {
+:is(a, button).rvt-button {
 	--color-border: var(--rvt-color-theme-text-strong);
 	--color-background: var(--rvt-color-theme-background);
 	--color-background-hover: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
+	--color-text-hover: var(--rvt-color-theme-text-strong);
 	align-items: center;
 	background: var(--color-background);
-	border: calc(1rem/16) solid var(--color-border);
-	border-radius: 0;
+	border: calc(1rem / 16) solid var(--color-border);
 	color: var(--color-text);
 	cursor: pointer;
 	display: inline-flex;
@@ -18,88 +18,71 @@
 	height: calc(var(--rvt-spacing-sm) * 3);
 	justify-content: center;
 	line-height: var(--rvt-line-height-tight);
-	padding: 0 var(--rvt-spacing-sm);
+	padding: 0 calc(15rem / 16);
 	text-decoration: none;
-	transition:
-		background 0.2s ease-in-out,
-		border-color 0.2s ease-in-out;
 
-	&:hover {
-		background-color: var(--color-background-hover);
+	&:visited {
 		color: var(--color-text);
 	}
 
-	&--solid {
-		--color-background: var(--rvt-color-theme-text-strong);
-		--color-background-hover: var(--rvt-color-theme-background-inverse);
-		--color-border: transparent;
-		--color-text: var(--rvt-color-theme-text-inverse);
+	&:hover {
+		background-color: var(--color-background-hover);
+		color: var(--color-text-hover);
 	}
+}
 
-	&--plain {
-		--color-border: transparent;
-	}
+:is(a, button).rvt-button--small {
+	font-size: var(--rvt-ts-14);
+	height: var(--rvt-spacing-xl);
+	padding: 0 calc(11rem / 16);
+}
 
-	&--small {
-		font-size: var(--rvt-ts-14);
-		height: var(--rvt-spacing-xl);
-		padding: 0 var(--rvt-spacing-xs);
-	}
+:is(a, button).rvt-button--tag {
+	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-border: var(--rvt-color-theme-ui-strong);
+	--color-text: var(--rvt-color-theme-text);
+	--color-text-hover: var(--rvt-color-theme-text-strong);
+	display: inline-flex;
+	font-size: var(--rvt-ts-14);
+	gap: var(--rvt-spacing-xs);
+	height: var(--rvt-spacing-md);
+	padding: 0 0.5rem;
 
-	&:disabled {
-		//--color-background: var(--rvt-color-theme-background);
-		--color-background-hover: var(--rvt-color-theme-background);
-		//--color-border: var(--rvt-color-theme-ui);
-		//--color-text: var(--rvt-color-theme-ui-strong);
-		cursor: not-allowed;
-		opacity: 0.4;
-	}
-
-	&--plain:disabled {
-		//--color-border: transparent;
-	}
-
-	&--solid:disabled {
-		//--color-background: var(--rvt-color-theme-ui-strong);
-		--color-background-hover: var(--rvt-color-theme-text-strong);
-		//--color-text: var(--rvt-color-theme-text-inverse);
-	}
-
-	&--tag {
-		--color-border: var(--rvt-color-theme-ui-strong);
+	&.rvt-button--icon-only {
 		border-radius: var(--rvt-border-radius-circle);
-		display: inline-flex;
-		font-size: var(--rvt-ts-14);
-		gap: var(--rvt-spacing-xxs);
-		height: var(--rvt-spacing-md);
-		padding: 0 0.5rem;
+		padding: 0 calc(3rem / 16);
 	}
 
-	&--dismissable::after {
-		background-color: currentColor;
-		clip-path: path(var(--rvt-icon-close-small));
-		content: "";
-		display: block;
-		height: var(--rvt-spacing-sm);
-		width: var(--rvt-spacing-sm);
-	}
-
-	&--icon-only {
-	}
-
-	&[aria-pressed="true"] {
-		--color-background: var(--rvt-color-theme-accent);
-		--color-border: transparent;
-		--color-text: var(--rvt-color-theme-text-inverse);
-	}
-
-	&[aria-pressed="true"]:hover {
-		--color-background: var(--rvt-color-theme-accent-strong);
+	&.rvt-button--dismissable {
+		&::after {
+			background-color: currentColor;
+			clip-path: path(var(--rvt-icon-close-small));
+			content: "";
+			display: block;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
+		}
 	}
 }
 
 a.rvt-button {
+	--color-background-hover: var(--rvt-color-theme-accent-inverse);
+	--color-border: var(--rvt-color-theme-accent);
+	--color-text: var(--rvt-color-theme-accent);
+	--color-text-hover: var(--rvt-color-theme-accent-strong);
 	--rotate: 0;
+
+	&[href*="#"].rvt-button {
+		--rotate: 90deg;
+	}
+
+	&[href^="http"] {
+		--rotate: -45deg;
+	}
+
+	&:hover::after {
+		transform: rotate(var(--rotate)) translateX(var(--rvt-spacing-xxs));
+	}
 
 	&::after {
 		background-color: currentColor;
@@ -112,20 +95,51 @@ a.rvt-button {
 		transition: all 0.2s ease;
 		width: var(--rvt-spacing-sm);
 	}
+}
 
-	&:hover::after {
-		transform: rotate(var(--rotate)) translateX(var(--rvt-spacing-xxs));
+a.rvt-button--solid {
+	--color-background: var(--rvt-color-theme-accent);
+	--color-background-hover: var(--rvt-color-theme-accent-strong);
+	--color-border: transparent;
+	--color-text: var(--rvt-color-theme-text-inverse);
+	--color-text-hover: var(--rvt-color-theme-text-inverse);
+}
+
+a.rvt-button--text {
+	--color-background-hover: transparent;
+	--color-border: transparent;
+	--color-text: var(--rvt-color-theme-accent);
+	--color-text-hover: var(--rvt-color-theme-accent-strong);
+}
+
+button.rvt-button {
+	&[aria-pressed="true"] {
+		--color-background: var(--rvt-color-theme-accent);
+		--color-background-hover: var(--rvt-color-theme-accent-strong);
+		--color-border: var(--rvt-color-theme-background-inverse);
+		--color-text: var(--rvt-color-theme-text-inverse);
+		box-shadow: inset 0 0 0 calc(2rem / 16) var(--rvt-color-theme-background);
 	}
 
-	&--tag::after {
-		display: none;
+	&:disabled {
+		--color-background-hover: var(--color-background);
+		--color-text-hover: var(--color-text);
+		cursor: not-allowed;
+		opacity: 0.4;
 	}
 }
 
-a[href^="http"].rvt-button {
-	--rotate: -45deg;
+button.rvt-button--solid {
+	--color-background: var(--rvt-color-theme-background-inverse);
+	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
+	--color-border: transparent;
+	--color-text: var(--rvt-color-theme-text-inverse);
+	--color-text-hover: var(--rvt-color-theme-text-inverse);
 }
 
-a[href*="#"].rvt-button {
-	--rotate: 90deg;
+button.rvt-button--text {
+	--color-background-hover: transparent;
+	--color-border: transparent;
+	--color-text: var(--rvt-color-theme-text);
+	--color-text-hover: var(--rvt-color-theme-text-strong);
 }

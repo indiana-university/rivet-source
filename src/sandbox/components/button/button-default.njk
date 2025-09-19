@@ -2,37 +2,190 @@
 title: Default Button
 ---
 
-<div class="rvt-flex rvt-flex-column rvt-gap-lg">
-	{% for variant in variants %}
-	<div class="rvt-flex rvt-gap-sm">
-		{% for button in buttons %} {% if button.type == 'button' %} {% if
-		button.hasIcon %}
-		<button
-			type="button"
-			class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
-		>
-			{{ button.text | safe }}
-		</button>
-		{% else %}
-		<button
-			type="button"
-			class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
-			{%
-			if
-			button.isDisabled
-			%}disabled{%
-			endif
-			%}
-		>
-			{{ button.text }}
-		</button>
-		{% endif %} {% else %}
-		<a
-			href="{{ button.url }}"
-			class="rvt-button{% if variant != 'default' %} rvt-button--{{ variant }}{% endif %}"
-			>{{ button.text }}</a
-		>
-		{% endif %} {% endfor %}
-	</div>
-	{% endfor %}
+<div class="rvt-flex rvt-gap-sm rvt-wrap">
+	<button type="button" class="rvt-button rvt-button--solid">
+		Solid button
+	</button>
+	<button type="button" class="rvt-button rvt-button--solid">
+		<rvt-icon name="plus"></rvt-icon>
+		Solid icon button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--solid rvt-button--icon-only"
+	>
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Solid icon button</span>
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--solid"
+		aria-pressed="true"
+	>
+		Pressed solid button
+	</button>
+	<button type="button" class="rvt-button rvt-button--solid" disabled>
+		Disabled solid button
+	</button>
 </div>
+
+<div class="rvt-flex rvt-gap-sm rvt-wrap rvt-m-top-md">
+	<button type="button" class="rvt-button rvt-button--small rvt-button--solid">
+		Small solid button
+	</button>
+	<button type="button" class="rvt-button rvt-button--small rvt-button--solid">
+		<rvt-icon name="plus"></rvt-icon>
+		Small solid icon button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--solid rvt-button--icon-only"
+	>
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Small solid icon button</span>
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--solid"
+		aria-pressed="true"
+	>
+		Pressed small solid button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--solid"
+		disabled
+	>
+		Disabled small solid button
+	</button>
+</div>
+
+<div class="rvt-flex rvt-gap-sm rvt-wrap rvt-m-top-md">
+	<button type="button" class="rvt-button">Outline button</button>
+	<button type="button" class="rvt-button">
+		<rvt-icon name="plus"></rvt-icon>
+		Outline icon button
+	</button>
+	<button type="button" class="rvt-button rvt-button--icon-only">
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Outline icon button</span>
+	</button>
+	<button type="button" class="rvt-button" aria-pressed="true">
+		Pressed outline button
+	</button>
+	<button type="button" class="rvt-button" disabled>
+		Disabled outline button
+	</button>
+</div>
+
+<div class="rvt-flex rvt-gap-sm rvt-wrap rvt-m-top-md">
+	<button type="button" class="rvt-button rvt-button--small">
+		Small outline button
+	</button>
+	<button type="button" class="rvt-button rvt-button--small">
+		<rvt-icon name="plus"></rvt-icon>
+		Small outline icon button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--icon-only"
+	>
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Small outline icon button</span>
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small"
+		aria-pressed="true"
+	>
+		Pressed small outline button
+	</button>
+	<button type="button" class="rvt-button rvt-button--small" disabled>
+		Disabled small outline button
+	</button>
+</div>
+
+<div class="rvt-flex rvt-gap-sm rvt-wrap rvt-m-top-md">
+	<button type="button" class="rvt-button rvt-button--text">Text button</button>
+	<button type="button" class="rvt-button rvt-button--text">
+		<rvt-icon name="plus"></rvt-icon>
+		Text icon button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--text rvt-button--icon-only"
+	>
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Text icon button</span>
+	</button>
+	<button type="button" class="rvt-button rvt-button--text" aria-pressed="true">
+		Pressed text button
+	</button>
+	<button type="button" class="rvt-button rvt-button--text" disabled>
+		Disabled text button
+	</button>
+</div>
+
+<div class="rvt-flex rvt-gap-sm rvt-wrap rvt-m-top-md">
+	<button type="button" class="rvt-button rvt-button--small rvt-button--text">
+		Small text button
+	</button>
+	<button type="button" class="rvt-button rvt-button--small rvt-button--text">
+		<rvt-icon name="plus"></rvt-icon>
+		Small text icon button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--text rvt-button--icon-only"
+	>
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Small text icon button</span>
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--text"
+		aria-pressed="true"
+	>
+		Pressed small text button
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--small rvt-button--text"
+		disabled
+	>
+		Disabled small outline button
+	</button>
+</div>
+
+<div class="rvt-flex rvt-gap-sm rvt-m-top-md">
+	<button class="rvt-button rvt-button--tag">Button tag</button>
+	<button type="button" class="rvt-button rvt-button--tag">
+		<rvt-icon name="plus"></rvt-icon>
+		Icon button tag
+	</button>
+	<button
+		type="button"
+		class="rvt-button rvt-button--tag rvt-button--icon-only"
+	>
+		<rvt-icon name="plus"></rvt-icon>
+		<span class="rvt-sr-only">Icon button tag</span>
+	</button>
+	<button type="button" class="rvt-button rvt-button--tag" aria-pressed="true">
+		Pressed button tag
+	</button>
+	<button class="rvt-button rvt-button--tag rvt-button--dismissable">
+		<span class="rvt-sr-only">Remove</span>
+		Dismissable button tag
+	</button>
+</div>
+
+<script>
+	document.addEventListener("click", (event) => {
+		const pressed = "aria-pressed";
+		const target = event.target.closest(`[${pressed}]`);
+		if (target) {
+			const value = target.getAttribute(pressed) === "true" ? false : true;
+			target.setAttribute(pressed, value);
+		}
+	});
+</script>
