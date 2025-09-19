@@ -1,27 +1,24 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-@use "sass:math";
-
-.#{$prefix}-button {
+.rvt-button {
 	--color-border: var(--rvt-color-theme-text-strong);
 	--color-background: var(--rvt-color-theme-background);
 	--color-background-hover: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
 	align-items: center;
 	background: var(--color-background);
-	border: 1px solid var(--color-border);
+	border: calc(1rem/16) solid var(--color-border);
 	border-radius: 0;
 	color: var(--color-text);
 	cursor: pointer;
 	display: inline-flex;
-	font-weight: $font-weight-medium;
-	gap: $spacing-xs;
-	height: $spacing-sm * 3;
+	font-weight: var(--rvt-font-weight-medium);
+	gap: var(--rvt-spacing-xs);
+	height: calc(var(--rvt-spacing-sm) * 3);
 	justify-content: center;
-	line-height: 1.1;
-	padding: 0 #{$spacing-sm};
+	line-height: var(--rvt-line-height-tight);
+	padding: 0 var(--rvt-spacing-sm);
 	text-decoration: none;
 	transition:
 		background 0.2s ease-in-out,
@@ -44,9 +41,9 @@
 	}
 
 	&--small {
-		font-size: $ts-14;
-		height: $spacing-xl;
-		padding: 0 $spacing-xs;
+		font-size: var(--rvt-ts-14);
+		height: var(--rvt-spacing-xl);
+		padding: 0 var(--rvt-spacing-xs);
 	}
 
 	&:disabled {
@@ -70,11 +67,11 @@
 
 	&--tag {
 		--color-border: var(--rvt-color-theme-ui-strong);
-		border-radius: $border-radius-circle;
+		border-radius: var(--rvt-border-radius-circle);
 		display: inline-flex;
-		font-size: calc(14rem / 16);
-		gap: $spacing-xxs;
-		height: $spacing-sm * 1.5;
+		font-size: var(--rvt-ts-14);
+		gap: var(--rvt-spacing-xxs);
+		height: var(--rvt-spacing-md);
 		padding: 0 0.5rem;
 	}
 
@@ -83,8 +80,8 @@
 		clip-path: path(var(--rvt-icon-close-small));
 		content: "";
 		display: block;
-		height: $spacing-sm;
-		width: $spacing-sm;
+		height: var(--rvt-spacing-sm);
+		width: var(--rvt-spacing-sm);
 	}
 
 	&--icon-only {
@@ -101,7 +98,7 @@
 	}
 }
 
-a.#{$prefix}-button {
+a.rvt-button {
 	--rotate: 0;
 
 	&::after {
@@ -110,14 +107,14 @@ a.#{$prefix}-button {
 		content: "";
 		display: block;
 		flex-shrink: 0;
-		height: $spacing-sm;
+		height: var(--rvt-spacing-sm);
 		transform: rotate(var(--rotate));
 		transition: all 0.2s ease;
-		width: $spacing-sm;
+		width: var(--rvt-spacing-sm);
 	}
 
 	&:hover::after {
-		transform: rotate(var(--rotate)) translateX($spacing-xxs);
+		transform: rotate(var(--rotate)) translateX(var(--rvt-spacing-xxs));
 	}
 
 	&--tag::after {
@@ -125,10 +122,10 @@ a.#{$prefix}-button {
 	}
 }
 
-a[href^="http"].#{$prefix}-button {
+a[href^="http"].rvt-button {
 	--rotate: -45deg;
 }
 
-a[href*="#"].#{$prefix}-button {
+a[href*="#"].rvt-button {
 	--rotate: 90deg;
 }
