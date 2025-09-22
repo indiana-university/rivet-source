@@ -99,7 +99,8 @@ button.rvt-button {
 		--color-background: var(--color-background-hover);
 		box-shadow:
 			inset 0 0 0 var(--size-pressed) var(--rvt-color-theme-background),
-			inset 0 0 0 calc(var(--size-pressed) * 2) var(--rvt-color-theme-background-inverse-strong);
+			inset 0 0 0 calc(var(--size-pressed) * 2)
+				var(--rvt-color-theme-background-inverse-strong);
 	}
 
 	&:is([aria-disabled="true"], :disabled) {
@@ -135,7 +136,7 @@ button.rvt-button--text {
 	font-size: var(--rvt-ts-14);
 	gap: var(--rvt-spacing-xxs);
 	height: var(--rvt-spacing-md);
-	padding: 0 calc(6rem/16);
+	padding: 0 calc(6rem / 16);
 
 	&.rvt-button--icon-only {
 		padding: 0 calc(3rem / 16);
@@ -153,7 +154,7 @@ button.rvt-button--text {
 	}
 
 	rvt-icon {
-		transform: scale(calc(12/16));
+		transform: scale(calc(12 / 16));
 	}
 }
 
