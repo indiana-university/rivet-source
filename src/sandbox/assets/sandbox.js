@@ -140,3 +140,12 @@ if (componentPage) {
 		});
 	}
 }
+
+document.addEventListener("click", (event) => {
+	const pressed = "aria-pressed";
+	const target = event.target.closest(`[${pressed}]`);
+	if (target) {
+		const value = target.getAttribute(pressed) === "true" ? false : true;
+		target.setAttribute(pressed, value);
+	}
+});

@@ -33,40 +33,16 @@
 
 :is(a, button).rvt-button--small {
 	font-size: var(--rvt-ts-14);
-	height: var(--rvt-spacing-xl);
-	padding: 0 calc(11rem / 16);
+	height: var(--rvt-spacing-lg);
+	padding: 0 calc(7rem / 16);
 }
 
-:is(a, button).rvt-button--tag {
-	--color-background-hover: var(--rvt-color-theme-background-strong);
-	--color-border: var(--rvt-color-theme-ui-strong);
-	--color-text: var(--rvt-color-theme-text);
-	--color-text-hover: var(--rvt-color-theme-text-strong);
-	display: inline-flex;
-	font-size: var(--rvt-ts-14);
-	gap: var(--rvt-spacing-xs);
-	height: var(--rvt-spacing-md);
-	padding: 0 0.5rem;
-
-	&.rvt-button--icon-only {
-		border-radius: var(--rvt-border-radius-circle);
-		padding: 0 calc(3rem / 16);
-	}
-
-	&.rvt-button--dismissable {
-		&::after {
-			background-color: currentColor;
-			clip-path: path(var(--rvt-icon-close-small));
-			content: "";
-			display: block;
-			height: var(--rvt-spacing-sm);
-			width: var(--rvt-spacing-sm);
-		}
-	}
+:is(a, button).rvt-button--full-width {
+	width: 100%;
 }
 
 a.rvt-button {
-	--color-background-hover: var(--rvt-color-theme-accent-inverse);
+	--color-background-hover: var(--rvt-color-theme-background-strong);
 	--color-border: var(--rvt-color-theme-accent);
 	--color-text: var(--rvt-color-theme-accent);
 	--color-text-hover: var(--rvt-color-theme-accent-strong);
@@ -80,11 +56,15 @@ a.rvt-button {
 		--rotate: -45deg;
 	}
 
-	&:hover::after {
+	:where(.rvt-theme-light) & {
+		--color-background-hover: var(--rvt-color-theme-accent-inverse);
+	}
+
+	&:not(.rvt-button--tag):hover::after {
 		transform: rotate(var(--rotate)) translateX(var(--rvt-spacing-xxs));
 	}
 
-	&::after {
+	&:not(.rvt-button--tag)::after {
 		background-color: currentColor;
 		clip-path: path(var(--rvt-icon-arrow-right));
 		content: "";
@@ -101,8 +81,8 @@ a.rvt-button--solid {
 	--color-background: var(--rvt-color-theme-accent);
 	--color-background-hover: var(--rvt-color-theme-accent-strong);
 	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-text-inverse);
-	--color-text-hover: var(--rvt-color-theme-text-inverse);
+	--color-text: var(--rvt-color-theme-background);
+	--color-text-hover: var(--rvt-color-theme-background);
 }
 
 a.rvt-button--text {
@@ -113,15 +93,16 @@ a.rvt-button--text {
 }
 
 button.rvt-button {
+	--size-pressed: calc(2rem / 16);
+
 	&[aria-pressed="true"] {
-		--color-background: var(--rvt-color-theme-accent);
-		--color-background-hover: var(--rvt-color-theme-accent-strong);
-		--color-border: var(--rvt-color-theme-background-inverse);
-		--color-text: var(--rvt-color-theme-text-inverse);
-		box-shadow: inset 0 0 0 calc(2rem / 16) var(--rvt-color-theme-background);
+		--color-background: var(--color-background-hover);
+		box-shadow:
+			inset 0 0 0 var(--size-pressed) var(--rvt-color-theme-background),
+			inset 0 0 0 calc(var(--size-pressed) * 2) var(--rvt-color-theme-background-inverse-strong);
 	}
 
-	&:disabled {
+	&:is([aria-disabled="true"], :disabled) {
 		--color-background-hover: var(--color-background);
 		--color-text-hover: var(--color-text);
 		cursor: not-allowed;
@@ -133,8 +114,8 @@ button.rvt-button--solid {
 	--color-background: var(--rvt-color-theme-background-inverse);
 	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
 	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-text-inverse);
-	--color-text-hover: var(--rvt-color-theme-text-inverse);
+	--color-text: var(--rvt-color-theme-background);
+	--color-text-hover: var(--rvt-color-theme-background);
 }
 
 button.rvt-button--text {
@@ -142,4 +123,46 @@ button.rvt-button--text {
 	--color-border: transparent;
 	--color-text: var(--rvt-color-theme-text);
 	--color-text-hover: var(--rvt-color-theme-text-strong);
+}
+
+:is(a, button).rvt-button--tag {
+	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-border: var(--rvt-color-theme-ui-strong);
+	--color-text: var(--rvt-color-theme-text);
+	--color-text-hover: var(--rvt-color-theme-text-strong);
+	--size-pressed: calc(1rem / 16);
+	display: inline-flex;
+	font-size: var(--rvt-ts-14);
+	gap: var(--rvt-spacing-xxs);
+	height: var(--rvt-spacing-md);
+	padding: 0 calc(6rem/16);
+
+	&.rvt-button--icon-only {
+		padding: 0 calc(3rem / 16);
+	}
+
+	&.rvt-button--dismissable {
+		&::after {
+			background-color: currentColor;
+			clip-path: path(var(--rvt-icon-close-small));
+			content: "";
+			display: block;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
+		}
+	}
+
+	rvt-icon {
+		transform: scale(calc(12/16));
+	}
+}
+
+.rvt-button-group {
+	display: flex;
+	gap: var(--rvt-spacing-sm);
+	flex-wrap: wrap;
+
+	&:has(.rvt-button--small, .rvt-button--tag) {
+		gap: var(--rvt-spacing-xs);
+	}
 }
