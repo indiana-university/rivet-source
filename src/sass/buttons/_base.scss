@@ -1,54 +1,109 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-:is(a, button).rvt-button {
+.rvt-button {
 	--color-border: var(--rvt-color-theme-text-strong);
 	--color-background: var(--rvt-color-theme-background);
 	--color-background-hover: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
 	--color-text-hover: var(--rvt-color-theme-text-strong);
+	--padding: calc((var(--size-height) - calc(var(--size-border) * 2) - var(--size-line-height)) / 2);
+	--padding-inline-extra: 0rem;
+	--size-border: calc(1rem / 16);
+	--size-font: var(--rvt-ts-16);
+	--size-height: 3rem;
+	--size-line-gap: calc(4rem / 16);
+	--size-line-height: calc(var(--size-font) + var(--size-line-gap));
+	--size-pressed: calc(2rem / 16);
 	align-items: center;
 	background: var(--color-background);
-	border: calc(1rem / 16) solid var(--color-border);
+	border: var(--size-border) solid var(--color-border);
 	color: var(--color-text);
 	cursor: pointer;
 	display: inline-flex;
+	font-size: var(--size-font);
 	font-weight: var(--rvt-font-weight-medium);
 	gap: var(--rvt-spacing-xs);
-	height: calc(var(--rvt-spacing-sm) * 3);
 	justify-content: center;
-	line-height: var(--rvt-line-height-tight);
-	padding: 0 calc(15rem / 16);
+	line-height: var(--size-line-height);
+	padding-block: var(--padding);
+	padding-inline: calc(var(--padding) + var(--padding-inline-extra));
 	text-decoration: none;
-
-	&:visited {
-		color: var(--color-text);
-	}
 
 	&:hover {
 		background-color: var(--color-background-hover);
 		color: var(--color-text-hover);
 	}
+
+	&:is(button[aria-pressed="true"]) {
+		--color-background: var(--color-background-hover);
+		box-shadow:
+			inset 0 0 0 var(--size-pressed) var(--rvt-color-theme-background),
+			inset 0 0 0 calc(var(--size-pressed) * 2)
+				var(--rvt-color-theme-background-inverse-strong);
+	}
+
+	&:is(a:not([href]), button[aria-disabled="true"], button:disabled) {
+		--color-background-hover: var(--color-background);
+		--color-text-hover: var(--color-text);
+		cursor: not-allowed;
+		opacity: 0.4;
+	}
+
+	&:is(a:visited) {
+		color: var(--color-text);
+	}
+
+	&.rvt-button--icon-only {
+		--padding-inline-extra: 0rem;
+	}
+
+	rvt-icon {
+		padding: calc(calc(var(--size-line-height) - 1rem) / 2);
+	}
 }
 
-:is(a, button).rvt-button--small {
-	font-size: var(--rvt-ts-14);
-	height: var(--rvt-spacing-lg);
-	padding: 0 calc(7rem / 16);
+.rvt-button--medium {
+	--size-font: var(--rvt-ts-14);
+	--size-height: 2rem;
 }
 
-:is(a, button).rvt-button--full-width {
-	width: 100%;
+.rvt-button--small {
+	--padding-inline-extra: calc(4rem / 16);
+	--size-font: var(--rvt-ts-14);
+	--size-height: 1.5rem;
+	--size-pressed: calc(1rem / 16);
+	gap: var(--rvt-spacing-xxs);
+
+	rvt-icon svg {
+		transform: scale(calc(12 / 16));
+	}
 }
 
-a.rvt-button {
+.rvt-button--strong {
+	--color-background: var(--rvt-color-theme-background-inverse);
+	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
+	--color-border: transparent;
+	--color-text: var(--rvt-color-theme-background);
+	--color-text-hover: var(--rvt-color-theme-background);
+}
+
+.rvt-button--subtle {
+	--color-background-hover: transparent;
+	--color-border: transparent;
+	--color-text: var(--rvt-color-theme-text);
+	--color-text-hover: var(--rvt-color-theme-text-strong);
+}
+
+.rvt-button--cta {
 	--color-background-hover: var(--rvt-color-theme-background-strong);
 	--color-border: var(--rvt-color-theme-accent);
 	--color-text: var(--rvt-color-theme-accent);
 	--color-text-hover: var(--rvt-color-theme-accent-strong);
 	--rotate: 0;
+	--translate-x: var(--rvt-spacing-xxs);
 
-	&[href*="#"].rvt-button {
+	&[href*="#"] {
 		--rotate: 90deg;
 	}
 
@@ -60,11 +115,11 @@ a.rvt-button {
 		--color-background-hover: var(--rvt-color-theme-accent-inverse);
 	}
 
-	&:not(.rvt-button--tag):hover::after {
-		transform: rotate(var(--rotate)) translateX(var(--rvt-spacing-xxs));
+	&:hover::after {
+		transform: rotate(var(--rotate)) translateX(var(--translate-x));
 	}
 
-	&:not(.rvt-button--tag)::after {
+	&::after {
 		background-color: currentColor;
 		clip-path: path(var(--rvt-icon-arrow-right));
 		content: "";
@@ -75,87 +130,29 @@ a.rvt-button {
 		transition: all 0.2s ease;
 		width: var(--rvt-spacing-sm);
 	}
-}
 
-a.rvt-button--strong {
-	--color-background: var(--rvt-color-theme-accent);
-	--color-background-hover: var(--rvt-color-theme-accent-strong);
-	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-background);
-	--color-text-hover: var(--rvt-color-theme-background);
-}
-
-a.rvt-button--subtle {
-	--color-background-hover: transparent;
-	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-accent);
-	--color-text-hover: var(--rvt-color-theme-accent-strong);
-}
-
-button.rvt-button {
-	--size-pressed: calc(2rem / 16);
-
-	&[aria-pressed="true"] {
-		--color-background: var(--color-background-hover);
-		box-shadow:
-			inset 0 0 0 var(--size-pressed) var(--rvt-color-theme-background),
-			inset 0 0 0 calc(var(--size-pressed) * 2)
-				var(--rvt-color-theme-background-inverse-strong);
+	&:is(.rvt-button--medium, .rvt-button--small) {
+		--translate-x: calc(2rem / 16);
 	}
 
-	&:is([aria-disabled="true"], :disabled) {
-		--color-background-hover: var(--color-background);
-		--color-text-hover: var(--color-text);
-		cursor: not-allowed;
-		opacity: 0.4;
+	&.rvt-button--strong {
+		--color-background: var(--rvt-color-theme-accent);
+		--color-background-hover: var(--rvt-color-theme-accent-strong);
+		--color-border: transparent;
+		--color-text: var(--rvt-color-theme-background);
+		--color-text-hover: var(--rvt-color-theme-background);
+	}
+
+	&.rvt-button--subtle {
+		--color-background-hover: transparent;
+		--color-border: transparent;
+		--color-text: var(--rvt-color-theme-accent);
+		--color-text-hover: var(--rvt-color-theme-accent-strong);
 	}
 }
 
-button.rvt-button--strong {
-	--color-background: var(--rvt-color-theme-background-inverse);
-	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
-	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-background);
-	--color-text-hover: var(--rvt-color-theme-background);
-}
-
-button.rvt-button--subtle {
-	--color-background-hover: transparent;
-	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-text);
-	--color-text-hover: var(--rvt-color-theme-text-strong);
-}
-
-:is(a, button).rvt-button--tag {
-	--color-background-hover: var(--rvt-color-theme-background-strong);
-	--color-border: var(--rvt-color-theme-ui-strong);
-	--color-text: var(--rvt-color-theme-text);
-	--color-text-hover: var(--rvt-color-theme-text-strong);
-	--size-pressed: calc(1rem / 16);
-	display: inline-flex;
-	font-size: var(--rvt-ts-14);
-	gap: var(--rvt-spacing-xxs);
-	height: var(--rvt-spacing-md);
-	padding: 0 calc(6rem / 16);
-
-	&.rvt-button--icon-only {
-		padding: 0 calc(3rem / 16);
-	}
-
-	&.rvt-button--dismissable {
-		&::after {
-			background-color: currentColor;
-			clip-path: path(var(--rvt-icon-close-small));
-			content: "";
-			display: block;
-			height: var(--rvt-spacing-sm);
-			width: var(--rvt-spacing-sm);
-		}
-	}
-
-	rvt-icon {
-		transform: scale(calc(12 / 16));
-	}
+.rvt-button--full-width {
+	width: 100%;
 }
 
 .rvt-button-group {
@@ -163,7 +160,7 @@ button.rvt-button--subtle {
 	gap: var(--rvt-spacing-sm);
 	flex-wrap: wrap;
 
-	&:has(.rvt-button--small, .rvt-button--tag) {
+	&:has(.rvt-button--medium, .rvt-button--small) {
 		gap: var(--rvt-spacing-xs);
 	}
 }
