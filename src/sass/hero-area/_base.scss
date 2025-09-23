@@ -4,6 +4,8 @@
 @use "../core" as *;
 
 .#{$prefix}-hero {
+	container-type: inline-size;
+
 	&__inner {
 		display: flex;
 		flex-direction: column;
@@ -12,12 +14,12 @@
 	}
 
 	&__eyebrow {
-		color: var(--rvt-color-theme-accent);
-		display: block;
-		font-family: $font-family-mono;
-		font-size: $ts-14;
-		letter-spacing: 0.125rem;
-		text-transform: uppercase;
+		@include eyebrow;
+		font-size: clamp(
+			var(--rvt-ts-12),
+			2cqw,
+			var(--rvt-ts-14)
+		);
 	}
 
 	&__eyebrow > :not(.rvt-breadcrumbs) {
@@ -27,9 +29,13 @@
 	}
 
 	&__title {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		font-family: $font-family-condensed;
-		font-size: $ts-32;
+		font-size: clamp(
+			var(--rvt-ts-26),
+			4cqw,
+			var(--rvt-ts-41)
+		);
 		font-variation-settings: "wdth" 140;
 		font-weight: 850;
 		line-height: 1.1;
@@ -38,6 +44,11 @@
 
 	&__eyebrow + &__title {
 		margin-top: $spacing-xs;
+	}
+
+	&__teaser {
+		font-size: var(--rvt-ts-18);
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__teaser > * {
@@ -84,12 +95,16 @@
 	}
 
 	&--profile &__subtitle {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		font-family: $font-family-condensed;
-		font-size: $ts-20;
+		//font-size: $ts-20;
+		font-size: clamp(
+			var(--rvt-ts-20),
+			2cqw,
+			var(--rvt-ts-26)
+		);
 		font-weight: $font-weight-black;
 		margin: 0;
-		text-transform: uppercase;
 	}
 }
 
@@ -105,11 +120,15 @@
 		}
 
 		&__callout {
-			flex-shrink: 0;
+			//flex-shrink: 0;
+		}
+
+		&__eyebrow {
+			//font-size: var(--rvt-ts-16);
 		}
 
 		&__title {
-			font-size: $ts-46;
+			//font-size: $ts-46;
 		}
 
 		&__actions > * {
@@ -150,7 +169,7 @@
 		}
 
 		&--profile &__subtitle {
-			font-size: $ts-26;
+			//font-size: $ts-26;
 		}
 
 		&--split &__media img {
@@ -169,7 +188,7 @@
 @include mq($breakpoint-lg) {
 	.#{$prefix}-hero {
 		&__inner {
-			flex-direction: row;
+			//flex-direction: row;
 		}
 
 		&__eyebrow + &__title {
@@ -178,7 +197,7 @@
 
 		&__teaser {
 			font-size: $ts-20;
-			margin-top: $spacing-lg;
+			//margin-top: $spacing-lg;
 		}
 
 		&__title + &__actions,
@@ -194,18 +213,20 @@
 			margin-top: $spacing-sm;
 		}
 
+		/*
 		&__callout {
 			align-self: flex-end;
 			flex-grow: 1;
+			flex-shrink: 0;
 			max-width: 33%;
 		}
+		*/
 
 		&--profile &__subtitle {
-			font-size: $ts-29;
+			//font-size: $ts-29;
 		}
 
-		&--statement &__title,
-		&--feature &__title {
+		&--statement &__title {
 			font-size: $ts-52;
 		}
 
@@ -235,7 +256,7 @@
 		}
 
 		&--split &__title {
-			font-size: $ts-52;
+			//font-size: $ts-52;
 		}
 
 		&--split &__inner {
@@ -245,6 +266,21 @@
 		&--split &__body,
 		&--split &__media {
 			width: 50%;
+		}
+	}
+}
+
+@include mq($breakpoint-xl) {
+	.#{$prefix}-hero {
+		&__inner {
+			flex-direction: row;
+		}
+
+		&__callout {
+			align-self: flex-end;
+			flex-basis: 20rem;
+			flex-grow: 1;
+			flex-shrink: 0;
 		}
 	}
 }
