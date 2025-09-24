@@ -5,6 +5,7 @@
 	--color-border: var(--rvt-color-theme-text-strong);
 	--color-background: var(--rvt-color-theme-background);
 	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-background-pressed: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
 	--color-text-hover: var(--rvt-color-theme-text-strong);
 	--gap: var(--rvt-spacing-xs);
@@ -41,7 +42,8 @@
 	}
 
 	&:is(button[aria-pressed="true"]) {
-		--color-background: var(--color-background-hover);
+		--color-background: var(--color-background-pressed);
+		--color-background-hover: var(--color-background-pressed);
 		box-shadow:
 			inset 0 0 0 var(--size-pressed) var(--rvt-color-theme-background),
 			inset 0 0 0 calc(var(--size-pressed) * 2)
@@ -89,14 +91,16 @@
 .rvt-button--strong {
 	--color-background: var(--rvt-color-theme-background-inverse);
 	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
+	--color-background-pressed: var(--rvt-color-theme-background-inverse-strong);
 	--color-border: transparent;
 	--color-text: var(--rvt-color-theme-background);
 	--color-text-hover: var(--rvt-color-theme-background);
 }
 
 .rvt-button--subtle {
-	--color-background-hover: transparent;
-	--color-border: transparent;
+	--color-background-hover: var(--rvt-color-theme-background);
+	--color-background-pressed: var(--rvt-color-theme-background-strong);
+	--color-border: var(--rvt-color-theme-background);
 	--color-text: var(--rvt-color-theme-text);
 	--color-text-hover: var(--rvt-color-theme-text-strong);
 }
@@ -150,8 +154,8 @@
 	}
 
 	&.rvt-button--subtle {
-		--color-background-hover: transparent;
-		--color-border: transparent;
+		--color-background-hover: var(--color-background);
+		--color-border: var(--color-background);
 		--color-text: var(--rvt-color-theme-accent);
 		--color-text-hover: var(--rvt-color-theme-accent-strong);
 	}
