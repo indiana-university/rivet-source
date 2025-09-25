@@ -1,0 +1,61 @@
+---
+title: Custom Element Button
+---
+
+<style>
+	button[aria-pressed="false"] > rvt-icon:not(:nth-of-type(1)),
+	button[aria-pressed="true"] > rvt-icon:not(:nth-of-type(2)) {
+		display: none;
+	}
+	button[aria-pressed="true"] > rvt-icon {
+		color: var(--rvt-color-theme-accent);
+	}
+</style>
+
+<rvt-button-group>
+	<rvt-button type="form" tone="normal" size="small">
+		<button type="button">
+			<rvt-icon name="plus"></rvt-icon>
+			Add
+		</button>
+	</rvt-button>
+	<!-- Remove type and tone defaults. Use size shorthand. -->
+	<rvt-button size="sm">
+		<button type="button">
+			<rvt-icon name="filter"></rvt-icon>
+			Filter
+		</button>
+	</rvt-button>
+</rvt-button-group>
+
+<rvt-button-group rvt-margin="b-s:md">
+	<rvt-button tone="subtle" size="md">
+		<button type="button" aria-pressed="false">
+			<rvt-icon name="heart"></rvt-icon>
+			<rvt-icon name="heart-solid"></rvt-icon>
+			Favorite
+		</button>
+	</rvt-button>
+	<rvt-button tone="subtle" size="md">
+		<button type="button" aria-pressed="false">
+			<rvt-icon name="bookmark"></rvt-icon>
+			<rvt-icon name="bookmark-solid"></rvt-icon>
+			Bookmark
+		</button>
+	</rvt-button>
+	<rvt-button tone="subtle" size="md">
+		<button type="button">
+			<rvt-icon name="close"></rvt-icon>
+			<rvt-sr-only>Dismiss</rvt-sr-only>
+		</button>
+	</rvt-button>
+</rvt-button-group>
+
+<rvt-button-group rvt-margin="b-s:md">
+	<rvt-button tone="strong" size="lg">
+		<button type="submit">Submit</button>
+	</rvt-button>
+	<rvt-button size="lg">
+		<button type="button">Cancel</button>
+	</rvt-button>
+</rvt-button-group>

@@ -7,6 +7,7 @@
  * screenreaders: h5bp.com/v
  */
 
+rvt-sr-only,
 .#{$prefix}-sr-only {
 	border: 0;
 	clip: rect(0 0 0 0);
@@ -26,6 +27,7 @@
  * keyboard: h5bp.com/p
  */
 
+rvt-sr-only[tabindex]:is(:active, :focus),
 .#{$prefix}-sr-only.#{$prefix}-focusable:active,
 .#{$prefix}-sr-only.#{$prefix}-focusable:focus {
 	clip: auto;
