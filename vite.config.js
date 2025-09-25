@@ -1,3 +1,6 @@
+
+import browserslist from "browserslist";
+import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
 import { eleventyPlugin } from "vite-plugin-eleventy";
@@ -10,10 +13,12 @@ const license = `/*!
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
  */`;
+const targets = browserslistToTargets(browserslist("baseline widely available"));
 
 const buildConfig = {
 	plugins: [bannerPlugin(license)],
 	build: {
+		cssMinify: 'lightningcss',
 		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
@@ -23,6 +28,12 @@ const buildConfig = {
 		},
 		sourcemap: true,
 	},
+	css: {
+		transformer: 'lightningcss',
+		lightningcss: {
+			targets
+		}
+	}
 };
 
 const serveConfig = {
