@@ -1,4 +1,4 @@
 import "../sass/rivet.scss";
-import { init } from "../js/index.js";
+import Rivet from "../js/index.js";
 
-init();
+Rivet.init();
