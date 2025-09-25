@@ -59,7 +59,7 @@
 
 	&__link {
 		--icon: var(--rvt-icon-arrow-down);
-		--rotate: 0;
+		--rotate: -90deg;
 	}
 
 	&__link[href^="http"] {
@@ -67,7 +67,7 @@
 	}
 
 	&__link[href*="#"] {
-		--rotate: -90deg;
+		--rotate: 0;
 	}
 
 	&__link[href$=".docx"],
@@ -75,6 +75,7 @@
 	&__link[href$=".pptx"],
 	&__link[href$=".xlsx"] {
 		--icon: var(--rvt-icon-download);
+		--rotate: 0;
 	}
 
 	&__link:hover {
