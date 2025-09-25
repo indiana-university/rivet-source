@@ -1,0 +1,22 @@
+{
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-standard-scss"
+	],
+	"plugins": ["stylelint-plugin-use-baseline"],
+	"rules": {
+		"plugin/use-baseline": [
+			false,
+			{
+				"available": "widely"
+			}
+		],
+		"selector-class-pattern": "^[a-z0-9]+([_-]{1,2}[a-z0-9]+)*$",
+		"value-keyword-case": [
+			"lower",
+			{
+				"ignoreKeywords": ["currentColor"]
+			}
+		]
+	}
+}
