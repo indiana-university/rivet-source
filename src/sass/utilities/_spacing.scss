@@ -245,3 +245,26 @@ $spacing-sizes: (
 }
 
 /* stylelint-enable */
+
+/* Attribute utilities */
+[rvt-margin~="md"] {
+	margin: var(--rvt-spacing-md);
+}
+[rvt-margin~="b:md"] {
+	margin-block: var(--rvt-spacing-md);
+}
+[rvt-margin~="b-s:md"] {
+	margin-block-start: var(--rvt-spacing-md);
+}
+[rvt-margin~="b-e:md"] {
+	margin-block-end: var(--rvt-spacing-md);
+}
+[rvt-margin~="i:md"] {
+	margin-inline: var(--rvt-spacing-md);
+}
+[rvt-margin~="i-s:md"] {
+	margin-inline-start: var(--rvt-spacing-md);
+}
+[rvt-margin~="i-e:md"] {
+	margin-inline-end: var(--rvt-spacing-md);
+}
