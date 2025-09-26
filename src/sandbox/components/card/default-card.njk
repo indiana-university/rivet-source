@@ -2,13 +2,24 @@
 title: Default Card
 ---
 
-{% import 'macros/card.njk' as macros %} {{ macros.Card(raised = true, image =
-true, badge = true, eyebrow = true, content = true, meta = true) }} {{
-macros.Card(raised = true, sticker = true, badge = true, eyebrow = true, content
-= true, meta = true) }} {{ macros.Card(raised = true, badge = true, eyebrow =
-true, content = true, meta = true) }}
+{% import 'macros/card.njk' as macros %}
 
-<div class="rvt-card-grid">
+<div>
+	{{ macros.Card(raised = true, image = true, badge = true, eyebrow = true,
+	content = true, meta = true) }}
+</div>
+
+<div class="rvt-m-top-xl">
+	{{ macros.Card(raised = true, sticker = true, badge = true, eyebrow = true,
+	content = true, meta = true) }}
+</div>
+
+<div class="rvt-m-top-xl">
+	{{ macros.Card(raised = true, badge = true, eyebrow = true, content = true,
+	meta = true) }}
+</div>
+
+<div class="rvt-card-grid rvt-m-top-xl">
 	{{ macros.Card() }} {{ macros.Card(badge = true) }} {{ macros.Card(badge =
 	true, eyebrow = true) }} {{ macros.Card(badge = true, eyebrow = true, content
 	= true) }} {{ macros.Card(badge = true, eyebrow = true, content = true, meta =

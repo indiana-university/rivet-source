@@ -2,10 +2,21 @@
 title: Feature Card
 ---
 
-{% import 'macros/card.njk' as macros %} {{ macros.FeatureCard(image = true,
-badge = true, eyebrow = true, content = true) }} {{ macros.FeatureCard(sticker =
-true, badge = true, eyebrow = true, content = true) }} {{
-macros.FeatureCard(badge = true, eyebrow = true, content = true) }}
+{% import 'macros/card.njk' as macros %}
+
+<div>
+	{{ macros.FeatureCard(image = true, badge = true, eyebrow = true, content =
+	true) }}
+</div>
+
+<div class="rvt-m-top-sm">
+	{{ macros.FeatureCard(sticker = true, badge = true, eyebrow = true, content =
+	true) }}
+</div>
+
+<div class="rvt-m-top-sm">
+	{{ macros.FeatureCard(badge = true, eyebrow = true, content = true) }}
+</div>
 
 <hr class="rvt-m-tb-xl" />
 
