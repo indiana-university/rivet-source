@@ -60,6 +60,10 @@
 
 	&:is(a:visited) {
 		color: var(--color-text);
+
+		&:hover {
+			color: var(--color-text-hover);
+		}
 	}
 
 	&.rvt-button--icon-only {
@@ -107,10 +111,10 @@
 }
 
 .rvt-button--cta {
-	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-background-hover: var(--rvt-color-theme-background-accent);
 	--color-border: var(--rvt-color-theme-accent);
 	--color-text: var(--rvt-color-theme-accent);
-	--color-text-hover: var(--rvt-color-theme-accent-strong);
+	--color-text-hover: var(--rvt-color-theme-accent);
 	--rotate: 0;
 	--translate-x: var(--rvt-spacing-xxs);
 
@@ -120,10 +124,6 @@
 
 	&[href^="http"] {
 		--rotate: -45deg;
-	}
-
-	:where(.rvt-theme-light) & {
-		--color-background-hover: var(--rvt-color-theme-accent-inverse);
 	}
 
 	&:hover::after {

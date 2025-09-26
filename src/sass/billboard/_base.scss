@@ -1,12 +1,8 @@
 @use "../core" as *;
 
 .#{$prefix}-billboard {
-	background-color: var(--rvt-color-theme-background-strong);
+	background-color: var(--rvt-color-theme-background-accent);
 	position: relative;
-
-	.#{$prefix}-theme-light & {
-		background-color: var(--rvt-color-theme-accent-inverse);
-	}
 
 	& + & {
 		margin-top: $spacing-lg;

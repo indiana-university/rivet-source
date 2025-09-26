@@ -77,7 +77,7 @@
 	}
 
 	&__link[aria-current="page"] + &__toggle {
-		background-color: var(--rvt-color-theme-accent-inverse);
+		background-color: var(--rvt-color-theme-background-accent);
 
 		> svg {
 			color: var(--rvt-color-theme-accent);
@@ -87,7 +87,7 @@
 	&__link[aria-current="page"] + &__toggle:hover,
 	&__link[aria-current="page"] + &__toggle:focus {
 		color: var(--rvt-color-theme-accent);
-		background-color: var(--rvt-color-theme-accent-inverse);
+		background-color: var(--rvt-color-theme-background-accent);
 
 		> svg {
 			color: var(--rvt-color-theme-accent);
@@ -168,7 +168,7 @@
 		}
 
 		&[aria-current] {
-			background-color: var(--rvt-color-theme-accent-inverse);
+			background-color: var(--rvt-color-theme-background-accent);
 		}
 	}
 
