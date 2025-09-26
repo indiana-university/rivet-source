@@ -8,20 +8,14 @@ macros.Card(raised = true, sticker = true, badge = true, eyebrow = true, content
 = true, meta = true) }} {{ macros.Card(raised = true, badge = true, eyebrow =
 true, content = true, meta = true) }}
 
-<ul class="rvt-card-list">
-	<li>{{ macros.Card() }}</li>
-	<li>{{ macros.Card(badge = true) }}</li>
-	<li>{{ macros.Card(badge = true, eyebrow = true) }}</li>
-	<li>{{ macros.Card(badge = true, eyebrow = true, content = true) }}</li>
-	<li>
-		{{ macros.Card(badge = true, eyebrow = true, content = true, meta = true) }}
-	</li>
-	<li>
-		{{ macros.Card(sticker = true, badge = true, eyebrow = true, content = true,
+<div class="rvt-card-grid">
+	{{ macros.Card() }}
+	{{ macros.Card(badge = true) }}
+	{{ macros.Card(badge = true, eyebrow = true) }}
+	{{ macros.Card(badge = true, eyebrow = true, content = true) }}
+	{{ macros.Card(badge = true, eyebrow = true, content = true, meta = true) }}
+	{{ macros.Card(sticker = true, badge = true, eyebrow = true, content = true,
 		meta = true) }}
-	</li>
-	<li>
-		{{ macros.Card(image = true, badge = true, eyebrow = true, content = true,
+	{{ macros.Card(image = true, badge = true, eyebrow = true, content = true,
 		meta = true) }}
-	</li>
-</ul>
+</div>
