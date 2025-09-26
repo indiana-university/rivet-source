@@ -24,7 +24,6 @@
 	align-items: center;
 	background: var(--color-background);
 	border: var(--size-border) solid var(--color-border);
-	color: var(--color-text);
 	cursor: pointer;
 	display: inline-flex;
 	font-size: var(--size-font);
@@ -36,7 +35,13 @@
 	padding-inline: calc(var(--padding-block) + var(--padding-inline-extra));
 	text-decoration: none;
 
-	&:hover {
+	&,
+	&:is(a:visited) {
+		color: var(--color-text);
+	}
+
+	&:hover,
+	&:is(a:visited:hover) {
 		background-color: var(--color-background-hover);
 		color: var(--color-text-hover);
 	}
@@ -56,14 +61,6 @@
 		--translate-x: 0;
 		cursor: not-allowed;
 		opacity: 0.4;
-	}
-
-	&:is(a:visited) {
-		color: var(--color-text);
-
-		&:hover {
-			color: var(--color-text-hover);
-		}
 	}
 
 	&.rvt-button--icon-only {
