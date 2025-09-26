@@ -2,13 +2,24 @@
 title: Event Card
 ---
 
-{% import 'macros/card.njk' as macros %} {{ macros.EventCard(raised = true,
-image = true, badge = true, eyebrow = true, details = true, meta = true) }} {{
-macros.EventCard(raised = true, date = true, badge = true, eyebrow = true,
-details = true, meta = true) }} {{ macros.EventCard(raised = true, badge = true,
-eyebrow = true, details = true, meta = true) }}
+{% import 'macros/card.njk' as macros %}
 
-<ul class="rvt-card-list">
+<div>
+	{{ macros.EventCard(raised = true, image = true, badge = true, eyebrow = true,
+	details = true, meta = true) }}
+</div>
+
+<div class="rvt-m-top-xl">
+	{{ macros.EventCard(raised = true, date = true, badge = true, eyebrow = true,
+	details = true, meta = true) }}
+</div>
+
+<div class="rvt-m-top-xl">
+	{{ macros.EventCard(raised = true, badge = true, eyebrow = true, details =
+	true, meta = true) }}
+</div>
+
+<ul class="rvt-card-grid rvt-m-top-xl">
 	<li>{{ macros.EventCard() }}</li>
 	<li>{{ macros.EventCard(badge = true) }}</li>
 	<li>{{ macros.EventCard(badge = true, eyebrow = true) }}</li>
