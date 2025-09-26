@@ -299,6 +299,10 @@
 		--gap: var(--rvt-spacing-sm);
 	}
 
+	.rvt-card {
+		height: 100%;
+	}
+
 	.rvt-card + & {
 		margin-top: var(--rvt-spacing-xl);
 	}
