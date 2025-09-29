@@ -1,0 +1,93 @@
+---
+const allPages = Object.values(import.meta.glob("@pages/**/*.mdx", { eager: true }));
+const all = allPages
+	.map((page) => {
+		const parts = page.url.split("/").filter((p) => p);
+		const section = slugToTitle(parts[0]);
+		const group = slugToTitle(parts[1]);
+		const item = parts[2];
+		const { frontmatter, url } = page;
+		const { title } = frontmatter;
+		const current = Astro.url.pathname === url;
+		return { section, group, item, title, url, current };
+	})
+	.filter(({ section }) => section)
+	.filter(({ group }) => group)
+	.filter(({ item }) => item)
+	.sort((a, b) => a.title.localeCompare(b.title));
+const sections = Object.groupBy(all, (item) => item.section);
+Object.entries(sections).forEach(([key, items]) => {
+	const out = Object.groupBy(items, (item) => item.group);
+	sections[key] = Object.entries(out).sort((a, b) =>
+		a[0].localeCompare(b[0]),
+	);
+});
+const nav = Object.entries(sections).sort((a, b) => a[0].localeCompare(b[0]));
+console.log('##', nav)
+const localPages = []
+
+function slugToTitle(slug) {
+	if (!slug) {
+		return slug;
+	}
+	return slug
+		.split(/[-_]/)
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
+}
+/*
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
+const currentFolderSlug = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+const localPages = Object.values(allPages)
+	.map((page) => {
+		console.log('##', page.url, currentPath, currentFolderSlug)
+		const { frontmatter, url } = page;
+		const { title } = frontmatter;
+		const current = Astro.url.pathname === url;
+		return { current, title, url };
+	})
+	.filter((page) => {
+		const isInsideFolder = page.url.startsWith(currentFolderSlug);
+		const isNotCurrentPage = page.url !== currentPath + '/';
+		const isNotParentIndex = page.url !== currentFolderSlug;
+		return isInsideFolder && isNotCurrentPage && isNotParentIndex;
+	})
+	.sort((a, b) => a.url.localeCompare(b.url));
+//console.log('##', localPages);
+*/
+---
+
+<nav class="rvt-sidenav rvt-sidenav--compact rvt-p-all-sm rvt-m-top-none">
+	{nav.map((section) => {
+		const [sectionLabel, groups] = section;
+		return (
+			<h2 class="rvt-sidenav__label">{sectionLabel}</h2>
+			<ul class="rvt-sidenav__list">
+				{groups.map((group) => {
+					const [groupLabel, items] = group;
+					const [firstItem] = items;
+					return (
+						<li class="rvt-sidenav__item">
+							<a class="rvt-sidenav__link" href={firstItem.url}>
+								{groupLabel}
+							</a>
+							<ul class="rvt-sidenav__list u-show-if-has-current">
+								{items.map((item) => (
+									<li class="rvt-sidenav__item">
+										<a
+											aria-current={item.current ? "page" : null}
+											class="rvt-sidenav__link"
+											href={item.url}
+										>
+											{item.title}
+										</a>
+									</li>
+								))}
+							</ul>
+						</li>
+					)
+				})}
+			</ul>
+		);
+	})}
+</nav>
