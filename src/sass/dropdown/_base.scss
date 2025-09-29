@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:map";
 
-.#{$prefix}-dropdown {
+.rvt-dropdown {
 	display: inline-block;
 	position: relative;
 

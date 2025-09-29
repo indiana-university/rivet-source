@@ -37,7 +37,7 @@
 
 	&__eyebrow {
 		@include eyebrow;
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		padding-inline-start: $spacing-md;
 	}
 

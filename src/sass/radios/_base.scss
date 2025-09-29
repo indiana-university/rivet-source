@@ -6,7 +6,7 @@
 
 $padding: math.div(3rem, 16);
 
-.#{$prefix}-radio {
+.rvt-radio {
 	display: inline-block;
 	padding-left: $spacing-lg;
 	position: relative;
@@ -76,13 +76,7 @@ $padding: math.div(3rem, 16);
 	}
 
 	input[type="radio"]:disabled ~ label::before {
-		background-color: var(--rvt-color-theme-background-strong);
-		border-color: var(--rvt-color-theme-ui-strong);
-		box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-background-strong);
-	}
-
-	input[type="radio"]:disabled:checked ~ label::before {
-		background-color: var(--rvt-color-theme-ui);
+		opacity: 0.4;
 	}
 
 	&__description {

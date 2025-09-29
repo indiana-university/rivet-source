@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:math";
 
-.#{$prefix}-checkbox {
+.rvt-checkbox {
 	display: inline-block;
 	padding-left: $spacing-lg;
 	position: relative;
@@ -39,7 +39,7 @@
 		--color-background: var(--rvt-color-theme-background);
 		--color-background-accent: var(--rvt-color-theme-accent);
 		--color-border: var(--rvt-color-theme-text-strong);
-		--color-icon: var(--rvt-color-theme-text-inverse);
+		--color-icon: var(--rvt-color-theme-background);
 		--display-icon: none;
 		cursor: pointer;
 		display: inline-block;
@@ -82,14 +82,11 @@
 	}
 
 	input[type="checkbox"]:disabled ~ label {
-		--color-background: var(--rvt-color-theme-background-strong);
-		--color-border: var(--rvt-color-theme-ui-strong);
 		cursor: not-allowed;
-	}
 
-	input[type="checkbox"]:disabled:checked ~ label {
-		--color-background: var(--rvt-color-theme-ui-strong);
-		--color-icon: var(--rvt-color-theme-background);
+		&::before {
+			opacity: 0.4;
+		}
 	}
 
 	input[type="checkbox"]:focus ~ label::before {

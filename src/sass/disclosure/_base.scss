@@ -4,6 +4,9 @@
 @use "../core" as *;
 
 .#{$prefix}-disclosure {
+	background-color: var(--rvt-color-theme-background-strong);
+	padding: var(--rvt-spacing-sm);
+
 	&__toggle {
 		align-items: center;
 		background-color: transparent;
@@ -34,7 +37,6 @@
 	}
 
 	&__content {
-		box-shadow: calc(2rem / 16) 0 0 var(--rvt-color-theme-ui) inset;
 		margin-left: $spacing-xs;
 		margin-top: $spacing-xs;
 		padding-left: $spacing-sm;
