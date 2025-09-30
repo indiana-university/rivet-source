@@ -2,9 +2,54 @@
 import "../../sass/rivet.scss";
 import SideNav from "@components/SideNav.astro";
 const { frontmatter = {} } = Astro.props;
-const { title } = frontmatter;
+const { index = false, title } = frontmatter;
 const appTitle = "Rivet Design System";
 const docTitle = [title, appTitle].join(" - ");
+
+const currentPath = Astro.url.pathname;
+const currentDepth = pathDepth(currentPath);
+const currentParentPath = getParentPath(currentPath);
+const allPages = Object.values(import.meta.glob("@pages/**/*.mdx", { eager: true }));
+const pages = Object.values(allPages)
+	.map((page) => {
+		const { frontmatter } = page
+		const { title } = frontmatter;
+		const url = page.url.length ? page.url : '/';
+		const current = url === currentPath;
+		const depth = pathDepth(page.url);
+		const parent = url === currentParentPath;
+		const parentPath = getParentPath(url);
+		const child = parentPath === currentPath && url !== parentPath;
+		const ancestor = currentPath.startsWith(url) && currentPath !== url;
+		const sibling = parentPath === currentParentPath && depth === currentDepth && depth > 1;
+		const family = currentPath.startsWith(parentPath);
+		return { ancestor, child, current, depth, family, parent, sibling, title, url };
+	});
+const currentPage = pages.find((page) => page.current);
+const ancestorPages = pages
+	.filter((page) => page.ancestor)
+	.sort((a, b) => a.depth - b.depth);
+const parentPage = ancestorPages.at(-1);
+const familyPages = [...ancestorPages, currentPage]
+	.map((parent, i) => {
+		const children = pages.filter((p) => p.family && p.depth === i + 1)
+		return { parent, children };
+	})
+	.filter(({ children }) => children.length);
+const childrenPages = familyPages.at(-1).children;
+
+function pathDepth(path) {
+	return path.split('/').length - 1;
+}
+
+function getParentPath(path) {
+	const cleanPath = path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
+	const lastSlashIndex = cleanPath.lastIndexOf('/');
+	if (lastSlashIndex <= 0) {
+		return '/';
+	}
+	return cleanPath.substring(0, lastSlashIndex);
+}
 ---
 
 <html lang="en">
@@ -36,28 +81,45 @@ const docTitle = [title, appTitle].join(" - ");
 		<script type="module" src="/rivet.js"></script>
 	</head>
 	<body>
-		<header>
-			<div class="rvt-border-bottom rvt-ts-base rvt-p-all-sm rvt-text-medium">{appTitle}</div>
-			<SideNav />
-		</header>
-		<main>
-			<h1 class="rvt-border-bottom rvt-ts-base rvt-p-tb-sm">{title}</h1>
-			<div class="rvt-theme-light rvt-p-all-sm">
+		<div class="layout">
+			<header class="rvt-border-right">
+				<div class="rvt-border-bottom rvt-p-all-sm">
+					<a class="rvt-text-medium" href="/">{appTitle}</a>
+				</div>
+				<SideNav familyPages={familyPages} />
+			</header>
+			<main>
+				<header class="rvt-border-bottom rvt-flex rvt-gap-sm rvt-p-all-sm">
+					{parentPage && (
+						<a class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle" href={parentPage.url}>
+							<rvt-icon name="arrow-left"></rvt-icon>
+							<span class="rvt-sr-only">{parentPage.title}</span>
+						</a>
+					)}
+					{!parentPage && (
+						<rvt-icon class="rvt-p-all-xxs" name="home"></rvt-icon>
+					)}
+					<h1 class="rvt-border-left rvt-text-medium rvt-ts-base rvt-p-left-sm">{title}</h1>
+				</header>
+				{index && childrenPages.length && (
+					<ul class="rvt-list-plain rvt-m-all-sm">
+						{childrenPages.map((page) => (
+							<li>
+								<a class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--medium" href={page.url}>{page.title}</a>
+							</li>
+						))}
+					</ul>
+				)}
 				<slot />
-			</div>
-			<div class="rvt-theme-dark rvt-p-all-sm">
-				<slot />
-			</div>
-			<div class="rvt-theme-crimson rvt-p-all-sm">
-				<slot />
-			</div>
-		</main>
+			</main>
+		</div>
 	</body>
 </html>
 
 <style>
-body {
+.layout {
 	display: grid;
 	grid-template-columns: 15rem 1fr;
+	min-height: 100vh;
 }
 </style>

@@ -1,0 +1,15 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout {...Astro.props}>
+	<div class="rvt-theme-light rvt-p-all-sm">
+		<slot />
+	</div>
+	<div class="rvt-theme-dark rvt-p-all-sm">
+		<slot />
+	</div>
+	<div class="rvt-theme-crimson rvt-p-all-sm">
+		<slot />
+	</div>
+</Layout>

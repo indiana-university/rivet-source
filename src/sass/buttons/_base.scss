@@ -84,7 +84,7 @@
 	--size-height: 1.5rem;
 	--size-pressed: calc(1rem / 16);
 
-	rvt-icon svg {
+	&:not(.rvt-button--subtle) rvt-icon svg {
 		transform: scale(calc(12 / 16));
 	}
 }
