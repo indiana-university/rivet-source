@@ -7,7 +7,7 @@
 	gap: 1rem;
 
 	&::before {
-		background-color: var(--rvt-color-theme-accent);
+		background-color: var(--rvt-color-theme-text-accent);
 		clip-path: path(var(--rvt-icon-quote-open));
 		display: block;
 		content: "";
@@ -39,7 +39,7 @@
 
 	&__title,
 	&__subtitle {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		display: block;
 	}
 

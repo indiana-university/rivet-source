@@ -5,12 +5,12 @@
 
 .rvt-list {
 
-	li {
-		list-style-type: square;
+	li::marker {
+		color: var(--rvt-color-theme-text-accent);
+	}
 
-		&::marker {
-			color: var(--rvt-color-theme-text-accent);
-		}
+	&:is(ul) li {
+		list-style-type: square;
 	}
 }
 

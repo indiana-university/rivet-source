@@ -55,6 +55,10 @@
 		line-height: 1.3;
 		position: relative;
 		text-decoration: none;
+
+		&:visited {
+			color: inherit;
+		}
 	}
 
 	&__link {
