@@ -54,9 +54,9 @@
 		}
 
 		a[aria-current="page"] {
-			background-color: var(--rvt-color-theme-background-accent-strong);
+			background-color: var(--rvt-color-theme-accent);
 			border-color: transparent;
-			color: var(--rvt-color-base-ultralight);
+			color: var(--rvt-color-theme-background);
 		}
 	}
 }

@@ -12,16 +12,15 @@
 	align-items: center;
 	border: 1px solid var(--rvt-color-theme-ui);
 	border-radius: $border-radius-circle;
+	color: var(--rvt-color-theme-text);
 	display: flex;
 	height: $spacing-sm * 2.25;
 	justify-content: center;
 	width: $spacing-sm * 2.25;
 
 	&:hover {
-		background-color: var(--rvt-color-theme-accent);
-		border-color: var(--rvt-color-theme-accent);
-		color: var(--rvt-color-theme-text-inverse);
-		transition: all 0.2s ease;
+		background-color: var(--rvt-color-theme-background-strong);
+		color: inherit;
 	}
 
 	&::before {

@@ -21,13 +21,15 @@ table,
 }
 
 tr th {
-	font-weight: $font-weight-regular;
+	color: var(--rvt-color-theme-text-strong);
+	font-weight: var(--rvt-font-weight-medium);
 }
 
 thead {
-	background-color: var(--rvt-color-theme-background-strong);
+	background-color: var(--rvt-color-theme-accent);
 
 	tr th {
+		color: var(--rvt-color-theme-text-inverse);
 		padding-block: $spacing-sm;
 		padding-inline: $spacing-md;
 	}
@@ -54,6 +56,10 @@ tbody tr th {
 	thead {
 		background-color: transparent;
 		border-bottom: none;
+
+		th {
+			color: inherit;
+		}
 	}
 
 	tr {
@@ -90,11 +96,13 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table-crimson,
-.#{$prefix}-table-feature {
+.#{$prefix}-table--subtle {
 	thead {
-		background-color: var(--rvt-color-theme-accent);
-		color: var(--rvt-color-theme-background);
+		background-color: var(--rvt-color-theme-background-strong);
+
+		th {
+			color: var(--rvt-color-theme-text);
+		}
 	}
 }
 

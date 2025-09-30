@@ -22,8 +22,7 @@
 		margin: 0;
 	}
 
-	&__item a,
-	&__item button {
+	&__item :is(a, button) {
 		align-items: center;
 		appearance: none;
 		border: none;
@@ -40,7 +39,6 @@
 	}
 
 	&__item a[aria-current="page"] {
-		background-color: var(--rvt-color-theme-background-strong);
 		color: var(--rvt-color-theme-accent);
 	}
 
@@ -55,8 +53,7 @@
 		width: 100%;
 	}
 
-	&__item a:hover:not([aria-current="page"]),
-	&__item button:hover {
+	&__item :is(a, button):hover {
 		background-color: var(--rvt-color-theme-background-strong);
 	}
 }

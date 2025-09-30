@@ -20,13 +20,10 @@
 		background-color: var(--rvt-color-theme-background);
 		box-shadow: $shadow-standard;
 		min-width: 12.5rem;
-		padding-bottom: $spacing-xs;
-		padding-top: $spacing-xs;
 		position: absolute;
 		// Aligning this right by default so that dropdowns do not
 		// go offscreen when close to the edge of the viewport.
 		right: 0;
-		top: 115%;
 		z-index: map.get($z-index, "1000");
 
 		//In some cases, you may need to align the dropdown menu
@@ -49,27 +46,29 @@
 		button {
 			background-color: transparent;
 			border: none;
+			border-left: 0.25rem solid transparent;
 			display: block;
 			color: var(--rvt-color-theme-text-strong);
-			font-size: $ts-14;
-			/**
-       * This padding-top and bottom value is a magic number.
-       */
-			padding: 0.375rem $spacing-sm;
+			cursor: pointer;
+			font-size: var(--rvt-ts-14);
+			line-height: var(--rvt-ts-base);
+			padding-block: calc(12rem / 16);
+			padding-inline-start: calc(12rem / 16);
+			padding-inline-end: var(--rvt-spacing-sm);
 			text-align: left;
 			text-decoration: none;
 			width: 100%;
 
 			&:hover {
 				background-color: var(--rvt-color-theme-background-strong);
-				color: var(--rvt-color-theme-accent);
+				color: inherit;
 				text-decoration: none;
 			}
 
 			&.#{$prefix}-is-selected,
 			&[aria-current]:not([aria-current="false"]),
 			&[aria-checked="true"] {
-				background-color: var(--rvt-color-theme-background-strong);
+				border-color: var(--rvt-color-theme-accent);
 				color: var(--rvt-color-theme-accent);
 				font-weight: $font-weight-medium;
 

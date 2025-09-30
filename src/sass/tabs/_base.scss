@@ -33,16 +33,7 @@
 
 		&:hover {
 			background-color: var(--rvt-color-theme-background-strong);
-			color: var(--rvt-color-theme-accent);
 		}
-	}
-
-	&__tab[aria-selected="true"] {
-		background-color: var(--rvt-color-theme-background-strong);
-	}
-
-	&__tab[aria-selected="true"]:hover {
-		color: var(--rvt-color-theme-text-strong);
 	}
 
 	&__tab[aria-selected="true"]::after {
