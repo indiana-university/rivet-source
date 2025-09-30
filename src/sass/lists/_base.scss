@@ -4,7 +4,6 @@
 @use "../core" as *;
 
 .rvt-list {
-
 	li::marker {
 		color: var(--rvt-color-theme-text-accent);
 	}
