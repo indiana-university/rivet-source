@@ -68,6 +68,9 @@
 
 		&:hover {
 			background-color: var(--rvt-color-theme-background-strong);
+		}
+
+		&:is(:hover, :visited) {
 			color: inherit;
 		}
 	}
