@@ -32,7 +32,7 @@
 	&__button {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
-		border: 1px solid var(--rvt-color-theme-ui);
+		border: none;
 		border-radius: 999rem;
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
@@ -107,24 +107,23 @@
 		transition: 0.2s;
 	}
 
-	&-menu__item:hover button,
-	&-menu__item:hover &-menu__link {
-		color: var(--rvt-color-theme-accent);
-	}
-
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
 		font-size: $ts-14;
 		font-weight: $font-weight-medium;
 		padding-block: $spacing-xs;
 		text-decoration: none;
+
+		&:visited {
+			color: inherit;
+		}
 	}
 
 	&-menu__more {
 		> button {
 			align-items: center;
-			background-color: var(--rvt-color-theme-ui);
-			border: 1px solid var(--rvt-color-theme-ui);
+			background-color: var(--rvt-color-theme-background-strong);
+			border: none;
 			border-radius: 999rem;
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
