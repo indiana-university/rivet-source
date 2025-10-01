@@ -46,7 +46,7 @@
 	&__content {
 		background-color: var(--rvt-color-theme-background);
 		border: none;
-		box-shadow: $shadow-standard;
+		box-shadow: var(--rvt-shadow-standard);
 		margin-inline-start: var(--rvt-spacing-lg);
 	}
 

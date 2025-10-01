@@ -8,7 +8,7 @@
 
 	&[href]:hover {
 		border-radius: var(--rvt-spacing-xs);
-		box-shadow: $shadow-heavy;
+		box-shadow: var(--rvt-shadow-heavy);
 		color: var(--rvt-color-theme-accent);
 		transform: scale(1.1);
 	}

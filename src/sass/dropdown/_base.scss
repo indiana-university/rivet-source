@@ -18,7 +18,7 @@
 
 	&__menu {
 		background-color: var(--rvt-color-theme-background);
-		box-shadow: $shadow-standard;
+		box-shadow: var(--rvt-shadow-standard);
 		min-width: 12.5rem;
 		padding-bottom: var(--rvt-spacing-xs);
 		padding-top: var(--rvt-spacing-xs);

@@ -18,7 +18,7 @@
 .rvt-dialog {
 	background-color: var(--rvt-color-theme-background);
 	border-radius: var(--rvt-spacing-xs);
-	box-shadow: $shadow-heavy;
+	box-shadow: var(--rvt-shadow-heavy);
 	left: 0;
 	margin: auto;
 	max-height: 100%;
