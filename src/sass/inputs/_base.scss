@@ -1,10 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-@use "sass:math";
-
-.#{$prefix} {
+.rvt {
 	&-input,
 	&-text-input,
 	&-textarea,
@@ -14,9 +11,9 @@
 		border-radius: 0;
 		color: inherit;
 		display: block;
-		height: $spacing-sm * 3;
+		height: calc(var(--rvt-spacing-sm) * 3);
 		line-height: 1.1;
-		padding: $spacing-xs;
+		padding: var(--rvt-spacing-xs);
 		width: 100%;
 
 		/**
@@ -32,8 +29,8 @@
 	}
 
 	&-textarea {
-		height: $spacing-base * 15;
-		line-height: $line-height-base;
+		height: calc(var(--rvt-spacing-base) * 15);
+		line-height: var(--rvt-line-height-base);
 		overflow: auto; // Remove scrollbar in IE
 	}
 
@@ -52,16 +49,16 @@
 		background-color: currentColor;
 		clip-path: path(var(--rvt-icon-chevron-down));
 		content: "";
-		height: $spacing-sm;
+		height: var(--rvt-spacing-sm);
 		pointer-events: none;
 		position: absolute;
-		right: $spacing-sm;
-		top: $spacing-sm;
-		width: $spacing-sm;
+		right: var(--rvt-spacing-sm);
+		top: var(--rvt-spacing-sm);
+		width: var(--rvt-spacing-sm);
 	}
 
 	&-select > select {
-		padding-right: $spacing-xl;
+		padding-right: var(--rvt-spacing-xl);
 	}
 
 	&-select > select::-ms-expand {
@@ -69,8 +66,8 @@
 	}
 
 	&-select > select[multiple] {
-		height: $spacing-xxl * 2;
-		padding-right: $spacing-xs;
+		height: calc(var(--rvt-spacing-xxl) * 2);
+		padding-right: var(--rvt-spacing-xs);
 	}
 
 	&-select:has(> select[multiple])::before {
@@ -89,12 +86,12 @@
 
 	&-label {
 		display: inline-block;
-		font-size: $ts-14;
-		font-weight: $font-weight-medium;
+		font-size: var(--rvt-ts-14);
+		font-weight: var(--rvt-font-weight-medium);
 	}
 
 	&-label + * {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&-fieldset {
@@ -105,7 +102,7 @@
 
 	&-legend {
 		display: block;
-		font-weight: $font-weight-regular;
+		font-weight: var(--rvt-font-weight-regular);
 		margin: 0;
 		width: 100%;
 	}

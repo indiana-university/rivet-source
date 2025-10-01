@@ -1,10 +1,8 @@
 // Copyright (C) 2024 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
 :root,
-.#{$prefix}-theme-light {
+.rvt-theme-light {
 	--rvt-color-theme-accent: var(--rvt-color-brand-main);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-dark);
 	--rvt-color-theme-accent-inverse: var(--rvt-color-brand-extralight);
@@ -20,7 +18,7 @@
 	--rvt-color-theme-text-inverse: var(--rvt-color-base-ultralight);
 }
 
-.#{$prefix}-theme-dark {
+.rvt-theme-dark {
 	--rvt-color-theme-accent: var(--rvt-color-brand-extralight);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-light);
 	--rvt-color-theme-accent-inverse: var(--rvt-color-brand-main);
@@ -36,7 +34,7 @@
 	--rvt-color-theme-text-inverse: var(--rvt-color-base-main);
 }
 
-.#{$prefix}-theme-crimson {
+.rvt-theme-crimson {
 	--rvt-color-theme-accent: var(--rvt-color-brand-extralight);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-light);
 	--rvt-color-theme-accent-inverse: var(--rvt-color-brand-main);
@@ -52,9 +50,9 @@
 	--rvt-color-theme-text-inverse: var(--rvt-color-base-main);
 }
 
-.#{$prefix}-theme-light,
-.#{$prefix}-theme-dark,
-.#{$prefix}-theme-crimson {
+.rvt-theme-light,
+.rvt-theme-dark,
+.rvt-theme-crimson {
 	background-color: var(--rvt-color-theme-background);
 	color: var(--rvt-color-theme-text);
 }

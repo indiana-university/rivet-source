@@ -1,11 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-@use "sass:map";
-@use "sass:math";
-
-.#{$prefix}-tabs {
+.rvt-tabs {
 	border: 1px solid var(--rvt-color-theme-ui);
 
 	&__tablist {
@@ -21,9 +17,9 @@
 		cursor: pointer;
 		flex-grow: 1;
 		line-height: 1;
-		padding: $spacing-sm $spacing-sm;
+		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
 		position: relative;
-		z-index: map.get($z-index, "100");
+		z-index: var(--rvt-z-index-100);
 
 		&:not(:first-child) {
 			border-left: 1px solid var(--rvt-color-theme-ui);
@@ -50,13 +46,13 @@
 		bottom: 0;
 		content: "";
 		display: block;
-		height: $spacing-xxs;
+		height: var(--rvt-spacing-xxs);
 		left: 0;
 		position: absolute;
 		width: 100%;
 	}
 
 	&__panel {
-		padding: $spacing-sm;
+		padding: var(--rvt-spacing-sm);
 	}
 }

@@ -1,10 +1,13 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 @use "../core" as *;
 @use "../lists";
 @use "../utilities/elements";
 
 .rvt-prose,
 .rvt-rich-text {
-	--rvt-rich-text-stack-space: #{$spacing-md};
+	--rvt-rich-text-stack-space: var(--rvt-spacing-md);
 	max-width: 80ch;
 
 	> * {
@@ -16,21 +19,21 @@
 	}
 
 	h1 {
-		font-size: $ts-32;
+		font-size: var(--rvt-ts-32);
 	}
 
 	h2 {
-		font-size: $ts-23;
+		font-size: var(--rvt-ts-23);
 	}
 
 	h3 {
-		font-size: $ts-20;
+		font-size: var(--rvt-ts-20);
 	}
 
 	h4,
 	h5,
 	h6 {
-		font-size: $ts-18;
+		font-size: var(--rvt-ts-18);
 	}
 
 	h1,
@@ -44,7 +47,7 @@
 		font-variation-settings:
 			"wdth" 135,
 			"YTLC" 540;
-		font-weight: $font-weight-bold;
+		font-weight: var(--rvt-font-weight-bold);
 	}
 
 	h1,
@@ -54,9 +57,9 @@
 	h5,
 	h6 {
 		// Reset the flow space here to put more space before headings.
-		--rvt-rich-text-stack-space: #{$spacing-lg};
+		--rvt-rich-text-stack-space: var(--rvt-spacing-lg);
 		line-height: 1.1;
-		scroll-margin-top: $spacing-md;
+		scroll-margin-top: var(--rvt-spacing-md);
 		// -webkit-font-smoothing: antialiased;
 		// -moz-osx-font-smoothing: grayscale;
 	}
@@ -74,7 +77,7 @@
 
 	:where(li + li),
 	:where(li > ul) {
-		margin-top: $spacing-sm;
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	:where(li)::marker {
@@ -87,24 +90,24 @@
 	> figure + *,
 	> hr,
 	> hr + * {
-		--rvt-rich-text-stack-space: #{$spacing-xl};
+		--rvt-rich-text-stack-space: var(--rvt-spacing-xl);
 	}
 
 	// Reduce the amount of stack space if a heading is
 	// immediately followed by another heading
 	> :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
-		--rvt-rich-text-stack-space: #{$spacing-md};
+		--rvt-rich-text-stack-space: var(--rvt-spacing-md);
 	}
 
 	> :where(dl) {
 		/* stylelint-disable */
-		@extend .#{$prefix}-list-description;
+		@extend .rvt-list-description;
 		/* stylelint-enable */
 	}
 
 	:where(code) {
 		/* stylelint-disable */
-		@extend .#{$prefix}-code;
+		@extend .rvt-code;
 		/* stylelint-enable */
 	}
 
@@ -120,25 +123,25 @@
 		:where(li),
 		:where(td),
 		:where(dt) {
-			font-size: $ts-18;
+			font-size: var(--rvt-ts-18);
 		}
 
 		h1 {
-			font-size: $ts-41;
+			font-size: var(--rvt-ts-41);
 		}
 
 		h2 {
-			font-size: $ts-32;
+			font-size: var(--rvt-ts-32);
 		}
 
 		h3 {
-			font-size: $ts-26;
+			font-size: var(--rvt-ts-26);
 		}
 
 		h4,
 		h5,
 		h6 {
-			font-size: $ts-23;
+			font-size: var(--rvt-ts-23);
 		}
 	}
 }

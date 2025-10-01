@@ -1,6 +1,7 @@
-@use "../core" as *;
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
 
-.#{$prefix}-stat-group {
+.rvt-stat-group {
 	container-name: stat-group;
 	container-type: inline-size;
 
@@ -11,15 +12,15 @@
 
 	&__note {
 		color: var(--rvt-color-theme-accent);
-		font-family: $font-family-mono;
-		font-size: $ts-14;
+		font-family: var(--rvt-font-family-mono);
+		font-size: var(--rvt-ts-14);
 		margin-block-end: 0;
-		margin-block-start: $spacing-lg;
+		margin-block-start: var(--rvt-spacing-lg);
 	}
 }
 
 @container stat-group (min-width: 40em) {
-	.#{$prefix}-stat-group {
+	.rvt-stat-group {
 		&__inner {
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -37,7 +38,7 @@
 }
 
 @container stat-group (min-width: 68.75em) {
-	.#{$prefix}-stat-group {
+	.rvt-stat-group {
 		&__inner > * {
 			min-width: auto;
 		}

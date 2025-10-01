@@ -15,15 +15,15 @@ $spacing-directions: (null, -top, -right, -bottom, -left);
 // NOTE you can reference these sizes in core/_variables.scss
 
 $spacing-sizes: (
-	-xxs: $spacing-xxs,
-	-xs: $spacing-xs,
-	-sm: $spacing-sm,
-	-md: $spacing-md,
-	-lg: $spacing-lg,
-	-xl: $spacing-xl,
-	-xxl: $spacing-xxl,
-	-3-xl: $spacing-3-xl,
-	-4-xl: $spacing-4-xl
+	-xxs: var(--rvt-spacing-xxs),
+	-xs: var(--rvt-spacing-xs),
+	-sm: var(--rvt-spacing-sm),
+	-md: var(--rvt-spacing-md),
+	-lg: var(--rvt-spacing-lg),
+	-xl: var(--rvt-spacing-xl),
+	-xxl: var(--rvt-spacing-xxl),
+	-3-xl: var(--rvt-spacing-3-xl),
+	-4-xl: var(--rvt-spacing-4-xl)
 );
 
 // Super gnarly loop here, but it saves sooo much time
@@ -38,45 +38,45 @@ $spacing-sizes: (
 
 		// If the direction is "null", add margin to all directions.
 		@if $direction == null {
-			.#{$prefix}-m-all#{$size} {
+			.rvt-m-all#{$size} {
 				margin: $value !important;
 			}
 
-			.#{$prefix}-p-all#{$size} {
+			.rvt-p-all#{$size} {
 				padding: $value !important;
 			}
 
-			.#{$prefix}-m-tb#{$size} {
+			.rvt-m-tb#{$size} {
 				margin-bottom: $value !important;
 				margin-top: $value !important;
 			}
 
-			.#{$prefix}-m-lr#{$size} {
+			.rvt-m-lr#{$size} {
 				margin-left: $value !important;
 				margin-right: $value !important;
 			}
 
-			.#{$prefix}-p-tb#{$size} {
+			.rvt-p-tb#{$size} {
 				padding-bottom: $value !important;
 				padding-top: $value !important;
 			}
 
-			.#{$prefix}-p-lr#{$size} {
+			.rvt-p-lr#{$size} {
 				padding-left: $value !important;
 				padding-right: $value !important;
 			}
 
 			// Otherwise create individual direction utilities.
 		} @else {
-			.#{$prefix}-m#{$direction}#{$size} {
+			.rvt-m#{$direction}#{$size} {
 				margin#{$direction}: $value !important;
 			}
 
-			.-#{$prefix}-m#{$direction}#{$size} {
+			.-rvt-m#{$direction}#{$size} {
 				margin#{$direction}: -$value !important;
 			}
 
-			.#{$prefix}-p#{$direction}#{$size} {
+			.rvt-p#{$direction}#{$size} {
 				padding#{$direction}: $value !important;
 			}
 		}
@@ -96,45 +96,45 @@ $spacing-sizes: (
 
 				// If the direction is "null", add margin to all directions.
 				@if $direction == null {
-					.#{$prefix}-m-all#{$suffix}-#{$variable}-up {
+					.rvt-m-all#{$suffix}-#{$variable}-up {
 						margin: $refs !important;
 					}
 
-					.#{$prefix}-p-all#{$suffix}-#{$variable}-up {
+					.rvt-p-all#{$suffix}-#{$variable}-up {
 						padding: $refs !important;
 					}
 
-					.#{$prefix}-m-tb#{$suffix}-#{$variable}-up {
+					.rvt-m-tb#{$suffix}-#{$variable}-up {
 						margin-bottom: $refs !important;
 						margin-top: $refs !important;
 					}
 
-					.#{$prefix}-m-lr#{$suffix}-#{$variable}-up {
+					.rvt-m-lr#{$suffix}-#{$variable}-up {
 						margin-left: $refs !important;
 						margin-right: $refs !important;
 					}
 
-					.#{$prefix}-p-tb#{$suffix}-#{$variable}-up {
+					.rvt-p-tb#{$suffix}-#{$variable}-up {
 						padding-bottom: $refs !important;
 						padding-top: $refs !important;
 					}
 
-					.#{$prefix}-p-lr#{$suffix}-#{$variable}-up {
+					.rvt-p-lr#{$suffix}-#{$variable}-up {
 						padding-left: $refs !important;
 						padding-right: $refs !important;
 					}
 
 					// Otherwise create individual direction utilities.
 				} @else {
-					.#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+					.rvt-m#{$direction}#{$suffix}-#{$variable}-up {
 						margin#{$direction}: $refs !important;
 					}
 
-					.-#{$prefix}-m#{$direction}#{$suffix}-#{$variable}-up {
+					.-rvt-m#{$direction}#{$suffix}-#{$variable}-up {
 						margin#{$direction}: -$refs !important;
 					}
 
-					.#{$prefix}-p#{$direction}#{$suffix}-#{$variable}-up {
+					.rvt-p#{$direction}#{$suffix}-#{$variable}-up {
 						padding#{$direction}: $refs !important;
 					}
 				}
@@ -151,47 +151,47 @@ $spacing-sizes: (
 // class with "rvt-" moving forward.
 @each $direction in $spacing-directions {
 	@if $direction == null {
-		.#{$prefix}-m-all-remove,
-		.#{$prefix}-m-all-none {
+		.rvt-m-all-remove,
+		.rvt-m-all-none {
 			margin: 0 !important;
 		}
 
-		.#{$prefix}-m-tb-remove,
-		.#{$prefix}-m-tb-none {
+		.rvt-m-tb-remove,
+		.rvt-m-tb-none {
 			margin-top: 0 !important;
 			margin-bottom: 0 !important;
 		}
 
-		.#{$prefix}-m-lr-remove,
-		.#{$prefix}-m-lr-none {
+		.rvt-m-lr-remove,
+		.rvt-m-lr-none {
 			margin-left: 0 !important;
 			margin-right: 0 !important;
 		}
 
-		.#{$prefix}-p-all-remove,
-		.#{$prefix}-p-all-none {
+		.rvt-p-all-remove,
+		.rvt-p-all-none {
 			padding: 0 !important;
 		}
 
-		.#{$prefix}-p-tb-remove,
-		.#{$prefix}-p-tb-none {
+		.rvt-p-tb-remove,
+		.rvt-p-tb-none {
 			padding-top: 0 !important;
 			padding-bottom: 0 !important;
 		}
 
-		.#{$prefix}-p-lr-remove,
-		.#{$prefix}-p-lr-none {
+		.rvt-p-lr-remove,
+		.rvt-p-lr-none {
 			padding-left: 0 !important;
 			padding-right: 0 !important;
 		}
 	} @else {
-		.#{$prefix}-m#{$direction}-remove,
-		.#{$prefix}-m#{$direction}-none {
+		.rvt-m#{$direction}-remove,
+		.rvt-m#{$direction}-none {
 			margin#{$direction}: 0 !important;
 		}
 
-		.#{$prefix}-p#{$direction}-remove,
-		.#{$prefix}-p#{$direction}-none {
+		.rvt-p#{$direction}-remove,
+		.rvt-p#{$direction}-none {
 			padding#{$direction}: 0 !important;
 		}
 	}
@@ -204,39 +204,39 @@ $spacing-sizes: (
 	@include mq($size) {
 		@each $direction in $spacing-directions {
 			@if $direction == null {
-				.#{$prefix}-m-all-none-#{$variable}-up {
+				.rvt-m-all-none-#{$variable}-up {
 					margin: 0 !important;
 				}
 
-				.#{$prefix}-p-all-none-#{$variable}-up {
+				.rvt-p-all-none-#{$variable}-up {
 					padding: 0 !important;
 				}
 
-				.#{$prefix}-m-tb-none-#{$variable}-up {
+				.rvt-m-tb-none-#{$variable}-up {
 					margin-top: 0 !important;
 					margin-bottom: 0 !important;
 				}
 
-				.#{$prefix}-p-tb-none-#{$variable}-up {
+				.rvt-p-tb-none-#{$variable}-up {
 					padding-top: 0 !important;
 					padding-bottom: 0 !important;
 				}
 
-				.#{$prefix}-m-lr-none-#{$variable}-up {
+				.rvt-m-lr-none-#{$variable}-up {
 					margin-right: 0 !important;
 					margin-left: 0 !important;
 				}
 
-				.#{$prefix}-p-lr-none-#{$variable}-up {
+				.rvt-p-lr-none-#{$variable}-up {
 					padding-right: 0 !important;
 					padding-left: 0 !important;
 				}
 			} @else {
-				.#{$prefix}-m#{$direction}-none-#{$variable}-up {
+				.rvt-m#{$direction}-none-#{$variable}-up {
 					margin#{$direction}: 0 !important;
 				}
 
-				.#{$prefix}-p#{$direction}-none-#{$variable}-up {
+				.rvt-p#{$direction}-none-#{$variable}-up {
 					padding#{$direction}: 0 !important;
 				}
 			}

@@ -1,21 +1,20 @@
-// Social section
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-.#{$prefix}-footer-social {
+.rvt-footer-social {
 	background-color: var(--rvt-color-theme-background);
-	padding-bottom: $spacing-md;
-	padding-top: $spacing-md;
+	padding-bottom: var(--rvt-spacing-md);
+	padding-top: var(--rvt-spacing-md);
 }
 
-.#{$prefix}-social-link {
+.rvt-social-link {
 	align-items: center;
 	border: 1px solid var(--rvt-color-theme-ui);
-	border-radius: $border-radius-circle;
+	border-radius: var(--rvt-border-radius-circle);
 	display: flex;
-	height: $spacing-sm * 2.25;
+	height: calc(var(--rvt-spacing-sm) * 2.25);
 	justify-content: center;
-	width: $spacing-sm * 2.25;
+	width: calc(var(--rvt-spacing-sm) * 2.25);
 
 	&:hover {
 		background-color: var(--rvt-color-theme-accent);

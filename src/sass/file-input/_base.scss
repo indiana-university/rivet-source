@@ -1,10 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-@use "sass:math";
-
-.#{$prefix}-file {
+.rvt-file {
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
@@ -20,8 +17,8 @@
 		cursor: pointer;
 		display: flex;
 		flex-grow: 0;
-		font-size: $ts-base;
-		font-weight: $font-weight-bold;
+		font-size: var(--rvt-ts-base);
+		font-weight: var(--rvt-font-weight-bold);
 		margin-bottom: 0;
 		margin-top: 0;
 		width: inherit;
@@ -40,12 +37,12 @@
 	}
 
 	&__preview {
-		margin-left: $spacing-sm;
+		margin-left: var(--rvt-spacing-sm);
 
 		span {
 			display: inline-block;
-			font-weight: $font-weight-bold;
-			line-height: $line-height-base;
+			font-weight: var(--rvt-font-weight-bold);
+			line-height: var(--rvt-line-height-base);
 		}
 	}
 }
