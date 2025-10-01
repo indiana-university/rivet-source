@@ -6,7 +6,7 @@
 .rvt-media-hub {
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-serif;
+		font-family: var(--rvt-font-family-serif);
 		font-size: var(--rvt-ts-46);
 		letter-spacing: 0.01rem;
 		line-height: $line-height-tight;

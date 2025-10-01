@@ -21,7 +21,7 @@
 
 	&__text {
 		color: var(--rvt-color-theme-accent);
-		font-family: $font-family-condensed;
+		font-family: var(--rvt-font-family-condensed);
 		font-weight: 850;
 		font-variation-settings: "wdth" 140;
 		font-size: var(--rvt-ts-26);

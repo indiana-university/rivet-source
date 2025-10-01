@@ -8,7 +8,7 @@
 	background-color: var(--rvt-color-brand-extralight);
 	display: inline-flex;
 	flex-direction: column;
-	font-family: $font-family-mono;
+	font-family: var(--rvt-font-family-mono);
 	line-height: 1.1;
 	padding: var(--rvt-spacing-sm);
 	position: relative;

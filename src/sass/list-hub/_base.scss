@@ -9,7 +9,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-accent);
-		font-family: $font-family-mono;
+		font-family: var(--rvt-font-family-mono);
 		font-size: var(--rvt-ts-12);
 		letter-spacing: math.div(var(--rvt-spacing-xxs), 2);
 		text-transform: uppercase;

@@ -235,7 +235,7 @@
 	}
 
 	&__body {
-		font-family: $font-family-condensed;
+		font-family: var(--rvt-font-family-condensed);
 		text-transform: uppercase;
 	}
 

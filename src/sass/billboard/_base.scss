@@ -24,7 +24,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-condensed;
+		font-family: var(--rvt-font-family-condensed);
 		font-size: var(--rvt-ts-26);
 		font-weight: var(--rvt-font-weight-black);
 		letter-spacing: 0.04rem;

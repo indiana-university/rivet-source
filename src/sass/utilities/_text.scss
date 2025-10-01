@@ -66,17 +66,17 @@
 }
 
 .rvt-font-condensed {
-	font-family: $font-family-condensed !important;
+	font-family: var(--rvt-font-family-condensed) !important;
 }
 
 .rvt-font-sans {
-	font-family: $font-family-sans !important;
+	font-family: var(--rvt-font-family-sans) !important;
 }
 
 .rvt-font-serif {
-	font-family: $font-family-serif !important;
+	font-family: var(--rvt-font-family-serif) !important;
 }
 
 .rvt-font-mono {
-	font-family: $font-family-mono !important;
+	font-family: var(--rvt-font-family-mono) !important;
 }
