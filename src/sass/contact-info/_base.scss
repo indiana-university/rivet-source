@@ -50,7 +50,7 @@
 	}
 
 	&__disclosure {
-		width: $width-md;
+		width: var(--rvt-width-md);
 
 		button {
 			align-items: center;

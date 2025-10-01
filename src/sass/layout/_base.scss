@@ -51,10 +51,10 @@
 		&__sidebar {
 			border-right: 1px solid var(--rvt-color-theme-ui);
 			border-top: none;
-			flex-basis: $width-md;
+			flex-basis: var(--rvt-width-md);
 			flex-grow: 1;
 			flex-shrink: 0;
-			max-width: $width-md;
+			max-width: var(--rvt-width-md);
 			padding-top: calc(var(--rvt-spacing-xxl) * 1.5);
 		}
 
@@ -95,7 +95,7 @@
 			margin-bottom: var(--rvt-spacing-lg);
 			margin-left: var(--rvt-spacing-lg);
 			margin-right: -var(--rvt-spacing-xxl);
-			width: $width-xl;
+			width: var(--rvt-width-xl);
 		}
 
 		&__feature-slot + * {
