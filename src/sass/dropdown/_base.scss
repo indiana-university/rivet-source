@@ -65,6 +65,10 @@
 				text-decoration: none;
 			}
 
+			&:visited {
+				color: inherit;
+			}
+
 			&.#{$prefix}-is-selected,
 			&[aria-current]:not([aria-current="false"]),
 			&[aria-checked="true"] {
