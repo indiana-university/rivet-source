@@ -1,9 +1,11 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 @use "../core" as *;
-@use "sass:math";
 
 .rvt-skip-link {
 	background-color: var(--rvt-color-theme-background);
-	padding: $spacing-xs;
+	padding: var(--rvt-spacing-xs);
 	position: fixed;
 	top: -6rem;
 	z-index: 999;
@@ -15,12 +17,12 @@
 
 .rvt-header {
 	background-color: var(--rvt-color-theme-background);
-	padding-block: $spacing-sm;
+	padding-block: var(--rvt-spacing-sm);
 
 	&__inner {
 		align-items: center;
 		display: flex;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 		@include container;
 	}
 
@@ -37,21 +39,21 @@
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
 		display: flex;
-		height: $spacing-xl;
+		height: var(--rvt-spacing-xl);
 		justify-content: center;
-		width: $spacing-xl;
+		width: var(--rvt-spacing-xl);
 	}
 
 	&-menu {
 		display: flex;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 		justify-content: flex-end;
 	}
 
 	&-menu__list {
 		display: flex;
 		flex-grow: 1;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 		justify-content: flex-end;
 		list-style: "";
 		margin: 0;
@@ -71,7 +73,7 @@
 			color: var(--rvt-color-theme-text-strong);
 			display: flex;
 			justify-content: center;
-			padding-inline: math.div($spacing-xxs, 1.5);
+			padding-inline: calc(var(--rvt-spacing-xxs) / 1.5);
 		}
 
 		button[aria-expanded="true"] > svg {
@@ -80,10 +82,10 @@
 
 		&:has([aria-current="page"])::after {
 			background-color: var(--rvt-color-theme-accent);
-			bottom: $spacing-xxs * -0.125;
+			bottom: calc(var(--rvt-spacing-xxs) * -0.125);
 			content: "";
 			display: block;
-			height: $spacing-xxs;
+			height: var(--rvt-spacing-xxs);
 			opacity: 1;
 			position: absolute;
 		}
@@ -91,10 +93,10 @@
 
 	&-menu__item::after {
 		background-color: var(--rvt-color-theme-accent);
-		bottom: $spacing-xxs * -1;
+		bottom: calc(var(--rvt-spacing-xxs) * -1);
 		content: "";
 		display: block;
-		height: $spacing-xxs * 0.5;
+		height: calc(var(--rvt-spacing-xxs) * 0.5);
 		opacity: 0;
 		position: absolute;
 		transition: all 0.2s ease;
@@ -102,16 +104,16 @@
 	}
 
 	&-menu__item:hover::after {
-		bottom: $spacing-xxs * -0.25;
+		bottom: calc(var(--rvt-spacing-xxs) * -0.25);
 		opacity: 1;
 		transition: 0.2s;
 	}
 
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: $ts-14;
-		font-weight: $font-weight-medium;
-		padding-block: $spacing-xs;
+		font-size: var(--rvt-ts-14);
+		font-weight: var(--rvt-font-weight-medium);
+		padding-block: var(--rvt-spacing-xs);
 		text-decoration: none;
 
 		&:visited {
@@ -128,12 +130,12 @@
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
 			display: flex;
-			font-size: $ts-14;
-			font-weight: $font-weight-medium;
-			gap: $spacing-xs;
-			margin-top: $spacing-xxs * 0.75;
-			padding-block: $spacing-xxs;
-			padding-inline: $spacing-sm;
+			font-size: var(--rvt-ts-14);
+			font-weight: var(--rvt-font-weight-medium);
+			gap: var(--rvt-spacing-xs);
+			margin-top: calc(var(--rvt-spacing-xxs) * 0.75);
+			padding-block: var(--rvt-spacing-xxs);
+			padding-inline: var(--rvt-spacing-sm);
 		}
 
 		> button[hidden] {
@@ -141,7 +143,7 @@
 		}
 
 		ul li a {
-			font-weight: $font-weight-regular;
+			font-weight: var(--rvt-font-weight-regular);
 		}
 
 		.rvt-header-menu__item .rvt-dropdown {
@@ -152,7 +154,7 @@
 	&__buttons {
 		align-items: center;
 		display: flex;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 		margin-left: auto;
 	}
 
@@ -168,7 +170,7 @@
 
 	&__search-bar-inner {
 		background-color: var(--rvt-color-theme-background);
-		padding-block: $spacing-xs;
+		padding-block: var(--rvt-spacing-xs);
 	}
 
 	&__search-bar input[type="text"]:focus {
@@ -190,7 +192,7 @@
 		box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
 		height: 100vh;
 		overflow-y: auto;
-		padding-top: $spacing-lg;
+		padding-top: var(--rvt-spacing-lg);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -220,7 +222,7 @@
 .rvt-lockup {
 	align-items: center;
 	display: inline-flex;
-	gap: $spacing-sm;
+	gap: var(--rvt-spacing-sm);
 	text-decoration: none;
 
 	&__tab {
@@ -234,14 +236,14 @@
 	}
 
 	&__body {
-		font-family: $font-family-condensed;
+		font-family: var(--rvt-font-family-condensed);
 		text-transform: uppercase;
 	}
 
 	&__title {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: $ts-20;
-		font-weight: $font-weight-black;
+		font-size: var(--rvt-ts-20);
+		font-weight: var(--rvt-font-weight-black);
 		letter-spacing: 0.025rem;
 	}
 

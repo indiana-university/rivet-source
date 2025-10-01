@@ -3,18 +3,18 @@
 
 @use "../core" as *;
 
-.#{$prefix}-section-intro {
+.rvt-section-intro {
 	margin-inline: auto;
 	max-width: $breakpoint-md;
 	text-align: center;
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-condensed;
-		font-size: $ts-36;
-		font-weight: $font-weight-black;
-		line-height: $line-height-tight;
-		margin-top: $spacing-sm;
+		font-family: var(--rvt-font-family-condensed);
+		font-size: var(--rvt-ts-36);
+		font-weight: var(--rvt-font-weight-black);
+		line-height: var(--rvt-line-height-tight);
+		margin-top: var(--rvt-spacing-sm);
 		text-transform: uppercase;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -27,23 +27,23 @@
 
 	&__teaser {
 		color: var(--rvt-color-theme-text);
-		font-size: $ts-16;
-		margin-top: $spacing-sm;
+		font-size: var(--rvt-ts-16);
+		margin-top: var(--rvt-spacing-sm);
 
 		> * {
 			margin: 0;
 		}
 
 		> * + * {
-			margin-top: $spacing-md;
+			margin-top: var(--rvt-spacing-md);
 		}
 	}
 
 	&__actions {
 		display: flex;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 		justify-content: center;
-		margin-top: $spacing-xl;
+		margin-top: var(--rvt-spacing-xl);
 	}
 
 	&--feature::before {
@@ -58,13 +58,13 @@
 
 	&--feature &__eyebrow {
 		display: block;
-		padding-top: $spacing-sm;
+		padding-top: var(--rvt-spacing-sm);
 		position: relative;
 	}
 
 	&--feature &__teaser {
 		color: var(--rvt-color-theme-text-accent);
-		padding-top: $spacing-xl;
+		padding-top: var(--rvt-spacing-xl);
 		position: relative;
 		text-align: left;
 	}
@@ -73,37 +73,37 @@
 		background-color: var(--rvt-color-theme-text-accent);
 		content: "";
 		display: block;
-		height: $spacing-lg;
+		height: var(--rvt-spacing-lg);
 		left: 50%;
 		position: absolute;
-		top: -$spacing-xxs;
-		width: $spacing-xxs;
+		top: -var(--rvt-spacing-xxs);
+		width: var(--rvt-spacing-xxs);
 	}
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-section-intro {
+	.rvt-section-intro {
 		&__title {
-			font-size: $ts-41;
+			font-size: var(--rvt-ts-41);
 		}
 
 		&__teaser {
-			font-size: $ts-20;
+			font-size: var(--rvt-ts-20);
 		}
 	}
 }
 
 @include mq($breakpoint-lg) {
-	.#{$prefix}-section-intro {
+	.rvt-section-intro {
 		&--teaser {
 			display: flex;
 			flex-wrap: wrap;
-			gap: $spacing-lg;
+			gap: var(--rvt-spacing-lg);
 			max-width: 100%;
 		}
 
 		&--teaser &__title {
-			margin-top: $spacing-xs;
+			margin-top: var(--rvt-spacing-xs);
 		}
 
 		&--teaser {

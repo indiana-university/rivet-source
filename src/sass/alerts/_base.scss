@@ -1,11 +1,9 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
 @use "../defaults" as *;
-@use "sass:math";
 
-.#{$prefix}-alert {
+.rvt-alert {
 	@extend .rvt-theme-light;
 	--color-background: var(--rvt-color-base-extralight);
 	--color-border: var(--rvt-color-base-medium);
@@ -68,7 +66,7 @@
 
 	&::before {
 		background-color: var(--color-icon-background);
-		border-radius: $border-radius-circle;
+		border-radius: var(--rvt-border-radius-circle);
 		content: "";
 		display: block;
 		height: var(--size-icon);
@@ -96,14 +94,14 @@
 
 	&__title {
 		color: var(--color-main);
-		font-size: $ts-18;
-		font-weight: $font-weight-bold;
+		font-size: var(--rvt-ts-18);
+		font-weight: var(--rvt-font-weight-bold);
 		font-variation-settings:
 			"wdth" 135,
 			"YTLC" 540;
 		line-height: var(--rvt-line-height-title);
 		padding-block-start: calc(calc(var(--size-icon) - 1lh) / 2);
-		padding-inline-end: $spacing-xl;
+		padding-inline-end: var(--rvt-spacing-xl);
 		position: relative;
 	}
 
@@ -111,12 +109,12 @@
 	&__message {
 		margin-top: 0;
 		margin-bottom: 0;
-		padding-inline-end: $spacing-md;
+		padding-inline-end: var(--rvt-spacing-md);
 	}
 
 	&__title + &__message,
 	&__title + &__content {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__content {
@@ -125,7 +123,7 @@
 		}
 
 		> * + * {
-			margin-block-start: $spacing-sm;
+			margin-block-start: var(--rvt-spacing-sm);
 		}
 
 		a {
@@ -138,7 +136,7 @@
 
 		> ul,
 		> ol {
-			padding-left: $spacing-sm;
+			padding-left: var(--rvt-spacing-sm);
 		}
 
 		ul {
@@ -147,7 +145,7 @@
 
 		ul > li,
 		ol > li {
-			margin-top: $spacing-sm;
+			margin-top: var(--rvt-spacing-sm);
 		}
 	}
 
@@ -198,21 +196,21 @@
  * Alert lists
  */
 
-.#{$prefix}-alert-list {
+.rvt-alert-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 
 	&__item {
-		line-height: $line-height-base;
+		line-height: var(--rvt-line-height-base);
 	}
 
 	&__item:not(first-child) {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 }
 
-.#{$prefix}-input-error > {
+.rvt-input-error > {
 	input[type="color"],
 	input[type="color"]:focus,
 	input[type="date"],
@@ -243,7 +241,7 @@
 	input[type="week"]:focus,
 	textarea,
 	select {
-		box-shadow: 0 0 0 math.div($spacing-xxs, 2) var(--rvt-color-danger-border);
+		box-shadow: 0 0 0 calc(var(--rvt-spacing-xxs) / 2) var(--rvt-color-danger-border);
 		border-color: var(--rvt-color-danger-border);
 	}
 }

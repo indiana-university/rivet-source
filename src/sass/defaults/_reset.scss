@@ -1,8 +1,6 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
 html {
 	font-size: 100%;
 	height: 100%;
@@ -22,11 +20,11 @@ html * {
 
 body {
 	color: var(--rvt-color-theme-text);
-	font-family: $font-family-base;
+	font-family: var(--rvt-font-family-base);
 	font-variation-settings: "wdth" 110;
-	font-weight: $font-weight-regular;
+	font-weight: var(--rvt-font-weight-regular);
 	height: 100%;
-	line-height: $line-height-base;
+	line-height: var(--rvt-line-height-base);
 	margin: 0;
 	padding: 0;
 }
@@ -44,7 +42,7 @@ h4,
 h5,
 h6 {
 	font-size: 1.125rem;
-	font-weight: $font-weight-regular;
+	font-weight: var(--rvt-font-weight-regular);
 	margin: 0;
 }
 
@@ -65,9 +63,9 @@ figure {
 }
 
 figcaption {
-	font-family: $font-family-mono;
-	font-size: $ts-14;
-	padding-top: $spacing-sm;
+	font-family: var(--rvt-font-family-mono);
+	font-size: var(--rvt-ts-14);
+	padding-top: var(--rvt-spacing-sm);
 }
 
 em {
@@ -75,7 +73,7 @@ em {
 }
 
 strong {
-	font-weight: $font-weight-bold;
+	font-weight: var(--rvt-font-weight-bold);
 }
 
 sub,

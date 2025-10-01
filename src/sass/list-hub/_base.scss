@@ -2,16 +2,15 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
-@use "sass:math";
 
-.#{$prefix}-list-hub {
+.rvt-list-hub {
 	background-color: transparent;
 
 	&__title {
 		color: var(--rvt-color-theme-accent);
-		font-family: $font-family-mono;
-		font-size: $ts-12;
-		letter-spacing: math.div($spacing-xxs, 2);
+		font-family: var(--rvt-font-family-mono);
+		font-size: var(--rvt-ts-12);
+		letter-spacing: calc(var(--rvt-spacing-xxs) / 2);
 		text-transform: uppercase;
 	}
 
@@ -20,14 +19,14 @@
 		margin-bottom: 0;
 		// Magic number to help with visual alignment when
 		// list hub is first element in a layout with a sidebar
-		margin-top: $spacing-xs * 1.5;
+		margin-top: calc(var(--rvt-spacing-xs) * 1.5);
 		padding-left: 0;
 	}
 
 	&__item {
 		border-top: 1px solid var(--rvt-color-theme-ui);
-		padding-block: $spacing-sm;
-		padding-inline: $spacing-sm;
+		padding-block: var(--rvt-spacing-sm);
+		padding-inline: var(--rvt-spacing-sm);
 	}
 
 	// If the item is not a link remove eyebrow padding for proper alignment.
@@ -38,7 +37,7 @@
 	&__eyebrow {
 		@include eyebrow;
 		color: var(--rvt-color-theme-text-accent);
-		padding-inline-start: $spacing-md;
+		padding-inline-start: var(--rvt-spacing-md);
 	}
 
 	&__link,
@@ -46,12 +45,12 @@
 		align-items: center;
 		color: var(--rvt-color-theme-text-strong);
 		display: flex;
-		font-size: $ts-18;
+		font-size: var(--rvt-ts-18);
 		font-variation-settings:
 			"wdth" 135,
 			"YTLC" 540;
-		font-weight: $font-weight-bold;
-		gap: $spacing-xs;
+		font-weight: var(--rvt-font-weight-bold);
+		gap: var(--rvt-spacing-xs);
 		line-height: 1.3;
 		position: relative;
 		text-decoration: none;
@@ -92,15 +91,15 @@
 		clip-path: path(var(--icon));
 		content: "";
 		flex-shrink: 0;
-		height: $spacing-sm;
+		height: var(--rvt-spacing-sm);
 		position: relative;
 		transform: rotate(var(--rotate));
 		transition: all 0.2s ease;
-		width: $spacing-sm;
+		width: var(--rvt-spacing-sm);
 	}
 
 	&__link:hover::before {
-		transform: rotate(var(--rotate)) translateY($spacing-xxs);
+		transform: rotate(var(--rotate)) translateY(var(--rvt-spacing-xxs));
 	}
 
 	&__item-title + &__content {
@@ -109,8 +108,8 @@
 
 	&__content {
 		color: var(--rvt-color-theme-text);
-		margin-block-start: $spacing-xs;
-		padding-inline-start: $spacing-md;
+		margin-block-start: var(--rvt-spacing-xs);
+		padding-inline-start: var(--rvt-spacing-md);
 
 		> ul:not([class]) {
 			list-style-type: disc;
@@ -119,7 +118,7 @@
 		> ul li,
 		> ol li,
 		> p {
-			font-size: $ts-16;
+			font-size: var(--rvt-ts-16);
 		}
 	}
 
@@ -128,6 +127,6 @@
 	}
 
 	&__content > * + * {
-		margin-top: $spacing-sm;
+		margin-top: var(--rvt-spacing-sm);
 	}
 }

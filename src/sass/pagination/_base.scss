@@ -1,12 +1,9 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-@use "sass:map";
-
 .rvt-pagination {
 	display: flex;
-	gap: $spacing-xs;
+	gap: var(--rvt-spacing-xs);
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -31,9 +28,9 @@
 
 		> *:not(a) {
 			color: var(--rvt-color-theme-text);
-			min-height: $spacing-xl;
-			min-width: $spacing-xl;
-			padding: $spacing-xs $spacing-sm;
+			min-height: var(--rvt-spacing-xl);
+			min-width: var(--rvt-spacing-xl);
+			padding: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
 		}
 
 		a {
@@ -41,12 +38,12 @@
 			color: var(--rvt-color-theme-text);
 			display: flex;
 			flex-grow: 1;
-			gap: $spacing-xxs;
-			min-height: $spacing-xl;
-			min-width: $spacing-xl;
-			padding: $spacing-xs;
+			gap: var(--rvt-spacing-xxs);
+			min-height: var(--rvt-spacing-xl);
+			min-width: var(--rvt-spacing-xl);
+			padding: var(--rvt-spacing-xs);
 			text-decoration: none;
-			z-index: map.get($z-index, "100");
+			z-index: var(--rvt-z-index-100);
 		}
 
 		a:hover {

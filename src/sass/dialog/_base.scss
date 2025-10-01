@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
-@use "sass:map";
-@use "sass:math";
 
 /**
  * This class gets applied to the body of the document when a modal dialog
@@ -11,14 +9,14 @@
  * It's removed when the dialog is closed making the body scrollable again.
  */
 
-.#{$prefix}-dialog-prevent-scroll {
+.rvt-dialog-prevent-scroll {
 	overflow: hidden;
 }
 
-.#{$prefix}-dialog {
+.rvt-dialog {
 	background-color: var(--rvt-color-theme-background);
-	border-radius: $spacing-xs;
-	box-shadow: $shadow-heavy;
+	border-radius: var(--rvt-spacing-xs);
+	box-shadow: var(--rvt-shadow-heavy);
 	left: 0;
 	margin: auto;
 	max-height: 100%;
@@ -29,40 +27,40 @@
 	top: 40%;
 	transform: translateY(-40%);
 	width: 90%;
-	z-index: map.get($z-index, "1000");
+	z-index: var(--rvt-z-index-1000);
 
-	&[data-#{$prefix}-dialog-darken-page] {
+	&[data-rvt-dialog-darken-page] {
 		box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
 	}
 
-	&[data-#{$prefix}-dialog-top-left] {
+	&[data-rvt-dialog-top-left] {
 		bottom: auto;
-		left: $spacing-xl;
+		left: var(--rvt-spacing-xl);
 		right: auto;
-		top: $spacing-xl;
+		top: var(--rvt-spacing-xl);
 		transform: none;
 	}
 
-	&[data-#{$prefix}-dialog-top-right] {
+	&[data-rvt-dialog-top-right] {
 		bottom: auto;
 		left: auto;
-		right: $spacing-xl;
-		top: $spacing-xl;
+		right: var(--rvt-spacing-xl);
+		top: var(--rvt-spacing-xl);
 		transform: none;
 	}
 
-	&[data-#{$prefix}-dialog-bottom-left] {
-		bottom: $spacing-xl;
-		left: $spacing-xl;
+	&[data-rvt-dialog-bottom-left] {
+		bottom: var(--rvt-spacing-xl);
+		left: var(--rvt-spacing-xl);
 		right: auto;
 		top: auto;
 		transform: none;
 	}
 
-	&[data-#{$prefix}-dialog-bottom-right] {
-		bottom: $spacing-xl;
+	&[data-rvt-dialog-bottom-right] {
+		bottom: var(--rvt-spacing-xl);
 		left: auto;
-		right: $spacing-xl;
+		right: var(--rvt-spacing-xl);
 		top: auto;
 		transform: none;
 	}
@@ -70,14 +68,14 @@
 	&__close {
 		background-color: transparent;
 		border: none;
-		border-radius: $spacing-xxs;
+		border-radius: var(--rvt-spacing-xxs);
 		color: var(--rvt-color-theme-text-strong);
 		display: inline-block;
 		height: auto;
 		line-height: 0.5;
-		padding: $spacing-xs;
+		padding: var(--rvt-spacing-xs);
 		position: absolute;
-		right: $spacing-sm;
+		right: var(--rvt-spacing-sm);
 		top: 1.1rem;
 
 		&:hover {
@@ -87,17 +85,17 @@
 
 	&__header {
 		border-bottom: 1px solid var(--rvt-color-theme-ui);
-		padding: $spacing-md $spacing-sm;
+		padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
 	}
 
 	&__title {
-		font-size: $ts-20;
-		font-weight: $font-weight-bold;
+		font-size: var(--rvt-ts-20);
+		font-weight: var(--rvt-font-weight-bold);
 		line-height: 1;
 	}
 
 	&__body {
-		padding: $spacing-sm;
+		padding: var(--rvt-spacing-sm);
 	}
 
 	&__controls {
@@ -105,10 +103,10 @@
 		border-top: 1px solid var(--rvt-color-theme-ui);
 		display: flex;
 		flex-wrap: wrap;
-		gap: $spacing-sm;
-		padding: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
+		padding: var(--rvt-spacing-sm);
 
-		.#{$prefix}-button {
+		.rvt-button {
 			justify-content: center;
 			text-align: center;
 			width: 100%;
@@ -117,21 +115,21 @@
 		@include mq($breakpoint-sm) {
 			justify-content: flex-end;
 
-			.#{$prefix}-button {
+			.rvt-button {
 				width: auto;
 			}
 		}
 	}
 
-	.#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
+	.rvt-button[data-rvt-dialog-close] > * {
 		pointer-events: none;
 	}
 }
 
-.#{$prefix}-dialog[hidden] {
+.rvt-dialog[hidden] {
 	display: none;
 }
 
-.#{$prefix}-dialog:not([hidden]) {
+.rvt-dialog:not([hidden]) {
 	display: block;
 }

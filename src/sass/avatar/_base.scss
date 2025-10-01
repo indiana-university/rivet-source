@@ -2,24 +2,24 @@
 @use "sass:map";
 
 $avatar-fonts: (
-	"xs": $ts-14,
-	"sm": $ts-16,
-	"rg": $ts-20,
-	"md": $ts-23,
-	"lg": $ts-32,
-	"xl": $ts-41,
+	"xs": var(--rvt-ts-14),
+	"sm": var(--rvt-ts-16),
+	"rg": var(--rvt-ts-20),
+	"md": var(--rvt-ts-23),
+	"lg": var(--rvt-ts-32),
+	"xl": var(--rvt-ts-41),
 );
 
 $avatar-widths: (
-	"xs": $spacing-lg,
-	"sm": $spacing-lg * 1.5,
-	"rg": $spacing-lg * 2,
-	"md": $spacing-lg * 3,
-	"lg": $spacing-lg * 4,
-	"xl": $spacing-lg * 5,
+	"xs": var(--rvt-spacing-lg),
+	"sm": calc(var(--rvt-spacing-lg) * 1.5),
+	"rg": calc(var(--rvt-spacing-lg) * 2),
+	"md": calc(var(--rvt-spacing-lg) * 3),
+	"lg": calc(var(--rvt-spacing-lg) * 4),
+	"xl": calc(var(--rvt-spacing-lg) * 5),
 );
 
-.#{$prefix}-avatar {
+.rvt-avatar {
 	--size-xs: var(--rvt-spacing-lg);
 	--size-sm: calc(var(--rvt-spacing-lg) * 1.5);
 	--size-rg: calc(var(--rvt-spacing-lg) * 2);
@@ -33,7 +33,7 @@ $avatar-widths: (
 	color: var(--rvt-color-brand-main);
 	display: flex;
 	flex-shrink: 0;
-	font-size: $ts-20;
+	font-size: var(--rvt-ts-20);
 	font-weight: 700;
 	height: var(--size);
 	justify-content: center;
@@ -48,34 +48,34 @@ $avatar-widths: (
 
 	&--xs {
 		--size: var(--size-xs);
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 	}
 
 	&--sm {
 		--size: var(--size-sm);
-		font-size: $ts-16;
+		font-size: var(--rvt-ts-16);
 	}
 
 	&--md {
 		--size: var(--size-md);
-		font-size: $ts-23;
+		font-size: var(--rvt-ts-23);
 	}
 
 	&--lg {
 		--size: var(--size-lg);
-		font-size: $ts-32;
+		font-size: var(--rvt-ts-32);
 	}
 
 	&--xl {
 		--size: var(--size-xl);
-		font-size: $ts-41;
+		font-size: var(--rvt-ts-41);
 	}
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		@each $pixels, $rems in $avatar-widths {
-			.#{$prefix}-avatar--#{$pixels}-#{$variable}-up {
+			.rvt-avatar--#{$pixels}-#{$variable}-up {
 				font-size: map.get($avatar-fonts, $pixels);
 				height: $rems !important;
 				width: $rems !important;

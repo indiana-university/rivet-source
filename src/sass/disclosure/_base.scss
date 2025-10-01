@@ -1,9 +1,7 @@
 // Copyright (C) 2021 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-.#{$prefix}-disclosure {
+.rvt-disclosure {
 	background-color: var(--rvt-color-theme-background-strong);
 	padding: var(--rvt-spacing-sm);
 
@@ -14,7 +12,7 @@
 		color: var(--rvt-color-theme-accent);
 		display: flex;
 		font: inherit;
-		gap: $spacing-xs;
+		gap: var(--rvt-spacing-xs);
 		padding: 0;
 	}
 
@@ -22,8 +20,8 @@
 		background-color: currentColor;
 		clip-path: path(var(--rvt-icon-chevron-right));
 		content: "";
-		height: $spacing-sm;
-		width: $spacing-sm;
+		height: var(--rvt-spacing-sm);
+		width: var(--rvt-spacing-sm);
 	}
 
 	&__toggle[aria-expanded="true"]::before {
@@ -37,8 +35,8 @@
 	}
 
 	&__content {
-		margin-left: $spacing-xs;
-		margin-top: $spacing-xs;
-		padding-left: $spacing-sm;
+		margin-left: var(--rvt-spacing-xs);
+		margin-top: var(--rvt-spacing-xs);
+		padding-left: var(--rvt-spacing-sm);
 	}
 }

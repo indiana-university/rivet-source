@@ -1,39 +1,37 @@
 // Copyright (C) 2025 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-.#{$prefix}-media-hub {
+.rvt-media-hub {
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-serif;
-		font-size: $ts-46;
+		font-family: var(--rvt-font-family-serif);
+		font-size: var(--rvt-ts-46);
 		letter-spacing: 0.01rem;
-		line-height: $line-height-tight;
+		line-height: var(--rvt-line-height-tight);
 		margin: 0;
 		max-width: 40ch;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
 		a {
-			text-decoration-thickness: $spacing-xs;
-			text-underline-offset: $spacing-xs;
+			text-decoration-thickness: var(--rvt-spacing-xs);
+			text-underline-offset: var(--rvt-spacing-xs);
 		}
 
 		a:hover {
-			text-decoration-thickness: $spacing-xs;
-			text-underline-offset: $spacing-xs;
+			text-decoration-thickness: var(--rvt-spacing-xs);
+			text-underline-offset: var(--rvt-spacing-xs);
 			transition: 0.2s all ease-in-out;
 		}
 	}
 
 	&__teaser + &__media {
-		margin-top: $spacing-xxl;
+		margin-top: var(--rvt-spacing-xxl);
 	}
 
 	&__media {
 		display: grid;
-		gap: $spacing-xs;
+		gap: var(--rvt-spacing-xs);
 		grid-template-columns: repeat(6, 1fr);
 		grid-template-rows: auto auto;
 		position: relative;

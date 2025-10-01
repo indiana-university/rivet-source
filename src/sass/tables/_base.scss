@@ -2,10 +2,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
-@use "sass:math";
 
 table,
-.#{$prefix}-table {
+.rvt-table {
 	border: 1px solid var(--rvt-color-theme-ui);
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -13,9 +12,9 @@ table,
 	width: 100%;
 
 	caption {
-		font-size: $ts-32;
-		font-weight: $font-weight-medium;
-		margin-bottom: $spacing-md;
+		font-size: var(--rvt-ts-32);
+		font-weight: var(--rvt-font-weight-medium);
+		margin-bottom: var(--rvt-spacing-md);
 		text-align: left;
 	}
 }
@@ -30,13 +29,13 @@ thead {
 
 	tr th {
 		color: var(--rvt-color-theme-background);
-		padding-block: $spacing-sm;
-		padding-inline: $spacing-md;
+		padding-block: var(--rvt-spacing-sm);
+		padding-inline: var(--rvt-spacing-md);
 	}
 
 	th,
 	tr th {
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 		line-height: 1;
 	}
 }
@@ -47,10 +46,10 @@ tr {
 
 tbody tr td,
 tbody tr th {
-	padding: $spacing-md;
+	padding: var(--rvt-spacing-md);
 }
 
-.#{$prefix}-table-plain {
+.rvt-table-plain {
 	border: none;
 
 	thead {
@@ -67,14 +66,14 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table-stripes {
+.rvt-table-stripes {
 	tr:nth-child(even) {
 		background-color: var(--rvt-color-theme-background-strong);
 	}
 }
 
-.#{$prefix}-table-compact {
-	line-height: $line-height-tight;
+.rvt-table-compact {
+	line-height: var(--rvt-line-height-tight);
 
 	tr th,
 	tr td {
@@ -82,7 +81,7 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table-cells {
+.rvt-table-cells {
 	border-top: 1px solid var(--rvt-color-theme-ui);
 
 	tr td,
@@ -96,7 +95,7 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table--subtle {
+.rvt-table--subtle {
 	thead {
 		background-color: var(--rvt-color-theme-background-strong);
 
@@ -110,7 +109,7 @@ tbody tr th {
  * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
  * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
-.#{$prefix}-table-responsive[role="region"][tabindex] {
+.rvt-table-responsive[role="region"][tabindex] {
 	/* stylelint-disable */
 	background:
 		linear-gradient(
@@ -150,12 +149,12 @@ tbody tr th {
 		14px 100%;
 	/* stylelint-enable */
 	border: 1px solid var(--rvt-color-theme-ui);
-	border-radius: $spacing-xs;
+	border-radius: var(--rvt-spacing-xs);
 	overflow: auto;
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-table-responsive[role="region"][tabindex] {
+	.rvt-table-responsive[role="region"][tabindex] {
 		border: none;
 		border-radius: 0;
 	}

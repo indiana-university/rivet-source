@@ -1,13 +1,11 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
 /* Hide only visually, but have it available for
  * screenreaders: h5bp.com/v
  */
 
-.#{$prefix}-sr-only {
+.rvt-sr-only {
 	border: 0;
 	clip: rect(0 0 0 0);
 	height: 1px;
@@ -26,8 +24,8 @@
  * keyboard: h5bp.com/p
  */
 
-.#{$prefix}-sr-only.#{$prefix}-focusable:active,
-.#{$prefix}-sr-only.#{$prefix}-focusable:focus {
+.rvt-sr-only.rvt-focusable:active,
+.rvt-sr-only.rvt-focusable:focus {
 	clip: auto;
 	height: auto;
 	margin: 0;
@@ -36,18 +34,18 @@
 	width: auto;
 }
 
-.#{$prefix}-display-block {
+.rvt-display-block {
 	display: block !important;
 }
 
-.#{$prefix}-display-inline-block {
+.rvt-display-inline-block {
 	display: inline-block !important;
 }
 
-.#{$prefix}-display-inline {
+.rvt-display-inline {
 	display: inline !important;
 }
 
-.#{$prefix}-display-none {
+.rvt-display-none {
 	display: none !important;
 }

@@ -3,6 +3,6 @@
 
 @use '../core' as *;
 
-.#{$prefix}-{{ slug }} {
+.rvt-{{ slug }} {
   // Styles here
 }

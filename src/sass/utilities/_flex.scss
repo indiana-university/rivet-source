@@ -5,53 +5,53 @@
 
 // Display flex
 
-.#{$prefix}-flex {
+.rvt-flex {
 	display: flex !important;
 }
 
-.#{$prefix}-inline-flex {
+.rvt-inline-flex {
 	display: inline-flex !important;
 }
 
-.#{$prefix}-flex-row {
+.rvt-flex-row {
 	flex-direction: row !important;
 }
 
-.#{$prefix}-flex-row-reverse {
+.rvt-flex-row-reverse {
 	flex-direction: row-reverse !important;
 }
 
-.#{$prefix}-flex-column {
+.rvt-flex-column {
 	flex-direction: column !important;
 }
 
-.#{$prefix}-flex-column-reverse {
+.rvt-flex-column-reverse {
 	flex-direction: column-reverse !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-flex-#{$variable}-up {
+		.rvt-flex-#{$variable}-up {
 			display: flex !important;
 		}
 
-		.#{$prefix}-inline-flex-#{$variable}-up {
+		.rvt-inline-flex-#{$variable}-up {
 			display: inline-flex !important;
 		}
 
-		.#{$prefix}-flex-row-#{$variable}-up {
+		.rvt-flex-row-#{$variable}-up {
 			flex-direction: row !important;
 		}
 
-		.#{$prefix}-flex-row-reverse-#{$variable}-up {
+		.rvt-flex-row-reverse-#{$variable}-up {
 			flex-direction: row-reverse !important;
 		}
 
-		.#{$prefix}-flex-column-#{$variable}-up {
+		.rvt-flex-column-#{$variable}-up {
 			flex-direction: column !important;
 		}
 
-		.#{$prefix}-flex-column-reverse-#{$variable}-up {
+		.rvt-flex-column-reverse-#{$variable}-up {
 			flex-direction: column-reverse !important;
 		}
 	}
@@ -59,29 +59,29 @@
 
 // Wrap
 
-.#{$prefix}-wrap {
+.rvt-wrap {
 	flex-wrap: wrap !important;
 }
 
-.#{$prefix}-no-wrap {
+.rvt-no-wrap {
 	flex-wrap: nowrap !important;
 }
 
-.#{$prefix}-wrap-reverse {
+.rvt-wrap-reverse {
 	flex-wrap: wrap-reverse !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-wrap-#{$variable}-up {
+		.rvt-wrap-#{$variable}-up {
 			flex-wrap: wrap !important;
 		}
 
-		.#{$prefix}-no-wrap-#{$variable}-up {
+		.rvt-no-wrap-#{$variable}-up {
 			flex-wrap: nowrap !important;
 		}
 
-		.#{$prefix}-wrap-reverse-#{$variable}-up {
+		.rvt-wrap-reverse-#{$variable}-up {
 			flex-wrap: wrap-reverse !important;
 		}
 	}
@@ -89,21 +89,21 @@
 
 // Shrink
 
-.#{$prefix}-shrink-1 {
+.rvt-shrink-1 {
 	flex-shrink: 1 !important;
 }
 
-.#{$prefix}-shrink-0 {
+.rvt-shrink-0 {
 	flex-shrink: 0 !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-shrink-1-#{$variable}-up {
+		.rvt-shrink-1-#{$variable}-up {
 			flex-shrink: 1 !important;
 		}
 
-		.#{$prefix}-shrink-0-#{$variable}-up {
+		.rvt-shrink-0-#{$variable}-up {
 			flex-shrink: 0 !important;
 		}
 	}
@@ -111,21 +111,21 @@
 
 // Grow
 
-.#{$prefix}-grow-1 {
+.rvt-grow-1 {
 	flex-grow: 1 !important;
 }
 
-.#{$prefix}-grow-0 {
+.rvt-grow-0 {
 	flex-grow: 0 !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-grow-1-#{$variable}-up {
+		.rvt-grow-1-#{$variable}-up {
 			flex-grow: 1 !important;
 		}
 
-		.#{$prefix}-grow-0-#{$variable}-up {
+		.rvt-grow-0-#{$variable}-up {
 			flex-grow: 0 !important;
 		}
 	}
@@ -133,45 +133,45 @@
 
 // Align items
 
-.#{$prefix}-items-start {
+.rvt-items-start {
 	align-items: flex-start !important;
 }
 
-.#{$prefix}-items-end {
+.rvt-items-end {
 	align-items: flex-end !important;
 }
 
-.#{$prefix}-items-center {
+.rvt-items-center {
 	align-items: center !important;
 }
 
-.#{$prefix}-items-baseline {
+.rvt-items-baseline {
 	align-items: baseline !important;
 }
 
-.#{$prefix}-items-stretch {
+.rvt-items-stretch {
 	align-items: stretch !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-items-start-#{$variable}-up {
+		.rvt-items-start-#{$variable}-up {
 			align-items: flex-start !important;
 		}
 
-		.#{$prefix}-items-end-#{$variable}-up {
+		.rvt-items-end-#{$variable}-up {
 			align-items: flex-end !important;
 		}
 
-		.#{$prefix}-items-center-#{$variable}-up {
+		.rvt-items-center-#{$variable}-up {
 			align-items: center !important;
 		}
 
-		.#{$prefix}-items-baseline-#{$variable}-up {
+		.rvt-items-baseline-#{$variable}-up {
 			align-items: baseline !important;
 		}
 
-		.#{$prefix}-items-stretch-#{$variable}-up {
+		.rvt-items-stretch-#{$variable}-up {
 			align-items: stretch !important;
 		}
 	}
@@ -179,45 +179,45 @@
 
 // Align content
 
-.#{$prefix}-content-start {
+.rvt-content-start {
 	align-content: flex-start !important;
 }
 
-.#{$prefix}-content-end {
+.rvt-content-end {
 	align-content: flex-end !important;
 }
 
-.#{$prefix}-content-center {
+.rvt-content-center {
 	align-content: center !important;
 }
 
-.#{$prefix}-content-stretch {
+.rvt-content-stretch {
 	align-content: stretch !important;
 }
 
-.#{$prefix}-content-baseline {
+.rvt-content-baseline {
 	align-content: baseline !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-content-start-#{$variable}-up {
+		.rvt-content-start-#{$variable}-up {
 			align-content: flex-start !important;
 		}
 
-		.#{$prefix}-content-end-#{$variable}-up {
+		.rvt-content-end-#{$variable}-up {
 			align-content: flex-end !important;
 		}
 
-		.#{$prefix}-content-center-#{$variable}-up {
+		.rvt-content-center-#{$variable}-up {
 			align-content: center !important;
 		}
 
-		.#{$prefix}-content-stretch-#{$variable}-up {
+		.rvt-content-stretch-#{$variable}-up {
 			align-content: stretch !important;
 		}
 
-		.#{$prefix}-content-baseline-#{$variable}-up {
+		.rvt-content-baseline-#{$variable}-up {
 			align-content: baseline !important;
 		}
 	}
@@ -225,53 +225,53 @@
 
 // Flex justify-content
 
-.#{$prefix}-justify-start {
+.rvt-justify-start {
 	justify-content: flex-start;
 }
 
-.#{$prefix}-justify-end {
+.rvt-justify-end {
 	justify-content: flex-end;
 }
 
-.#{$prefix}-justify-center {
+.rvt-justify-center {
 	justify-content: center;
 }
 
-.#{$prefix}-justify-space-between {
+.rvt-justify-space-between {
 	justify-content: space-between;
 }
 
-.#{$prefix}-justify-space-around {
+.rvt-justify-space-around {
 	justify-content: space-around;
 }
 
-.#{$prefix}-justify-space-evenly {
+.rvt-justify-space-evenly {
 	justify-content: space-evenly;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-justify-start-#{$variable}-up {
+		.rvt-justify-start-#{$variable}-up {
 			justify-content: flex-start;
 		}
 
-		.#{$prefix}-justify-end-#{$variable}-up {
+		.rvt-justify-end-#{$variable}-up {
 			justify-content: flex-end;
 		}
 
-		.#{$prefix}-justify-center-#{$variable}-up {
+		.rvt-justify-center-#{$variable}-up {
 			justify-content: center;
 		}
 
-		.#{$prefix}-justify-space-between-#{$variable}-up {
+		.rvt-justify-space-between-#{$variable}-up {
 			justify-content: space-between;
 		}
 
-		.#{$prefix}-justify-space-around-#{$variable}-up {
+		.rvt-justify-space-around-#{$variable}-up {
 			justify-content: space-around;
 		}
 
-		.#{$prefix}-justify-space-evenly-#{$variable}-up {
+		.rvt-justify-space-evenly-#{$variable}-up {
 			justify-content: space-evenly;
 		}
 	}
@@ -279,45 +279,45 @@
 
 // self
 
-.#{$prefix}-self-start {
+.rvt-self-start {
 	align-self: flex-start !important;
 }
 
-.#{$prefix}-self-end {
+.rvt-self-end {
 	align-self: flex-end !important;
 }
 
-.#{$prefix}-self-center {
+.rvt-self-center {
 	align-self: center !important;
 }
 
-.#{$prefix}-self-baseline {
+.rvt-self-baseline {
 	align-self: baseline !important;
 }
 
-.#{$prefix}-self-stretch {
+.rvt-self-stretch {
 	align-self: stretch !important;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
-		.#{$prefix}-self-start-#{$variable}-up {
+		.rvt-self-start-#{$variable}-up {
 			align-self: flex-start;
 		}
 
-		.#{$prefix}-self-end-#{$variable}-up {
+		.rvt-self-end-#{$variable}-up {
 			align-self: flex-end;
 		}
 
-		.#{$prefix}-self-center-#{$variable}-up {
+		.rvt-self-center-#{$variable}-up {
 			align-self: center;
 		}
 
-		.#{$prefix}-self-baseline-#{$variable}-up {
+		.rvt-self-baseline-#{$variable}-up {
 			align-self: baseline;
 		}
 
-		.#{$prefix}-self-stretch-#{$variable}-up {
+		.rvt-self-stretch-#{$variable}-up {
 			align-self: stretch;
 		}
 	}

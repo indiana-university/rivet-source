@@ -1,14 +1,17 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 @use "../core" as *;
 
-.#{$prefix}-stat {
+.rvt-stat {
 	display: inline-flex;
-	padding: $spacing-xl $spacing-md;
+	padding: var(--rvt-spacing-xl) var(--rvt-spacing-md);
 	text-decoration: none;
 	transition: all 0.2s ease;
 
 	&[href]:hover {
-		border-radius: $spacing-xs;
-		box-shadow: $shadow-heavy;
+		border-radius: var(--rvt-spacing-xs);
+		box-shadow: var(--rvt-shadow-heavy);
 		color: var(--rvt-color-theme-accent);
 		transform: scale(1.1);
 	}
@@ -18,30 +21,30 @@
 	}
 
 	&__content {
-		font-family: $font-family-mono;
+		font-family: var(--rvt-font-family-mono);
 	}
 
 	&__image + * {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__number {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-mono;
-		font-size: $ts-41;
+		font-family: var(--rvt-font-family-mono);
+		font-size: var(--rvt-ts-41);
 		font-variation-settings: "wdth" 150;
-		font-weight: $font-weight-black;
+		font-weight: var(--rvt-font-weight-black);
 	}
 
 	&__description {
 		color: var(--rvt-color-theme-text-accent);
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		letter-spacing: 0.025rem;
 	}
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-stat {
-		padding: $spacing-xxl;
+	.rvt-stat {
+		padding: var(--rvt-spacing-xxl);
 	}
 }

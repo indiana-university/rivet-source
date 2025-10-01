@@ -9,15 +9,15 @@ $modifiers: (
 );
 
 @each $size, $value in map.merge($modifiers, $spacing) {
-	.#{$prefix}-gap-#{$size} {
+	.rvt-gap-#{$size} {
 		gap: $value !important;
 	}
 
-	.#{$prefix}-gap-col-#{$size} {
+	.rvt-gap-col-#{$size} {
 		column-gap: $value !important;
 	}
 
-	.#{$prefix}-gap-row-#{$size} {
+	.rvt-gap-row-#{$size} {
 		row-gap: $value !important;
 	}
 }

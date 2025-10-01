@@ -1,15 +1,16 @@
-// Brand section (copyright)
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
 
-.#{$prefix}-footer-base {
+.rvt-footer-base {
 	&__inner {
 		border-top: 1px solid var(--rvt-color-theme-ui);
 		display: flex;
 		flex-direction: column;
 		margin-left: auto;
-		padding-bottom: $spacing-sm;
-		padding-top: $spacing-sm;
+		padding-bottom: var(--rvt-spacing-sm);
+		padding-top: var(--rvt-spacing-sm);
 	}
 
 	&__logo {
@@ -24,8 +25,8 @@
 	}
 
 	&__item {
-		font-size: $ts-14;
-		margin-top: $spacing-xs;
+		font-size: var(--rvt-ts-14);
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__link {
@@ -40,7 +41,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-footer-base {
+	.rvt-footer-base {
 		&__inner {
 			align-items: center;
 			flex-direction: row;
@@ -57,7 +58,7 @@
 		&__list {
 			display: flex;
 			margin-bottom: 0;
-			margin-left: $spacing-sm;
+			margin-left: var(--rvt-spacing-sm);
 			margin-top: 0;
 		}
 
@@ -66,7 +67,7 @@
 		}
 
 		&__item:not(:first-child) {
-			margin-left: $spacing-sm;
+			margin-left: var(--rvt-spacing-sm);
 		}
 	}
 }

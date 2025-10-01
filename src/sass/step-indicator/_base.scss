@@ -2,10 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
-@use "sass:map";
-@use "sass:math";
 
-.#{$prefix}-steps {
+.rvt-steps {
 	display: flex;
 	list-style: none;
 	margin: 0;
@@ -22,7 +20,7 @@
 		text-align: center;
 
 		&::before {
-			box-shadow: 0 ($spacing-sm * 2.9) 0 1px var(--rvt-color-theme-ui);
+			box-shadow: 0 calc(var(--rvt-spacing-sm) * 2.9) 0 1px var(--rvt-color-theme-ui);
 			content: "";
 			display: block;
 			width: 100%;
@@ -68,27 +66,27 @@
 	&__label {
 		display: block;
 		color: var(--rvt-color-theme-text);
-		font-size: $ts-14;
-		margin-bottom: $spacing-xs;
-		padding-left: $spacing-xs;
-		padding-right: $spacing-xs;
+		font-size: var(--rvt-ts-14);
+		margin-bottom: var(--rvt-spacing-xs);
+		padding-left: var(--rvt-spacing-xs);
+		padding-right: var(--rvt-spacing-xs);
 	}
 
 	&__indicator {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background);
-		border: math.div($spacing-xxs, 2) solid var(--rvt-color-theme-ui);
+		border: calc(var(--rvt-spacing-xxs) / 2) solid var(--rvt-color-theme-ui);
 		border-radius: 999rem;
 		box-shadow:
 			0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight),
-			0 0 0 $spacing-xs var(--rvt-color-theme-background);
+			0 0 0 var(--rvt-spacing-xs) var(--rvt-color-theme-background);
 		display: inline-flex;
-		font-weight: $font-weight-medium;
-		height: $spacing-lg;
+		font-weight: var(--rvt-font-weight-medium);
+		height: var(--rvt-spacing-lg);
 		justify-content: center;
 		position: relative;
-		width: $spacing-lg;
-		z-index: map.get($z-index, "100");
+		width: var(--rvt-spacing-lg);
+		z-index: var(--rvt-z-index-100);
 	}
 
 	&__indicator--success {
@@ -119,7 +117,7 @@
 
 	&--vertical &__item {
 		margin-top: 0;
-		padding-top: $spacing-lg;
+		padding-top: var(--rvt-spacing-lg);
 		position: relative;
 		text-align: left;
 	}
@@ -129,9 +127,9 @@
 	}
 
 	&--vertical &__item::before {
-		box-shadow: math.div($spacing-xxs, -2) 0 0 0 var(--rvt-color-theme-ui);
+		box-shadow: calc(var(--rvt-spacing-xxs) / -2) 0 0 0 var(--rvt-color-theme-ui);
 		height: 100%;
-		left: $spacing-sm * 1.125;
+		left: calc(var(--rvt-spacing-sm) * 1.125);
 		position: absolute;
 		top: 0;
 	}
@@ -144,7 +142,7 @@
 
 	&--vertical &__label {
 		margin-bottom: 0;
-		padding-left: $spacing-sm;
+		padding-left: var(--rvt-spacing-sm);
 	}
 }
 
@@ -153,25 +151,25 @@
  * when user can click through all steps of a multi-page flow.
  */
 
-a.#{$prefix}-steps__item-content {
+a.rvt-steps__item-content {
 	text-decoration: none;
 }
 
-a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__label {
+a.rvt-steps__item-content:hover .rvt-steps__label {
 	text-decoration: underline;
 }
 
-a.#{$prefix}-steps__item-content:hover .#{$prefix}-steps__indicator,
-a.#{$prefix}-steps__item-content:focus .#{$prefix}-steps__indicator,
-a.#{$prefix}-steps__item-content[aria-current="step"]
-	.#{$prefix}-steps__indicator {
+a.rvt-steps__item-content:hover .rvt-steps__indicator,
+a.rvt-steps__item-content:focus .rvt-steps__indicator,
+a.rvt-steps__item-content[aria-current="step"]
+	.rvt-steps__indicator {
 	background-color: var(--rvt-color-theme-accent);
 	color: var(--rvt-color-theme-text-inverse);
 	border-color: transparent;
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-steps {
+	.rvt-steps {
 		overflow-x: visible;
 	}
 }

@@ -1,11 +1,14 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
 @use "../core" as *;
 
-.#{$prefix}-billboard {
+.rvt-billboard {
 	background-color: var(--rvt-color-theme-background-accent);
 	position: relative;
 
 	& + & {
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&__eyebrow {
@@ -15,27 +18,27 @@
 	}
 
 	&__eyebrow + &__title {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-condensed;
-		font-size: $ts-26;
-		font-weight: $font-weight-black;
+		font-family: var(--rvt-font-family-condensed);
+		font-size: var(--rvt-ts-26);
+		font-weight: var(--rvt-font-weight-black);
 		letter-spacing: 0.04rem;
 		line-height: 1.2;
 		text-transform: uppercase;
 	}
 
 	&__body {
-		margin-top: $spacing-md;
-		padding: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
+		padding: var(--rvt-spacing-md);
 	}
 
 	&__content {
 		color: var(--rvt-color-theme-text);
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&__content > * {
@@ -43,7 +46,7 @@
 	}
 
 	&__content > * + * {
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&__image {
@@ -57,16 +60,16 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-billboard {
+	.rvt-billboard {
 		display: flex;
 		flex-direction: row-reverse;
 
 		& + & {
-			margin-top: $spacing-xxl;
+			margin-top: var(--rvt-spacing-xxl);
 		}
 
 		&__title {
-			font-size: $ts-29;
+			font-size: var(--rvt-ts-29);
 		}
 
 		&__image {
@@ -86,8 +89,8 @@
 			flex-grow: 1;
 			justify-content: flex-end;
 			margin-top: 0;
-			padding-bottom: $spacing-xxl;
-			padding-inline: $spacing-xxl;
+			padding-bottom: var(--rvt-spacing-xxl);
+			padding-inline: var(--rvt-spacing-xxl);
 		}
 
 		&--reverse {
@@ -101,8 +104,8 @@
 
 		&--compact &__body {
 			justify-content: center;
-			padding-block: $spacing-md;
-			padding-inline: $spacing-xxl;
+			padding-block: var(--rvt-spacing-md);
+			padding-inline: var(--rvt-spacing-xxl);
 		}
 
 		&--compact &__body,
@@ -111,7 +114,7 @@
 		}
 
 		&--compact &__title {
-			font-size: $ts-26;
+			font-size: var(--rvt-ts-26);
 		}
 	}
 }

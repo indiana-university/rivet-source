@@ -7,7 +7,7 @@
 	@include container;
 
 	& + & {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&--fluid {

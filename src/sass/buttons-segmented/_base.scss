@@ -1,22 +1,20 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-.#{$prefix}-button-segmented {
+.rvt-button-segmented {
 	display: inline-flex;
 
 	&--fitted {
 		display: flex;
 		width: 100%;
 
-		.#{$prefix}-button {
+		.rvt-button {
 			flex-grow: 1;
 			justify-content: center;
 		}
 	}
 
-	.#{$prefix}-button {
+	.rvt-button {
 		position: relative;
 
 		&:focus {
@@ -24,22 +22,22 @@
 		}
 	}
 
-	a.#{$prefix}-button {
+	a.rvt-button {
 		text-align: center;
 	}
 
-	.#{$prefix}-button:first-child {
+	.rvt-button:first-child {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
 
-	.#{$prefix}-button:last-child {
+	.rvt-button:last-child {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		margin-left: -2px;
 	}
 
-	.#{$prefix}-button:not(:first-child):not(:last-child) {
+	.rvt-button:not(:first-child):not(:last-child) {
 		border-radius: 0;
 		margin-left: -2px;
 	}
@@ -49,42 +47,42 @@
    * segmented button.
    */
 
-	.dropdown:first-child > .#{$prefix}-button:only-of-type,
-	.#{$prefix}-dropdown:first-child > .#{$prefix}-button:only-of-type {
+	.dropdown:first-child > .rvt-button:only-of-type,
+	.rvt-dropdown:first-child > .rvt-button:only-of-type {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		margin-left: -2px;
 	}
 
-	.dropdown:first-child > .#{$prefix}-button:first-of-type,
-	.#{$prefix}-dropdown:first-child > .#{$prefix}-button:first-of-type {
-		border-top-left-radius: $spacing-xxs;
-		border-bottom-left-radius: $spacing-xxs;
+	.dropdown:first-child > .rvt-button:first-of-type,
+	.rvt-dropdown:first-child > .rvt-button:first-of-type {
+		border-top-left-radius: var(--rvt-spacing-xxs);
+		border-bottom-left-radius: var(--rvt-spacing-xxs);
 	}
 
-	.dropdown:last-child > .#{$prefix}-button:only-of-type,
-	.#{$prefix}-dropdown:last-child > .#{$prefix}-button:only-of-type {
+	.dropdown:last-child > .rvt-button:only-of-type,
+	.rvt-dropdown:last-child > .rvt-button:only-of-type {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		margin-left: -2px;
 	}
 
-	.dropdown:last-child > .#{$prefix}-button:last-of-type,
-	.#{$prefix}-dropdown:last-child > .#{$prefix}-button:last-of-type {
-		border-top-right-radius: $spacing-xxs;
-		border-bottom-right-radius: $spacing-xxs;
+	.dropdown:last-child > .rvt-button:last-of-type,
+	.rvt-dropdown:last-child > .rvt-button:last-of-type {
+		border-top-right-radius: var(--rvt-spacing-xxs);
+		border-bottom-right-radius: var(--rvt-spacing-xxs);
 	}
 
 	.dropdown:not(:first-child):not(:last-child)
-		> .#{$prefix}-button:only-of-type,
-	.#{$prefix}-dropdown:not(:first-child):not(:last-child)
-		> .#{$prefix}-button:only-of-type {
+		> .rvt-button:only-of-type,
+	.rvt-dropdown:not(:first-child):not(:last-child)
+		> .rvt-button:only-of-type {
 		border-radius: 0;
 		margin-left: -2px;
 	}
 
-	.#{$prefix}-dropdown:last-child
-		> .#{$prefix}-button:not(.#{$prefix}-button--secondary) {
+	.rvt-dropdown:last-child
+		> .rvt-button:not(.rvt-button--secondary) {
 		margin-left: 2px;
 	}
 }
