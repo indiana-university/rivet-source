@@ -7,8 +7,8 @@
 .rvt-list-inline,
 .rvt-list-plain {
 	display: flex;
-	gap: $spacing-xs $spacing-sm;
-	margin: $spacing-xs 0 0 0;
+	gap: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+	margin: var(--rvt-spacing-xs) 0 0 0;
 }
 
 .rvt-list,
@@ -25,7 +25,7 @@
 
 .rvt-list,
 .rvt-list-plain .rvt-list-plain {
-	padding-left: $spacing-lg;
+	padding-left: var(--rvt-spacing-lg);
 }
 
 .rvt-list-inline {
@@ -45,7 +45,7 @@
 
 	:where(dt) {
 		font-weight: $font-weight-medium;
-		margin-top: $spacing-sm;
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	:where(dt + dt) {

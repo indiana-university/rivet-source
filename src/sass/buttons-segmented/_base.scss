@@ -58,8 +58,8 @@
 
 	.dropdown:first-child > .rvt-button:first-of-type,
 	.rvt-dropdown:first-child > .rvt-button:first-of-type {
-		border-top-left-radius: $spacing-xxs;
-		border-bottom-left-radius: $spacing-xxs;
+		border-top-left-radius: var(--rvt-spacing-xxs);
+		border-bottom-left-radius: var(--rvt-spacing-xxs);
 	}
 
 	.dropdown:last-child > .rvt-button:only-of-type,
@@ -71,8 +71,8 @@
 
 	.dropdown:last-child > .rvt-button:last-of-type,
 	.rvt-dropdown:last-child > .rvt-button:last-of-type {
-		border-top-right-radius: $spacing-xxs;
-		border-bottom-right-radius: $spacing-xxs;
+		border-top-right-radius: var(--rvt-spacing-xxs);
+		border-bottom-right-radius: var(--rvt-spacing-xxs);
 	}
 
 	.dropdown:not(:first-child):not(:last-child)

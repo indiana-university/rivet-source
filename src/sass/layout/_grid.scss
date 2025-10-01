@@ -5,10 +5,10 @@
 
 .rvt-grid {
 	display: grid;
-	gap: #{$spacing-md};
+	gap: #{var(--rvt-spacing-md)};
 
 	& + & {
-		margin-top: #{$spacing-md};
+		margin-top: #{var(--rvt-spacing-md)};
 	}
 }
 
@@ -48,7 +48,7 @@
 
 @include mq($breakpoint-lg) {
 	.rvt-grid {
-		gap: $spacing-lg;
+		gap: var(--rvt-spacing-lg);
 	}
 
 	// Make the sidebar layout variant kick in once

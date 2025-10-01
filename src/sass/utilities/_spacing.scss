@@ -15,15 +15,15 @@ $spacing-directions: (null, -top, -right, -bottom, -left);
 // NOTE you can reference these sizes in core/_variables.scss
 
 $spacing-sizes: (
-	-xxs: $spacing-xxs,
-	-xs: $spacing-xs,
-	-sm: $spacing-sm,
-	-md: $spacing-md,
-	-lg: $spacing-lg,
-	-xl: $spacing-xl,
-	-xxl: $spacing-xxl,
-	-3-xl: $spacing-3-xl,
-	-4-xl: $spacing-4-xl
+	-xxs: var(--rvt-spacing-xxs),
+	-xs: var(--rvt-spacing-xs),
+	-sm: var(--rvt-spacing-sm),
+	-md: var(--rvt-spacing-md),
+	-lg: var(--rvt-spacing-lg),
+	-xl: var(--rvt-spacing-xl),
+	-xxl: var(--rvt-spacing-xxl),
+	-3-xl: var(--rvt-spacing-3-xl),
+	-4-xl: var(--rvt-spacing-4-xl)
 );
 
 // Super gnarly loop here, but it saves sooo much time

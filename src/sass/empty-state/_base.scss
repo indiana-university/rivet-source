@@ -2,18 +2,18 @@
 
 .rvt-empty-state {
 	background-color: var(--rvt-color-theme-background-strong);
-	border: $spacing-xxs dashed var(--rvt-color-theme-ui);
-	border-radius: $spacing-xs;
+	border: var(--rvt-spacing-xxs) dashed var(--rvt-color-theme-ui);
+	border-radius: var(--rvt-spacing-xs);
 	display: flex;
 	flex-direction: column;
-	padding: $spacing-xxl $spacing-md;
+	padding: var(--rvt-spacing-xxl) var(--rvt-spacing-md);
 	text-align: center;
 
 	&__content {
 	}
 
 	&__actions {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__actions > * {
@@ -22,7 +22,7 @@
 	}
 
 	&__actions > *:not(:first-child) {
-		margin-top: $spacing-sm;
+		margin-top: var(--rvt-spacing-sm);
 	}
 }
 
@@ -38,7 +38,7 @@
 		}
 
 		&__actions > *:not(:first-child) {
-			margin-left: $spacing-sm;
+			margin-left: var(--rvt-spacing-sm);
 			margin-top: 0;
 		}
 	}

@@ -3,27 +3,27 @@
 @use "../core" as *;
 
 .rvt-footer-resources {
-	padding-bottom: $spacing-sm;
+	padding-bottom: var(--rvt-spacing-sm);
 
 	&__heading {
 		font-size: $ts-18;
 		font-weight: $font-weight-medium;
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__text-block {
 		font-size: $ts-14;
-		margin-top: $spacing-sm;
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	&__list {
 		list-style: none;
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 		padding-left: 0;
 	}
 
 	&__list-item {
-		margin-top: $spacing-xxs;
+		margin-top: var(--rvt-spacing-xxs);
 	}
 
 	&__list-item a {
@@ -45,22 +45,22 @@
 		border-color: transparent;
 		color: var(--rvt-color-theme-accent);
 		justify-content: center;
-		margin-bottom: $spacing-sm;
+		margin-bottom: var(--rvt-spacing-sm);
 		width: 100%;
 	}
 }
 
 @include mq($breakpoint-md) {
 	.rvt-footer-resources {
-		padding-bottom: $spacing-lg;
-		padding-top: $spacing-lg;
+		padding-bottom: var(--rvt-spacing-lg);
+		padding-top: var(--rvt-spacing-lg);
 
 		&__heading {
 			margin-top: 0;
 		}
 
 		&__list {
-			margin-top: $spacing-sm;
+			margin-top: var(--rvt-spacing-sm);
 		}
 	}
 
@@ -68,6 +68,6 @@
 	// visually when used together with social component.
 
 	.rvt-footer-social + .rvt-footer-resources {
-		padding-top: $spacing-xs;
+		padding-top: var(--rvt-spacing-xs);
 	}
 }

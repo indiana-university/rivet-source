@@ -12,9 +12,9 @@
 		display: flex;
 		list-style: none;
 		margin: 0;
-		padding-left: $spacing-xxs;
-		padding-right: $spacing-xxs;
-		padding-top: $spacing-xxs;
+		padding-left: var(--rvt-spacing-xxs);
+		padding-right: var(--rvt-spacing-xxs);
+		padding-top: var(--rvt-spacing-xxs);
 	}
 
 	&__item {
@@ -30,7 +30,7 @@
 		color: var(--rvt-color-theme-text-strong);
 		display: flex;
 		font-size: $ts-14;
-		padding: $spacing-sm $spacing-sm;
+		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
 		position: relative;
 		text-decoration: none;
 
@@ -49,7 +49,7 @@
 		bottom: 0;
 		content: "";
 		display: block;
-		height: $spacing-xxs;
+		height: var(--rvt-spacing-xxs);
 		left: 0;
 		position: absolute;
 		width: 100%;

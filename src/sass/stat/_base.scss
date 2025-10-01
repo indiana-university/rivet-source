@@ -2,12 +2,12 @@
 
 .rvt-stat {
 	display: inline-flex;
-	padding: $spacing-xl $spacing-md;
+	padding: var(--rvt-spacing-xl) var(--rvt-spacing-md);
 	text-decoration: none;
 	transition: all 0.2s ease;
 
 	&[href]:hover {
-		border-radius: $spacing-xs;
+		border-radius: var(--rvt-spacing-xs);
 		box-shadow: $shadow-heavy;
 		color: var(--rvt-color-theme-accent);
 		transform: scale(1.1);
@@ -22,7 +22,7 @@
 	}
 
 	&__image + * {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__number {
@@ -42,6 +42,6 @@
 
 @include mq($breakpoint-md) {
 	.rvt-stat {
-		padding: $spacing-xxl;
+		padding: var(--rvt-spacing-xxl);
 	}
 }

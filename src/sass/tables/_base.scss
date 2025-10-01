@@ -15,7 +15,7 @@ table,
 	caption {
 		font-size: $ts-32;
 		font-weight: $font-weight-medium;
-		margin-bottom: $spacing-md;
+		margin-bottom: var(--rvt-spacing-md);
 		text-align: left;
 	}
 }
@@ -28,8 +28,8 @@ thead {
 	background-color: var(--rvt-color-theme-background-strong);
 
 	tr th {
-		padding-block: $spacing-sm;
-		padding-inline: $spacing-md;
+		padding-block: var(--rvt-spacing-sm);
+		padding-inline: var(--rvt-spacing-md);
 	}
 
 	th,
@@ -45,7 +45,7 @@ tr {
 
 tbody tr td,
 tbody tr th {
-	padding: $spacing-md;
+	padding: var(--rvt-spacing-md);
 }
 
 .rvt-table-plain {
@@ -142,7 +142,7 @@ tbody tr th {
 		14px 100%;
 	/* stylelint-enable */
 	border: 1px solid var(--rvt-color-theme-ui);
-	border-radius: $spacing-xs;
+	border-radius: var(--rvt-spacing-xs);
 	overflow: auto;
 }
 

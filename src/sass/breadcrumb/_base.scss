@@ -6,7 +6,7 @@
 .rvt-breadcrumbs {
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: $spacing-xxs * 0.75;
+	gap: calc(var(--rvt-spacing-xxs) * 0.75);
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -16,7 +16,7 @@
 		display: inline-flex;
 		font-family: $font-family-mono;
 		font-size: $ts-12;
-		gap: $spacing-xxs;
+		gap: var(--rvt-spacing-xxs);
 		line-height: 1.25rem;
 		margin-top: 0;
 
@@ -25,15 +25,15 @@
 			clip-path: path(var(--rvt-icon-chevron-right));
 			content: "";
 			display: block;
-			height: $spacing-sm;
-			width: $spacing-sm;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
 		}
 
 		a {
 			align-items: center;
 			display: inline-flex;
 			color: var(--rvt-color-theme-text);
-			gap: $spacing-xxs;
+			gap: var(--rvt-spacing-xxs);
 			text-decoration: none;
 
 			&:hover {
@@ -51,8 +51,8 @@
 			clip-path: path(var(--rvt-icon-home));
 			content: "";
 			display: block;
-			height: $spacing-sm;
-			width: $spacing-sm;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
 		}
 	}
 
@@ -60,6 +60,6 @@
 		color: var(--rvt-color-theme-accent);
 		font-weight: $font-weight-medium;
 		text-decoration: underline;
-		text-underline-offset: $spacing-xxs;
+		text-underline-offset: var(--rvt-spacing-xxs);
 	}
 }

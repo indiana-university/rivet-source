@@ -10,7 +10,7 @@
 	&__address {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-md;
+		gap: var(--rvt-spacing-md);
 	}
 
 	&__address-eyebrow {
@@ -25,17 +25,17 @@
 	}
 
 	&__address-eyebrow + &__address-title {
-		margin-top: $spacing-xxs;
+		margin-top: var(--rvt-spacing-xxs);
 	}
 
 	&__address-text {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__icon-list {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 		list-style: "";
 		margin-bottom: 0;
 		margin-top: 0;
@@ -45,7 +45,7 @@
 	&__icon-list-item {
 		align-items: center;
 		display: flex;
-		gap: $spacing-xs;
+		gap: var(--rvt-spacing-xs);
 		line-height: 1.1;
 	}
 
@@ -58,7 +58,7 @@
 			border: none;
 			color: var(--rvt-color-theme-accent);
 			display: inline-flex;
-			gap: $spacing-xs;
+			gap: var(--rvt-spacing-xs);
 			font-weight: $font-weight-medium;
 			padding: 0;
 		}
@@ -68,8 +68,8 @@
 			clip-path: path(var(--rvt-icon-chevron-down));
 			content: "";
 			display: block;
-			height: $spacing-sm;
-			width: $spacing-sm;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
 		}
 
 		button:hover {
@@ -84,11 +84,11 @@
 	}
 
 	&__intro + &__address {
-		margin-top: $spacing-xl;
+		margin-top: var(--rvt-spacing-xl);
 	}
 
 	&__address + &__icon-list {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 }
 
@@ -113,7 +113,7 @@
 
 		&__icon-list {
 			border-left: 1px solid var(--rvt-color-theme-ui);
-			padding-left: $spacing-lg;
+			padding-left: var(--rvt-spacing-lg);
 		}
 	}
 }

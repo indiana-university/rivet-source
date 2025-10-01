@@ -5,14 +5,14 @@
 @use "sass:math";
 
 .rvt-sidenav {
-	margin-top: $spacing-lg;
+	margin-top: var(--rvt-spacing-lg);
 
 	&__label {
 		color: var(--rvt-color-theme-accent);
 		display: block;
 		font-family: $font-family-mono;
 		font-size: $ts-12;
-		letter-spacing: $spacing-sm * 0.125;
+		letter-spacing: calc(var(--rvt-spacing-sm) * 0.125);
 		text-transform: uppercase;
 	}
 
@@ -23,7 +23,7 @@
 	}
 
 	&__label + &__list {
-		margin-top: $spacing-sm;
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	&__list[hidden],
@@ -44,7 +44,7 @@
 	}
 
 	&__item &__list {
-		margin-left: $spacing-sm;
+		margin-left: var(--rvt-spacing-sm);
 	}
 
 	&__item-wrapper {
@@ -57,7 +57,7 @@
 		color: var(--rvt-color-theme-text-strong);
 		flex-grow: 1;
 		font-weight: $font-weight-medium;
-		padding: $spacing-sm;
+		padding: var(--rvt-spacing-sm);
 		position: relative;
 		text-decoration: none;
 
@@ -102,15 +102,15 @@
 		cursor: pointer;
 		display: none; // Hide by default if JS doesn't load
 		justify-content: center;
-		padding: 0 $spacing-md;
+		padding: 0 var(--rvt-spacing-md);
 
 		&::after {
 			background-color: currentColor;
 			clip-path: path(var(--rvt-icon-chevron-down));
 			content: "";
 			display: block;
-			height: $spacing-sm;
-			width: $spacing-sm;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
 		}
 
 		svg {
@@ -144,15 +144,15 @@
 		border: 2px solid var(--rvt-color-theme-ui);
 		display: flex;
 		font-weight: $font-weight-medium;
-		gap: $spacing-sm;
-		height: $spacing-sm * 3;
+		gap: var(--rvt-spacing-sm);
+		height: calc(var(--rvt-spacing-sm) * 3);
 		justify-content: space-between;
-		padding-inline: $spacing-sm;
+		padding-inline: var(--rvt-spacing-sm);
 		width: 100%;
 	}
 
 	&--compact &__label + &__list {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&--compact &__item {
@@ -161,7 +161,7 @@
 
 	&--compact &__link {
 		font-weight: var(--rvt-font-weight-normal);
-		padding: $spacing-xxs $spacing-sm;
+		padding: var(--rvt-spacing-xxs) var(--rvt-spacing-sm);
 
 		&:hover {
 			background-color: var(--rvt-color-theme-background-strong);
@@ -179,10 +179,10 @@
 	&--compact &__item &__list &__link {
 		font-size: var(--rvt-ts-14);
 		line-height: calc(20rem / 16);
-		padding-left: $spacing-lg;
+		padding-left: var(--rvt-spacing-lg);
 	}
 }
 
 .rvt-layout-base__sidebar .rvt-sidenav {
-	margin-top: $spacing-sm;
+	margin-top: var(--rvt-spacing-sm);
 }

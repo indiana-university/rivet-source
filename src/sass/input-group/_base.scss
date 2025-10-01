@@ -47,18 +47,18 @@
 		border: 1px solid var(--rvt-color-theme-text-strong);
 		display: flex;
 		height: 100%;
-		padding-left: $spacing-sm * 0.75;
-		padding-right: $spacing-sm * 0.75;
+		padding-left: calc(var(--rvt-spacing-sm) * 0.75);
+		padding-right: calc(var(--rvt-spacing-sm) * 0.75);
 	}
 
 	&__append &__text {
-		border-bottom-right-radius: $spacing-xxs;
-		border-top-right-radius: $spacing-xxs;
+		border-bottom-right-radius: var(--rvt-spacing-xxs);
+		border-top-right-radius: var(--rvt-spacing-xxs);
 	}
 
 	&__prepend &__text {
-		border-bottom-left-radius: $spacing-xxs;
-		border-top-left-radius: $spacing-xxs;
+		border-bottom-left-radius: var(--rvt-spacing-xxs);
+		border-top-left-radius: var(--rvt-spacing-xxs);
 	}
 
 	&__prepend {

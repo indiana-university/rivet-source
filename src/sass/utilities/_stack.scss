@@ -5,7 +5,7 @@
 
 .rvt-stack,
 .rvt-flow {
-	--rvt-stack-space: #{$spacing-lg};
+	--rvt-stack-space: #{var(--rvt-spacing-lg)};
 }
 
 .rvt-flow > *,
@@ -28,6 +28,6 @@
 @include mq($breakpoint-md) {
 	.rvt-flow,
 	.rvt-stack {
-		--rvt-stack-space: #{$spacing-sm * 5};
+		--rvt-stack-space: calc(var(--rvt-spacing-sm) * 5);
 	}
 }

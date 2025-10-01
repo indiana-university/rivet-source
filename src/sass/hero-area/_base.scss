@@ -7,7 +7,7 @@
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-lg;
+		gap: var(--rvt-spacing-lg);
 		@include container;
 	}
 
@@ -37,7 +37,7 @@
 	}
 
 	&__eyebrow + &__title {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__teaser > * {
@@ -46,13 +46,13 @@
 
 	&__title + &__actions,
 	&__teaser + &__actions {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 	}
 
 	&__actions > * {
@@ -69,17 +69,17 @@
 	}
 
 	&--statement &__banner {
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&--feature &__banner {
-		margin-top: $spacing-xxl;
+		margin-top: var(--rvt-spacing-xxl);
 	}
 
 	&--feature &__banner {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-lg;
+		gap: var(--rvt-spacing-lg);
 		@include container();
 	}
 
@@ -101,7 +101,7 @@
 		}
 
 		&__actions {
-			gap: $spacing-md;
+			gap: var(--rvt-spacing-md);
 		}
 
 		&__callout {
@@ -173,17 +173,17 @@
 		}
 
 		&__eyebrow + &__title {
-			margin-top: $spacing-sm;
+			margin-top: var(--rvt-spacing-sm);
 		}
 
 		&__teaser {
 			font-size: $ts-20;
-			margin-top: $spacing-lg;
+			margin-top: var(--rvt-spacing-lg);
 		}
 
 		&__title + &__actions,
 		&__teaser + &__actions {
-			margin-top: $spacing-xl;
+			margin-top: var(--rvt-spacing-xl);
 		}
 
 		&__teaser > * {
@@ -191,7 +191,7 @@
 		}
 
 		&__teaser > * + * {
-			margin-top: $spacing-sm;
+			margin-top: var(--rvt-spacing-sm);
 		}
 
 		&__callout {
@@ -239,7 +239,7 @@
 		}
 
 		&--split &__inner {
-			gap: $spacing-xxl;
+			gap: var(--rvt-spacing-xxl);
 		}
 
 		&--split &__body,
@@ -253,6 +253,6 @@
 .rvt-hero,
 .rvt-hero {
 	&__quick-links {
-		padding: $spacing-lg;
+		padding: var(--rvt-spacing-lg);
 	}
 }

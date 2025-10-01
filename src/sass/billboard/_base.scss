@@ -9,7 +9,7 @@
 	}
 
 	& + & {
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&__eyebrow {
@@ -19,7 +19,7 @@
 	}
 
 	&__eyebrow + &__title {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__title {
@@ -33,13 +33,13 @@
 	}
 
 	&__body {
-		margin-top: $spacing-md;
-		padding: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
+		padding: var(--rvt-spacing-md);
 	}
 
 	&__content {
 		color: var(--rvt-color-theme-text);
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&__content > * {
@@ -47,7 +47,7 @@
 	}
 
 	&__content > * + * {
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&__image {
@@ -66,7 +66,7 @@
 		flex-direction: row-reverse;
 
 		& + & {
-			margin-top: $spacing-xxl;
+			margin-top: var(--rvt-spacing-xxl);
 		}
 
 		&__title {
@@ -90,8 +90,8 @@
 			flex-grow: 1;
 			justify-content: flex-end;
 			margin-top: 0;
-			padding-bottom: $spacing-xxl;
-			padding-inline: $spacing-xxl;
+			padding-bottom: var(--rvt-spacing-xxl);
+			padding-inline: var(--rvt-spacing-xxl);
 		}
 
 		&--reverse {
@@ -105,8 +105,8 @@
 
 		&--compact &__body {
 			justify-content: center;
-			padding-block: $spacing-md;
-			padding-inline: $spacing-xxl;
+			padding-block: var(--rvt-spacing-md);
+			padding-inline: var(--rvt-spacing-xxl);
 		}
 
 		&--compact &__body,

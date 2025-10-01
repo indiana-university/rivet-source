@@ -9,7 +9,7 @@
 	position: relative;
 
 	.button__text {
-		margin-right: $spacing-xs;
+		margin-right: var(--rvt-spacing-xs);
 	}
 
 	&__menu[aria-hidden="true"] {
@@ -20,8 +20,8 @@
 		background-color: var(--rvt-color-theme-background);
 		box-shadow: $shadow-standard;
 		min-width: 12.5rem;
-		padding-bottom: $spacing-xs;
-		padding-top: $spacing-xs;
+		padding-bottom: var(--rvt-spacing-xs);
+		padding-top: var(--rvt-spacing-xs);
 		position: absolute;
 		// Aligning this right by default so that dropdowns do not
 		// go offscreen when close to the edge of the viewport.
@@ -55,7 +55,7 @@
 			/**
        * This padding-top and bottom value is a magic number.
        */
-			padding: 0.375rem $spacing-sm;
+			padding: 0.375rem var(--rvt-spacing-sm);
 			text-align: left;
 			text-decoration: none;
 			width: 100%;
@@ -86,7 +86,7 @@
 
 	&__menu-heading {
 		color: var(--rvt-color-theme-text-strong);
-		padding: $spacing-sm $spacing-sm $spacing-xxs;
+		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm) var(--rvt-spacing-xxs);
 		font-weight: $font-weight-bold;
 		font-size: $ts-14;
 
@@ -98,14 +98,14 @@
 	&__menu-divider,
 	&__menu-separator {
 		border-top: 1px solid var(--rvt-color-theme-ui);
-		margin-bottom: $spacing-xs;
-		margin-top: $spacing-xs;
+		margin-bottom: var(--rvt-spacing-xs);
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	[role="group"] {
 		border-top: 1px solid var(--rvt-color-theme-ui);
-		margin-top: $spacing-xs;
-		padding-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
+		padding-top: var(--rvt-spacing-xs);
 
 		&:first-child {
 			margin-top: 0;

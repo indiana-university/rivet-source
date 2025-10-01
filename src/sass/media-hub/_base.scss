@@ -16,24 +16,24 @@
 		-moz-osx-font-smoothing: grayscale;
 
 		a {
-			text-decoration-thickness: $spacing-xs;
-			text-underline-offset: $spacing-xs;
+			text-decoration-thickness: var(--rvt-spacing-xs);
+			text-underline-offset: var(--rvt-spacing-xs);
 		}
 
 		a:hover {
-			text-decoration-thickness: $spacing-xs;
-			text-underline-offset: $spacing-xs;
+			text-decoration-thickness: var(--rvt-spacing-xs);
+			text-underline-offset: var(--rvt-spacing-xs);
 			transition: 0.2s all ease-in-out;
 		}
 	}
 
 	&__teaser + &__media {
-		margin-top: $spacing-xxl;
+		margin-top: var(--rvt-spacing-xxl);
 	}
 
 	&__media {
 		display: grid;
-		gap: $spacing-xs;
+		gap: var(--rvt-spacing-xs);
 		grid-template-columns: repeat(6, 1fr);
 		grid-template-rows: auto auto;
 		position: relative;

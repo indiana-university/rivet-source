@@ -39,15 +39,15 @@ a,
 		clip-path: path(var(--rvt-icon-arrow-right));
 		content: "";
 		display: inline-block;
-		height: $spacing-sm;
-		margin-left: $spacing-xs;
+		height: var(--rvt-spacing-sm);
+		margin-left: var(--rvt-spacing-xs);
 		position: relative;
-		top: $spacing-xxs * 0.8;
+		top: calc(var(--rvt-spacing-xxs) * 0.8);
 		transition: all 0.2s ease;
-		width: $spacing-sm;
+		width: var(--rvt-spacing-sm);
 	}
 
 	&:hover::after {
-		transform: translateX($spacing-xxs);
+		transform: translateX(var(--rvt-spacing-xxs));
 	}
 }

@@ -18,7 +18,7 @@
 	}
 
 	&__inner {
-		padding: $spacing-md;
+		padding: var(--rvt-spacing-md);
 	}
 
 	&__eyebrow {
@@ -38,25 +38,25 @@
 	}
 
 	&__eyebrow + &__title {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__content {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__actions {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-md;
-		margin-top: $spacing-md;
+		gap: var(--rvt-spacing-md);
+		margin-top: var(--rvt-spacing-md);
 	}
 }
 
 @container callout (min-width: 640px) {
 	.rvt-callout {
 		&__inner {
-			padding: $spacing-xxl;
+			padding: var(--rvt-spacing-xxl);
 		}
 
 		&__actions {
@@ -70,10 +70,10 @@
 	.rvt-callout {
 		&__inner {
 			display: flex;
-			gap: $spacing-lg;
+			gap: var(--rvt-spacing-lg);
 			margin-inline: auto;
 			max-width: 75%;
-			padding: $spacing-xxl;
+			padding: var(--rvt-spacing-xxl);
 		}
 
 		&__title {

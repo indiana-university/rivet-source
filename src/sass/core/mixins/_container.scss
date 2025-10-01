@@ -6,7 +6,7 @@
 @mixin container($max-width: $breakpoint-xxl) {
 	margin-inline: auto;
 	max-width: var(--rvt-container-max-width, #{$max-width});
-	padding-inline: var(--rvt-container-padding-inline, #{$spacing-sm});
+	padding-inline: var(--rvt-container-padding-inline, #{var(--rvt-spacing-sm)});
 
 	@media (min-width: $breakpoint-lg) {
 		--rvt-container-padding-inline: 4vw;

@@ -36,7 +36,7 @@
 .rvt-text-input + .rvt-inline-alert,
 .rvt-select + .rvt-inline-alert,
 .rvt-textarea + .rvt-inline-alert {
-	margin-block-start: $spacing-xs;
+	margin-block-start: var(--rvt-spacing-xs);
 }
 
 .rvt-inline-alert {
@@ -45,13 +45,13 @@
 	font-size: $ts-14;
 
 	&__icon {
-		height: $spacing-sm;
-		width: $spacing-sm;
+		height: var(--rvt-spacing-sm);
+		width: var(--rvt-spacing-sm);
 	}
 
 	&__message {
 		line-height: 1;
-		margin-left: $spacing-xs;
+		margin-left: var(--rvt-spacing-xs);
 	}
 
 	&--success {
@@ -80,7 +80,7 @@
    */
 
 	&--standalone {
-		padding: $spacing-xs;
+		padding: var(--rvt-spacing-xs);
 
 		&.rvt-inline-alert--is-invalid,
 		&.rvt-inline-alert--danger {

@@ -9,7 +9,7 @@
 
 	&-code {
 		background-color: var(--rvt-color-theme-background-strong);
-		border-radius: $spacing-xxs;
+		border-radius: var(--rvt-spacing-xxs);
 		color: var(--rvt-color-theme-accent);
 		display: inline-block;
 		font-family: monospace;

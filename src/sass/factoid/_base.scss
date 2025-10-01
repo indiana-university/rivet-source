@@ -5,7 +5,7 @@
 
 .rvt-factoid {
 	&__item {
-		padding: $spacing-sm;
+		padding: var(--rvt-spacing-sm);
 	}
 
 	&__label {

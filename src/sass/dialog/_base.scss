@@ -17,7 +17,7 @@
 
 .rvt-dialog {
 	background-color: var(--rvt-color-theme-background);
-	border-radius: $spacing-xs;
+	border-radius: var(--rvt-spacing-xs);
 	box-shadow: $shadow-heavy;
 	left: 0;
 	margin: auto;
@@ -37,32 +37,32 @@
 
 	&[data-rvt-dialog-top-left] {
 		bottom: auto;
-		left: $spacing-xl;
+		left: var(--rvt-spacing-xl);
 		right: auto;
-		top: $spacing-xl;
+		top: var(--rvt-spacing-xl);
 		transform: none;
 	}
 
 	&[data-rvt-dialog-top-right] {
 		bottom: auto;
 		left: auto;
-		right: $spacing-xl;
-		top: $spacing-xl;
+		right: var(--rvt-spacing-xl);
+		top: var(--rvt-spacing-xl);
 		transform: none;
 	}
 
 	&[data-rvt-dialog-bottom-left] {
-		bottom: $spacing-xl;
-		left: $spacing-xl;
+		bottom: var(--rvt-spacing-xl);
+		left: var(--rvt-spacing-xl);
 		right: auto;
 		top: auto;
 		transform: none;
 	}
 
 	&[data-rvt-dialog-bottom-right] {
-		bottom: $spacing-xl;
+		bottom: var(--rvt-spacing-xl);
 		left: auto;
-		right: $spacing-xl;
+		right: var(--rvt-spacing-xl);
 		top: auto;
 		transform: none;
 	}
@@ -70,14 +70,14 @@
 	&__close {
 		background-color: transparent;
 		border: none;
-		border-radius: $spacing-xxs;
+		border-radius: var(--rvt-spacing-xxs);
 		color: var(--rvt-color-theme-text-strong);
 		display: inline-block;
 		height: auto;
 		line-height: 0.5;
-		padding: $spacing-xs;
+		padding: var(--rvt-spacing-xs);
 		position: absolute;
-		right: $spacing-sm;
+		right: var(--rvt-spacing-sm);
 		top: 1.1rem;
 
 		&:hover {
@@ -87,7 +87,7 @@
 
 	&__header {
 		border-bottom: 1px solid var(--rvt-color-theme-ui);
-		padding: $spacing-md $spacing-sm;
+		padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
 	}
 
 	&__title {
@@ -97,7 +97,7 @@
 	}
 
 	&__body {
-		padding: $spacing-sm;
+		padding: var(--rvt-spacing-sm);
 	}
 
 	&__controls {
@@ -105,8 +105,8 @@
 		border-top: 1px solid var(--rvt-color-theme-ui);
 		display: flex;
 		flex-wrap: wrap;
-		gap: $spacing-sm;
-		padding: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
+		padding: var(--rvt-spacing-sm);
 
 		.rvt-button {
 			justify-content: center;

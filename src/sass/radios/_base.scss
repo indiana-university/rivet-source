@@ -8,26 +8,26 @@ $padding: math.div(3rem, 16);
 
 .rvt-radio {
 	display: inline-block;
-	padding-left: $spacing-lg;
+	padding-left: var(--rvt-spacing-lg);
 	position: relative;
 
 	input[type="radio"] {
 		cursor: pointer;
-		height: $spacing-md;
+		height: var(--rvt-spacing-md);
 		left: 0;
 		margin: 0;
 		opacity: 0;
 		position: absolute;
 		top: 0;
-		width: $spacing-lg;
+		width: var(--rvt-spacing-lg);
 	}
 
 	&--sr-only-label {
-		padding-left: $spacing-md;
+		padding-left: var(--rvt-spacing-md);
 	}
 
 	&--sr-only-label input[type="radio"] {
-		width: $spacing-md;
+		width: var(--rvt-spacing-md);
 	}
 
 	&--sr-only-label input[type="radio"] ~ label {
@@ -45,16 +45,16 @@ $padding: math.div(3rem, 16);
 
 	input[type="radio"] ~ label::before {
 		background-color: var(--rvt-color-theme-background);
-		border: math.div($spacing-xxs, 4) solid var(--rvt-color-theme-text-strong);
-		border-radius: $spacing-sm;
+		border: math.div(var(--rvt-spacing-xxs), 4) solid var(--rvt-color-theme-text-strong);
+		border-radius: var(--rvt-spacing-sm);
 		box-shadow: inset 0 0 0 $padding var(--rvt-color-theme-background);
 		content: "";
 		display: inline-block;
-		height: $spacing-sm;
+		height: var(--rvt-spacing-sm);
 		left: math.div(3rem, 16);
 		position: absolute;
 		top: math.div(3rem, 16);
-		width: $spacing-sm;
+		width: var(--rvt-spacing-sm);
 	}
 
 	input[type="radio"]:checked ~ label::before {

@@ -67,7 +67,7 @@ figure {
 figcaption {
 	font-family: $font-family-mono;
 	font-size: $ts-14;
-	padding-top: $spacing-sm;
+	padding-top: var(--rvt-spacing-sm);
 }
 
 em {

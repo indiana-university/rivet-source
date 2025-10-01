@@ -18,8 +18,8 @@
 	&__content {
 		// This stops some overflow issues if non-breaking content starts to overflow.
 		min-width: 0;
-		padding-bottom: $spacing-lg;
-		padding-top: $spacing-lg;
+		padding-bottom: var(--rvt-spacing-lg);
+		padding-top: var(--rvt-spacing-lg);
 	}
 
 	&__wrapper--single &__content {
@@ -27,8 +27,8 @@
 	}
 
 	&__break-out {
-		margin-left: -$spacing-md;
-		margin-right: -$spacing-md;
+		margin-left: -var(--rvt-spacing-md);
+		margin-right: -var(--rvt-spacing-md);
 
 		img {
 			width: 100%;
@@ -37,8 +37,8 @@
 
 	&__sidebar {
 		border-top: 1px solid var(--rvt-color-theme-ui);
-		padding-bottom: $spacing-lg;
-		padding-top: $spacing-lg;
+		padding-bottom: var(--rvt-spacing-lg);
+		padding-top: var(--rvt-spacing-lg);
 	}
 }
 
@@ -55,18 +55,18 @@
 			flex-grow: 1;
 			flex-shrink: 0;
 			max-width: $width-md;
-			padding-top: $spacing-xxl * 1.5;
+			padding-top: calc(var(--rvt-spacing-xxl) * 1.5);
 		}
 
 		&__content {
 			flex-grow: 1;
-			padding-bottom: $spacing-xxl;
-			padding-left: $spacing-xxl;
-			padding-top: $spacing-xxl * 1.5;
+			padding-bottom: var(--rvt-spacing-xxl);
+			padding-left: var(--rvt-spacing-xxl);
+			padding-top: calc(var(--rvt-spacing-xxl) * 1.5);
 		}
 
 		&__break-out {
-			margin-left: -$spacing-xxl;
+			margin-left: -var(--rvt-spacing-xxl);
 		}
 
 		&__break-out,
@@ -75,7 +75,7 @@
 		}
 
 		&__wrapper--single &__break-out {
-			margin-left: -$spacing-md;
+			margin-left: -var(--rvt-spacing-md);
 		}
 	}
 }
@@ -83,18 +83,18 @@
 @include mq($breakpoint-xl) {
 	.rvt-layout {
 		&__break-out {
-			margin-right: -$spacing-xxl;
+			margin-right: -var(--rvt-spacing-xxl);
 		}
 
 		&__wrapper--single &__break-out {
-			margin-left: -$spacing-xxl;
+			margin-left: -var(--rvt-spacing-xxl);
 		}
 
 		&__feature-slot {
 			float: right;
-			margin-bottom: $spacing-lg;
-			margin-left: $spacing-lg;
-			margin-right: -$spacing-xxl;
+			margin-bottom: var(--rvt-spacing-lg);
+			margin-left: var(--rvt-spacing-lg);
+			margin-right: -var(--rvt-spacing-xxl);
 			width: $width-xl;
 		}
 

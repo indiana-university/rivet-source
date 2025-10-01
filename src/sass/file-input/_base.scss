@@ -40,7 +40,7 @@
 	}
 
 	&__preview {
-		margin-left: $spacing-sm;
+		margin-left: var(--rvt-spacing-sm);
 
 		span {
 			display: inline-block;
