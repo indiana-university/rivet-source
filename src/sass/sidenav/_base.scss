@@ -56,7 +56,7 @@
 		border-left: 0.25rem solid transparent;
 		color: var(--rvt-color-theme-text-strong);
 		flex-grow: 1;
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 		padding: var(--rvt-spacing-sm);
 		position: relative;
 		text-decoration: none;
@@ -73,7 +73,7 @@
 	}
 
 	&__item &__item &__link {
-		font-weight: $font-weight-regular;
+		font-weight: var(--rvt-font-weight-regular);
 	}
 
 	&__link[aria-current="page"] + &__toggle {
@@ -143,7 +143,7 @@
 		background-color: var(--rvt-color-theme-background);
 		border: 2px solid var(--rvt-color-theme-ui);
 		display: flex;
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 		gap: var(--rvt-spacing-sm);
 		height: calc(var(--rvt-spacing-sm) * 3);
 		justify-content: space-between;

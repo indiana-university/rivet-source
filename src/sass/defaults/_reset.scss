@@ -24,7 +24,7 @@ body {
 	color: var(--rvt-color-theme-text);
 	font-family: $font-family-base;
 	font-variation-settings: "wdth" 110;
-	font-weight: $font-weight-regular;
+	font-weight: var(--rvt-font-weight-regular);
 	height: 100%;
 	line-height: $line-height-base;
 	margin: 0;
@@ -44,7 +44,7 @@ h4,
 h5,
 h6 {
 	font-size: 1.125rem;
-	font-weight: $font-weight-regular;
+	font-weight: var(--rvt-font-weight-regular);
 	margin: 0;
 }
 
@@ -75,7 +75,7 @@ em {
 }
 
 strong {
-	font-weight: $font-weight-bold;
+	font-weight: var(--rvt-font-weight-bold);
 }
 
 sub,

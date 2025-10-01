@@ -19,22 +19,22 @@
 
 .rvt-text-black,
 .rvt-font-black {
-	font-weight: $font-weight-black !important;
+	font-weight: var(--rvt-font-weight-black) !important;
 }
 
 .rvt-text-bold,
 .rvt-font-bold {
-	font-weight: $font-weight-bold !important;
+	font-weight: var(--rvt-font-weight-bold) !important;
 }
 
 .rvt-text-medium,
 .rvt-font-medium {
-	font-weight: $font-weight-medium !important;
+	font-weight: var(--rvt-font-weight-medium) !important;
 }
 
 .rvt-text-regular,
 .rvt-font-regular {
-	font-weight: $font-weight-regular !important;
+	font-weight: var(--rvt-font-weight-regular) !important;
 }
 
 .rvt-text-left {

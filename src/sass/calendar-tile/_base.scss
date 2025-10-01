@@ -29,7 +29,7 @@
 
 	&__day {
 		font-size: var(--rvt-ts-36);
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 		letter-spacing: 0.075rem;
 		margin-top: var(--rvt-spacing-xxs);
 	}

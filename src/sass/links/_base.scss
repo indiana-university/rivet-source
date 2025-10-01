@@ -15,7 +15,7 @@ a,
 
 .rvt-link--bold,
 .rvt-link-bold {
-	font-weight: $font-weight-bold;
+	font-weight: var(--rvt-font-weight-bold);
 }
 
 .rvt-link--bold,
@@ -31,7 +31,7 @@ a,
 .rvt-link-cta,
 .rvt-link--cta {
 	display: inline-block;
-	font-weight: $font-weight-medium;
+	font-weight: var(--rvt-font-weight-medium);
 	text-decoration: none;
 
 	&::after {

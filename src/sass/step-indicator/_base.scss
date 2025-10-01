@@ -83,7 +83,7 @@
 			0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight),
 			0 0 0 var(--rvt-spacing-xs) var(--rvt-color-theme-background);
 		display: inline-flex;
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 		height: var(--rvt-spacing-lg);
 		justify-content: center;
 		position: relative;

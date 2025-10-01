@@ -49,7 +49,7 @@
 		font-variation-settings:
 			"wdth" 135,
 			"YTLC" 540;
-		font-weight: $font-weight-bold;
+		font-weight: var(--rvt-font-weight-bold);
 		line-height: 1.3;
 		padding-right: var(--rvt-spacing-sm);
 	}

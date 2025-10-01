@@ -71,7 +71,7 @@
 			&[aria-checked="true"] {
 				background-color: var(--rvt-color-theme-background-strong);
 				color: var(--rvt-color-theme-accent);
-				font-weight: $font-weight-medium;
+				font-weight: var(--rvt-font-weight-medium);
 
 				&:hover {
 					color: var(--rvt-color-theme-accent);
@@ -87,7 +87,7 @@
 	&__menu-heading {
 		color: var(--rvt-color-theme-text-strong);
 		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm) var(--rvt-spacing-xxs);
-		font-weight: $font-weight-bold;
+		font-weight: var(--rvt-font-weight-bold);
 		font-size: var(--rvt-ts-14);
 
 		&:first-child {

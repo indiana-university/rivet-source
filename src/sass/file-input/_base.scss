@@ -21,7 +21,7 @@
 		display: flex;
 		flex-grow: 0;
 		font-size: var(--rvt-ts-base);
-		font-weight: $font-weight-bold;
+		font-weight: var(--rvt-font-weight-bold);
 		margin-bottom: 0;
 		margin-top: 0;
 		width: inherit;
@@ -44,7 +44,7 @@
 
 		span {
 			display: inline-block;
-			font-weight: $font-weight-bold;
+			font-weight: var(--rvt-font-weight-bold);
 			line-height: $line-height-base;
 		}
 	}

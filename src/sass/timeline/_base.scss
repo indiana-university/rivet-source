@@ -65,7 +65,7 @@
 
 	&__heading {
 		font-size: var(--rvt-ts-23);
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 	}
 
 	&__content-inner > * {
