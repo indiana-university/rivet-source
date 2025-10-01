@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:math";
 
-.#{$prefix}-checkbox {
+.rvt-checkbox {
 	display: inline-block;
 	padding-left: $spacing-lg;
 	position: relative;

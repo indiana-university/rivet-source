@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-section-intro {
+.rvt-section-intro {
 	margin-inline: auto;
 	max-width: $breakpoint-md;
 	text-align: center;
@@ -82,7 +82,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-section-intro {
+	.rvt-section-intro {
 		&__title {
 			font-size: $ts-41;
 		}
@@ -94,7 +94,7 @@
 }
 
 @include mq($breakpoint-lg) {
-	.#{$prefix}-section-intro {
+	.rvt-section-intro {
 		&--teaser {
 			display: flex;
 			flex-wrap: wrap;

@@ -1,6 +1,6 @@
 @use "../core" as *;
 
-.#{$prefix}-empty-state {
+.rvt-empty-state {
 	background-color: var(--rvt-color-theme-background-strong);
 	border: $spacing-xxs dashed var(--rvt-color-theme-ui);
 	border-radius: $spacing-xs;
@@ -27,7 +27,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-empty-state {
+	.rvt-empty-state {
 		&__actions {
 			display: flex;
 			justify-content: center;

@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:math";
 
-.#{$prefix}-switch {
+.rvt-switch {
 	align-items: center;
 	background: none;
 	background-color: var(--rvt-color-theme-text-strong);

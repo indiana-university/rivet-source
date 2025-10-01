@@ -2,13 +2,13 @@
 
 @use "../core" as *;
 
-.#{$prefix}-footer-social {
+.rvt-footer-social {
 	background-color: var(--rvt-color-theme-background);
 	padding-bottom: $spacing-md;
 	padding-top: $spacing-md;
 }
 
-.#{$prefix}-social-link {
+.rvt-social-link {
 	align-items: center;
 	border: 1px solid var(--rvt-color-theme-ui);
 	border-radius: $border-radius-circle;

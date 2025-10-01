@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-grid {
+.rvt-grid {
 	display: grid;
 	gap: #{$spacing-md};
 

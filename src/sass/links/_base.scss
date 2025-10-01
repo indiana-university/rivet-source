@@ -4,7 +4,7 @@
 @use "../core" as *;
 
 a,
-.#{$prefix}-link {
+.rvt-link {
 	color: var(--rvt-color-theme-accent);
 
 	&:hover,
@@ -13,14 +13,14 @@ a,
 	}
 }
 
-.#{$prefix}-link--bold,
-.#{$prefix}-link-bold {
+.rvt-link--bold,
+.rvt-link-bold {
 	font-weight: $font-weight-bold;
 }
 
-.#{$prefix}-link--bold,
-.#{$prefix}-link-bold,
-.#{$prefix}-link-plain {
+.rvt-link--bold,
+.rvt-link-bold,
+.rvt-link-plain {
 	text-decoration: none;
 
 	&:hover {
@@ -28,8 +28,8 @@ a,
 	}
 }
 
-.#{$prefix}-link-cta,
-.#{$prefix}-link--cta {
+.rvt-link-cta,
+.rvt-link--cta {
 	display: inline-block;
 	font-weight: $font-weight-medium;
 	text-decoration: none;

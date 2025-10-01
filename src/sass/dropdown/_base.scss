@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:map";
 
-.#{$prefix}-dropdown {
+.rvt-dropdown {
 	display: inline-block;
 	position: relative;
 
@@ -66,7 +66,7 @@
 				text-decoration: none;
 			}
 
-			&.#{$prefix}-is-selected,
+			&.rvt-is-selected,
 			&[aria-current]:not([aria-current="false"]),
 			&[aria-checked="true"] {
 				background-color: var(--rvt-color-theme-background-strong);
@@ -117,6 +117,6 @@
 // NOTE: Context specific styles
 // We need some context-specific styles when dropdowns are used in the
 // header nav.
-.#{$prefix}-header-menu__item .#{$prefix}-dropdown__menu {
+.rvt-header-menu__item .rvt-dropdown__menu {
 	top: 165%;
 }

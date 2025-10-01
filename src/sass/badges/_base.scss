@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-:is(span, strong).#{$prefix}-badge {
+:is(span, strong).rvt-badge {
 	align-items: center;
 	background-color: var(--color-background);
 	border-radius: $border-radius-circle;
@@ -22,7 +22,7 @@
 	-osx-font-smoothing: grayscale;
 }
 
-span.#{$prefix}-badge {
+span.rvt-badge {
 	--color-background: var(--rvt-color-base-light);
 	--color-text: var(--rvt-color-base-main);
 
@@ -47,7 +47,7 @@ span.#{$prefix}-badge {
 	}
 }
 
-strong.#{$prefix}-badge {
+strong.rvt-badge {
 	--color-background: var(--rvt-color-base-main);
 	--color-text: var(--rvt-color-base-ultralight);
 

@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-text-uppercase {
+.rvt-text-uppercase {
 	text-transform: uppercase !important;
 
 	/**
@@ -13,70 +13,70 @@
 	letter-spacing: 0.04rem !important;
 }
 
-.#{$prefix}-text-lowercase {
+.rvt-text-lowercase {
 	text-transform: lowercase !important;
 }
 
-.#{$prefix}-text-black,
-.#{$prefix}-font-black {
+.rvt-text-black,
+.rvt-font-black {
 	font-weight: $font-weight-black !important;
 }
 
-.#{$prefix}-text-bold,
-.#{$prefix}-font-bold {
+.rvt-text-bold,
+.rvt-font-bold {
 	font-weight: $font-weight-bold !important;
 }
 
-.#{$prefix}-text-medium,
-.#{$prefix}-font-medium {
+.rvt-text-medium,
+.rvt-font-medium {
 	font-weight: $font-weight-medium !important;
 }
 
-.#{$prefix}-text-regular,
-.#{$prefix}-font-regular {
+.rvt-text-regular,
+.rvt-font-regular {
 	font-weight: $font-weight-regular !important;
 }
 
-.#{$prefix}-text-left {
+.rvt-text-left {
 	text-align: left !important;
 }
 
-.#{$prefix}-text-right {
+.rvt-text-right {
 	text-align: right !important;
 }
 
-.#{$prefix}-text-center {
+.rvt-text-center {
 	text-align: center !important;
 }
 
-.#{$prefix}-lh-base {
+.rvt-lh-base {
 	line-height: $line-height-base !important;
 }
 
-.#{$prefix}-lh-tight {
+.rvt-lh-tight {
 	line-height: $line-height-tight !important;
 }
 
-.#{$prefix}-lh-loose {
+.rvt-lh-loose {
 	line-height: $line-height-loose !important;
 }
 
-.#{$prefix}-text-nobr {
+.rvt-text-nobr {
 	white-space: nowrap !important;
 }
 
-.#{$prefix}-font-condensed {
+.rvt-font-condensed {
 	font-family: $font-family-condensed !important;
 }
 
-.#{$prefix}-font-sans {
+.rvt-font-sans {
 	font-family: $font-family-sans !important;
 }
 
-.#{$prefix}-font-serif {
+.rvt-font-serif {
 	font-family: $font-family-serif !important;
 }
 
-.#{$prefix}-font-mono {
+.rvt-font-mono {
 	font-family: $font-family-mono !important;
 }

@@ -3,44 +3,44 @@
 
 @use "../core" as *;
 
-.#{$prefix}-list,
-.#{$prefix}-list-inline,
-.#{$prefix}-list-plain {
+.rvt-list,
+.rvt-list-inline,
+.rvt-list-plain {
 	display: flex;
 	gap: $spacing-xs $spacing-sm;
 	margin: $spacing-xs 0 0 0;
 }
 
-.#{$prefix}-list,
-.#{$prefix}-list-plain {
+.rvt-list,
+.rvt-list-plain {
 	flex-direction: column;
 }
 
-.#{$prefix}-list-inline,
-.#{$prefix}-list-plain {
+.rvt-list-inline,
+.rvt-list-plain {
 	// Equivalent to `list-style: none`, but retains list semantics in VoiceOver.
 	list-style: "";
 	padding-left: 0;
 }
 
-.#{$prefix}-list,
-.#{$prefix}-list-plain .#{$prefix}-list-plain {
+.rvt-list,
+.rvt-list-plain .rvt-list-plain {
 	padding-left: $spacing-lg;
 }
 
-.#{$prefix}-list-inline {
+.rvt-list-inline {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
-.#{$prefix}-list-reset {
+.rvt-list-reset {
 	list-style: "";
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-left: 0;
 }
 
-.#{$prefix}-list-description {
+.rvt-list-description {
 	margin: 0;
 
 	:where(dt) {

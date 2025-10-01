@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-media-hub {
+.rvt-media-hub {
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
 		font-family: $font-family-serif;

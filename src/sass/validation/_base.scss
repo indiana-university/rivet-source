@@ -3,25 +3,25 @@
 
 @use "../core" as *;
 
-@include all-inputs(".#{$prefix}-validation-info") {
+@include all-inputs(".rvt-validation-info") {
 	background-color: var(--rvt-color-info-background);
 	border-color: var(--rvt-color-info-border);
 	box-shadow: 0 0 0 0.0625rem var(--rvt-color-info-border);
 }
 
-@include all-inputs(".#{$prefix}-validation-warning") {
+@include all-inputs(".rvt-validation-warning") {
 	background-color: var(--rvt-color-warning-background);
 	border-color: var(--rvt-color-warning-border);
 	box-shadow: 0 0 0 0.0625rem var(--rvt-color-warning-border);
 }
 
-@include all-inputs(".#{$prefix}-validation-danger") {
+@include all-inputs(".rvt-validation-danger") {
 	background-color: var(--rvt-color-danger-background);
 	border-color: var(--rvt-color-danger-border);
 	box-shadow: 0 0 0 0.0625rem var(--rvt-color-danger-border);
 }
 
-@include all-inputs(".#{$prefix}-validation-success") {
+@include all-inputs(".rvt-validation-success") {
 	background-color: var(--rvt-color-success-background);
 	border-color: var(--rvt-color-success-border);
 	box-shadow: 0 0 0 0.0625rem var(--rvt-color-success-border);
@@ -33,13 +33,13 @@
  * alongside groups of form inputs like radio buttons and checkboxes
  */
 
-.rvt-text-input + .#{$prefix}-inline-alert,
-.rvt-select + .#{$prefix}-inline-alert,
-.rvt-textarea + .#{$prefix}-inline-alert {
+.rvt-text-input + .rvt-inline-alert,
+.rvt-select + .rvt-inline-alert,
+.rvt-textarea + .rvt-inline-alert {
 	margin-block-start: $spacing-xs;
 }
 
-.#{$prefix}-inline-alert {
+.rvt-inline-alert {
 	align-items: center;
 	display: flex;
 	font-size: $ts-14;
@@ -82,35 +82,35 @@
 	&--standalone {
 		padding: $spacing-xs;
 
-		&.#{$prefix}-inline-alert--is-invalid,
-		&.#{$prefix}-inline-alert--danger {
+		&.rvt-inline-alert--is-invalid,
+		&.rvt-inline-alert--danger {
 			background-color: var(--rvt-color-danger-background);
 
-			.#{$prefix}-inline-alert__message {
+			.rvt-inline-alert__message {
 				color: var(--rvt-color-danger-main);
 			}
 		}
 
-		&.#{$prefix}-inline-alert--success {
+		&.rvt-inline-alert--success {
 			background-color: var(--rvt-color-success-background);
 
-			.#{$prefix}-inline-alert__message {
+			.rvt-inline-alert__message {
 				color: var(--rvt-color-success-main);
 			}
 		}
 
-		&.#{$prefix}-inline-alert--warning {
+		&.rvt-inline-alert--warning {
 			background-color: var(--rvt-color-warning-background);
 
-			.#{$prefix}-inline-alert__message {
+			.rvt-inline-alert__message {
 				color: var(--rvt-color-warning-main);
 			}
 		}
 
-		&.#{$prefix}-inline-alert--info {
+		&.rvt-inline-alert--info {
 			background-color: var(--rvt-color-info-background);
 
-			.#{$prefix}-inline-alert__message {
+			.rvt-inline-alert__message {
 				color: var(--rvt-color-info-main);
 			}
 		}

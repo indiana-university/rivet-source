@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-contact-info {
+.rvt-contact-info {
 	container-name: contact;
 	container-type: inline-size;
 
@@ -93,7 +93,7 @@
 }
 
 @container contact (min-width: #{$breakpoint-md}) {
-	.#{$prefix}-contact-info {
+	.rvt-contact-info {
 		&__inner {
 			display: flex;
 

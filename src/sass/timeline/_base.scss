@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-timeline {
+.rvt-timeline {
 	padding: $spacing-lg 0;
 	position: relative;
 
@@ -97,78 +97,78 @@
 }
 
 // TODO: Make a decision on whether we need this variant
-.#{$prefix}-timeline--right {
+.rvt-timeline--right {
 	&::before {
 		left: auto;
 		right: $spacing-xxs;
 	}
 
-	.#{$prefix}-timeline__item::after {
+	.rvt-timeline__item::after {
 		border-left-color: var(--rvt-color-theme-ui);
 		border-right-color: transparent;
 		margin-left: 0;
 		right: 0;
 	}
 
-	.#{$prefix}-timeline__marker {
+	.rvt-timeline__marker {
 		margin-left: 0;
 		right: 0;
 	}
 
-	.#{$prefix}-timeline__content {
+	.rvt-timeline__content {
 		margin-left: 0;
 		margin-right: $spacing-lg;
 	}
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-timeline--center {
+	.rvt-timeline--center {
 		&::before {
 			left: 50%;
 			margin-left: 0;
 		}
 
-		.#{$prefix}-timeline__item {
+		.rvt-timeline__item {
 			flex-basis: 50%;
 			max-width: 50%;
 			padding: 0 $spacing-sm * 0.75;
 			width: 100%;
 		}
 
-		.#{$prefix}-timeline__item--right {
+		.rvt-timeline__item--right {
 			margin-left: auto;
 		}
 
-		.#{$prefix}-timeline__item::after {
+		.rvt-timeline__item::after {
 			border-left-color: var(--rvt-color-theme-ui);
 			border-right-color: transparent;
 			left: 100%;
 			margin-left: -$spacing-md;
 		}
 
-		.#{$prefix}-timeline__item--right::after {
+		.rvt-timeline__item--right::after {
 			border-left-color: transparent;
 			border-right-color: var(--rvt-color-theme-ui);
 			left: auto;
 			margin-left: -$spacing-sm;
 		}
 
-		.#{$prefix}-timeline__marker {
+		.rvt-timeline__marker {
 			left: 100%;
 			margin-left: -$spacing-xxs;
 		}
 
-		.#{$prefix}-timeline__item--right .#{$prefix}-timeline__marker {
+		.rvt-timeline__item--right .rvt-timeline__marker {
 			left: auto;
 			margin-left: -$spacing-sm;
 		}
 
-		.#{$prefix}-timeline__content {
+		.rvt-timeline__content {
 			margin-left: 0;
 			margin-right: $spacing-sm * 0.75;
 		}
 
-		.#{$prefix}-timeline__item--right .#{$prefix}-timeline__content {
+		.rvt-timeline__item--right .rvt-timeline__content {
 			margin-left: $spacing-sm;
 			margin-right: 0;
 		}

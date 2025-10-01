@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:math";
 
-.#{$prefix}-sidenav {
+.rvt-sidenav {
 	margin-top: $spacing-lg;
 
 	&__label {
@@ -183,6 +183,6 @@
 	}
 }
 
-.#{$prefix}-layout-base__sidebar .#{$prefix}-sidenav {
+.rvt-layout-base__sidebar .rvt-sidenav {
 	margin-top: $spacing-sm;
 }

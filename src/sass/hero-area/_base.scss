@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-hero {
+.rvt-hero {
 	&__inner {
 		display: flex;
 		flex-direction: column;
@@ -94,7 +94,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-hero {
+	.rvt-hero {
 		&__body {
 			flex-grow: 1;
 			max-width: 90ch;
@@ -167,7 +167,7 @@
 }
 
 @include mq($breakpoint-lg) {
-	.#{$prefix}-hero {
+	.rvt-hero {
 		&__inner {
 			flex-direction: row;
 		}
@@ -250,8 +250,8 @@
 }
 
 // Non-global theme specifics
-.#{$prefix}-hero,
-.#{$prefix}-hero {
+.rvt-hero,
+.rvt-hero {
 	&__quick-links {
 		padding: $spacing-lg;
 	}

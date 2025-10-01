@@ -1,6 +1,6 @@
 @use "../core" as *;
 
-.#{$prefix}-stat {
+.rvt-stat {
 	display: inline-flex;
 	padding: $spacing-xl $spacing-md;
 	text-decoration: none;
@@ -41,7 +41,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-stat {
+	.rvt-stat {
 		padding: $spacing-xxl;
 	}
 }

@@ -11,11 +11,11 @@
  * It's removed when the dialog is closed making the body scrollable again.
  */
 
-.#{$prefix}-dialog-prevent-scroll {
+.rvt-dialog-prevent-scroll {
 	overflow: hidden;
 }
 
-.#{$prefix}-dialog {
+.rvt-dialog {
 	background-color: var(--rvt-color-theme-background);
 	border-radius: $spacing-xs;
 	box-shadow: $shadow-heavy;
@@ -31,11 +31,11 @@
 	width: 90%;
 	z-index: map.get($z-index, "1000");
 
-	&[data-#{$prefix}-dialog-darken-page] {
+	&[data-rvt-dialog-darken-page] {
 		box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
 	}
 
-	&[data-#{$prefix}-dialog-top-left] {
+	&[data-rvt-dialog-top-left] {
 		bottom: auto;
 		left: $spacing-xl;
 		right: auto;
@@ -43,7 +43,7 @@
 		transform: none;
 	}
 
-	&[data-#{$prefix}-dialog-top-right] {
+	&[data-rvt-dialog-top-right] {
 		bottom: auto;
 		left: auto;
 		right: $spacing-xl;
@@ -51,7 +51,7 @@
 		transform: none;
 	}
 
-	&[data-#{$prefix}-dialog-bottom-left] {
+	&[data-rvt-dialog-bottom-left] {
 		bottom: $spacing-xl;
 		left: $spacing-xl;
 		right: auto;
@@ -59,7 +59,7 @@
 		transform: none;
 	}
 
-	&[data-#{$prefix}-dialog-bottom-right] {
+	&[data-rvt-dialog-bottom-right] {
 		bottom: $spacing-xl;
 		left: auto;
 		right: $spacing-xl;
@@ -108,7 +108,7 @@
 		gap: $spacing-sm;
 		padding: $spacing-sm;
 
-		.#{$prefix}-button {
+		.rvt-button {
 			justify-content: center;
 			text-align: center;
 			width: 100%;
@@ -117,21 +117,21 @@
 		@include mq($breakpoint-sm) {
 			justify-content: flex-end;
 
-			.#{$prefix}-button {
+			.rvt-button {
 				width: auto;
 			}
 		}
 	}
 
-	.#{$prefix}-button[data-#{$prefix}-dialog-close] > * {
+	.rvt-button[data-rvt-dialog-close] > * {
 		pointer-events: none;
 	}
 }
 
-.#{$prefix}-dialog[hidden] {
+.rvt-dialog[hidden] {
 	display: none;
 }
 
-.#{$prefix}-dialog:not([hidden]) {
+.rvt-dialog:not([hidden]) {
 	display: block;
 }

@@ -2,7 +2,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-footer-resources {
+.rvt-footer-resources {
 	padding-bottom: $spacing-sm;
 
 	&__heading {
@@ -51,7 +51,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-footer-resources {
+	.rvt-footer-resources {
 		padding-bottom: $spacing-lg;
 		padding-top: $spacing-lg;
 
@@ -67,7 +67,7 @@
 	// Adjust the padding of the resources component to make spacing work better
 	// visually when used together with social component.
 
-	.#{$prefix}-footer-social + .#{$prefix}-footer-resources {
+	.rvt-footer-social + .rvt-footer-resources {
 		padding-top: $spacing-xs;
 	}
 }

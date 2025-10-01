@@ -1,10 +1,10 @@
 @use "../core" as *;
 
-.#{$prefix}-billboard {
+.rvt-billboard {
 	background-color: var(--rvt-color-theme-background-strong);
 	position: relative;
 
-	.#{$prefix}-theme-light & {
+	.rvt-theme-light & {
 		background-color: var(--rvt-color-theme-accent-inverse);
 	}
 
@@ -61,7 +61,7 @@
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-billboard {
+	.rvt-billboard {
 		display: flex;
 		flex-direction: row-reverse;
 

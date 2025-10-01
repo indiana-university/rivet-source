@@ -1,6 +1,6 @@
 @use "../core" as *;
 
-.#{$prefix}-stat-group {
+.rvt-stat-group {
 	container-name: stat-group;
 	container-type: inline-size;
 
@@ -19,7 +19,7 @@
 }
 
 @container stat-group (min-width: 40em) {
-	.#{$prefix}-stat-group {
+	.rvt-stat-group {
 		&__inner {
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -37,7 +37,7 @@
 }
 
 @container stat-group (min-width: 68.75em) {
-	.#{$prefix}-stat-group {
+	.rvt-stat-group {
 		&__inner > * {
 			min-width: auto;
 		}

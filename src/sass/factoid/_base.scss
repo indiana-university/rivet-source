@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-factoid {
+.rvt-factoid {
 	&__item {
 		padding: $spacing-sm;
 	}
@@ -19,7 +19,7 @@
 }
 
 @media (min-width: $breakpoint-md) {
-	.#{$prefix}-factoid {
+	.rvt-factoid {
 		display: flex;
 		flex-wrap: wrap;
 

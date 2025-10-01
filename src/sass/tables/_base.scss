@@ -5,7 +5,7 @@
 @use "sass:math";
 
 table,
-.#{$prefix}-table {
+.rvt-table {
 	border: 1px solid var(--rvt-color-theme-ui);
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -48,7 +48,7 @@ tbody tr th {
 	padding: $spacing-md;
 }
 
-.#{$prefix}-table-plain {
+.rvt-table-plain {
 	border: none;
 
 	thead {
@@ -61,13 +61,13 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table-stripes {
+.rvt-table-stripes {
 	tr:nth-child(even) {
 		background-color: var(--rvt-color-theme-background-strong);
 	}
 }
 
-.#{$prefix}-table-compact {
+.rvt-table-compact {
 	line-height: $line-height-tight;
 
 	tr th,
@@ -76,7 +76,7 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table-cells {
+.rvt-table-cells {
 	border-top: 1px solid var(--rvt-color-theme-ui);
 
 	tr td,
@@ -90,8 +90,8 @@ tbody tr th {
 	}
 }
 
-.#{$prefix}-table-crimson,
-.#{$prefix}-table-feature {
+.rvt-table-crimson,
+.rvt-table-feature {
 	thead {
 		background-color: var(--rvt-color-theme-accent);
 		color: var(--rvt-color-theme-background);
@@ -102,7 +102,7 @@ tbody tr th {
  * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
  * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
-.#{$prefix}-table-responsive[role="region"][tabindex] {
+.rvt-table-responsive[role="region"][tabindex] {
 	/* stylelint-disable */
 	background:
 		linear-gradient(
@@ -147,7 +147,7 @@ tbody tr th {
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-table-responsive[role="region"][tabindex] {
+	.rvt-table-responsive[role="region"][tabindex] {
 		border: none;
 		border-radius: 0;
 	}

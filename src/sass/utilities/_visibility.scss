@@ -8,23 +8,23 @@
 }
 
 @each $variable, $size in $breakpoints {
-	.#{$prefix}-hide-#{$variable}-down {
+	.rvt-hide-#{$variable}-down {
 		@extend %start-hidden;
 	}
 
 	@include mq($size) {
-		.#{$prefix}-hide-#{$variable}-down {
+		.rvt-hide-#{$variable}-down {
 			display: block !important;
 		}
 
-		th.#{$prefix}-hide-#{$variable}-down,
-		td.#{$prefix}-hide-#{$variable}-down {
+		th.rvt-hide-#{$variable}-down,
+		td.rvt-hide-#{$variable}-down {
 			display: table-cell !important;
 		}
 	}
 
 	@include mq($size) {
-		.#{$prefix}-hide-#{$variable}-up {
+		.rvt-hide-#{$variable}-up {
 			display: none !important;
 		}
 	}

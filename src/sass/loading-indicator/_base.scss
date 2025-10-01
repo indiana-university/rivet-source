@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-loader {
+.rvt-loader {
 	animation: 0.8s linear infinite loader;
 	display: inline-block;
 	border: 0.2rem solid transparent;

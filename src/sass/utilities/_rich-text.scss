@@ -98,13 +98,13 @@
 
 	> :where(dl) {
 		/* stylelint-disable */
-		@extend .#{$prefix}-list-description;
+		@extend .rvt-list-description;
 		/* stylelint-enable */
 	}
 
 	:where(code) {
 		/* stylelint-disable */
-		@extend .#{$prefix}-code;
+		@extend .rvt-code;
 		/* stylelint-enable */
 	}
 

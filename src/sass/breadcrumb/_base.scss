@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-breadcrumbs {
+.rvt-breadcrumbs {
 	display: inline-flex;
 	flex-wrap: wrap;
 	gap: $spacing-xxs * 0.75;

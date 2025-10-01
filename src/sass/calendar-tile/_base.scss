@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-cal {
+.rvt-cal {
 	color: var(--rvt-color-brand-main);
 	background-color: var(--rvt-color-brand-extralight);
 	display: inline-flex;

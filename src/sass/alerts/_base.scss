@@ -5,7 +5,7 @@
 @use "../defaults" as *;
 @use "sass:math";
 
-.#{$prefix}-alert {
+.rvt-alert {
 	@extend .rvt-theme-light;
 	background-color: var(--color-background);
 	border: $spacing-xxs * 0.25 solid var(--color-border);
@@ -166,7 +166,7 @@
  * Alert lists
  */
 
-.#{$prefix}-alert-list {
+.rvt-alert-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -180,7 +180,7 @@
 	}
 }
 
-.#{$prefix}-input-error > {
+.rvt-input-error > {
 	input[type="color"],
 	input[type="color"]:focus,
 	input[type="date"],

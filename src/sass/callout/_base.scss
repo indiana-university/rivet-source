@@ -4,7 +4,7 @@
 @use "../core" as *;
 
 // Temp Callout component
-.#{$prefix}-callout {
+.rvt-callout {
 	border: 1px solid var(--rvt-color-theme-accent-inverse);
 	background-color: var(--rvt-color-theme-accent-inverse);
 	color: var(--rvt-color-theme-text-accent);
@@ -54,7 +54,7 @@
 }
 
 @container callout (min-width: 640px) {
-	.#{$prefix}-callout {
+	.rvt-callout {
 		&__inner {
 			padding: $spacing-xxl;
 		}
@@ -67,7 +67,7 @@
 }
 
 @container callout (min-width: 1024px) {
-	.#{$prefix}-callout {
+	.rvt-callout {
 		&__inner {
 			display: flex;
 			gap: $spacing-lg;

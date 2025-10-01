@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:map";
 
-.#{$prefix}-input-group {
+.rvt-input-group {
 	display: flex;
 	flex-wrap: nowrap;
 	position: relative;
@@ -30,7 +30,7 @@
 		flex-grow: 1;
 		margin-left: -1px;
 
-		.#{$prefix}-button {
+		.rvt-button {
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
 			display: flex;
@@ -64,7 +64,7 @@
 	&__prepend {
 		margin-right: -1px;
 
-		.#{$prefix}-button {
+		.rvt-button {
 			border-bottom-right-radius: 0;
 			border-top-right-radius: 0;
 			display: flex;

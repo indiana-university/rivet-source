@@ -5,7 +5,7 @@
 @use "sass:map";
 @use "sass:math";
 
-.#{$prefix}-tabs {
+.rvt-tabs {
 	border: 1px solid var(--rvt-color-theme-ui);
 
 	&__tablist {

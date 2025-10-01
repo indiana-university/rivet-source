@@ -5,7 +5,7 @@
 @use "sass:map";
 @use "sass:math";
 
-.#{$prefix}-pagination {
+.rvt-pagination {
 	display: flex;
 	gap: $spacing-xs;
 	list-style: none;

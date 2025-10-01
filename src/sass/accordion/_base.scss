@@ -4,7 +4,7 @@
 @use "../core" as *;
 @use "sass:math";
 
-.#{$prefix}-accordion {
+.rvt-accordion {
 	background-color: var(--rvt-color-theme-background);
 	border: 1px solid var(--rvt-color-theme-ui);
 	color: var(--rvt-color-theme-text);

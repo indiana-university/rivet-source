@@ -3,7 +3,7 @@
 
 @use "../core" as *;
 
-.#{$prefix}-link-hub {
+.rvt-link-hub {
 	display: grid;
 	grid-gap: 0 $spacing-md * 2;
 	grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
