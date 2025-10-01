@@ -9,7 +9,7 @@
 	background: none;
 	background-color: var(--rvt-color-theme-text-strong);
 	border: none;
-	border-radius: $border-radius-circle;
+	border-radius: var(--rvt-border-radius-circle);
 	color: var(--rvt-color-theme-background-strong);
 	display: flex;
 	gap: 0.75rem;
@@ -21,7 +21,7 @@
 
 	&::before {
 		background-color: var(--rvt-color-theme-background);
-		border-radius: $border-radius-circle;
+		border-radius: var(--rvt-border-radius-circle);
 		content: "";
 		display: block;
 		height: var(--rvt-spacing-lg);
@@ -33,7 +33,7 @@
 
 	&::after {
 		background-color: var(--rvt-color-theme-text-strong);
-		border-radius: $border-radius-circle;
+		border-radius: var(--rvt-border-radius-circle);
 		clip-path: path(var(--rvt-icon-close));
 		content: "";
 		display: block;

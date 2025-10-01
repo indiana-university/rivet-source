@@ -83,7 +83,7 @@
 	&__item-dates-icon {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
-		border-radius: $border-radius-circle;
+		border-radius: var(--rvt-border-radius-circle);
 		color: var(--rvt-color-theme-accent);
 		display: flex;
 		height: var(--rvt-spacing-xl);

@@ -11,7 +11,7 @@
 .rvt-social-link {
 	align-items: center;
 	border: 1px solid var(--rvt-color-theme-ui);
-	border-radius: $border-radius-circle;
+	border-radius: var(--rvt-border-radius-circle);
 	display: flex;
 	height: calc(var(--rvt-spacing-sm) * 2.25);
 	justify-content: center;

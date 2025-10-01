@@ -57,7 +57,7 @@
 
 	&::before {
 		background-color: var(--color-container);
-		border-radius: $border-radius-circle;
+		border-radius: var(--rvt-border-radius-circle);
 		content: "";
 		display: block;
 		height: var(--rvt-spacing-lg);

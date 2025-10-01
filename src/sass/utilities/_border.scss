@@ -44,18 +44,18 @@
 }
 
 .rvt-border-radius-sm {
-	border-radius: $border-radius-sm !important;
+	border-radius: var(--rvt-border-radius-sm) !important;
 }
 
 .rvt-border-radius,
 .rvt-border-radius-md {
-	border-radius: $border-radius-md !important;
+	border-radius: var(--rvt-border-radius-md) !important;
 }
 
 .rvt-border-radius-lg {
-	border-radius: $border-radius-lg !important;
+	border-radius: var(--rvt-border-radius-lg) !important;
 }
 
 .rvt-border-radius-circle {
-	border-radius: $border-radius-circle !important;
+	border-radius: var(--rvt-border-radius-circle) !important;
 }
