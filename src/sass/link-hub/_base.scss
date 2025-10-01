@@ -1,8 +1,6 @@
 // Copyright (C) 2022 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
 .rvt-link-hub {
 	display: grid;
 	grid-gap: 0 calc(var(--rvt-spacing-md) * 2);

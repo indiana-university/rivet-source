@@ -1,8 +1,6 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
 :is(span, strong).rvt-badge {
 	align-items: center;
 	background-color: var(--color-background);

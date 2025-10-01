@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
-@use "sass:map";
-@use "sass:math";
 
 .rvt-steps {
 	display: flex;
@@ -77,7 +75,7 @@
 	&__indicator {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background);
-		border: math.div(var(--rvt-spacing-xxs), 2) solid var(--rvt-color-theme-ui);
+		border: calc(var(--rvt-spacing-xxs) / 2) solid var(--rvt-color-theme-ui);
 		border-radius: 999rem;
 		box-shadow:
 			0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight),
@@ -129,7 +127,7 @@
 	}
 
 	&--vertical &__item::before {
-		box-shadow: math.div(var(--rvt-spacing-xxs), -2) 0 0 0 var(--rvt-color-theme-ui);
+		box-shadow: calc(var(--rvt-spacing-xxs) / -2) 0 0 0 var(--rvt-color-theme-ui);
 		height: 100%;
 		left: calc(var(--rvt-spacing-sm) * 1.125);
 		position: absolute;
