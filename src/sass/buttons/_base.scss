@@ -3,7 +3,7 @@
 
 .rvt-button {
 	--color-border: var(--rvt-color-theme-text-strong);
-	--color-background: var(--rvt-color-theme-background);
+	--color-background: transparent;
 	--color-background-hover: var(--rvt-color-theme-background-strong);
 	--color-background-pressed: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
@@ -13,7 +13,7 @@
 	--padding-block-total: calc(
 		var(--size-height) - var(--size-line-height) - var(--size-border-total)
 	);
-	--padding-inline-extra: 0rem;
+	--padding-inline-extra: var(--rvt-spacing-xs);
 	--size-border: calc(1rem / 16);
 	--size-border-total: calc(var(--size-border) * 2);
 	--size-font: var(--rvt-ts-16);
@@ -24,7 +24,6 @@
 	align-items: center;
 	background: var(--color-background);
 	border: var(--size-border) solid var(--color-border);
-	color: var(--color-text);
 	cursor: pointer;
 	display: inline-flex;
 	font-size: var(--size-font);
@@ -36,7 +35,13 @@
 	padding-inline: calc(var(--padding-block) + var(--padding-inline-extra));
 	text-decoration: none;
 
-	&:hover {
+	&,
+	&:is(a:visited) {
+		color: var(--color-text);
+	}
+
+	&:hover,
+	&:is(a:visited:hover) {
 		background-color: var(--color-background-hover);
 		color: var(--color-text-hover);
 	}
@@ -53,13 +58,8 @@
 	&:is(a:not([href]), button[aria-disabled="true"], button:disabled) {
 		--color-background-hover: var(--color-background);
 		--color-text-hover: var(--color-text);
-		--translate-x: 0;
 		cursor: not-allowed;
 		opacity: 0.4;
-	}
-
-	&:is(a:visited) {
-		color: var(--color-text);
 	}
 
 	&.rvt-button--icon-only {
@@ -72,19 +72,18 @@
 }
 
 .rvt-button--medium {
-	--padding-inline-extra: calc(2rem / 16);
 	--size-font: var(--rvt-ts-14);
 	--size-height: 2rem;
 }
 
 .rvt-button--small {
+	--color-border: var(--rvt-color-theme-ui-strong);
 	--gap: var(--rvt-spacing-xxs);
-	--padding-inline-extra: calc(4rem / 16);
 	--size-font: var(--rvt-ts-14);
 	--size-height: 1.5rem;
 	--size-pressed: calc(1rem / 16);
 
-	rvt-icon svg {
+	&:not(.rvt-button--subtle) rvt-icon svg {
 		transform: scale(calc(12 / 16));
 	}
 }
@@ -107,12 +106,11 @@
 }
 
 .rvt-button--cta {
-	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-background-hover: var(--rvt-color-theme-background-accent-strong);
 	--color-border: var(--rvt-color-theme-accent);
 	--color-text: var(--rvt-color-theme-accent);
-	--color-text-hover: var(--rvt-color-theme-accent-strong);
+	--color-text-hover: var(--rvt-color-theme-accent);
 	--rotate: 0;
-	--translate-x: var(--rvt-spacing-xxs);
 
 	&[href*="#"] {
 		--rotate: 90deg;
@@ -120,14 +118,6 @@
 
 	&[href^="http"] {
 		--rotate: -45deg;
-	}
-
-	:where(.rvt-theme-light) & {
-		--color-background-hover: var(--rvt-color-theme-accent-inverse);
-	}
-
-	&:hover::after {
-		transform: rotate(var(--rotate)) translateX(var(--translate-x));
 	}
 
 	&::after {
@@ -138,12 +128,7 @@
 		flex-shrink: 0;
 		height: var(--rvt-spacing-sm);
 		transform: rotate(var(--rotate));
-		transition: all 0.2s ease;
 		width: var(--rvt-spacing-sm);
-	}
-
-	&:is(.rvt-button--medium, .rvt-button--small) {
-		--translate-x: calc(2rem / 16);
 	}
 
 	&.rvt-button--strong {

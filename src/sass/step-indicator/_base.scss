@@ -20,7 +20,8 @@
 		text-align: center;
 
 		&::before {
-			box-shadow: 0 calc(var(--rvt-spacing-sm) * 2.9) 0 1px var(--rvt-color-theme-ui);
+			box-shadow: 0 calc(var(--rvt-spacing-sm) * 2.9) 0 1px
+				var(--rvt-color-theme-ui);
 			content: "";
 			display: block;
 			width: 100%;
@@ -127,7 +128,8 @@
 	}
 
 	&--vertical &__item::before {
-		box-shadow: calc(var(--rvt-spacing-xxs) / -2) 0 0 0 var(--rvt-color-theme-ui);
+		box-shadow: calc(var(--rvt-spacing-xxs) / -2) 0 0 0
+			var(--rvt-color-theme-ui);
 		height: 100%;
 		left: calc(var(--rvt-spacing-sm) * 1.125);
 		position: absolute;
@@ -161,8 +163,7 @@ a.rvt-steps__item-content:hover .rvt-steps__label {
 
 a.rvt-steps__item-content:hover .rvt-steps__indicator,
 a.rvt-steps__item-content:focus .rvt-steps__indicator,
-a.rvt-steps__item-content[aria-current="step"]
-	.rvt-steps__indicator {
+a.rvt-steps__item-content[aria-current="step"] .rvt-steps__indicator {
 	background-color: var(--rvt-color-theme-accent);
 	color: var(--rvt-color-theme-text-inverse);
 	border-color: transparent;

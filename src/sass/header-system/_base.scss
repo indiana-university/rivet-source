@@ -34,7 +34,7 @@
 	&__button {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
-		border: 1px solid var(--rvt-color-theme-ui);
+		border: none;
 		border-radius: 999rem;
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
@@ -109,24 +109,23 @@
 		transition: 0.2s;
 	}
 
-	&-menu__item:hover button,
-	&-menu__item:hover &-menu__link {
-		color: var(--rvt-color-theme-accent);
-	}
-
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
 		font-size: var(--rvt-ts-14);
 		font-weight: var(--rvt-font-weight-medium);
 		padding-block: var(--rvt-spacing-xs);
 		text-decoration: none;
+
+		&:visited {
+			color: inherit;
+		}
 	}
 
 	&-menu__more {
 		> button {
 			align-items: center;
-			background-color: var(--rvt-color-theme-ui);
-			border: 1px solid var(--rvt-color-theme-ui);
+			background-color: var(--rvt-color-theme-background-strong);
+			border: none;
 			border-radius: 999rem;
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
@@ -228,8 +227,8 @@
 
 	&__tab {
 		align-items: center;
-		background-color: var(--rvt-color-theme-accent);
-		color: var(--rvt-color-theme-background);
+		background-color: var(--rvt-color-theme-text-accent);
+		color: var(--rvt-color-theme-text-accent-inverse);
 		display: flex;
 		height: 52px;
 		justify-content: center;

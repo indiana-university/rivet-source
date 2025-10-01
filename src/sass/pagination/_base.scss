@@ -10,14 +10,9 @@
 
 	&__item {
 		align-items: center;
-		border: 1px solid var(--rvt-color-theme-ui);
 		display: flex;
 		justify-content: center;
 		margin-top: 0;
-
-		&:has([aria-current="page"]) {
-			border-color: var(--rvt-color-theme-accent);
-		}
 
 		svg {
 			flex-shrink: 0;
@@ -39,6 +34,7 @@
 		}
 
 		a {
+			border: calc(1rem / 16) solid var(--rvt-color-theme-ui);
 			color: var(--rvt-color-theme-text);
 			display: flex;
 			flex-grow: 1;
@@ -52,19 +48,11 @@
 
 		a:hover {
 			background-color: var(--rvt-color-theme-background-strong);
-			box-shadow: inset 0 calc(var(--rvt-spacing-xxs) * -0.5) 0 var(--rvt-color-theme-accent);
-			color: var(--rvt-color-theme-accent);
-		}
-
-		a:focus,
-		a[aria-current="page"]:focus {
-			border-radius: inherit;
-			z-index: var(--rvt-z-index-1000);
 		}
 
 		a[aria-current="page"] {
 			background-color: var(--rvt-color-theme-accent);
-			border-color: var(--rvt-color-theme-accent);
+			border-color: transparent;
 			color: var(--rvt-color-theme-background);
 		}
 	}

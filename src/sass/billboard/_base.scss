@@ -4,12 +4,8 @@
 @use "../core" as *;
 
 .rvt-billboard {
-	background-color: var(--rvt-color-theme-background-strong);
+	background-color: var(--rvt-color-theme-background-accent);
 	position: relative;
-
-	.rvt-theme-light & {
-		background-color: var(--rvt-color-theme-accent-inverse);
-	}
 
 	& + & {
 		margin-top: var(--rvt-spacing-lg);

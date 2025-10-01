@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-disclosure {
+	background-color: var(--rvt-color-theme-background-strong);
+	padding: var(--rvt-spacing-sm);
+
 	&__toggle {
 		align-items: center;
 		background-color: transparent;
@@ -32,7 +35,6 @@
 	}
 
 	&__content {
-		box-shadow: calc(2rem / 16) 0 0 var(--rvt-color-theme-ui) inset;
 		margin-left: var(--rvt-spacing-xs);
 		margin-top: var(--rvt-spacing-xs);
 		padding-left: var(--rvt-spacing-sm);

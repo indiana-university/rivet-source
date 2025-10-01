@@ -9,7 +9,7 @@
 	text-align: center;
 
 	&__title {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		font-family: var(--rvt-font-family-condensed);
 		font-size: var(--rvt-ts-36);
 		font-weight: var(--rvt-font-weight-black);
@@ -22,7 +22,7 @@
 
 	&__eyebrow {
 		@include eyebrow;
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 	}
 
 	&__teaser {
@@ -47,7 +47,7 @@
 	}
 
 	&--feature::before {
-		background-color: var(--rvt-color-theme-accent);
+		background-color: var(--rvt-color-theme-text-accent);
 		clip-path: path(var(--rvt-icon-logo-iu));
 		content: "";
 		display: block;
@@ -63,14 +63,14 @@
 	}
 
 	&--feature &__teaser {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		padding-top: var(--rvt-spacing-xl);
 		position: relative;
 		text-align: left;
 	}
 
 	&--feature &__teaser::before {
-		background-color: var(--rvt-color-theme-accent);
+		background-color: var(--rvt-color-theme-text-accent);
 		content: "";
 		display: block;
 		height: var(--rvt-spacing-lg);

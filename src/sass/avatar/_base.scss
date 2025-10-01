@@ -28,9 +28,9 @@ $avatar-widths: (
 	--size-xl: calc(var(--rvt-spacing-lg) * 5);
 	--size: var(--size-rg);
 	align-items: center;
-	background-color: var(--rvt-color-theme-accent);
+	background-color: var(--rvt-color-brand-light);
 	border-radius: 999rem;
-	color: var(--rvt-color-theme-text-inverse);
+	color: var(--rvt-color-brand-main);
 	display: flex;
 	flex-shrink: 0;
 	font-size: var(--rvt-ts-20);

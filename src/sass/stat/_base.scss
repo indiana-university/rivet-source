@@ -29,7 +29,7 @@
 	}
 
 	&__number {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		font-family: var(--rvt-font-family-mono);
 		font-size: var(--rvt-ts-41);
 		font-variation-settings: "wdth" 150;
@@ -37,7 +37,7 @@
 	}
 
 	&__description {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		font-size: var(--rvt-ts-14);
 		letter-spacing: 0.025rem;
 	}

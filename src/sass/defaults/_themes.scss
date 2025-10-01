@@ -5,8 +5,9 @@
 .rvt-theme-light {
 	--rvt-color-theme-accent: var(--rvt-color-brand-main);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-dark);
-	--rvt-color-theme-accent-inverse: var(--rvt-color-brand-extralight);
 	--rvt-color-theme-background: var(--rvt-color-base-ultralight);
+	--rvt-color-theme-background-accent: var(--rvt-color-brand-extralight);
+	--rvt-color-theme-background-accent-strong: var(--rvt-color-brand-light);
 	--rvt-color-theme-background-strong: var(--rvt-color-base-extralight);
 	--rvt-color-theme-background-inverse: var(--rvt-color-base-main);
 	--rvt-color-theme-background-inverse-strong: var(--rvt-color-base-ultradark);
@@ -14,6 +15,7 @@
 	--rvt-color-theme-ui-strong: var(--rvt-color-base-medium);
 	--rvt-color-theme-text: var(--rvt-color-base-body);
 	--rvt-color-theme-text-accent: var(--rvt-color-brand-main);
+	--rvt-color-theme-text-accent-inverse: var(--rvt-color-base-ultralight);
 	--rvt-color-theme-text-strong: var(--rvt-color-base-main);
 	--rvt-color-theme-text-inverse: var(--rvt-color-base-ultralight);
 }
@@ -21,8 +23,9 @@
 .rvt-theme-dark {
 	--rvt-color-theme-accent: var(--rvt-color-brand-extralight);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-light);
-	--rvt-color-theme-accent-inverse: var(--rvt-color-brand-main);
 	--rvt-color-theme-background: var(--rvt-color-base-main);
+	--rvt-color-theme-background-accent: var(--rvt-color-base-dark);
+	--rvt-color-theme-background-accent-strong: var(--rvt-color-base-ultradark);
 	--rvt-color-theme-background-strong: var(--rvt-color-base-dark);
 	--rvt-color-theme-background-inverse: var(--rvt-color-base-ultralight);
 	--rvt-color-theme-background-inverse-strong: var(--rvt-color-base-ultralight);
@@ -30,6 +33,7 @@
 	--rvt-color-theme-ui-strong: var(--rvt-color-base-ultradark);
 	--rvt-color-theme-text: var(--rvt-color-base-ultralight);
 	--rvt-color-theme-text-accent: var(--rvt-color-base-ultralight);
+	--rvt-color-theme-text-accent-inverse: var(--rvt-color-brand-main);
 	--rvt-color-theme-text-strong: var(--rvt-color-base-ultralight);
 	--rvt-color-theme-text-inverse: var(--rvt-color-base-main);
 }
@@ -37,8 +41,9 @@
 .rvt-theme-crimson {
 	--rvt-color-theme-accent: var(--rvt-color-brand-extralight);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-light);
-	--rvt-color-theme-accent-inverse: var(--rvt-color-brand-main);
 	--rvt-color-theme-background: var(--rvt-color-brand-main);
+	--rvt-color-theme-background-accent: var(--rvt-color-brand-dark);
+	--rvt-color-theme-background-accent-strong: var(--rvt-color-brand-extradark);
 	--rvt-color-theme-background-strong: var(--rvt-color-brand-dark);
 	--rvt-color-theme-background-inverse: var(--rvt-color-brand-extralight);
 	--rvt-color-theme-background-inverse-strong: var(--rvt-color-base-ultralight);
@@ -46,6 +51,7 @@
 	--rvt-color-theme-ui-strong: var(--rvt-color-brand-extradark);
 	--rvt-color-theme-text: var(--rvt-color-base-ultralight);
 	--rvt-color-theme-text-accent: var(--rvt-color-base-ultralight);
+	--rvt-color-theme-text-accent-inverse: var(--rvt-color-brand-main);
 	--rvt-color-theme-text-strong: var(--rvt-color-base-ultralight);
 	--rvt-color-theme-text-inverse: var(--rvt-color-base-main);
 }

@@ -56,7 +56,7 @@
 
 	&__label {
 		background-color: var(--rvt-color-theme-accent);
-		color: var(--rvt-color-theme-text-inverse);
+		color: var(--rvt-color-theme-background);
 		font-family: var(--rvt-font-family-mono);
 		font-size: var(--rvt-ts-14);
 		padding-block: var(--rvt-spacing-sm);
@@ -82,7 +82,7 @@
 
 	&__item-dates-icon {
 		align-items: center;
-		background-color: var(--rvt-color-theme-background-strong);
+		background-color: var(--rvt-color-theme-background-accent);
 		border-radius: var(--rvt-border-radius-circle);
 		color: var(--rvt-color-theme-accent);
 		display: flex;

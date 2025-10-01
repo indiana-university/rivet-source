@@ -73,16 +73,13 @@
 		border-bottom-right-radius: var(--rvt-spacing-xxs);
 	}
 
-	.dropdown:not(:first-child):not(:last-child)
-		> .rvt-button:only-of-type,
-	.rvt-dropdown:not(:first-child):not(:last-child)
-		> .rvt-button:only-of-type {
+	.dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
+	.rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
 		border-radius: 0;
 		margin-left: -2px;
 	}
 
-	.rvt-dropdown:last-child
-		> .rvt-button:not(.rvt-button--secondary) {
+	.rvt-dropdown:last-child > .rvt-button:not(.rvt-button--secondary) {
 		margin-left: 2px;
 	}
 }
