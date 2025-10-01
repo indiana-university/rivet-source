@@ -50,15 +50,15 @@
 }
 
 .rvt-lh-base {
-	line-height: $line-height-base !important;
+	line-height: var(--rvt-line-height-base) !important;
 }
 
 .rvt-lh-tight {
-	line-height: $line-height-tight !important;
+	line-height: var(--rvt-line-height-tight) !important;
 }
 
 .rvt-lh-loose {
-	line-height: $line-height-loose !important;
+	line-height: var(--rvt-line-height-loose) !important;
 }
 
 .rvt-text-nobr {

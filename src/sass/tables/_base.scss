@@ -68,7 +68,7 @@ tbody tr th {
 }
 
 .rvt-table-compact {
-	line-height: $line-height-tight;
+	line-height: var(--rvt-line-height-tight);
 
 	tr th,
 	tr td {

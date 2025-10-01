@@ -33,7 +33,7 @@
 
 	&-textarea {
 		height: calc(var(--rvt-spacing-base) * 15);
-		line-height: $line-height-base;
+		line-height: var(--rvt-line-height-base);
 		overflow: auto; // Remove scrollbar in IE
 	}
 

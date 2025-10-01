@@ -172,7 +172,7 @@
 	padding: 0;
 
 	&__item {
-		line-height: $line-height-base;
+		line-height: var(--rvt-line-height-base);
 	}
 
 	&__item:not(first-child) {

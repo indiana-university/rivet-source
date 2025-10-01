@@ -52,7 +52,7 @@
 	.rvt-quote {
 		&__text {
 			font-size: var(--rvt-ts-52);
-			line-height: $line-height-tight;
+			line-height: var(--rvt-line-height-tight);
 		}
 	}
 }

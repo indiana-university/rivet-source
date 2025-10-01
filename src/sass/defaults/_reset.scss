@@ -26,7 +26,7 @@ body {
 	font-variation-settings: "wdth" 110;
 	font-weight: var(--rvt-font-weight-regular);
 	height: 100%;
-	line-height: $line-height-base;
+	line-height: var(--rvt-line-height-base);
 	margin: 0;
 	padding: 0;
 }
