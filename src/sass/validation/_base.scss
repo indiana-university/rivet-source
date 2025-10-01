@@ -42,7 +42,7 @@
 .rvt-inline-alert {
 	align-items: center;
 	display: flex;
-	font-size: $ts-14;
+	font-size: var(--rvt-ts-14);
 
 	&__icon {
 		height: var(--rvt-spacing-sm);

@@ -6,13 +6,13 @@
 	padding-bottom: var(--rvt-spacing-sm);
 
 	&__heading {
-		font-size: $ts-18;
+		font-size: var(--rvt-ts-18);
 		font-weight: $font-weight-medium;
 		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__text-block {
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		margin-top: var(--rvt-spacing-sm);
 	}
 
@@ -28,7 +28,7 @@
 
 	&__list-item a {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		text-decoration: none;
 
 		&:hover {

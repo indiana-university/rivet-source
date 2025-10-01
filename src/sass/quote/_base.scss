@@ -24,7 +24,7 @@
 		font-family: $font-family-condensed;
 		font-weight: 850;
 		font-variation-settings: "wdth" 140;
-		font-size: $ts-26;
+		font-size: var(--rvt-ts-26);
 		margin: 0;
 		text-transform: uppercase;
 
@@ -51,7 +51,7 @@
 @include mq($breakpoint-md) {
 	.rvt-quote {
 		&__text {
-			font-size: $ts-52;
+			font-size: var(--rvt-ts-52);
 			line-height: $line-height-tight;
 		}
 	}

@@ -2,12 +2,12 @@
 @use "sass:map";
 
 $avatar-fonts: (
-	"xs": $ts-14,
-	"sm": $ts-16,
-	"rg": $ts-20,
-	"md": $ts-23,
-	"lg": $ts-32,
-	"xl": $ts-41,
+	"xs": var(--rvt-ts-14),
+	"sm": var(--rvt-ts-16),
+	"rg": var(--rvt-ts-20),
+	"md": var(--rvt-ts-23),
+	"lg": var(--rvt-ts-32),
+	"xl": var(--rvt-ts-41),
 );
 
 $avatar-widths: (
@@ -33,7 +33,7 @@ $avatar-widths: (
 	color: var(--rvt-color-theme-text-inverse);
 	display: flex;
 	flex-shrink: 0;
-	font-size: $ts-20;
+	font-size: var(--rvt-ts-20);
 	font-weight: 700;
 	height: var(--size);
 	justify-content: center;
@@ -48,27 +48,27 @@ $avatar-widths: (
 
 	&--xs {
 		--size: var(--size-xs);
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 	}
 
 	&--sm {
 		--size: var(--size-sm);
-		font-size: $ts-16;
+		font-size: var(--rvt-ts-16);
 	}
 
 	&--md {
 		--size: var(--size-md);
-		font-size: $ts-23;
+		font-size: var(--rvt-ts-23);
 	}
 
 	&--lg {
 		--size: var(--size-lg);
-		font-size: $ts-32;
+		font-size: var(--rvt-ts-32);
 	}
 
 	&--xl {
 		--size: var(--size-xl);
-		font-size: $ts-41;
+		font-size: var(--rvt-ts-41);
 	}
 }
 

@@ -25,7 +25,7 @@
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
 		font-family: $font-family-condensed;
-		font-size: $ts-26;
+		font-size: var(--rvt-ts-26);
 		font-weight: $font-weight-black;
 		letter-spacing: 0.04rem;
 		line-height: 1.2;
@@ -70,7 +70,7 @@
 		}
 
 		&__title {
-			font-size: $ts-29;
+			font-size: var(--rvt-ts-29);
 		}
 
 		&__image {
@@ -115,7 +115,7 @@
 		}
 
 		&--compact &__title {
-			font-size: $ts-26;
+			font-size: var(--rvt-ts-26);
 		}
 	}
 }

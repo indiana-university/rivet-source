@@ -10,7 +10,7 @@
 	box-shadow: 0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight);
 	color: var(--color-text);
 	display: inline-flex;
-	font-size: $ts-xs;
+	font-size: var(--rvt-ts-xs);
 	font-weight: $font-weight-medium;
 	gap: var(--rvt-spacing-xxs);
 	letter-spacing: 0.02rem;

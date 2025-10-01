@@ -16,21 +16,21 @@
 	}
 
 	h1 {
-		font-size: $ts-32;
+		font-size: var(--rvt-ts-32);
 	}
 
 	h2 {
-		font-size: $ts-23;
+		font-size: var(--rvt-ts-23);
 	}
 
 	h3 {
-		font-size: $ts-20;
+		font-size: var(--rvt-ts-20);
 	}
 
 	h4,
 	h5,
 	h6 {
-		font-size: $ts-18;
+		font-size: var(--rvt-ts-18);
 	}
 
 	h1,
@@ -120,25 +120,25 @@
 		:where(li),
 		:where(td),
 		:where(dt) {
-			font-size: $ts-18;
+			font-size: var(--rvt-ts-18);
 		}
 
 		h1 {
-			font-size: $ts-41;
+			font-size: var(--rvt-ts-41);
 		}
 
 		h2 {
-			font-size: $ts-32;
+			font-size: var(--rvt-ts-32);
 		}
 
 		h3 {
-			font-size: $ts-26;
+			font-size: var(--rvt-ts-26);
 		}
 
 		h4,
 		h5,
 		h6 {
-			font-size: $ts-23;
+			font-size: var(--rvt-ts-23);
 		}
 	}
 }

@@ -13,7 +13,7 @@
 		color: var(--rvt-color-theme-accent);
 		display: inline-block;
 		font-family: monospace;
-		font-size: $ts-16;
+		font-size: var(--rvt-ts-16);
 		padding: 0.125rem 0.25rem;
 	}
 

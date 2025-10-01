@@ -87,6 +87,6 @@ $padding: math.div(3rem, 16);
 
 	&__description {
 		display: block;
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 	}
 }

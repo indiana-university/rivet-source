@@ -16,11 +16,11 @@
 	&__address-eyebrow {
 		color: var(--rvt-color-theme-text-accent);
 		font-family: $font-family-mono;
-		font-size: $ts-12;
+		font-size: var(--rvt-ts-12);
 	}
 
 	&__address-title {
-		font-size: $ts-20;
+		font-size: var(--rvt-ts-20);
 		font-weight: $font-weight-medium;
 	}
 

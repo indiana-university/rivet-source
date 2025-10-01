@@ -7,7 +7,7 @@
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
 		font-family: $font-family-serif;
-		font-size: $ts-46;
+		font-size: var(--rvt-ts-46);
 		letter-spacing: 0.01rem;
 		line-height: $line-height-tight;
 		margin: 0;

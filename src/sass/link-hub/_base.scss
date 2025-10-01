@@ -46,14 +46,14 @@
 	}
 
 	&__text {
-		font-size: $ts-20;
+		font-size: var(--rvt-ts-20);
 		font-weight: $font-weight-regular;
 		line-height: 1.25;
 	}
 
 	&__description {
 		color: var(--rvt-color-theme-text);
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		margin-top: var(--rvt-spacing-xs);
 	}
 

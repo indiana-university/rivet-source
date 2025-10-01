@@ -13,7 +13,7 @@ table,
 	width: 100%;
 
 	caption {
-		font-size: $ts-32;
+		font-size: var(--rvt-ts-32);
 		font-weight: $font-weight-medium;
 		margin-bottom: var(--rvt-spacing-md);
 		text-align: left;

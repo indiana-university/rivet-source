@@ -58,13 +58,13 @@
 		background-color: var(--rvt-color-theme-accent);
 		color: var(--rvt-color-theme-text-inverse);
 		font-family: $font-family-mono;
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
 	}
 
 	&__heading {
-		font-size: $ts-23;
+		font-size: var(--rvt-ts-23);
 		font-weight: $font-weight-medium;
 	}
 

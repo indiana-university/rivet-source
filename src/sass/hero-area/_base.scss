@@ -15,7 +15,7 @@
 		color: var(--rvt-color-theme-accent);
 		display: block;
 		font-family: $font-family-mono;
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		letter-spacing: 0.125rem;
 		text-transform: uppercase;
 	}
@@ -29,7 +29,7 @@
 	&__title {
 		color: var(--rvt-color-theme-accent);
 		font-family: $font-family-condensed;
-		font-size: $ts-32;
+		font-size: var(--rvt-ts-32);
 		font-variation-settings: "wdth" 140;
 		font-weight: 850;
 		line-height: 1.1;
@@ -86,7 +86,7 @@
 	&--profile &__subtitle {
 		color: var(--rvt-color-theme-accent);
 		font-family: $font-family-condensed;
-		font-size: $ts-20;
+		font-size: var(--rvt-ts-20);
 		font-weight: $font-weight-black;
 		margin: 0;
 		text-transform: uppercase;
@@ -109,7 +109,7 @@
 		}
 
 		&__title {
-			font-size: $ts-46;
+			font-size: var(--rvt-ts-46);
 		}
 
 		&__actions > * {
@@ -150,7 +150,7 @@
 		}
 
 		&--profile &__subtitle {
-			font-size: $ts-26;
+			font-size: var(--rvt-ts-26);
 		}
 
 		&--split &__media img {
@@ -177,7 +177,7 @@
 		}
 
 		&__teaser {
-			font-size: $ts-20;
+			font-size: var(--rvt-ts-20);
 			margin-top: var(--rvt-spacing-lg);
 		}
 
@@ -201,12 +201,12 @@
 		}
 
 		&--profile &__subtitle {
-			font-size: $ts-29;
+			font-size: var(--rvt-ts-29);
 		}
 
 		&--statement &__title,
 		&--feature &__title {
-			font-size: $ts-52;
+			font-size: var(--rvt-ts-52);
 		}
 
 		&--feature &__banner {
@@ -235,7 +235,7 @@
 		}
 
 		&--split &__title {
-			font-size: $ts-52;
+			font-size: var(--rvt-ts-52);
 		}
 
 		&--split &__inner {

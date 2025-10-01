@@ -11,7 +11,7 @@
 	&__title {
 		color: var(--rvt-color-theme-accent);
 		font-family: $font-family-condensed;
-		font-size: $ts-36;
+		font-size: var(--rvt-ts-36);
 		font-weight: $font-weight-black;
 		line-height: $line-height-tight;
 		margin-top: var(--rvt-spacing-sm);
@@ -27,7 +27,7 @@
 
 	&__teaser {
 		color: var(--rvt-color-theme-text);
-		font-size: $ts-16;
+		font-size: var(--rvt-ts-16);
 		margin-top: var(--rvt-spacing-sm);
 
 		> * {
@@ -84,11 +84,11 @@
 @include mq($breakpoint-md) {
 	.rvt-section-intro {
 		&__title {
-			font-size: $ts-41;
+			font-size: var(--rvt-ts-41);
 		}
 
 		&__teaser {
-			font-size: $ts-20;
+			font-size: var(--rvt-ts-20);
 		}
 	}
 }

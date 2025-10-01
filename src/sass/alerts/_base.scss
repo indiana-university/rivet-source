@@ -81,7 +81,7 @@
 
 	&__title {
 		color: var(--color-main);
-		font-size: $ts-18;
+		font-size: var(--rvt-ts-18);
 		font-weight: $font-weight-bold;
 		font-variation-settings:
 			"wdth" 135,

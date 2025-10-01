@@ -51,7 +51,7 @@
 			border: none;
 			display: block;
 			color: var(--rvt-color-theme-text-strong);
-			font-size: $ts-14;
+			font-size: var(--rvt-ts-14);
 			/**
        * This padding-top and bottom value is a magic number.
        */
@@ -88,7 +88,7 @@
 		color: var(--rvt-color-theme-text-strong);
 		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm) var(--rvt-spacing-xxs);
 		font-weight: $font-weight-bold;
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 
 		&:first-child {
 			padding-top: 0;

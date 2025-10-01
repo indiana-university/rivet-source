@@ -10,7 +10,7 @@
 
 	&__label {
 		font-family: $font-family-mono;
-		font-size: $ts-12;
+		font-size: var(--rvt-ts-12);
 	}
 
 	&__content {

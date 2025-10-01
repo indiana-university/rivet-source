@@ -114,7 +114,7 @@
 
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		font-weight: $font-weight-medium;
 		padding-block: var(--rvt-spacing-xs);
 		text-decoration: none;
@@ -129,7 +129,7 @@
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
 			display: flex;
-			font-size: $ts-14;
+			font-size: var(--rvt-ts-14);
 			font-weight: $font-weight-medium;
 			gap: var(--rvt-spacing-xs);
 			margin-top: calc(var(--rvt-spacing-xxs) * 0.75);
@@ -241,7 +241,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: $ts-20;
+		font-size: var(--rvt-ts-20);
 		font-weight: $font-weight-black;
 		letter-spacing: 0.025rem;
 	}

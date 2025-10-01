@@ -93,7 +93,7 @@
 */
 
 	&--small {
-		font-size: $ts-14;
+		font-size: var(--rvt-ts-14);
 		height: var(--rvt-spacing-md);
 		gap: 0;
 		padding: 0 var(--rvt-spacing-xs);
