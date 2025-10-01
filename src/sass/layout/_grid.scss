@@ -5,10 +5,10 @@
 
 .rvt-grid {
 	display: grid;
-	gap: #{var(--rvt-spacing-md)};
+	gap: var(--rvt-spacing-md);
 
 	& + & {
-		margin-top: #{var(--rvt-spacing-md)};
+		margin-top: var(--rvt-spacing-md);
 	}
 }
 
