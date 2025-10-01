@@ -51,7 +51,7 @@
 			min-width: var(--rvt-spacing-xl);
 			padding: var(--rvt-spacing-xs);
 			text-decoration: none;
-			z-index: map.get($z-index, "100");
+			z-index: var(--rvt-z-index-100);
 		}
 
 		a:hover {
@@ -63,7 +63,7 @@
 		a:focus,
 		a[aria-current="page"]:focus {
 			border-radius: inherit;
-			z-index: map.get($z-index, "1000");
+			z-index: var(--rvt-z-index-1000);
 		}
 
 		a[aria-current="page"] {

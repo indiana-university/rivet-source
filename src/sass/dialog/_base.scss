@@ -29,7 +29,7 @@
 	top: 40%;
 	transform: translateY(-40%);
 	width: 90%;
-	z-index: map.get($z-index, "1000");
+	z-index: var(--rvt-z-index-1000);
 
 	&[data-rvt-dialog-darken-page] {
 		box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);

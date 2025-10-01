@@ -134,7 +134,7 @@
 	&__link,
 	&__toggle {
 		&:focus {
-			z-index: $z-index-100;
+			z-index: var(--rvt-z-index-100);
 		}
 	}
 

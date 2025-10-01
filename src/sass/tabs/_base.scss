@@ -23,7 +23,7 @@
 		line-height: 1;
 		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
 		position: relative;
-		z-index: map.get($z-index, "100");
+		z-index: var(--rvt-z-index-100);
 
 		&:not(:first-child) {
 			border-left: 1px solid var(--rvt-color-theme-ui);

@@ -12,18 +12,18 @@
 	&__input:not(:first-child) {
 		border-bottom-left-radius: 0;
 		border-top-left-radius: 0;
-		z-index: map.get($z-index, "100");
+		z-index: var(--rvt-z-index-100);
 	}
 
 	&__input:not(:last-child) {
 		border-bottom-right-radius: 0;
 		border-top-right-radius: 0;
-		z-index: map.get($z-index, "100");
+		z-index: var(--rvt-z-index-100);
 	}
 
 	&__input:focus:not(:last-child),
 	&__input:focus:not(:first-child) {
-		z-index: map.get($z-index, "300");
+		z-index: var(--rvt-z-index-300);
 	}
 
 	&__append {
@@ -36,7 +36,7 @@
 			display: flex;
 			flex-grow: 1;
 			white-space: nowrap;
-			z-index: map.get($z-index, "200");
+			z-index: var(--rvt-z-index-200);
 		}
 	}
 
@@ -69,7 +69,7 @@
 			border-top-right-radius: 0;
 			display: flex;
 			white-space: nowrap;
-			z-index: map.get($z-index, "200");
+			z-index: var(--rvt-z-index-200);
 		}
 	}
 }

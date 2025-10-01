@@ -27,7 +27,7 @@
 		// go offscreen when close to the edge of the viewport.
 		right: 0;
 		top: 115%;
-		z-index: map.get($z-index, "1000");
+		z-index: var(--rvt-z-index-1000);
 
 		//In some cases, you may need to align the dropdown menu
 		//to the left edge of the button.

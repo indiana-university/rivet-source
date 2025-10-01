@@ -88,7 +88,7 @@
 		justify-content: center;
 		position: relative;
 		width: var(--rvt-spacing-lg);
-		z-index: map.get($z-index, "100");
+		z-index: var(--rvt-z-index-100);
 	}
 
 	&__indicator--success {
