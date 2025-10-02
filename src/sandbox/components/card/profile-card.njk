@@ -2,10 +2,14 @@
 title: Profile Card
 ---
 
-{% import 'macros/card.njk' as macros %} {{ macros.ProfileCard(avatar = true,
-eyebrow = true, subtitle = true, details = true, meta = true, raised = true) }}
+{% import 'macros/card.njk' as macros %}
 
-<ul class="rvt-card-list">
+<div>
+	{{ macros.ProfileCard(avatar = true, eyebrow = true, subtitle = true, details
+	= true, meta = true, raised = true) }}
+</div>
+
+<ul class="rvt-card-grid rvt-m-top-xl">
 	<li>{{ macros.ProfileCard() }}</li>
 	<li>{{ macros.ProfileCard(eyebrow = true) }}</li>
 	<li>{{ macros.ProfileCard(eyebrow = true, subtitle = true) }}</li>

@@ -1,51 +1,59 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
+.rvt-list {
+	li::marker {
+		color: var(--rvt-color-theme-text-accent);
+	}
 
-.#{$prefix}-list,
-.#{$prefix}-list-inline,
-.#{$prefix}-list-plain {
-	display: flex;
-	gap: $spacing-xs $spacing-sm;
-	margin: $spacing-xs 0 0 0;
+	&:is(ul) li {
+		list-style-type: square;
+	}
 }
 
-.#{$prefix}-list,
-.#{$prefix}-list-plain {
+.rvt-list,
+.rvt-list-inline,
+.rvt-list-plain {
+	display: flex;
+	gap: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+	margin: var(--rvt-spacing-xs) 0 0 0;
+}
+
+.rvt-list,
+.rvt-list-plain {
 	flex-direction: column;
 }
 
-.#{$prefix}-list-inline,
-.#{$prefix}-list-plain {
+.rvt-list-inline,
+.rvt-list-plain {
 	// Equivalent to `list-style: none`, but retains list semantics in VoiceOver.
 	list-style: "";
 	padding-left: 0;
 }
 
-.#{$prefix}-list,
-.#{$prefix}-list-plain .#{$prefix}-list-plain {
-	padding-left: $spacing-lg;
+.rvt-list,
+.rvt-list-plain .rvt-list-plain {
+	padding-left: var(--rvt-spacing-lg);
 }
 
-.#{$prefix}-list-inline {
+.rvt-list-inline {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
-.#{$prefix}-list-reset {
+.rvt-list-reset {
 	list-style: "";
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-left: 0;
 }
 
-.#{$prefix}-list-description {
+.rvt-list-description {
 	margin: 0;
 
 	:where(dt) {
-		font-weight: $font-weight-medium;
-		margin-top: $spacing-sm;
+		font-weight: var(--rvt-font-weight-medium);
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	:where(dt + dt) {

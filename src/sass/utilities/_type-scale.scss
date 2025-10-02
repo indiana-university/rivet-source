@@ -12,7 +12,7 @@
  */
 
 @each $pixels, $rems in $type-scale {
-	.#{$prefix}-ts-#{$pixels} {
+	.rvt-ts-#{$pixels} {
 		font-size: $rems !important;
 	}
 }
@@ -30,7 +30,7 @@
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		@each $pixels, $rems in $type-scale {
-			.#{$prefix}-ts-#{$pixels}-#{$variable}-up {
+			.rvt-ts-#{$pixels}-#{$variable}-up {
 				font-size: $rems !important;
 			}
 		}

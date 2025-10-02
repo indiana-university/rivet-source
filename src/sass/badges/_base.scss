@@ -1,18 +1,16 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-:is(span, strong).#{$prefix}-badge {
+:is(span, strong).rvt-badge {
 	align-items: center;
 	background-color: var(--color-background);
-	border-radius: $border-radius-circle;
+	border-radius: var(--rvt-border-radius-circle);
 	box-shadow: 0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight);
 	color: var(--color-text);
 	display: inline-flex;
-	font-size: $ts-xs;
-	font-weight: $font-weight-medium;
-	gap: $spacing-xxs;
+	font-size: var(--rvt-ts-xs);
+	font-weight: var(--rvt-font-weight-medium);
+	gap: var(--rvt-spacing-xxs);
 	letter-spacing: 0.02rem;
 	line-height: 1;
 	padding: 0.25rem 0.5rem;
@@ -22,7 +20,7 @@
 	-osx-font-smoothing: grayscale;
 }
 
-span.#{$prefix}-badge {
+span.rvt-badge {
 	--color-background: var(--rvt-color-base-light);
 	--color-text: var(--rvt-color-base-main);
 
@@ -47,7 +45,7 @@ span.#{$prefix}-badge {
 	}
 }
 
-strong.#{$prefix}-badge {
+strong.rvt-badge {
 	--color-background: var(--rvt-color-base-main);
 	--color-text: var(--rvt-color-base-ultralight);
 

@@ -2,23 +2,25 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 @use "../core" as *;
+@use "../defaults" as *;
 
 // Temp Callout component
-.#{$prefix}-callout {
-	border: 1px solid var(--rvt-color-theme-accent-inverse);
-	background-color: var(--rvt-color-theme-accent-inverse);
-	color: var(--rvt-color-theme-text-accent);
+.rvt-callout {
+	border: 1px solid var(--rvt-color-theme-ui);
+	background-color: var(--rvt-color-theme-background);
+	color: var(--rvt-color-theme-text);
 	container-name: callout;
 	container-type: inline-size;
 
-	&--alt {
-		background-color: var(--rvt-color-theme-background);
-		border-color: var(--rvt-color-theme-ui);
-		color: var(--rvt-color-theme-text);
+	&--strong {
+		@extend .rvt-theme-light;
+		background-color: var(--rvt-color-theme-background-accent);
+		border-color: transparent;
+		color: var(--rvt-color-theme-text-accent);
 	}
 
 	&__inner {
-		padding: $spacing-md;
+		padding: var(--rvt-spacing-md);
 	}
 
 	&__eyebrow {
@@ -29,34 +31,34 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-condensed;
-		font-size: $ts-26;
-		font-weight: $font-weight-black;
+		font-family: var(--rvt-font-family-condensed);
+		font-size: var(--rvt-ts-26);
+		font-weight: var(--rvt-font-weight-black);
 		letter-spacing: 0.04rem;
 		line-height: 1.2;
 		text-transform: uppercase;
 	}
 
 	&__eyebrow + &__title {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__content {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__actions {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-md;
-		margin-top: $spacing-md;
+		gap: var(--rvt-spacing-md);
+		margin-top: var(--rvt-spacing-md);
 	}
 }
 
 @container callout (min-width: 640px) {
-	.#{$prefix}-callout {
+	.rvt-callout {
 		&__inner {
-			padding: $spacing-xxl;
+			padding: var(--rvt-spacing-xxl);
 		}
 
 		&__actions {
@@ -67,17 +69,17 @@
 }
 
 @container callout (min-width: 1024px) {
-	.#{$prefix}-callout {
+	.rvt-callout {
 		&__inner {
 			display: flex;
-			gap: $spacing-lg;
+			gap: var(--rvt-spacing-lg);
 			margin-inline: auto;
 			max-width: 75%;
-			padding: $spacing-xxl;
+			padding: var(--rvt-spacing-xxl);
 		}
 
 		&__title {
-			font-size: $ts-29;
+			font-size: var(--rvt-ts-29);
 		}
 	}
 }

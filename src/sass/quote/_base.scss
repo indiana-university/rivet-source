@@ -1,18 +1,20 @@
-@use "../core" as *;
-@use "sass:math";
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
 
-.#{$prefix}-quote {
+@use "../core" as *;
+
+.rvt-quote {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 
 	&::before {
-		background-color: var(--rvt-color-theme-accent);
+		background-color: var(--rvt-color-theme-text-accent);
 		clip-path: path(var(--rvt-icon-quote-open));
 		display: block;
 		content: "";
-		height: math.div(50, 16) * $spacing-sm;
-		width: math.div(65, 16) * $spacing-sm;
+		height: calc(50 / 16 * var(--rvt-spacing-sm));
+		width: calc(65 / 16 * var(--rvt-spacing-sm));
 	}
 
 	&--image::before {
@@ -20,11 +22,11 @@
 	}
 
 	&__text {
-		color: var(--rvt-color-theme-accent);
-		font-family: $font-family-condensed;
+		color: var(--rvt-color-theme-text-accent);
+		font-family: var(--rvt-font-family-condensed);
 		font-weight: 850;
 		font-variation-settings: "wdth" 140;
-		font-size: $ts-26;
+		font-size: var(--rvt-ts-26);
 		margin: 0;
 		text-transform: uppercase;
 
@@ -39,20 +41,20 @@
 
 	&__title,
 	&__subtitle {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		display: block;
 	}
 
 	&__title {
-		font-weight: $font-weight-bold;
+		font-weight: var(--rvt-font-weight-bold);
 	}
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-quote {
+	.rvt-quote {
 		&__text {
-			font-size: $ts-52;
-			line-height: $line-height-tight;
+			font-size: var(--rvt-ts-52);
+			line-height: var(--rvt-line-height-tight);
 		}
 	}
 }

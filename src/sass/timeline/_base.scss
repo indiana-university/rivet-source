@@ -3,8 +3,8 @@
 
 @use "../core" as *;
 
-.#{$prefix}-timeline {
-	padding: $spacing-lg 0;
+.rvt-timeline {
+	padding: var(--rvt-spacing-lg) 0;
 	position: relative;
 
 	&::before {
@@ -12,14 +12,14 @@
 		content: "";
 		height: 100%;
 		left: 0;
-		margin-left: $spacing-xxs;
+		margin-left: var(--rvt-spacing-xxs);
 		position: absolute;
 		top: 0;
 		width: 1px;
 	}
 
 	&__item {
-		margin-block: $spacing-lg;
+		margin-block: var(--rvt-spacing-lg);
 		position: relative;
 	}
 
@@ -34,38 +34,38 @@
 		background: var(--rvt-color-theme-accent);
 		border-radius: 50%;
 		box-shadow:
-			0 0 0 ($spacing-xs * 0.85) var(--rvt-color-theme-background),
-			0 0 0 $spacing-xs var(--rvt-color-theme-ui);
-		height: $spacing-sm;
-		left: $spacing-xxs * -0.85;
+			0 0 0 calc(var(--rvt-spacing-xs) * 0.85) var(--rvt-color-theme-background),
+			0 0 0 var(--rvt-spacing-xs) var(--rvt-color-theme-ui);
+		height: var(--rvt-spacing-sm);
+		left: calc(var(--rvt-spacing-xxs) * -0.85);
 		position: absolute;
-		top: $spacing-md * 0.85;
-		width: $spacing-sm;
+		top: calc(var(--rvt-spacing-md) * 0.85);
+		width: var(--rvt-spacing-sm);
 	}
 
 	&__content {
 		background-color: var(--rvt-color-theme-background);
 		border: none;
-		box-shadow: $shadow-standard;
-		margin-inline-start: $spacing-lg;
+		box-shadow: var(--rvt-shadow-standard);
+		margin-inline-start: var(--rvt-spacing-lg);
 	}
 
 	&__content-inner {
-		padding: $spacing-md;
+		padding: var(--rvt-spacing-md);
 	}
 
 	&__label {
 		background-color: var(--rvt-color-theme-accent);
-		color: var(--rvt-color-theme-text-inverse);
-		font-family: $font-family-mono;
-		font-size: $ts-14;
-		padding-block: $spacing-sm;
-		padding-inline: $spacing-md;
+		color: var(--rvt-color-theme-background);
+		font-family: var(--rvt-font-family-mono);
+		font-size: var(--rvt-ts-14);
+		padding-block: var(--rvt-spacing-sm);
+		padding-inline: var(--rvt-spacing-md);
 	}
 
 	&__heading {
-		font-size: $ts-23;
-		font-weight: $font-weight-medium;
+		font-size: var(--rvt-ts-23);
+		font-weight: var(--rvt-font-weight-medium);
 	}
 
 	&__content-inner > * {
@@ -73,103 +73,103 @@
 	}
 
 	&__content-inner > * + * {
-		margin-block-start: $spacing-md;
+		margin-block-start: var(--rvt-spacing-md);
 	}
 
 	&__item-dates {
-		margin-block-start: $spacing-lg;
+		margin-block-start: var(--rvt-spacing-lg);
 	}
 
 	&__item-dates-icon {
 		align-items: center;
-		background-color: var(--rvt-color-theme-background-strong);
-		border-radius: $border-radius-circle;
+		background-color: var(--rvt-color-theme-background-accent);
+		border-radius: var(--rvt-border-radius-circle);
 		color: var(--rvt-color-theme-accent);
 		display: flex;
-		height: $spacing-xl;
+		height: var(--rvt-spacing-xl);
 		justify-content: center;
-		width: $spacing-xl;
+		width: var(--rvt-spacing-xl);
 	}
 
 	&__item-dates + &__item-actions {
-		margin-block-start: $spacing-xl;
+		margin-block-start: var(--rvt-spacing-xl);
 	}
 }
 
 // TODO: Make a decision on whether we need this variant
-.#{$prefix}-timeline--right {
+.rvt-timeline--right {
 	&::before {
 		left: auto;
-		right: $spacing-xxs;
+		right: var(--rvt-spacing-xxs);
 	}
 
-	.#{$prefix}-timeline__item::after {
+	.rvt-timeline__item::after {
 		border-left-color: var(--rvt-color-theme-ui);
 		border-right-color: transparent;
 		margin-left: 0;
 		right: 0;
 	}
 
-	.#{$prefix}-timeline__marker {
+	.rvt-timeline__marker {
 		margin-left: 0;
 		right: 0;
 	}
 
-	.#{$prefix}-timeline__content {
+	.rvt-timeline__content {
 		margin-left: 0;
-		margin-right: $spacing-lg;
+		margin-right: var(--rvt-spacing-lg);
 	}
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-timeline--center {
+	.rvt-timeline--center {
 		&::before {
 			left: 50%;
 			margin-left: 0;
 		}
 
-		.#{$prefix}-timeline__item {
+		.rvt-timeline__item {
 			flex-basis: 50%;
 			max-width: 50%;
-			padding: 0 $spacing-sm * 0.75;
+			padding: 0 calc(var(--rvt-spacing-sm) * 0.75);
 			width: 100%;
 		}
 
-		.#{$prefix}-timeline__item--right {
+		.rvt-timeline__item--right {
 			margin-left: auto;
 		}
 
-		.#{$prefix}-timeline__item::after {
+		.rvt-timeline__item::after {
 			border-left-color: var(--rvt-color-theme-ui);
 			border-right-color: transparent;
 			left: 100%;
-			margin-left: -$spacing-md;
+			margin-left: -var(--rvt-spacing-md);
 		}
 
-		.#{$prefix}-timeline__item--right::after {
+		.rvt-timeline__item--right::after {
 			border-left-color: transparent;
 			border-right-color: var(--rvt-color-theme-ui);
 			left: auto;
-			margin-left: -$spacing-sm;
+			margin-left: -var(--rvt-spacing-sm);
 		}
 
-		.#{$prefix}-timeline__marker {
+		.rvt-timeline__marker {
 			left: 100%;
-			margin-left: -$spacing-xxs;
+			margin-left: -var(--rvt-spacing-xxs);
 		}
 
-		.#{$prefix}-timeline__item--right .#{$prefix}-timeline__marker {
+		.rvt-timeline__item--right .rvt-timeline__marker {
 			left: auto;
-			margin-left: -$spacing-sm;
+			margin-left: -var(--rvt-spacing-sm);
 		}
 
-		.#{$prefix}-timeline__content {
+		.rvt-timeline__content {
 			margin-left: 0;
-			margin-right: $spacing-sm * 0.75;
+			margin-right: calc(var(--rvt-spacing-sm) * 0.75);
 		}
 
-		.#{$prefix}-timeline__item--right .#{$prefix}-timeline__content {
-			margin-left: $spacing-sm;
+		.rvt-timeline__item--right .rvt-timeline__content {
+			margin-left: var(--rvt-spacing-sm);
 			margin-right: 0;
 		}
 	}

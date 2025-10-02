@@ -3,23 +3,23 @@
 
 @use "../core" as *;
 
-.#{$prefix}-factoid {
+.rvt-factoid {
 	&__item {
-		padding: $spacing-sm;
+		padding: var(--rvt-spacing-sm);
 	}
 
 	&__label {
-		font-family: $font-family-mono;
-		font-size: $ts-12;
+		font-family: var(--rvt-font-family-mono);
+		font-size: var(--rvt-ts-12);
 	}
 
 	&__content {
-		font-weight: $font-weight-medium;
+		font-weight: var(--rvt-font-weight-medium);
 	}
 }
 
 @media (min-width: $breakpoint-md) {
-	.#{$prefix}-factoid {
+	.rvt-factoid {
 		display: flex;
 		flex-wrap: wrap;
 

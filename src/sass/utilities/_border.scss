@@ -1,61 +1,59 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-.#{$prefix}-border-all {
+.rvt-border-all {
 	border: 1px solid var(--rvt-color-theme-ui) !important;
 }
 
-.#{$prefix}-border-all-none {
+.rvt-border-all-none {
 	border: 0 !important;
 }
 
-.#{$prefix}-border-top {
+.rvt-border-top {
 	border-top: 1px solid var(--rvt-color-theme-ui) !important;
 }
 
-.#{$prefix}-border-top-none {
+.rvt-border-top-none {
 	border-top: 0 !important;
 }
 
-.#{$prefix}-border-right {
+.rvt-border-right {
 	border-right: 1px solid var(--rvt-color-theme-ui) !important;
 }
 
-.#{$prefix}-border-right-none {
+.rvt-border-right-none {
 	border-right: 0 !important;
 }
 
-.#{$prefix}-border-bottom {
+.rvt-border-bottom {
 	border-bottom: 1px solid var(--rvt-color-theme-ui) !important;
 }
 
-.#{$prefix}-border-bottom-none {
+.rvt-border-bottom-none {
 	border-bottom: 0 !important;
 }
 
-.#{$prefix}-border-left {
+.rvt-border-left {
 	border-left: 1px solid var(--rvt-color-theme-ui) !important;
 }
 
-.#{$prefix}-border-left-none {
+.rvt-border-left-none {
 	border-left: 0 !important;
 }
 
-.#{$prefix}-border-radius-sm {
-	border-radius: $border-radius-sm !important;
+.rvt-border-radius-sm {
+	border-radius: var(--rvt-border-radius-sm) !important;
 }
 
-.#{$prefix}-border-radius,
-.#{$prefix}-border-radius-md {
-	border-radius: $border-radius-md !important;
+.rvt-border-radius,
+.rvt-border-radius-md {
+	border-radius: var(--rvt-border-radius-md) !important;
 }
 
-.#{$prefix}-border-radius-lg {
-	border-radius: $border-radius-lg !important;
+.rvt-border-radius-lg {
+	border-radius: var(--rvt-border-radius-lg) !important;
 }
 
-.#{$prefix}-border-radius-circle {
-	border-radius: $border-radius-circle !important;
+.rvt-border-radius-circle {
+	border-radius: var(--rvt-border-radius-circle) !important;
 }

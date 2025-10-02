@@ -7,7 +7,7 @@ padding: true
 order: 1
 ---
 
-<nav role="navigation" aria-label="More pages of items">
+<nav role="navigation" aria-label="Pages">
 	<ul class="rvt-pagination">
 		<li class="rvt-pagination__item">
 			<a href="#0">
@@ -21,11 +21,12 @@ order: 1
 					<path d="M.586 8 7 14.414 8.414 13l-5-5 5-5L7 1.586.586 8Z" />
 					<path d="M6.586 8 13 14.414 14.414 13l-5-5 5-5L13 1.586 6.586 8Z" />
 				</svg>
-				<span>First</span>
+				First
+				<span class="rvt-sr-only">page</span>
 			</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<a href="#" aria-label="Go to previous page">
+			<a href="#">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"
@@ -37,25 +38,28 @@ order: 1
 						d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"
 					/>
 				</svg>
+				<span class="rvt-sr-only">Previous page</span>
 			</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<span>6</span>
+			<a href="#0"><span class="rvt-sr-only">Page</span> 6</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<a href="#0" aria-label="Page 7">7</a>
+			<a href="#0"><span class="rvt-sr-only">Page</span> 7</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<a href="#0" aria-label="Page 8" aria-current="page">8</a>
+			<a href="#0" aria-current="page">
+				<span class="rvt-sr-only">Page</span> 8
+			</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<a href="#0" aria-label="Page 9">9</a>
+			<a href="#0"><span class="rvt-sr-only">Page</span> 9</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<a href="#0" aria-label="Page 10">10</a>
+			<a href="#0"><span class="rvt-sr-only">Page</span> 10</a>
 		</li>
 		<li class="rvt-pagination__item">
-			<a href="#0" aria-label="Go to next page">
+			<a href="#0">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"
@@ -67,11 +71,13 @@ order: 1
 						d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"
 					/>
 				</svg>
+				<span class="rvt-sr-only">Next page</span>
 			</a>
 		</li>
 		<li class="rvt-pagination__item">
 			<a href="#0">
-				<span>Last</span>
+				Last
+				<span class="rvt-sr-only">page</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"

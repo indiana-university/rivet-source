@@ -1,9 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
-.#{$prefix}-text-uppercase {
+.rvt-text-uppercase {
 	text-transform: uppercase !important;
 
 	/**
@@ -13,70 +11,70 @@
 	letter-spacing: 0.04rem !important;
 }
 
-.#{$prefix}-text-lowercase {
+.rvt-text-lowercase {
 	text-transform: lowercase !important;
 }
 
-.#{$prefix}-text-black,
-.#{$prefix}-font-black {
-	font-weight: $font-weight-black !important;
+.rvt-text-black,
+.rvt-font-black {
+	font-weight: var(--rvt-font-weight-black) !important;
 }
 
-.#{$prefix}-text-bold,
-.#{$prefix}-font-bold {
-	font-weight: $font-weight-bold !important;
+.rvt-text-bold,
+.rvt-font-bold {
+	font-weight: var(--rvt-font-weight-bold) !important;
 }
 
-.#{$prefix}-text-medium,
-.#{$prefix}-font-medium {
-	font-weight: $font-weight-medium !important;
+.rvt-text-medium,
+.rvt-font-medium {
+	font-weight: var(--rvt-font-weight-medium) !important;
 }
 
-.#{$prefix}-text-regular,
-.#{$prefix}-font-regular {
-	font-weight: $font-weight-regular !important;
+.rvt-text-regular,
+.rvt-font-regular {
+	font-weight: var(--rvt-font-weight-regular) !important;
 }
 
-.#{$prefix}-text-left {
+.rvt-text-left {
 	text-align: left !important;
 }
 
-.#{$prefix}-text-right {
+.rvt-text-right {
 	text-align: right !important;
 }
 
-.#{$prefix}-text-center {
+.rvt-text-center {
 	text-align: center !important;
 }
 
-.#{$prefix}-lh-base {
-	line-height: $line-height-base !important;
+.rvt-lh-base {
+	line-height: var(--rvt-line-height-base) !important;
 }
 
-.#{$prefix}-lh-tight {
-	line-height: $line-height-tight !important;
+.rvt-lh-tight {
+	line-height: var(--rvt-line-height-tight) !important;
 }
 
-.#{$prefix}-lh-loose {
-	line-height: $line-height-loose !important;
+.rvt-lh-loose {
+	line-height: var(--rvt-line-height-loose) !important;
 }
 
-.#{$prefix}-text-nobr {
+.rvt-text-nobr {
 	white-space: nowrap !important;
 }
 
-.#{$prefix}-font-condensed {
-	font-family: $font-family-condensed !important;
+.rvt-font-condensed {
+	font-family: var(--rvt-font-family-condensed) !important;
 }
 
-.#{$prefix}-font-sans {
-	font-family: $font-family-sans !important;
+.rvt-font-sans {
+	font-family: var(--rvt-font-family-sans) !important;
 }
 
-.#{$prefix}-font-serif {
-	font-family: $font-family-serif !important;
+.rvt-font-serif {
+	font-family: var(--rvt-font-family-serif) !important;
 }
 
-.#{$prefix}-font-mono {
-	font-family: $font-family-mono !important;
+.rvt-font-mono {
+	font-family: var(--rvt-font-family-mono) !important;
 }

@@ -63,3 +63,16 @@ export {
 	Tabs,
 	init,
 };
+
+export default {
+	Accordion,
+	Alert,
+	Dialog,
+	Disclosure,
+	Dropdown,
+	FileInput,
+	Sidenav,
+	Switch,
+	Tabs,
+	init,
+};

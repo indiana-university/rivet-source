@@ -3,13 +3,13 @@
 
 @use "../core" as *;
 
-.#{$prefix}-hero {
+.rvt-hero {
 	container-type: inline-size;
 
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-lg;
+		gap: var(--rvt-spacing-lg);
 		@include container;
 	}
 
@@ -23,14 +23,14 @@
 	}
 
 	&__eyebrow > :not(.rvt-breadcrumbs) {
-		font-family: $font-family-sans;
+		font-family: var(--rvt-font-family-sans);
 		letter-spacing: normal;
 		text-transform: none;
 	}
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-condensed;
+		font-family: var(--rvt-font-family-condensed);
 		font-size: clamp(
 			var(--rvt-ts-26),
 			4cqw,
@@ -43,7 +43,7 @@
 	}
 
 	&__eyebrow + &__title {
-		margin-top: $spacing-xs;
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__teaser {
@@ -57,13 +57,13 @@
 
 	&__title + &__actions,
 	&__teaser + &__actions {
-		margin-top: $spacing-md;
+		margin-top: var(--rvt-spacing-md);
 	}
 
 	&__actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: $spacing-sm;
+		gap: var(--rvt-spacing-sm);
 	}
 
 	&__actions > * {
@@ -80,43 +80,42 @@
 	}
 
 	&--statement &__banner {
-		margin-top: $spacing-lg;
+		margin-top: var(--rvt-spacing-lg);
 	}
 
 	&--feature &__banner {
-		margin-top: $spacing-xxl;
+		margin-top: var(--rvt-spacing-xxl);
 	}
 
 	&--feature &__banner {
 		display: flex;
 		flex-direction: column;
-		gap: $spacing-lg;
+		gap: var(--rvt-spacing-lg);
 		@include container();
 	}
 
 	&--profile &__subtitle {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: $font-family-condensed;
-		//font-size: $ts-20;
+		font-family: var(--rvt-font-family-condensed);
 		font-size: clamp(
 			var(--rvt-ts-20),
 			2cqw,
 			var(--rvt-ts-26)
 		);
-		font-weight: $font-weight-black;
+		font-weight: var(--rvt-font-weight-black);
 		margin: 0;
 	}
 }
 
 @include mq($breakpoint-md) {
-	.#{$prefix}-hero {
+	.rvt-hero {
 		&__body {
 			flex-grow: 1;
 			max-width: 90ch;
 		}
 
 		&__actions {
-			gap: $spacing-md;
+			gap: var(--rvt-spacing-md);
 		}
 
 		&__callout {
@@ -128,7 +127,7 @@
 		}
 
 		&__title {
-			//font-size: $ts-46;
+			//font-size: var(--rvt-ts-46);
 		}
 
 		&__actions > * {
@@ -169,7 +168,7 @@
 		}
 
 		&--profile &__subtitle {
-			//font-size: $ts-26;
+			//font-size: var(--rvt-ts-26);
 		}
 
 		&--split &__media img {
@@ -186,23 +185,23 @@
 }
 
 @include mq($breakpoint-lg) {
-	.#{$prefix}-hero {
+	.rvt-hero {
 		&__inner {
 			//flex-direction: row;
 		}
 
 		&__eyebrow + &__title {
-			margin-top: $spacing-sm;
+			margin-top: var(--rvt-spacing-sm);
 		}
 
 		&__teaser {
-			font-size: $ts-20;
-			//margin-top: $spacing-lg;
+			font-size: var(--rvt-ts-20);
+			//margin-top: var(--rvt-spacing-lg);
 		}
 
 		&__title + &__actions,
 		&__teaser + &__actions {
-			margin-top: $spacing-xl;
+			margin-top: var(--rvt-spacing-xl);
 		}
 
 		&__teaser > * {
@@ -210,7 +209,7 @@
 		}
 
 		&__teaser > * + * {
-			margin-top: $spacing-sm;
+			margin-top: var(--rvt-spacing-sm);
 		}
 
 		/*
@@ -223,11 +222,11 @@
 		*/
 
 		&--profile &__subtitle {
-			//font-size: $ts-29;
+			//font-size: var(--rvt-ts-29);
 		}
 
 		&--statement &__title {
-			font-size: $ts-52;
+			font-size: var(--rvt-ts-52);
 		}
 
 		&--feature &__banner {
@@ -256,11 +255,11 @@
 		}
 
 		&--split &__title {
-			//font-size: $ts-52;
+			//font-size: var(--rvt-ts-52);
 		}
 
 		&--split &__inner {
-			gap: $spacing-xxl;
+			gap: var(--rvt-spacing-xxl);
 		}
 
 		&--split &__body,
@@ -286,9 +285,9 @@
 }
 
 // Non-global theme specifics
-.#{$prefix}-hero,
-.#{$prefix}-hero {
+.rvt-hero,
+.rvt-hero {
 	&__quick-links {
-		padding: $spacing-lg;
+		padding: var(--rvt-spacing-lg);
 	}
 }
