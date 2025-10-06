@@ -34,12 +34,6 @@
 		font-size: var(--fluid-size);
 	}
 
-	.rvt-hero__eyebrow > :not(.rvt-breadcrumbs) {
-		font-family: var(--rvt-font-family-sans);
-		letter-spacing: normal;
-		text-transform: none;
-	}
-
 	.rvt-hero__title {
 		--fluid-size-min: var(--rvt-ts-26);
 		--fluid-size-max: var(--rvt-ts-41);
@@ -65,14 +59,13 @@
 	.rvt-hero__teaser {
 		font-size: var(--rvt-ts-18);
 		margin-top: var(--rvt-spacing-xs);
+
+		> * {
+			margin-bottom: 0;
+		}
 	}
 
-	.rvt-hero__teaser > * {
-		margin-bottom: 0;
-	}
-
-	.rvt-hero__title + .rvt-hero__actions,
-	.rvt-hero__teaser + .rvt-hero__actions {
+	:is(.rvt-hero__title, .rvt-hero__teaser) + .rvt-hero__actions {
 		margin-top: var(--rvt-spacing-md);
 	}
 
@@ -80,46 +73,60 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--rvt-spacing-sm);
+
+		> * {
+			flex-grow: 1;
+		}
 	}
 
-	.rvt-hero__actions > * {
-		flex-grow: 1;
+	.rvt-hero__quick-links {
+		padding-top: var(--rvt-spacing-lg);
 	}
+}
 
-	.rvt-hero--statement .rvt-hero__body {
-		margin-inline: auto;
-		text-align: center;
-	}
-
-	.rvt-hero--statement .rvt-hero__actions {
-		justify-content: center;
-	}
-
-	.rvt-hero--statement .rvt-hero__banner {
-		margin-top: var(--rvt-spacing-lg);
-	}
-
-	.rvt-hero--feature .rvt-hero__banner {
+.rvt-hero--feature {
+	.rvt-hero__banner {
 		margin-top: var(--rvt-spacing-xxl);
 	}
 
-	.rvt-hero--feature .rvt-hero__banner {
+	.rvt-hero__banner {
 		display: flex;
 		flex-direction: column;
 		gap: var(--rvt-spacing-lg);
 		@include container();
 	}
+}
 
-	.rvt-hero--profile .rvt-hero__subtitle {
+.rvt-hero--profile {
+	.rvt-hero__subtitle {
+		--fluid-size-min: var(--rvt-ts-20);
+		--fluid-size-max: var(--rvt-ts-26);
+		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
+		--fluid-size: clamp(
+			var(--fluid-size-min),
+			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
+			var(--fluid-size-max)
+		);
 		color: var(--rvt-color-theme-text-accent);
 		font-family: var(--rvt-font-family-condensed);
-		font-size: clamp(var(--rvt-ts-20), 2cqw, var(--rvt-ts-26));
+		font-size: var(--fluid-size);
 		font-weight: var(--rvt-font-weight-black);
 		margin: 0;
 	}
+}
 
-	.rvt-hero__quick-links {
-		padding-top: var(--rvt-spacing-lg);
+.rvt-hero--statement {
+	.rvt-hero__body {
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.rvt-hero__actions {
+		justify-content: center;
+	}
+
+	.rvt-hero__banner {
+		margin-top: var(--rvt-spacing-lg);
 	}
 }
 
@@ -132,35 +139,48 @@
 
 		.rvt-hero__actions {
 			gap: var(--rvt-spacing-md);
-		}
 
-		.rvt-hero__callout {
-			//flex-shrink: 0;
+			> * {
+				flex-grow: 0;
+				flex-shrink: 0;
+				width: auto;
+			}
 		}
+	}
 
-		.rvt-hero__eyebrow {
-			//font-size: var(--rvt-ts-16);
-		}
-
+	:is(.rvt-hero--feature, .rvt-hero--split, .rvt-hero--statement)
 		.rvt-hero__title {
-			//font-size: var(--rvt-ts-46);
+		line-height: 1;
+	}
+
+	.rvt-hero--feature {
+		.rvt-hero__actions {
+			flex-wrap: nowrap;
+			min-width: 27rem;
+		}
+	}
+
+	.rvt-hero--split {
+		.rvt-hero__inner {
+			align-items: center;
 		}
 
-		.rvt-hero__actions > * {
-			flex-grow: 0;
-			flex-shrink: 0;
-			width: auto;
+		.rvt-hero__media img {
+			aspect-ratio: 4 / 5;
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
 		}
+	}
 
-		.rvt-hero--statement {
-			flex-direction: column;
-		}
+	.rvt-hero--statement {
+		flex-direction: column;
 
-		.rvt-hero--statement .rvt-hero__banner {
+		.rvt-hero__banner {
 			@include container();
 		}
 
-		.rvt-hero--statement .rvt-hero__banner-callout {
+		.rvt-hero__banner-callout {
 			position: relative;
 
 			> * {
@@ -171,81 +191,34 @@
 				width: 100%;
 			}
 		}
-
-		.rvt-hero--feature .rvt-hero__title,
-		.rvt-hero--statement .rvt-hero__title,
-		.rvt-hero--split .rvt-hero__title {
-			line-height: 1;
-		}
-
-		.rvt-hero--feature .rvt-hero__actions {
-			flex-wrap: nowrap;
-			min-width: 27rem;
-		}
-
-		.rvt-hero--profile .rvt-hero__subtitle {
-			//font-size: var(--rvt-ts-26);
-		}
-
-		.rvt-hero--split .rvt-hero__media img {
-			aspect-ratio: 4 / 5;
-			height: 100%;
-			object-fit: cover;
-			width: 100%;
-		}
-
-		.rvt-hero--split .rvt-hero__inner {
-			align-items: center;
-		}
 	}
 }
 
 @include mq($breakpoint-lg) {
 	.rvt-hero {
-		.rvt-hero__inner {
-			//flex-direction: row;
-		}
-
 		.rvt-hero__eyebrow + .rvt-hero__title {
 			margin-top: var(--rvt-spacing-sm);
 		}
 
 		.rvt-hero__teaser {
 			font-size: var(--rvt-ts-20);
-			//margin-top: var(--rvt-spacing-lg);
+
+			> * {
+				margin: 0;
+
+				+ * {
+					margin-top: var(--rvt-spacing-sm);
+				}
+			}
 		}
 
-		.rvt-hero__title + .rvt-hero__actions,
-		.rvt-hero__teaser + .rvt-hero__actions {
+		:is(.rvt-hero__title, .rvt-hero__teaser) + .rvt-hero__actions {
 			margin-top: var(--rvt-spacing-xl);
 		}
+	}
 
-		.rvt-hero__teaser > * {
-			margin: 0;
-		}
-
-		.rvt-hero__teaser > * + * {
-			margin-top: var(--rvt-spacing-sm);
-		}
-
-		/*
-		.rvt-hero__callout {
-			align-self: flex-end;
-			flex-grow: 1;
-			flex-shrink: 0;
-			max-width: 33%;
-		}
-		*/
-
-		.rvt-hero--profile .rvt-hero__subtitle {
-			//font-size: var(--rvt-ts-29);
-		}
-
-		.rvt-hero--statement .rvt-hero__title {
-			font-size: var(--rvt-ts-52);
-		}
-
-		.rvt-hero--feature .rvt-hero__banner {
+	.rvt-hero--feature {
+		.rvt-hero__banner {
 			// This makes the optional quick links align to the end of the flex axis
 			align-items: flex-end;
 			flex-direction: row;
@@ -265,28 +238,31 @@
 			}
 		}
 
-		.rvt-hero--feature .rvt-hero__actions {
+		.rvt-hero__actions {
 			align-self: flex-end;
 			justify-content: flex-end;
 		}
+	}
 
-		.rvt-hero--split .rvt-hero__title {
-			//font-size: var(--rvt-ts-52);
-		}
-
-		.rvt-hero--split .rvt-hero__inner {
+	.rvt-hero--split {
+		.rvt-hero__inner {
 			gap: var(--rvt-spacing-xxl);
 		}
 
-		.rvt-hero--split .rvt-hero__body,
-		.rvt-hero--split .rvt-hero__media {
+		:is(.rvt-hero__body, .rvt-hero__media) {
 			width: 50%;
+		}
+	}
+
+	.rvt-hero--statement {
+		.rvt-hero__title {
+			font-size: var(--rvt-ts-52);
 		}
 	}
 }
 
 @include mq($breakpoint-xl) {
-	.#{$prefix}-hero {
+	.rvt-hero {
 		.rvt-hero__inner {
 			flex-direction: row;
 		}
