@@ -12,13 +12,20 @@
 	--fluid-scale: calc(
 		(100cqw - var(--fluid-container-min)) / var(--fluid-container-diff)
 	);
-	container-type: inline-size;
+
+	:has(> &) {
+		container-type: inline-size;
+	}
 
 	.rvt-hero__inner {
 		display: flex;
 		flex-direction: column;
 		gap: var(--rvt-spacing-lg);
 		@include container;
+	}
+
+	.rvt-hero__body {
+		max-width: 90ch;
 	}
 
 	.rvt-hero__eyebrow {
@@ -50,6 +57,7 @@
 		font-weight: 850;
 		line-height: 1.1;
 		text-transform: uppercase;
+		text-wrap: balance;
 	}
 
 	.rvt-hero__eyebrow + .rvt-hero__title {
@@ -59,6 +67,7 @@
 	.rvt-hero__teaser {
 		font-size: var(--rvt-ts-18);
 		margin-top: var(--rvt-spacing-xs);
+		text-wrap: balance;
 
 		> * {
 			margin-bottom: 0;
@@ -116,6 +125,10 @@
 }
 
 .rvt-hero--statement {
+	.rvt-hero__title {
+		--fluid-size-max: var(--rvt-ts-52);
+	}
+
 	.rvt-hero__body {
 		margin-inline: auto;
 		text-align: center;
@@ -130,11 +143,10 @@
 	}
 }
 
-@include mq($breakpoint-md) {
+@container (width > 46.25rem) {
 	.rvt-hero {
 		.rvt-hero__body {
 			flex-grow: 1;
-			max-width: 90ch;
 		}
 
 		.rvt-hero__actions {
@@ -194,7 +206,7 @@
 	}
 }
 
-@include mq($breakpoint-lg) {
+@container (width > 67.5rem) {
 	.rvt-hero {
 		.rvt-hero__eyebrow + .rvt-hero__title {
 			margin-top: var(--rvt-spacing-sm);
@@ -253,15 +265,9 @@
 			width: 50%;
 		}
 	}
-
-	.rvt-hero--statement {
-		.rvt-hero__title {
-			font-size: var(--rvt-ts-52);
-		}
-	}
 }
 
-@include mq($breakpoint-xl) {
+@container (width > 78.75rem) {
 	.rvt-hero {
 		.rvt-hero__inner {
 			flex-direction: row;
