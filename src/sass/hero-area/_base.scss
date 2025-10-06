@@ -4,6 +4,14 @@
 @use "../core" as *;
 
 .rvt-hero {
+	--fluid-container-min: 20rem;
+	--fluid-container-max: 50rem;
+	--fluid-container-diff: calc(
+		var(--fluid-container-max) - var(--fluid-container-min)
+	);
+	--fluid-scale: calc(
+		(100cqw - var(--fluid-container-min)) / var(--fluid-container-diff)
+	);
 	container-type: inline-size;
 
 	&__inner {
@@ -15,11 +23,15 @@
 
 	&__eyebrow {
 		@include eyebrow;
-		font-size: clamp(
-			var(--rvt-ts-12),
-			2cqw,
-			var(--rvt-ts-14)
+		--fluid-size-min: var(--rvt-ts-12);
+		--fluid-size-max: var(--rvt-ts-14);
+		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
+		--fluid-size: clamp(
+			var(--fluid-size-min),
+			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
+			var(--fluid-size-max)
 		);
+		font-size: var(--fluid-size);
 	}
 
 	&__eyebrow > :not(.rvt-breadcrumbs) {
@@ -29,13 +41,17 @@
 	}
 
 	&__title {
+		--fluid-size-min: var(--rvt-ts-26);
+		--fluid-size-max: var(--rvt-ts-41);
+		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
+		--fluid-size: clamp(
+			var(--fluid-size-min),
+			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
+			var(--fluid-size-max)
+		);
 		color: var(--rvt-color-theme-text-accent);
 		font-family: var(--rvt-font-family-condensed);
-		font-size: clamp(
-			var(--rvt-ts-26),
-			4cqw,
-			var(--rvt-ts-41)
-		);
+		font-size: var(--fluid-size);
 		font-variation-settings: "wdth" 140;
 		font-weight: 850;
 		line-height: 1.1;
@@ -97,11 +113,7 @@
 	&--profile &__subtitle {
 		color: var(--rvt-color-theme-text-accent);
 		font-family: var(--rvt-font-family-condensed);
-		font-size: clamp(
-			var(--rvt-ts-20),
-			2cqw,
-			var(--rvt-ts-26)
-		);
+		font-size: clamp(var(--rvt-ts-20), 2cqw, var(--rvt-ts-26));
 		font-weight: var(--rvt-font-weight-black);
 		margin: 0;
 	}
