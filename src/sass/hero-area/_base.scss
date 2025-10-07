@@ -54,6 +54,26 @@
 				/ 1fr 1fr 1fr;
 		}
 
+		&:is(.rvt-hero--profile) {
+			grid:
+				"avatar eyebrow"
+				"avatar title"
+				"avatar subtitle"
+				"avatar teaser"
+				"avatar actions"
+				/ auto 1fr;
+
+			.rvt-hero__avatar {
+				.rvt-avatar {
+					--size: calc(var(--rvt-spacing-lg) * 7);
+				}
+
+				+ * {
+					margin-top: 0;
+				}
+			}
+		}
+
 		&:is(.rvt-hero--split) {
 			grid:
 				". figure"
@@ -75,6 +95,10 @@
 		container-type: inline-size;
 	}
 
+	.rvt-hero__avatar {
+		grid-area: avatar;
+	}
+
 	.rvt-hero__eyebrow {
 		@include eyebrow;
 		--fluid-size-min: var(--rvt-ts-12);
@@ -87,6 +111,7 @@
 		);
 		font-size: var(--fluid-size);
 		grid-area: eyebrow;
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	.rvt-hero__title {
