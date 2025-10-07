@@ -51,9 +51,8 @@
 			var(--fluid-size-max)
 		);
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-condensed);
 		font-size: var(--fluid-size);
-		font-variation-settings: "wdth" 90;
+		font-stretch: 90%;
 		font-weight: 850;
 		line-height: 1;
 		text-transform: uppercase;
@@ -127,7 +126,6 @@
 			var(--fluid-size-max)
 		);
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-condensed);
 		font-size: var(--fluid-size);
 		font-weight: var(--rvt-font-weight-black);
 		margin: 0;
@@ -150,6 +148,12 @@
 
 	.rvt-hero__banner {
 		margin-top: var(--rvt-spacing-lg);
+	}
+}
+
+:is(.rvt-hero--split, .rvt-hero--statement) {
+	.rvt-hero__title {
+		font-style: oblique 10deg;
 	}
 }
 
