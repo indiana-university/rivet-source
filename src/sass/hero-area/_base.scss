@@ -12,6 +12,47 @@
 	--fluid-scale: calc(
 		(100cqw - var(--fluid-container-min)) / var(--fluid-container-diff)
 	);
+	--size-width-max: 90rem;
+	--size-gap: var(--rvt-spacing-lg);
+	margin-inline: auto;
+	max-width: 80rem;
+	padding-inline: var(--rvt-spacing-sm);
+
+	@container (width > 50rem) {
+		& {
+			column-gap: var(--rvt-spacing-lg);
+			display: grid;
+			grid:
+				"eyebrow callout"
+				"title callout"
+				"teaser callout"
+				"actions callout"
+				". callout"
+				/ 2fr minmax(20rem, 1fr);
+		}
+
+		&:is(.rvt-hero--feature) {
+			grid:
+				"eyebrow eyebrow actions"
+				"title title actions"
+				"teaser teaser actions"
+				"list-hub figure figure"
+				/ 1fr 1fr 1fr;
+
+			.rvt-hero__actions {
+				flex-wrap: nowrap;
+			}
+		}
+
+		&:is(.rvt-hero--feature):not(&:has(.rvt-hero__list-hub)) {
+			grid:
+				"eyebrow eyebrow actions"
+				"title title actions"
+				"teaser teaser actions"
+				"figure figure figure"
+				/ 1fr 1fr 1fr;
+		}
+	}
 
 	:has(> &) {
 		container-type: inline-size;
@@ -39,6 +80,7 @@
 			var(--fluid-size-max)
 		);
 		font-size: var(--fluid-size);
+		grid-area: eyebrow;
 	}
 
 	.rvt-hero__title {
@@ -54,13 +96,11 @@
 		font-size: var(--fluid-size);
 		font-stretch: 90%;
 		font-weight: 850;
+		grid-area: title;
 		line-height: 1;
+		margin-top: var(--rvt-spacing-xs);
 		text-transform: uppercase;
 		text-wrap: balance;
-	}
-
-	.rvt-hero__eyebrow + .rvt-hero__title {
-		margin-top: var(--rvt-spacing-xs);
 	}
 
 	.rvt-hero__teaser {
@@ -73,35 +113,48 @@
 			var(--fluid-size-max)
 		);
 		font-size: var(--fluid-size);
+		grid-area: teaser;
 		margin-top: var(--rvt-spacing-sm);
 		text-wrap: pretty;
-
-		> * {
-			margin-bottom: 0;
-		}
 	}
 
 	.rvt-hero__actions {
+		--grow: 1;
+		align-self: flex-end;
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--rvt-spacing-sm);
+		grid-area: actions;
 		margin-top: var(--rvt-spacing-lg);
 
 		> * {
-			flex-basis: max-content;
-			flex-grow: 1;
-			flex-shrink: 0;
+			flex-grow: var(--grow);
 		}
-	}
 
-	.rvt-hero__quick-links {
-		padding-top: var(--rvt-spacing-lg);
+		@container (width > 40rem) {
+			--grow: 0;
+		}
 	}
 
 	.rvt-hero__callout {
 		align-self: flex-end;
-		flex-basis: 20rem;
-		flex-grow: 1;
+		grid-area: callout;
+		margin-top: var(--rvt-spacing-lg);
+	}
+
+	.rvt-hero__figure {
+		grid-area: figure;
+		margin-top: var(--rvt-spacing-lg);
+	}
+
+	.rvt-hero__list-hub {
+		align-self: flex-end;
+		grid-area: list-hub;
+		margin-top: var(--rvt-spacing-lg);
+	}
+
+	:first-child {
+		margin-top: 0;
 	}
 }
 
@@ -158,21 +211,6 @@
 }
 
 @container (width > 46.25rem) {
-	.rvt-hero {
-		.rvt-hero__actions {
-			> * {
-				flex-grow: 0;
-			}
-		}
-	}
-
-	.rvt-hero--feature {
-		.rvt-hero__actions {
-			flex-wrap: nowrap;
-			//min-width: 27rem;
-		}
-	}
-
 	.rvt-hero--split {
 		.rvt-hero__inner {
 			align-items: center;
@@ -208,33 +246,6 @@
 }
 
 @container (width > 67.5rem) {
-	.rvt-hero--feature {
-		.rvt-hero__banner {
-			// This makes the optional quick links align to the end of the flex axis
-			align-items: flex-end;
-			flex-direction: row;
-
-			& > *:first-child {
-				flex-grow: 1;
-				// Sets the width of the left column of a hero--feature banner
-				min-width: 33%;
-			}
-
-			& > *:last-child {
-				flex-basis: 0;
-				// Makes the rest of the hero banner take up as much space as possible
-				// so that if there are no quick links the banner image takes up
-				// The full width of the container.
-				flex-grow: 999;
-			}
-		}
-
-		._rvt-hero__actions {
-			align-self: flex-end;
-			justify-content: flex-end;
-		}
-	}
-
 	.rvt-hero--split {
 		.rvt-hero__inner {
 			gap: var(--rvt-spacing-xxl);
