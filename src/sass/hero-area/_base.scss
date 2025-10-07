@@ -19,7 +19,7 @@
 	padding-inline: var(--rvt-spacing-sm);
 
 	@container (width > 50rem) {
-		& {
+		&:not(:is(.rvt-hero--statement)) {
 			column-gap: var(--rvt-spacing-lg);
 			display: grid;
 			grid:
@@ -209,16 +209,19 @@
 }
 
 .rvt-hero--statement {
+	text-align: center;
+
 	.rvt-hero__title {
 		--fluid-size-max: var(--rvt-ts-52);
 	}
 
-	.rvt-hero__actions {
-		justify-content: center;
+	.rvt-hero__teaser {
+		margin-inline: auto;
+		max-width: 60ch;
 	}
 
-	.rvt-hero__banner {
-		margin-top: var(--rvt-spacing-lg);
+	.rvt-hero__actions {
+		justify-content: center;
 	}
 }
 
@@ -229,7 +232,7 @@
 }
 
 @container (width > 46.25rem) {
-	.rvt-hero--statement {
+	._rvt-hero--statement {
 		flex-direction: column;
 
 		.rvt-hero__banner {
