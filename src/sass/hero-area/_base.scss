@@ -18,85 +18,20 @@
 	max-width: 80rem;
 	padding-inline: var(--rvt-spacing-sm);
 
-	@container (width > 50rem) {
-		&:not(:is(.rvt-hero--statement)) {
-			column-gap: var(--rvt-spacing-lg);
-			display: grid;
-			grid:
-				"eyebrow callout"
-				"title callout"
-				"teaser callout"
-				"actions callout"
-				". callout"
-				/ 2fr minmax(20rem, 1fr);
-		}
-
-		&:is(.rvt-hero--feature) {
-			grid:
-				"eyebrow eyebrow actions"
-				"title title actions"
-				"teaser teaser actions"
-				"list-hub figure figure"
-				/ 1fr 1fr 1fr;
-
-			.rvt-hero__actions {
-				flex-wrap: nowrap;
-				justify-content: flex-end;
-			}
-		}
-
-		&:is(.rvt-hero--feature):not(&:has(.rvt-hero__list-hub)) {
-			grid:
-				"eyebrow eyebrow actions"
-				"title title actions"
-				"teaser teaser actions"
-				"figure figure figure"
-				/ 1fr 1fr 1fr;
-		}
-
-		&:is(.rvt-hero--profile) {
-			grid:
-				"avatar eyebrow"
-				"avatar title"
-				"avatar subtitle"
-				"avatar teaser"
-				"avatar actions"
-				/ auto 1fr;
-
-			.rvt-hero__avatar {
-				.rvt-avatar {
-					--size: calc(var(--rvt-spacing-lg) * 7);
-				}
-
-				+ * {
-					margin-top: 0;
-				}
-			}
-		}
-
-		&:is(.rvt-hero--split) {
-			grid:
-				". figure"
-				"eyebrow figure"
-				"title figure"
-				"teaser figure"
-				"actions figure"
-				"list-hub figure"
-				". figure"
-				/ 1fr 1fr;
-
-			.rvt-hero__figure {
-				margin-top: 0;
-			}
-		}
-	}
-
 	:has(> &) {
 		container-type: inline-size;
 	}
 
 	.rvt-hero__avatar {
+		display: flex;
 		grid-area: avatar;
+
+		> .rvt-button {
+			align-self: flex-end;
+			background-color: var(--rvt-color-theme-background);
+			border-radius: var(--rvt-border-radius-circle);
+			justify-self: flex-end;
+		}
 	}
 
 	.rvt-hero__eyebrow {
@@ -112,6 +47,10 @@
 		font-size: var(--fluid-size);
 		grid-area: eyebrow;
 		margin-top: var(--rvt-spacing-sm);
+	}
+
+	:is(.rvt-hero__title, .rvt-hero__teaser) {
+		max-width: 60rem;
 	}
 
 	.rvt-hero__title {
@@ -160,7 +99,7 @@
 		);
 		font-size: var(--fluid-size);
 		grid-area: teaser;
-		margin-top: var(--rvt-spacing-sm);
+		margin: var(--rvt-spacing-sm) 0 0;
 		text-wrap: pretty;
 	}
 
@@ -177,7 +116,7 @@
 			flex-grow: var(--grow);
 		}
 
-		@container (width > 40rem) {
+		@container (width > 22rem) {
 			--grow: 0;
 		}
 	}
@@ -195,6 +134,12 @@
 		img {
 			width: 100%;
 		}
+
+		figcaption {
+			font-family: unset;
+			font-size: unset;
+			padding: unset;
+		}
 	}
 
 	.rvt-hero__list-hub {
@@ -203,8 +148,89 @@
 		margin-top: var(--rvt-spacing-lg);
 	}
 
-	:first-child {
+	> :first-child {
 		margin-top: 0;
+	}
+
+	@container (width > 54rem) {
+		&:not(:is(.rvt-hero--statement)) {
+			column-gap: var(--rvt-spacing-xxl);
+			display: grid;
+			grid:
+				"eyebrow callout"
+				"title callout"
+				"teaser callout"
+				"actions callout"
+				". callout"
+				/ 2fr minmax(20rem, 1fr);
+		}
+
+		&:is(.rvt-hero--feature) {
+			column-gap: var(--rvt-spacing-lg);
+			grid:
+				"eyebrow eyebrow actions"
+				"title title actions"
+				"teaser teaser actions"
+				"list-hub figure figure"
+				/ 1fr 1fr 1fr;
+
+			.rvt-hero__actions {
+				justify-content: flex-end;
+			}
+		}
+
+		&:is(.rvt-hero--feature):not(&:has(.rvt-hero__list-hub)) {
+			grid:
+				"eyebrow eyebrow actions"
+				"title title actions"
+				"teaser teaser actions"
+				"figure figure figure"
+				/ 1fr 1fr 1fr;
+		}
+
+		&:is(.rvt-hero--profile) {
+			column-gap: var(--rvt-spacing-xl);
+			grid:
+				"avatar eyebrow"
+				"avatar title"
+				"avatar subtitle"
+				"avatar teaser"
+				"avatar actions"
+				/ auto 1fr;
+
+			.rvt-hero__avatar {
+				align-self: flex-start;
+				display: grid;
+
+				> * {
+					grid-area: 1 / 1;
+				}
+
+				> .rvt-avatar {
+					--size: calc(var(--rvt-spacing-lg) * 7);
+				}
+
+				+ * {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&:is(.rvt-hero--split) {
+			grid:
+				". figure"
+				"eyebrow figure"
+				"title figure"
+				"teaser figure"
+				"actions figure"
+				"list-hub figure"
+				". figure"
+				/ 1fr 1fr;
+
+			.rvt-hero__figure {
+				margin-top: 0;
+			}
+		}
 	}
 }
 
