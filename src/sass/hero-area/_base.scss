@@ -14,9 +14,7 @@
 	);
 	--size-width-max: 90rem;
 	--size-gap: var(--rvt-spacing-lg);
-	margin-inline: auto;
-	max-width: 80rem;
-	padding-inline: var(--rvt-spacing-sm);
+	@include container;
 
 	:has(> &) {
 		container-type: inline-size;
@@ -99,7 +97,7 @@
 		);
 		font-size: var(--fluid-size);
 		grid-area: teaser;
-		margin: var(--rvt-spacing-sm) 0 0;
+		margin-block: var(--rvt-spacing-sm) 0;
 		text-wrap: pretty;
 	}
 
@@ -134,18 +132,16 @@
 		img {
 			width: 100%;
 		}
-
-		figcaption {
-			font-family: unset;
-			font-size: unset;
-			padding: unset;
-		}
 	}
 
 	.rvt-hero__list-hub {
 		align-self: flex-end;
 		grid-area: list-hub;
 		margin-top: var(--rvt-spacing-lg);
+
+		.rvt-list-hub__link {
+			font-size: var(--rvt-ts-base);
+		}
 	}
 
 	> :first-child {
@@ -175,7 +171,7 @@
 				/ 1fr 1fr 1fr;
 
 			.rvt-hero__actions {
-				justify-content: flex-end;
+				justify-content: end;
 			}
 		}
 
@@ -199,7 +195,7 @@
 				/ auto 1fr;
 
 			.rvt-hero__avatar {
-				align-self: flex-start;
+				align-self: start;
 				display: grid;
 
 				> * {
@@ -223,58 +219,60 @@
 				"title figure"
 				"teaser figure"
 				"actions figure"
-				"list-hub figure"
 				". figure"
+				"list-hub figure"
 				/ 1fr 1fr;
 
 			.rvt-hero__figure {
+				align-self: end;
 				margin-top: 0;
+			}
+		}
+
+		&:is(.rvt-hero--statement) {
+			.rvt-hero__figure {
+				> .rvt-card {
+					position: absolute;
+				}
 			}
 		}
 	}
 }
 
 .rvt-hero--statement {
-	text-align: center;
-
 	.rvt-hero__title {
 		--fluid-size-max: var(--rvt-ts-52);
 	}
 
-	.rvt-hero__teaser {
+	:is(.rvt-hero__title, .rvt-hero__teaser) {
 		margin-inline: auto;
-		max-width: 60ch;
 	}
 
-	.rvt-hero__actions {
+	> :not(.rvt-hero__figure) {
 		justify-content: center;
+		text-align: center;
+	}
+
+	.rvt-hero__figure {
+		position: relative;
+
+		> .rvt-hero__images {
+			display: grid;
+			gap: var(--rvt-spacing-xs);
+			grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+		}
+
+		> .rvt-card {
+			align-self: end;
+			justify-self: end;
+			margin-top: var(--rvt-spacing-xs);
+			max-width: 54rem;
+		}
 	}
 }
 
 :is(.rvt-hero--split, .rvt-hero--statement) {
 	.rvt-hero__title {
 		font-style: oblique 10deg;
-	}
-}
-
-@container (width > 46.25rem) {
-	._rvt-hero--statement {
-		flex-direction: column;
-
-		.rvt-hero__banner {
-			@include container;
-		}
-
-		.rvt-hero__banner-callout {
-			position: relative;
-
-			> * {
-				bottom: 0;
-				max-width: 55%;
-				position: absolute;
-				right: 0;
-				width: 100%;
-			}
-		}
 	}
 }
