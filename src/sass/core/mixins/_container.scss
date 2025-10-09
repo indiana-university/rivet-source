@@ -3,12 +3,9 @@
 
 @use "../variables" as *;
 
-@mixin container($max-width: $breakpoint-xxl) {
+@mixin container($max-width: $breakpoint-xl) {
+	box-sizing: content-box;
 	margin-inline: auto;
 	max-width: var(--rvt-container-max-width, #{$max-width});
-	padding-inline: var(--rvt-container-padding-inline, var(--rvt-spacing-sm));
-
-	@media (min-width: $breakpoint-lg) {
-		//--rvt-container-padding-inline: 4vw;
-	}
+	padding-inline: clamp(var(--rvt-spacing-sm), 4vw, var(--rvt-spacing-xxl));
 }

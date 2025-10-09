@@ -5,15 +5,13 @@
 
 .rvt-hero {
 	--fluid-container-min: 20rem;
-	--fluid-container-max: 60rem;
+	--fluid-container-max: 54rem;
 	--fluid-container-diff: calc(
 		var(--fluid-container-max) - var(--fluid-container-min)
 	);
 	--fluid-scale: calc(
 		(100cqw - var(--fluid-container-min)) / var(--fluid-container-diff)
 	);
-	--size-width-max: 90rem;
-	--size-gap: var(--rvt-spacing-lg);
 	@include container;
 
 	:has(> &) {
@@ -48,7 +46,7 @@
 	}
 
 	:is(.rvt-hero__title, .rvt-hero__teaser) {
-		max-width: 60rem;
+		max-width: var(--fluid-container-max);
 	}
 
 	.rvt-hero__title {
@@ -150,6 +148,7 @@
 
 	@container (width > 54rem) {
 		&:has(.rvt-hero__callout) {
+			align-items: end;
 			column-gap: var(--rvt-spacing-xxl);
 			display: grid;
 			grid:
@@ -190,6 +189,7 @@
 		}
 
 		&:is(.rvt-hero--profile) {
+			align-items: center;
 			column-gap: var(--rvt-spacing-xl);
 			display: grid;
 			grid:
@@ -201,7 +201,6 @@
 				/ auto 1fr;
 
 			.rvt-hero__avatar {
-				align-self: start;
 				display: grid;
 
 				> * {
@@ -274,7 +273,7 @@
 			align-self: end;
 			justify-self: end;
 			margin-block-start: var(--rvt-spacing-xs);
-			max-width: 54rem;
+			max-width: var(--fluid-container-max);
 		}
 	}
 }
