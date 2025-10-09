@@ -63,7 +63,7 @@
 		color: var(--rvt-color-theme-text-accent);
 		font-size: var(--fluid-size);
 		font-stretch: 90%;
-		font-weight: 850;
+		font-weight: var(--rvt-font-weight-black);
 		grid-area: title;
 		line-height: 1;
 		margin-top: var(--rvt-spacing-xs);
@@ -149,7 +149,7 @@
 	}
 
 	@container (width > 54rem) {
-		&:not(:is(.rvt-hero--statement)) {
+		&:has(.rvt-hero__callout) {
 			column-gap: var(--rvt-spacing-xxl);
 			display: grid;
 			grid:
@@ -163,6 +163,7 @@
 
 		&:is(.rvt-hero--feature) {
 			column-gap: var(--rvt-spacing-lg);
+			display: grid;
 			grid:
 				"eyebrow eyebrow actions"
 				"title title actions"
@@ -173,19 +174,20 @@
 			.rvt-hero__actions {
 				justify-content: end;
 			}
-		}
 
-		&:is(.rvt-hero--feature):not(&:has(.rvt-hero__list-hub)) {
-			grid:
-				"eyebrow eyebrow actions"
-				"title title actions"
-				"teaser teaser actions"
-				"figure figure figure"
-				/ 1fr 1fr 1fr;
+			&:not(:has(.rvt-hero__list-hub)) {
+				grid:
+					"eyebrow eyebrow actions"
+					"title title actions"
+					"teaser teaser actions"
+					"figure figure figure"
+					/ 1fr 1fr 1fr;
+			}
 		}
 
 		&:is(.rvt-hero--profile) {
 			column-gap: var(--rvt-spacing-xl);
+			display: grid;
 			grid:
 				"avatar eyebrow"
 				"avatar title"
@@ -213,6 +215,8 @@
 		}
 
 		&:is(.rvt-hero--split) {
+			column-gap: var(--rvt-spacing-xxl);
+			display: grid;
 			grid:
 				". figure"
 				"eyebrow figure"
