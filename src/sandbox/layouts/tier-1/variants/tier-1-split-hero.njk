@@ -9,63 +9,7 @@ order: 1
 {% include "demos/demo-header.njk" %}
 <main>
 	<div class="rvt-section rvt-theme-light">
-		<div class="rvt-hero rvt-hero--split">
-			<div class="rvt-hero__inner">
-				<div class="rvt-hero__body">
-					<div class="rvt-hero__eyebrow">{Section or category}</div>
-					<h1 class="rvt-hero__title">
-						{Title should not exceed 16 characters}
-					</h1>
-					<div class="rvt-hero__teaser">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, at
-							possimus quia consequuntur veniam sunt, facilis nemo.
-						</p>
-					</div>
-
-					{#
-					<div class="rvt-hero__actions">
-						<a href="/#" class="rvt-button rvt-button--cta rvt-button--strong"
-							>Discover careers</a
-						>
-						<a href="/#" class="rvt-button rvt-button--cta">See all degrees</a>
-					</div>
-					#}
-
-					<div class="rvt-list-hub [ rvt-m-top-xxl ]">
-						<h2 class="rvt-list-hub__title">Quick links</h2>
-						<ul class="rvt-list-hub__list">
-							<li class="rvt-list-hub__item">
-								<a class="rvt-list-hub__link" href="#"> Class profile </a>
-							</li>
-							<li class="rvt-list-hub__item">
-								<a class="rvt-list-hub__link" href="#">
-									Normal title length is five
-								</a>
-							</li>
-							<li class="rvt-list-hub__item">
-								<a class="rvt-list-hub__link" href="#">
-									Normal title length is five
-								</a>
-							</li>
-							<li class="rvt-list-hub__item">
-								<a class="rvt-list-hub__link" href="#">
-									Normal title length is five
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<figure class="rvt-hero__media">
-					<img
-						src="https://picsum.photos/id/10/800/1200"
-						alt="This image can have alt text now"
-					/>
-				</figure>
-			</div>
-		</div>
-		<!-- end hero -->
+		{% include "demos/demo-hero-split.njk" %}
 	</div>
 
 	<div class="rvt-section rvt-theme-light [ rvt-border-top rvt-p-bottom-none ]">
