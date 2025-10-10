@@ -6,6 +6,6 @@
 	display: block;
 	font-family: var(--rvt-font-family-mono);
 	font-size: var(--rvt-ts-14);
-	letter-spacing: calc(2em / 16);
+	letter-spacing: var(--rvt-letter-spacing-extra-wide);
 	text-transform: uppercase;
 }

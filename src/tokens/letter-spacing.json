@@ -1,0 +1,17 @@
+{
+	"letter-spacing": {
+		"$type": "dimension",
+		"normal": {
+			"$value": "normal"
+		},
+		"semi-wide": {
+			"$value": "0.025em"
+		},
+		"wide": {
+			"$value": "0.05em"
+		},
+		"extra-wide": {
+			"$value": "0.075em"
+		}
+	}
+}

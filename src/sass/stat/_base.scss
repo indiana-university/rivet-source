@@ -38,7 +38,7 @@
 	&__description {
 		color: var(--rvt-color-theme-text-accent);
 		font-size: var(--rvt-ts-14);
-		letter-spacing: 0.025rem;
+		letter-spacing: var(--rvt-letter-spacing-semi-wide);
 	}
 }
 

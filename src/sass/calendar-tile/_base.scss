@@ -22,13 +22,13 @@
 
 	&__month,
 	&__year {
-		letter-spacing: 0.075rem;
+		letter-spacing: var(--rvt-letter-spacing-extra-wide);
 	}
 
 	&__day {
 		font-size: var(--rvt-ts-36);
 		font-weight: var(--rvt-font-weight-medium);
-		letter-spacing: 0.075rem;
+		letter-spacing: var(--rvt-letter-spacing-extra-wide);
 		margin-top: var(--rvt-spacing-xxs);
 	}
 

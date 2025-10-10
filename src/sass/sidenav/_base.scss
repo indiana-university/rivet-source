@@ -9,7 +9,7 @@
 		display: block;
 		font-family: var(--rvt-font-family-mono);
 		font-size: var(--rvt-ts-12);
-		letter-spacing: calc(var(--rvt-spacing-sm) * 0.125);
+		letter-spacing: var(--rvt-letter-spacing-extra-wide);
 		text-transform: uppercase;
 	}
 

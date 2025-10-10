@@ -244,7 +244,7 @@
 		color: var(--rvt-color-theme-text-strong);
 		font-size: var(--rvt-ts-20);
 		font-weight: var(--rvt-font-weight-black);
-		letter-spacing: 0.025rem;
+		letter-spacing: var(--rvt-letter-spacing-semi-wide);
 	}
 
 	&__subtitle {
