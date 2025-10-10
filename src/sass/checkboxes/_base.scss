@@ -40,7 +40,7 @@
 		--display-icon: none;
 		cursor: pointer;
 		display: inline-block;
-		line-height: var(--rvt-line-height-base);
+		line-height: var(--rvt-line-height-normal);
 	}
 
 	input[type="checkbox"] ~ label::before {

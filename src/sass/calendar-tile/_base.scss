@@ -7,7 +7,7 @@
 	display: inline-flex;
 	flex-direction: column;
 	font-family: var(--rvt-font-family-mono);
-	line-height: 1.1;
+	line-height: var(--rvt-line-height-tight);
 	padding: var(--rvt-spacing-sm);
 	position: relative;
 

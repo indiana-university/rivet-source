@@ -71,7 +71,7 @@
 		font-stretch: var(--rvt-font-stretch-semi-condensed);
 		font-weight: var(--rvt-font-weight-black);
 		grid-area: title;
-		line-height: 1;
+		line-height: var(--rvt-line-height-none);
 		margin-block-start: var(--rvt-spacing-xs);
 		text-transform: uppercase;
 		text-wrap: balance;

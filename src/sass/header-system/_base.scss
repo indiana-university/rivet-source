@@ -254,6 +254,6 @@
 	&__title,
 	&__subtitle {
 		font-stretch: var(--rvt-font-stretch-super-condensed);
-		line-height: 1.1;
+		line-height: var(--rvt-line-height-tight);
 	}
 }

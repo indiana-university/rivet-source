@@ -12,7 +12,7 @@
 	font-weight: var(--rvt-font-weight-medium);
 	gap: var(--rvt-spacing-xxs);
 	letter-spacing: var(--rvt-letter-spacing-semi-wide);
-	line-height: 1;
+	line-height: var(--rvt-line-height-none);
 	padding: 0.25rem 0.5rem;
 	text-decoration: none;
 	white-space: nowrap;

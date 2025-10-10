@@ -16,7 +16,7 @@
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
 		flex-grow: 1;
-		line-height: 1;
+		line-height: var(--rvt-line-height-none);
 		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
 		position: relative;
 		z-index: var(--rvt-z-index-100);

@@ -50,7 +50,7 @@
 	}
 
 	&__message {
-		line-height: 1;
+		line-height: var(--rvt-line-height-none);
 		margin-left: var(--rvt-spacing-xs);
 	}
 

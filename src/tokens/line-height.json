@@ -1,14 +1,14 @@
 {
 	"line-height": {
 		"$type": "number",
-		"base": {
-			"$value": 1.5
-		},
-		"title": {
-			"$value": 1.2
+		"none": {
+			"$value": 1
 		},
 		"tight": {
 			"$value": 1.2
+		},
+		"normal": {
+			"$value": 1.5
 		},
 		"loose": {
 			"$value": 1.65
