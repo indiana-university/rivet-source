@@ -71,6 +71,9 @@
 			},
 			"extra-expanded": {
 				"$value": "150%"
+			},
+			"ultra-expanded": {
+				"$value": "200%"
 			}
 		},
 		"weight": {
