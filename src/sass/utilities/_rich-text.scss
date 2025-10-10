@@ -43,10 +43,8 @@
 	h5,
 	h6 {
 		font-optical-sizing: auto;
+		font-stretch: var(--rvt-font-stretch-expanded);
 		font-style: normal;
-		font-variation-settings:
-			"wdth" 135,
-			"YTLC" 540;
 		font-weight: var(--rvt-font-weight-bold);
 	}
 

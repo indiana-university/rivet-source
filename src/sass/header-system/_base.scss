@@ -143,7 +143,7 @@
 		}
 
 		ul li a {
-			font-weight: var(--rvt-font-weight-regular);
+			font-weight: var(--rvt-font-weight-normal);
 		}
 
 		.rvt-header-menu__item .rvt-dropdown {
@@ -253,7 +253,7 @@
 
 	&__title,
 	&__subtitle {
-		font-variation-settings: "wdth" 0;
+		font-stretch: var(--rvt-font-stretch-super-condensed);
 		line-height: 1.1;
 	}
 }

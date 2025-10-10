@@ -95,10 +95,8 @@
 	&__title {
 		color: var(--color-main);
 		font-size: var(--rvt-ts-18);
+		font-stretch: var(--rvt-font-stretch-expanded);
 		font-weight: var(--rvt-font-weight-bold);
-		font-variation-settings:
-			"wdth" 135,
-			"YTLC" 540;
 		line-height: var(--rvt-line-height-title);
 		padding-block-start: calc(calc(var(--size-icon) - 1lh) / 2);
 		padding-inline-end: var(--rvt-spacing-xl);

@@ -21,7 +21,7 @@ html * {
 body {
 	color: var(--rvt-color-theme-text);
 	font-family: var(--rvt-font-family-base);
-	font-weight: var(--rvt-font-weight-regular);
+	font-weight: var(--rvt-font-weight-normal);
 	height: 100%;
 	line-height: var(--rvt-line-height-base);
 	margin: 0;
@@ -41,7 +41,7 @@ h4,
 h5,
 h6 {
 	font-size: 1.125rem;
-	font-weight: var(--rvt-font-weight-regular);
+	font-weight: var(--rvt-font-weight-normal);
 	margin: 0;
 }
 

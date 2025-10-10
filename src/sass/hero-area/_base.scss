@@ -68,7 +68,7 @@
 		);
 		color: var(--rvt-color-theme-text-accent);
 		font-size: var(--fluid-size);
-		font-stretch: 90%;
+		font-stretch: var(--rvt-font-stretch-semi-condensed);
 		font-weight: var(--rvt-font-weight-black);
 		grid-area: title;
 		line-height: 1;

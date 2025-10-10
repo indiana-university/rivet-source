@@ -43,9 +43,7 @@
 
 	&__toggle-text {
 		font-size: var(--rvt-ts-18);
-		font-variation-settings:
-			"wdth" 135,
-			"YTLC" 540;
+		font-stretch: var(--rvt-font-stretch-expanded);
 		font-weight: var(--rvt-font-weight-bold);
 		line-height: 1.3;
 		padding-right: var(--rvt-spacing-sm);

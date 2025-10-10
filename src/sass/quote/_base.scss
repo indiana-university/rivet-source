@@ -24,8 +24,8 @@
 	&__text {
 		color: var(--rvt-color-theme-text-accent);
 		font-family: var(--rvt-font-family-condensed);
-		font-weight: 850;
-		font-variation-settings: "wdth" 140;
+		font-stretch: var(--rvt-font-stretch-expanded);
+		font-weight: var(--rvt-font-weight-black);
 		font-size: var(--rvt-ts-26);
 		margin: 0;
 		text-transform: uppercase;

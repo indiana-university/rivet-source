@@ -44,19 +44,48 @@
 				"$value": "{font.family.sans}"
 			}
 		},
+		"stretch": {
+			"super-condensed": {
+				"$value": "25%"
+			},
+			"ultra-condensed": {
+				"$value": "50%"
+			},
+			"extra-condensed": {
+				"$value": "62.5%"
+			},
+			"condensed": {
+				"$value": "75%"
+			},
+			"semi-condensed": {
+				"$value": "87.5%"
+			},
+			"normal": {
+				"$value": "100%"
+			},
+			"semi-expanded": {
+				"$value": "112.5%"
+			},
+			"expanded": {
+				"$value": "125%"
+			},
+			"extra-expanded": {
+				"$value": "150%"
+			}
+		},
 		"weight": {
 			"$type": "fontWeight",
-			"black": {
-				"$value": 800
-			},
-			"bold": {
-				"$value": 650
+			"normal": {
+				"$value": 350
 			},
 			"medium": {
 				"$value": 550
 			},
-			"regular": {
-				"$value": 350
+			"bold": {
+				"$value": 650
+			},
+			"black": {
+				"$value": 800
 			}
 		}
 	}
