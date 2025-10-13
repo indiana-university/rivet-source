@@ -23,11 +23,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--rvt-ts-26);
-		font-weight: var(--rvt-font-weight-black);
-		letter-spacing: var(--rvt-letter-spacing-wide);
-		line-height: var(--rvt-line-height-tight);
-		text-transform: uppercase;
+		font: var(--rvt-font-29-black);
 	}
 
 	&__body {
@@ -65,10 +61,6 @@
 
 		& + & {
 			margin-top: var(--rvt-spacing-xxl);
-		}
-
-		&__title {
-			font-size: var(--rvt-ts-29);
 		}
 
 		&__image {
