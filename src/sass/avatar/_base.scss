@@ -38,13 +38,9 @@ $avatar-widths: (
 	}
 
 	&__text {
-		font-family: var(--rvt-font-family-mono);
 		font-size: calc(14 / 32 * 100cqi);
-		font-stretch: var(--rvt-font-width-normal);
 		font-weight: var(--rvt-font-weight-medium);
-		letter-spacing: 0.08em;
 		line-height: 1;
-		text-indent: 0.08em;
 	}
 
 	&--xs {
