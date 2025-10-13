@@ -71,15 +71,11 @@
 
 	.rvt-card__eyebrow {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
+		font: var(--rvt-font-12-mono);
 	}
 
 	.rvt-card__title {
-		font-size: var(--rvt-ts-20);
-		font-stretch: var(--rvt-font-width-expanded);
-		font-weight: var(--rvt-font-weight-bold);
-		line-height: var(--rvt-line-height-tight);
+		font: var(--rvt-font-18-bold-fluid);
 		text-wrap: balance;
 
 		&:not(:first-child) {
@@ -161,8 +157,7 @@
 
 	.rvt-card__meta {
 		color: var(--rvt-color-theme-text);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
+		font: var(--rvt-font-12-mono);
 		margin-top: var(--rvt-spacing-md);
 	}
 }

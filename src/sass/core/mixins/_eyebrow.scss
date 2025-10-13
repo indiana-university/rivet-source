@@ -4,8 +4,7 @@
 @mixin eyebrow {
 	color: var(--rvt-color-theme-text-accent);
 	display: block;
-	font-family: var(--rvt-font-family-mono);
-	font-size: var(--rvt-ts-12);
+	font: var(--rvt-font-12-mono);
 	letter-spacing: var(--rvt-letter-spacing-extra-wide);
 	text-transform: uppercase;
 }

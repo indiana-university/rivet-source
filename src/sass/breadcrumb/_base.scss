@@ -4,6 +4,7 @@
 .rvt-breadcrumbs {
 	display: inline-flex;
 	flex-wrap: wrap;
+	font: var(--rvt-font-12-mono);
 	gap: calc(var(--rvt-spacing-xxs) * 0.75);
 	list-style: none;
 	margin: 0;
@@ -12,8 +13,6 @@
 	li {
 		align-items: center;
 		display: inline-flex;
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
 		gap: var(--rvt-spacing-xxs);
 		margin-top: 0;
 

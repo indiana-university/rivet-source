@@ -45,15 +45,7 @@
 
 	.rvt-hero__eyebrow {
 		@include eyebrow;
-		--fluid-size-min: var(--rvt-ts-12);
-		--fluid-size-max: var(--rvt-ts-14);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
-		font-size: var(--fluid-size);
+		font: var(--rvt-font-12-fluid-mono);
 		grid-area: eyebrow;
 	}
 
