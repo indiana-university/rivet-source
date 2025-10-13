@@ -1,15 +1,6 @@
 @use "../core" as *;
 @use "sass:map";
 
-$avatar-fonts: (
-	"xs": var(--rvt-ts-14),
-	"sm": var(--rvt-ts-16),
-	"rg": var(--rvt-ts-20),
-	"md": var(--rvt-ts-23),
-	"lg": var(--rvt-ts-32),
-	"xl": var(--rvt-ts-41),
-);
-
 $avatar-widths: (
 	"xs": var(--rvt-spacing-lg),
 	"sm": calc(var(--rvt-spacing-lg) * 1.5),
@@ -31,15 +22,11 @@ $avatar-widths: (
 	background-color: var(--rvt-color-brand-light);
 	border-radius: var(--rvt-border-radius-circle);
 	color: var(--rvt-color-brand-main);
+	container-type: inline-size;
 	display: flex;
 	flex-shrink: 0;
-	font-family: var(--rvt-font-family-mono);
-	font-size: var(--rvt-ts-20);
-	font-stretch: normal;
-	font-weight: var(--rvt-font-weight-medium);
 	height: var(--size);
 	justify-content: center;
-	letter-spacing: 0.08em;
 	text-align: center;
 	overflow: hidden;
 	width: var(--size);
@@ -50,29 +37,34 @@ $avatar-widths: (
 		width: 100%;
 	}
 
+	&__text {
+		font-family: var(--rvt-font-family-mono);
+		font-size: calc(14 / 32 * 100cqi);
+		font-stretch: var(--rvt-font-width-normal);
+		font-weight: var(--rvt-font-weight-medium);
+		letter-spacing: 0.08em;
+		line-height: 1;
+		text-indent: 0.08em;
+	}
+
 	&--xs {
 		--size: var(--size-xs);
-		font-size: var(--rvt-ts-14);
 	}
 
 	&--sm {
 		--size: var(--size-sm);
-		font-size: var(--rvt-ts-16);
 	}
 
 	&--md {
 		--size: var(--size-md);
-		font-size: var(--rvt-ts-23);
 	}
 
 	&--lg {
 		--size: var(--size-lg);
-		font-size: var(--rvt-ts-32);
 	}
 
 	&--xl {
 		--size: var(--size-xl);
-		font-size: var(--rvt-ts-41);
 	}
 }
 
@@ -80,9 +72,7 @@ $avatar-widths: (
 	@include mq($size) {
 		@each $pixels, $rems in $avatar-widths {
 			.rvt-avatar--#{$pixels}-#{$variable}-up {
-				font-size: map.get($avatar-fonts, $pixels);
-				height: $rems !important;
-				width: $rems !important;
+				--size: #{$rems};
 			}
 		}
 	}
