@@ -4,10 +4,8 @@
 .rvt-media-hub {
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-serif);
-		font-size: var(--rvt-ts-46);
+		font: var(--rvt-font-46-serif);
 		letter-spacing: var(--rvt-letter-spacing-semi-wide);
-		line-height: var(--rvt-line-height-tight);
 		margin: 0;
 		max-width: 40ch;
 
