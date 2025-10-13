@@ -57,8 +57,7 @@
 	&__label {
 		background-color: var(--rvt-color-theme-accent);
 		color: var(--rvt-color-theme-background);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-14);
+		font: var(--rvt-font-14-mono);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
 	}
