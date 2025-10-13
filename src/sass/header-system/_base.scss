@@ -236,7 +236,6 @@
 	}
 
 	&__body {
-		font-family: var(--rvt-font-family-condensed);
 		text-transform: uppercase;
 	}
 
@@ -253,7 +252,7 @@
 
 	&__title,
 	&__subtitle {
-		font-stretch: var(--rvt-font-stretch-super-condensed);
+		font-stretch: var(--rvt-font-width-super-condensed);
 		line-height: var(--rvt-line-height-tight);
 	}
 }

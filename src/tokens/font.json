@@ -2,9 +2,6 @@
 	"font": {
 		"family": {
 			"$type": "fontFamily",
-			"base": {
-				"$value": "{font.family.sans}"
-			},
 			"sans": {
 				"$value": [
 					"Roboto Flex",
@@ -39,12 +36,90 @@
 					"Ubuntu Mono",
 					"monospace"
 				]
-			},
-			"condensed": {
-				"$value": "{font.family.sans}"
 			}
 		},
-		"stretch": {
+		"size": {
+			"$type": "dimension",
+			"12": {
+				"$value": "0.75rem"
+			},
+			"xxs": {
+				"$value": "{font.size.12}"
+			},
+			"14": {
+				"$value": "0.875rem"
+			},
+			"xs": {
+				"$value": "{font.size.14}"
+			},
+			"16": {
+				"$value": "1rem"
+			},
+			"base": {
+				"$value": "{font.size.16}"
+			},
+			"18": {
+				"$value": "1.125rem"
+			},
+			"20": {
+				"$value": "1.25rem"
+			},
+			"sm": {
+				"$value": "{font.size.20}"
+			},
+			"23": {
+				"$value": "1.4375rem"
+			},
+			"26": {
+				"$value": "1.625rem"
+			},
+			"md": {
+				"$value": "{font.size.26}"
+			},
+			"29": {
+				"$value": "1.8125rem"
+			},
+			"32": {
+				"$value": "2rem"
+			},
+			"lg": {
+				"$value": "{font.size.32}"
+			},
+			"36": {
+				"$value": "2.25rem"
+			},
+			"41": {
+				"$value": "2.5625rem"
+			},
+			"xl": {
+				"$value": "{font.size.41}"
+			},
+			"46": {
+				"$value": "2.875rem"
+			},
+			"52": {
+				"$value": "3.25rem"
+			},
+			"xxl": {
+				"$value": "{font.size.52}"
+			}
+		},
+		"weight": {
+			"$type": "fontWeight",
+			"normal": {
+				"$value": 350
+			},
+			"medium": {
+				"$value": 600
+			},
+			"bold": {
+				"$value": 700
+			},
+			"black": {
+				"$value": 800
+			}
+		},
+		"width": {
 			"super-condensed": {
 				"$value": "25%"
 			},
@@ -74,21 +149,6 @@
 			},
 			"ultra-expanded": {
 				"$value": "200%"
-			}
-		},
-		"weight": {
-			"$type": "fontWeight",
-			"normal": {
-				"$value": 350
-			},
-			"medium": {
-				"$value": 550
-			},
-			"bold": {
-				"$value": 650
-			},
-			"black": {
-				"$value": 800
 			}
 		}
 	}

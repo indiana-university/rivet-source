@@ -94,11 +94,8 @@
 
 	&__title {
 		color: var(--color-main);
-		font-size: var(--rvt-ts-18);
-		font-stretch: var(--rvt-font-stretch-expanded);
-		font-weight: var(--rvt-font-weight-bold);
-		line-height: var(--rvt-line-height-tight);
-		padding-block-start: calc(calc(var(--size-icon) - 1lh) / 2);
+		font: var(--rvt-font-18-bold-fluid);
+		padding-block-start: calc((var(--size-icon) - 1lh) / 2);
 		padding-inline-end: var(--rvt-spacing-xl);
 		position: relative;
 	}
@@ -143,7 +140,7 @@
 
 		ul > li,
 		ol > li {
-			margin-top: var(--rvt-spacing-sm);
+			margin-top: var(--rvt-spacing-xxs);
 		}
 	}
 

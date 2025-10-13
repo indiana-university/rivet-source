@@ -20,12 +20,11 @@ html * {
 
 body {
 	color: var(--rvt-color-theme-text);
-	font-family: var(--rvt-font-family-base);
-	font-weight: var(--rvt-font-weight-normal);
+	font: var(--rvt-font-16);
 	height: 100%;
-	line-height: var(--rvt-line-height-normal);
 	margin: 0;
 	padding: 0;
+	text-wrap: pretty;
 }
 
 /**

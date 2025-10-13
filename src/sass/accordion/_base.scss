@@ -11,7 +11,6 @@
 	}
 
 	&__toggle {
-		align-items: center;
 		appearance: none;
 		background-color: transparent;
 		border: none;
@@ -25,8 +24,10 @@
 			background-color: currentColor;
 			clip-path: path(var(--rvt-icon-plus));
 			content: "";
+			flex-shrink: 0;
 			height: var(--rvt-spacing-sm);
-			margin-left: auto;
+			margin-block-start: var(--rvt-spacing-xxs);
+			margin-inline-start: auto;
 			width: var(--rvt-spacing-sm);
 		}
 	}
@@ -42,10 +43,7 @@
 	}
 
 	&__toggle-text {
-		font-size: var(--rvt-ts-18);
-		font-stretch: var(--rvt-font-stretch-expanded);
-		font-weight: var(--rvt-font-weight-bold);
-		line-height: var(--rvt-line-height-tight);
+		font: var(--rvt-font-18-bold-fluid);
 		padding-right: var(--rvt-spacing-sm);
 	}
 

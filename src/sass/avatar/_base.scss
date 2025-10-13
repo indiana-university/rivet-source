@@ -29,14 +29,18 @@ $avatar-widths: (
 	--size: var(--size-rg);
 	align-items: center;
 	background-color: var(--rvt-color-brand-light);
-	border-radius: 999rem;
+	border-radius: var(--rvt-border-radius-circle);
 	color: var(--rvt-color-brand-main);
 	display: flex;
 	flex-shrink: 0;
+	font-family: var(--rvt-font-family-mono);
 	font-size: var(--rvt-ts-20);
-	font-weight: 700;
+	font-stretch: normal;
+	font-weight: var(--rvt-font-weight-medium);
 	height: var(--size);
 	justify-content: center;
+	letter-spacing: 0.08em;
+	text-align: center;
 	overflow: hidden;
 	width: var(--size);
 
