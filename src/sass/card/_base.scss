@@ -22,21 +22,8 @@
 	}
 
 	.rvt-card__date {
-		--font-size: 7cqw;
-		container-type: inline-size;
-
 		.rvt-cal {
-			align-items: center;
 			aspect-ratio: var(--aspect-ratio);
-			display: flex;
-			font-size: var(--font-size);
-			font-weight: 250;
-			justify-content: center;
-			width: 100%;
-		}
-
-		.rvt-cal__day {
-			font-size: 225%;
 		}
 	}
 
@@ -314,7 +301,7 @@
 
 	.rvt-card--event {
 		.rvt-card__date {
-			--font-size: 12cqw;
+			//--font-size: 12cqw;
 		}
 	}
 
