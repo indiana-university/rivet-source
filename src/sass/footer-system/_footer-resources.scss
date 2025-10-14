@@ -1,75 +1,63 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
-
 .rvt-footer-resources {
-	padding-bottom: var(--rvt-spacing-sm);
+	padding-bottom: var(--rvt-spacing-md);
 
-	&__heading {
-		font: var(--rvt-font-18-medium);
-		margin-top: var(--rvt-spacing-md);
+	.rvt-footer-resources__content {
+		column-gap: var(--rvt-spacing-md);
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: calc(var(--rvt-spacing-md) - var(--rvt-spacing-xxs));
 
-		&--strong {
-			font: var(--rvt-font-29-medium);
+		> * {
+			flex-grow: 1;
 		}
-	}
 
-	&__text-block {
-		margin-top: var(--rvt-spacing-sm);
-
-		&--strong {
+		> address {
 			font: var(--rvt-font-18);
+
+			> h3 {
+				font: var(--rvt-font-29-medium);
+			}
+
+			> p {
+				margin-block: var(--rvt-spacing-xs) 0;
+			}
+		}
+
+		a {
+			color: var(--rvt-color-theme-text-strong);
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 
-	&__list {
-		list-style: none;
-		margin-top: var(--rvt-spacing-xs);
-		padding-left: 0;
-	}
+	.rvt-footer-resources__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--rvt-spacing-md);
+		margin-block-start: var(--rvt-spacing-xxs);
 
-	&__list-item {
-		margin-top: var(--rvt-spacing-xs);
-	}
-
-	&__list-item a {
-		color: var(--rvt-color-theme-text-strong);
-		text-decoration: none;
-
-		&:hover {
-			text-decoration: underline;
+		> * {
+			flex-grow: 1;
 		}
-	}
 
-	/**
-   * This class can be used on any button or button links needed for CTAs, etc.
-   */
-
-	&__button {
-		background-color: var(--rvt-color-theme-background);
-		border-color: transparent;
-		color: var(--rvt-color-theme-accent);
-		justify-content: center;
-		margin-bottom: var(--rvt-spacing-sm);
-		width: 100%;
-	}
-}
-
-@include mq($breakpoint-md) {
-	.rvt-footer-resources {
-		padding-bottom: var(--rvt-spacing-lg);
-		padding-top: var(--rvt-spacing-lg);
-
-		&__heading {
-			margin-top: 0;
+		h3 {
+			font: var(--rvt-font-18-medium);
 		}
-	}
 
-	// Adjust the padding of the resources component to make spacing work better
-	// visually when used together with social component.
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
 
-	.rvt-footer-social + .rvt-footer-resources {
-		padding-top: var(--rvt-spacing-xs);
+		li {
+			margin-top: var(--rvt-spacing-xs);
+		}
 	}
 }
