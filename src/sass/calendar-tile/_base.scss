@@ -2,42 +2,50 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-cal {
+	align-items: center;
 	color: var(--rvt-color-brand-main);
 	background-color: var(--rvt-color-brand-extralight);
 	container-type: inline-size;
 	display: inline-flex;
 	flex-direction: column;
+	gap: var(--rvt-spacing-xs);
+	justify-content: center;
 	padding: var(--rvt-spacing-sm);
 	position: relative;
 	// 128x128
 	min-width: 8rem;
+	//width: 100%;
+	aspect-ratio: 1 / 1;
+	text-transform: uppercase;
 
 	&__month,
 	&__day,
 	&__year {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0 var(--rvt-spacing-sm);
-		text-transform: uppercase;
+		//margin-left: auto;
+		//margin-right: auto;
+		//padding: 0 var(--rvt-spacing-sm);
+		//text-transform: uppercase;
 	}
 
 	// 20
 	&__month,
 	&__year {
+		//font: var(--rvt-font-)
 		font-family: var(--rvt-font-family-mono);
+		font-size: calc(16 / 128 * 100cqi);
 		letter-spacing: var(--rvt-letter-spacing-extra-wide);
 	}
 
 	// 41 -> 58
 	&__day {
 		//font-size: var(--rvt-ts-41);
-		font-size: calc(41 / 120 * 100cqi);
+		font-size: calc(46 / 128 * 100cqi);
 		font-stretch: var(--rvt-font-width-extra-expanded);
 		font-weight: var(--rvt-font-weight-extra-black);
-		margin-top: var(--rvt-spacing-xs);
+		//margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__year {
-		margin-top: var(--rvt-spacing-xs);
+		//margin-top: var(--rvt-spacing-xs);
 	}
 }
