@@ -4,12 +4,13 @@
 .rvt-cal {
 	color: var(--rvt-color-brand-main);
 	background-color: var(--rvt-color-brand-extralight);
+	container-type: inline-size;
 	display: inline-flex;
 	flex-direction: column;
-	font-family: var(--rvt-font-family-mono);
-	line-height: var(--rvt-line-height-tight);
 	padding: var(--rvt-spacing-sm);
 	position: relative;
+	// 128x128
+	min-width: 8rem;
 
 	&__month,
 	&__day,
@@ -20,19 +21,23 @@
 		text-transform: uppercase;
 	}
 
+	// 20
 	&__month,
 	&__year {
+		font-family: var(--rvt-font-family-mono);
 		letter-spacing: var(--rvt-letter-spacing-extra-wide);
 	}
 
+	// 41 -> 58
 	&__day {
-		font-size: var(--rvt-ts-36);
-		font-weight: var(--rvt-font-weight-medium);
-		letter-spacing: var(--rvt-letter-spacing-extra-wide);
-		margin-top: var(--rvt-spacing-xxs);
+		//font-size: var(--rvt-ts-41);
+		font-size: calc(41 / 120 * 100cqi);
+		font-stretch: var(--rvt-font-width-extra-expanded);
+		font-weight: var(--rvt-font-weight-extra-black);
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__year {
-		margin-top: var(--rvt-spacing-xxs);
+		margin-top: var(--rvt-spacing-xs);
 	}
 }

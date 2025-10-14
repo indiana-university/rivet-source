@@ -7,14 +7,20 @@
 	padding-bottom: var(--rvt-spacing-sm);
 
 	&__heading {
-		font-size: var(--rvt-ts-18);
-		font-weight: var(--rvt-font-weight-medium);
+		font: var(--rvt-font-18-medium);
 		margin-top: var(--rvt-spacing-md);
+
+		&--strong {
+			font: var(--rvt-font-29-medium);
+		}
 	}
 
 	&__text-block {
-		font-size: var(--rvt-ts-14);
 		margin-top: var(--rvt-spacing-sm);
+
+		&--strong {
+			font: var(--rvt-font-18);
+		}
 	}
 
 	&__list {
@@ -24,12 +30,11 @@
 	}
 
 	&__list-item {
-		margin-top: var(--rvt-spacing-xxs);
+		margin-top: var(--rvt-spacing-xs);
 	}
 
 	&__list-item a {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: var(--rvt-ts-14);
 		text-decoration: none;
 
 		&:hover {
@@ -58,10 +63,6 @@
 
 		&__heading {
 			margin-top: 0;
-		}
-
-		&__list {
-			margin-top: var(--rvt-spacing-sm);
 		}
 	}
 

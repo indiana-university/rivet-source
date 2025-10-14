@@ -241,9 +241,8 @@
 
 	.rvt-card__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--rvt-ts-26);
-		font-weight: var(--rvt-font-weight-black);
-		line-height: var(--rvt-line-height-tight);
+		font: var(--rvt-font-26-black);
+		text-transform: uppercase;
 
 		a {
 			color: var(--rvt-color-theme-text-accent);

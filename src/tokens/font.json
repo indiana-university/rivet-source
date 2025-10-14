@@ -117,6 +117,9 @@
 			},
 			"black": {
 				"$value": 800
+			},
+			"extra-black": {
+				"$value": 900
 			}
 		},
 		"width": {

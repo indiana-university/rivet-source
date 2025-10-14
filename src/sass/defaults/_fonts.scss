@@ -37,6 +37,8 @@
 
 	--rvt-font-12-medium: expanded var(--rvt-font-weight-medium)
 		var(--rvt-font-size-12) / var(--rvt-lh-20) var(--rvt-font-family-sans);
+	--rvt-font-14: expanded var(--rvt-font-weight-normal)
+		var(--rvt-font-size-14) / var(--rvt-lh-20) var(--rvt-font-family-sans);
 	--rvt-font-14-medium: expanded var(--rvt-font-weight-medium)
 		var(--rvt-font-size-14) / var(--rvt-lh-20) var(--rvt-font-family-sans);
 	--rvt-font-16: semi-expanded var(--rvt-font-weight-normal)
@@ -45,10 +47,22 @@
 		var(--rvt-font-size-16-18) / var(--rvt-lh-24) var(--rvt-font-family-sans);
 	--rvt-font-16-medium: expanded var(--rvt-font-weight-medium)
 		var(--rvt-font-size-16) / var(--rvt-lh-24) var(--rvt-font-family-sans);
+	--rvt-font-18: semi-expanded var(--rvt-font-weight-normal)
+		var(--rvt-font-size-18) / var(--rvt-lh-28) var(--rvt-font-family-sans);
+	--rvt-font-18-fluid: semi-expanded var(--rvt-font-weight-normal)
+		var(--rvt-font-size-18-20) / var(--rvt-lh-28) var(--rvt-font-family-sans);
+	--rvt-font-18-medium: expanded var(--rvt-font-weight-medium)
+		var(--rvt-font-size-18) / var(--rvt-lh-28) var(--rvt-font-family-sans);
 	--rvt-font-18-bold-fluid: expanded var(--rvt-font-weight-bold)
-		var(--rvt-font-size-18-20) / var(--rvt-lh-24) var(--rvt-font-family-sans);
-	--rvt-font-29-black: expanded var(--rvt-font-weight-black)
-		var(--rvt-font-size-29) / var(--rvt-lh-36) var(--rvt-font-family-sans);
+		var(--rvt-font-size-18-20) / var(--rvt-lh-28) var(--rvt-font-family-sans);
+	--rvt-font-20-medium: expanded var(--rvt-font-weight-medium)
+		var(--rvt-font-size-20) / var(--rvt-lh-24) var(--rvt-font-family-sans);
+	--rvt-font-26-black: semi-condensed var(--rvt-font-weight-black)
+		var(--rvt-font-size-26) / var(--rvt-lh-28) var(--rvt-font-family-sans);
+	--rvt-font-29-medium: expanded var(--rvt-font-weight-medium)
+		var(--rvt-font-size-29) / var(--rvt-lh-32) var(--rvt-font-family-sans);
+	--rvt-font-29-black: semi-condensed var(--rvt-font-weight-black)
+		var(--rvt-font-size-29) / var(--rvt-lh-32) var(--rvt-font-family-sans);
 
 	--rvt-font-12-mono: var(--rvt-font-weight-normal) var(--rvt-font-size-12) /
 		var(--rvt-lh-16) var(--rvt-font-family-mono);
