@@ -8,7 +8,7 @@
 	text-wrap: pretty;
 
 	&__title {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-12-mono);
 		letter-spacing: var(--rvt-letter-spacing-extra-wide);
 		text-transform: uppercase;
@@ -27,6 +27,10 @@
 		border-top: 1px solid var(--rvt-color-theme-ui);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-sm);
+
+		> * {
+			max-width: 45rem;
+		}
 	}
 
 	// If the item is not a link remove eyebrow padding for proper alignment.
@@ -35,21 +39,17 @@
 	}
 
 	&__eyebrow {
-		@include eyebrow;
 		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-12-mono);
 		padding-inline-start: var(--rvt-spacing-md);
 	}
 
 	&__link,
 	&__item-title {
-		align-items: center;
 		color: var(--rvt-color-theme-text-strong);
 		display: flex;
-		font-size: var(--rvt-ts-18);
-		font-stretch: var(--rvt-font-width-expanded);
-		font-weight: var(--rvt-font-weight-bold);
+		font: var(--rvt-font-18-bold-fluid);
 		gap: var(--rvt-spacing-xs);
-		line-height: var(--rvt-line-height-tight);
 		position: relative;
 		text-decoration: none;
 
@@ -90,14 +90,10 @@
 		content: "";
 		flex-shrink: 0;
 		height: var(--rvt-spacing-sm);
+		margin-block-start: calc(6rem / 16);
 		position: relative;
 		transform: rotate(var(--rotate));
-		transition: all 0.2s ease;
 		width: var(--rvt-spacing-sm);
-	}
-
-	&__link:hover::before {
-		transform: rotate(var(--rotate)) translateY(var(--rvt-spacing-xxs));
 	}
 
 	&__item-title + &__content {
@@ -111,12 +107,6 @@
 
 		> ul:not([class]) {
 			list-style-type: disc;
-		}
-
-		> ul li,
-		> ol li,
-		> p {
-			font-size: var(--rvt-ts-16);
 		}
 	}
 

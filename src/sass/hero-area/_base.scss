@@ -50,18 +50,8 @@
 	}
 
 	.rvt-hero__title {
-		--fluid-size-min: var(--rvt-ts-29);
-		--fluid-size-max: var(--rvt-ts-46);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--fluid-size);
-		font-stretch: var(--rvt-font-width-semi-condensed);
-		font-weight: var(--rvt-font-weight-black);
+		font: var(--rvt-font-29-fluid-black);
 		grid-area: title;
 		line-height: var(--rvt-line-height-none);
 		margin-block-start: var(--rvt-spacing-xs);
@@ -70,22 +60,13 @@
 	}
 
 	.rvt-hero__subtitle {
-		--fluid-size-min: var(--rvt-ts-20);
-		--fluid-size-max: var(--rvt-ts-26);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--fluid-size);
-		font-weight: var(--rvt-font-weight-black);
+		font: var(--rvt-font-20-fluid-black);
 		margin: 0;
 	}
 
 	.rvt-hero__teaser {
-		font-size: var(--rvt-ts-18);
+		font: var(--rvt-font-18);
 		grid-area: teaser;
 		margin-block: var(--rvt-spacing-sm) 0;
 		text-wrap: pretty;
