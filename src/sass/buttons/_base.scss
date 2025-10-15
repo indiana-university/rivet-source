@@ -114,7 +114,7 @@
 	--rotate: 0;
 	justify-content: space-between;
 
-	&[href*="#"] {
+	&[href^="#"] {
 		--rotate: 90deg;
 	}
 
