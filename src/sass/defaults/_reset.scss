@@ -65,6 +65,15 @@ figcaption {
 	margin-top: var(--rvt-spacing-sm);
 }
 
+:where(a) {
+	color: var(--rvt-color-theme-accent);
+
+	&:hover,
+	&:visited {
+		color: var(--rvt-color-theme-accent-strong);
+	}
+}
+
 em {
 	font-style: italic;
 }
