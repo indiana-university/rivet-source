@@ -34,6 +34,7 @@
 	padding-block: var(--padding-block);
 	padding-inline: calc(var(--padding-block) + var(--padding-inline-extra));
 	text-decoration: none;
+	text-wrap: pretty;
 
 	&,
 	&:is(a:visited) {
@@ -111,6 +112,7 @@
 	--color-text: var(--rvt-color-theme-accent);
 	--color-text-hover: var(--rvt-color-theme-accent);
 	--rotate: 0;
+	justify-content: space-between;
 
 	&[href*="#"] {
 		--rotate: 90deg;

@@ -143,24 +143,24 @@
 			border-left-color: var(--rvt-color-theme-ui);
 			border-right-color: transparent;
 			left: 100%;
-			margin-left: -var(--rvt-spacing-md);
+			margin-left: var(--rvt-spacing-md);
 		}
 
 		.rvt-timeline__item--right::after {
 			border-left-color: transparent;
 			border-right-color: var(--rvt-color-theme-ui);
 			left: auto;
-			margin-left: -var(--rvt-spacing-sm);
+			margin-left: var(--rvt-spacing-sm);
 		}
 
 		.rvt-timeline__marker {
 			left: 100%;
-			margin-left: -var(--rvt-spacing-xxs);
+			margin-left: var(--rvt-spacing-xxs);
 		}
 
 		.rvt-timeline__item--right .rvt-timeline__marker {
 			left: auto;
-			margin-left: -var(--rvt-spacing-sm);
+			margin-left: var(--rvt-spacing-sm);
 		}
 
 		.rvt-timeline__content {
