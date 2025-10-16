@@ -55,6 +55,12 @@
 	}
 }
 
+.rvt-billboard--compact {
+	.rvt-billboard__title {
+		font: var(--rvt-font-26-black);
+	}
+}
+
 @include mq($breakpoint-md) {
 	.rvt-billboard {
 		display: flex;
@@ -103,10 +109,6 @@
 		&--compact &__body,
 		&--compact &__image {
 			width: 50%;
-		}
-
-		&--compact &__title {
-			font-size: var(--rvt-ts-26);
 		}
 	}
 }

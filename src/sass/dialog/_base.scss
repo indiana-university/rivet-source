@@ -89,9 +89,7 @@
 	}
 
 	&__title {
-		font-size: var(--rvt-ts-20);
-		font-weight: var(--rvt-font-weight-bold);
-		line-height: var(--rvt-line-height-tight);
+		font: var(--rvt-font-20-medium);
 	}
 
 	&__body {

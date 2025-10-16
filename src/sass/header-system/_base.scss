@@ -111,8 +111,7 @@
 
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: var(--rvt-ts-14);
-		font-weight: var(--rvt-font-weight-medium);
+		font: var(--rvt-font-14-medium);
 		padding-block: var(--rvt-spacing-xs);
 		text-decoration: none;
 
@@ -130,8 +129,7 @@
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
 			display: flex;
-			font-size: var(--rvt-ts-14);
-			font-weight: var(--rvt-font-weight-medium);
+			font: var(--rvt-font-14-medium);
 			gap: var(--rvt-spacing-xs);
 			margin-top: calc(var(--rvt-spacing-xxs) * 0.75);
 			padding-block: var(--rvt-spacing-xxs);
@@ -241,9 +239,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-strong);
-		font-size: var(--rvt-ts-20);
-		font-weight: var(--rvt-font-weight-black);
-		letter-spacing: var(--rvt-letter-spacing-semi-wide);
+		font: var(--rvt-font-20-black);
 	}
 
 	&__subtitle {
@@ -253,6 +249,5 @@
 	&__title,
 	&__subtitle {
 		font-stretch: var(--rvt-font-width-super-condensed);
-		line-height: var(--rvt-line-height-tight);
 	}
 }

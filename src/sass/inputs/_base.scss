@@ -86,8 +86,7 @@
 
 	&-label {
 		display: inline-block;
-		font-size: var(--rvt-ts-14);
-		font-weight: var(--rvt-font-weight-medium);
+		font: var(--rvt-font-14-medium);
 	}
 
 	&-label + * {

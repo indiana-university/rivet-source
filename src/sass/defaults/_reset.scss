@@ -39,8 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: 1.125rem;
-	font-weight: var(--rvt-font-weight-normal);
+	font: var(--rvt-font-18);
 	margin: 0;
 }
 
@@ -79,7 +78,7 @@ em {
 }
 
 strong {
-	font-weight: var(--rvt-font-weight-bold);
+	font-weight: var(--rvt-font-weight-medium);
 }
 
 sub,
