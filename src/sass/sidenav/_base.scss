@@ -157,7 +157,7 @@
 	}
 
 	&--compact &__item &__list &__link {
-		font-size: var(--rvt-ts-14);
+		font: var(--rvt-font-14);
 		padding-left: var(--rvt-spacing-lg);
 	}
 }
