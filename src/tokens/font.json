@@ -108,6 +108,9 @@
 			},
 			"xxl": {
 				"$value": "{font.size.52}"
+			},
+			"56": {
+				"$value": "3.5rem"
 			}
 		},
 		"weight": {

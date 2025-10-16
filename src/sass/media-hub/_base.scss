@@ -4,8 +4,7 @@
 .rvt-media-hub {
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
-		font: var(--rvt-font-46-serif);
-		letter-spacing: var(--rvt-letter-spacing-semi-wide);
+		font: var(--rvt-font-29-fluid-serif);
 		margin: 0;
 		max-width: 40ch;
 
@@ -17,7 +16,6 @@
 		a:hover {
 			text-decoration-thickness: var(--rvt-spacing-xs);
 			text-underline-offset: var(--rvt-spacing-xs);
-			transition: 0.2s all ease-in-out;
 		}
 	}
 

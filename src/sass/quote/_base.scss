@@ -23,11 +23,9 @@
 
 	&__text {
 		color: var(--rvt-color-theme-text-accent);
-		font-stretch: var(--rvt-font-width-expanded);
-		font-weight: var(--rvt-font-weight-black);
-		font-size: var(--rvt-ts-26);
+		font: var(--rvt-font-29-fluid-serif);
 		margin: 0;
-		text-transform: uppercase;
+		max-width: 40ch;
 
 		p {
 			margin: 0;
@@ -35,6 +33,7 @@
 	}
 
 	&__citation {
+		font: var(--rvt-font-18-fluid);
 		margin: 0;
 	}
 
@@ -49,11 +48,12 @@
 	}
 }
 
-@include mq($breakpoint-md) {
-	.rvt-quote {
-		&__text {
-			font-size: var(--rvt-ts-52);
-			line-height: var(--rvt-line-height-tight);
-		}
+.rvt-quote--compact {
+	.rvt-quote__text {
+		font: var(--rvt-font-29-serif);
+	}
+
+	.rvt-quote__citation {
+		font: var(--rvt-font-18);
 	}
 }
