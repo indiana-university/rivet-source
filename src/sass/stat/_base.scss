@@ -2,16 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-stat {
-	display: inline-flex;
-	padding: var(--rvt-spacing-xl);
-
-	.rvt-stat__content > :first-child {
-		margin-block-start: 0;
-	}
-
-	.rvt-stat__image {
-		display: flex;
-	}
+	display: flex;
+	flex-direction: column;
 
 	.rvt-stat__number {
 		color: var(--rvt-color-theme-text-accent);
@@ -23,5 +15,9 @@
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-16-mono);
 		letter-spacing: var(--rvt-letter-spacing-semi-wide);
+	}
+
+	> :first-child {
+		margin-block-start: 0;
 	}
 }

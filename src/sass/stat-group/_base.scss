@@ -5,33 +5,34 @@
 	container-name: stat-group;
 	container-type: inline-size;
 
-	&__inner {
+	> ul {
 		display: flex;
 		flex-direction: column;
+		list-style-type: "";
+		margin: 0;
+		padding: 0;
 
-		> * {
+		> li {
 			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 			padding: var(--rvt-spacing-md) 0;
 		}
 	}
 
-	&__note {
+	.rvt-stat-group__note {
 		color: var(--rvt-color-theme-accent);
 		font: var(--rvt-font-12-mono);
 		margin-block: var(--rvt-spacing-sm) 0;
 	}
-}
 
-@container stat-group (min-width: 40em) {
-	.rvt-stat-group {
-		&__inner {
+	@container stat-group (width > 40em) {
+		> ul {
 			flex-direction: row;
 			flex-wrap: wrap;
 
-			> * {
+			> li {
 				border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 				flex-basis: 0;
-				flex-grow: 999;
+				flex-grow: 1;
 				margin-block-start: calc(var(--rvt-size-1) * -1);
 				margin-inline-start: calc(var(--rvt-size-1) * -1);
 				min-width: 50%;
@@ -39,11 +40,9 @@
 			}
 		}
 	}
-}
 
-@container stat-group (min-width: 68.75em) {
-	.rvt-stat-group {
-		&__inner > * {
+	@container stat-group (width > 68.75em) {
+		> ul > li {
 			border-block-end: none;
 			border-block-start: none;
 			border-inline-start: none;
