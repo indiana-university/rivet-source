@@ -87,8 +87,8 @@
 		var(--rvt-size-16-18) / var(--rvt-size-24) var(--rvt-font-family-sans);
 	--rvt-font-16-medium: expanded var(--rvt-font-weight-medium)
 		var(--rvt-size-16) / var(--rvt-size-24) var(--rvt-font-family-sans);
-	--rvt-font-16-mono: var(--rvt-font-weight-normal)
-		var(--rvt-size-16) / var(--rvt-size-24) var(--rvt-font-family-mono);
+	--rvt-font-16-mono: var(--rvt-font-weight-normal) var(--rvt-size-16) /
+		var(--rvt-size-24) var(--rvt-font-family-mono);
 
 	--rvt-font-18: semi-expanded var(--rvt-font-weight-normal)
 		var(--rvt-size-18) / var(--rvt-size-28) var(--rvt-font-family-sans);
