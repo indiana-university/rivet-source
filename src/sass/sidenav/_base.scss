@@ -5,7 +5,7 @@
 	margin-top: var(--rvt-spacing-lg);
 
 	&__label {
-		color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-text-accent);
 		display: block;
 		font: var(--rvt-font-12-mono);
 		letter-spacing: var(--rvt-letter-spacing-extra-wide);
@@ -52,7 +52,6 @@
 		border-left: 0.25rem solid transparent;
 		color: var(--rvt-color-theme-text-strong);
 		flex-grow: 1;
-		font-weight: var(--rvt-font-weight-medium);
 		padding: var(--rvt-spacing-sm);
 		position: relative;
 		text-decoration: none;
@@ -60,6 +59,7 @@
 		&:is([aria-current="page"], [aria-current="page"]:hover) {
 			border-color: currentColor;
 			color: var(--rvt-color-theme-accent);
+			font-weight: var(--rvt-font-weight-medium);
 		}
 
 		&:hover {
@@ -73,6 +73,10 @@
 
 	&__item &__item &__link {
 		font-weight: var(--rvt-font-weight-normal);
+	}
+
+	.rvt-sidenav__link:has(+ .rvt-sidenav__toggle[aria-expanded="true"]) {
+		font-weight: var(--rvt-font-weight-medium);
 	}
 
 	&__toggle {

@@ -26,8 +26,8 @@
 		border: none;
 		color: var(--rvt-color-theme-text-strong);
 		display: flex;
-		font-size: var(--rvt-ts-14);
-		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm);
+		font: var(--rvt-font-14);
+		padding: var(--rvt-spacing-sm);
 		position: relative;
 		text-decoration: none;
 
@@ -38,6 +38,7 @@
 
 	&__item a[aria-current="page"] {
 		color: var(--rvt-color-theme-accent);
+		font-weight: var(--rvt-font-weight-medium);
 	}
 
 	&__item a[aria-current="page"]::after {

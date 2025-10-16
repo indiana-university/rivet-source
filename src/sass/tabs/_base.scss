@@ -9,7 +9,7 @@
 		flex-wrap: wrap;
 	}
 
-	&__tab {
+	.rvt-tabs__tab {
 		background-color: transparent;
 		border: none;
 		border-bottom: 1px solid var(--rvt-color-theme-ui);
@@ -30,17 +30,11 @@
 		&:hover {
 			background-color: var(--rvt-color-theme-background-strong);
 		}
-	}
 
-	&__tab[aria-selected="true"]::after {
-		background-color: var(--rvt-color-theme-accent);
-		bottom: 0;
-		content: "";
-		display: block;
-		height: var(--rvt-spacing-xxs);
-		left: 0;
-		position: absolute;
-		width: 100%;
+		&:is([aria-selected="true"]) {
+			background-color: var(--rvt-color-theme-background-strong);
+			font-weight: var(--rvt-font-weight-medium);
+		}
 	}
 
 	&__panel {

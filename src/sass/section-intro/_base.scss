@@ -21,7 +21,7 @@
 
 	.rvt-section-intro__teaser {
 		color: var(--rvt-color-theme-text);
-		font-size: var(--rvt-ts-16);
+		font: var(--rvt-font-18);
 		margin-block-start: var(--rvt-spacing-sm);
 
 		> * {
@@ -39,6 +39,11 @@
 		justify-content: center;
 		margin-block-start: var(--rvt-spacing-xl);
 	}
+}
+
+// Make left alignment default.
+.rvt-section-intro--center {
+
 }
 
 .rvt-section-intro--feature {

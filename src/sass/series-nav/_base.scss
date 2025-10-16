@@ -17,7 +17,6 @@
 		flex-basis: 20rem;
 		flex-direction: column;
 		flex-grow: 1;
-		font: var(--rvt-font-14);
 		gap: var(--rvt-spacing-xs);
 		padding: var(--rvt-spacing-md);
 		text-decoration: none;
@@ -35,8 +34,8 @@
 	&__label {
 		@include eyebrow;
 		align-items: center;
-		color: var(--rvt-color-theme-text-accent);
 		display: flex;
+		font: var(--rvt-font-14-mono);
 		gap: var(--rvt-spacing-xs);
 	}
 
