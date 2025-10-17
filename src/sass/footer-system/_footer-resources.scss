@@ -2,7 +2,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-footer-resources {
-	padding-block-end: var(--rvt-spacing-md);
+	padding-block: var(--rvt-spacing-md);
+
+	.rvt-footer-social + & {
+		padding-block-start: 0;
+	}
 
 	.rvt-footer-resources__content {
 		display: flex;
