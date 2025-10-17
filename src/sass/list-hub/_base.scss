@@ -70,7 +70,7 @@
 		--rotate: -135deg;
 	}
 
-	&__link[href*="#"] {
+	&__link[href^="#"] {
 		--rotate: 0;
 	}
 
