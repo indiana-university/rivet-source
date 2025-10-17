@@ -10,11 +10,10 @@
 
 	&-code {
 		background-color: var(--rvt-color-theme-background-strong);
-		border-radius: var(--rvt-spacing-xxs);
 		color: var(--rvt-color-theme-accent);
 		display: inline-block;
 		font: var(--rvt-font-16-mono);
-		padding: 0.125rem 0.25rem;
+		padding-inline: var(--rvt-size-4);
 	}
 
 	&-hr {

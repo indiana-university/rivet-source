@@ -21,15 +21,40 @@
 		1.0515rem + 0.3676vw,
 		var(--rvt-size-20)
 	);
+	--rvt-size-18-23: clamp(
+		var(--rvt-size-18),
+		0.9412rem + 0.9191vw,
+		var(--rvt-size-23)
+	);
+	--rvt-size-20-23: clamp(
+		var(--rvt-size-20),
+		1.1397rem + 0.5515vw,
+		var(--rvt-size-23)
+	);
+	--rvt-size-20-24: clamp(
+		var(--rvt-size-20),
+		1.1029rem + 0.7353vw,
+		var(--rvt-size-24)
+	);
 	--rvt-size-20-26: clamp(
 		var(--rvt-size-20),
 		1.0294rem + 1.1029vw,
 		var(--rvt-size-26)
 	);
+	--rvt-size-23-29: clamp(
+		var(--rvt-size-23),
+		1.2169rem + 1.1029vw,
+		var(--rvt-size-29)
+	);
 	--rvt-size-24-28: clamp(
 		var(--rvt-size-24),
 		1.3529rem + 0.7353vw,
 		var(--rvt-size-28)
+	);
+	--rvt-size-24-32: clamp(
+		var(--rvt-size-24),
+		1.2059rem + 1.4706vw,
+		var(--rvt-size-32)
 	);
 	--rvt-size-26-41: clamp(
 		var(--rvt-size-26),
@@ -46,6 +71,11 @@
 		1.1618rem + 2.9412vw,
 		var(--rvt-size-44)
 	);
+	--rvt-size-29-36: clamp(
+		var(--rvt-size-29),
+		1.5551rem + 1.2868vw,
+		var(--rvt-size-36)
+	);
 	--rvt-size-29-46: clamp(
 		var(--rvt-size-29),
 		1.1875rem + 3.125vw,
@@ -60,6 +90,11 @@
 		var(--rvt-size-32),
 		1.2647rem + 3.6765vw,
 		var(--rvt-size-52)
+	);
+	--rvt-size-36-44: clamp(
+		var(--rvt-size-36),
+		1.9559rem + 1.4706vw,
+		var(--rvt-size-44)
 	);
 	--rvt-size-36-56: clamp(
 		var(--rvt-size-36),

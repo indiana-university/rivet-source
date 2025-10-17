@@ -1,98 +1,70 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../core" as *;
 @use "../lists";
 @use "../utilities/elements";
 
-.rvt-prose,
 .rvt-rich-text {
-	--rvt-rich-text-stack-space: var(--rvt-spacing-md);
+	font: var(--rvt-font-16-fluid);
 	max-width: 80ch;
 
-	> * {
-		margin: 0;
+	> * + * {
+		margin-block: 1lh 0;
 	}
 
-	> * + * {
-		margin-top: var(--rvt-rich-text-stack-space);
+	:is(h1, h2, h3, h4, h5, h6) {
+		font-stretch: var(--rvt-font-width-expanded);
+		font-weight: var(--rvt-font-weight-bold);
+		margin-block: 1lh 0.5lh;
+		scroll-margin-top: 1lh;
+
+		+ * {
+			margin-block-start: 0;
+		}
 	}
 
 	h1 {
-		font-size: var(--rvt-ts-32);
+		font-size: var(--rvt-size-29-36);
+		line-height: var(--rvt-size-36-44);
 	}
 
 	h2 {
-		font-size: var(--rvt-ts-23);
+		font-size: var(--rvt-size-23-29);
+		line-height: var(--rvt-size-28-36);
 	}
 
 	h3 {
-		font-size: var(--rvt-ts-20);
+		font-size: var(--rvt-size-20-23);
+		line-height: var(--rvt-size-24-32);
 	}
 
-	h4,
-	h5,
+	h4 {
+		font-size: var(--rvt-size-18-20);
+		line-height: var(--rvt-size-24);
+	}
+
+	h5 {
+		font-size: var(--rvt-size-16-18);
+		line-height: var(--rvt-size-24);
+	}
+
 	h6 {
-		font-size: var(--rvt-ts-18);
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-optical-sizing: auto;
-		font-stretch: var(--rvt-font-width-expanded);
-		font-style: normal;
-		font-weight: var(--rvt-font-weight-bold);
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		// Reset the flow space here to put more space before headings.
-		--rvt-rich-text-stack-space: var(--rvt-spacing-lg);
-		line-height: var(--rvt-line-height-tight);
-		scroll-margin-top: var(--rvt-spacing-md);
-	}
-
-	:where(p),
-	:where(li),
-	:where(td),
-	:where(dt) {
-		color: var(--rvt-color-theme-text);
+		font-size: var(--rvt-size-16);
+		line-height: var(--rvt-size-24);
 	}
 
 	:where(ul) {
 		list-style-type: square;
+		padding-inline-start: var(--rvt-size-16);
 	}
 
 	:where(li + li),
 	:where(li > ul) {
-		margin-top: var(--rvt-spacing-sm);
+		margin-block-start: var(--rvt-spacing-xs);
 	}
 
 	:where(li)::marker {
 		color: var(--rvt-color-theme-accent);
-	}
-
-	> img,
-	> img + *,
-	> figure,
-	> figure + *,
-	> hr,
-	> hr + * {
-		--rvt-rich-text-stack-space: var(--rvt-spacing-xl);
-	}
-
-	// Reduce the amount of stack space if a heading is
-	// immediately followed by another heading
-	> :is(h2, h3, h4, h5) + :is(h2, h3, h4, h5) {
-		--rvt-rich-text-stack-space: var(--rvt-spacing-md);
 	}
 
 	> :where(dl) {
@@ -110,34 +82,12 @@
 	> *:empty:not(br, embed, hr, input, img, wbr) {
 		display: none;
 	}
-}
 
-@include mq($breakpoint-lg) {
-	.rvt-prose,
-	.rvt-rich-text {
-		:where(p),
-		:where(li),
-		:where(td),
-		:where(dt) {
-			font-size: var(--rvt-ts-18);
-		}
+	> :first-child {
+		margin-block-start: 0;
+	}
 
-		h1 {
-			font-size: var(--rvt-ts-41);
-		}
-
-		h2 {
-			font-size: var(--rvt-ts-32);
-		}
-
-		h3 {
-			font-size: var(--rvt-ts-26);
-		}
-
-		h4,
-		h5,
-		h6 {
-			font-size: var(--rvt-ts-23);
-		}
+	> :last-child {
+		margin-block-end: 0;
 	}
 }

@@ -24,8 +24,7 @@
 	}
 
 	.rvt-footer-resources__address {
-		font: var(--rvt-font-18);
-		margin-block-start: calc(2rem / 16);
+		margin-block-start: var(--rvt-size-2);
 
 		h3 {
 			color: var(--rvt-color-theme-text-accent);
@@ -58,7 +57,7 @@
 		}
 
 		li {
-			margin-block-start: var(--rvt-spacing-xxs);
+			margin-block-start: var(--rvt-spacing-xs);
 		}
 	}
 }
