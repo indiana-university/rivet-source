@@ -19,7 +19,7 @@
 	}
 
 	&__address-title {
-		font: var(--rvt-font-20-medium);
+		font: var(--rvt-font-20-bold);
 	}
 
 	&__address-eyebrow + &__address-title {
@@ -57,7 +57,7 @@
 			color: var(--rvt-color-theme-accent);
 			display: inline-flex;
 			gap: var(--rvt-spacing-xs);
-			font-weight: var(--rvt-font-weight-medium);
+			font-weight: var(--rvt-font-weight-bold);
 			padding: 0;
 		}
 

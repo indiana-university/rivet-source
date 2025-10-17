@@ -33,7 +33,7 @@
 
 		&:is([aria-selected="true"]) {
 			background-color: var(--rvt-color-theme-background-strong);
-			font-weight: var(--rvt-font-weight-medium);
+			font-weight: var(--rvt-font-weight-bold);
 		}
 	}
 

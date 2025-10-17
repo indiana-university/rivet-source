@@ -16,7 +16,7 @@
 	:is(.rvt-cal__month, .rvt-cal__year) {
 		font-family: var(--rvt-font-family-mono);
 		font-size: calc(16 / 128 * 100cqmin);
-		letter-spacing: var(--rvt-letter-spacing-extra-wide);
+		letter-spacing: var(--rvt-letter-spacing-wide);
 	}
 
 	.rvt-cal__day {

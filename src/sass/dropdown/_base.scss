@@ -69,7 +69,7 @@
 			&[aria-checked="true"] {
 				border-color: var(--rvt-color-theme-accent);
 				color: var(--rvt-color-theme-accent);
-				font-weight: var(--rvt-font-weight-medium);
+				font-weight: var(--rvt-font-weight-bold);
 
 				&:hover {
 					color: var(--rvt-color-theme-accent);
@@ -84,7 +84,7 @@
 
 	&__menu-heading {
 		color: var(--rvt-color-theme-text-strong);
-		font: var(--rvt-font-16-medium);
+		font: var(--rvt-font-16-bold);
 		padding: var(--rvt-spacing-sm) var(--rvt-spacing-sm) var(--rvt-spacing-xxs);
 
 		&:first-child {

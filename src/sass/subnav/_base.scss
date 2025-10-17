@@ -38,7 +38,7 @@
 
 	&__item a[aria-current="page"] {
 		color: var(--rvt-color-theme-accent);
-		font-weight: var(--rvt-font-weight-medium);
+		font-weight: var(--rvt-font-weight-bold);
 	}
 
 	&__item a[aria-current="page"]::after {

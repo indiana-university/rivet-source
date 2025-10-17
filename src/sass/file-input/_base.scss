@@ -17,7 +17,7 @@
 		cursor: pointer;
 		display: flex;
 		flex-grow: 0;
-		font: var(--rvt-font-16-medium);
+		font: var(--rvt-font-16-bold);
 		margin-bottom: 0;
 		margin-top: 0;
 		width: inherit;
@@ -40,7 +40,7 @@
 
 		span {
 			display: inline-block;
-			font: var(--rvt-font-16-medium);
+			font: var(--rvt-font-16-bold);
 		}
 	}
 }

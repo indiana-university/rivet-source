@@ -12,7 +12,7 @@ table,
 	width: 100%;
 
 	caption {
-		font: var(--rvt-font-18-medium);
+		font: var(--rvt-font-18-bold);
 		margin-bottom: var(--rvt-spacing-xs);
 		text-align: left;
 	}
@@ -20,7 +20,7 @@ table,
 
 tr th {
 	color: var(--rvt-color-theme-text-strong);
-	font: var(--rvt-font-16-medium);
+	font: var(--rvt-font-16-bold);
 }
 
 thead {
@@ -28,7 +28,7 @@ thead {
 
 	tr th {
 		color: var(--rvt-color-theme-background);
-		font: var(--rvt-font-16-medium);
+		font: var(--rvt-font-14-bold);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
 	}

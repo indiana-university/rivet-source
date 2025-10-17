@@ -8,7 +8,7 @@
 		color: var(--rvt-color-theme-text-accent);
 		display: block;
 		font: var(--rvt-font-12-mono);
-		letter-spacing: var(--rvt-letter-spacing-extra-wide);
+		letter-spacing: var(--rvt-letter-spacing-wide);
 		text-transform: uppercase;
 	}
 
@@ -59,7 +59,7 @@
 		&:is([aria-current="page"], [aria-current="page"]:hover) {
 			border-color: currentColor;
 			color: var(--rvt-color-theme-accent);
-			font-weight: var(--rvt-font-weight-medium);
+			font-weight: var(--rvt-font-weight-bold);
 		}
 
 		&:hover {
@@ -76,7 +76,7 @@
 	}
 
 	.rvt-sidenav__link:has(+ .rvt-sidenav__toggle[aria-expanded="true"]) {
-		font-weight: var(--rvt-font-weight-medium);
+		font-weight: var(--rvt-font-weight-bold);
 	}
 
 	&__toggle {
@@ -127,7 +127,7 @@
 		background-color: var(--rvt-color-theme-background);
 		border: 2px solid var(--rvt-color-theme-ui);
 		display: flex;
-		font-weight: var(--rvt-font-weight-medium);
+		font-weight: var(--rvt-font-weight-bold);
 		gap: var(--rvt-spacing-sm);
 		height: calc(var(--rvt-spacing-sm) * 3);
 		justify-content: space-between;

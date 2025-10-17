@@ -111,7 +111,7 @@
 
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
-		font: var(--rvt-font-14-medium);
+		font: var(--rvt-font-14-bold);
 		padding-block: var(--rvt-spacing-xs);
 		text-decoration: none;
 
@@ -129,7 +129,7 @@
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
 			display: flex;
-			font: var(--rvt-font-14-medium);
+			font: var(--rvt-font-14-bold);
 			gap: var(--rvt-spacing-xs);
 			margin-top: calc(var(--rvt-spacing-xxs) * 0.75);
 			padding-block: var(--rvt-spacing-xxs);
@@ -220,7 +220,7 @@
 .rvt-lockup {
 	align-items: center;
 	display: inline-flex;
-	gap: var(--rvt-spacing-sm);
+	gap: var(--rvt-size-12);
 	text-decoration: none;
 
 	&__tab {
@@ -240,14 +240,13 @@
 	&__title {
 		color: var(--rvt-color-theme-text-strong);
 		font: var(--rvt-font-20-black);
+		line-height: var(--rvt-size-20);
 	}
 
 	&__subtitle {
 		color: var(--rvt-color-theme-text);
-	}
-
-	&__title,
-	&__subtitle {
-		font-stretch: var(--rvt-font-width-super-condensed);
+		font-stretch: var(--rvt-font-width-ultra-condensed);
+		line-height: var(--rvt-size-16);
+		margin-block-start: var(--rvt-size-3);
 	}
 }
