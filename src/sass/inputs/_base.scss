@@ -29,7 +29,6 @@
 
 	&-textarea {
 		height: calc(var(--rvt-spacing-base) * 15);
-		line-height: var(--rvt-line-height-normal);
 		overflow: auto; // Remove scrollbar in IE
 	}
 

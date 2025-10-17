@@ -36,7 +36,6 @@
 	input[type="radio"] ~ label {
 		cursor: pointer;
 		display: inline-block;
-		line-height: var(--rvt-line-height-normal);
 	}
 
 	input[type="radio"] ~ label::before {

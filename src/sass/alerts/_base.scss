@@ -196,10 +196,6 @@
 	margin: 0;
 	padding: 0;
 
-	&__item {
-		line-height: var(--rvt-line-height-normal);
-	}
-
 	&__item:not(first-child) {
 		margin-top: var(--rvt-spacing-xs);
 	}
