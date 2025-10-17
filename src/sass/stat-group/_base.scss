@@ -5,6 +5,10 @@
 	container-name: stat-group;
 	container-type: inline-size;
 
+	.rvt-container > & {
+		padding-block: var(--rvt-spacing-lg);
+	}
+
 	> ul {
 		display: flex;
 		flex-direction: column;
