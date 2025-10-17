@@ -54,35 +54,23 @@
 			}
 		},
 		"width": {
-			"super-condensed": {
-				"$value": "25%"
-			},
 			"ultra-condensed": {
-				"$value": "50%"
-			},
-			"extra-condensed": {
-				"$value": "62.5%"
-			},
-			"condensed": {
-				"$value": "75%"
+				"$value": "ultra-condensed"
 			},
 			"semi-condensed": {
-				"$value": "87.5%"
+				"$value": "semi-condensed"
 			},
 			"normal": {
-				"$value": "100%"
+				"$value": "normal"
 			},
 			"semi-expanded": {
-				"$value": "112.5%"
+				"$value": "semi-expanded"
 			},
 			"expanded": {
-				"$value": "125%"
+				"$value": "expanded"
 			},
 			"extra-expanded": {
-				"$value": "150%"
-			},
-			"ultra-expanded": {
-				"$value": "200%"
+				"$value": "extra-expanded"
 			}
 		}
 	}
