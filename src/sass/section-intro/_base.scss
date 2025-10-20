@@ -6,20 +6,27 @@
 .rvt-section-intro {
 	max-width: 80ch;
 
-	.rvt-section-intro__title {
-		color: var(--rvt-color-theme-text-accent);
-		font: var(--rvt-font-26-fluid-black);
-		margin-block-start: var(--rvt-spacing-sm);
-		text-transform: uppercase;
+	:has(> &) {
+		container-type: inline-size;
 	}
 
 	.rvt-section-intro__eyebrow {
 		@include eyebrow;
+		grid-area: eyebrow;
+	}
+
+	.rvt-section-intro__title {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-26-fluid-black);
+		grid-area: title;
+		margin-block-start: var(--rvt-spacing-sm);
+		text-transform: uppercase;
 	}
 
 	.rvt-section-intro__teaser {
 		color: var(--rvt-color-theme-text);
 		font: var(--rvt-font-18);
+		grid-area: teaser;
 		margin-block-start: var(--rvt-spacing-sm);
 
 		> * {
@@ -33,8 +40,29 @@
 
 	.rvt-section-intro__actions {
 		display: flex;
+		flex-wrap: wrap;
 		gap: var(--rvt-spacing-sm);
+		grid-area: actions;
 		margin-block-start: var(--rvt-spacing-xl);
+	}
+
+	@container (width > 54rem) {
+		&:not(:is(.rvt-section-intro--center, .rvt-section-intro--feature)) {
+			display: grid;
+			grid:
+				"eyebrow actions"
+				"title actions"
+				"teaser actions"
+				/ minmax(auto, 80ch) auto;
+			max-width: unset;
+
+			.rvt-section-intro__actions {
+				align-self: end;
+				justify-self: end;
+				margin: 0 0 0 var(--rvt-spacing-lg);
+				max-width: 33cqi;
+			}
+		}
 	}
 }
 
