@@ -6,7 +6,7 @@
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-29-fluid-serif);
 		margin: 0;
-		max-width: 40ch;
+		max-width: var(--rvt-line-length-short);
 
 		a {
 			text-decoration-thickness: var(--rvt-spacing-xs);

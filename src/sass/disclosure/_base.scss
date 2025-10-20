@@ -36,7 +36,7 @@
 
 	&__content {
 		margin: var(--rvt-spacing-xs) 0 0 var(--rvt-spacing-md);
-		max-width: 80ch;
+		max-width: var(--rvt-line-length-normal);
 
 		> :first-child {
 			margin-block-start: 0;

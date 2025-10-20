@@ -30,7 +30,7 @@
 
 	&--single-column &__main {
 		margin-inline: auto;
-		max-width: 80ch;
+		max-width: var(--rvt-line-length-normal);
 		width: 100%;
 	}
 

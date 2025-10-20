@@ -108,7 +108,7 @@
 		color: var(--rvt-color-theme-text);
 		flex-grow: 1;
 		margin-top: var(--rvt-spacing-md);
-		max-width: 75ch;
+		max-width: var(--rvt-line-length-normal);
 
 		> * {
 			margin: 0;

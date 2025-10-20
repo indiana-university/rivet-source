@@ -4,7 +4,7 @@
 @use "../core" as *;
 
 .rvt-section-intro {
-	max-width: 80ch;
+	max-width: var(--rvt-line-length-normal);
 
 	:has(> &) {
 		container-type: inline-size;
@@ -53,7 +53,7 @@
 				"eyebrow actions"
 				"title actions"
 				"teaser actions"
-				/ minmax(auto, 80ch) auto;
+				/ minmax(auto, var(--rvt-line-length-normal)) auto;
 			max-width: unset;
 
 			.rvt-section-intro__actions {

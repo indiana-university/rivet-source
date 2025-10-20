@@ -6,7 +6,7 @@
 
 .rvt-rich-text {
 	font: var(--rvt-font-16-fluid);
-	max-width: 80ch;
+	max-width: var(--rvt-line-length-normal);
 
 	> * + * {
 		margin-block: 1lh 0;
