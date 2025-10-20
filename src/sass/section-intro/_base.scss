@@ -4,9 +4,7 @@
 @use "../core" as *;
 
 .rvt-section-intro {
-	margin-inline: auto;
 	max-width: 80ch;
-	text-align: center;
 
 	.rvt-section-intro__title {
 		color: var(--rvt-color-theme-text-accent);
@@ -36,13 +34,17 @@
 	.rvt-section-intro__actions {
 		display: flex;
 		gap: var(--rvt-spacing-sm);
-		justify-content: center;
 		margin-block-start: var(--rvt-spacing-xl);
 	}
 }
 
-// Make left alignment default.
-.rvt-section-intro--center {
+:is(.rvt-section-intro--center, .rvt-section-intro--feature) {
+	margin-inline: auto;
+	text-align: center;
+
+	.rvt-section-intro__actions {
+		justify-content: center;
+	}
 }
 
 .rvt-section-intro--feature {
