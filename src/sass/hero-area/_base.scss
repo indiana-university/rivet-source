@@ -223,17 +223,17 @@
 }
 
 .rvt-hero--statement {
+	.rvt-hero__body > * {
+		margin-inline: auto;
+		text-align: center;
+	}
+
 	.rvt-hero__title {
 		font: var(--rvt-font-32-fluid-black);
 	}
 
-	:is(.rvt-hero__body, .rvt-hero__actions) {
+	.rvt-hero__actions {
 		justify-content: center;
-		justify-self: center;
-	}
-
-	.rvt-hero__body > :not(.rvt-hero__actions) {
-		text-align: center;
 	}
 
 	.rvt-hero__figure {
