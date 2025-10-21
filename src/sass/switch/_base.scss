@@ -11,7 +11,6 @@
 	display: flex;
 	gap: 0.75rem;
 	height: var(--rvt-spacing-xl);
-	line-height: 1;
 	padding: 0 0.75rem;
 	position: relative;
 	-webkit-appearance: none;
@@ -90,7 +89,7 @@
 */
 
 	&--small {
-		font-size: var(--rvt-ts-14);
+		font: var(--rvt-font-14);
 		height: var(--rvt-spacing-md);
 		gap: 0;
 		padding: 0 var(--rvt-spacing-xs);

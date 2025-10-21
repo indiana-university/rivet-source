@@ -4,7 +4,8 @@
 .rvt-breadcrumbs {
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: calc(var(--rvt-spacing-xxs) * 0.75);
+	font: var(--rvt-font-12-mono);
+	gap: var(--rvt-size-8) var(--rvt-size-4);
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -12,10 +13,7 @@
 	li {
 		align-items: center;
 		display: inline-flex;
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
-		gap: var(--rvt-spacing-xxs);
-		line-height: 1.25rem;
+		gap: var(--rvt-size-4);
 		margin-top: 0;
 
 		&:not(:first-child)::before {
@@ -56,7 +54,7 @@
 
 	li[aria-current="page"] {
 		color: var(--rvt-color-theme-accent);
-		font-weight: var(--rvt-font-weight-medium);
+		font-weight: var(--rvt-font-weight-bold);
 		text-decoration: underline;
 		text-underline-offset: var(--rvt-spacing-xxs);
 	}

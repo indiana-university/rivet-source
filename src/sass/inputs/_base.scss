@@ -12,7 +12,6 @@
 		color: inherit;
 		display: block;
 		height: calc(var(--rvt-spacing-sm) * 3);
-		line-height: 1.1;
 		padding: var(--rvt-spacing-xs);
 		width: 100%;
 
@@ -30,7 +29,6 @@
 
 	&-textarea {
 		height: calc(var(--rvt-spacing-base) * 15);
-		line-height: var(--rvt-line-height-base);
 		overflow: auto; // Remove scrollbar in IE
 	}
 
@@ -86,8 +84,7 @@
 
 	&-label {
 		display: inline-block;
-		font-size: var(--rvt-ts-14);
-		font-weight: var(--rvt-font-weight-medium);
+		font: var(--rvt-font-14-bold);
 	}
 
 	&-label + * {
@@ -102,7 +99,7 @@
 
 	&-legend {
 		display: block;
-		font-weight: var(--rvt-font-weight-regular);
+		font-weight: var(--rvt-font-weight-normal);
 		margin: 0;
 		width: 100%;
 	}

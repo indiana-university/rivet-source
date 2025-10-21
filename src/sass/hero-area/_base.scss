@@ -4,14 +4,7 @@
 @use "../core" as *;
 
 .rvt-hero {
-	--fluid-container-min: 20rem;
-	--fluid-container-max: 54rem;
-	--fluid-container-diff: calc(
-		var(--fluid-container-max) - var(--fluid-container-min)
-	);
-	--fluid-scale: calc(
-		(100cqw - var(--fluid-container-min)) / var(--fluid-container-diff)
-	);
+	--width-max: 54rem;
 	@include container;
 
 	:has(> &) {
@@ -39,61 +32,33 @@
 		}
 
 		> * {
-			max-width: var(--fluid-container-max);
+			max-width: var(--width-max);
 		}
 	}
 
 	.rvt-hero__eyebrow {
 		@include eyebrow;
-		--fluid-size-min: var(--rvt-ts-12);
-		--fluid-size-max: var(--rvt-ts-14);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
-		font-size: var(--fluid-size);
+		font: var(--rvt-font-12-fluid-mono);
 		grid-area: eyebrow;
 	}
 
 	.rvt-hero__title {
-		--fluid-size-min: var(--rvt-ts-29);
-		--fluid-size-max: var(--rvt-ts-46);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--fluid-size);
-		font-stretch: 90%;
-		font-weight: var(--rvt-font-weight-black);
+		font: var(--rvt-font-29-fluid-black);
 		grid-area: title;
-		line-height: 1;
 		margin-block-start: var(--rvt-spacing-xs);
 		text-transform: uppercase;
 		text-wrap: balance;
 	}
 
 	.rvt-hero__subtitle {
-		--fluid-size-min: var(--rvt-ts-20);
-		--fluid-size-max: var(--rvt-ts-26);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--fluid-size);
-		font-weight: var(--rvt-font-weight-black);
+		font: var(--rvt-font-20-fluid-black);
 		margin: 0;
 	}
 
 	.rvt-hero__teaser {
-		font-size: var(--rvt-ts-18);
+		font: var(--rvt-font-18);
 		grid-area: teaser;
 		margin-block: var(--rvt-spacing-sm) 0;
 		text-wrap: pretty;
@@ -138,7 +103,7 @@
 		margin-block-start: var(--rvt-spacing-lg);
 
 		.rvt-list-hub__link {
-			font-size: var(--rvt-ts-base);
+			font-size: var(--rvt-size-16);
 		}
 	}
 
@@ -251,22 +216,13 @@
 
 :is(.rvt-hero--profile, .rvt-hero--statement) {
 	.rvt-hero__teaser {
-		--fluid-size-min: var(--rvt-ts-18);
-		--fluid-size-max: var(--rvt-ts-20);
-		--fluid-size-diff: calc(var(--fluid-size-max) - var(--fluid-size-min));
-		--fluid-size: clamp(
-			var(--fluid-size-min),
-			var(--fluid-size-min) + var(--fluid-size-diff) * var(--fluid-scale),
-			var(--fluid-size-max)
-		);
-		font-size: var(--fluid-size);
+		font: var(--rvt-font-18-fluid);
 	}
 }
 
 .rvt-hero--statement {
 	.rvt-hero__title {
-		--fluid-size-min: var(--rvt-ts-32);
-		--fluid-size-max: var(--rvt-ts-52);
+		font: var(--rvt-font-32-fluid-black);
 	}
 
 	:is(.rvt-hero__body, .rvt-hero__actions) {
@@ -291,7 +247,7 @@
 			align-self: end;
 			justify-self: end;
 			margin-block-start: var(--rvt-spacing-xs);
-			max-width: var(--fluid-container-max);
+			max-width: var(--width-max);
 		}
 	}
 }

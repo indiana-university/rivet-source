@@ -4,7 +4,6 @@
 @use "../core" as *;
 @use "../defaults" as *;
 
-// Temp Callout component
 .rvt-callout {
 	border: 1px solid var(--rvt-color-theme-ui);
 	background-color: var(--rvt-color-theme-background);
@@ -31,11 +30,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-condensed);
-		font-size: var(--rvt-ts-26);
-		font-weight: var(--rvt-font-weight-black);
-		letter-spacing: 0.04rem;
-		line-height: 1.2;
+		font: var(--rvt-font-29-black);
 		text-transform: uppercase;
 	}
 
@@ -76,10 +71,6 @@
 			margin-inline: auto;
 			max-width: 75%;
 			padding: var(--rvt-spacing-xxl);
-		}
-
-		&__title {
-			font-size: var(--rvt-ts-29);
 		}
 	}
 }

@@ -2,37 +2,26 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-cal {
-	color: var(--rvt-color-brand-main);
+	align-items: center;
+	aspect-ratio: 1 / 1;
 	background-color: var(--rvt-color-brand-extralight);
-	display: inline-flex;
+	color: var(--rvt-color-brand-main);
+	container-type: size;
+	display: flex;
 	flex-direction: column;
-	font-family: var(--rvt-font-family-mono);
-	line-height: 1.1;
-	padding: var(--rvt-spacing-sm);
-	position: relative;
+	justify-content: center;
+	line-height: 1.25;
+	text-transform: uppercase;
 
-	&__month,
-	&__day,
-	&__year {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0 var(--rvt-spacing-sm);
-		text-transform: uppercase;
+	:is(.rvt-cal__month, .rvt-cal__year) {
+		font-family: var(--rvt-font-family-mono);
+		font-size: calc(16 / 128 * 100cqmin);
+		letter-spacing: var(--rvt-letter-spacing-wide);
 	}
 
-	&__month,
-	&__year {
-		letter-spacing: 0.075rem;
-	}
-
-	&__day {
-		font-size: var(--rvt-ts-36);
-		font-weight: var(--rvt-font-weight-medium);
-		letter-spacing: 0.075rem;
-		margin-top: var(--rvt-spacing-xxs);
-	}
-
-	&__year {
-		margin-top: var(--rvt-spacing-xxs);
+	.rvt-cal__day {
+		font-size: calc(41 / 128 * 100cqmin);
+		font-stretch: var(--rvt-font-width-extra-expanded);
+		font-weight: var(--rvt-font-weight-extra-black);
 	}
 }

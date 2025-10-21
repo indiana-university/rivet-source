@@ -23,11 +23,7 @@
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-condensed);
-		font-size: var(--rvt-ts-26);
-		font-weight: var(--rvt-font-weight-black);
-		letter-spacing: 0.04rem;
-		line-height: 1.2;
+		font: var(--rvt-font-29-black);
 		text-transform: uppercase;
 	}
 
@@ -59,6 +55,12 @@
 	}
 }
 
+.rvt-billboard--compact {
+	.rvt-billboard__title {
+		font: var(--rvt-font-26-black);
+	}
+}
+
 @include mq($breakpoint-md) {
 	.rvt-billboard {
 		display: flex;
@@ -66,10 +68,6 @@
 
 		& + & {
 			margin-top: var(--rvt-spacing-xxl);
-		}
-
-		&__title {
-			font-size: var(--rvt-ts-29);
 		}
 
 		&__image {
@@ -111,10 +109,6 @@
 		&--compact &__body,
 		&--compact &__image {
 			width: 50%;
-		}
-
-		&--compact &__title {
-			font-size: var(--rvt-ts-26);
 		}
 	}
 }

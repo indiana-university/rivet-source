@@ -22,7 +22,7 @@
 	},
 	"scripts": {
 		"start": "run-s build:tokens start:server",
-		"start:server": "vite",
+		"start:server": "vite --host",
 		"build": "run-s build:clean build:tokens build:dist build:zip",
 		"build:clean": "rimraf ./dist ./rivet.zip",
 		"build:tokens": "style-dictionary build -c ./tokens.config.json",

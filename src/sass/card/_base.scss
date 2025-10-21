@@ -22,21 +22,8 @@
 	}
 
 	.rvt-card__date {
-		--font-size: 7cqw;
-		container-type: inline-size;
-
 		.rvt-cal {
-			align-items: center;
 			aspect-ratio: var(--aspect-ratio);
-			display: flex;
-			font-size: var(--font-size);
-			font-weight: 250;
-			justify-content: center;
-			width: 100%;
-		}
-
-		.rvt-cal__day {
-			font-size: 225%;
 		}
 	}
 
@@ -71,17 +58,11 @@
 
 	.rvt-card__eyebrow {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
+		font: var(--rvt-font-12-mono);
 	}
 
 	.rvt-card__title {
-		font-size: var(--rvt-ts-20);
-		font-variation-settings:
-			"wdth" 135,
-			"YTLC" 540;
-		font-weight: var(--rvt-font-weight-bold);
-		line-height: 1.3;
+		font: var(--rvt-font-18-fluid-bold);
 		text-wrap: balance;
 
 		&:not(:first-child) {
@@ -127,7 +108,7 @@
 		color: var(--rvt-color-theme-text);
 		flex-grow: 1;
 		margin-top: var(--rvt-spacing-md);
-		max-width: 75ch;
+		max-width: var(--rvt-line-length-normal);
 
 		> * {
 			margin: 0;
@@ -163,8 +144,7 @@
 
 	.rvt-card__meta {
 		color: var(--rvt-color-theme-text);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
+		font: var(--rvt-font-12-mono);
 		margin-top: var(--rvt-spacing-md);
 	}
 }
@@ -248,11 +228,8 @@
 
 	.rvt-card__title {
 		color: var(--rvt-color-theme-text-accent);
-		font-size: var(--rvt-ts-26);
-		font-weight: var(--rvt-font-weight-black);
-		line-height: var(--rvt-line-height-tight);
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+		font: var(--rvt-font-20-fluid-black);
+		text-transform: uppercase;
 
 		a {
 			color: var(--rvt-color-theme-text-accent);
@@ -266,10 +243,7 @@
 
 .rvt-card--news {
 	.rvt-card__title {
-		font-family: var(--rvt-font-family-serif);
-		font-size: var(--rvt-ts-23);
-		font-variation-settings: normal;
-		font-weight: var(--rvt-font-weight-regular);
+		font: var(--rvt-font-23-serif);
 	}
 }
 
@@ -322,12 +296,6 @@
 
 		.rvt-card__body:first-child {
 			grid-column: 1/3;
-		}
-	}
-
-	.rvt-card--event {
-		.rvt-card__date {
-			--font-size: 12cqw;
 		}
 	}
 

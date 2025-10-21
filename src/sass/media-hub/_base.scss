@@ -4,14 +4,9 @@
 .rvt-media-hub {
 	&__teaser {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-serif);
-		font-size: var(--rvt-ts-46);
-		letter-spacing: 0.01rem;
-		line-height: var(--rvt-line-height-tight);
+		font: var(--rvt-font-29-fluid-serif);
 		margin: 0;
-		max-width: 40ch;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+		max-width: var(--rvt-line-length-short);
 
 		a {
 			text-decoration-thickness: var(--rvt-spacing-xs);
@@ -21,7 +16,6 @@
 		a:hover {
 			text-decoration-thickness: var(--rvt-spacing-xs);
 			text-underline-offset: var(--rvt-spacing-xs);
-			transition: 0.2s all ease-in-out;
 		}
 	}
 

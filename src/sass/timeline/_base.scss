@@ -57,15 +57,15 @@
 	&__label {
 		background-color: var(--rvt-color-theme-accent);
 		color: var(--rvt-color-theme-background);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-14);
+		font: var(--rvt-font-14-mono);
+		letter-spacing: var(--rvt-letter-spacing-wide);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
+		text-transform: uppercase;
 	}
 
 	&__heading {
-		font-size: var(--rvt-ts-23);
-		font-weight: var(--rvt-font-weight-medium);
+		font: var(--rvt-font-20-bold);
 	}
 
 	&__content-inner > * {

@@ -40,7 +40,6 @@
 		--display-icon: none;
 		cursor: pointer;
 		display: inline-block;
-		line-height: var(--rvt-line-height-base);
 	}
 
 	input[type="checkbox"] ~ label::before {
@@ -100,6 +99,7 @@
 
 	&__description {
 		display: block;
-		font-size: var(--rvt-ts-14);
+		font: var(--rvt-font-14);
+		margin-block-start: var(--rvt-spacing-xxs);
 	}
 }

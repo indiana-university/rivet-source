@@ -51,7 +51,7 @@
 	}
 
 	&__item-content[aria-current="step"] &__indicator {
-		font-weight: 700;
+		font-weight: var(--rvt-font-weight-bold);
 	}
 
 	&__item-content:focus {
@@ -67,7 +67,7 @@
 	&__label {
 		display: block;
 		color: var(--rvt-color-theme-text);
-		font-size: var(--rvt-ts-14);
+		font: var(--rvt-font-14);
 		margin-bottom: var(--rvt-spacing-xs);
 		padding-left: var(--rvt-spacing-xs);
 		padding-right: var(--rvt-spacing-xs);
@@ -82,7 +82,7 @@
 			0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight),
 			0 0 0 var(--rvt-spacing-xs) var(--rvt-color-theme-background);
 		display: inline-flex;
-		font-weight: var(--rvt-font-weight-medium);
+		font-weight: var(--rvt-font-weight-bold);
 		height: var(--rvt-spacing-lg);
 		justify-content: center;
 		position: relative;

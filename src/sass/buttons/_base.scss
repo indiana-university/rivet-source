@@ -8,33 +8,29 @@
 	--color-background-pressed: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
 	--color-text-hover: var(--rvt-color-theme-text-strong);
+	--font: var(--rvt-font-16-bold);
 	--gap: var(--rvt-spacing-xs);
 	--padding-block: calc(var(--padding-block-total) / 2);
 	--padding-block-total: calc(
-		var(--size-height) - var(--size-line-height) - var(--size-border-total)
+		var(--size-height) - 1lh - var(--size-border-total)
 	);
 	--padding-inline-extra: var(--rvt-spacing-xs);
 	--size-border: calc(1rem / 16);
 	--size-border-total: calc(var(--size-border) * 2);
-	--size-font: var(--rvt-ts-16);
 	--size-height: 3rem;
 	--size-line-gap: calc(4rem / 16);
-	--size-line-height: calc(var(--size-font) + var(--size-line-gap));
 	--size-pressed: calc(2rem / 16);
 	align-items: center;
 	background: var(--color-background);
 	border: var(--size-border) solid var(--color-border);
 	cursor: pointer;
 	display: inline-flex;
-	font-size: var(--size-font);
-	font-weight: var(--rvt-font-weight-medium);
+	font: var(--font);
 	gap: var(--gap);
 	justify-content: center;
-	line-height: var(--size-line-height);
 	padding-block: var(--padding-block);
 	padding-inline: calc(var(--padding-block) + var(--padding-inline-extra));
 	text-decoration: none;
-	text-wrap: pretty;
 
 	&,
 	&:is(a:visited) {
@@ -68,19 +64,19 @@
 	}
 
 	rvt-icon {
-		padding: calc(calc(var(--size-line-height) - 1rem) / 2);
+		padding: calc(calc(1lh - 1rem) / 2);
 	}
 }
 
 .rvt-button--medium {
-	--size-font: var(--rvt-ts-14);
+	--font: var(--rvt-font-14-bold);
 	--size-height: 2rem;
 }
 
 .rvt-button--small {
 	--color-border: var(--rvt-color-theme-ui-strong);
+	--font: var(--rvt-font-14-bold);
 	--gap: var(--rvt-spacing-xxs);
-	--size-font: var(--rvt-ts-14);
 	--size-height: 1.5rem;
 	--size-pressed: calc(1rem / 16);
 

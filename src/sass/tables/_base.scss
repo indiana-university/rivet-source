@@ -12,16 +12,15 @@ table,
 	width: 100%;
 
 	caption {
-		font-size: var(--rvt-ts-32);
-		font-weight: var(--rvt-font-weight-medium);
-		margin-bottom: var(--rvt-spacing-md);
+		font: var(--rvt-font-18-bold);
+		margin-bottom: var(--rvt-spacing-xs);
 		text-align: left;
 	}
 }
 
 tr th {
 	color: var(--rvt-color-theme-text-strong);
-	font-weight: var(--rvt-font-weight-medium);
+	font: var(--rvt-font-16-bold);
 }
 
 thead {
@@ -29,14 +28,9 @@ thead {
 
 	tr th {
 		color: var(--rvt-color-theme-background);
+		font: var(--rvt-font-14-bold);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
-	}
-
-	th,
-	tr th {
-		font-weight: var(--rvt-font-weight-medium);
-		line-height: 1;
 	}
 }
 
@@ -44,8 +38,7 @@ tr {
 	border-bottom: 1px solid var(--rvt-color-theme-ui);
 }
 
-tbody tr td,
-tbody tr th {
+tbody tr :is(td, th) {
 	padding: var(--rvt-spacing-md);
 }
 
@@ -73,10 +66,7 @@ tbody tr th {
 }
 
 .rvt-table-compact {
-	line-height: var(--rvt-line-height-tight);
-
-	tr th,
-	tr td {
+	tr :is(th, td) {
 		padding: 0.5rem;
 	}
 }
@@ -84,14 +74,12 @@ tbody tr th {
 .rvt-table-cells {
 	border-top: 1px solid var(--rvt-color-theme-ui);
 
-	tr td,
-	tr th {
+	tr :is(td, th) {
 		border-right: 1px solid var(--rvt-color-theme-ui);
-	}
 
-	tr td:first-child,
-	tr th:first-child {
-		border-left: var(--rvt-color-theme-ui);
+		&:first-child {
+			border-left: var(--rvt-color-theme-ui);
+		}
 	}
 }
 

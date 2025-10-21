@@ -15,13 +15,11 @@
 
 	&__address-eyebrow {
 		color: var(--rvt-color-theme-text-accent);
-		font-family: var(--rvt-font-family-mono);
-		font-size: var(--rvt-ts-12);
+		font: var(--rvt-font-12-mono);
 	}
 
 	&__address-title {
-		font-size: var(--rvt-ts-20);
-		font-weight: var(--rvt-font-weight-medium);
+		font: var(--rvt-font-20-bold);
 	}
 
 	&__address-eyebrow + &__address-title {
@@ -35,7 +33,7 @@
 	&__icon-list {
 		display: flex;
 		flex-direction: column;
-		gap: var(--rvt-spacing-sm);
+		gap: var(--rvt-spacing-xs);
 		list-style: "";
 		margin-bottom: 0;
 		margin-top: 0;
@@ -43,10 +41,13 @@
 	}
 
 	&__icon-list-item {
-		align-items: center;
+		align-items: start;
 		display: flex;
 		gap: var(--rvt-spacing-xs);
-		line-height: 1.1;
+
+		> rvt-icon {
+			padding-block: var(--rvt-size-4);
+		}
 	}
 
 	&__disclosure {
@@ -59,7 +60,7 @@
 			color: var(--rvt-color-theme-accent);
 			display: inline-flex;
 			gap: var(--rvt-spacing-xs);
-			font-weight: var(--rvt-font-weight-medium);
+			font-weight: var(--rvt-font-weight-bold);
 			padding: 0;
 		}
 

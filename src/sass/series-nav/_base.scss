@@ -9,7 +9,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: calc(1rem / 16);
-	text-wrap: pretty;
 
 	:is(&__previous, &__next) {
 		background-color: var(--rvt-color-theme-background);
@@ -18,7 +17,6 @@
 		flex-basis: 20rem;
 		flex-direction: column;
 		flex-grow: 1;
-		font-size: var(--rvt-ts-14);
 		gap: var(--rvt-spacing-xs);
 		padding: var(--rvt-spacing-md);
 		text-decoration: none;
@@ -36,8 +34,8 @@
 	&__label {
 		@include eyebrow;
 		align-items: center;
-		color: var(--rvt-color-theme-text-accent);
 		display: flex;
+		font: var(--rvt-font-14-mono);
 		gap: var(--rvt-spacing-xs);
 	}
 
@@ -60,8 +58,6 @@
 
 	&__item {
 		display: block;
-		font-size: var(--rvt-ts-20);
-		font-weight: var(--rvt-font-weight-medium);
-		line-height: var(--rvt-line-height-tight);
+		font: var(--rvt-font-20-bold);
 	}
 }

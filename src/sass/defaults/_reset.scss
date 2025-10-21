@@ -20,12 +20,12 @@ html * {
 
 body {
 	color: var(--rvt-color-theme-text);
-	font-family: var(--rvt-font-family-base);
-	font-weight: var(--rvt-font-weight-regular);
+	font: var(--rvt-font-16);
 	height: 100%;
-	line-height: var(--rvt-line-height-base);
 	margin: 0;
 	padding: 0;
+	text-wrap: pretty;
+	-webkit-text-size-adjust: 100%;
 }
 
 /**
@@ -40,8 +40,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: 1.125rem;
-	font-weight: var(--rvt-font-weight-regular);
+	font: var(--rvt-font-18);
 	margin: 0;
 }
 
@@ -62,8 +61,7 @@ figure {
 }
 
 figcaption {
-	font-family: var(--rvt-font-family-mono);
-	font-size: var(--rvt-ts-14);
+	font: var(--rvt-font-12-mono);
 	margin-top: var(--rvt-spacing-sm);
 }
 

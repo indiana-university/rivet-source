@@ -94,13 +94,8 @@
 
 	&__title {
 		color: var(--color-main);
-		font-size: var(--rvt-ts-18);
-		font-weight: var(--rvt-font-weight-bold);
-		font-variation-settings:
-			"wdth" 135,
-			"YTLC" 540;
-		line-height: var(--rvt-line-height-title);
-		padding-block-start: calc(calc(var(--size-icon) - 1lh) / 2);
+		font: var(--rvt-font-18-fluid-bold);
+		padding-block-start: calc((var(--size-icon) - 1lh) / 2);
 		padding-inline-end: var(--rvt-spacing-xl);
 		position: relative;
 	}
@@ -145,7 +140,7 @@
 
 		ul > li,
 		ol > li {
-			margin-top: var(--rvt-spacing-sm);
+			margin-top: var(--rvt-spacing-xxs);
 		}
 	}
 
@@ -200,10 +195,6 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
-
-	&__item {
-		line-height: var(--rvt-line-height-base);
-	}
 
 	&__item:not(first-child) {
 		margin-top: var(--rvt-spacing-xs);

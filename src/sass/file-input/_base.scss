@@ -17,8 +17,7 @@
 		cursor: pointer;
 		display: flex;
 		flex-grow: 0;
-		font-size: var(--rvt-ts-base);
-		font-weight: var(--rvt-font-weight-bold);
+		font: var(--rvt-font-16-bold);
 		margin-bottom: 0;
 		margin-top: 0;
 		width: inherit;
@@ -41,8 +40,7 @@
 
 		span {
 			display: inline-block;
-			font-weight: var(--rvt-font-weight-bold);
-			line-height: var(--rvt-line-height-base);
+			font: var(--rvt-font-16-bold);
 		}
 	}
 }

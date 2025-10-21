@@ -8,7 +8,7 @@
    * All uppercase text is harder for humans to read. A little extra
    * letter spacing helps make it easier.
    */
-	letter-spacing: 0.04rem !important;
+	letter-spacing: var(--rvt-letter-spacing-wide) !important;
 }
 
 .rvt-text-lowercase {
@@ -25,14 +25,14 @@
 	font-weight: var(--rvt-font-weight-bold) !important;
 }
 
-.rvt-text-medium,
-.rvt-font-medium {
-	font-weight: var(--rvt-font-weight-medium) !important;
+.rvt-text-bold,
+.rvt-font-bold {
+	font-weight: var(--rvt-font-weight-bold) !important;
 }
 
-.rvt-text-regular,
-.rvt-font-regular {
-	font-weight: var(--rvt-font-weight-regular) !important;
+.rvt-text-normal,
+.rvt-font-normal {
+	font-weight: var(--rvt-font-weight-normal) !important;
 }
 
 .rvt-text-left {
@@ -47,8 +47,8 @@
 	text-align: center !important;
 }
 
-.rvt-lh-base {
-	line-height: var(--rvt-line-height-base) !important;
+.rvt-lh-normal {
+	line-height: var(--rvt-line-height-normal) !important;
 }
 
 .rvt-lh-tight {
@@ -61,10 +61,6 @@
 
 .rvt-text-nobr {
 	white-space: nowrap !important;
-}
-
-.rvt-font-condensed {
-	font-family: var(--rvt-font-family-condensed) !important;
 }
 
 .rvt-font-sans {
