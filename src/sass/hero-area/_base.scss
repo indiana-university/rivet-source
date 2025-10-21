@@ -201,7 +201,9 @@
 		&:is(.rvt-hero--statement) {
 			.rvt-hero__figure {
 				> .rvt-card {
+					bottom: 0;
 					position: absolute;
+					right: 0;
 				}
 			}
 		}
@@ -221,17 +223,17 @@
 }
 
 .rvt-hero--statement {
+	.rvt-hero__body > * {
+		margin-inline: auto;
+		text-align: center;
+	}
+
 	.rvt-hero__title {
 		font: var(--rvt-font-32-fluid-black);
 	}
 
-	:is(.rvt-hero__body, .rvt-hero__actions) {
+	.rvt-hero__actions {
 		justify-content: center;
-		justify-self: center;
-	}
-
-	.rvt-hero__body > :not(.rvt-hero__actions) {
-		text-align: center;
 	}
 
 	.rvt-hero__figure {
@@ -244,8 +246,6 @@
 		}
 
 		> .rvt-card {
-			align-self: end;
-			justify-self: end;
 			margin-block-start: var(--rvt-spacing-xs);
 			max-width: var(--width-max);
 		}
