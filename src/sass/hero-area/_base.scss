@@ -201,7 +201,9 @@
 		&:is(.rvt-hero--statement) {
 			.rvt-hero__figure {
 				> .rvt-card {
+					bottom: 0;
 					position: absolute;
+					right: 0;
 				}
 			}
 		}
@@ -244,8 +246,6 @@
 		}
 
 		> .rvt-card {
-			align-self: end;
-			justify-self: end;
 			margin-block-start: var(--rvt-spacing-xs);
 			max-width: var(--width-max);
 		}
