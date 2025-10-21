@@ -1,0 +1,28 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "sass:map";
+@use "sass:string";
+@use "../base/core.scss" as *;
+
+@each $key, $value in map.get($tokens, "color") {
+	@each $color-name, $color-hex in $value {
+		@if string.index($color-name, "base") {
+			.rvt-color-#{$key} {
+				color: $color-hex !important;
+			}
+
+			.rvt-bg-#{$key} {
+				background-color: $color-hex !important;
+			}
+		} @else {
+			.rvt-color-#{$key}-#{$color-name} {
+				color: $color-hex !important;
+			}
+
+			.rvt-bg-#{$key}-#{$color-name} {
+				background-color: $color-hex !important;
+			}
+		}
+	}
+}

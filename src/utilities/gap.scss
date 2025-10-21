@@ -1,0 +1,23 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../base/core.scss" as *;
+@use "sass:map";
+
+$modifiers: (
+	none: 0,
+);
+
+@each $size, $value in map.merge($modifiers, $spacing) {
+	.rvt-gap-#{$size} {
+		gap: $value !important;
+	}
+
+	.rvt-gap-col-#{$size} {
+		column-gap: $value !important;
+	}
+
+	.rvt-gap-row-#{$size} {
+		row-gap: $value !important;
+	}
+}
