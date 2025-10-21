@@ -47,6 +47,7 @@
 		gap: var(--rvt-spacing-md);
 
 		> * {
+			flex-basis: 15ch;
 			flex-grow: 1;
 		}
 
