@@ -5,10 +5,6 @@
 
 import "./rivet.scss";
 
-/******************************************************************************
- * Components
- *****************************************************************************/
-
 import Accordion from "./components/accordion/accordion.js";
 import Alert from "./components/alert/alert.js";
 import Dialog from "./components/dialog/dialog.js";
@@ -19,10 +15,6 @@ import PriorityNav from "./components/priority-nav/priority-nav.js";
 import Sidenav from "./components/sidenav/sidenav.js";
 import Switch from "./components/switch/switch.js";
 import Tabs from "./components/tabs/tabs.js";
-
-/******************************************************************************
- * Initializes all Rivet components.
- *****************************************************************************/
 
 function init() {
 	Accordion.initAll();
@@ -36,10 +28,6 @@ function init() {
 	Switch.initAll();
 	Tabs.initAll();
 }
-
-/******************************************************************************
- * Exports
- *****************************************************************************/
 
 export {
 	Accordion,
