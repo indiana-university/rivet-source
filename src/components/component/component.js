@@ -214,9 +214,7 @@ export default class Component {
 	 ***************************************************************************/
 
 	static generateUniqueId() {
-		return (
-			PREFIX + "-" + Math.random().toString(20).substr(2, 12)
-		);
+		return PREFIX + "-" + Math.random().toString(20).substr(2, 12);
 	}
 
 	/****************************************************************************

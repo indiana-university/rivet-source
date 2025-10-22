@@ -3,6 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-export function remToPixel (rem) {
+export function remToPixel(rem) {
 	return parseInt(rem) * 16;
-};
+}
