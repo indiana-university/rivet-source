@@ -1,0 +1,22 @@
+---
+export function getStaticPaths() {
+	const allPages = import.meta.glob(
+		["@src/**/*.mdx"],
+		{ eager: true }
+	);
+	return Object.values(allPages).map((page: any) => {
+		const slug = page.url
+			.replace("src/", "/")
+			.replace("/index.mdx", "")
+			.replace(".mdx", "");
+		const params = { slug };
+		const props = { page };
+		return { params, props };
+	});
+}
+
+const { page } = Astro.props;
+const { Content } = page;
+---
+
+<Content />

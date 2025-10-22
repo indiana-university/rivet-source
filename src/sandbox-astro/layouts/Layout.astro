@@ -8,14 +8,22 @@ const docTitle = [title, appTitle].join(" - ");
 const currentPath = Astro.url.pathname;
 const currentDepth = pathDepth(currentPath);
 const currentParentPath = getParentPath(currentPath);
-const allPages = Object.values(import.meta.glob("@pages/**/*.mdx", { eager: true }));
+const allPages = import.meta.glob(
+	["@src/**/*.mdx"],
+	{ eager: true }
+);
 const pages = Object.values(allPages)
-	.map((page) => {
+	.map((page: any) => {
 		const { frontmatter } = page
 		const { title } = frontmatter;
-		const url = page.url.length ? page.url : '/';
+		const _url = page.url
+			.replace("src/", "/")
+			.replace("/index.mdx", "")
+			.replace(".mdx", "");
+		const url = _url.length ? _url : "/";
+		console.log('?', url, ':', currentPath)
 		const current = url === currentPath;
-		const depth = pathDepth(page.url);
+		const depth = pathDepth(url);
 		const parent = url === currentParentPath;
 		const parentPath = getParentPath(url);
 		const child = parentPath === currentPath && url !== parentPath;
@@ -35,7 +43,9 @@ const familyPages = [...ancestorPages, currentPage]
 		return { parent, children };
 	})
 	.filter(({ children }) => children.length);
-const childrenPages = familyPages.at(-1).children;
+const childrenPages = familyPages.at(-1)?.children;
+
+console.log('###', childrenPages)
 
 function pathDepth(path) {
 	return path.split('/').length - 1;
@@ -88,7 +98,7 @@ function getParentPath(path) {
 					)}
 					<h1 class="rvt-border-left rvt-text-medium rvt-ts-base rvt-p-left-sm">{title}</h1>
 				</header>
-				{index && childrenPages.length && (
+				{index && childrenPages?.length && (
 					<ul class="rvt-list-plain rvt-m-all-sm">
 						{childrenPages.map((page) => (
 							<li>
