@@ -150,13 +150,3 @@
 .rvt-button--full-width {
 	width: 100%;
 }
-
-.rvt-button-group {
-	display: flex;
-	gap: var(--rvt-spacing-sm);
-	flex-wrap: wrap;
-
-	&:has(.rvt-button--medium, .rvt-button--small) {
-		gap: var(--rvt-spacing-xs);
-	}
-}
