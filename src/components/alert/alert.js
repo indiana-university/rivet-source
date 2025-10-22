@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
+import Component from "../component/component.js";
 
 /******************************************************************************
  * The alert component displays brief important messages to the user like

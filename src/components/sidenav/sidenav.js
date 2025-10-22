@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import remToPixel from "../utilities/remToPixel";
+import Component from "../component/component.js";
+import { remToPixel } from "../../utilities/remToPixel.js";
 
 /******************************************************************************
  * The sidenav component can be used to add a vertical list of navigation

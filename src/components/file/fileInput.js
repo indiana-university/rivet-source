@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
+import Component from "../component/component.js";
 
 /******************************************************************************
  * The file input component allows the user to select a file to be uploaded as

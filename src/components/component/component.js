@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import globalSettings from "../globalSettings";
 import { define } from "wicked-elements";
+import { PREFIX } from "../../constants.js";
 
 /******************************************************************************
  * Abstract base class from which all Rivet component classes are derived.
@@ -87,8 +87,7 @@ export default class Component {
 	 ***************************************************************************/
 
 	static dispatchCustomEvent(eventName, element, detail = {}) {
-		const prefix = globalSettings.prefix;
-		const event = new CustomEvent(`${prefix}${eventName}`, {
+		const event = new CustomEvent(`${PREFIX}${eventName}`, {
 			bubbles: true,
 			cancelable: true,
 			detail,
@@ -216,7 +215,7 @@ export default class Component {
 
 	static generateUniqueId() {
 		return (
-			globalSettings.prefix + "-" + Math.random().toString(20).substr(2, 12)
+			PREFIX + "-" + Math.random().toString(20).substr(2, 12)
 		);
 	}
 

@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import keyCodes from "../utilities/keyCodes";
-import SUPPRESS_EVENT from "../utilities/suppressEvent";
+import Component from "../component/component.js";
+import { KEY_CODES } from "../../constants.js";
 
 /******************************************************************************
  * The dialog component can be used to present content in a smaller window that
@@ -406,14 +405,14 @@ export default class Dialog extends Component {
 
 			onKeydown(event) {
 				switch (event.keyCode) {
-					case keyCodes.tab:
+					case KEY_CODES.tab:
 						this._setFocusableChildElements();
 						this._shiftKeyPressed(event)
 							? this._handleBackwardTab(event)
 							: this._handleForwardTab(event);
 						break;
 
-					case keyCodes.escape:
+					case KEY_CODES.escape:
 						if (!this._shouldCloseOnClickOutside()) {
 							this.close();
 						}

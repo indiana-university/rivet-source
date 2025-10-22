@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import keyCodes from "../utilities/keyCodes";
-import SUPPRESS_EVENT from "../utilities/suppressEvent";
+import Component from "../component/component.js";
+import { KEY_CODES, SUPPRESS_EVENT } from "../../constants.js";
 
 /******************************************************************************
  * The disclosure component allows the user to show or hide additional content
@@ -355,7 +354,7 @@ export default class Disclosure extends Component {
 			 ***********************************************************************/
 
 			onKeydown(event) {
-				if (event.keyCode === keyCodes.escape) {
+				if (event.keyCode === KEY_CODES.escape) {
 					this.close();
 					this.toggleElement.focus();
 				}

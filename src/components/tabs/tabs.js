@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import keyCodes from "../utilities/keyCodes";
-import SUPPRESS_EVENT from "../utilities/suppressEvent";
+import Component from "../component/component.js";
+import { KEY_CODES, SUPPRESS_EVENT } from "../../constants.js";
 
 /******************************************************************************
  * The tabs component allows the user to switch between related groups of
@@ -299,22 +298,22 @@ export default class Tabs extends Component {
 				this._setNeighboringTabIndexes(event);
 
 				switch (event.keyCode) {
-					case keyCodes.left:
+					case KEY_CODES.left:
 						event.preventDefault();
 						this._focusPreviousTab();
 						break;
 
-					case keyCodes.right:
+					case KEY_CODES.right:
 						event.preventDefault();
 						this._focusNextTab();
 						break;
 
-					case keyCodes.home:
+					case KEY_CODES.home:
 						event.preventDefault();
 						this._focusFirstTab();
 						break;
 
-					case keyCodes.end:
+					case KEY_CODES.end:
 						event.preventDefault();
 						this._focusLastTab();
 						break;

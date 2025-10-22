@@ -3,32 +3,32 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import "../rivet.scss";
+import "./rivet.scss";
 
 /******************************************************************************
  * Polyfills
  *****************************************************************************/
 
-import "./polyfills/closest";
-import "./polyfills/CustomEvent";
-import "./polyfills/from";
-import "./polyfills/remove";
+import "./polyfills/closest.js";
+import "./polyfills/CustomEvent.js";
+import "./polyfills/from.js";
+import "./polyfills/remove.js";
 import "inert-polyfill";
 
 /******************************************************************************
  * Components
  *****************************************************************************/
 
-import Accordion from "./components/accordion";
-import Alert from "./components/alert";
-import Dialog from "./components/dialog";
-import Disclosure from "./components/disclosure";
-import Dropdown from "./components/dropdown";
-import FileInput from "./components/fileInput";
-import PriorityNav from "./components/priority-nav";
-import Sidenav from "./components/sidenav";
-import Switch from "./components/switch";
-import Tabs from "./components/tabs";
+import Accordion from "./components/accordion/accordion.js";
+import Alert from "./components/alert/alert.js";
+import Dialog from "./components/dialog/dialog.js";
+import Disclosure from "./components/disclosure/disclosure.js";
+import Dropdown from "./components/dropdown/dropdown.js";
+import FileInput from "./components/file/fileInput.js";
+import PriorityNav from "./components/priority-nav/priority-nav.js";
+import Sidenav from "./components/sidenav/sidenav.js";
+import Switch from "./components/switch/switch.js";
+import Tabs from "./components/tabs/tabs.js";
 
 /******************************************************************************
  * Initializes all Rivet components.

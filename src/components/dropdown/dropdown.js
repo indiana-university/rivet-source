@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import keyCodes from "../utilities/keyCodes";
+import Component from "../component/component.js";
+import { KEY_CODES } from "../../constants.js";
 
 /******************************************************************************
  * The dropdown component presents the user with a list of options that can be
@@ -446,21 +446,21 @@ export default class Dropdown extends Component {
 
 			onKeydown(event) {
 				switch (event.keyCode) {
-					case keyCodes.escape:
+					case KEY_CODES.escape:
 						this._handleEscapeKey();
 						break;
 
-					case keyCodes.up:
+					case KEY_CODES.up:
 						event.preventDefault();
 						this._handleUpKey(event);
 						break;
 
-					case keyCodes.down:
+					case KEY_CODES.down:
 						event.preventDefault();
 						this._handleDownKey(event);
 						break;
 
-					case keyCodes.tab:
+					case KEY_CODES.tab:
 						this._handleTabKey(event);
 						break;
 				}

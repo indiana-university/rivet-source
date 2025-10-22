@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import SUPPRESS_EVENT from "../utilities/suppressEvent";
+import Component from "../component/component.js";
+import { SUPPRESS_EVENT } from "../../constants.js";
 
 /******************************************************************************
  * The switch component allows the user to toggle between "on" and "off"

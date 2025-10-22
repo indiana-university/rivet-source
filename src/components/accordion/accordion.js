@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import Component from "./component";
-import keyCodes from "../utilities/keyCodes";
-import SUPPRESS_EVENT from "../utilities/suppressEvent";
+import Component from "../component/component.js";
+import { KEY_CODES, SUPPRESS_EVENT } from "../../constants.js";
 
 /******************************************************************************
  * The accordion component can be used to group content into sections that can
@@ -318,21 +317,21 @@ export default class Accordion extends Component {
 				this._setNeighboringTriggerIndexes(event);
 
 				switch (event.keyCode) {
-					case keyCodes.up:
+					case KEY_CODES.up:
 						event.preventDefault();
 						this._focusPreviousTrigger();
 						break;
 
-					case keyCodes.down:
+					case KEY_CODES.down:
 						event.preventDefault();
 						this._focusNextTrigger();
 						break;
 
-					case keyCodes.home:
+					case KEY_CODES.home:
 						this._focusFirstTrigger();
 						break;
 
-					case keyCodes.end:
+					case KEY_CODES.end:
 						this._focusLastTrigger();
 						break;
 				}
