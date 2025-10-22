@@ -10,7 +10,7 @@ import Alert from "./components/alert/alert.js";
 import Dialog from "./components/dialog/dialog.js";
 import Disclosure from "./components/disclosure/disclosure.js";
 import Dropdown from "./components/dropdown/dropdown.js";
-import FileInput from "./components/file/fileInput.js";
+import FileInput from "./components/file/file-input.js";
 import PriorityNav from "./components/priority-nav/priority-nav.js";
 import Sidenav from "./components/sidenav/sidenav.js";
 import Switch from "./components/switch/switch.js";
