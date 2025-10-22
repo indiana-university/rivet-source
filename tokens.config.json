@@ -5,7 +5,7 @@
 			"transformGroup": "scss",
 			"files": [
 				{
-					"destination": "src/sass/core/variables.scss",
+					"destination": "src/base/tokens.scss",
 					"format": "scss/map-deep"
 				}
 			]
@@ -15,7 +15,7 @@
 			"prefix": "rvt",
 			"files": [
 				{
-					"destination": "src/sass/core/tokens.css",
+					"destination": "src/base/tokens.css",
 					"format": "css/variables"
 				}
 			]

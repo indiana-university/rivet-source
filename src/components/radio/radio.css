@@ -1,0 +1,85 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+.rvt-radio {
+	--padding: calc(3rem / 16);
+	display: inline-block;
+	padding-left: var(--rvt-spacing-lg);
+	position: relative;
+
+	input[type="radio"] {
+		cursor: pointer;
+		height: var(--rvt-spacing-md);
+		left: 0;
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: var(--rvt-spacing-lg);
+	}
+
+	&.rvt-radio--sr-only-label {
+		padding-left: var(--rvt-spacing-md);
+
+		input[type="radio"] {
+			width: var(--rvt-spacing-md);
+
+			~ label {
+				height: 0;
+				overflow: hidden;
+				padding: 0;
+				width: 0;
+			}
+		}
+	}
+
+	input[type="radio"] ~ label {
+		cursor: pointer;
+		display: inline-block;
+	}
+
+	input[type="radio"] ~ label::before {
+		background-color: var(--rvt-color-theme-background);
+		border: calc(var(--rvt-spacing-xxs) / 4) solid
+			var(--rvt-color-theme-text-strong);
+		border-radius: var(--rvt-spacing-sm);
+		box-shadow: inset 0 0 0 var(--padding) var(--rvt-color-theme-background);
+		content: "";
+		display: inline-block;
+		height: var(--rvt-spacing-sm);
+		left: calc(3rem / 16);
+		position: absolute;
+		top: calc(3rem / 16);
+		width: var(--rvt-spacing-sm);
+	}
+
+	input[type="radio"]:checked ~ label::before {
+		background-color: var(--rvt-color-theme-accent);
+		border-color: var(--rvt-color-theme-accent);
+	}
+
+	input[type="radio"]:focus ~ label::before {
+		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: calc(2rem / 16);
+	}
+
+	input[type="radio"]:disabled {
+		cursor: not-allowed;
+	}
+
+	input[type="radio"]:disabled ~ label {
+		cursor: not-allowed;
+	}
+
+	input[type="radio"]:disabled ~ label::before {
+		opacity: 0.4;
+	}
+
+	.rvt-radio__description {
+		display: block;
+		font: var(--rvt-font-14);
+		margin-block-start: var(--rvt-spacing-xxs);
+	}
+}
