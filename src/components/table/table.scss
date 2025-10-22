@@ -1,0 +1,149 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../../base/core.scss" as *;
+
+table,
+.rvt-table {
+	border: 1px solid var(--rvt-color-theme-ui);
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: left;
+	width: 100%;
+
+	caption {
+		font: var(--rvt-font-18-bold);
+		margin-bottom: var(--rvt-spacing-xs);
+		text-align: left;
+	}
+}
+
+tr th {
+	color: var(--rvt-color-theme-text-strong);
+	font: var(--rvt-font-16-bold);
+}
+
+thead {
+	background-color: var(--rvt-color-theme-accent);
+
+	tr th {
+		color: var(--rvt-color-theme-background);
+		font: var(--rvt-font-14-bold);
+		padding-block: var(--rvt-spacing-sm);
+		padding-inline: var(--rvt-spacing-md);
+	}
+}
+
+tr {
+	border-bottom: 1px solid var(--rvt-color-theme-ui);
+}
+
+tbody tr :is(td, th) {
+	padding: var(--rvt-spacing-md);
+}
+
+.rvt-table-plain {
+	border: none;
+
+	thead {
+		background-color: transparent;
+		border-bottom: none;
+
+		th {
+			color: inherit;
+		}
+	}
+
+	tr {
+		border-bottom: none;
+	}
+}
+
+.rvt-table-stripes {
+	tr:nth-child(even) {
+		background-color: var(--rvt-color-theme-background-strong);
+	}
+}
+
+.rvt-table-compact {
+	tr :is(th, td) {
+		padding: 0.5rem;
+	}
+}
+
+.rvt-table-cells {
+	border-top: 1px solid var(--rvt-color-theme-ui);
+
+	tr :is(td, th) {
+		border-right: 1px solid var(--rvt-color-theme-ui);
+
+		&:first-child {
+			border-left: var(--rvt-color-theme-ui);
+		}
+	}
+}
+
+.rvt-table--subtle {
+	thead {
+		background-color: var(--rvt-color-theme-background-strong);
+
+		th {
+			color: var(--rvt-color-theme-text);
+		}
+	}
+}
+
+/**
+ * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
+ * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+ */
+.rvt-table-responsive[role="region"][tabindex] {
+	/* stylelint-disable */
+	background:
+		linear-gradient(
+			to right,
+			var(--rvt-color-theme-background) 30%,
+			var(--rvt-color-shadow-ultralight)
+		),
+		linear-gradient(
+				to right,
+				var(--rvt-color-shadow-ultralight),
+				var(--rvt-color-theme-background) 70%
+			)
+			0 100%,
+		radial-gradient(
+			farthest-side at 0% 50%,
+			var(--rvt-color-shadow-main),
+			var(--rvt-color-shadow-ultralight)
+		),
+		radial-gradient(
+				farthest-side at 100% 50%,
+				var(--rvt-color-shadow-main),
+				var(--rvt-color-shadow-ultralight)
+			)
+			0 100%;
+	background-attachment: local, local, scroll, scroll;
+	background-color: var(--rvt-color-theme-background);
+	background-position:
+		0 0,
+		100%,
+		0 0,
+		100%;
+	background-repeat: no-repeat;
+	background-size:
+		40px 100%,
+		40px 100%,
+		14px 100%,
+		14px 100%;
+	/* stylelint-enable */
+	border: 1px solid var(--rvt-color-theme-ui);
+	border-radius: var(--rvt-spacing-xs);
+	overflow: auto;
+}
+
+@include mq($breakpoint-md) {
+	.rvt-table-responsive[role="region"][tabindex] {
+		border: none;
+		border-radius: 0;
+	}
+}

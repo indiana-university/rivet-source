@@ -17,7 +17,7 @@ const buildConfig = {
 		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
-			entry: "src/js/index.js",
+			entry: "src/rivet.js",
 			fileName: () => `${fileName}.js`,
 			formats: ["es"],
 		},

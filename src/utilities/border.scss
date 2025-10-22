@@ -1,0 +1,59 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.rvt-border-all {
+	border: 1px solid var(--rvt-color-theme-ui);
+}
+
+.rvt-border-all-none {
+	border: 0;
+}
+
+.rvt-border-top {
+	border-top: 1px solid var(--rvt-color-theme-ui);
+}
+
+.rvt-border-top-none {
+	border-top: 0;
+}
+
+.rvt-border-right {
+	border-right: 1px solid var(--rvt-color-theme-ui);
+}
+
+.rvt-border-right-none {
+	border-right: 0;
+}
+
+.rvt-border-bottom {
+	border-bottom: 1px solid var(--rvt-color-theme-ui);
+}
+
+.rvt-border-bottom-none {
+	border-bottom: 0;
+}
+
+.rvt-border-left {
+	border-left: 1px solid var(--rvt-color-theme-ui);
+}
+
+.rvt-border-left-none {
+	border-left: 0;
+}
+
+.rvt-border-radius-sm {
+	border-radius: var(--rvt-border-radius-sm);
+}
+
+.rvt-border-radius,
+.rvt-border-radius-md {
+	border-radius: var(--rvt-border-radius-md);
+}
+
+.rvt-border-radius-lg {
+	border-radius: var(--rvt-border-radius-lg);
+}
+
+.rvt-border-radius-circle {
+	border-radius: var(--rvt-border-radius-circle);
+}

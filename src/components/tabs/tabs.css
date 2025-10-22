@@ -1,0 +1,44 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+.rvt-tabs {
+	border: 1px solid var(--rvt-color-theme-ui);
+
+	.rvt-tabs__tablist {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.rvt-tabs__tab {
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid var(--rvt-color-theme-ui);
+		color: var(--rvt-color-theme-text-strong);
+		cursor: pointer;
+		flex-grow: 1;
+		padding: var(--rvt-spacing-sm);
+		position: relative;
+		z-index: var(--rvt-z-index-100);
+
+		&:not(:first-child) {
+			border-left: 1px solid var(--rvt-color-theme-ui);
+			/* Fixes double border when tabs wrap on to multiple lines */
+			margin-left: -1px;
+		}
+
+		&:hover {
+			background-color: var(--rvt-color-theme-background-strong);
+		}
+
+		&:is([aria-selected="true"]) {
+			background-color: var(--rvt-color-theme-background-strong);
+			font-weight: var(--rvt-font-weight-bold);
+		}
+	}
+
+	.rvt-tabs__panel {
+		padding: var(--rvt-spacing-sm);
+	}
+}

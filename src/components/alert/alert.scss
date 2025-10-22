@@ -1,0 +1,185 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.rvt-alert {
+	--color-background: var(--rvt-color-base-extralight);
+	--color-border: var(--rvt-color-base-medium);
+	--color-container: var(--rvt-color-base-light);
+	--color-icon: var(--rvt-color-base-ultralight);
+	--color-icon-background: var(--rvt-color-base-main);
+	--color-main: var(--rvt-color-base-main);
+	--icon: var(--rvt-icon-bell);
+	--size-gap: var(--rvt-spacing-xs);
+	--size-icon: var(--rvt-spacing-lg);
+	--size-padding: var(--rvt-spacing-sm);
+	background-color: var(--color-background);
+	border: calc(1rem / 16) solid var(--color-border);
+	padding-inline-start: calc(
+		var(--size-padding) + var(--size-icon) + var(--size-gap)
+	);
+	padding-inline-end: var(--size-padding);
+	padding-block: var(--size-padding);
+	position: relative;
+
+	&--danger {
+		--color-background: var(--rvt-color-danger-background);
+		--color-border: var(--rvt-color-danger-border);
+		--color-container: var(--rvt-color-danger-container);
+		--color-icon: var(--rvt-color-base-ultralight);
+		--color-icon-background: var(--rvt-color-danger-main);
+		--color-main: var(--rvt-color-danger-main);
+		--icon: var(--rvt-icon-exclamation);
+	}
+
+	&--info {
+		--color-background: var(--rvt-color-info-background);
+		--color-border: var(--rvt-color-info-border);
+		--color-container: var(--rvt-color-info-container);
+		--color-icon: var(--rvt-color-base-ultralight);
+		--color-icon-background: var(--rvt-color-info-main);
+		--color-main: var(--rvt-color-info-main);
+		--icon: var(--rvt-icon-info);
+	}
+
+	&--success {
+		--color-background: var(--rvt-color-success-background);
+		--color-border: var(--rvt-color-success-border);
+		--color-container: var(--rvt-color-success-container);
+		--color-icon: var(--rvt-color-base-ultralight);
+		--color-icon-background: var(--rvt-color-success-main);
+		--color-main: var(--rvt-color-success-main);
+		--icon: var(--rvt-icon-check);
+	}
+
+	&--warning {
+		--color-background: var(--rvt-color-warning-background);
+		--color-border: var(--rvt-color-warning-border);
+		--color-container: var(--rvt-color-warning-container);
+		--color-icon: var(--rvt-color-base-main);
+		--color-icon-background: var(--rvt-color-warning-main);
+		--color-main: var(--rvt-color-base-main);
+		--icon: var(--rvt-icon-minus);
+	}
+
+	&::before {
+		background-color: var(--color-icon-background);
+		border-radius: var(--rvt-border-radius-circle);
+		content: "";
+		display: block;
+		height: var(--size-icon);
+		left: var(--size-padding);
+		position: absolute;
+		left: var(--size-padding);
+		width: var(--size-icon);
+	}
+
+	&::after {
+		--coordinate: calc(var(--size-padding) + var(--size-icon-padding-side));
+		--size-icon-shape: var(--rvt-spacing-sm);
+		--size-icon-padding-total: calc(var(--size-icon) - var(--size-icon-shape));
+		--size-icon-padding-side: calc(var(--size-icon-padding-total) / 2);
+		background-color: var(--color-icon);
+		display: block;
+		clip-path: path(var(--icon));
+		content: "";
+		height: var(--size-icon-shape);
+		left: var(--coordinate);
+		position: absolute;
+		top: var(--coordinate);
+		width: var(--size-icon-shape);
+	}
+
+	&__title {
+		color: var(--color-main);
+		font: var(--rvt-font-18-fluid-bold);
+		padding-block-start: calc((var(--size-icon) - 1lh) / 2);
+		padding-inline-end: var(--rvt-spacing-xl);
+		position: relative;
+	}
+
+	// Left here for backwards compatibility. Use new "content" element below.
+	&__message {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-inline-end: var(--rvt-spacing-md);
+	}
+
+	&__title + &__message,
+	&__title + &__content {
+		margin-top: var(--rvt-spacing-xs);
+	}
+
+	&__content {
+		* {
+			margin: 0;
+		}
+
+		> * + * {
+			margin-block-start: var(--rvt-spacing-sm);
+		}
+
+		a {
+			color: inherit;
+		}
+
+		a:hover {
+			color: var(--rvt-color-base-dark);
+		}
+
+		> ul,
+		> ol {
+			padding-left: var(--rvt-spacing-sm);
+		}
+
+		ul {
+			list-style-type: square;
+		}
+
+		ul > li,
+		ol > li {
+			margin-top: var(--rvt-spacing-xxs);
+		}
+	}
+
+	&__dismiss {
+		--coordinate: calc(var(--size-padding) + var(--size-offset));
+		--size-offset: calc(
+			(
+					var(--size-icon) - var(--size-icon-shape) - var(--size-icon-padding) *
+						2
+				) /
+				2
+		);
+		--size-icon-shape: var(--rvt-spacing-sm);
+		--size-icon-padding: var(--rvt-spacing-xxs);
+		background-color: transparent;
+		border: none;
+		border-radius: 50%;
+		color: var(--rvt-color-theme-text-strong);
+		cursor: pointer;
+		display: block;
+		padding: var(--size-icon-padding);
+		position: absolute;
+		right: var(--coordinate);
+		top: var(--coordinate);
+
+		&::before {
+			background-color: var(--color-main);
+			content: "";
+			clip-path: path(var(--rvt-icon-close));
+			display: block;
+			height: var(--size-icon-shape);
+			width: var(--size-icon-shape);
+		}
+
+		&:hover::before {
+			background-color: var(--rvt-color-base-dark);
+		}
+	}
+}
+
+.rvt-alert--medium {
+	--size-icon: var(--rvt-spacing-md);
+	--size-gap: var(--rvt-spacing-xs);
+	--size-padding: var(--rvt-spacing-xxs);
+}
