@@ -6,53 +6,53 @@
 // Display flex
 
 .rvt-flex {
-	display: flex !important;
+	display: flex;
 }
 
 .rvt-inline-flex {
-	display: inline-flex !important;
+	display: inline-flex;
 }
 
 .rvt-flex-row {
-	flex-direction: row !important;
+	flex-direction: row;
 }
 
 .rvt-flex-row-reverse {
-	flex-direction: row-reverse !important;
+	flex-direction: row-reverse;
 }
 
 .rvt-flex-column {
-	flex-direction: column !important;
+	flex-direction: column;
 }
 
 .rvt-flex-column-reverse {
-	flex-direction: column-reverse !important;
+	flex-direction: column-reverse;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		.rvt-flex-#{$variable}-up {
-			display: flex !important;
+			display: flex;
 		}
 
 		.rvt-inline-flex-#{$variable}-up {
-			display: inline-flex !important;
+			display: inline-flex;
 		}
 
 		.rvt-flex-row-#{$variable}-up {
-			flex-direction: row !important;
+			flex-direction: row;
 		}
 
 		.rvt-flex-row-reverse-#{$variable}-up {
-			flex-direction: row-reverse !important;
+			flex-direction: row-reverse;
 		}
 
 		.rvt-flex-column-#{$variable}-up {
-			flex-direction: column !important;
+			flex-direction: column;
 		}
 
 		.rvt-flex-column-reverse-#{$variable}-up {
-			flex-direction: column-reverse !important;
+			flex-direction: column-reverse;
 		}
 	}
 }
@@ -60,29 +60,29 @@
 // Wrap
 
 .rvt-wrap {
-	flex-wrap: wrap !important;
+	flex-wrap: wrap;
 }
 
 .rvt-no-wrap {
-	flex-wrap: nowrap !important;
+	flex-wrap: nowrap;
 }
 
 .rvt-wrap-reverse {
-	flex-wrap: wrap-reverse !important;
+	flex-wrap: wrap-reverse;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		.rvt-wrap-#{$variable}-up {
-			flex-wrap: wrap !important;
+			flex-wrap: wrap;
 		}
 
 		.rvt-no-wrap-#{$variable}-up {
-			flex-wrap: nowrap !important;
+			flex-wrap: nowrap;
 		}
 
 		.rvt-wrap-reverse-#{$variable}-up {
-			flex-wrap: wrap-reverse !important;
+			flex-wrap: wrap-reverse;
 		}
 	}
 }
@@ -90,21 +90,21 @@
 // Shrink
 
 .rvt-shrink-1 {
-	flex-shrink: 1 !important;
+	flex-shrink: 1;
 }
 
 .rvt-shrink-0 {
-	flex-shrink: 0 !important;
+	flex-shrink: 0;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		.rvt-shrink-1-#{$variable}-up {
-			flex-shrink: 1 !important;
+			flex-shrink: 1;
 		}
 
 		.rvt-shrink-0-#{$variable}-up {
-			flex-shrink: 0 !important;
+			flex-shrink: 0;
 		}
 	}
 }
@@ -112,21 +112,21 @@
 // Grow
 
 .rvt-grow-1 {
-	flex-grow: 1 !important;
+	flex-grow: 1;
 }
 
 .rvt-grow-0 {
-	flex-grow: 0 !important;
+	flex-grow: 0;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		.rvt-grow-1-#{$variable}-up {
-			flex-grow: 1 !important;
+			flex-grow: 1;
 		}
 
 		.rvt-grow-0-#{$variable}-up {
-			flex-grow: 0 !important;
+			flex-grow: 0;
 		}
 	}
 }
@@ -134,45 +134,45 @@
 // Align items
 
 .rvt-items-start {
-	align-items: flex-start !important;
+	align-items: flex-start;
 }
 
 .rvt-items-end {
-	align-items: flex-end !important;
+	align-items: flex-end;
 }
 
 .rvt-items-center {
-	align-items: center !important;
+	align-items: center;
 }
 
 .rvt-items-baseline {
-	align-items: baseline !important;
+	align-items: baseline;
 }
 
 .rvt-items-stretch {
-	align-items: stretch !important;
+	align-items: stretch;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		.rvt-items-start-#{$variable}-up {
-			align-items: flex-start !important;
+			align-items: flex-start;
 		}
 
 		.rvt-items-end-#{$variable}-up {
-			align-items: flex-end !important;
+			align-items: flex-end;
 		}
 
 		.rvt-items-center-#{$variable}-up {
-			align-items: center !important;
+			align-items: center;
 		}
 
 		.rvt-items-baseline-#{$variable}-up {
-			align-items: baseline !important;
+			align-items: baseline;
 		}
 
 		.rvt-items-stretch-#{$variable}-up {
-			align-items: stretch !important;
+			align-items: stretch;
 		}
 	}
 }
@@ -180,45 +180,45 @@
 // Align content
 
 .rvt-content-start {
-	align-content: flex-start !important;
+	align-content: flex-start;
 }
 
 .rvt-content-end {
-	align-content: flex-end !important;
+	align-content: flex-end;
 }
 
 .rvt-content-center {
-	align-content: center !important;
+	align-content: center;
 }
 
 .rvt-content-stretch {
-	align-content: stretch !important;
+	align-content: stretch;
 }
 
 .rvt-content-baseline {
-	align-content: baseline !important;
+	align-content: baseline;
 }
 
 @each $variable, $size in $breakpoints {
 	@include mq($size) {
 		.rvt-content-start-#{$variable}-up {
-			align-content: flex-start !important;
+			align-content: flex-start;
 		}
 
 		.rvt-content-end-#{$variable}-up {
-			align-content: flex-end !important;
+			align-content: flex-end;
 		}
 
 		.rvt-content-center-#{$variable}-up {
-			align-content: center !important;
+			align-content: center;
 		}
 
 		.rvt-content-stretch-#{$variable}-up {
-			align-content: stretch !important;
+			align-content: stretch;
 		}
 
 		.rvt-content-baseline-#{$variable}-up {
-			align-content: baseline !important;
+			align-content: baseline;
 		}
 	}
 }
@@ -280,23 +280,23 @@
 // self
 
 .rvt-self-start {
-	align-self: flex-start !important;
+	align-self: flex-start;
 }
 
 .rvt-self-end {
-	align-self: flex-end !important;
+	align-self: flex-end;
 }
 
 .rvt-self-center {
-	align-self: center !important;
+	align-self: center;
 }
 
 .rvt-self-baseline {
-	align-self: baseline !important;
+	align-self: baseline;
 }
 
 .rvt-self-stretch {
-	align-self: stretch !important;
+	align-self: stretch;
 }
 
 @each $variable, $size in $breakpoints {

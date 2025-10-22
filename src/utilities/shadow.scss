@@ -8,11 +8,11 @@
 @each $key, $value in map.get($tokens, "shadow") {
 	@if string.index($key, "base") {
 		.rvt-shadow {
-			box-shadow: $value !important;
+			box-shadow: $value;
 		}
 	} @else {
 		.rvt-shadow-#{$key} {
-			box-shadow: $value !important;
+			box-shadow: $value;
 		}
 	}
 }

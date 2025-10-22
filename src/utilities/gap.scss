@@ -10,14 +10,14 @@ $modifiers: (
 
 @each $size, $value in map.merge($modifiers, $spacing) {
 	.rvt-gap-#{$size} {
-		gap: $value !important;
+		gap: $value;
 	}
 
 	.rvt-gap-col-#{$size} {
-		column-gap: $value !important;
+		column-gap: $value;
 	}
 
 	.rvt-gap-row-#{$size} {
-		row-gap: $value !important;
+		row-gap: $value;
 	}
 }

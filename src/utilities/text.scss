@@ -2,75 +2,75 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-text-uppercase {
-	text-transform: uppercase !important;
+	text-transform: uppercase;
 
 	/**
    * All uppercase text is harder for humans to read. A little extra
    * letter spacing helps make it easier.
    */
-	letter-spacing: var(--rvt-letter-spacing-wide) !important;
+	letter-spacing: var(--rvt-letter-spacing-wide);
 }
 
 .rvt-text-lowercase {
-	text-transform: lowercase !important;
+	text-transform: lowercase;
 }
 
 .rvt-text-black,
 .rvt-font-black {
-	font-weight: var(--rvt-font-weight-black) !important;
+	font-weight: var(--rvt-font-weight-black);
 }
 
 .rvt-text-bold,
 .rvt-font-bold {
-	font-weight: var(--rvt-font-weight-bold) !important;
+	font-weight: var(--rvt-font-weight-bold);
 }
 
 .rvt-text-bold,
 .rvt-font-bold {
-	font-weight: var(--rvt-font-weight-bold) !important;
+	font-weight: var(--rvt-font-weight-bold);
 }
 
 .rvt-text-normal,
 .rvt-font-normal {
-	font-weight: var(--rvt-font-weight-normal) !important;
+	font-weight: var(--rvt-font-weight-normal);
 }
 
 .rvt-text-left {
-	text-align: left !important;
+	text-align: left;
 }
 
 .rvt-text-right {
-	text-align: right !important;
+	text-align: right;
 }
 
 .rvt-text-center {
-	text-align: center !important;
+	text-align: center;
 }
 
 .rvt-lh-normal {
-	line-height: var(--rvt-line-height-normal) !important;
+	line-height: var(--rvt-line-height-normal);
 }
 
 .rvt-lh-tight {
-	line-height: var(--rvt-line-height-tight) !important;
+	line-height: var(--rvt-line-height-tight);
 }
 
 .rvt-lh-loose {
-	line-height: var(--rvt-line-height-loose) !important;
+	line-height: var(--rvt-line-height-loose);
 }
 
 .rvt-text-nobr {
-	white-space: nowrap !important;
+	white-space: nowrap;
 }
 
 .rvt-font-sans {
-	font-family: var(--rvt-font-family-sans) !important;
+	font-family: var(--rvt-font-family-sans);
 }
 
 .rvt-font-serif {
-	font-family: var(--rvt-font-family-serif) !important;
+	font-family: var(--rvt-font-family-serif);
 }
 
 .rvt-font-mono {
-	font-family: var(--rvt-font-family-mono) !important;
+	font-family: var(--rvt-font-family-mono);
 }

@@ -7,8 +7,8 @@
 
 @each $token, $width in $widths {
 	.rvt-width-#{$token} {
-		width: 100% !important;
-		max-width: $width !important;
+		width: 100%;
+		max-width: $width;
 	}
 }
 
@@ -18,8 +18,8 @@
 	@include mq($size) {
 		@each $token, $width in $widths {
 			.rvt-width-#{$token}-#{$variable}-up {
-				width: 100% !important;
-				max-width: $width !important;
+				width: 100%;
+				max-width: $width;
 			}
 		}
 	}

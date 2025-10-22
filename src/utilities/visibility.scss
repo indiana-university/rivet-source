@@ -3,29 +3,25 @@
 
 @use "../base/core.scss" as *;
 
-%start-hidden {
-	display: none !important;
-}
-
 @each $variable, $size in $breakpoints {
 	.rvt-hide-#{$variable}-down {
-		@extend %start-hidden;
+		display: none;
 	}
 
 	@include mq($size) {
 		.rvt-hide-#{$variable}-down {
-			display: block !important;
+			display: block;
 		}
 
 		th.rvt-hide-#{$variable}-down,
 		td.rvt-hide-#{$variable}-down {
-			display: table-cell !important;
+			display: table-cell;
 		}
 	}
 
 	@include mq($size) {
 		.rvt-hide-#{$variable}-up {
-			display: none !important;
+			display: none;
 		}
 	}
 }

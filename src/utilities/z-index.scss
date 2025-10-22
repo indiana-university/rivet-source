@@ -6,7 +6,7 @@
 /* stylelint-disable */
 @each $index, $level in $z-index {
 	.rvt-z-#{$index} {
-		z-index: $level !important;
+		z-index: $level;
 	}
 }
 /* stylelint-enable */

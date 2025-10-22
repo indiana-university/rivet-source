@@ -13,7 +13,7 @@
 
 @each $pixels, $rems in $type-scale {
 	.rvt-ts-#{$pixels} {
-		font-size: $rems !important;
+		font-size: $rems;
 	}
 }
 
@@ -31,7 +31,7 @@
 	@include mq($size) {
 		@each $pixels, $rems in $type-scale {
 			.rvt-ts-#{$pixels}-#{$variable}-up {
-				font-size: $rems !important;
+				font-size: $rems;
 			}
 		}
 	}
