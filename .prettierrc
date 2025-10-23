@@ -1,9 +1,16 @@
 {
+	"plugins": ["prettier-plugin-astro"],
 	"overrides": [
 		{
 			"files": "*.njk",
 			"options": {
 				"parser": "html"
+			}
+		},
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
 			}
 		}
 	]

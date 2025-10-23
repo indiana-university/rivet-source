@@ -9,7 +9,7 @@ const breadcrumbs = (isRoot ? "" : currentPath)
 	.split("/")
 	.map((part, i, source) => {
 		const current = i + 1 < source.length ? null : true;
-		const label = current ? pageTitle : (part || appTitle);
+		const label = current ? pageTitle : part || appTitle;
 		const _url = source.slice(1, i + 1).join("/");
 		const url = `/${_url}`;
 		return { current, label, url };
@@ -18,7 +18,7 @@ const breadcrumbs = (isRoot ? "" : currentPath)
 const parentPage = breadcrumbs.at(-2);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -36,20 +36,25 @@ const parentPage = breadcrumbs.at(-2);
 		<script type="module" src="/src/rivet.js"></script>
 	</head>
 	<body>
-		<header class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm">
-			<a class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle" href={parentPage?.url}>
+		<header
+			class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm"
+		>
+			<a
+				class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle"
+				href={parentPage?.url}
+			>
 				<rvt-icon name="arrow-left"></rvt-icon>
 				<span class="rvt-sr-only">{parentPage?.label}</span>
 			</a>
 			<nav class="rvt-border-left rvt-flex rvt-p-left-sm">
 				<ol class="rvt-breadcrumbs">
-					{breadcrumbs.map((item) => (
-						<li aria-current={item.current}>
-							<a href={item.url}>
-								{item.label}
-							</a>
-						</li>
-					))}
+					{
+						breadcrumbs.map((item) => (
+							<li aria-current={item.current}>
+								<a href={item.url}>{item.label}</a>
+							</li>
+						))
+					}
 				</ol>
 			</nav>
 			<h1 class="rvt-sr-only">{title}</h1>

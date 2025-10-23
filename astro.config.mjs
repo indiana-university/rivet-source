@@ -3,8 +3,8 @@ import mdx from "@astrojs/mdx";
 
 export default defineConfig({
 	devToolbar: {
-		enabled: false
+		enabled: false,
 	},
 	integrations: [mdx()],
-	srcDir: "./src/sandbox-astro"
+	srcDir: "./src/sandbox-astro",
 });

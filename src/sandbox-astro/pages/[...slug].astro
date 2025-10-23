@@ -2,20 +2,19 @@
 import IndexLayout from "@layouts/IndexLayout.astro";
 
 export function getStaticPaths() {
-	const allPages = import.meta.glob([
-			"@src/**/*.mdx",
-			"@src/components/**/*.astro",
-		],
-		{ eager: true }
+	const allPages = import.meta.glob(
+		["@src/**/*.mdx", "@src/components/**/*.astro"],
+		{ eager: true },
 	);
-	const pageEntries: [string, any][] = Object.entries(allPages)
-		.map(([k, page]) => {
+	const pageEntries: [string, any][] = Object.entries(allPages).map(
+		([k, page]) => {
 			const key = k.replace("/src", "");
 			if (k.endsWith(".astro")) {
-				console.log('E', page.title)
+				console.log("E", page.title);
 			}
 			return [key, page] as [string, any];
-		});
+		},
+	);
 	const pageMap = new Map<string, any>(pageEntries);
 	const flatPaths = [...pageMap.keys()];
 
@@ -37,12 +36,13 @@ export function getStaticPaths() {
 		}
 	}
 
-	const sortedPaths = Array.from(allUniquePaths).sort(
-		(a: string, b: string) => a.localeCompare(b)
+	const sortedPaths = Array.from(allUniquePaths).sort((a: string, b: string) =>
+		a.localeCompare(b),
 	);
 
 	const getPathDetails = (path: string) => {
-		const title = pageMap.get(path)?.title || pageMap.get(path)?.frontmatter?.title;
+		const title =
+			pageMap.get(path)?.title || pageMap.get(path)?.frontmatter?.title;
 		const pathIsFile = isFile(path);
 		const segments = path.split("/");
 		let label = segments[segments.length - 1];
@@ -77,7 +77,7 @@ export function getStaticPaths() {
 			label: details.label,
 			type: details.type,
 			children: [],
-			page: pageMap.get(path)
+			page: pageMap.get(path),
 		};
 		pathMap.set(path, currentNode);
 		const parentPath = getParentPath(path);
@@ -88,12 +88,11 @@ export function getStaticPaths() {
 		}
 	}
 
-	return Array.from(pathMap.values())
-		.map((props) => {
-			const { path: slug } = props;
-			const params = { slug };
-			return { params, props };
-		});
+	return Array.from(pathMap.values()).map((props) => {
+		const { path: slug } = props;
+		const params = { slug };
+		return { params, props };
+	});
 }
 
 const { page } = Astro.props;
