@@ -1,22 +1,103 @@
 ---
+import IndexLayout from "@layouts/IndexLayout.astro";
+
 export function getStaticPaths() {
-	const allPages = import.meta.glob(
-		["@src/**/*.mdx"],
+	const allPages = import.meta.glob([
+			"@src/**/*.mdx",
+			"@src/components/**/*.astro",
+		],
 		{ eager: true }
 	);
-	return Object.values(allPages).map((page: any) => {
-		const slug = page.url
-			.replace("src/", "/")
-			.replace("/index.mdx", "")
-			.replace(".mdx", "");
-		const params = { slug };
-		const props = { page };
-		return { params, props };
-	});
+	const pageEntries: [string, any][] = Object.entries(allPages)
+		.map(([k, page]) => {
+			const key = k.replace("/src", "");
+			if (k.endsWith(".astro")) {
+				console.log('E', page.title)
+			}
+			return [key, page] as [string, any];
+		});
+	const pageMap = new Map<string, any>(pageEntries);
+	const flatPaths = [...pageMap.keys()];
+
+	if (!flatPaths || flatPaths.length === 0) {
+		return [];
+	}
+
+	const allUniquePaths = new Set();
+	const isFile = (path) =>
+		path.includes(".") && path.lastIndexOf(".") > path.lastIndexOf("/");
+
+	for (const path of flatPaths) {
+		allUniquePaths.add(path);
+		let currentPath = path;
+		let lastSlashIndex;
+		while ((lastSlashIndex = currentPath.lastIndexOf("/")) !== -1) {
+			currentPath = currentPath.slice(0, lastSlashIndex);
+			allUniquePaths.add(currentPath || "/");
+		}
+	}
+
+	const sortedPaths = Array.from(allUniquePaths).sort(
+		(a: string, b: string) => a.localeCompare(b)
+	);
+
+	const getPathDetails = (path: string) => {
+		const title = pageMap.get(path)?.title || pageMap.get(path)?.frontmatter?.title;
+		const pathIsFile = isFile(path);
+		const segments = path.split("/");
+		let label = segments[segments.length - 1];
+
+		if (pathIsFile) {
+			const lastDotIndex = label.lastIndexOf(".");
+			if (lastDotIndex > 0) {
+				label = label.substring(0, lastDotIndex);
+			}
+		}
+
+		return {
+			label: title || label,
+			type: pathIsFile ? "file" : "folder",
+		};
+	};
+
+	const getParentPath = (path) => {
+		const lastSlashIndex = path.lastIndexOf("/");
+		if (lastSlashIndex <= 0) {
+			return "/";
+		}
+		return path.slice(0, lastSlashIndex);
+	};
+
+	const pathMap = new Map();
+
+	for (const path of sortedPaths as string[]) {
+		const details = getPathDetails(path);
+		const currentNode = {
+			path: path,
+			label: details.label,
+			type: details.type,
+			children: [],
+			page: pageMap.get(path)
+		};
+		pathMap.set(path, currentNode);
+		const parentPath = getParentPath(path);
+
+		if (parentPath !== path && pathMap.has(parentPath)) {
+			const parentNode = pathMap.get(parentPath);
+			parentNode.children.push(currentNode);
+		}
+	}
+
+	return Array.from(pathMap.values())
+		.map((props) => {
+			const { path: slug } = props;
+			const params = { slug };
+			return { params, props };
+		});
 }
 
 const { page } = Astro.props;
-const { Content } = page;
+const Content = page?.Content || page?.default || IndexLayout;
 ---
 
-<Content />
+<Content {...Astro.props} />

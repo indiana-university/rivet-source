@@ -1,66 +1,24 @@
 ---
-import SideNav from "@components/SideNav.astro";
-const { frontmatter = {} } = Astro.props;
-const { index = false, title } = frontmatter;
-const appTitle = "Rivet Design System";
-const docTitle = [title, appTitle].join(" - ");
-
+const { frontmatter, label, title } = Astro.props;
+const appTitle = "Rivet";
+const pageTitle = title || frontmatter?.title || label || appTitle;
 const currentPath = Astro.url.pathname;
-const currentDepth = pathDepth(currentPath);
-const currentParentPath = getParentPath(currentPath);
-const allPages = import.meta.glob(
-	["@src/**/*.mdx"],
-	{ eager: true }
-);
-const pages = Object.values(allPages)
-	.map((page: any) => {
-		const { frontmatter } = page
-		const { title } = frontmatter;
-		const _url = page.url
-			.replace("src/", "/")
-			.replace("/index.mdx", "")
-			.replace(".mdx", "");
-		const url = _url.length ? _url : "/";
-		console.log('?', url, ':', currentPath)
-		const current = url === currentPath;
-		const depth = pathDepth(url);
-		const parent = url === currentParentPath;
-		const parentPath = getParentPath(url);
-		const child = parentPath === currentPath && url !== parentPath;
-		const ancestor = currentPath.startsWith(url) && currentPath !== url;
-		const sibling = parentPath === currentParentPath && depth === currentDepth && depth > 1;
-		const family = currentPath.startsWith(parentPath);
-		return { ancestor, child, current, depth, family, parent, sibling, title, url };
-	});
-const currentPage = pages.find((page) => page.current);
-const ancestorPages = pages
-	.filter((page) => page.ancestor)
-	.sort((a, b) => a.depth - b.depth);
-const parentPage = ancestorPages.at(-1);
-const familyPages = [...ancestorPages, currentPage]
-	.map((parent, i) => {
-		const children = pages.filter((p) => p.family && p.depth === i + 1)
-		return { parent, children };
+const isRoot = currentPath === "/";
+const docTitle = isRoot ? appTitle : [pageTitle, appTitle].join(" - ");
+const breadcrumbs = (isRoot ? "" : currentPath)
+	.split("/")
+	.map((part, i, source) => {
+		const current = i + 1 < source.length ? null : true;
+		const label = current ? pageTitle : (part || appTitle);
+		const _url = source.slice(1, i + 1).join("/");
+		const url = `/${_url}`;
+		return { current, label, url };
 	})
-	.filter(({ children }) => children.length);
-const childrenPages = familyPages.at(-1)?.children;
-
-console.log('###', childrenPages)
-
-function pathDepth(path) {
-	return path.split('/').length - 1;
-}
-
-function getParentPath(path) {
-	const cleanPath = path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
-	const lastSlashIndex = cleanPath.lastIndexOf('/');
-	if (lastSlashIndex <= 0) {
-		return '/';
-	}
-	return cleanPath.substring(0, lastSlashIndex);
-}
+	.filter((item) => item.url);
+const parentPage = breadcrumbs.at(-2);
 ---
 
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -78,45 +36,24 @@ function getParentPath(path) {
 		<script type="module" src="/src/rivet.js"></script>
 	</head>
 	<body>
-		<div class="layout">
-			<header class="rvt-border-right">
-				<div class="rvt-border-bottom rvt-p-all-sm">
-					<a class="rvt-text-medium" href="/">{appTitle}</a>
-				</div>
-				<SideNav familyPages={familyPages} />
-			</header>
-			<main>
-				<header class="rvt-border-bottom rvt-flex rvt-gap-sm rvt-p-all-sm">
-					{parentPage && (
-						<a class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle" href={parentPage.url}>
-							<rvt-icon name="arrow-left"></rvt-icon>
-							<span class="rvt-sr-only">{parentPage.title}</span>
-						</a>
-					)}
-					{!parentPage && (
-						<rvt-icon class="rvt-p-all-xxs" name="home"></rvt-icon>
-					)}
-					<h1 class="rvt-border-left rvt-text-medium rvt-ts-base rvt-p-left-sm">{title}</h1>
-				</header>
-				{index && childrenPages?.length && (
-					<ul class="rvt-list-plain rvt-m-all-sm">
-						{childrenPages.map((page) => (
-							<li>
-								<a class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--medium" href={page.url}>{page.title}</a>
-							</li>
-						))}
-					</ul>
-				)}
-				<slot />
-			</main>
-		</div>
+		<header class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm">
+			<a class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle" href={parentPage?.url}>
+				<rvt-icon name="arrow-left"></rvt-icon>
+				<span class="rvt-sr-only">{parentPage?.label}</span>
+			</a>
+			<nav class="rvt-border-left rvt-flex rvt-p-left-sm">
+				<ol class="rvt-breadcrumbs">
+					{breadcrumbs.map((item) => (
+						<li aria-current={item.current}>
+							<a href={item.url}>
+								{item.label}
+							</a>
+						</li>
+					))}
+				</ol>
+			</nav>
+			<h1 class="rvt-sr-only">{title}</h1>
+		</header>
+		<slot />
 	</body>
 </html>
-
-<style>
-.layout {
-	display: grid;
-	grid-template-columns: 15rem 1fr;
-	min-height: 100vh;
-}
-</style>
