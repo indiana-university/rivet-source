@@ -1,0 +1,28 @@
+---
+import Card from "./card.astro";
+export const title = "Feature Card";
+---
+
+<div>
+	<Card type="feature" image badge eyebrow content />
+</div>
+
+<div class="rvt-m-top-sm">
+	<Card type="feature" sticker badge eyebrow content />
+</div>
+
+<div class="rvt-m-top-sm">
+	<Card type="feature" badge eyebrow content />
+</div>
+
+<hr class="rvt-m-tb-xl" />
+
+<ul class="rvt-card-grid">
+	<li><Card type="feature" /></li>
+	<li><Card type="feature" badge /></li>
+	<li><Card type="feature" badge eyebrow /></li>
+	<li><Card type="feature" badge eyebrow content /></li>
+	<li><Card type="feature" badge eyebrow content /></li>
+	<li><Card type="feature" sticker badge eyebrow content /></li>
+	<li><Card type="feature" image badge eyebrow content /></li>
+</ul>
