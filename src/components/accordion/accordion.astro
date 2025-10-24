@@ -1,18 +1,13 @@
 ---
-tags: accordion
-title: Accordion - Default
-layout: layouts/preview.njk
-permalink: /components/preview/{{ title | slug}}/
-padding: true
-order: 1
+export const title = "Accordion";
 ---
 
 <div class="rvt-accordion" data-rvt-accordion="test-accordion">
 	<h3 class="rvt-accordion__summary">
 		<button class="rvt-accordion__toggle" data-rvt-accordion-trigger>
-			<span class="rvt-accordion__toggle-text"
-				>Become the best version of yourself at IU</span
-			>
+			<span class="rvt-accordion__toggle-text">
+				Become the best version of yourself at IU
+			</span>
 		</button>
 	</h3>
 	<div class="rvt-accordion__panel" data-rvt-accordion-panel>
