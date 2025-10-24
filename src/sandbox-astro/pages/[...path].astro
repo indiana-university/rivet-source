@@ -1,6 +1,7 @@
 ---
 import ComponentLayout from "@layouts/ComponentLayout.astro";
 import IndexLayout from "@layouts/IndexLayout.astro";
+import Layout from "@layouts/Layout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
@@ -38,8 +39,16 @@ export function getStaticPaths() {
 		const title = page?.title || segments.at(-1);
 		const isFile = /\.[^/]*$/.test(path);
 		const type = isFile ? "file" : "folder";
+		const isComponent = /\/components\//.test(path);
+		const isLayout = /\/layouts\//.test(path);
+		const isUtility = /\/utilities\//.test(path);
+		const [fileType] = [
+			isComponent && "component",
+			isLayout && "layout",
+			isUtility && "utility",
+		].filter((ft) => ft);
 		const children = [];
-		const currentNode = { children, page, path, title, type };
+		const currentNode = { children, fileType, page, path, title, type };
 		pathMap.set(path, currentNode);
 		const parentPath = path.replace(/\/[^/]*$/, "") || "/";
 
@@ -56,14 +65,22 @@ export function getStaticPaths() {
 	});
 }
 
-const { page, type } = Astro.props;
+const { page, fileType, type } = Astro.props;
 ---
 
 {
-	type === "file" && (
+	type === "file" && fileType === "component" && (
 		<ComponentLayout {...Astro.props}>
 			<page.default />
 		</ComponentLayout>
+	)
+}
+
+{
+	type === "file" && fileType === "layout" && (
+		<Layout {...Astro.props}>
+			<page.default />
+		</Layout>
 	)
 }
 

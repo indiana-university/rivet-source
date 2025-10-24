@@ -1,0 +1,120 @@
+---
+import Accordion from "@src/components/accordion/accordion-demo.astro";
+import ContactInfo from "@src/components/contact-info/contact-info-demo.astro";
+import MediaHub from "@src/components/media-hub/media-hub-demo.astro";
+import Quote from "@src/components/quote/quote-demo.astro";
+import RelatedContent from "@src/layouts/details/related-content-demo.astro";
+---
+
+<div class="rvt-rich-text">
+	<h2>Areas of focus</h2>
+	<p>
+		Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit
+		aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis
+		obcaecati minus, nisi rerum corrupti cum.
+	</p>
+</div>
+
+<div class="rvt-list-hub">
+	<ul class="rvt-list-hub__list">
+		<li class="rvt-list-hub__item">
+			<div class="rvt-list-hub__item-title">Area of focus one</div>
+		</li>
+		<li class="rvt-list-hub__item">
+			<div class="rvt-list-hub__item-title">Area of focus two</div>
+		</li>
+		<li class="rvt-list-hub__item">
+			<div class="rvt-list-hub__item-title">Area of focus three</div>
+		</li>
+	</ul>
+</div>
+
+<div class="rvt-rich-text">
+	<h2>About</h2>
+	<h3>Section Topic Title (H3)</h3>
+	<p>
+		Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit
+		aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis
+		obcaecati minus, nisi rerum corrupti cum.
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus unde,
+		distinctio laudantium totam aliquid quae vel? Dolorum ducimus placeat
+		exercitationem rerum nobis enim laudantium commodi, doloremque est,
+		voluptates corrupti eius.
+	</p>
+
+	<ul>
+		<li>Item 1</li>
+		<li>
+			Item 2
+			<ul>
+				<li>Item 2.1</li>
+				<li>Item 2.2</li>
+			</ul>
+		</li>
+		<li>Item 3</li>
+	</ul>
+</div>
+
+<div class="rvt-rich-text">
+	<h2>Education</h2>
+	<h3 class="rvt-m-top-md">Degree Title MA, Design</h3>
+	<p class="rvt-m-top-xs">School, Years Indiana University, 1985 - 1986</p>
+	<h3 class="rvt-m-top-md">Degree Title MA, Design</h3>
+	<p class="rvt-m-top-xs">School, Years Indiana University, 1985 - 1986</p>
+	<h3 class="rvt-m-top-md">Degree Title MA, Design</h3>
+	<p class="rvt-m-top-xs">School, Years Indiana University, 1985 - 1986</p>
+</div>
+
+<div class="rvt-layout-base__breakout rvt-section rvt-theme-light">
+	<div class="rvt-layout-base__breakout-inner">
+		<Quote />
+	</div>
+</div>
+
+<MediaHub />
+
+<div class="rvt-rich-text">
+	<h2>Publications & contributions</h2>
+	<h3>Books</h3>
+	<p>
+		Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit
+		aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis
+		obcaecati minus, nisi rerum corrupti cum.
+	</p>
+	<h3>Articles</h3>
+	<p>
+		Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit
+		aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis
+		obcaecati minus, nisi rerum corrupti cum.
+	</p>
+	<h3>Conference</h3>
+	<p>
+		Lorem ipsum dolor sit amet <em>consectetur adipisicing</em> elit. Fugiat in reprehenderit
+		aspernatur, nemo dicta ex voluptas totam est eligendi non et at laborum, omnis
+		obcaecati minus, nisi rerum corrupti cum.
+	</p>
+</div>
+
+<Accordion />
+
+<nav class="rvt-series-nav">
+	<a class="rvt-series-nav__previous" href="#">
+		<span class="rvt-series-nav__label">Previous</span>
+		<span class="rvt-series-nav__item">
+			This title should not exceed three lines and should have an ellipsis if it
+			does
+		</span>
+	</a>
+	<a class="rvt-series-nav__next" href="#">
+		<span class="rvt-series-nav__label">Next</span>
+		<span class="rvt-series-nav__item">
+			This title should not exceed three lines and should have an ellipsis if it
+			does
+		</span>
+	</a>
+</nav>
+
+<RelatedContent />
+<ContactInfo />
