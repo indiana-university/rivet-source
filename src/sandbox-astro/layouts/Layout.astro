@@ -1,20 +1,19 @@
 ---
-const { frontmatter, label, title } = Astro.props;
-const appTitle = "Rivet";
-const pageTitle = title || frontmatter?.title || label || appTitle;
+const APP_NAME = "Rivet";
+const title = Astro.props.title || APP_NAME;
 const currentPath = Astro.url.pathname;
 const isRoot = currentPath === "/";
-const docTitle = isRoot ? appTitle : [pageTitle, appTitle].join(" - ");
+const docTitle = isRoot ? APP_NAME : [title, APP_NAME].join(" - ");
 const breadcrumbs = (isRoot ? "" : currentPath)
 	.split("/")
 	.map((part, i, source) => {
-		const current = i + 1 < source.length ? null : true;
-		const label = current ? pageTitle : part || appTitle;
+		const last = i === source.length - 1;
+		const current: boolean | "page" = last ? "page" : false;
+		const label = current ? title : part || APP_NAME;
 		const _url = source.slice(1, i + 1).join("/");
 		const url = `/${_url}`;
-		return { current, label, url };
-	})
-	.filter((item) => item.url);
+		return { current, label, last, url };
+	});
 const parentPage = breadcrumbs.at(-2);
 ---
 
@@ -51,7 +50,8 @@ const parentPage = breadcrumbs.at(-2);
 					{
 						breadcrumbs.map((item) => (
 							<li aria-current={item.current}>
-								<a href={item.url}>{item.label}</a>
+								{!item.last && <a href={item.url}>{item.label}</a>}
+								{item.last && item.label}
 							</li>
 						))
 					}

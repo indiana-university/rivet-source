@@ -8,7 +8,7 @@ const { children } = Astro.props;
 		{
 			children.map((page) => (
 				<li>
-					<a href={page.path}>{page.label}</a>
+					<a href={page.path}>{page.title}</a>
 				</li>
 			))
 		}
