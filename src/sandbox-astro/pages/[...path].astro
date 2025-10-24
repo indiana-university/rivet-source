@@ -84,4 +84,14 @@ const { page, fileType, type } = Astro.props;
 	)
 }
 
+{
+	type === "file" && fileType === "utility" && (
+		<Layout {...Astro.props}>
+			<div class="rvt-p-all-sm">
+				<page.default />
+			</div>
+		</Layout>
+	)
+}
+
 {type === "folder" && <IndexLayout {...Astro.props} />}
