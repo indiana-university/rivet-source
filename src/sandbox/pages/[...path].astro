@@ -1,11 +1,11 @@
 ---
-import ComponentLayout from "@layouts/ComponentLayout.astro";
-import IndexLayout from "@layouts/IndexLayout.astro";
-import Layout from "@layouts/Layout.astro";
+import ComponentLayout from "../layouts/ComponentLayout.astro";
+import IndexLayout from "../layouts/IndexLayout.astro";
+import Layout from "../layouts/Layout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
-		["@src/**/*.astro", "!@src/sandbox-astro/**/*.astro"],
+		["@src/**/*.astro", "!@src/sandbox/**/*.astro"],
 		{ eager: true },
 	);
 	const pageEntries: [string, any][] = Object.entries(allPages)

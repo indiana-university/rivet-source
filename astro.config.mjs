@@ -4,5 +4,5 @@ export default defineConfig({
 	devToolbar: {
 		enabled: false,
 	},
-	srcDir: "./src/sandbox-astro",
+	srcDir: "./src/sandbox",
 });
