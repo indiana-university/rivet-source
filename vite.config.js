@@ -1,4 +1,3 @@
-
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
@@ -12,12 +11,13 @@ const license = `/*!
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
  */`;
-const targets = browserslistToTargets(browserslist("baseline widely available"));
+const targetConfig = "baseline widely available";
+const targets = browserslistToTargets(browserslist(targetConfig));
 
 const buildConfig = {
 	plugins: [bannerPlugin(license)],
 	build: {
-		cssMinify: 'lightningcss',
+		cssMinify: "lightningcss",
 		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
@@ -28,11 +28,14 @@ const buildConfig = {
 		sourcemap: true,
 	},
 	css: {
-		transformer: 'lightningcss',
+		transformer: "lightningcss",
 		lightningcss: {
-			targets
-		}
-	}
+			drafts: {
+				customMedia: true,
+			},
+			targets,
+		},
+	},
 };
 
 const commandMap = {
