@@ -37,11 +37,11 @@
 		gap: 0;
 
 		> * + * {
-			margin-left: -1px;
+			margin-left: var(--rvt-size-n1);
 		}
 
 		* {
-			margin-bottom: -1px;
+			margin-bottom: var(--rvt-size-n1);
 		}
 	}
 }

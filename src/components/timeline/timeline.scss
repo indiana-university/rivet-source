@@ -15,7 +15,7 @@
 		margin-left: var(--rvt-spacing-xxs);
 		position: absolute;
 		top: 0;
-		width: 1px;
+		width: var(--rvt-size-1);
 	}
 
 	&__item {
@@ -131,7 +131,7 @@
 		.rvt-timeline__item {
 			flex-basis: 50%;
 			max-width: 50%;
-			padding: 0 calc(var(--rvt-spacing-sm) * 0.75);
+			padding: 0 var(--rvt-size-12);
 			width: 100%;
 		}
 
@@ -165,7 +165,7 @@
 
 		.rvt-timeline__content {
 			margin-left: 0;
-			margin-right: calc(var(--rvt-spacing-sm) * 0.75);
+			margin-right: var(--rvt-size-12);
 		}
 
 		.rvt-timeline__item--right .rvt-timeline__content {

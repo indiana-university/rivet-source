@@ -97,7 +97,7 @@
 
 		&--compact {
 			align-items: center;
-			border: 1px solid var(--rvt-color-theme-ui);
+			border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		}
 
 		&--compact &__body {

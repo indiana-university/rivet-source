@@ -45,7 +45,7 @@
 		gap: var(--rvt-spacing-xxl);
 
 		&__sidebar {
-			border-right: 1px solid var(--rvt-color-theme-ui);
+			border-right: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		}
 
 		&__sidebar {

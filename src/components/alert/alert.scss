@@ -13,7 +13,7 @@
 	--size-icon: var(--rvt-spacing-lg);
 	--size-padding: var(--rvt-spacing-sm);
 	background-color: var(--color-background);
-	border: calc(1rem / 16) solid var(--color-border);
+	border: var(--rvt-size-1) solid var(--color-border);
 	padding-inline-start: calc(
 		var(--size-padding) + var(--size-icon) + var(--size-gap)
 	);

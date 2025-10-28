@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-border-all {
-	border: 1px solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
 
 .rvt-border-all-none {
@@ -10,7 +10,7 @@
 }
 
 .rvt-border-top {
-	border-top: 1px solid var(--rvt-color-theme-ui);
+	border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
 
 .rvt-border-top-none {
@@ -18,7 +18,7 @@
 }
 
 .rvt-border-right {
-	border-right: 1px solid var(--rvt-color-theme-ui);
+	border-right: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
 
 .rvt-border-right-none {
@@ -26,7 +26,7 @@
 }
 
 .rvt-border-bottom {
-	border-bottom: 1px solid var(--rvt-color-theme-ui);
+	border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
 
 .rvt-border-bottom-none {
@@ -34,7 +34,7 @@
 }
 
 .rvt-border-left {
-	border-left: 1px solid var(--rvt-color-theme-ui);
+	border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
 
 .rvt-border-left-none {

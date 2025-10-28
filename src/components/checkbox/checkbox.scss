@@ -44,13 +44,13 @@
 
 	input[type="checkbox"] ~ label::before {
 		background-color: var(--color-background);
-		border: calc(var(--rvt-spacing-xxs) / 4) solid var(--color-border);
+		border: var(--rvt-size-1) solid var(--color-border);
 		content: "";
 		display: inline-block;
 		height: var(--rvt-spacing-sm);
-		left: calc(3rem / 16);
+		left: var(--rvt-size-3);
 		position: absolute;
-		top: calc(3rem / 16);
+		top: var(--rvt-size-3);
 		width: var(--rvt-spacing-sm);
 	}
 
@@ -60,9 +60,9 @@
 		content: "";
 		display: var(--display-icon);
 		height: var(--rvt-spacing-sm);
-		left: calc(4rem / 16);
+		left: var(--rvt-size-4);
 		position: absolute;
-		top: calc(4rem / 16);
+		top: var(--rvt-size-4);
 		width: var(--rvt-spacing-sm);
 	}
 
@@ -86,8 +86,8 @@
 	}
 
 	input[type="checkbox"]:focus ~ label::before {
-		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
-		outline-offset: calc(2rem / 16);
+		outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: var(--rvt-size-2);
 	}
 
 	input[type="checkbox"]:indeterminate ~ label {

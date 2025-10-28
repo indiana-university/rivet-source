@@ -25,7 +25,7 @@
 
 	&__append {
 		flex-grow: 1;
-		margin-left: -1px;
+		margin-left: var(--rvt-size-n1);
 
 		.rvt-button {
 			border-top-left-radius: 0;
@@ -41,11 +41,11 @@
 	&__prepend &__text {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
-		border: 1px solid var(--rvt-color-theme-text-strong);
+		border: var(--rvt-size-1) solid var(--rvt-color-theme-text-strong);
 		display: flex;
 		height: 100%;
-		padding-left: calc(var(--rvt-spacing-sm) * 0.75);
-		padding-right: calc(var(--rvt-spacing-sm) * 0.75);
+		padding-left: var(--rvt-size-12);
+		padding-right: var(--rvt-size-12);
 	}
 
 	&__append &__text {
@@ -59,7 +59,7 @@
 	}
 
 	&__prepend {
-		margin-right: -1px;
+		margin-right: var(--rvt-size-n1);
 
 		.rvt-button {
 			border-bottom-right-radius: 0;

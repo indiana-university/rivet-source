@@ -34,7 +34,7 @@
 	input[type="week"]:focus,
 	textarea,
 	select {
-		box-shadow: 0 0 0 calc(var(--rvt-spacing-xxs) / 2)
+		box-shadow: 0 0 0 var(--rvt-size-2)
 			var(--rvt-color-danger-border);
 		border-color: var(--rvt-color-danger-border);
 	}

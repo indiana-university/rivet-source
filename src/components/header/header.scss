@@ -84,7 +84,7 @@
 		bottom: calc(var(--rvt-spacing-xxs) * -1);
 		content: "";
 		display: block;
-		height: calc(var(--rvt-spacing-xxs) * 0.5);
+		height: var(--rvt-size-2);
 		opacity: 0;
 		position: absolute;
 		transition: all 0.2s ease;
@@ -92,7 +92,7 @@
 	}
 
 	&-menu__item:hover::after {
-		bottom: calc(var(--rvt-spacing-xxs) * -0.25);
+		bottom: var(--rvt-size-n1);
 		opacity: 1;
 		transition: 0.2s;
 	}
@@ -119,7 +119,7 @@
 			display: flex;
 			font: var(--rvt-font-14-bold);
 			gap: var(--rvt-spacing-xs);
-			margin-top: calc(var(--rvt-spacing-xxs) * 0.75);
+			margin-top: var(--rvt-size-3);
 			padding-block: var(--rvt-spacing-xxs);
 			padding-inline: var(--rvt-spacing-sm);
 		}
@@ -145,8 +145,8 @@
 	}
 
 	&__search-bar {
-		border-top: 1px solid var(--rvt-color-theme-ui);
-		box-shadow: 0 9999px 0 9999px var(--rvt-color-shadow-dark);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		box-shadow: 0 9999rem 0 9999rem var(--rvt-color-shadow-dark);
 		position: absolute;
 		right: 0;
 		top: 5.25rem;
@@ -165,8 +165,8 @@
 	}
 
 	&__search-bar input[type="text"]:focus-visible {
-		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
-		outline-offset: calc(2rem / 16);
+		outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: var(--rvt-size-2);
 	}
 
 	&__search-bar ::placeholder {
@@ -175,7 +175,7 @@
 
 	&__mobile-menu {
 		background-color: var(--rvt-color-theme-background);
-		box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
+		box-shadow: 0 0 0 9999rem var(--rvt-color-shadow-dark);
 		height: 100vh;
 		overflow-y: auto;
 		padding-top: var(--rvt-spacing-lg);

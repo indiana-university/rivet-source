@@ -11,8 +11,8 @@
 		clip-path: path(var(--rvt-icon-quote-open));
 		display: block;
 		content: "";
-		height: calc(50 / 16 * var(--rvt-spacing-sm));
-		width: calc(65 / 16 * var(--rvt-spacing-sm));
+		height: calc(50rem / 16);
+		width: calc(65rem / 16);
 	}
 
 	&--image::before {

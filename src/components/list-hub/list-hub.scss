@@ -19,12 +19,12 @@
 		margin-bottom: 0;
 		// Magic number to help with visual alignment when
 		// list hub is first element in a layout with a sidebar
-		margin-top: calc(var(--rvt-spacing-xs) * 1.5);
+		margin-top: var(--rvt-size-12);
 		padding-left: 0;
 	}
 
 	&__item {
-		border-top: 1px solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-sm);
 
@@ -90,7 +90,7 @@
 		content: "";
 		flex-shrink: 0;
 		height: var(--rvt-spacing-sm);
-		margin-block-start: calc(6rem / 16);
+		margin-block-start: var(--rvt-size-6);
 		position: relative;
 		transform: rotate(var(--rotate));
 		width: var(--rvt-spacing-sm);

@@ -5,7 +5,7 @@
 
 table,
 .rvt-table {
-	border: 1px solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	border-collapse: collapse;
 	border-spacing: 0;
 	text-align: left;
@@ -35,7 +35,7 @@ thead {
 }
 
 tr {
-	border-bottom: 1px solid var(--rvt-color-theme-ui);
+	border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
 
 tbody tr :is(td, th) {
@@ -72,10 +72,10 @@ tbody tr :is(td, th) {
 }
 
 .rvt-table-cells {
-	border-top: 1px solid var(--rvt-color-theme-ui);
+	border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 
 	tr :is(td, th) {
-		border-right: 1px solid var(--rvt-color-theme-ui);
+		border-right: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 
 		&:first-child {
 			border-left: var(--rvt-color-theme-ui);
@@ -131,12 +131,12 @@ tbody tr :is(td, th) {
 		100%;
 	background-repeat: no-repeat;
 	background-size:
-		40px 100%,
-		40px 100%,
-		14px 100%,
-		14px 100%;
+		var(--rvt-size-40) 100%,
+		var(--rvt-size-40) 100%,
+		var(--rvt-size-14) 100%,
+		var(--rvt-size-14) 100%;
 	/* stylelint-enable */
-	border: 1px solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	border-radius: var(--rvt-spacing-xs);
 	overflow: auto;
 }

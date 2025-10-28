@@ -2,16 +2,17 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-loader {
+	--size: var(--rvt-size-16);
 	animation: 0.8s linear infinite loader;
 	display: inline-block;
-	border: 0.2rem solid transparent;
+	border: calc(var(--size) / 8) solid transparent;
 	border-bottom-color: var(--rvt-color-theme-accent);
 	border-right-color: var(--rvt-color-theme-accent);
 	border-top-color: var(--rvt-color-theme-accent);
 	border-radius: 50%;
-	height: calc(var(--rvt-spacing-sm) * 1.25);
+	height: var(--size);
 	position: relative;
-	width: calc(var(--rvt-spacing-sm) * 1.25);
+	width: var(--size);
 
 	&--reverse {
 		border-bottom-color: var(--rvt-color-theme-background);
@@ -20,45 +21,31 @@
 	}
 
 	&--xxs {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125);
-		height: var(--rvt-spacing-sm);
-		width: var(--rvt-spacing-sm);
+		--size: var(--rvt-size-16);
 	}
 
 	&--xs {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 1.25);
-		height: calc(var(--rvt-spacing-sm) * 1.25);
-		width: calc(var(--rvt-spacing-sm) * 1.25);
+		--size: var(--rvt-size-20);
 	}
 
 	&--sm {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 1.75);
-		height: calc(var(--rvt-spacing-sm) * 1.75);
-		width: calc(var(--rvt-spacing-sm) * 1.75);
+		--size: var(--rvt-size-28);
 	}
 
 	&--md {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 2);
-		height: calc(var(--rvt-spacing-sm) * 2);
-		width: calc(var(--rvt-spacing-sm) * 2);
+		--size: var(--rvt-size-32);
 	}
 
 	&--lg {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 2.75);
-		height: calc(var(--rvt-spacing-sm) * 2.75);
-		width: calc(var(--rvt-spacing-sm) * 2.75);
+		--size: var(--rvt-size-44);
 	}
 
 	&--xl {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 3.25);
-		height: calc(var(--rvt-spacing-sm) * 3.25);
-		width: calc(var(--rvt-spacing-sm) * 3.25);
+		--size: var(--rvt-size-52);
 	}
 
 	&--xxl {
-		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 4);
-		height: calc(var(--rvt-spacing-sm) * 4);
-		width: calc(var(--rvt-spacing-sm) * 4);
+		--size: var(--rvt-size-64);
 	}
 }
 

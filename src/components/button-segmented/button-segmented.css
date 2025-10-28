@@ -36,12 +36,12 @@
 	.rvt-button:last-child {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
-		margin-left: -2px;
+		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
 	.rvt-button:not(:first-child):not(:last-child) {
 		border-radius: 0;
-		margin-left: -2px;
+		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
 	/*
@@ -53,7 +53,7 @@
 	.rvt-dropdown:first-child > .rvt-button:only-of-type {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
-		margin-left: -2px;
+		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
 	.dropdown:first-child > .rvt-button:first-of-type,
@@ -66,7 +66,7 @@
 	.rvt-dropdown:last-child > .rvt-button:only-of-type {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
-		margin-left: -2px;
+		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
 	.dropdown:last-child > .rvt-button:last-of-type,
@@ -78,10 +78,10 @@
 	.dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
 	.rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
 		border-radius: 0;
-		margin-left: -2px;
+		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
 	.rvt-dropdown:last-child > .rvt-button:not(.rvt-button--secondary) {
-		margin-left: 2px;
+		margin-left: var(--rvt-size-2);
 	}
 }

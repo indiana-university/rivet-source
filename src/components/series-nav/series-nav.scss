@@ -5,10 +5,10 @@
 
 .rvt-series-nav {
 	background-color: var(--rvt-color-theme-ui);
-	border: calc(1rem / 16) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	display: flex;
 	flex-wrap: wrap;
-	gap: calc(1rem / 16);
+	gap: var(--rvt-size-1);
 
 	:is(&__previous, &__next) {
 		background-color: var(--rvt-color-theme-background);

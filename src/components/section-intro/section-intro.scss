@@ -107,7 +107,7 @@
 			height: var(--rvt-spacing-lg);
 			margin-block-end: var(--rvt-spacing-sm);
 			margin-inline: auto;
-			width: calc(2rem / 16);
+			width: var(--rvt-size-2);
 		}
 	}
 }

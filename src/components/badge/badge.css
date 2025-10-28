@@ -6,14 +6,14 @@
 :is(span, strong).rvt-badge {
 	align-items: center;
 	background-color: var(--color-background);
-	border: calc(1rem / 16) solid var(--color-border);
+	border: var(--rvt-size-1) solid var(--color-border);
 	border-radius: var(--rvt-border-radius-circle);
-	box-shadow: 0 0 0 calc(1rem / 16) var(--rvt-color-base-ultralight);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-base-ultralight);
 	color: var(--color-text);
 	display: inline-flex;
 	font: var(--rvt-font-14-bold);
 	gap: var(--rvt-spacing-xxs);
-	padding: calc(1rem / 16) 0.75rem;
+	padding: var(--rvt-size-1) 0.75rem;
 	text-decoration: none;
 	white-space: nowrap;
 }

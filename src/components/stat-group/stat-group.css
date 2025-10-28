@@ -39,8 +39,8 @@
 				border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 				flex-basis: 0;
 				flex-grow: 1;
-				margin-block-start: calc(var(--rvt-size-1) * -1);
-				margin-inline-start: calc(var(--rvt-size-1) * -1);
+				margin-block-start: var(--rvt-size-n1);
+				margin-inline-start: var(--rvt-size-n1);
 				min-width: 50%;
 				padding: var(--rvt-spacing-lg);
 			}

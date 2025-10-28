@@ -5,7 +5,7 @@
 
 .rvt-empty-state {
 	background-color: var(--rvt-color-theme-background-strong);
-	border: calc(2rem / 16) dashed var(--rvt-color-theme-ui);
+	border: var(--rvt-size-2) dashed var(--rvt-color-theme-ui);
 	display: flex;
 	flex-direction: column;
 	padding: var(--rvt-spacing-xxl) var(--rvt-spacing-md);
