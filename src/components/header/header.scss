@@ -23,7 +23,7 @@
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
 		border: none;
-		border-radius: 999rem;
+		border-radius: var(--rvt-border-radius-circle);
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
 		display: flex;
@@ -113,7 +113,7 @@
 			align-items: center;
 			background-color: var(--rvt-color-theme-background-strong);
 			border: none;
-			border-radius: 999rem;
+			border-radius: var(--rvt-border-radius-circle);
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
 			display: flex;
@@ -146,7 +146,7 @@
 
 	&__search-bar {
 		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-		box-shadow: 0 9999rem 0 9999rem var(--rvt-color-shadow-dark);
+		box-shadow: 0 var(--rvt-size-infinite) 0 var(--rvt-size-infinite) var(--rvt-color-shadow-dark);
 		position: absolute;
 		right: 0;
 		top: 5.25rem;
@@ -175,7 +175,7 @@
 
 	&__mobile-menu {
 		background-color: var(--rvt-color-theme-background);
-		box-shadow: 0 0 0 9999rem var(--rvt-color-shadow-dark);
+		box-shadow: 0 0 0 var(--rvt-size-infinite) var(--rvt-color-shadow-dark);
 		height: 100vh;
 		overflow-y: auto;
 		padding-top: var(--rvt-spacing-lg);

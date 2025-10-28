@@ -2,67 +2,67 @@
 	"ts": {
 		"$type": "dimension",
 		"12": {
-			"$value": ".75rem"
+			"$value": "{size.12}"
 		},
 		"xxs": {
-			"$value": "{ts.12}"
+			"$value": "{size.12}"
 		},
 		"14": {
-			"$value": ".875rem"
+			"$value": "{size.14}"
 		},
 		"xs": {
-			"$value": "{ts.14}"
+			"$value": "{size.14}"
 		},
 		"16": {
-			"$value": "1rem"
+			"$value": "{size.16}"
 		},
 		"base": {
-			"$value": "{ts.16}"
+			"$value": "{size.16}"
 		},
 		"18": {
-			"$value": "1.125rem"
+			"$value": "{size.18}"
 		},
 		"20": {
-			"$value": "1.25rem"
+			"$value": "{size.20}"
 		},
 		"sm": {
-			"$value": "{ts.20}"
+			"$value": "{size.20}"
 		},
 		"23": {
-			"$value": "1.4375rem"
+			"$value": "{size.23}"
 		},
 		"26": {
-			"$value": "1.625rem"
+			"$value": "{size.26}"
 		},
 		"md": {
-			"$value": "{ts.26}"
+			"$value": "{size.26}"
 		},
 		"29": {
-			"$value": "1.8125rem"
+			"$value": "{size.29}"
 		},
 		"32": {
-			"$value": "2rem"
+			"$value": "{size.32}"
 		},
 		"lg": {
-			"$value": "{ts.32}"
+			"$value": "{size.32}"
 		},
 		"36": {
-			"$value": "2.25rem"
+			"$value": "{size.36}"
 		},
 		"41": {
-			"$value": "2.5625rem"
+			"$value": "{size.41}"
 		},
 		"xl": {
-			"$value": "{ts.41}"
+			"$value": "{size.41}"
 		},
 		"46": {
-			"$value": "2.875rem"
+			"$value": "{size.46}"
 		},
 		"52": {
-			"$value": "3.25rem"
+			"$value": "{size.52}"
 		},
 		"xxl": {
-			"$value": "{ts.52}"
+			"$value": "{size.52}"
 		}
 	}
 }

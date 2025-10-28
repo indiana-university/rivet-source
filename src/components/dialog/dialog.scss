@@ -30,7 +30,7 @@
 	z-index: var(--rvt-z-index-1000);
 
 	&[data-rvt-dialog-darken-page] {
-		box-shadow: 0 0 0 9999rem var(--rvt-color-shadow-dark);
+		box-shadow: 0 0 0 var(--rvt-size-infinite) var(--rvt-color-shadow-dark);
 	}
 
 	&[data-rvt-dialog-top-left] {

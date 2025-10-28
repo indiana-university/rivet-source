@@ -2,43 +2,43 @@
 	"spacing": {
 		"$type": "dimension",
 		"base": {
-			"$value": ".5rem",
+			"$value": "{size.8}",
 			"$description": "8px"
 		},
 		"xxs": {
-			"$value": ".25rem",
+			"$value": "{size.4}",
 			"$description": "4px"
 		},
 		"xs": {
-			"$value": ".5rem",
+			"$value": "{size.8}",
 			"$description": "8px"
 		},
 		"sm": {
-			"$value": "1rem",
+			"$value": "{size.16}",
 			"$description": "16px"
 		},
 		"md": {
-			"$value": "1.5rem",
+			"$value": "{size.24}",
 			"$description": "24px"
 		},
 		"lg": {
-			"$value": "2rem",
+			"$value": "{size.32}",
 			"$description": "32px"
 		},
 		"xl": {
-			"$value": "2.5rem",
+			"$value": "{size.40}",
 			"$description": "40px"
 		},
 		"xxl": {
-			"$value": "4rem",
+			"$value": "{size.64}",
 			"$description": "64px"
 		},
 		"3-xl": {
-			"$value": "8rem",
+			"$value": "{size.128}",
 			"$description": "128px"
 		},
 		"4-xl": {
-			"$value": "12rem",
+			"$value": "{size.192}",
 			"$description": "192px"
 		}
 	}

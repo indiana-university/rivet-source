@@ -77,7 +77,7 @@
 		align-items: center;
 		background-color: var(--rvt-color-theme-background);
 		border: var(--rvt-size-2) solid var(--rvt-color-theme-ui);
-		border-radius: 999rem;
+		border-radius: var(--rvt-border-radius-circle);
 		box-shadow:
 			0 0 0 var(--rvt-size-1) var(--rvt-color-base-ultralight),
 			0 0 0 var(--rvt-spacing-xs) var(--rvt-color-theme-background);
