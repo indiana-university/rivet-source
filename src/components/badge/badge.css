@@ -13,7 +13,7 @@
 	display: inline-flex;
 	font: var(--rvt-font-14-bold);
 	gap: var(--rvt-spacing-xxs);
-	padding: var(--rvt-size-1) 0.75rem;
+	padding: var(--rvt-size-1) var(--rvt-size-12);
 	text-decoration: none;
 	white-space: nowrap;
 }

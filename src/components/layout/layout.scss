@@ -74,7 +74,7 @@
 
 		&__break-out,
 		&__break-out + * {
-			--flow-space: 3rem;
+			--flow-space: var(--rvt-size-48);
 		}
 
 		&__wrapper--single &__break-out {

@@ -4,7 +4,7 @@
 .rvt-quote {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: var(--rvt-size-16);
 
 	&::before {
 		background-color: var(--rvt-color-theme-text-accent);

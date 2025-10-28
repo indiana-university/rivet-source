@@ -67,7 +67,7 @@ tbody tr :is(td, th) {
 
 .rvt-table-compact {
 	tr :is(th, td) {
-		padding: 0.5rem;
+		padding: var(--rvt-size-8);
 	}
 }
 

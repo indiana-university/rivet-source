@@ -43,7 +43,7 @@
 		button {
 			background-color: transparent;
 			border: none;
-			border-left: 0.25rem solid transparent;
+			border-left: var(--rvt-size-4) solid transparent;
 			display: block;
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;

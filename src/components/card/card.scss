@@ -171,7 +171,7 @@
 
 .rvt-card--feature {
 	--aspect-ratio: var(--aspect-ratio-rectangle);
-	--padding: 2rem;
+	--padding: var(--rvt-size-32);
 
 	&::before {
 		border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
@@ -186,7 +186,7 @@
 	}
 
 	&::after {
-		--position: calc((var(--padding) - 1rem) / 2);
+		--position: calc((var(--padding) - var(--rvt-size-16)) / 2);
 		background-color: currentColor;
 		bottom: var(--position);
 		clip-path: path(var(--rvt-icon-arrow-right));

@@ -6,25 +6,25 @@
 @include all-inputs(".rvt-validation-info") {
 	background-color: var(--rvt-color-info-background);
 	border-color: var(--rvt-color-info-border);
-	box-shadow: 0 0 0 0.0625rem var(--rvt-color-info-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-info-border);
 }
 
 @include all-inputs(".rvt-validation-warning") {
 	background-color: var(--rvt-color-warning-background);
 	border-color: var(--rvt-color-warning-border);
-	box-shadow: 0 0 0 0.0625rem var(--rvt-color-warning-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-warning-border);
 }
 
 @include all-inputs(".rvt-validation-danger") {
 	background-color: var(--rvt-color-danger-background);
 	border-color: var(--rvt-color-danger-border);
-	box-shadow: 0 0 0 0.0625rem var(--rvt-color-danger-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-danger-border);
 }
 
 @include all-inputs(".rvt-validation-success") {
 	background-color: var(--rvt-color-success-background);
 	border-color: var(--rvt-color-success-border);
-	box-shadow: 0 0 0 0.0625rem var(--rvt-color-success-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-success-border);
 }
 
 /**

@@ -188,7 +188,7 @@
 
 	&__button--mobile-menu-close {
 		position: absolute;
-		right: 1rem;
+		right: var(--rvt-size-16);
 		top: 1.35rem;
 	}
 }

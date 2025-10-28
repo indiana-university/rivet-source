@@ -19,8 +19,8 @@
 
 		svg {
 			flex-shrink: 0;
-			height: 1rem;
-			width: 1rem;
+			height: var(--rvt-size-16);
+			width: var(--rvt-size-16);
 		}
 
 		> * {

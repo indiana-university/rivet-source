@@ -60,6 +60,6 @@
 	}
 
 	.rvt-accordion__panel > * + * {
-		margin-top: 1.5rem;
+		margin-top: var(--rvt-size-24);
 	}
 }
