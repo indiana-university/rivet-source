@@ -128,8 +128,7 @@
 	}
 
 	&--vertical &__item::before {
-		box-shadow: calc(var(--rvt-size-2) * -1) 0 0 0
-			var(--rvt-color-theme-ui);
+		box-shadow: calc(var(--rvt-size-2) * -1) 0 0 0 var(--rvt-color-theme-ui);
 		height: 100%;
 		left: var(--rvt-size-18);
 		position: absolute;
