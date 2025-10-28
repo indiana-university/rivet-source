@@ -146,7 +146,8 @@
 
 	&__search-bar {
 		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-		box-shadow: 0 var(--rvt-size-infinite) 0 var(--rvt-size-infinite) var(--rvt-color-shadow-dark);
+		box-shadow: 0 var(--rvt-size-infinite) 0 var(--rvt-size-infinite)
+			var(--rvt-color-shadow-dark);
 		position: absolute;
 		right: 0;
 		top: 5.25rem;
