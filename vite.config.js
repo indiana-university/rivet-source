@@ -3,7 +3,6 @@ import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
-import { eleventyPlugin } from "vite-plugin-eleventy";
 import pkg from "./package.json";
 
 const [fileName] = pkg.name.split("-");
@@ -22,7 +21,7 @@ const buildConfig = {
 		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
-			entry: "src/js/index.js",
+			entry: "src/rivet.js",
 			fileName: () => `${fileName}.js`,
 			formats: ["es"],
 		},
@@ -36,17 +35,8 @@ const buildConfig = {
 	}
 };
 
-const serveConfig = {
-	root: "src/sandbox",
-	plugins: [eleventyPlugin()],
-	server: {
-		open: true,
-	},
-};
-
 const commandMap = {
 	build: buildConfig,
-	serve: serveConfig,
 };
 
 export default defineConfig(({ command }) => commandMap[command]);

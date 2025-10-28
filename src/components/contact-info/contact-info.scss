@@ -1,0 +1,120 @@
+// Copyright (C) 2025 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../../base/core.scss" as *;
+
+.rvt-contact-info {
+	container-name: contact;
+	container-type: inline-size;
+
+	&__address {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rvt-spacing-md);
+	}
+
+	&__address-eyebrow {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-12-mono);
+	}
+
+	&__address-title {
+		font: var(--rvt-font-20-bold);
+	}
+
+	&__address-eyebrow + &__address-title {
+		margin-top: var(--rvt-spacing-xxs);
+	}
+
+	&__address-text {
+		margin-top: var(--rvt-spacing-xs);
+	}
+
+	&__icon-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rvt-spacing-xs);
+		list-style: "";
+		margin-bottom: 0;
+		margin-top: 0;
+		padding-left: 0;
+	}
+
+	&__icon-list-item {
+		align-items: start;
+		display: flex;
+		gap: var(--rvt-spacing-xs);
+
+		> rvt-icon {
+			padding-block: var(--rvt-size-4);
+		}
+	}
+
+	&__disclosure {
+		width: var(--rvt-width-md);
+
+		button {
+			align-items: center;
+			background: none;
+			border: none;
+			color: var(--rvt-color-theme-accent);
+			display: inline-flex;
+			gap: var(--rvt-spacing-xs);
+			font-weight: var(--rvt-font-weight-bold);
+			padding: 0;
+		}
+
+		button::after {
+			background-color: currentColor;
+			clip-path: path(var(--rvt-icon-chevron-down));
+			content: "";
+			display: block;
+			height: var(--rvt-spacing-sm);
+			width: var(--rvt-spacing-sm);
+		}
+
+		button:hover {
+			cursor: pointer;
+			color: var(--rvt-color-theme-accent-strong);
+			text-decoration: underline;
+		}
+
+		button[aria-expanded="true"]::after {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__intro + &__address {
+		margin-top: var(--rvt-spacing-xl);
+	}
+
+	&__address + &__icon-list {
+		margin-top: var(--rvt-spacing-md);
+	}
+}
+
+@container contact (min-width: #{$breakpoint-md}) {
+	.rvt-contact-info {
+		&__inner {
+			display: flex;
+
+			> * {
+				flex-basis: 0;
+				flex-grow: 999;
+			}
+		}
+
+		&__address {
+			flex-direction: row;
+		}
+
+		&__address + &__icon-list {
+			margin-top: 0;
+		}
+
+		&__icon-list {
+			border-left: 1px solid var(--rvt-color-theme-ui);
+			padding-left: var(--rvt-spacing-lg);
+		}
+	}
+}

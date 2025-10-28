@@ -1,0 +1,120 @@
+// Copyright (C) 2025 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../../base/core.scss" as *;
+
+.rvt-list-hub {
+	background-color: transparent;
+	text-wrap: pretty;
+
+	&__title {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-12-mono);
+		letter-spacing: var(--rvt-letter-spacing-wide);
+		text-transform: uppercase;
+	}
+
+	&__list {
+		list-style: "";
+		margin-bottom: 0;
+		// Magic number to help with visual alignment when
+		// list hub is first element in a layout with a sidebar
+		margin-top: calc(var(--rvt-spacing-xs) * 1.5);
+		padding-left: 0;
+	}
+
+	&__item {
+		border-top: 1px solid var(--rvt-color-theme-ui);
+		padding-block: var(--rvt-spacing-sm);
+		padding-inline: var(--rvt-spacing-sm);
+
+		> * {
+			max-width: var(--rvt-line-length-normal);
+		}
+	}
+
+	// If the item is not a link remove eyebrow padding for proper alignment.
+	&__item:has(&__item-title) > &__eyebrow {
+		padding-inline-start: 0;
+	}
+
+	&__eyebrow {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-12-mono);
+		padding-inline-start: var(--rvt-spacing-md);
+	}
+
+	&__link,
+	&__item-title {
+		color: var(--rvt-color-theme-text-strong);
+		display: flex;
+		font: var(--rvt-font-18-fluid-bold);
+		gap: var(--rvt-spacing-xs);
+		position: relative;
+		text-decoration: none;
+
+		&:visited {
+			color: inherit;
+		}
+	}
+
+	&__link {
+		--icon: var(--rvt-icon-arrow-down);
+		--rotate: -90deg;
+	}
+
+	&__link[href^="http"] {
+		--rotate: -135deg;
+	}
+
+	&__link[href^="#"] {
+		--rotate: 0;
+	}
+
+	&__link[href$=".docx"],
+	&__link[href$=".pdf"],
+	&__link[href$=".pptx"],
+	&__link[href$=".xlsx"] {
+		--icon: var(--rvt-icon-download);
+		--rotate: 0;
+	}
+
+	&__link:hover {
+		color: var(--rvt-color-theme-accent);
+		text-decoration: underline;
+	}
+
+	&__link::before {
+		background-color: currentColor;
+		clip-path: path(var(--icon));
+		content: "";
+		flex-shrink: 0;
+		height: var(--rvt-spacing-sm);
+		margin-block-start: calc(6rem / 16);
+		position: relative;
+		transform: rotate(var(--rotate));
+		width: var(--rvt-spacing-sm);
+	}
+
+	&__item-title + &__content {
+		padding-inline-start: 0;
+	}
+
+	&__content {
+		color: var(--rvt-color-theme-text);
+		margin-block-start: var(--rvt-spacing-xs);
+		padding-inline-start: var(--rvt-spacing-md);
+
+		> ul:not([class]) {
+			list-style-type: disc;
+		}
+	}
+
+	&__content > * {
+		margin: 0;
+	}
+
+	&__content > * + * {
+		margin-top: var(--rvt-spacing-sm);
+	}
+}

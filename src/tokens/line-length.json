@@ -1,0 +1,11 @@
+{
+	"line-length": {
+		"$type": "dimension",
+		"short": {
+			"$value": "45ch"
+		},
+		"normal": {
+			"$value": "75ch"
+		}
+	}
+}

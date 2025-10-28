@@ -1,0 +1,86 @@
+---
+export const title = "Timeline";
+---
+
+<div class="rvt-timeline">
+	<div class="rvt-timeline__item">
+		<div class="rvt-timeline__marker" aria-hidden="true"></div>
+		<div class="rvt-timeline__content">
+			<div class="rvt-timeline__label">Label</div>
+			<div class="rvt-timeline__content-inner">
+				<h2 class="rvt-timeline__heading">
+					This card title should be concise and should not exceed 78 characters
+					or 3 lines of text
+				</h2>
+				<div class="rvt-rich-text">
+					<p>
+						Try and keep card descriptions brief. One to three short sentences
+						will keep the user engaged with your content.
+					</p>
+				</div>
+				<div class="rvt-timeline__item-dates">
+					<div class="rvt-timeline__item-dates-icon">
+						<rvt-icon name="calendar"></rvt-icon>
+					</div>
+					<dl
+						class="rvt-list-description [ rvt-m-top-sm rvt-flex rvt-flex-column rvt-gap-xs ]"
+					>
+						{
+							Array(3)
+								.fill(null)
+								.map(() => (
+									<div class="rvt-flex rvt-items-center rvt-gap-sm">
+										<dt class="rvt-m-top-none">Deadline title:</dt>
+										<dd>Deadline description</dd>
+									</div>
+								))
+						}
+					</dl>
+				</div>
+				<div class="rvt-timeline__item-actions">
+					<a href="/google" class="rvt-button rvt-button--cta">Apply now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rvt-timeline__item">
+		<div class="rvt-timeline__marker" aria-hidden="true"></div>
+		<div class="rvt-timeline__content">
+			<div class="rvt-timeline__label">Label</div>
+			<div class="rvt-timeline__content-inner">
+				<h2 class="rvt-timeline__heading">
+					This card title should be concise and should not exceed 78 characters
+					or 3 lines of text
+				</h2>
+				<div class="rvt-rich-text">
+					<p>
+						Try and keep card descriptions brief. One to three short sentences
+						will keep the user engaged with your content.
+					</p>
+				</div>
+				<div class="rvt-timeline__item-dates">
+					<div class="rvt-timeline__item-dates-icon">
+						<rvt-icon name="calendar"></rvt-icon>
+					</div>
+					<dl
+						class="rvt-list-description [ rvt-m-top-sm rvt-flex rvt-flex-column rvt-gap-xs ]"
+					>
+						{
+							Array(3)
+								.fill(null)
+								.map(() => (
+									<div class="rvt-flex rvt-items-center rvt-gap-sm">
+										<dt class="rvt-m-top-none">Deadline title:</dt>
+										<dd>Deadline description</dd>
+									</div>
+								))
+						}
+					</dl>
+				</div>
+				<div class="rvt-timeline__item-actions">
+					<a href="/google" class="rvt-button rvt-button--cta">Apply now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

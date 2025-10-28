@@ -1,0 +1,27 @@
+/*
+ * Copyright (C) 2025 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+rvt-icon {
+	--name: 0;
+	align-items: center;
+	display: inline-flex;
+	height: min-content;
+	justify-content: center;
+	width: min-content;
+
+	&:empty::before,
+	> svg {
+		content: "";
+		display: block;
+		height: var(--rvt-size-16);
+		width: var(--rvt-size-16);
+	}
+
+	> svg {
+		flex-shrink: 0;
+		transition: z-index 0.001ms step-start;
+		z-index: var(--name);
+	}
+}

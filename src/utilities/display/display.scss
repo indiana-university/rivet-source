@@ -1,0 +1,51 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+/* Hide only visually, but have it available for
+ * screenreaders: h5bp.com/v
+ */
+
+.rvt-sr-only {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	/* Set color to prevent false positives in a11y tools */
+	background-color: white;
+	color: black;
+}
+
+/* Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the
+ * keyboard: h5bp.com/p
+ */
+
+.rvt-sr-only.rvt-focusable:active,
+.rvt-sr-only.rvt-focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+.rvt-display-block {
+	display: block;
+}
+
+.rvt-display-inline-block {
+	display: inline-block;
+}
+
+.rvt-display-inline {
+	display: inline;
+}
+
+.rvt-display-none {
+	display: none;
+}

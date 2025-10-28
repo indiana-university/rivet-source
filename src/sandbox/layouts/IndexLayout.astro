@@ -1,0 +1,16 @@
+---
+import Layout from "./Layout.astro";
+const { children } = Astro.props;
+---
+
+<Layout {...Astro.props}>
+	<ul>
+		{
+			children.map((page) => (
+				<li>
+					<a href={page.path}>{page.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</Layout>

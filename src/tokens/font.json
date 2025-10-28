@@ -2,9 +2,6 @@
 	"font": {
 		"family": {
 			"$type": "fontFamily",
-			"base": {
-				"$value": "{font.family.sans}"
-			},
 			"sans": {
 				"$value": [
 					"Roboto Flex",
@@ -39,24 +36,41 @@
 					"Ubuntu Mono",
 					"monospace"
 				]
-			},
-			"condensed": {
-				"$value": "{font.family.sans}"
 			}
 		},
 		"weight": {
 			"$type": "fontWeight",
-			"black": {
-				"$value": 800
+			"normal": {
+				"$value": 350
 			},
 			"bold": {
 				"$value": 650
 			},
-			"medium": {
-				"$value": 550
+			"black": {
+				"$value": 800
 			},
-			"regular": {
-				"$value": 350
+			"extra-black": {
+				"$value": 900
+			}
+		},
+		"width": {
+			"ultra-condensed": {
+				"$value": "ultra-condensed"
+			},
+			"semi-condensed": {
+				"$value": "semi-condensed"
+			},
+			"normal": {
+				"$value": "normal"
+			},
+			"semi-expanded": {
+				"$value": "semi-expanded"
+			},
+			"expanded": {
+				"$value": "expanded"
+			},
+			"extra-expanded": {
+				"$value": "extra-expanded"
 			}
 		}
 	}

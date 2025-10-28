@@ -1,0 +1,166 @@
+---
+export const title = "Alert";
+---
+
+<div class="rvt-stack" style="--rvt-stack-space: var(--rvt-spacing-md)">
+	<!-- Default -->
+	<div
+		class="rvt-alert"
+		role="alert"
+		aria-labelledby="information-alert-title"
+		data-rvt-alert="info"
+	>
+		<div class="rvt-alert__title" id="information-alert-title">Please note</div>
+		<div class="rvt-alert__content">
+			<p>
+				Use the default alert to <a href="#">add inline notes</a> to text content.
+			</p>
+			<div class="rvt-button-group">
+				<button
+					class="rvt-button rvt-button--medium rvt-button--strong"
+					type="button"
+				>
+					Okay
+				</button>
+				<button class="rvt-button rvt-button--medium" type="button">
+					Dismiss
+				</button>
+			</div>
+		</div>
+		<button class="rvt-alert__dismiss" data-rvt-alert-close>
+			<span class="rvt-sr-only">Dismiss this alert</span>
+		</button>
+	</div>
+
+	<!-- Info -->
+	<div
+		class="rvt-alert rvt-alert--info"
+		role="alert"
+		aria-labelledby="information-alert-title"
+		data-rvt-alert="info"
+	>
+		<div class="rvt-alert__title" id="information-alert-title">
+			Scheduled System Maintenance
+		</div>
+		<div class="rvt-alert__content">
+			<p>
+				This system will be unavailable on August 1st due to
+				<a href="#">scheduled system maintenance</a>. Please check back on
+				August 2nd.
+			</p>
+			<ul>
+				<li>
+					Voluptatum, sunt assumenda incidunt asperiores architecto obcaecati
+					vero!
+				</li>
+				<li>Architecto obcaecati vero!</li>
+			</ul>
+			<div class="rvt-button-group">
+				<button
+					class="rvt-button rvt-button--medium rvt-button--strong"
+					type="button"
+				>
+					Okay
+				</button>
+				<button class="rvt-button rvt-button--medium" type="button">
+					Dismiss
+				</button>
+			</div>
+		</div>
+		<button class="rvt-alert__dismiss" data-rvt-alert-close>
+			<span class="rvt-sr-only">Dismiss this alert</span>
+		</button>
+	</div>
+
+	<!-- Success -->
+	<div
+		class="rvt-alert rvt-alert--success"
+		role="alert"
+		aria-labelledby="success-alert-title"
+		data-rvt-alert="success"
+	>
+		<div class="rvt-alert__title" id="success-alert-title">Thank you!</div>
+		<div class="rvt-alert__content">
+			<p>
+				We have <a href="#">received your application</a>. Check your email in a
+				few weeks to find out if you've been admitted.
+			</p>
+			<div class="rvt-button-group">
+				<button
+					class="rvt-button rvt-button--medium rvt-button--strong"
+					type="button"
+				>
+					Okay
+				</button>
+				<button class="rvt-button rvt-button--medium" type="button">
+					Dismiss
+				</button>
+			</div>
+		</div>
+		<button class="rvt-alert__dismiss" data-rvt-alert-close>
+			<span class="rvt-sr-only">Dismiss this alert</span>
+		</button>
+	</div>
+
+	<!-- Warning -->
+	<div
+		class="rvt-alert rvt-alert--warning"
+		role="alert"
+		aria-labelledby="warning-alert-title"
+		data-rvt-alert="warning"
+	>
+		<div class="rvt-alert__title" id="warning-alert-title">Unsaved Changes</div>
+		<div class="rvt-alert__content">
+			<p>
+				Your changes have <a href="#">not been saved</a>. To save your changes,
+				click 'Save my changes' or click Cancel' to exit without saving.
+			</p>
+			<div class="rvt-button-group">
+				<button
+					class="rvt-button rvt-button--medium rvt-button--strong"
+					type="button"
+				>
+					Okay
+				</button>
+				<button class="rvt-button rvt-button--medium" type="button">
+					Dismiss
+				</button>
+			</div>
+		</div>
+		<button class="rvt-alert__dismiss" data-rvt-alert-close>
+			<span class="rvt-sr-only">Dismiss this alert</span>
+		</button>
+	</div>
+
+	<!-- Error -->
+	<div
+		class="rvt-alert rvt-alert--danger"
+		role="alert"
+		aria-labelledby="error-alert-title"
+		data-rvt-alert="error"
+	>
+		<div class="rvt-alert__title" id="error-alert-title">
+			Incorrect User ID or Password
+		</div>
+		<div class="rvt-alert__content">
+			<p>
+				The user ID and password you entered do not match. Please
+				<a href="#">check your entries</a> and try again.
+			</p>
+			<div class="rvt-button-group">
+				<button
+					class="rvt-button rvt-button--medium rvt-button--strong"
+					type="button"
+				>
+					Okay
+				</button>
+				<button class="rvt-button rvt-button--medium" type="button">
+					Dismiss
+				</button>
+			</div>
+		</div>
+		<button class="rvt-alert__dismiss" data-rvt-alert-close>
+			<span class="rvt-sr-only">Dismiss this alert</span>
+		</button>
+	</div>
+</div>

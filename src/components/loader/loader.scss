@@ -1,0 +1,73 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.rvt-loader {
+	animation: 0.8s linear infinite loader;
+	display: inline-block;
+	border: 0.2rem solid transparent;
+	border-bottom-color: var(--rvt-color-theme-accent);
+	border-right-color: var(--rvt-color-theme-accent);
+	border-top-color: var(--rvt-color-theme-accent);
+	border-radius: 50%;
+	height: calc(var(--rvt-spacing-sm) * 1.25);
+	position: relative;
+	width: calc(var(--rvt-spacing-sm) * 1.25);
+
+	&--reverse {
+		border-bottom-color: var(--rvt-color-theme-background);
+		border-right-color: var(--rvt-color-theme-background);
+		border-top-color: var(--rvt-color-theme-background);
+	}
+
+	&--xxs {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125);
+		height: var(--rvt-spacing-sm);
+		width: var(--rvt-spacing-sm);
+	}
+
+	&--xs {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 1.25);
+		height: calc(var(--rvt-spacing-sm) * 1.25);
+		width: calc(var(--rvt-spacing-sm) * 1.25);
+	}
+
+	&--sm {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 1.75);
+		height: calc(var(--rvt-spacing-sm) * 1.75);
+		width: calc(var(--rvt-spacing-sm) * 1.75);
+	}
+
+	&--md {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 2);
+		height: calc(var(--rvt-spacing-sm) * 2);
+		width: calc(var(--rvt-spacing-sm) * 2);
+	}
+
+	&--lg {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 2.75);
+		height: calc(var(--rvt-spacing-sm) * 2.75);
+		width: calc(var(--rvt-spacing-sm) * 2.75);
+	}
+
+	&--xl {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 3.25);
+		height: calc(var(--rvt-spacing-sm) * 3.25);
+		width: calc(var(--rvt-spacing-sm) * 3.25);
+	}
+
+	&--xxl {
+		border-width: calc(var(--rvt-spacing-sm) * 0.125 * 4);
+		height: calc(var(--rvt-spacing-sm) * 4);
+		width: calc(var(--rvt-spacing-sm) * 4);
+	}
+}
+
+@keyframes loader {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

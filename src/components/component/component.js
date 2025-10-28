@@ -1,0 +1,237 @@
+/******************************************************************************
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ *****************************************************************************/
+
+import { define } from "wicked-elements";
+import { PREFIX } from "../../constants.js";
+
+/******************************************************************************
+ * Abstract base class from which all Rivet component classes are derived.
+ *****************************************************************************/
+
+export default class Component {
+	/****************************************************************************
+	 * Initializes all current and future instances of the component that are
+	 * added to the DOM.
+	 *
+	 * @static
+	 ***************************************************************************/
+
+	static initAll() {
+		this.init(this.selector);
+	}
+
+	/****************************************************************************
+	 * Initializes a specific component instance with the given selector.
+	 *
+	 * @static
+	 * @param {string} selector - CSS selector of component to initialize
+	 * @returns {HTMLElement} The initialized component
+	 ***************************************************************************/
+
+	static init(selector) {
+		define(selector, this.methods);
+
+		return document.querySelector(selector);
+	}
+
+	/****************************************************************************
+	 * Gets the component's CSS selector.
+	 *
+	 * @abstract
+	 * @static
+	 * @returns {string} The CSS selector
+	 ***************************************************************************/
+
+	static get selector() {
+		/* Virtual, must be implemented by subclass. */
+	}
+
+	/****************************************************************************
+	 * Gets the component's methods.
+	 *
+	 * @abstract
+	 * @static
+	 * @returns {Object} The component's methods
+	 ***************************************************************************/
+
+	static get methods() {
+		/* Virtual, must be implemented by subclass. */
+	}
+
+	/****************************************************************************
+	 * Binds the given method to the component DOM element.
+	 *
+	 * @static
+	 * @param {Component} self - Component instance
+	 * @param {string} name - Method name
+	 * @param {Function} method - Method to bind
+	 ***************************************************************************/
+
+	static bindMethodToDOMElement(self, name, method) {
+		Object.defineProperty(self.element, name, {
+			value: method.bind(self),
+			writable: false,
+		});
+	}
+
+	/****************************************************************************
+	 * Dispatches a custom browser event.
+	 *
+	 * @static
+	 * @param {string} eventName - Event name
+	 * @param {HTMLElement} element - Event target
+	 * @param {Object?} detail - Optional event details
+	 * @returns {boolean} Event success or failure
+	 ***************************************************************************/
+
+	static dispatchCustomEvent(eventName, element, detail = {}) {
+		const event = new CustomEvent(`${PREFIX}${eventName}`, {
+			bubbles: true,
+			cancelable: true,
+			detail,
+		});
+
+		return element.dispatchEvent(event);
+	}
+
+	/****************************************************************************
+	 * Dispatches a "component added" browser event.
+	 *
+	 * @static
+	 * @param {HTMLElement} element - New component DOM element
+	 * @returns {boolean} Event success or failure
+	 ***************************************************************************/
+
+	static dispatchComponentAddedEvent(element) {
+		return this.dispatchCustomEvent("ComponentAdded", document, {
+			component: element,
+		});
+	}
+
+	/****************************************************************************
+	 * Dispatches a "component removed" browser event.
+	 *
+	 * @static
+	 * @param {HTMLElement} element - Removed component DOM element
+	 * @returns {boolean} Event success or failure
+	 ***************************************************************************/
+
+	static dispatchComponentRemovedEvent(element) {
+		return this.dispatchCustomEvent("ComponentRemoved", document, {
+			component: element,
+		});
+	}
+
+	/****************************************************************************
+	 * Watches the component's DOM and updates references to child elements
+	 * if the DOM changes. Accepts an optional callback to perform additional
+	 * updates to the component on DOM change.
+	 *
+	 * @static
+	 * @param {Object} self - Component instance
+	 * @param {Function} callback - Optional callback
+	 ***************************************************************************/
+
+	static watchForDOMChanges(self, callback = null) {
+		self.observer = new MutationObserver((mutationList, observer) => {
+			self._initElements();
+
+			if (callback) {
+				callback();
+			}
+		});
+
+		self.observer.observe(self.element, { childList: true, subtree: true });
+	}
+
+	/****************************************************************************
+	 * Stop watching the component's DOM for changes.
+	 *
+	 * @static
+	 * @param {Object} self - Component instance
+	 ***************************************************************************/
+
+	static stopWatchingForDOMChanges(self) {
+		self.observer.disconnect();
+	}
+
+	/****************************************************************************
+	 * Watches the component for resize events. Accepts a callback to perform
+	 * additional updates to the component on resize.
+	 *
+	 * @static
+	 * @param {Object} self - Component instance
+	 * @param {Function} callback - Callback
+	 ***************************************************************************/
+
+	static watchForResize(self, callback) {
+		self.resizeObserver = new ResizeObserver((entries) => {
+			callback(entries);
+		});
+
+		self.resizeObserver.observe(self.element);
+	}
+
+	/****************************************************************************
+	 * Watches the document body for resize events. Accepts a callback to
+	 * perform additional updates to the component on document body resize.
+	 *
+	 * @static
+	 * @param {Object} self - Component instance
+	 * @param {Function} callback - Callback
+	 ***************************************************************************/
+
+	static watchForDocumentResize(self, callback) {
+		const documentBody = document.querySelector("body");
+
+		self.resizeObserver = new ResizeObserver((entries) => {
+			callback(entries);
+		});
+
+		self.resizeObserver.observe(documentBody);
+	}
+
+	/****************************************************************************
+	 * Stop watching the component for resize events.
+	 *
+	 * @static
+	 * @param {Object} self - Component instance
+	 ***************************************************************************/
+
+	static stopWatchingForResize(self) {
+		self.resizeObserver.disconnect();
+	}
+
+	/****************************************************************************
+	 * Generates a random unique ID for a component's data attributes. Rivet
+	 * components and their child elements are automatically assigned IDs if the
+	 * developer does not manually specify one in the markup.
+	 *
+	 * @static
+	 * @returns {string} Unique ID
+	 ***************************************************************************/
+
+	static generateUniqueId() {
+		return PREFIX + "-" + Math.random().toString(20).substr(2, 12);
+	}
+
+	/****************************************************************************
+	 * Sets the given element attribute if no value was already specified in the
+	 * component's markup.
+	 *
+	 * @static
+	 * @param {HTMLElement} element - Element to set attribute on
+	 * @param {string} attribute - Attribute name
+	 * @param {string} value - Attribute value
+	 ***************************************************************************/
+
+	static setAttributeIfNotSpecified(element, attribute, value) {
+		const existingValue = element.getAttribute(attribute);
+
+		if (!existingValue) {
+			element.setAttribute(attribute, value);
+		}
+	}
+}
