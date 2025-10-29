@@ -34,24 +34,24 @@
 
 	&__content {
 		color: var(--rvt-color-theme-text);
-		margin-top: var(--rvt-spacing-lg);
-	}
+		margin-top: var(--rvt-spacing-md);
 
-	&__content > * {
-		margin: 0;
-	}
+		> * {
+			margin: 0;
 
-	&__content > * + * {
-		margin-top: var(--rvt-spacing-lg);
+			+ * {
+				margin-top: var(--rvt-spacing-lg);
+			}
+		}
 	}
 
 	&__image {
 		z-index: 1;
-	}
 
-	&__image img {
-		display: block;
-		width: 100%;
+		img {
+			display: block;
+			width: 100%;
+		}
 	}
 }
 

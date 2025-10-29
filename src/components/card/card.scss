@@ -53,7 +53,7 @@
 	}
 
 	.rvt-card__badge {
-		margin-bottom: var(--rvt-spacing-sm);
+		margin-bottom: var(--rvt-size-12);
 	}
 
 	.rvt-card__eyebrow {
@@ -100,14 +100,10 @@
 		}
 	}
 
-	.rvt-card__subtitle {
-		margin-top: var(--rvt-spacing-xs);
-	}
-
 	.rvt-card__content {
 		color: var(--rvt-color-theme-text);
 		flex-grow: 1;
-		margin-top: var(--rvt-spacing-md);
+		margin-top: var(--rvt-spacing-sm);
 		max-width: var(--rvt-line-length-normal);
 
 		> * {
@@ -128,7 +124,7 @@
 		flex-direction: column;
 		gap: var(--rvt-spacing-xs);
 		list-style: "";
-		margin: var(--rvt-spacing-md) 0 0;
+		margin: var(--rvt-spacing-sm) 0 0;
 		padding-left: 0;
 
 		li {
@@ -238,6 +234,10 @@
 				display: none;
 			}
 		}
+	}
+
+	.rvt-card__content {
+		margin-block-start: var(--rvt-size-20);
 	}
 }
 
