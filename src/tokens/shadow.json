@@ -12,7 +12,7 @@
 		},
 		"subtle": {
 			"$value": {
-				"color": "{color.shadow.extralight}",
+				"color": "{color.shadow.extra-light}",
 				"offsetX": 0,
 				"offsetY": "{size.3}",
 				"blur": "{size.6}",

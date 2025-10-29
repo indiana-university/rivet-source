@@ -2,7 +2,7 @@
 	"color": {
 		"$type": "color",
 		"base": {
-			"ultradark": {
+			"ultra-dark": {
 				"$value": "#000000"
 			},
 			"dark": {
@@ -20,15 +20,15 @@
 			"light": {
 				"$value": "#E0E0E0"
 			},
-			"extralight": {
+			"extra-light": {
 				"$value": "#EEEEF0"
 			},
-			"ultralight": {
+			"ultra-light": {
 				"$value": "#FFFFFF"
 			}
 		},
 		"brand": {
-			"extradark": {
+			"extra-dark": {
 				"$value": "#510606"
 			},
 			"dark": {
@@ -41,10 +41,10 @@
 				"$value": "#DB6B57"
 			},
 			"light": {
-				"$value": "#F5E3CC"
+				"$value": "#EFDFC8"
 			},
-			"extralight": {
-				"$value": "#F8EFE2"
+			"extra-light": {
+				"$value": "#F9F3EB"
 			}
 		},
 		"danger": {
@@ -113,10 +113,10 @@
 			"light": {
 				"$value": { "r": 7, "g": 35, "b": 50, "a": 0.16 }
 			},
-			"extralight": {
+			"extra-light": {
 				"$value": { "r": 7, "g": 35, "b": 50, "a": 0.07 }
 			},
-			"ultralight": {
+			"ultra-light": {
 				"$value": { "r": 7, "g": 35, "b": 50, "a": 0 }
 			}
 		},
