@@ -76,7 +76,9 @@
 }
 
 .rvt-button--small {
-	--color-border: var(--rvt-color-theme-ui-strong);
+	--color-border: var(--rvt-color-theme-ui);
+	--color-text: var(--rvt-color-theme-accent);
+	--color-text-hover: var(--rvt-color-theme-accent);
 	--font: var(--rvt-font-14-bold);
 	--gap: var(--rvt-spacing-xxs);
 	--size-height: var(--rvt-size-24);

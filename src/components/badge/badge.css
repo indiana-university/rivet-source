@@ -19,9 +19,9 @@
 }
 
 span.rvt-badge {
-	--color-background: var(--rvt-color-base-extra-light);
-	--color-border: var(--rvt-color-base-medium);
-	--color-text: var(--rvt-color-base-main);
+	--color-background: var(--rvt-color-brand-extra-light);
+	--color-border: var(--rvt-color-brand-light);
+	--color-text: var(--rvt-color-brand-main);
 
 	&.rvt-badge--info {
 		--color-background: var(--rvt-color-info-background);

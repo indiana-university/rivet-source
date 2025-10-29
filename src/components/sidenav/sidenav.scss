@@ -49,7 +49,6 @@
 	}
 
 	&__link {
-		border-left: var(--rvt-size-4) solid transparent;
 		color: var(--rvt-color-theme-text-strong);
 		flex-grow: 1;
 		padding: var(--rvt-spacing-sm);
@@ -57,7 +56,7 @@
 		text-decoration: none;
 
 		&:is([aria-current="page"], [aria-current="page"]:hover) {
-			border-color: currentColor;
+			background-color: var(--rvt-color-theme-background-strong);
 			color: var(--rvt-color-theme-accent);
 			font-weight: var(--rvt-font-weight-bold);
 		}
