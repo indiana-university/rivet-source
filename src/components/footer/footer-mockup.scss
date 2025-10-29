@@ -1,0 +1,186 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../../base/core.scss" as *;
+
+.rvt-footer {
+	.rvt-footer__section {
+		padding-block: var(--rvt-spacing-md);
+	}
+
+	.rvt-footer__section + .rvt-footer__section {
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	}
+
+	.rvt-footer__resources {
+		//margin-block-start: var(--rvt-spacing-md);
+	}
+
+	.rvt-footer-resources__content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--rvt-spacing-md);
+
+		> * {
+			flex-grow: 1;
+		}
+
+		a {
+			color: var(--rvt-color-theme-text);
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.rvt-footer-resources__address {
+		margin-block-start: var(--rvt-size-2);
+
+		h3 {
+			color: var(--rvt-color-theme-text-accent);
+			font: var(--rvt-font-20-black);
+			text-transform: uppercase;
+		}
+
+		p {
+			margin-block: var(--rvt-spacing-xs) 0;
+
+			&:first-of-type {
+				margin-block-start: var(--rvt-spacing-sm);
+			}
+		}
+	}
+
+	.rvt-footer-resources__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--rvt-spacing-md);
+
+		> * {
+			flex-basis: 15ch;
+			flex-grow: 1;
+		}
+
+		h3 {
+			font: var(--rvt-font-18-bold);
+		}
+
+		ul {
+			list-style: none;
+			margin-block: var(--rvt-spacing-sm) 0;
+			padding: 0;
+		}
+
+		li {
+			margin-block-start: var(--rvt-spacing-xs);
+		}
+	}
+
+	.rvt-footer__section:has(.rvt-footer__base + .rvt-footer__social) {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--rvt-spacing-sm);
+		//justify-content: center;
+		justify-content: space-between;
+	}
+
+	.rvt-footer__base {
+		//justify-self: center;
+		align-items: center;
+		display: flex;
+		//flex-grow: 1;
+		flex-wrap: wrap;
+		gap: var(--rvt-spacing-sm);
+		justify-content: center;
+
+		.rvt-footer__logo {
+			color: var(--rvt-color-theme-text-accent);
+			display: flex;
+			flex-shrink: 0;
+			justify-content: center;
+			margin-inline: auto;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+			justify-content: center;
+			list-style: "";
+			margin: 0;
+			padding: 0;
+			text-align: center;
+
+			li {
+				font: var(--rvt-font-14);
+
+				a {
+					color: var(--rvt-color-theme-text-strong);
+					text-decoration: none;
+
+					&:hover {
+						color: var(--rvt-color-theme-accent);
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	.rvt-footer__social {
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--rvt-spacing-xs);
+			justify-content: center;
+			list-style: "";
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+._rvt-footer-base {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+		padding-bottom: var(--rvt-spacing-sm);
+		padding-top: var(--rvt-spacing-sm);
+	}
+}
+
+@include mq($breakpoint-md) {
+	._rvt-footer-base {
+		&__inner {
+			align-items: center;
+			flex-direction: row;
+			margin-bottom: 0;
+			margin-right: 0;
+			margin-top: 0;
+		}
+
+		&__logo {
+			display: inline-flex;
+			margin: 0;
+		}
+
+		&__list {
+			display: flex;
+			margin-bottom: 0;
+			margin-left: var(--rvt-spacing-sm);
+			margin-top: 0;
+		}
+
+		&__item {
+			margin-top: 0;
+		}
+
+		&__item:not(:first-child) {
+			margin-left: var(--rvt-spacing-sm);
+		}
+	}
+}

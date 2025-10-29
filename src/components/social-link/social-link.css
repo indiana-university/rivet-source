@@ -9,9 +9,9 @@
 	border-radius: var(--rvt-border-radius-circle);
 	color: var(--rvt-color-theme-accent);
 	display: flex;
-	height: var(--rvt-size-36);
+	height: var(--rvt-size-24);
 	justify-content: center;
-	width: var(--rvt-size-36);
+	width: var(--rvt-size-24);
 
 	&:hover {
 		background-color: var(--rvt-color-theme-background-strong);
@@ -19,14 +19,14 @@
 
 	&::before {
 		--size-source: var(--rvt-size-48);
-		--scale: calc(1 / 3);
+		--scale: calc(1 / 4);
 		background-color: currentColor;
 		clip-path: path(var(--icon));
 		content: "";
 		display: block;
 		height: var(--size-source);
 		position: absolute;
-		transform: scale(calc(1 / 3));
+		transform: scale(var(--scale));
 		width: var(--size-source);
 	}
 
