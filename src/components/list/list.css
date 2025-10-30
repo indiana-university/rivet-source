@@ -3,27 +3,32 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-.rvt-list {
-	li::marker {
-		color: var(--rvt-color-theme-text-accent);
-	}
-
-	&:is(ul) li {
-		list-style-type: square;
-	}
-}
-
 .rvt-list,
 .rvt-list-inline,
 .rvt-list-plain {
 	display: flex;
-	gap: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
-	margin: var(--rvt-spacing-xs) 0 0 0;
+	gap: var(--rvt-size-12) var(--rvt-spacing-sm);
+	margin: 0;
 }
 
 .rvt-list,
 .rvt-list-plain {
 	flex-direction: column;
+}
+
+.rvt-list {
+	li {
+		padding-left: var(--rvt-size-4);
+
+		&::marker {
+			color: var(--rvt-color-theme-text-accent);
+			font-weight: var(--rvt-font-weight-bold);
+		}
+	}
+
+	&:is(ul) li {
+		list-style-type: square;
+	}
 }
 
 .rvt-list-inline,
@@ -36,6 +41,13 @@
 .rvt-list,
 .rvt-list-plain .rvt-list-plain {
 	padding-left: var(--rvt-spacing-lg);
+}
+
+.rvt-list,
+.rvt-list-plain {
+	&:is(ol, ul) :is(ol, ul) {
+		margin-block-start: var(--rvt-size-12);
+	}
 }
 
 .rvt-list-inline {
@@ -53,16 +65,20 @@
 .rvt-list-description {
 	margin: 0;
 
-	:where(dt) {
+	dt {
 		font-weight: var(--rvt-font-weight-bold);
-		margin-top: var(--rvt-spacing-sm);
+		margin-top: var(--rvt-size-20);
 	}
 
-	:where(dt + dt) {
-		margin-top: 0;
+	:is(dt + dt, dd) {
+		margin-block-start: var(--rvt-spacing-xxs);
 	}
 
-	:where(dd) {
-		margin-left: 0;
+	dd {
+		margin-inline-start: 0;
+	}
+
+	:first-child {
+		margin-block-start: 0;
 	}
 }
