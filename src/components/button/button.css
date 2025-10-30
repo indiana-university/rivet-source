@@ -5,11 +5,12 @@
 
 .rvt-button {
 	--color-border: var(--rvt-color-theme-text-strong);
+	--color-border-hover: var(--rvt-color-theme-background-inverse-strong);
 	--color-background: transparent;
-	--color-background-hover: var(--rvt-color-theme-background-strong);
+	--color-background-hover: transparent;
 	--color-background-pressed: var(--rvt-color-theme-background-strong);
 	--color-text: var(--rvt-color-theme-text-strong);
-	--color-text-hover: var(--rvt-color-theme-text-strong);
+	--color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 	--font: var(--rvt-font-16-bold);
 	--gap: var(--rvt-spacing-xs);
 	--padding-block: calc(var(--padding-block-total) / 2);
@@ -42,6 +43,7 @@
 	&:hover,
 	&:is(a:visited:hover) {
 		background-color: var(--color-background-hover);
+		border-color: var(--color-border-hover);
 		color: var(--color-text-hover);
 	}
 
@@ -77,8 +79,9 @@
 
 .rvt-button--small {
 	--color-border: var(--rvt-color-theme-ui);
+	--color-border-hover: var(--rvt-color-theme-ui);
 	--color-text: var(--rvt-color-theme-accent);
-	--color-text-hover: var(--rvt-color-theme-accent);
+	--color-text-hover: var(--rvt-color-theme-accent-strong);
 	--font: var(--rvt-font-14-bold);
 	--gap: var(--rvt-spacing-xxs);
 	--size-height: var(--rvt-size-24);
@@ -99,18 +102,20 @@
 }
 
 .rvt-button--subtle {
-	--color-background-hover: var(--rvt-color-theme-background);
+	--color-background-hover: transparent;
 	--color-background-pressed: var(--rvt-color-theme-background-strong);
-	--color-border: var(--rvt-color-theme-background);
+	--color-border: transparent;
+	--color-border-hover: transparent;
 	--color-text: var(--rvt-color-theme-text);
-	--color-text-hover: var(--rvt-color-theme-text-strong);
+	--color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 }
 
 .rvt-button--cta {
-	--color-background-hover: var(--rvt-color-theme-background-accent-strong);
+	--color-background-hover: transparent;
 	--color-border: var(--rvt-color-theme-accent);
+	--color-border-hover: var(--rvt-color-theme-accent-strong);
 	--color-text: var(--rvt-color-theme-accent);
-	--color-text-hover: var(--rvt-color-theme-accent);
+	--color-text-hover: var(--rvt-color-theme-accent-strong);
 	--rotate: 0;
 	justify-content: space-between;
 
@@ -144,6 +149,7 @@
 	&.rvt-button--subtle {
 		--color-background-hover: var(--color-background);
 		--color-border: var(--color-background);
+		--color-border-hover: var(--color-background);
 		--color-text: var(--rvt-color-theme-accent);
 		--color-text-hover: var(--rvt-color-theme-accent-strong);
 	}
