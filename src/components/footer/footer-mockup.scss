@@ -11,10 +11,6 @@
 		gap: var(--rvt-spacing-md);
 		padding-block: var(--rvt-spacing-lg);
 
-		> * {
-			flex-grow: 1;
-		}
-
 		a:not(.rvt-social-link) {
 			color: var(--rvt-color-theme-text);
 			text-decoration: none;
@@ -25,6 +21,7 @@
 		}
 
 		.rvt-footer__address {
+			flex-grow: 1;
 			margin-block-start: var(--rvt-size-2);
 
 			h3 {
@@ -56,14 +53,11 @@
 		}
 
 		.rvt-footer__links {
-			display: flex;
-			flex-wrap: wrap;
+			display: grid;
+			flex-basis: 20rem;
+			flex-grow: 2;
 			gap: var(--rvt-spacing-md);
-
-			> * {
-				flex-basis: 15ch;
-				flex-grow: 1;
-			}
+			grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
 
 			h3 {
 				font: var(--rvt-font-18-bold);
