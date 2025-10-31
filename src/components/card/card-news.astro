@@ -1,0 +1,26 @@
+---
+import Card from "./card.astro";
+export const title = "News Card";
+---
+
+<div>
+	<Card type="news" raised image badge eyebrow meta />
+</div>
+
+<div class="rvt-m-top-xl">
+	<Card type="news" raised sticker badge eyebrow meta />
+</div>
+
+<div class="rvt-m-top-xl">
+	<Card type="news" raised badge eyebrow meta />
+</div>
+
+<ul class="rvt-card-grid rvt-m-top-xl">
+	<li><Card type="news" /></li>
+	<li><Card type="news" badge /></li>
+	<li><Card type="news" badge eyebrow /></li>
+	<li><Card type="news" badge eyebrow /></li>
+	<li><Card type="news" badge eyebrow meta /></li>
+	<li><Card type="news" sticker badge eyebrow meta /></li>
+	<li><Card type="news" image badge eyebrow meta /></li>
+</ul>

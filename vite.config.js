@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
-import { eleventyPlugin } from "vite-plugin-eleventy";
 import pkg from "./package.json";
 
 const [fileName] = pkg.name.split("-");
@@ -25,17 +24,8 @@ const buildConfig = {
 	},
 };
 
-const serveConfig = {
-	root: "src/sandbox",
-	plugins: [eleventyPlugin()],
-	server: {
-		open: true,
-	},
-};
-
 const commandMap = {
 	build: buildConfig,
-	serve: serveConfig,
 };
 
 export default defineConfig(({ command }) => commandMap[command]);

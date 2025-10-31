@@ -21,8 +21,8 @@
 		}
 	},
 	"scripts": {
-		"start": "run-s build:tokens start:server",
-		"start:server": "vite --host",
+		"start": "run-s build:tokens start:astro",
+		"start:astro": "astro dev --open --host",
 		"build": "run-s build:clean build:tokens build:dist build:zip",
 		"build:clean": "rimraf ./dist ./rivet.zip",
 		"build:tokens": "style-dictionary build -c ./tokens.config.json",
@@ -36,17 +36,16 @@
 		"rivet.zip"
 	],
 	"devDependencies": {
-		"@11ty/eleventy": "3.1.2",
-		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.2",
 		"@octokit/rest": "22.0.0",
+		"astro": "5.15.2",
 		"npm-run-all": "4.1.5",
 		"prettier": "3.6.2",
+		"prettier-plugin-astro": "0.14.1",
 		"rimraf": "6.0.1",
 		"sass": "1.93.2",
 		"style-dictionary": "5.1.1",
-		"vite": "7.1.11",
-		"vite-plugin-banner": "0.8.1",
-		"vite-plugin-eleventy": "0.3.1"
+		"vite": "7.1.12",
+		"vite-plugin-banner": "0.8.1"
 	},
 	"dependencies": {
 		"wicked-elements": "3.1.2"

@@ -2,10 +2,10 @@ cypress/screenshots
 cypress/videos
 dist
 node_modules
+.astro
 .DS_Store
 .env
 .idea
-.npmrc
 .vscode
 *.tgz
 *.zip

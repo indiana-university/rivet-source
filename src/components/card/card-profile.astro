@@ -1,0 +1,16 @@
+---
+import Card from "./card.astro";
+export const title = "Profile Card";
+---
+
+<div>
+	<Card type="profile" raised avatar eyebrow subtitle details meta />
+</div>
+
+<ul class="rvt-card-grid rvt-m-top-xl">
+	<li><Card type="profile" /></li>
+	<li><Card type="profile" eyebrow /></li>
+	<li><Card type="profile" eyebrow subtitle /></li>
+	<li><Card type="profile" eyebrow subtitle details /></li>
+	<li><Card type="profile" avatar eyebrow eyebrow subtitle details meta /></li>
+</ul>

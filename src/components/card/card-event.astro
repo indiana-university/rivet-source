@@ -1,0 +1,26 @@
+---
+import Card from "./card.astro";
+export const title = "Event Card";
+---
+
+<div>
+	<Card type="event" raised image badge eyebrow details meta />
+</div>
+
+<div class="rvt-m-top-xl">
+	<Card type="event" raised date badge eyebrow details meta />
+</div>
+
+<div class="rvt-m-top-xl">
+	<Card type="event" raised badge eyebrow details meta />
+</div>
+
+<ul class="rvt-card-grid rvt-m-top-xl">
+	<li><Card type="event" /></li>
+	<li><Card type="event" badge /></li>
+	<li><Card type="event" badge eyebrow /></li>
+	<li><Card type="event" badge eyebrow details /></li>
+	<li><Card type="event" badge eyebrow details meta /></li>
+	<li><Card type="event" date badge eyebrow details meta /></li>
+	<li><Card type="event" image badge eyebrow details meta /></li>
+</ul>

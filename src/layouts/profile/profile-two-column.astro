@@ -1,0 +1,42 @@
+---
+import Header from "@src/components/header/header-demo.astro";
+import HeroProfile from "@src/components/hero/hero-profile.astro";
+import Factoid from "@src/components/factoid/factoid.astro";
+import Footer from "@src/components/footer/footer-demo.astro";
+import ProfileContent from "./profile-content.astro";
+import Sidenav from "@src/components/sidenav/sidenav-demo.astro";
+export const title = "Profile Layout - Two columns";
+---
+
+<Header />
+<main>
+	<div class="rvt-section">
+		<HeroProfile />
+	</div>
+	<!-- Use a container for visual alignment -->
+	<div class="rvt-section rvt-theme-light [ rvt-p-tb-none ]">
+		<div class="rvt-container">
+			<Factoid />
+		</div>
+	</div>
+	<div class="rvt-layout-base">
+		<div class="rvt-layout-base__sidebar" id="sidebar-main-content">
+			<Sidenav />
+		</div>
+		<div class="rvt-layout-base__main">
+			<nav role="navigation" aria-label="Breadcrumbs">
+				<ol class="rvt-breadcrumbs">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Visited page</a></li>
+					<li><a href="#">Visited page</a></li>
+					<li><a href="#">Visited page</a></li>
+					<li aria-current="page">Current page</li>
+				</ol>
+			</nav>
+			<div class="rvt-stack rvt-m-top-xxl">
+				<ProfileContent />
+			</div>
+		</div>
+	</div>
+</main>
+<Footer />
