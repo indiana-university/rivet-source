@@ -65,7 +65,7 @@
 	&.rvt-switch--danger[aria-checked="true"] {
 		background-color: var(--rvt-color-danger-main);
 		border-color: var(--rvt-color-danger-main);
-		color: var(--rvt-color-base-ultralight);
+		color: var(--rvt-color-base-ultra-light);
 
 		&::after {
 			background-color: var(--rvt-color-danger-main);

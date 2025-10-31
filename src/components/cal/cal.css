@@ -6,7 +6,7 @@
 .rvt-cal {
 	align-items: center;
 	aspect-ratio: 1 / 1;
-	background-color: var(--rvt-color-brand-extralight);
+	background-color: var(--rvt-color-brand-extra-light);
 	color: var(--rvt-color-brand-main);
 	container-type: size;
 	display: flex;

@@ -103,23 +103,23 @@ tbody tr :is(td, th) {
 		linear-gradient(
 			to right,
 			var(--rvt-color-theme-background) 30%,
-			var(--rvt-color-shadow-ultralight)
+			var(--rvt-color-shadow-ultra-light)
 		),
 		linear-gradient(
 				to right,
-				var(--rvt-color-shadow-ultralight),
+				var(--rvt-color-shadow-ultra-light),
 				var(--rvt-color-theme-background) 70%
 			)
 			0 100%,
 		radial-gradient(
 			farthest-side at 0% 50%,
 			var(--rvt-color-shadow-main),
-			var(--rvt-color-shadow-ultralight)
+			var(--rvt-color-shadow-ultra-light)
 		),
 		radial-gradient(
 				farthest-side at 100% 50%,
 				var(--rvt-color-shadow-main),
-				var(--rvt-color-shadow-ultralight)
+				var(--rvt-color-shadow-ultra-light)
 			)
 			0 100%;
 	background-attachment: local, local, scroll, scroll;

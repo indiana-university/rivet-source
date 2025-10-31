@@ -7,7 +7,7 @@
 	align-items: center;
 	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	border-radius: var(--rvt-border-radius-circle);
-	color: var(--rvt-color-theme-text);
+	color: var(--rvt-color-theme-accent);
 	display: flex;
 	height: var(--rvt-size-36);
 	justify-content: center;
@@ -15,7 +15,6 @@
 
 	&:hover {
 		background-color: var(--rvt-color-theme-background-strong);
-		color: inherit;
 	}
 
 	&::before {

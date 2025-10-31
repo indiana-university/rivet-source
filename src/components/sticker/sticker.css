@@ -6,7 +6,7 @@
 rvt-sticker {
 	--color-background: var(--rvt-color-brand-light);
 	--color-stroke: var(--rvt-color-brand-main);
-	--fill: var(--rvt-color-base-ultralight);
+	--fill: var(--rvt-color-base-ultra-light);
 	--size-xs: var(--rvt-size-48);
 	--size-sm: var(--rvt-size-64);
 	--size-md: var(--rvt-size-80);

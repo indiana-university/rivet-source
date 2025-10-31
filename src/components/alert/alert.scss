@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 .rvt-alert {
-	--color-background: var(--rvt-color-base-extralight);
-	--color-border: var(--rvt-color-base-medium);
-	--color-container: var(--rvt-color-base-light);
-	--color-icon: var(--rvt-color-base-ultralight);
-	--color-icon-background: var(--rvt-color-base-main);
-	--color-main: var(--rvt-color-base-main);
+	--color-background: var(--rvt-color-brand-extra-light);
+	--color-border: var(--rvt-color-brand-light);
+	--color-icon: var(--rvt-color-base-ultra-light);
+	--color-icon-background: var(--rvt-color-brand-main);
+	--color-main: var(--rvt-color-brand-main);
 	--icon: var(--rvt-icon-bell);
 	--size-gap: var(--rvt-spacing-xs);
 	--size-icon: var(--rvt-spacing-lg);
 	--size-padding: var(--rvt-spacing-sm);
 	background-color: var(--color-background);
 	border: var(--rvt-size-1) solid var(--color-border);
+	color: var(--rvt-color-base-body);
 	padding-inline-start: calc(
 		var(--size-padding) + var(--size-icon) + var(--size-gap)
 	);
@@ -24,8 +24,7 @@
 	&--danger {
 		--color-background: var(--rvt-color-danger-background);
 		--color-border: var(--rvt-color-danger-border);
-		--color-container: var(--rvt-color-danger-container);
-		--color-icon: var(--rvt-color-base-ultralight);
+		--color-icon: var(--rvt-color-base-ultra-light);
 		--color-icon-background: var(--rvt-color-danger-main);
 		--color-main: var(--rvt-color-danger-main);
 		--icon: var(--rvt-icon-exclamation);
@@ -34,8 +33,7 @@
 	&--info {
 		--color-background: var(--rvt-color-info-background);
 		--color-border: var(--rvt-color-info-border);
-		--color-container: var(--rvt-color-info-container);
-		--color-icon: var(--rvt-color-base-ultralight);
+		--color-icon: var(--rvt-color-base-ultra-light);
 		--color-icon-background: var(--rvt-color-info-main);
 		--color-main: var(--rvt-color-info-main);
 		--icon: var(--rvt-icon-info);
@@ -44,8 +42,7 @@
 	&--success {
 		--color-background: var(--rvt-color-success-background);
 		--color-border: var(--rvt-color-success-border);
-		--color-container: var(--rvt-color-success-container);
-		--color-icon: var(--rvt-color-base-ultralight);
+		--color-icon: var(--rvt-color-base-ultra-light);
 		--color-icon-background: var(--rvt-color-success-main);
 		--color-main: var(--rvt-color-success-main);
 		--icon: var(--rvt-icon-check);
@@ -54,7 +51,6 @@
 	&--warning {
 		--color-background: var(--rvt-color-warning-background);
 		--color-border: var(--rvt-color-warning-border);
-		--color-container: var(--rvt-color-warning-container);
 		--color-icon: var(--rvt-color-base-main);
 		--color-icon-background: var(--rvt-color-warning-main);
 		--color-main: var(--rvt-color-base-main);
