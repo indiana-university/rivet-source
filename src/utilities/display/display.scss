@@ -8,12 +8,12 @@
 .rvt-sr-only {
 	border: 0;
 	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
+	height: var(--rvt-size-1);
+	margin: var(--rvt-size-n1);
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
-	width: 1px;
+	width: var(--rvt-size-1);
 	/* Set color to prevent false positives in a11y tools */
 	background-color: white;
 	color: black;

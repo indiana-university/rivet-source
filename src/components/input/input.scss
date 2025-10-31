@@ -7,11 +7,11 @@
 	&-textarea,
 	&-select > select {
 		background-color: var(--rvt-color-theme-background);
-		border: 1px solid var(--rvt-color-theme-text-strong);
+		border: var(--rvt-size-1) solid var(--rvt-color-theme-text-strong);
 		border-radius: 0;
 		color: inherit;
 		display: block;
-		height: calc(var(--rvt-spacing-sm) * 3);
+		height: var(--rvt-size-48);
 		padding: var(--rvt-spacing-xs);
 		width: 100%;
 
@@ -28,7 +28,7 @@
 	}
 
 	&-textarea {
-		height: calc(var(--rvt-spacing-base) * 15);
+		height: calc(var(--rvt-size-60) * 2);
 		overflow: auto; // Remove scrollbar in IE
 	}
 

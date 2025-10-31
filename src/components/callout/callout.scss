@@ -4,7 +4,7 @@
 @use "../../base/core.scss" as *;
 
 .rvt-callout {
-	border: 1px solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	background-color: var(--rvt-color-theme-background);
 	color: var(--rvt-color-theme-text);
 	container-name: callout;
@@ -48,7 +48,7 @@
 	}
 }
 
-@container callout (min-width: 640px) {
+@container callout (min-width: 40rem) {
 	.rvt-callout {
 		&__inner {
 			padding: var(--rvt-spacing-xxl);
@@ -61,7 +61,7 @@
 	}
 }
 
-@container callout (min-width: 1024px) {
+@container callout (min-width: 64rem) {
 	.rvt-callout {
 		&__inner {
 			display: flex;

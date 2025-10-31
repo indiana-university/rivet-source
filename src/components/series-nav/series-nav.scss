@@ -5,16 +5,16 @@
 
 .rvt-series-nav {
 	background-color: var(--rvt-color-theme-ui);
-	border: calc(1rem / 16) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	display: flex;
 	flex-wrap: wrap;
-	gap: calc(1rem / 16);
+	gap: var(--rvt-size-1);
 
 	:is(&__previous, &__next) {
 		background-color: var(--rvt-color-theme-background);
 		color: var(--rvt-color-theme-text);
 		display: flex;
-		flex-basis: 20rem;
+		flex-basis: var(--rvt-size-320);
 		flex-direction: column;
 		flex-grow: 1;
 		gap: var(--rvt-spacing-xs);
@@ -44,8 +44,8 @@
 		background-color: currentColor;
 		content: "";
 		display: block;
-		height: 1rem;
-		width: 1rem;
+		height: var(--rvt-size-16);
+		width: var(--rvt-size-16);
 	}
 
 	&__previous &__label::before {

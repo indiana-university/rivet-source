@@ -4,7 +4,7 @@
  */
 
 .rvt-subnav {
-	border-bottom: 1px solid var(--rvt-color-theme-ui);
+	border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	overflow-x: auto;
 	-webkit-overflow-scrolling: auto;
 

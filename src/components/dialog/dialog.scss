@@ -30,7 +30,7 @@
 	z-index: var(--rvt-z-index-1000);
 
 	&[data-rvt-dialog-darken-page] {
-		box-shadow: 0 0 0 9999px var(--rvt-color-shadow-dark);
+		box-shadow: 0 0 0 var(--rvt-size-infinite) var(--rvt-color-shadow-dark);
 	}
 
 	&[data-rvt-dialog-top-left] {
@@ -84,7 +84,7 @@
 	}
 
 	&__header {
-		border-bottom: 1px solid var(--rvt-color-theme-ui);
+		border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		padding: var(--rvt-spacing-md) var(--rvt-spacing-sm);
 	}
 
@@ -98,7 +98,7 @@
 
 	&__controls {
 		background-color: var(--rvt-color-theme-background-strong);
-		border-top: 1px solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--rvt-spacing-sm);

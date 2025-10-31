@@ -5,13 +5,13 @@
 
 .rvt-social-link {
 	align-items: center;
-	border: 1px solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	border-radius: var(--rvt-border-radius-circle);
 	color: var(--rvt-color-theme-text);
 	display: flex;
-	height: calc(var(--rvt-spacing-sm) * 2.25);
+	height: var(--rvt-size-36);
 	justify-content: center;
-	width: calc(var(--rvt-spacing-sm) * 2.25);
+	width: var(--rvt-size-36);
 
 	&:hover {
 		background-color: var(--rvt-color-theme-background-strong);
@@ -19,7 +19,7 @@
 	}
 
 	&::before {
-		--size-source: 3rem;
+		--size-source: var(--rvt-size-48);
 		--scale: calc(1 / 3);
 		background-color: currentColor;
 		clip-path: path(var(--icon));

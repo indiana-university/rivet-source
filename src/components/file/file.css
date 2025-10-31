@@ -9,10 +9,8 @@
 	flex-wrap: wrap;
 
 	input[type="file"] {
-		height: 0.1px;
 		opacity: 0;
-		overflow: hidden;
-		width: 0.1px;
+		position: absolute;
 	}
 
 	input[type="file"] + label {
@@ -26,8 +24,8 @@
 	}
 
 	input[type="file"]:focus + label {
-		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
-		outline-offset: calc(2rem / 16);
+		outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: var(--rvt-size-2);
 	}
 
 	input[type="file"]:disabled + label {

@@ -4,7 +4,7 @@
  */
 
 .rvt-radio {
-	--padding: calc(3rem / 16);
+	--padding: var(--rvt-size-3);
 	display: inline-block;
 	padding-left: var(--rvt-spacing-lg);
 	position: relative;
@@ -42,16 +42,15 @@
 
 	input[type="radio"] ~ label::before {
 		background-color: var(--rvt-color-theme-background);
-		border: calc(var(--rvt-spacing-xxs) / 4) solid
-			var(--rvt-color-theme-text-strong);
+		border: var(--rvt-size-1) solid var(--rvt-color-theme-text-strong);
 		border-radius: var(--rvt-spacing-sm);
 		box-shadow: inset 0 0 0 var(--padding) var(--rvt-color-theme-background);
 		content: "";
 		display: inline-block;
 		height: var(--rvt-spacing-sm);
-		left: calc(3rem / 16);
+		left: var(--rvt-size-3);
 		position: absolute;
-		top: calc(3rem / 16);
+		top: var(--rvt-size-3);
 		width: var(--rvt-spacing-sm);
 	}
 
@@ -61,8 +60,8 @@
 	}
 
 	input[type="radio"]:focus ~ label::before {
-		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
-		outline-offset: calc(2rem / 16);
+		outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: var(--rvt-size-2);
 	}
 
 	input[type="radio"]:disabled {

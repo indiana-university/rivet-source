@@ -17,11 +17,11 @@
 		var(--size-height) - 1lh - var(--size-border-total)
 	);
 	--padding-inline-extra: var(--rvt-spacing-xs);
-	--size-border: calc(1rem / 16);
+	--size-border: var(--rvt-size-1);
 	--size-border-total: calc(var(--size-border) * 2);
-	--size-height: 3rem;
-	--size-line-gap: calc(4rem / 16);
-	--size-pressed: calc(2rem / 16);
+	--size-height: var(--rvt-size-48);
+	--size-line-gap: var(--rvt-size-4);
+	--size-pressed: var(--rvt-size-2);
 	align-items: center;
 	background: var(--color-background);
 	border: var(--size-border) solid var(--color-border);
@@ -66,21 +66,21 @@
 	}
 
 	rvt-icon {
-		padding: calc(calc(1lh - 1rem) / 2);
+		padding: calc((1lh - var(--rvt-size-16)) / 2);
 	}
 }
 
 .rvt-button--medium {
 	--font: var(--rvt-font-14-bold);
-	--size-height: 2rem;
+	--size-height: var(--rvt-size-32);
 }
 
 .rvt-button--small {
 	--color-border: var(--rvt-color-theme-ui-strong);
 	--font: var(--rvt-font-14-bold);
 	--gap: var(--rvt-spacing-xxs);
-	--size-height: 1.5rem;
-	--size-pressed: calc(1rem / 16);
+	--size-height: var(--rvt-size-24);
+	--size-pressed: var(--rvt-size-1);
 
 	&:not(.rvt-button--subtle) rvt-icon svg {
 		transform: scale(calc(12 / 16));

@@ -43,7 +43,7 @@ h6 {
 hr {
 	background-color: var(--rvt-color-theme-ui);
 	border: none;
-	height: 1px;
+	height: var(--rvt-size-1);
 }
 
 img {
@@ -84,7 +84,7 @@ sup {
 }
 
 :focus-visible {
-	outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
-	outline-offset: calc(2rem / 16);
+	outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
+	outline-offset: var(--rvt-size-2);
 	position: relative;
 }

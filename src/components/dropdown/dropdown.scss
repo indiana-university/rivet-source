@@ -43,12 +43,12 @@
 		button {
 			background-color: transparent;
 			border: none;
-			border-left: 0.25rem solid transparent;
+			border-left: var(--rvt-size-4) solid transparent;
 			display: block;
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
-			padding-block: calc(12rem / 16);
-			padding-inline-start: calc(12rem / 16);
+			padding-block: var(--rvt-size-12);
+			padding-inline-start: var(--rvt-size-12);
 			padding-inline-end: var(--rvt-spacing-sm);
 			text-align: left;
 			text-decoration: none;
@@ -94,13 +94,13 @@
 
 	&__menu-divider,
 	&__menu-separator {
-		border-top: 1px solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		margin-bottom: var(--rvt-spacing-xs);
 		margin-top: var(--rvt-spacing-xs);
 	}
 
 	[role="group"] {
-		border-top: 1px solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		margin-top: var(--rvt-spacing-xs);
 		padding-top: var(--rvt-spacing-xs);
 

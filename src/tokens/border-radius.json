@@ -2,16 +2,16 @@
 	"border-radius": {
 		"$type": "dimension",
 		"sm": {
-			"$value": ".125rem"
+			"$value": "{size.2}"
 		},
 		"md": {
-			"$value": "{spacing.xxs}"
+			"$value": "{size.4}"
 		},
 		"lg": {
-			"$value": "{spacing.xs}"
+			"$value": "{size.8}"
 		},
 		"circle": {
-			"$value": "999rem"
+			"$value": "{size.infinite}"
 		}
 	}
 }

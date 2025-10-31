@@ -5,7 +5,7 @@
 
 .rvt-footer-base {
 	&__inner {
-		border-top: 1px solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		display: flex;
 		flex-direction: column;
 		margin-left: auto;

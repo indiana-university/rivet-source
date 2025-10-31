@@ -39,7 +39,7 @@
 	}
 
 	&__sidebar {
-		border-top: 1px solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		padding-bottom: var(--rvt-spacing-lg);
 		padding-top: var(--rvt-spacing-lg);
 	}
@@ -52,7 +52,7 @@
 		}
 
 		&__sidebar {
-			border-right: 1px solid var(--rvt-color-theme-ui);
+			border-right: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 			border-top: none;
 			flex-basis: var(--rvt-width-md);
 			flex-grow: 1;
@@ -74,7 +74,7 @@
 
 		&__break-out,
 		&__break-out + * {
-			--flow-space: 3rem;
+			--flow-space: var(--rvt-size-48);
 		}
 
 		&__wrapper--single &__break-out {

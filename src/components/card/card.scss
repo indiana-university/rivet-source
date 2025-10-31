@@ -9,7 +9,7 @@
 	--aspect-ratio: var(--aspect-ratio-rectangle);
 	--padding: var(--rvt-spacing-md);
 	background-color: var(--rvt-color-theme-background);
-	border: calc(1rem / 16) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 	position: relative;
 
 	.rvt-theme-dark &,
@@ -83,7 +83,7 @@
 				display: block;
 				flex-shrink: 0;
 				height: var(--rvt-spacing-sm);
-				margin: calc(calc(1lh - var(--rvt-spacing-sm)) / 2) 0;
+				margin: calc((1lh - var(--rvt-spacing-sm)) / 2) 0;
 				pointer-events: none;
 				transition: all 0.2s ease;
 				width: var(--rvt-spacing-sm);
@@ -151,8 +151,8 @@
 
 :is(.rvt-card--clickable, .rvt-card--feature) {
 	&:focus-within {
-		outline: calc(2rem / 16) solid var(--rvt-color-theme-accent-strong);
-		outline-offset: calc(2rem / 16);
+		outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
+		outline-offset: var(--rvt-size-2);
 	}
 
 	:focus {
@@ -171,11 +171,11 @@
 
 .rvt-card--feature {
 	--aspect-ratio: var(--aspect-ratio-rectangle);
-	--padding: 2rem;
+	--padding: var(--rvt-size-32);
 
 	&::before {
-		border-left: calc(1rem / 16) solid var(--rvt-color-theme-ui);
-		border-top: calc(1rem / 16) solid var(--rvt-color-theme-ui);
+		border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		bottom: 0;
 		content: "";
 		display: block;
@@ -186,7 +186,7 @@
 	}
 
 	&::after {
-		--position: calc((var(--padding) - 1rem) / 2);
+		--position: calc((var(--padding) - var(--rvt-size-16)) / 2);
 		background-color: currentColor;
 		bottom: var(--position);
 		clip-path: path(var(--rvt-icon-arrow-right));

@@ -5,8 +5,8 @@
 			"$value": {
 				"color": "{color.shadow.light}",
 				"offsetX": 0,
-				"offsetY": "{spacing.xxs}",
-				"blur": "{spacing.xs}",
+				"offsetY": "{size.4}",
+				"blur": "{size.8}",
 				"spread": 0
 			}
 		},
@@ -14,8 +14,8 @@
 			"$value": {
 				"color": "{color.shadow.extralight}",
 				"offsetX": 0,
-				"offsetY": ".1875rem",
-				"blur": ".375rem",
+				"offsetY": "{size.3}",
+				"blur": "{size.6}",
 				"spread": 0
 			}
 		},
@@ -26,8 +26,8 @@
 			"$value": {
 				"color": "{color.shadow.main}",
 				"offsetX": 0,
-				"offsetY": "{spacing.xxs}",
-				"blur": "{spacing.sm}",
+				"offsetY": "{size.4}",
+				"blur": "{size.16}",
 				"spread": 0
 			}
 		}

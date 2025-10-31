@@ -19,8 +19,8 @@
 
 		svg {
 			flex-shrink: 0;
-			height: 1rem;
-			width: 1rem;
+			height: var(--rvt-size-16);
+			width: var(--rvt-size-16);
 		}
 
 		> * {
@@ -37,7 +37,7 @@
 		}
 
 		a {
-			border: calc(1rem / 16) solid var(--rvt-color-theme-ui);
+			border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 			color: var(--rvt-color-theme-text);
 			display: flex;
 			flex-grow: 1;
