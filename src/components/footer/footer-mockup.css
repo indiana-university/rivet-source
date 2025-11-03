@@ -47,7 +47,7 @@
 
 		.rvt-footer__links {
 			display: grid;
-			flex-basis: 20rem;
+			flex-basis: 30rem;
 			flex-grow: 2;
 			gap: var(--rvt-spacing-md);
 			grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
