@@ -7,7 +7,7 @@
 .rvt-list-inline,
 .rvt-list-plain {
 	display: flex;
-	gap: var(--rvt-size-12) var(--rvt-spacing-sm);
+	gap: var(--rvt-size-12) var(--rvt-size-24);
 	margin: 0;
 }
 

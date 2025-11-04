@@ -90,17 +90,4 @@
 	&-label + * {
 		margin-top: var(--rvt-spacing-xs);
 	}
-
-	&-fieldset {
-		border: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	&-legend {
-		display: block;
-		font-weight: var(--rvt-font-weight-normal);
-		margin: 0;
-		width: 100%;
-	}
 }

@@ -10,12 +10,13 @@
 	.rvt-stat__number {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-41-extra-black);
-		margin-block-start: var(--rvt-spacing-sm);
+		margin-block-start: var(--rvt-spacing-md);
 	}
 
 	.rvt-stat__description {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-16-mono);
+		margin-block-start: var(--rvt-spacing-xxs);
 	}
 
 	> :first-child {
