@@ -30,7 +30,8 @@
 			background-color: var(--rvt-color-theme-accent);
 			border-radius: var(--rvt-border-radius-circle);
 			box-shadow:
-				0 0 0 calc(var(--radius) - var(--rvt-size-1)) var(--rvt-color-theme-background),
+				0 0 0 calc(var(--radius) - var(--rvt-size-1))
+					var(--rvt-color-theme-background),
 				0 0 0 var(--radius) var(--rvt-color-theme-ui);
 			content: "";
 			height: var(--size);
