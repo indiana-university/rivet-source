@@ -5,7 +5,7 @@ import FooterLegal from "./footer-legal.astro";
 const { crimson, resources, social } = Astro.props;
 ---
 
-<footer class:list={[ "rvt-footer", { "rvt-theme-crimson": crimson } ]}>
+<footer class:list={["rvt-footer", { "rvt-theme-crimson": crimson }]}>
 	<div class="rvt-container">
 		{resources && <FooterResources />}
 		{social && <FooterSocial />}
