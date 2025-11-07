@@ -7,7 +7,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--rvt-spacing-md);
-	padding-block: var(--rvt-spacing-lg);
+	padding-block: var(--rvt-size-48);
 
 	.rvt-footer-resources__contact {
 		flex-grow: 1;
