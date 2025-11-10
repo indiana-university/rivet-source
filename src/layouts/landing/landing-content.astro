@@ -1,8 +1,11 @@
 ---
 import Callout from "@src/components/callout/callout-demo.astro";
 import Header from "@src/components/header/header-demo.astro";
+import HeroFeature from "@src/components/hero/hero-feature-demo.astro";
 import Footer from "@src/components/footer/footer-demo.astro";
 import ListHub from "@src/components/list-hub/list-hub-demo.astro";
+import MediaHub from "@src/components/media-hub/media-hub-demo.astro";
+import MediaHubImage from "@src/components/media-hub/media-hub-image.astro";
 import Quote from "@src/components/quote/quote-demo.astro";
 import StatGroup from "@src/components/stat-group/stat-group.astro";
 ---
@@ -81,14 +84,7 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
 						<a class="rvt-button rvt-button--cta" href="/#0">More about CTA</a>
 					</div>
 				</div>
-
-				<div class="rvt-media-hub">
-					<div
-						class="rvt-media-hub__column-full-width rvt-media-hub__row-full-height"
-					>
-						<img src="https://picsum.photos/id/128/1600/900" alt="" />
-					</div>
-				</div>
+				<MediaHubImage />
 			</div>
 		</div>
 	</div>
@@ -108,7 +104,6 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
 					</a>
 				</div>
 			</div>
-
 			<ul class="rvt-card-grid [ rvt-m-top-xl ]">
 				{
 					[1, 2, 3].map((i) => (
@@ -142,64 +137,15 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
 	</div>
 	<div class="rvt-section rvt-theme-crimson">
 		<div class="rvt-container">
-			<!--
-        Media Hub Component Data Definition
-
-        - Teaser - Text field 1-2 Sentences, does not display if empty
-        - Layout
-          - This could go several ways - The CSS for the component itself can pretty
-          much handle anything that is thrown at it, but we'll need to all for a
-          finite number of predeternined layouts similar to the current framework's
-          "Image essay" chunk. See /components/media-hub/ for layout examples
-        - Caption - Text field for optional caption
-      -->
-			<div class="rvt-media-hub">
-				<!-- Make this an optional element of the media hub -->
-				<p class="rvt-media-hub__teaser">
-					Simple one to two sentence statement about about school or site that
-					can also serve as a way to link to sections. Learn more about
-					<a href="#">lorem ipsum</a>.
-				</p>
-				<figure class="rvt-media-hub__media">
-					<div class="rvt-media-hub__column-full-width rvt-media-hub__row-top">
-						<img src="https://picsum.photos/id/166/1600/800" alt="" />
-					</div>
-					<div class="rvt-media-hub__column-half rvt-media-hub__row-bottom">
-						<img src="https://picsum.photos/id/24/800/450" alt="" />
-					</div>
-					<div class="rvt-media-hub__column-half rvt-media-hub__row-bottom">
-						<img src="https://picsum.photos/id/23/800/450" alt="" />
-					</div>
-					<figcaption>Short caption or description</figcaption>
-				</figure>
-			</div>
+			<MediaHub />
 		</div>
 	</div>
-	<div class="rvt-section rvt-theme-light">
+	<div class="rvt-section">
 		<div class="rvt-container">
-			<div class="rvt-section-intro">
-				<div class="rvt-section-intro__eyebrow">Section or category</div>
-				<h2 class="rvt-section-intro__title">
-					Section title not exceed 40 characters
-				</h2>
-				<div class="rvt-section-intro__actions">
-					<a class="rvt-button rvt-button--cta" href="/#0">More about CTA</a>
-				</div>
-			</div>
-			<div class="rvt-grid rvt-grid--2 [ rvt-gap-xxl rvt-m-top-xl ]">
-				<div class="rvt-media-hub">
-					<div class="rvt-media-hub__6">
-						<img
-							src="https://picsum.photos/id/983/600/400"
-							alt="Student in vintage-style Indiana University t-shirt"
-						/>
-					</div>
-				</div>
-				<ListHub />
-			</div>
+			<HeroFeature />
 		</div>
 	</div>
-	<div class="rvt-section rvt-theme-light">
+	<div class="rvt-section">
 		<div class="rvt-container">
 			<!--
         Billboard section
@@ -272,7 +218,7 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
 			</div>
 		</div>
 	</div>
-	<div class="rvt-section rvt-theme-light">
+	<div class="rvt-section">
 		<div class="rvt-container">
 			<div class="rvt-section-intro">
 				<div class="rvt-section-intro__eyebrow">Section or category</div>
