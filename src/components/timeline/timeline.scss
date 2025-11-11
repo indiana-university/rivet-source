@@ -4,173 +4,132 @@
 @use "../../base/core.scss" as *;
 
 .rvt-timeline {
-	padding: var(--rvt-spacing-lg) 0;
+	--marker-size: var(--rvt-size-24);
+	padding-block: var(--rvt-size-8);
 	position: relative;
 
 	&::before {
 		background: var(--rvt-color-theme-ui);
 		content: "";
 		height: 100%;
-		left: 0;
-		margin-left: var(--rvt-spacing-xxs);
+		left: 50%;
 		position: absolute;
 		top: 0;
 		width: var(--rvt-size-1);
 	}
 
-	&__item {
-		margin-block: var(--rvt-spacing-lg);
-		position: relative;
-	}
-
-	/**
-   *  The marker for the timeline visually only looks good at 12px (.75rem). This results in several magic numbers
-   *  related to the placement of other items such as the &__item::after (above) and date labels (where applicable).
-   *   This also results in cascading magic numbers for placement of elements such as &__content for variant timelines.
-   */
-
-	&__marker {
-		color: var(--rvt-color-theme-text-inverse);
-		background: var(--rvt-color-theme-accent);
-		border-radius: 50%;
-		box-shadow:
-			0 0 0 calc(var(--rvt-spacing-xs) * 0.85) var(--rvt-color-theme-background),
-			0 0 0 var(--rvt-spacing-xs) var(--rvt-color-theme-ui);
-		height: var(--rvt-spacing-sm);
-		left: calc(var(--rvt-spacing-xxs) * -0.85);
-		position: absolute;
-		top: calc(var(--rvt-spacing-md) * 0.85);
-		width: var(--rvt-spacing-sm);
-	}
-
-	&__content {
+	.rvt-timeline__item {
 		background-color: var(--rvt-color-theme-background);
-		border: none;
 		box-shadow: var(--rvt-shadow-standard);
-		margin-inline-start: var(--rvt-spacing-lg);
+		margin-block: var(--rvt-size-48);
+		position: relative;
+
+		&::before {
+			--radius: calc(var(--marker-size) / 4);
+			--size: calc(var(--marker-size) / 2);
+			background-color: var(--rvt-color-theme-accent);
+			border-radius: var(--rvt-border-radius-circle);
+			box-shadow:
+				0 0 0 calc(var(--radius) - var(--rvt-size-1))
+					var(--rvt-color-theme-background),
+				0 0 0 var(--radius) var(--rvt-color-theme-ui);
+			content: "";
+			height: var(--size);
+			left: calc(50% - var(--radius));
+			position: absolute;
+			top: calc(var(--rvt-size-24) * -1);
+			width: var(--size);
+		}
 	}
 
-	&__content-inner {
-		padding: var(--rvt-spacing-md);
-	}
-
-	&__label {
+	.rvt-timeline__label {
 		background-color: var(--rvt-color-theme-accent);
 		color: var(--rvt-color-theme-background);
 		font: var(--rvt-font-14-mono);
 		letter-spacing: var(--rvt-letter-spacing-wide);
-		padding-block: var(--rvt-spacing-sm);
-		padding-inline: var(--rvt-spacing-md);
+		padding-block: var(--rvt-spacing-md);
+		padding-inline: var(--rvt-spacing-lg);
 		text-transform: uppercase;
 	}
 
-	&__heading {
+	.rvt-timeline__content {
+		padding: var(--rvt-spacing-lg);
+	}
+
+	.rvt-timeline__title {
 		font: var(--rvt-font-20-bold);
 	}
 
-	&__content-inner > * {
-		margin-bottom: 0;
+	.rvt-timeline__description {
+		margin-block-start: var(--rvt-spacing-sm);
 	}
 
-	&__content-inner > * + * {
-		margin-block-start: var(--rvt-spacing-md);
-	}
-
-	&__item-dates {
+	.rvt-timeline__dates {
 		margin-block-start: var(--rvt-spacing-lg);
+
+		> p {
+			align-items: center;
+			color: var(--rvt-color-theme-accent);
+			display: flex;
+			font: var(--rvt-font-16-bold);
+			gap: var(--rvt-spacing-xs);
+
+			rvt-icon {
+				background-color: var(--rvt-color-theme-background-accent);
+				border-radius: var(--rvt-border-radius-circle);
+				padding: var(--rvt-spacing-xs);
+			}
+		}
+
+		strong {
+			font: var(--rvt-font-16-bold);
+		}
 	}
 
-	&__item-dates-icon {
-		align-items: center;
-		background-color: var(--rvt-color-theme-background-accent);
-		border-radius: var(--rvt-border-radius-circle);
-		color: var(--rvt-color-theme-accent);
-		display: flex;
-		height: var(--rvt-spacing-xl);
-		justify-content: center;
-		width: var(--rvt-spacing-xl);
-	}
-
-	&__item-dates + &__item-actions {
-		margin-block-start: var(--rvt-spacing-xl);
-	}
-}
-
-// TODO: Make a decision on whether we need this variant
-.rvt-timeline--right {
-	&::before {
-		left: auto;
-		right: var(--rvt-spacing-xxs);
-	}
-
-	.rvt-timeline__item::after {
-		border-left-color: var(--rvt-color-theme-ui);
-		border-right-color: transparent;
-		margin-left: 0;
-		right: 0;
-	}
-
-	.rvt-timeline__marker {
-		margin-left: 0;
-		right: 0;
-	}
-
-	.rvt-timeline__content {
-		margin-left: 0;
-		margin-right: var(--rvt-spacing-lg);
+	.rvt-timeline__actions {
+		margin-block-start: var(--rvt-spacing-lg);
 	}
 }
 
 @include mq($breakpoint-md) {
-	.rvt-timeline--center {
+	.rvt-timeline {
+		--marker-size: var(--rvt-size-32);
+		padding-block: var(--rvt-size-24);
+	}
+
+	.rvt-timeline:not(.rvt-timeline--center) {
 		&::before {
-			left: 50%;
-			margin-left: 0;
+			left: var(--rvt-size-16);
 		}
 
 		.rvt-timeline__item {
-			flex-basis: 50%;
-			max-width: 50%;
-			padding: 0 var(--rvt-size-12);
-			width: 100%;
-		}
+			margin-inline-start: var(--rvt-size-56);
 
-		.rvt-timeline__item--right {
-			margin-left: auto;
+			&::before {
+				left: calc(var(--rvt-size-48) * -1);
+				top: var(--rvt-size-24);
+			}
 		}
+	}
 
-		.rvt-timeline__item::after {
-			border-left-color: var(--rvt-color-theme-ui);
-			border-right-color: transparent;
-			left: 100%;
-			margin-left: var(--rvt-spacing-md);
-		}
+	.rvt-timeline--center {
+		.rvt-timeline__item {
+			margin-inline: auto 0;
+			max-width: calc(50% - var(--rvt-size-40));
 
-		.rvt-timeline__item--right::after {
-			border-left-color: transparent;
-			border-right-color: var(--rvt-color-theme-ui);
-			left: auto;
-			margin-left: var(--rvt-spacing-sm);
-		}
+			&::before {
+				left: calc(var(--rvt-size-48) * -1);
+				top: var(--rvt-size-24);
+			}
 
-		.rvt-timeline__marker {
-			left: 100%;
-			margin-left: var(--rvt-spacing-xxs);
-		}
+			&:nth-child(odd) {
+				margin-inline: 0 auto;
 
-		.rvt-timeline__item--right .rvt-timeline__marker {
-			left: auto;
-			margin-left: var(--rvt-spacing-sm);
-		}
-
-		.rvt-timeline__content {
-			margin-left: 0;
-			margin-right: var(--rvt-size-12);
-		}
-
-		.rvt-timeline__item--right .rvt-timeline__content {
-			margin-left: var(--rvt-spacing-sm);
-			margin-right: 0;
+				&::before {
+					left: auto;
+					right: calc(var(--rvt-size-48) * -1);
+				}
+			}
 		}
 	}
 }

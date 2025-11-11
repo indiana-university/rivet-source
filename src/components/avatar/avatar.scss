@@ -9,19 +9,19 @@
 $avatar-widths: (
 	"xs": var(--rvt-size-32),
 	"sm": var(--rvt-size-48),
-	"rg": calc(var(--rvt-size-32) * 2),
-	"md": calc(var(--rvt-size-32) * 3),
-	"lg": calc(var(--rvt-size-32) * 4),
-	"xl": calc(var(--rvt-size-32) * 5),
+	"rg": var(--rvt-size-64),
+	"md": var(--rvt-size-96),
+	"lg": var(--rvt-size-128),
+	"xl": var(--rvt-size-160),
 );
 
 .rvt-avatar {
 	--size-xs: var(--rvt-size-32);
 	--size-sm: var(--rvt-size-48);
-	--size-rg: calc(var(--rvt-size-32) * 2);
-	--size-md: calc(var(--rvt-size-32) * 3);
-	--size-lg: calc(var(--rvt-size-32) * 4);
-	--size-xl: calc(var(--rvt-size-32) * 5);
+	--size-rg: var(--rvt-size-64);
+	--size-md: var(--rvt-size-96);
+	--size-lg: var(--rvt-size-128);
+	--size-xl: var(--rvt-size-160);
 	--size: var(--size-rg);
 	align-items: center;
 	background-color: var(--rvt-color-brand-light);

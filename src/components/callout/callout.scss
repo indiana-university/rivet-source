@@ -37,14 +37,14 @@
 	}
 
 	&__content {
-		margin-top: var(--rvt-spacing-md);
+		margin-top: var(--rvt-spacing-sm);
 	}
 
 	&__actions {
 		display: flex;
 		flex-direction: column;
-		gap: var(--rvt-spacing-md);
-		margin-top: var(--rvt-spacing-md);
+		gap: var(--rvt-spacing-sm);
+		margin-top: var(--rvt-spacing-lg);
 	}
 }
 

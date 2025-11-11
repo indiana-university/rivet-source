@@ -1,12 +1,32 @@
 ---
 export const title = "Quote";
+const { avatar, citation, compact } = Astro.props;
 ---
 
-<div class="rvt-quote">
-	<blockquote class="rvt-quote__text">
+<figure class:list={["rvt-quote", { "rvt-quote--compact": compact }]}>
+	{
+		avatar && (
+			<div class="rvt-avatar">
+				<img
+					class="rvt-avatar__image"
+					src="https://rivet.iu.edu/img/placeholder/avatar-1.webp"
+					alt=""
+				/>
+			</div>
+		)
+	}
+	<blockquote>
 		<p>
 			One of the reasons I chose IU is because when I got there, it just felt
 			like a really nice community.
 		</p>
 	</blockquote>
-</div>
+	{
+		citation && (
+			<figcaption>
+				<div>Author Name</div>
+				<div>Writer of books, PhD</div>
+			</figcaption>
+		)
+	}
+</figure>

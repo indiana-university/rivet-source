@@ -60,7 +60,7 @@
 	.rvt-hero__teaser {
 		font: var(--rvt-font-18);
 		grid-area: teaser;
-		margin-block: var(--rvt-spacing-sm) 0;
+		margin-block: var(--rvt-size-20) 0;
 		text-wrap: pretty;
 	}
 
@@ -103,7 +103,7 @@
 		margin-block-start: var(--rvt-spacing-lg);
 
 		.rvt-list-hub__link {
-			font-size: var(--rvt-size-16);
+			font: var(--rvt-font-16-bold);
 		}
 	}
 
@@ -252,7 +252,7 @@
 	}
 }
 
-:is(.rvt-hero--split, .rvt-hero--statement) {
+:is(.rvt-hero--feature, .rvt-hero--split, .rvt-hero--statement) {
 	.rvt-hero__title {
 		font-style: oblique 10deg;
 	}

@@ -4,9 +4,6 @@
 @use "../../base/core.scss" as *;
 
 .rvt-list-hub {
-	background-color: transparent;
-	text-wrap: pretty;
-
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-12-mono);
@@ -41,6 +38,7 @@
 	&__eyebrow {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-12-mono);
+		margin-block-end: var(--rvt-size-4);
 		padding-inline-start: var(--rvt-spacing-md);
 	}
 

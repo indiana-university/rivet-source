@@ -22,6 +22,7 @@
 @use "dropdown/dropdown.scss";
 @use "empty-state/empty-state.scss";
 @use "factoid/factoid.scss";
+@use "fieldset/fieldset.css";
 @use "file/file.css";
 @use "footer/footer-base.scss";
 @use "footer/footer-resources.css";
@@ -42,7 +43,7 @@
 @use "media-hub/media-hub.scss";
 @use "pagination/pagination.css";
 @use "page/page.css";
-@use "quote/quote.scss";
+@use "quote/quote.css";
 @use "radio/radio.css";
 @use "section/section.scss";
 @use "section-intro/section-intro.scss";

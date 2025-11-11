@@ -4,7 +4,7 @@
  */
 
 .rvt-footer-resources {
-	padding-block: var(--rvt-spacing-md);
+	padding-block: var(--rvt-spacing-lg);
 
 	.rvt-footer-social + & {
 		padding-block-start: 0;
@@ -40,6 +40,10 @@
 
 		p {
 			margin-block: var(--rvt-spacing-xs) 0;
+
+			&:first-of-type {
+				margin-block-start: var(--rvt-spacing-sm);
+			}
 		}
 	}
 
@@ -59,7 +63,7 @@
 
 		ul {
 			list-style: none;
-			margin-block: var(--rvt-spacing-xs) 0;
+			margin-block: var(--rvt-spacing-sm) 0;
 			padding: 0;
 		}
 

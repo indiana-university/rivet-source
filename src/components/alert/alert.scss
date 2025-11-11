@@ -137,6 +137,10 @@
 		}
 	}
 
+	.rvt-button-group {
+		margin-block-start: var(--rvt-spacing-md);
+	}
+
 	&__dismiss {
 		--coordinate: calc(var(--size-padding) + var(--size-offset));
 		--size-offset: calc(
