@@ -17,6 +17,7 @@
 		background-color: var(--rvt-color-theme-background);
 		box-shadow: var(--rvt-shadow-standard);
 		min-width: 12.5rem;
+		padding-block: var(--rvt-size-8);
 		position: absolute;
 		// Aligning this right by default so that dropdowns do not
 		// go offscreen when close to the edge of the viewport.
@@ -46,7 +47,8 @@
 			display: block;
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
-			padding-block: var(--rvt-size-12);
+			font: var(--rvt-font-14);
+			padding-block: var(--rvt-size-8);
 			padding-inline: var(--rvt-size-16);
 			text-align: left;
 			text-decoration: none;

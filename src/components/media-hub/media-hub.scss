@@ -46,8 +46,12 @@
 
 		figcaption {
 			grid-column: 1 / -1;
-			padding-top: 0;
+			margin-block-start: 0;
 		}
+	}
+
+	figcaption {
+		margin-block-start: var(--rvt-spacing-xs);
 	}
 
 	// These aspect ratio helpers are needed to enforce aspect

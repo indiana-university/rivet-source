@@ -20,7 +20,7 @@
 
 		> li {
 			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-			padding: var(--rvt-spacing-md) 0;
+			padding: var(--rvt-spacing-lg) 0;
 		}
 	}
 
@@ -42,7 +42,7 @@
 				margin-block-start: var(--rvt-size-n1);
 				margin-inline-start: var(--rvt-size-n1);
 				min-width: 50%;
-				padding: var(--rvt-spacing-lg);
+				padding: var(--rvt-size-64);
 			}
 		}
 	}
