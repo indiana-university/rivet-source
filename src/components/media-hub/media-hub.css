@@ -27,6 +27,15 @@
 		}
 	}
 
+	.image-container {
+		container-type: inline-size;
+	}
+
+	picture::before {
+		background-color: green;
+		content: "HI";
+	}
+
 	.rvt-media-hub__media {
 		counter-reset: media-count;
 		display: grid;
