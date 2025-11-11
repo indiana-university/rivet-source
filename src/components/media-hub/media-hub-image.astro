@@ -3,16 +3,18 @@ export const title = "Media Hub with one image";
 ---
 
 <figure class="rvt-media-hub">
-	<div class="rvt-media-hub__media">
-		<div class="image-container">
-			<img
-				_decoding="async"
-				_loading="lazy"
-				sizes="100cqw"
-				src="https://picsum.photos/id/129/640/480"
-				srcset="https://picsum.photos/id/128/1280/960 1280w"
+	<div class="image-container">
+		<img
+			decoding="async"
+			loading="lazy"
+			src="https://picsum.photos/id/129/640/480"
+		/>
+		<img
+			decoding="async"
+			loading="lazy"
+			srcset="https://picsum.photos/id/128/1280/960"
+			hidden
 			/>
-		</div>
 	</div>
 	<figcaption class="rvt-media-hub__caption">Test caption</figcaption>
 </figure>

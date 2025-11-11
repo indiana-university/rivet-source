@@ -29,11 +29,26 @@
 
 	.image-container {
 		container-type: inline-size;
+		display: grid;
+
+		img {
+			aspect-ratio: var(--aspect-ratio-fullscreen);
+			grid-column: 1 / -1;
+			grid-row: 1 / -1;
+			width: 100%;
+		}
+
+		img[hidden] {
+			display: none;
+		}
 	}
 
-	picture::before {
-		background-color: green;
-		content: "HI";
+	@container (width > 640px) {
+		.image-container {
+			img[hidden] {
+				display: initial;
+			}
+		}
 	}
 
 	.rvt-media-hub__media {
