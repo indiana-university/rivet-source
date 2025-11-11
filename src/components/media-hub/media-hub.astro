@@ -3,27 +3,34 @@ const { teaser, type = "landscape-start", caption } = Astro.props;
 ---
 
 <figure class={`rvt-media-hub rvt-media-hub--${type}`}>
-	{teaser && (
-		<p class="rvt-media-hub__teaser">
-			Simple one to two sentence statement about about school or site that can
-			also serve as a way to link to sections. Learn more about
-			<a href="#">lorem ipsum</a>.
-		</p>
-	)}
-	<ol class="rvt-media-hub__media">
-		<li>
-			<img src="https://picsum.photos/id/46/600/400" alt="" />
-		</li>
-		<li>
-			<img src="https://picsum.photos/id/28/600/400" alt="" />
-		</li>
-		<li>
-			<img src="https://picsum.photos/id/19/800/400" alt="" />
-		</li>
-	</ol>
-	{caption && (
-		<figcaption class="rvt-media-hub__caption">
-			{caption}
-		</figcaption>
-	)}
+	{
+		teaser && (
+			<p>
+				Simple one to two sentence statement about about school or site that can
+				also serve as a way to link to sections. Learn more about
+				<a href="#">lorem ipsum</a>.
+			</p>
+		)
+	}
+	<div class="rvt-media-hub__images">
+		<picture>
+			<source
+				media="(width > 640px)"
+				srcset="https://picsum.photos/id/46/1280/1280"
+			/>
+			<img
+				alt="Barren sunny desert."
+				src="https://picsum.photos/id/46/640/640"
+			/>
+		</picture>
+		<img
+			alt="Rushing creek through a forest wilderness."
+			src="https://picsum.photos/id/28/640/640"
+		/>
+		<img
+			alt="Mossy tree, looking up at the canopy."
+			src="https://picsum.photos/id/19/640/640"
+		/>
+	</div>
+	{caption && <figcaption>{caption}</figcaption>}
 </figure>
