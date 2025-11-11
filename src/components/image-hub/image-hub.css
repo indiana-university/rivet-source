@@ -31,7 +31,7 @@
 		}
 	}
 
-	.rvt-image-hub__images {
+	.rvt-image-hub__images:has(> :is(img, picture):nth-child(3):last-child) {
 		display: grid;
 		gap: var(--rvt-spacing-xs);
 		grid-template-columns: repeat(2, 1fr);

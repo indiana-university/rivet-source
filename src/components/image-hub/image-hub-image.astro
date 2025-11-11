@@ -1,20 +1,6 @@
 ---
+import ImageHub from "./image-hub.astro";
 export const title = "Image Hub with one image";
 ---
 
-<figure class="rvt-image-hub">
-	<div class="image-container">
-		<img
-			decoding="async"
-			loading="lazy"
-			src="https://picsum.photos/id/128/640/480"
-		/>
-		<img
-			decoding="async"
-			loading="lazy"
-			srcset="https://picsum.photos/id/128/1280/960"
-			hidden
-		/>
-	</div>
-	<figcaption class="rvt-image-hub__caption">Test caption</figcaption>
-</figure>
+<ImageHub type="single" caption="Single image" />

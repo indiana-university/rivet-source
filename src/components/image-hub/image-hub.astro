@@ -1,5 +1,5 @@
 ---
-const { teaser, type = "landscape-start", caption } = Astro.props;
+const { teaser, type = "single", caption } = Astro.props;
 ---
 
 <figure class={`rvt-image-hub rvt-image-hub--${type}`}>
@@ -23,14 +23,16 @@ const { teaser, type = "landscape-start", caption } = Astro.props;
 				src="https://picsum.photos/id/46/640/640"
 			/>
 		</picture>
-		<img
-			alt="Rushing creek through a forest wilderness."
-			src="https://picsum.photos/id/28/640/640"
-		/>
-		<img
-			alt="Mossy tree, looking up at the canopy."
-			src="https://picsum.photos/id/19/640/640"
-		/>
+		{type !== "single" && (
+			<img
+				alt="Rushing creek through a forest wilderness."
+				src="https://picsum.photos/id/28/640/640"
+			/>
+			<img
+				alt="Mossy tree, looking up at the canopy."
+				src="https://picsum.photos/id/19/640/640"
+			/>
+		)}
 	</div>
 	{caption && <figcaption>{caption}</figcaption>}
 </figure>
