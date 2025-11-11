@@ -2,7 +2,7 @@
 const { teaser, type = "landscape-start", caption } = Astro.props;
 ---
 
-<figure class={`rvt-media-hub rvt-media-hub--${type}`}>
+<figure class={`rvt-image-hub rvt-image-hub--${type}`}>
 	{
 		teaser && (
 			<p>
@@ -12,7 +12,7 @@ const { teaser, type = "landscape-start", caption } = Astro.props;
 			</p>
 		)
 	}
-	<div class="rvt-media-hub__images">
+	<div class="rvt-image-hub__images">
 		<picture>
 			<source
 				media="(width > 640px)"

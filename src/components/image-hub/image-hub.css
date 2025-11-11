@@ -4,12 +4,11 @@
  */
 
 /*
-- Rename to "image-hub".
 - No teaser for single image.
 - Only 1 image or 3 images.
 */
 
-.rvt-media-hub {
+.rvt-image-hub {
 	--aspect-ratio-fullscreen: 4 / 3;
 	--aspect-ratio-landscape: 2;
 	--aspect-ratio-portrait: 1 / 2;
@@ -32,7 +31,7 @@
 		}
 	}
 
-	.rvt-media-hub__images {
+	.rvt-image-hub__images {
 		display: grid;
 		gap: var(--rvt-spacing-xs);
 		grid-template-columns: repeat(2, 1fr);
@@ -52,32 +51,32 @@
 	}
 }
 
-.rvt-media-hub--landscape-start {
-	.rvt-media-hub__images > :first-child {
+.rvt-image-hub--landscape-start {
+	.rvt-image-hub__images > :first-child {
 		--aspect-ratio: var(--aspect-ratio-landscape);
 		grid-column: 1 / 3;
 		grid-row: 1 / 2;
 	}
 }
 
-.rvt-media-hub--landscape-end {
-	.rvt-media-hub__images > :first-child {
+.rvt-image-hub--landscape-end {
+	.rvt-image-hub__images > :first-child {
 		--aspect-ratio: var(--aspect-ratio-landscape);
 		grid-column: 1 / 3;
 		grid-row: 2 / 3;
 	}
 }
 
-.rvt-media-hub--portrait-start {
-	.rvt-media-hub__images > :first-child {
+.rvt-image-hub--portrait-start {
+	.rvt-image-hub__images > :first-child {
 		--aspect-ratio: var(--aspect-ratio-portrait);
 		grid-column: 1 / 2;
 		grid-row: 1 / 3;
 	}
 }
 
-.rvt-media-hub--portrait-end {
-	.rvt-media-hub__images > :first-child {
+.rvt-image-hub--portrait-end {
+	.rvt-image-hub__images > :first-child {
 		--aspect-ratio: var(--aspect-ratio-portrait);
 		grid-column: 2 / 3;
 		grid-row: 1 / 3;

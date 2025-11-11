@@ -4,8 +4,8 @@ import Header from "@src/components/header/header-demo.astro";
 import HeroFeature from "@src/components/hero/hero-feature-demo.astro";
 import Footer from "@src/components/footer/footer-demo.astro";
 import ListHub from "@src/components/list-hub/list-hub-demo.astro";
-import MediaHub from "@src/components/media-hub/media-hub-demo.astro";
-import MediaHubImage from "@src/components/media-hub/media-hub-image.astro";
+import ImageHub from "@src/components/image-hub/image-hub-demo.astro";
+import ImageHubSingle from "@src/components/image-hub/image-hub-image.astro";
 import Quote from "@src/components/quote/quote-demo.astro";
 import StatGroup from "@src/components/stat-group/stat-group.astro";
 ---
@@ -53,7 +53,7 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
       - CTA(s) - repeater field, max of two
         - CTA text
         - CTA URL
-      - Image - This uses the Media Hub component
+      - Image - This uses the Image Hub component
         - Image uploader
           - Max of 1 image or video/video embed
           - 16:9 aspect-ratio
@@ -84,7 +84,7 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
 						<a class="rvt-button rvt-button--cta" href="/#0">More about CTA</a>
 					</div>
 				</div>
-				<MediaHubImage />
+				<ImageHubSingle />
 			</div>
 		</div>
 	</div>
@@ -137,7 +137,7 @@ import StatGroup from "@src/components/stat-group/stat-group.astro";
 	</div>
 	<div class="rvt-section rvt-theme-crimson">
 		<div class="rvt-container">
-			<MediaHub />
+			<ImageHub />
 		</div>
 	</div>
 	<div class="rvt-section">
