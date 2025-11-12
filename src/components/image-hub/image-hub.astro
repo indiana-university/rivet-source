@@ -1,8 +1,8 @@
 ---
-const { teaser, type = "single", caption } = Astro.props;
+const { caption, teaser, type } = Astro.props;
 ---
 
-<figure class={`rvt-image-hub rvt-image-hub--${type}`}>
+<figure class:list={["rvt-image-hub", { [`rvt-image-hub--${type}`]: type }]}>
 	{
 		teaser && (
 			<p>
@@ -23,7 +23,7 @@ const { teaser, type = "single", caption } = Astro.props;
 				src="https://picsum.photos/id/46/640/640"
 			/>
 		</picture>
-		{type !== "single" && (
+		{type && (
 			<img
 				alt="Rushing creek through a forest wilderness."
 				src="https://picsum.photos/id/28/640/640"
