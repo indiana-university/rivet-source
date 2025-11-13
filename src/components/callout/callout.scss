@@ -29,7 +29,7 @@
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-29-black);
-		text-transform: uppercase;
+		font-variation-settings: var(--rvt-font-variation-black);
 	}
 
 	&__eyebrow + &__title {
