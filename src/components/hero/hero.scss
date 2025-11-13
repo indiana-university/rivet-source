@@ -45,20 +45,21 @@
 	.rvt-hero__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-29-fluid-black);
+		font-variation-settings: var(--rvt-font-variation-black);
 		grid-area: title;
 		margin-block-start: var(--rvt-spacing-xs);
-		text-transform: uppercase;
 		text-wrap: balance;
 	}
 
 	.rvt-hero__subtitle {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-20-fluid-black);
+		font-variation-settings: var(--rvt-font-variation-black);
 		margin: 0;
 	}
 
 	.rvt-hero__teaser {
-		font: var(--rvt-font-18);
+		font: var(--rvt-font-20);
 		grid-area: teaser;
 		margin-block: var(--rvt-size-20) 0;
 		text-wrap: pretty;
@@ -71,7 +72,7 @@
 		flex-wrap: wrap;
 		gap: var(--rvt-spacing-sm);
 		grid-area: actions;
-		margin-block-start: var(--rvt-spacing-lg);
+		margin-block-start: var(--rvt-spacing-xl);
 
 		> * {
 			flex-grow: var(--grow);
@@ -210,6 +211,12 @@
 	}
 }
 
+:is(.rvt-hero--feature, .rvt-hero--split) {
+	.rvt-hero__title {
+		font: var(--rvt-font-36-fluid-black);
+	}
+}
+
 .rvt-hero--profile {
 	.rvt-hero__teaser {
 		margin-block-start: var(--rvt-spacing-xs);
@@ -229,7 +236,9 @@
 	}
 
 	.rvt-hero__title {
-		font: var(--rvt-font-32-fluid-black);
+		font: var(--rvt-font-42-fluid-black);
+		font-style: oblique 10deg;
+		text-transform: uppercase;
 	}
 
 	.rvt-hero__actions {
@@ -249,11 +258,5 @@
 			margin-block-start: var(--rvt-spacing-xs);
 			max-width: var(--width-max);
 		}
-	}
-}
-
-:is(.rvt-hero--feature, .rvt-hero--split, .rvt-hero--statement) {
-	.rvt-hero__title {
-		font-style: oblique 10deg;
 	}
 }

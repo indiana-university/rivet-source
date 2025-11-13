@@ -24,7 +24,7 @@
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-29-black);
-		text-transform: uppercase;
+		font-variation-settings: var(--rvt-font-variation-black);
 	}
 
 	&__body {
@@ -58,6 +58,7 @@
 .rvt-billboard--compact {
 	.rvt-billboard__title {
 		font: var(--rvt-font-26-black);
+		font-variation-settings: var(--rvt-font-variation-black);
 	}
 }
 

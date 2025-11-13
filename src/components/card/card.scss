@@ -225,7 +225,7 @@
 	.rvt-card__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-20-fluid-black);
-		text-transform: uppercase;
+		font-variation-settings: var(--rvt-font-variation-black);
 
 		a {
 			color: var(--rvt-color-theme-text-accent);
