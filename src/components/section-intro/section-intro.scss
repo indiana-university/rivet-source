@@ -18,9 +18,9 @@
 	.rvt-section-intro__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-26-fluid-black);
+		font-variation-settings: var(--rvt-font-variation-black);
 		grid-area: title;
 		margin-block-start: var(--rvt-spacing-sm);
-		text-transform: uppercase;
 	}
 
 	.rvt-section-intro__teaser {
@@ -92,7 +92,8 @@
 	}
 
 	.rvt-section-intro__title {
-		font: var(--rvt-font-29-fluid-black);
+		font: var(--rvt-font-36-fluid-black);
+		font-variation-settings: var(--rvt-font-variation-black);
 	}
 
 	.rvt-section-intro__teaser {
