@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-const { Octokit } = require("@octokit/rest");
+import { Octokit } from "@octokit/rest";
 
 /******************************************************************************
  * Generate markdown for use in GitHub release notes.

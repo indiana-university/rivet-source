@@ -12,6 +12,7 @@
 		"url": "https://github.com/indiana-university/rivet-source/issues",
 		"email": "rivet@iu.edu"
 	},
+	"type": "module",
 	"module": "./dist/rivet.js",
 	"unpkg": "./dist/rivet.js",
 	"exports": {
@@ -23,10 +24,11 @@
 	"scripts": {
 		"start": "run-s build:tokens start:astro",
 		"start:astro": "astro dev --open --host",
-		"build": "run-s build:clean build:tokens build:dist build:zip",
-		"build:clean": "rimraf ./dist ./rivet.zip",
-		"build:tokens": "style-dictionary build -c ./tokens.config.json",
+		"build": "run-s build:clean build:tokens build:dist build:dist:clean build:zip",
+		"build:clean": "rimraf ./src/base/tokens* ./dist ./rivet.zip",
+		"build:tokens": "style-dictionary build -c ./tokens.config.js",
 		"build:dist": "vite build",
+		"build:dist:clean": "rimraf ./dist/rivet-icons.js*",
 		"build:zip": "zip -r rivet.zip dist",
 		"changelog": "node ./tasks/generate-changelog.js",
 		"format": "prettier --write ."

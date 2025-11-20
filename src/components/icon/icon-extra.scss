@@ -1,0 +1,14 @@
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../../base/tokens-icons.css";
+@use "../../base/tokens-icons.scss" as *;
+@use "sass:map";
+
+$icons: map.get($tokens, "icon");
+
+@each $name, $value in $icons {
+	rvt-icon[name="#{$name}"] {
+		--icon: var(--rvt-icon-#{$name});
+	}
+}

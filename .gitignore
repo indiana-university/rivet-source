@@ -11,5 +11,4 @@ node_modules
 *.zip
 
 # Design tokens
-/src/base/tokens.css
-/src/base/tokens.scss
+/src/base/tokens*
