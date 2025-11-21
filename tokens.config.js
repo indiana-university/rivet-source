@@ -30,7 +30,7 @@ export default {
 					format: formats.scssMapDeep,
 				},
 				{
-					destination: "src/base/tokens-icons.scss",
+					destination: "src/base/tokens-icon-extra.scss",
 					filter: "icon-extra",
 					format: formats.scssMapDeep,
 				},
@@ -47,7 +47,7 @@ export default {
 					format: formats.cssVariables,
 				},
 				{
-					destination: "src/base/tokens-icons.css",
+					destination: "src/base/tokens-icon-extra.css",
 					filter: "icon-extra",
 					format: formats.cssVariables,
 				},

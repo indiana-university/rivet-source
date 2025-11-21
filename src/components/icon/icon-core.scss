@@ -1,8 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../../base/tokens-icon-extra.css";
-@use "../../base/tokens-icon-extra.scss" as *;
+@use "../../base/tokens.scss" as *;
 @use "sass:map";
 
 $icons: map.get($tokens, "icon");

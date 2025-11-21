@@ -1,0 +1,20 @@
+---
+import tokens from "@src/tokens/icon.json";
+export const title = "Icons";
+
+const icons: any = Object.entries(tokens.icon).filter(
+	([key]) => !key.startsWith("$"),
+);
+---
+
+<ul class="rvt-list-plain">
+	{
+		icons.map(([name, value]) => (
+			<li class="rvt-flex">
+				<rvt-icon name={name}>
+					{`${name}${value?.$core ? " (core)" : ""}`}
+				</rvt-icon>
+			</li>
+		))
+	}
+</ul>

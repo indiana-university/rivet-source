@@ -18,7 +18,7 @@ const buildConfig = {
 		lib: {
 			cssFileName: fileName,
 			entry: {
-				"rivet": "src/rivet.js",
+				rivet: "src/rivet.js",
 				"rivet-icons": "src/rivet-icons.js",
 			},
 			formats: ["es"],
