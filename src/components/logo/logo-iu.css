@@ -1,0 +1,56 @@
+/*
+ * Copyright (C) 2025 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+rvt-logo-iu {
+	--aspect-ratio: calc(var(--rvt-logo-iu-width) / var(--rvt-logo-iu-height));
+	--size: var(--rvt-size-16);
+	--scale: calc((var(--size) * 4 / 7) / var(--rvt-logo-iu-height));
+	--translateX: calc((var(--size) - (var(--size) * var(--aspect-ratio))) / -2);
+	--width: calc(var(--aspect-ratio) * var(--size));
+	--padding: calc(var(--width) / 4);
+	_aspect-ratio: var(--aspect-ratio);
+	display: inline-flex;
+	_clip-path: border-box;
+	height: var(--size);
+	width: var(--width);
+	_justify-content: center;
+	padding: var(--padding);
+	background-color: var(--rvt-color-theme-accent);
+	color: gray;
+
+	&::before {
+		_aspect-ratio: var(--aspect-ratio);
+		_aspect-ratio: 28/34;
+		_justify-self: center;
+		_align-self: center;
+		background-color: currentColor;
+		clip-path: path(var(--rvt-logo-iu-path));
+		content: "";
+		display: block;
+		_height: var(--size);
+		_width: var(--width);
+		height: var(--rvt-logo-iu-height);
+		width: var(--rvt-logo-iu-width);
+		transform: scale(var(--scale));
+		transform-origin: 0 0;
+		position: absolute;
+	}
+
+	&[size="md"] {
+		--size: var(--rvt-size-24);
+	}
+
+	&[size="lg"] {
+		--size: var(--rvt-size-32);
+	}
+
+	&[size="xl"] {
+		--size: var(--rvt-size-48);
+	}
+
+	&[size="xxl"] {
+		--size: var(--rvt-size-96);
+	}
+}

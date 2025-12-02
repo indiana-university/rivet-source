@@ -10,10 +10,9 @@ const icons: any = Object.entries(tokens.icon).filter(
 <ul class="rvt-list-plain">
 	{
 		icons.map(([name, value]) => (
-			<li class="rvt-flex">
-				<rvt-icon name={name}>
-					{`${name}${value?.$core ? " (core)" : ""}`}
-				</rvt-icon>
+			<li class="rvt-items-center rvt-flex rvt-gap-xs">
+				<rvt-icon name={name} />
+				<span>{`${name}${value?.$core ? " (core)" : ""}`}</span>
 			</li>
 		))
 	}
