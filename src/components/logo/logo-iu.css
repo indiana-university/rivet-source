@@ -14,7 +14,7 @@ rvt-logo-iu {
 	display: inline-flex;
 	_clip-path: border-box;
 	height: var(--size);
-	width: var(--width);
+	_width: var(--width);
 	_justify-content: center;
 	padding: var(--padding);
 	background-color: var(--rvt-color-theme-accent);
@@ -33,9 +33,9 @@ rvt-logo-iu {
 		_width: var(--width);
 		height: var(--rvt-logo-iu-height);
 		width: var(--rvt-logo-iu-width);
-		transform: scale(var(--scale));
-		transform-origin: 0 0;
-		position: absolute;
+		_transform: scale(var(--scale));
+		_transform-origin: 0 0;
+		_position: absolute;
 	}
 
 	&[size="md"] {
