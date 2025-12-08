@@ -9,16 +9,18 @@ rvt-icon {
 	display: inline-flex;
 	clip-path: border-box;
 	_overflow: hidden;
-		aspect-ratio: var(--aspect-ratio);
-		height: var(--size);
-		_width: var(--rvt-size-8);
-		justify-content: center;
+	aspect-ratio: var(--aspect-ratio);
+	height: var(--size);
+	_width: var(--rvt-size-8);
+	justify-content: center;
 
 	&::before {
 		--size-base: var(--rvt-size-16);
 		--scale: calc(var(--size) / var(--size-base));
 		--_scale: 1;
-		--translateX: calc((var(--size) - (var(--size) * var(--aspect-ratio))) / -2);
+		--translateX: calc(
+			(var(--size) - (var(--size) * var(--aspect-ratio))) / -2
+		);
 		position: absolute;
 		justify-self: center;
 		align-self: center;

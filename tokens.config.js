@@ -22,7 +22,7 @@ export default {
 				path: "content",
 				width: "dimension",
 			},
-		}
+		},
 	},
 	hooks: {
 		filters: {
