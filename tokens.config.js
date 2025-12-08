@@ -1,5 +1,7 @@
 import { formats, transformGroups, transforms } from "style-dictionary/enums";
 
+const prefix = "rvt";
+
 function isIcon(token) {
 	return token.path[0] === "icon";
 }
@@ -42,8 +44,8 @@ export default {
 			transforms: [transforms.contentQuote, transforms.sizePxToRem],
 		},
 		css: {
-			transformGroup: "css",
-			prefix: "rvt",
+			transformGroup: transformGroups.css,
+			prefix,
 			files: [
 				{
 					destination: "src/base/tokens.css",
@@ -59,8 +61,8 @@ export default {
 			transforms: [transforms.contentQuote, transforms.sizePxToRem],
 		},
 		json: {
-			transformGroup: "js",
-			prefix: "rvt",
+			transformGroup: transformGroups.json,
+			prefix,
 			files: [
 				{
 					destination: "dist/tokens.json",
