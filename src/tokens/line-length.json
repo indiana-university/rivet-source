@@ -1,6 +1,5 @@
 {
 	"line-length": {
-		"$type": "dimension",
 		"short": {
 			"$value": "45ch"
 		},

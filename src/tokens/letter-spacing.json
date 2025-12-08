@@ -1,6 +1,5 @@
 {
 	"letter-spacing": {
-		"$type": "dimension",
 		"normal": {
 			"$value": "normal"
 		},

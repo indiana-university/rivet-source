@@ -11,6 +11,8 @@ export default {
 		include: ["graphic", "icon"],
 		typesMap: {
 			graphic: {
+				"container-height": "dimension",
+				"container-width": "dimension",
 				height: "dimension",
 				path: "content",
 				width: "dimension",
@@ -60,7 +62,7 @@ export default {
 					format: formats.scssMapDeep,
 				},
 			],
-			transforms: ["icon", "content/quote"],
+			transforms: ["icon", transforms.contentQuote, transforms.sizePxToRem],
 		},
 		css: {
 			transformGroup: "css",
@@ -77,7 +79,7 @@ export default {
 					format: formats.cssVariables,
 				},
 			],
-			transforms: ["icon", "content/quote"],
+			transforms: ["icon", transforms.contentQuote, transforms.sizePxToRem],
 		},
 		json: {
 			transformGroup: "js",

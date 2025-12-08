@@ -4,53 +4,33 @@
  */
 
 rvt-logo-iu {
-	--aspect-ratio: calc(var(--rvt-logo-iu-width) / var(--rvt-logo-iu-height));
-	--size: var(--rvt-size-16);
-	--scale: calc((var(--size) * 4 / 7) / var(--rvt-logo-iu-height));
-	--translateX: calc((var(--size) - (var(--size) * var(--aspect-ratio))) / -2);
-	--width: calc(var(--aspect-ratio) * var(--size));
-	--padding: calc(var(--width) / 4);
-	_aspect-ratio: var(--aspect-ratio);
+	--color-background: transparent;
+	--color-foreground: var(--rvt-color-theme-text-accent);
+	--container-height: var(--rvt-logo-iu-container-height);
+	--container-width: var(--rvt-logo-iu-container-width);
+	--height: var(--rvt-logo-iu-height);
+	--path: var(--rvt-logo-iu-path);
+	--width: var(--rvt-logo-iu-width);
+	align-items: center;
+	background-color: var(--color-background);
+	color: var(--color-foreground);
 	display: inline-flex;
-	_clip-path: border-box;
-	height: var(--size);
-	_width: var(--width);
-	_justify-content: center;
-	padding: var(--padding);
-	background-color: var(--rvt-color-theme-accent);
-	color: gray;
+	flex-shrink: 0;
+	justify-content: center;
 
 	&::before {
-		_aspect-ratio: var(--aspect-ratio);
-		_aspect-ratio: 28/34;
-		_justify-self: center;
-		_align-self: center;
 		background-color: currentColor;
-		clip-path: path(var(--rvt-logo-iu-path));
+		clip-path: path(var(--path));
 		content: "";
 		display: block;
-		_height: var(--size);
-		_width: var(--width);
-		height: var(--rvt-logo-iu-height);
-		width: var(--rvt-logo-iu-width);
-		_transform: scale(var(--scale));
-		_transform-origin: 0 0;
-		_position: absolute;
+		height: var(--height);
+		width: var(--width);
 	}
 
-	&[size="md"] {
-		--size: var(--rvt-size-24);
-	}
-
-	&[size="lg"] {
-		--size: var(--rvt-size-32);
-	}
-
-	&[size="xl"] {
-		--size: var(--rvt-size-48);
-	}
-
-	&[size="xxl"] {
-		--size: var(--rvt-size-96);
+	&[tab] {
+		--color-background: var(--rvt-color-theme-text-accent);
+		--color-foreground: var(--rvt-color-theme-text-accent-inverse);
+		height: var(--container-height);
+		width: var(--container-width);
 	}
 }

@@ -3,9 +3,11 @@
 		"$type": "graphic",
 		"iu": {
 			"$value": {
-				"height": "66px",
-				"path": "M0 9 L18 9 L18 14 L14 14 L14 42 L22 42 L22 5 L18 5 L18 0 L36 0 L36 5 L32 5 L32 42 L40 42 L40 14 L36 14 L36 9 L54 9 L54 14 L50 14 L50 46 L44 52 L32 52 L32 59 L36 59 L36 66 L18 66 L18 59 L22 59 L22 52 L10 52 L4 46 L4 14 L0 14 Z",
-				"width": "54px"
+				"container-height": 54,
+				"container-width": 46,
+				"height": 38,
+				"path": "M0 5V8H2V26L6 30H12V34H10V38H20V34H18V30H24L28 26V8H30V5H20V8H22V24H18V3H20V0H10V3H12V24H8V8H10V5H0Z",
+				"width": 30
 			}
 		}
 	}
