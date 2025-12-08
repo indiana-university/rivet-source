@@ -1,14 +1,13 @@
-import {
-	formats,
-	transformGroups,
-	transformTypes,
-	transforms,
-} from "style-dictionary/enums";
+import { formats, transformGroups, transforms } from "style-dictionary/enums";
+
+function isIcon(token) {
+	return token.path[0] === "icon";
+}
 
 export default {
 	source: ["src/tokens/**/*.json"],
 	expand: {
-		include: ["graphic", "icon"],
+		include: ["graphic"],
 		typesMap: {
 			graphic: {
 				"container-height": "dimension",
@@ -17,34 +16,12 @@ export default {
 				path: "content",
 				width: "dimension",
 			},
-			icon: {
-				height: "dimension",
-				path: "content",
-				width: "dimension",
-			},
 		},
 	},
 	hooks: {
 		filters: {
-			"icon-core": (token) => (token.$type === "icon" ? token.$core : true),
-			"icon-extra": (token) => (token.$type === "icon" ? !token.$core : false),
-		},
-		transforms: {
-			icon: {
-				type: transformTypes.value,
-				filter: (token) => token.$type === "icon",
-				transform: (token) => {
-					if (token.name.includes("logo")) {
-						console.log("T2", token);
-					}
-					return `"${token.$value}"`;
-				},
-			},
-			string: {
-				type: transformTypes.value,
-				filter: (token) => token.$type === "string",
-				transform: (token) => `"${token.$value}"`,
-			},
+			"icon-core": (token) => (isIcon(token) ? token.$core : true),
+			"icon-extra": (token) => (isIcon(token) ? !token.$core : false),
 		},
 	},
 	platforms: {
@@ -62,7 +39,7 @@ export default {
 					format: formats.scssMapDeep,
 				},
 			],
-			transforms: ["icon", transforms.contentQuote, transforms.sizePxToRem],
+			transforms: [transforms.contentQuote, transforms.sizePxToRem],
 		},
 		css: {
 			transformGroup: "css",
@@ -79,7 +56,7 @@ export default {
 					format: formats.cssVariables,
 				},
 			],
-			transforms: ["icon", transforms.contentQuote, transforms.sizePxToRem],
+			transforms: [transforms.contentQuote, transforms.sizePxToRem],
 		},
 		json: {
 			transformGroup: "js",
