@@ -1,14 +1,14 @@
 import { formats, transformGroups, transforms } from "style-dictionary/enums";
 
-const prefix = "rvt";
+const PREFIX = "rvt";
 
 function isIcon(token) {
 	return token.path[0] === "icon";
 }
 
 function formatIconComponent(name) {
-	return `${prefix}-icon[name="${name}"] {
-	--name: var(--${prefix}-icon-${name});
+	return `${PREFIX}-icon[name="${name}"] {
+	--name: var(--${PREFIX}-icon-${name});
 }
 `;
 }
@@ -54,7 +54,7 @@ export default {
 		},
 		css: {
 			transformGroup: transformGroups.css,
-			prefix,
+			prefix: PREFIX,
 			files: [
 				{
 					destination: "src/base/tokens.tmp.css",
@@ -81,7 +81,7 @@ export default {
 		},
 		json: {
 			transformGroup: transformGroups.json,
-			prefix,
+			prefix: PREFIX,
 			files: [
 				{
 					destination: "dist/tokens.json",
