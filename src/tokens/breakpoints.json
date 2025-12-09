@@ -1,6 +1,5 @@
 {
 	"breakpoint": {
-		"$type": "dimension",
 		"sm": {
 			"$value": "{size.480}"
 		},

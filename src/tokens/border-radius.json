@@ -1,6 +1,5 @@
 {
 	"border-radius": {
-		"$type": "dimension",
 		"sm": {
 			"$value": "{size.2}"
 		},
