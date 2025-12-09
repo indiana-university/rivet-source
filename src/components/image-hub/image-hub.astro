@@ -23,16 +23,20 @@ const { caption, teaser, type } = Astro.props;
 				src="https://picsum.photos/id/46/640/640"
 			/>
 		</picture>
-		{type && (
-			<img
-				alt="Rushing creek through a forest wilderness."
-				src="https://picsum.photos/id/28/640/640"
-			/>
-			<img
-				alt="Mossy tree, looking up at the canopy."
-				src="https://picsum.photos/id/19/640/640"
-			/>
-		)}
+		{
+			type && (
+				<>
+					<img
+						alt="Rushing creek through a forest wilderness."
+						src="https://picsum.photos/id/28/640/640"
+					/>
+					<img
+						alt="Mossy tree, looking up at the canopy."
+						src="https://picsum.photos/id/19/640/640"
+					/>
+				</>
+			)
+		}
 	</div>
 	{caption && <figcaption>{caption}</figcaption>}
 </figure>
