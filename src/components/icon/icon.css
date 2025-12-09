@@ -4,34 +4,15 @@
  */
 
 rvt-icon {
-	--aspect-ratio: 1;
-	--size: var(--rvt-size-16);
 	display: inline-flex;
-	clip-path: border-box;
-	_overflow: hidden;
-	aspect-ratio: var(--aspect-ratio);
-	height: var(--size);
-	_width: var(--rvt-size-8);
-	justify-content: center;
+	flex-shrink: 0;
 
 	&::before {
-		--size-base: var(--rvt-size-16);
-		--scale: calc(var(--size) / var(--size-base));
-		--_scale: 1;
-		--translateX: calc(
-			(var(--size) - (var(--size) * var(--aspect-ratio))) / -2
-		);
-		position: absolute;
-		justify-self: center;
-		align-self: center;
 		background-color: currentColor;
 		clip-path: path(var(--name));
 		content: "";
 		display: block;
-		height: var(--size);
-		width: var(--size);
-		_transform: translateX(var(--translateX)) scale(var(--scale));
-		transform: scale(var(--scale));
-		transform-origin: 0 0;
+		height: var(--rvt-size-16);
+		width: var(--rvt-size-16);
 	}
 }
