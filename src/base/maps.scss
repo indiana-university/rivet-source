@@ -1,4 +1,4 @@
-@use "tokens" as *;
+@use "tokens.tmp" as *;
 @use "sass:map";
 
 $breakpoints: map.get($tokens, "breakpoint");

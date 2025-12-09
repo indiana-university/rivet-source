@@ -1,8 +1,7 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@layer rivet.base, rivet.components, rivet.utilities;
-
+@import "layers.css";
 @import "base/base.scss" layer(rivet.base);
 @import "components/components.scss" layer(rivet.components);
 @import "utilities/utilities.scss" layer(rivet.utilities);

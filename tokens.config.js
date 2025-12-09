@@ -6,6 +6,13 @@ function isIcon(token) {
 	return token.path[0] === "icon";
 }
 
+function formatIconComponent(name) {
+	return `${prefix}-icon[name="${name}"] {
+	--name: var(--${prefix}-icon-${name});
+}
+`;
+}
+
 export default {
 	source: ["src/tokens/**/*.json"],
 	expand: {
@@ -22,8 +29,16 @@ export default {
 	},
 	hooks: {
 		filters: {
-			"icon-core": (token) => (isIcon(token) ? token.$core : true),
-			"icon-extra": (token) => (isIcon(token) ? !token.$core : false),
+			core: (token) => (isIcon(token) ? token.$core : true),
+			"core-icon": (token) => isIcon(token) && token.$core,
+			"extra-icon": (token) => isIcon(token) && !token.$core,
+		},
+		formats: {
+			"css/icons": ({ dictionary }) =>
+				dictionary.allTokens
+					.map((token) => token.path[1])
+					.map(formatIconComponent)
+					.join("\n"),
 		},
 	},
 	platforms: {
@@ -31,13 +46,7 @@ export default {
 			transformGroup: transformGroups.scss,
 			files: [
 				{
-					destination: "src/base/tokens.scss",
-					filter: "icon-core",
-					format: formats.scssMapDeep,
-				},
-				{
-					destination: "src/base/tokens-icon-extra.scss",
-					filter: "icon-extra",
+					destination: "src/base/tokens.tmp.scss",
 					format: formats.scssMapDeep,
 				},
 			],
@@ -48,14 +57,24 @@ export default {
 			prefix,
 			files: [
 				{
-					destination: "src/base/tokens.css",
-					filter: "icon-core",
+					destination: "src/base/tokens.tmp.css",
+					filter: "core",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "src/base/tokens-icon-extra.css",
-					filter: "icon-extra",
+					destination: "src/components/icon/icon-core.tmp.css",
+					filter: "core-icon",
+					format: "css/icons",
+				},
+				{
+					destination: "src/base/tokens-icon-extra.tmp.css",
+					filter: "extra-icon",
 					format: formats.cssVariables,
+				},
+				{
+					destination: "src/components/icon/icon-extra.tmp.css",
+					filter: "extra-icon",
+					format: "css/icons",
 				},
 			],
 			transforms: [transforms.contentQuote, transforms.sizePxToRem],

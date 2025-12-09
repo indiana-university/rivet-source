@@ -9,6 +9,4 @@ node_modules
 .vscode
 *.tgz
 *.zip
-
-# Design tokens
-/src/base/tokens*
+*.tmp.*

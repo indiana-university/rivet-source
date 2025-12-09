@@ -3,4 +3,4 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import "./rivet-icons.scss";
+import "./rivet-icons.css";
