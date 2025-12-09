@@ -1,0 +1,38 @@
+---
+const { caption, teaser, type } = Astro.props;
+---
+
+<figure class:list={["rvt-image-hub", { [`rvt-image-hub--${type}`]: type }]}>
+	{
+		teaser && (
+			<p>
+				Simple one to two sentence statement about about school or site that can
+				also serve as a way to link to sections. Learn more about
+				<a href="#">lorem ipsum</a>.
+			</p>
+		)
+	}
+	<div class="rvt-image-hub__images">
+		<picture>
+			<source
+				media="(width > 640px)"
+				srcset="https://picsum.photos/id/46/1280/1280"
+			/>
+			<img
+				alt="Barren sunny desert."
+				src="https://picsum.photos/id/46/640/640"
+			/>
+		</picture>
+		{type && (
+			<img
+				alt="Rushing creek through a forest wilderness."
+				src="https://picsum.photos/id/28/640/640"
+			/>
+			<img
+				alt="Mossy tree, looking up at the canopy."
+				src="https://picsum.photos/id/19/640/640"
+			/>
+		)}
+	</div>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>
