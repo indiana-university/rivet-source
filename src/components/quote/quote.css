@@ -8,11 +8,11 @@
 
 	&::before {
 		background-color: currentColor;
-		clip-path: path(var(--rvt-icon-quote-open));
+		clip-path: path(var(--rvt-graphic-quote-open-path));
 		display: block;
 		content: "";
-		height: calc(50rem / 16);
-		width: calc(65rem / 16);
+		height: var(--rvt-graphic-quote-open-height);
+		width: var(--rvt-graphic-quote-open-width);
 	}
 
 	&:has(.rvt-avatar)::before {

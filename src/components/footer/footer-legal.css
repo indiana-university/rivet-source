@@ -17,20 +17,20 @@
 
 	&::before {
 		--height: var(--rvt-size-24);
-		--height-path: calc(var(--rvt-logo-iu-height) * var(--scale));
+		--height-path: calc(var(--rvt-graphic-logo-iu-height) * var(--scale));
 		--scale: 0.5;
 		--scale-margin: calc(var(--scale) / -2);
 		--translateY: calc((var(--height) - var(--height-path)) / 2);
 		background-color: var(--rvt-color-theme-text-accent);
-		clip-path: path(var(--rvt-logo-iu-path));
+		clip-path: path(var(--rvt-graphic-logo-iu-path));
 		content: "";
 		display: block;
 		flex-shrink: 0;
-		height: var(--rvt-logo-iu-height);
-		margin-block: calc(var(--rvt-logo-iu-height) * var(--scale-margin));
-		margin-inline: calc(var(--rvt-logo-iu-width) * var(--scale-margin));
+		height: var(--rvt-graphic-logo-iu-height);
+		margin-block: calc(var(--rvt-graphic-logo-iu-height) * var(--scale-margin));
+		margin-inline: calc(var(--rvt-graphic-logo-iu-width) * var(--scale-margin));
 		transform: translateY(var(--translateY)) scale(var(--scale));
-		width: var(--rvt-logo-iu-width);
+		width: var(--rvt-graphic-logo-iu-width);
 	}
 
 	ul {

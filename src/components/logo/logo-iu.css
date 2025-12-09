@@ -6,11 +6,11 @@
 rvt-logo-iu {
 	--color-background: transparent;
 	--color-foreground: var(--rvt-color-theme-text-accent);
-	--container-height: var(--rvt-logo-iu-container-height);
-	--container-width: var(--rvt-logo-iu-container-width);
-	--height: var(--rvt-logo-iu-height);
-	--path: var(--rvt-logo-iu-path);
-	--width: var(--rvt-logo-iu-width);
+	--container-height: var(--rvt-graphic-logo-iu-container-height);
+	--container-width: var(--rvt-graphic-logo-iu-container-width);
+	--height: var(--rvt-graphic-logo-iu-height);
+	--path: var(--rvt-graphic-logo-iu-path);
+	--width: var(--rvt-graphic-logo-iu-width);
 	align-items: center;
 	background-color: var(--color-background);
 	color: var(--color-foreground);
