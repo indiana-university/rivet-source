@@ -1,0 +1,8 @@
+/*
+ * Copyright (C) 2025 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@import "layers.css";
+@import "base/tokens-icon-extra.tmp.css" layer(rivet.base);
+@import "components/icon/icon-extra.tmp.css" layer(rivet.components);

@@ -1,7 +1,7 @@
 // Copyright (C) 2024 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@use "../tokens" as *;
+@use "../tokens.tmp" as *;
 
 @mixin container($max-width: $breakpoint-xl) {
 	box-sizing: content-box;

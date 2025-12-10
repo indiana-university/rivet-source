@@ -12,6 +12,7 @@
 		"url": "https://github.com/indiana-university/rivet-source/issues",
 		"email": "rivet@iu.edu"
 	},
+	"type": "module",
 	"module": "./dist/rivet.js",
 	"unpkg": "./dist/rivet.js",
 	"exports": {
@@ -23,12 +24,13 @@
 	"scripts": {
 		"start": "run-s build:tokens start:astro",
 		"start:astro": "astro dev --open --host",
-		"build": "run-s build:clean build:tokens build:dist build:zip",
-		"build:clean": "rimraf ./dist ./rivet.zip",
-		"build:tokens": "style-dictionary build -c ./tokens.config.json",
+		"build": "run-s build:clean build:tokens build:dist build:dist:clean build:zip",
+		"build:clean": "rimraf src/**/*tmp* src/**/**/*tmp* dist rivet.zip",
+		"build:tokens": "style-dictionary build -c tokens.config.js",
 		"build:dist": "vite build",
+		"build:dist:clean": "rimraf dist/rivet-icons.js*",
 		"build:zip": "zip -r rivet.zip dist",
-		"changelog": "node ./tasks/generate-changelog.js",
+		"changelog": "node tasks/generate-changelog.js",
 		"format": "prettier --write ."
 	},
 	"files": [
@@ -36,15 +38,15 @@
 		"rivet.zip"
 	],
 	"devDependencies": {
-		"@octokit/rest": "22.0.0",
-		"astro": "5.15.2",
+		"@octokit/rest": "22.0.1",
+		"astro": "5.16.4",
 		"npm-run-all": "4.1.5",
-		"prettier": "3.6.2",
+		"prettier": "3.7.4",
 		"prettier-plugin-astro": "0.14.1",
-		"rimraf": "6.0.1",
-		"sass": "1.93.2",
+		"rimraf": "6.1.2",
+		"sass": "1.95.0",
 		"style-dictionary": "5.1.1",
-		"vite": "7.1.12",
+		"vite": "7.2.7",
 		"vite-plugin-banner": "0.8.1"
 	},
 	"dependencies": {

@@ -1,6 +1,5 @@
 {
 	"ts": {
-		"$type": "dimension",
 		"12": {
 			"$value": "{size.12}"
 		},

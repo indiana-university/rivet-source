@@ -2,154 +2,154 @@
 	"size": {
 		"$type": "dimension",
 		"n1": {
-			"$value": "-0.0625rem"
+			"$value": -1
 		},
 		"1": {
-			"$value": "0.0625rem"
+			"$value": 1
 		},
 		"2": {
-			"$value": "0.125rem"
+			"$value": 2
 		},
 		"3": {
-			"$value": "0.1875rem"
+			"$value": 3
 		},
 		"4": {
-			"$value": "0.25rem"
+			"$value": 4
 		},
 		"6": {
-			"$value": "0.375rem"
+			"$value": 6
 		},
 		"8": {
-			"$value": "0.5rem"
+			"$value": 8
 		},
 		"12": {
-			"$value": "0.75rem"
+			"$value": 12
 		},
 		"14": {
-			"$value": "0.875rem"
+			"$value": 14
 		},
 		"16": {
-			"$value": "1rem"
+			"$value": 16
 		},
 		"18": {
-			"$value": "1.125rem"
+			"$value": 18
 		},
 		"20": {
-			"$value": "1.25rem"
+			"$value": 20
 		},
 		"23": {
-			"$value": "1.4375rem"
+			"$value": 23
 		},
 		"24": {
-			"$value": "1.5rem"
+			"$value": 24
 		},
 		"26": {
-			"$value": "1.625rem"
+			"$value": 26
 		},
 		"28": {
-			"$value": "1.75rem"
+			"$value": 28
 		},
 		"29": {
-			"$value": "1.8125rem"
+			"$value": 29
 		},
 		"32": {
-			"$value": "2rem"
+			"$value": 32
 		},
 		"36": {
-			"$value": "2.25rem"
+			"$value": 36
 		},
 		"40": {
-			"$value": "2.5rem"
+			"$value": 40
 		},
 		"41": {
-			"$value": "2.5625rem"
+			"$value": 41
 		},
 		"42": {
-			"$value": "2.625rem"
+			"$value": 42
 		},
 		"44": {
-			"$value": "2.75rem"
+			"$value": 44
 		},
 		"46": {
-			"$value": "2.875rem"
+			"$value": 46
 		},
 		"48": {
-			"$value": "3rem"
+			"$value": 48
 		},
 		"52": {
-			"$value": "3.25rem"
+			"$value": 52
 		},
 		"54": {
-			"$value": "3.375rem"
+			"$value": 54
 		},
 		"56": {
-			"$value": "3.5rem"
+			"$value": 56
 		},
 		"60": {
-			"$value": "3.75rem"
+			"$value": 60
 		},
 		"64": {
-			"$value": "4rem"
+			"$value": 64
 		},
 		"68": {
-			"$value": "4.25rem"
+			"$value": 68
 		},
 		"80": {
-			"$value": "5rem"
+			"$value": 80
 		},
 		"96": {
-			"$value": "6rem"
+			"$value": 96
 		},
 		"108": {
-			"$value": "6.75rem"
+			"$value": 108
 		},
 		"128": {
-			"$value": "8rem"
+			"$value": 128
 		},
 		"160": {
-			"$value": "10rem"
+			"$value": 160
 		},
 		"164": {
-			"$value": "10.25rem"
+			"$value": 164
 		},
 		"192": {
-			"$value": "12rem"
+			"$value": 192
 		},
 		"256": {
-			"$value": "16rem"
+			"$value": 256
 		},
 		"320": {
-			"$value": "20rem"
+			"$value": 320
 		},
 		"384": {
-			"$value": "24rem"
+			"$value": 384
 		},
 		"480": {
-			"$value": "30rem"
+			"$value": 480
 		},
 		"512": {
-			"$value": "32rem"
+			"$value": 512
 		},
 		"640": {
-			"$value": "40rem"
+			"$value": 640
 		},
 		"740": {
-			"$value": "46.25rem"
+			"$value": 740
 		},
 		"768": {
-			"$value": "48rem"
+			"$value": 768
 		},
 		"1080": {
-			"$value": "67.5rem"
+			"$value": 1080
 		},
 		"1260": {
-			"$value": "78.75rem"
+			"$value": 1260
 		},
 		"1400": {
-			"$value": "87.5rem"
+			"$value": 1400
 		},
 		"infinite": {
-			"$value": "9999rem"
+			"$value": 99999
 		}
 	}
 }

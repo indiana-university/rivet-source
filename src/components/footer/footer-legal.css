@@ -16,13 +16,21 @@
 	}
 
 	&::before {
+		--height: var(--rvt-size-24);
+		--height-path: calc(var(--rvt-graphic-logo-iu-height) * var(--scale));
+		--scale: 0.5;
+		--scale-margin: calc(var(--scale) / -2);
+		--translateY: calc((var(--height) - var(--height-path)) / 2);
 		background-color: var(--rvt-color-theme-text-accent);
-		clip-path: path(var(--rvt-icon-logo-iu-24));
+		clip-path: path(var(--rvt-graphic-logo-iu-path));
 		content: "";
 		display: block;
 		flex-shrink: 0;
-		height: var(--rvt-size-24);
-		width: var(--rvt-size-24);
+		height: var(--rvt-graphic-logo-iu-height);
+		margin-block: calc(var(--rvt-graphic-logo-iu-height) * var(--scale-margin));
+		margin-inline: calc(var(--rvt-graphic-logo-iu-width) * var(--scale-margin));
+		transform: translateY(var(--translateY)) scale(var(--scale));
+		width: var(--rvt-graphic-logo-iu-width);
 	}
 
 	ul {

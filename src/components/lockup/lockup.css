@@ -9,16 +9,6 @@
 	gap: var(--rvt-size-12);
 	text-decoration: none;
 
-	.rvt-lockup__tab {
-		align-items: center;
-		background-color: var(--rvt-color-theme-text-accent);
-		color: var(--rvt-color-theme-text-accent-inverse);
-		display: flex;
-		height: calc(52rem / 16);
-		justify-content: center;
-		width: calc(44rem / 16);
-	}
-
 	.rvt-lockup__body {
 		text-transform: uppercase;
 	}

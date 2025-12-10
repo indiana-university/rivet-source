@@ -78,12 +78,12 @@
 .rvt-section-intro--feature {
 	&::before {
 		background-color: var(--rvt-color-theme-text-accent);
-		clip-path: path(var(--rvt-icon-logo-iu));
+		clip-path: path(var(--rvt-graphic-logo-iu-path));
 		content: "";
 		display: block;
-		height: calc(49rem / 16);
+		height: var(--rvt-graphic-logo-iu-height);
 		margin-inline: auto;
-		width: calc(38rem / 16);
+		width: var(--rvt-graphic-logo-iu-width);
 	}
 
 	.rvt-section-intro__eyebrow {

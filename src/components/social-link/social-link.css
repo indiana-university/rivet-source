@@ -18,16 +18,16 @@
 	}
 
 	&::before {
-		--size-source: var(--rvt-size-48);
-		--scale: calc(1 / 4);
+		--size: var(--rvt-size-16);
+		--scale: calc(var(--rvt-size-12) / var(--size));
 		background-color: currentColor;
 		clip-path: path(var(--icon));
 		content: "";
 		display: block;
-		height: var(--size-source);
+		height: var(--size);
 		position: absolute;
 		transform: scale(var(--scale));
-		width: var(--size-source);
+		width: var(--size);
 	}
 
 	&.rvt-social-link--bluesky {

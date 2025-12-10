@@ -4,24 +4,15 @@
  */
 
 rvt-icon {
-	--name: 0;
-	align-items: center;
 	display: inline-flex;
-	height: min-content;
-	justify-content: center;
-	width: min-content;
+	flex-shrink: 0;
 
-	&:empty::before,
-	> svg {
+	&::before {
+		background-color: currentColor;
+		clip-path: path(var(--name));
 		content: "";
 		display: block;
 		height: var(--rvt-size-16);
 		width: var(--rvt-size-16);
-	}
-
-	> svg {
-		flex-shrink: 0;
-		transition: z-index 0.001ms step-start;
-		z-index: var(--name);
 	}
 }
