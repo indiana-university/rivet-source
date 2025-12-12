@@ -48,6 +48,7 @@
 @use "page/page.css";
 @use "quote/quote.css";
 @use "radio/radio.css";
+@use "rich-text/rich-text.scss";
 @use "section/section.scss";
 @use "section-intro/section-intro.scss";
 @use "series-nav/series-nav.scss";
@@ -62,5 +63,6 @@
 @use "switch/switch.css";
 @use "table/table.scss";
 @use "tabs/tabs.css";
+@use "text-essay/text-essay.scss";
 @use "timeline/timeline.scss";
 @use "validation/validation.scss";
