@@ -63,11 +63,6 @@
 		1.2574rem + 1.8382vw,
 		var(--rvt-size-36)
 	);
-	--rvt-size-26-41: clamp(
-		var(--rvt-size-26),
-		1.0735rem + 2.7574vw,
-		var(--rvt-size-41)
-	);
 	--rvt-size-28-36: clamp(
 		var(--rvt-size-28),
 		1.4559rem + 1.4706vw,
@@ -77,11 +72,6 @@
 		var(--rvt-size-28),
 		1.3088rem + 2.2059vw,
 		var(--rvt-size-40)
-	);
-	--rvt-size-28-44: clamp(
-		var(--rvt-size-28),
-		1.1618rem + 2.9412vw,
-		var(--rvt-size-44)
 	);
 	--rvt-size-29-36: clamp(
 		var(--rvt-size-29),
