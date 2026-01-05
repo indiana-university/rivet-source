@@ -1,0 +1,26 @@
+---
+import tokens from "@src/tokens/sticker.json";
+export const title = "Sticker Library";
+
+const stickers: any = Object.entries(tokens.sticker).filter(
+	([key]) => !key.startsWith("$"),
+);
+---
+
+<ul class="rvt-list-plain">
+	{
+		stickers.map(([name]) => (
+			<li class="rvt-items-center rvt-flex rvt-gap-xs">
+				<rvt-sticker name={name} />
+				<span>{name}</span>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	ul {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	}
+</style>

@@ -20,6 +20,7 @@ const buildConfig = {
 			entry: {
 				rivet: "src/rivet.js",
 				"rivet-icons": "src/rivet-icons.js",
+				"rivet-stickers": "src/rivet-stickers.js",
 			},
 			formats: ["es"],
 		},

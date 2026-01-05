@@ -28,7 +28,7 @@
 		"build:clean": "rimraf src/**/*tmp* src/**/**/*tmp* dist rivet.zip",
 		"build:tokens": "style-dictionary build -c tokens.config.js",
 		"build:dist": "vite build",
-		"build:dist:clean": "rimraf dist/rivet-icons.js*",
+		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
 		"changelog": "node tasks/generate-changelog.js",
 		"format": "prettier --write ."
