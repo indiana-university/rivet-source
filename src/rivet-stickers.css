@@ -5,4 +5,5 @@
 
 @import "layers.css";
 @import "base/tokens-sticker.tmp.css" layer(rivet.base);
+@import "components/sticker/sticker.css" layer(rivet.components);
 @import "components/sticker/sticker.tmp.css" layer(rivet.components);
