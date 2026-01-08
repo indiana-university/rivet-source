@@ -18,6 +18,7 @@ rvt-sticker {
 	background-color: var(--color-background);
 	border-radius: var(--rvt-border-radius-circle);
 	display: flex;
+	flex-shrink: 0;
 	height: var(--size);
 	justify-content: center;
 	width: var(--size);
