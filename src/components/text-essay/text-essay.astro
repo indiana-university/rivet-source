@@ -1,0 +1,55 @@
+---
+export const title = "Text Essay";
+const { wide } = Astro.props;
+---
+
+<!-- Content from: https://medicine.iu.edu -->
+<div class:list={["rvt-text-essay", { "rvt-text-essay--wide": wide }]}>
+	<div class="rvt-text-essay__sticker">
+		<rvt-sticker name="pills"></rvt-sticker>
+	</div>
+	<div class="rvt-text-essay__eyebrow">School of Medicine</div>
+	<h2 class="rvt-text-essay__title">Preparing healers. Transforming health.</h2>
+	<div class="rvt-text-essay__body">
+		<div class="rvt-rich-text">
+			<h3>Integrated Medical Education</h3>
+			<p>
+				IU School of Medicine is the largest medical school in the United
+				States. Comprised of five basic science departments and 20 clinical
+				departments, IU School of Medicine offers exceptional training for
+				students wishing to pursue a medical degree. With the Class of 2020, the
+				school implemented a new medical education curriculum that better
+				reflects the modern U.S. health care environment and delivery models,
+				readying students to practice medicine in a team-based,
+				interdisciplinary setting.
+			</p>
+			<ul>
+				<li>Statewide medical education centers on six core competencies.</li>
+				<li>
+					Access to diverse patient populations reflects true state of care
+					today.
+				</li>
+				<li>Updates align innovations in medical science and education.</li>
+				<li>
+					Global outreach, clinical education programs foster active learning.
+				</li>
+				<li>
+					Collaborative teaching and learning forges interprofessional bonds.
+				</li>
+				<li>
+					Academic advising and career counseling support and guide students.
+				</li>
+			</ul>
+			<h3>Education Programs</h3>
+			<p>
+				Ready to take the next step in your medical education? Explore IU School
+				of Medicine education programs and find requirements, curriculum and
+				application information.
+			</p>
+		</div>
+		<div class="rvt-text-essay__actions">
+			<a class="rvt-button rvt-button--cta" href="/">Explore research</a>
+			<a class="rvt-button rvt-button--cta" href="/">Explore patient care</a>
+		</div>
+	</div>
+</div>

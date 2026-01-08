@@ -1,0 +1,86 @@
+// Copyright (C) 2025 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@use "../../base/core.scss" as *;
+
+.rvt-text-essay {
+	container-type: inline-size;
+	margin-inline: auto;
+	max-width: var(--rvt-line-length-normal);
+	text-align: center;
+
+	.rvt-text-essay__sticker {
+		display: flex;
+		justify-content: center;
+	}
+
+	.rvt-text-essay__eyebrow {
+		@include eyebrow;
+		font: var(--rvt-font-12-fluid-mono);
+		margin-block-start: var(--rvt-spacing-md);
+	}
+
+	.rvt-text-essay__title {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-36-fluid-black);
+		font-variation-settings: var(--rvt-font-variation-black);
+		margin-block-start: var(--rvt-size-12);
+	}
+
+	.rvt-text-essay__body {
+		margin-block-start: var(--rvt-size-40);
+		max-width: unset;
+		text-align: left;
+
+		:is(h3, h4, h5, h6) {
+			color: var(--rvt-color-theme-text-accent);
+			text-align: center;
+		}
+	}
+
+	.rvt-text-essay__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--rvt-spacing-sm);
+		justify-content: center;
+		margin-block-start: var(--rvt-spacing-xl);
+	}
+}
+
+.rvt-text-essay--wide {
+	--gap: var(--rvt-size-64);
+	max-width: calc(var(--rvt-line-length-normal) * 2 + var(--gap));
+	text-align: left;
+
+	.rvt-text-essay__sticker {
+		justify-content: start;
+	}
+
+	.rvt-text-essay__title {
+		font: var(--rvt-font-26-fluid-black);
+	}
+
+	.rvt-text-essay__body {
+		@container (width > 75ch) {
+			column-count: 2;
+			gap: var(--gap);
+			max-width: unset;
+			orphans: 2;
+			text-align: left;
+			widows: 2;
+		}
+
+		:is(h3, h4, h5, h6) {
+			break-after: avoid;
+			text-align: left;
+		}
+
+		:is(li) {
+			break-inside: avoid;
+		}
+	}
+
+	.rvt-text-essay__actions {
+		justify-content: unset;
+	}
+}
