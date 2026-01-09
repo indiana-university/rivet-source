@@ -5,19 +5,23 @@
 
 rvt-sticker {
 	--color-background: var(--rvt-color-brand-light);
+	--color-fill: var(--rvt-color-base-ultra-light);
 	--color-stroke: var(--rvt-color-brand-main);
-	--fill: var(--rvt-color-base-ultra-light);
+	--size-source: var(--rvt-size-80);
 	--size-xs: var(--rvt-size-48);
 	--size-sm: var(--rvt-size-64);
-	--size-md: var(--rvt-size-80);
+	--size-md: var(--size-source);
 	--size-lg: var(--rvt-size-96);
 	--size-xl: var(--rvt-size-128);
 	--size: var(--size-md);
 	align-items: center;
-	display: inline-flex;
-	height: min-content;
+	background-color: var(--color-background);
+	border-radius: var(--rvt-border-radius-circle);
+	display: flex;
+	flex-shrink: 0;
+	height: var(--size);
 	justify-content: center;
-	width: min-content;
+	width: var(--size);
 
 	&[size="xs"] {
 		--size: var(--size-xs);
@@ -59,15 +63,26 @@ rvt-sticker {
 		--color-stroke: var(--rvt-color-base-main);
 	}
 
-	&:empty::before,
-	> svg {
-		background-color: var(--color-background);
-		border-radius: var(--rvt-border-radius-circle);
-		color: var(--color-stroke);
+	&::before,
+	&::after {
+		--scale: calc(var(--size) / var(--size-source));
+		background-color: var(--color);
+		clip-path: path(var(--path));
 		content: "";
 		display: block;
-		flex-shrink: 0;
-		height: var(--size);
-		width: var(--size);
+		height: var(--size-source);
+		position: absolute;
+		transform: scale(var(--scale));
+		width: var(--size-source);
+	}
+
+	&::before {
+		--color: var(--color-fill);
+		--path: var(--path-fill);
+	}
+
+	&::after {
+		--color: var(--color-stroke);
+		--path: var(--path-stroke);
 	}
 }

@@ -3,7 +3,11 @@ import { formats, transformGroups, transforms } from "style-dictionary/enums";
 const PREFIX = "rvt";
 
 function isIcon(token) {
-	return token.path[0] === "icon";
+	return token.attributes.category === "icon";
+}
+
+function isSticker(token) {
+	return token.attributes.category === "sticker";
 }
 
 function formatIconComponent(name) {
@@ -13,10 +17,18 @@ function formatIconComponent(name) {
 `;
 }
 
+function formatStickerComponent(name) {
+	return `${PREFIX}-sticker[name="${name}"] {
+	--path-fill: var(--${PREFIX}-sticker-${name}-path-fill);
+	--path-stroke: var(--${PREFIX}-sticker-${name}-path-stroke);
+}
+`;
+}
+
 export default {
 	source: ["src/tokens/**/*.json"],
 	expand: {
-		include: ["graphic"],
+		include: ["graphic", "sticker"],
 		typesMap: {
 			graphic: {
 				"container-height": "dimension",
@@ -25,19 +37,38 @@ export default {
 				path: "content",
 				width: "dimension",
 			},
+			sticker: {
+				"path-fill": "content",
+				"path-stroke": "content",
+			},
 		},
 	},
 	hooks: {
 		filters: {
-			core: (token) => (isIcon(token) ? token.$core : true),
+			core: (token) => {
+				if (isIcon(token)) {
+					return token.$core;
+				}
+				if (isSticker(token)) {
+					return false;
+				}
+				return true;
+			},
 			"core-icon": (token) => isIcon(token) && token.$core,
 			"extra-icon": (token) => isIcon(token) && !token.$core,
+			sticker: (token) => isSticker(token),
 		},
 		formats: {
 			"css/icons": ({ dictionary }) =>
 				dictionary.allTokens
-					.map((token) => token.path[1])
+					.map((token) => token.attributes.type)
 					.map(formatIconComponent)
+					.join("\n"),
+			"css/stickers": ({ dictionary }) =>
+				dictionary.allTokens
+					.filter((token) => token.attributes.item === "path-stroke")
+					.map((token) => token.attributes.type)
+					.map(formatStickerComponent)
 					.join("\n"),
 		},
 	},
@@ -75,6 +106,16 @@ export default {
 					destination: "src/components/icon/icon-extra.tmp.css",
 					filter: "extra-icon",
 					format: "css/icons",
+				},
+				{
+					destination: "src/base/tokens-sticker.tmp.css",
+					filter: "sticker",
+					format: formats.cssVariables,
+				},
+				{
+					destination: "src/components/sticker/sticker.tmp.css",
+					filter: "sticker",
+					format: "css/stickers",
 				},
 			],
 			transforms: [transforms.contentQuote, transforms.sizePxToRem],
