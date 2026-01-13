@@ -64,7 +64,7 @@
 			padding-inline: calc(var(--rvt-spacing-xxs) / 1.5);
 		}
 
-		button[aria-expanded="true"] > svg {
+		button[aria-expanded="true"] > :is(rvt-icon, svg) {
 			transform: rotate(180deg);
 		}
 

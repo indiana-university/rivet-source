@@ -2,13 +2,15 @@
 import Callout from "@src/components/callout/callout-demo.astro";
 import ContactInfo from "@src/components/contact-info/contact-info-demo.astro";
 import Footer from "@src/components/footer/footer-demo.astro";
-import Header from "@src/components/header/header-crimson-demo.astro";
+import Header from "@src/components/header/header.astro";
 import ListHub from "@src/components/list-hub/list-hub-demo.astro";
 import Pagination from "@src/components/pagination/pagination.astro";
 export const title = "Card grid - Events";
 ---
 
-<Header />
+<div class="rvt-theme-crimson">
+	<Header />
+</div>
 <main>
 	<div class="rvt-section rvt-theme-crimson">
 		<Callout />

@@ -1,11 +1,42 @@
 ---
 import Lockup from "../lockup/lockup.astro";
+import MobileMenu from "./header-mobile-menu.astro";
+import PriorityNav from "./header-priority-nav.astro";
+import SearchDialog from "./header-search-dialog.astro";
 export const title = "Header";
 ---
 
-<header data-site-header class="rvt-header">
+<header class="rvt-header">
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<div class="rvt-header__inner">
 		<Lockup />
+		<div class="rvt-header__controls">
+			<PriorityNav />
+		</div>
+		<div class="rvt-header__buttons">
+			<button
+				data-rvt-dialog-trigger="mobile-menu"
+				class="rvt-header__button rvt-header__button--mobile-menu"
+			>
+				<rvt-icon name="menu"></rvt-icon>
+				<span class="rvt-sr-only">Toggle menu</span>
+			</button>
+			<button class="rvt-header__button" data-rvt-dialog-trigger="search-bar">
+				<rvt-icon name="magnifying-glass"></rvt-icon>
+				<span class="rvt-sr-only">Search</span>
+			</button>
+			<!--
+        TODO: the "rvt-header__buttons" element allows multiple
+        buttons in addition to the search and mobile menu buttons.
+        For example and "Apply" CTA. This needs a bit more thought
+        and design work to figure out a smaller size for CTA buttons,
+        mobile behavior, etc.
+      -->
+
+			<!-- <a href="#" class="rvt-button rvt-button--cta rvt-button--strong">Visit</a>
+      <a href="#" class="rvt-button rvt-button--cta">Apply</a> -->
+		</div>
 	</div>
 </header>
+<MobileMenu />
+<SearchDialog />
