@@ -68,7 +68,8 @@
 					}
 
 					&:is([aria-current="page"], :hover) {
-						text-decoration: underline var(--rvt-color-theme-text-accent) var(--rvt-size-2);
+						text-decoration: underline var(--rvt-color-theme-text-accent)
+							var(--rvt-size-2);
 						text-underline-offset: var(--rvt-size-8);
 					}
 				}
