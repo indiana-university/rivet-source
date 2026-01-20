@@ -1,17 +1,26 @@
+---
+import { createId } from "@src/utilities/createId.js";
+
+const { id } = Astro.props;
+const searchInputId = createId();
+---
+
 <div
-	class="rvt-header__search-bar"
 	aria-label="search"
-	id="search-bar"
+	class="rvt-header__search-bar"
+	data-rvt-dialog={id}
+	data-rvt-dialog-modal
+	data-rvt-dialog-disable-page-interaction
+	hidden
+	id={id}
 	role="dialog"
 	tabindex="-1"
-	data-rvt-dialog="search-bar"
-	data-rvt-dialog-modal=""
-	data-rvt-dialog-disable-page-interaction=""
-	hidden="true"
 >
 	<div class="rvt-header__search-bar-inner">
 		<form action="" class="rvt-container">
-			<label for="search" class="rvt-label rvt-sr-only">Search the site</label>
+			<label for={searchInputId} class="rvt-label rvt-sr-only">
+				Search the site
+			</label>
 			<div class="rvt-input-group [ rvt-m-top-none rvt-gap-xs ]">
 				<div
 					class="rvt-input-group__prepend [ rvt-p-all-sm rvt-flex rvt-items-center rvt-justify-center rvt-color-crimson-500 ]"
@@ -20,17 +29,17 @@
 				</div>
 				<input
 					class="rvt-text-input rvt-input-group__input [ rvt-border-all-none ]"
+					id={searchInputId}
 					name="search"
 					placeholder="Search the site"
 					type="text"
-					id="search"
 				/>
 				<div class="rvt-input-group__append [ rvt-flex rvt-gap-xs ]">
-					<button type="button" class="rvt-button rvt-button--strong">
+					<button type="submit" class="rvt-button rvt-button--strong">
 						<span>Search</span>
 					</button>
 					<button
-						data-rvt-dialog-close="search-bar"
+						data-rvt-dialog-close={id}
 						type="button"
 						class="rvt-button rvt-sr-only rvt-focusable"
 					>

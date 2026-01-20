@@ -133,7 +133,7 @@
 			var(--rvt-color-shadow-dark);
 		position: absolute;
 		right: 0;
-		top: 5.25rem;
+		top: calc(var(--rvt-graphic-logo-iu-container-height) + var(--rvt-size-32));
 		width: 100%;
 		z-index: 999;
 	}

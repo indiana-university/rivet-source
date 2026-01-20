@@ -1,9 +1,13 @@
 ---
+import { createId } from "@src/utilities/createId.js";
 import Lockup from "../lockup/lockup.astro";
 import MobileMenu from "./header-mobile-menu.astro";
 import PriorityNav from "./header-priority-nav.astro";
 import SearchDialog from "./header-search-dialog.astro";
 export const title = "Header";
+
+const mobileMenuId = createId();
+const searchBarId = createId();
 ---
 
 <header class="rvt-header">
@@ -14,16 +18,46 @@ export const title = "Header";
 			<PriorityNav />
 		</div>
 		<div class="rvt-header__buttons">
+			<button class="rvt-header__button" data-rvt-dialog-trigger={searchBarId}>
+				<rvt-icon name="magnifying-glass"></rvt-icon>
+				<span class="rvt-sr-only">Search</span>
+			</button>
+			<div class="rvt-dropdown" data-rvt-dropdown>
+				<button class="rvt-header__button" data-rvt-dropdown-toggle>
+					<div class="rvt-avatar rvt-avatar--xs">
+						<span class="rvt-avatar__text">CX</span>
+					</div>
+					<div class="rvt-sr-only">Account</div>
+				</button>
+				<div
+					class="rvt-dropdown__menu rvt-dropdown__menu--right"
+					data-rvt-dropdown-menu
+					hidden
+				>
+					<div
+						class="rvt-flex rvt-gap-sm rvt-p-top-xs rvt-p-bottom-sm rvt-p-lr-sm rvt-border-bottom rvt-m-bottom-xs"
+					>
+						<div class="rvt-avatar rvt-avatar--sm">
+							<span class="rvt-avatar__text">CX</span>
+						</div>
+						<div>
+							<div class="rvt-ts-16">Charles Xavier</div>
+							<div class="rvt-ts-14">cxavier@iu.edu</div>
+						</div>
+					</div>
+					<ul>
+						<li>
+							<a href="#">Log out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 			<button
-				data-rvt-dialog-trigger="mobile-menu"
+				data-rvt-dialog-trigger={mobileMenuId}
 				class="rvt-header__button rvt-header__button--mobile-menu"
 			>
 				<rvt-icon name="menu"></rvt-icon>
 				<span class="rvt-sr-only">Toggle menu</span>
-			</button>
-			<button class="rvt-header__button" data-rvt-dialog-trigger="search-bar">
-				<rvt-icon name="magnifying-glass"></rvt-icon>
-				<span class="rvt-sr-only">Search</span>
 			</button>
 			<!--
         TODO: the "rvt-header__buttons" element allows multiple
@@ -38,5 +72,5 @@ export const title = "Header";
 		</div>
 	</div>
 </header>
-<MobileMenu />
-<SearchDialog />
+<MobileMenu id={mobileMenuId} />
+<SearchDialog id={searchBarId} />

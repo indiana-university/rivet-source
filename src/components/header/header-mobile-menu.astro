@@ -1,20 +1,26 @@
+---
+import { createId } from "@src/utilities/createId.js";
+
+const { id } = Astro.props;
+const labelId = createId();
+---
+
 <div
 	class="rvt-header__mobile-menu"
-	id="mobile-menu"
+	id={id}
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby="dialog-title"
-	aria-describedby="dialog-description"
-	data-rvt-dialog="mobile-menu"
+	aria-labelledby={labelId}
+	data-rvt-dialog={id}
 	data-rvt-dialog-modal
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
 	hidden
 >
-	<nav class="rvt-sidenav" aria-labelledby="sidenav-label" data-rvt-sidenav>
-		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id="sidenav-label"
-			>Site navigation</span
-		>
+	<nav class="rvt-sidenav" aria-labelledby={labelId} data-rvt-sidenav>
+		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id={labelId}>
+			Site navigation
+		</span>
 		<ul class="rvt-sidenav__list [ rvt-p-top-xs ]">
 			<li class="rvt-sidenav__item">
 				<a href="#" class="rvt-sidenav__link">Section nav one</a>
@@ -82,7 +88,7 @@
 	</nav>
 	<button
 		class="rvt-header__button rvt-header__button--mobile-menu-close"
-		data-rvt-dialog-close="dialog-example"
+		data-rvt-dialog-close={id}
 		type="button"
 	>
 		<rvt-icon name="close"></rvt-icon>
