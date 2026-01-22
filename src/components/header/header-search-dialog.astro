@@ -16,37 +16,25 @@ const searchInputId = createId();
 	role="dialog"
 	tabindex="-1"
 >
-	<div class="rvt-header__search-bar-inner">
-		<form action="" class="rvt-container">
-			<label for={searchInputId} class="rvt-label rvt-sr-only">
-				Search the site
-			</label>
-			<div class="rvt-input-group [ rvt-m-top-none rvt-gap-xs ]">
-				<div
-					class="rvt-input-group__prepend [ rvt-p-all-sm rvt-flex rvt-items-center rvt-justify-center rvt-color-crimson-500 ]"
-				>
-					<rvt-icon name="magnifying-glass"></rvt-icon>
-				</div>
-				<input
-					class="rvt-text-input rvt-input-group__input [ rvt-border-all-none ]"
-					id={searchInputId}
-					name="search"
-					placeholder="Search the site"
-					type="text"
-				/>
-				<div class="rvt-input-group__append [ rvt-flex rvt-gap-xs ]">
-					<button type="submit" class="rvt-button rvt-button--strong">
-						<span>Search</span>
-					</button>
-					<button
-						data-rvt-dialog-close={id}
-						type="button"
-						class="rvt-button rvt-sr-only rvt-focusable"
-					>
-						Close search
-					</button>
-				</div>
-			</div>
-		</form>
-	</div>
+	<form action="" class="rvt-container">
+		<label for={searchInputId} class="rvt-sr-only"> Search this site </label>
+		<input
+			class="rvt-text-input"
+			id={searchInputId}
+			name="search"
+			placeholder="Search this site"
+			type="text"
+		/>
+		<button class="rvt-button rvt-button--strong" type="submit">
+			Search
+		</button>
+		<button
+			class="rvt-button rvt-button--subtle rvt-button--icon-only"
+			data-rvt-dialog-close={id}
+			type="button"
+		>
+			<rvt-icon name="close"></rvt-icon>
+			<span class="rvt-sr-only">Close search</span>
+		</button>
+	</form>
 </div>

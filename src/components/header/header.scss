@@ -4,6 +4,7 @@
 @use "../../base/core.scss" as *;
 
 .rvt-header {
+	anchor-name: --rvt-header;
 	background-color: var(--rvt-color-theme-background);
 	padding-block: var(--rvt-spacing-sm);
 
@@ -128,33 +129,41 @@
 	}
 
 	&__search-bar {
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		box-shadow: 0 var(--rvt-size-infinite) 0 var(--rvt-size-infinite)
 			var(--rvt-color-shadow-dark);
 		position: absolute;
-		right: 0;
+		position-anchor: --rvt-header;
 		top: calc(var(--rvt-graphic-logo-iu-container-height) + var(--rvt-size-32));
+		top: anchor(bottom);
 		width: 100%;
-		z-index: 999;
-	}
+		z-index: var(--rvt-z-index-1000);
 
-	&__search-bar-inner {
-		background-color: var(--rvt-color-theme-background);
-		padding-block: var(--rvt-spacing-xs);
-	}
+		form {
+			--form-gap: var(--rvt-size-8);
+			background-color: var(--rvt-color-theme-background-accent);
+			border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			display: flex;
+			gap: var(--form-gap);
+			padding-block: var(--rvt-size-16);
+			position: relative;
 
-	&__search-bar input[type="text"]:focus {
-		outline: none;
-		box-shadow: none;
-	}
+			&::before {
+				background-color: currentColor;
+				clip-path: path(var(--rvt-icon-magnifying-glass));
+				content: "";
+				flex-shrink: 0;
+				height: var(--rvt-size-16);
+				margin: var(--rvt-size-16);
+				position: absolute;
+				width: var(--rvt-size-16);
+				z-index: var(--rvt-z-index-1000);
+			}
 
-	&__search-bar input[type="text"]:focus-visible {
-		outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
-		outline-offset: var(--rvt-size-2);
-	}
-
-	&__search-bar ::placeholder {
-		color: var(--rvt-color-theme-text);
+			input {
+				margin-inline-end: calc(var(--form-gap) * -1);
+				padding-inline-start: var(--rvt-size-48);
+			}
+		}
 	}
 
 	&__mobile-menu {
