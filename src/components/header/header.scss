@@ -42,7 +42,6 @@
 		> ul {
 			display: flex;
 			flex-grow: 1;
-			gap: var(--rvt-spacing-sm);
 			justify-content: flex-end;
 			list-style: "";
 			margin: 0;
@@ -52,7 +51,8 @@
 				align-items: center;
 				display: flex;
 				flex-shrink: 0;
-				position: relative;
+				padding-block: calc((var(--rvt-graphic-logo-iu-container-height) - var(--rvt-size-32)) / 2);
+				padding-inline: var(--rvt-size-8);
 
 				> a {
 					color: var(--rvt-color-theme-text-strong);
@@ -75,6 +75,12 @@
 					}
 				}
 
+				> a:has(+ [data-rvt-dropdown] button[data-rvt-dropdown-toggle][aria-expanded="true"]) {
+					color: var(--rvt-color-theme-text-accent);
+					text-decoration: underline var(--rvt-color-theme-text-accent) var(--rvt-size-2);
+					text-underline-offset: var(--rvt-size-8);
+				}
+
 				button {
 					align-items: center;
 					background-color: transparent;
@@ -84,10 +90,46 @@
 					justify-content: center;
 					padding-block: var(--rvt-size-8);
 					padding-inline: var(--rvt-size-4);
+				}
 
-					&[aria-expanded="true"] > :is(rvt-icon, svg) {
-						transform: rotate(180deg);
+				.rvt-dropdown {
+					position: unset;
+				}
+
+				.rvt-dropdown__menu {
+					box-shadow: 0 0.5rem 0.5rem rgba(7, 35, 50, 0.16);
+					left: 0;
+					margin-block-start: calc(
+						(var(--rvt-graphic-logo-iu-container-height) - var(--rvt-size-32))
+						/ 2
+					);
+					padding-block: var(--rvt-size-24);
+
+					h3 {
+						font: var(--rvt-font-14);
 					}
+
+					ul {
+						display: flex;
+						flex-direction: column;
+						gap: var(--rvt-size-8);
+						margin-top: var(--rvt-size-24);
+					}
+
+					a {
+						font: var(--rvt-font-20-bold);
+						padding: 0;
+
+						&:hover {
+							background-color: unset;
+							color: var(--rvt-color-theme-text-accent);
+							text-decoration: underline;
+						}
+					}
+				}
+
+				.rvt-dropdown__menu-inner {
+					@include container;
 				}
 			}
 		}
@@ -154,6 +196,7 @@
 				flex-shrink: 0;
 				height: var(--rvt-size-16);
 				margin: var(--rvt-size-16);
+				pointer-events: none;
 				position: absolute;
 				width: var(--rvt-size-16);
 				z-index: var(--rvt-z-index-1000);
