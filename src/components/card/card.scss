@@ -45,6 +45,10 @@
 
 	.rvt-card__sticker {
 		display: flex;
+
+		rvt-sticker {
+			border-radius: 0;
+		}
 	}
 
 	.rvt-card__body {
