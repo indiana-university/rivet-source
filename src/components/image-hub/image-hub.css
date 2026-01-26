@@ -42,7 +42,7 @@
 	}
 
 	img {
-		aspect-ratio: var(--aspect-ratio, var(--aspect-ratio-fullscreen));
+		aspect-ratio: var(--aspect-ratio);
 		height: 100%;
 		max-width: 100%;
 		object-fit: cover;
