@@ -15,6 +15,13 @@ const mobileMenuId = createId();
 		<Lockup />
 		<div class="rvt-header__controls">
 			<PriorityNav />
+			<button
+				data-rvt-dialog-trigger={mobileMenuId}
+				class="rvt-header__button rvt-header__button--mobile-menu"
+			>
+				<rvt-icon name="menu"></rvt-icon>
+				<span class="rvt-sr-only">Toggle menu</span>
+			</button>
 			<Search />
 			<div class="rvt-dropdown" data-rvt-dropdown>
 				<button class="rvt-header__button" data-rvt-dropdown-toggle>
@@ -46,13 +53,6 @@ const mobileMenuId = createId();
 					</ul>
 				</div>
 			</div>
-			<button
-				data-rvt-dialog-trigger={mobileMenuId}
-				class="rvt-header__button rvt-header__button--mobile-menu"
-			>
-				<rvt-icon name="menu"></rvt-icon>
-				<span class="rvt-sr-only">Toggle menu</span>
-			</button>
 		</div>
 	</div>
 </header>
