@@ -6,6 +6,7 @@
 .rvt-lockup {
 	align-items: center;
 	display: inline-flex;
+	flex-shrink: 0;
 	gap: var(--rvt-size-12);
 	text-decoration: none;
 

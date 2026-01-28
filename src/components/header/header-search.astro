@@ -1,0 +1,68 @@
+---
+import { createId } from "@src/utilities/createId.js";
+
+const { id } = Astro.props;
+const searchInputId = createId();
+---
+
+<div data-rvt-dropdown>
+	<button class="rvt-header__button" data-rvt-dropdown-toggle>
+		<rvt-icon name="magnifying-glass"></rvt-icon>
+			<span class="rvt-sr-only">Search</span>
+	</button>
+	<div class="rvt-header__search-bar" data-rvt-dropdown-menu hidden>
+		<form action="" class="rvt-container">
+			<label for={searchInputId} class="rvt-sr-only"> Search this site </label>
+			<input
+				class="rvt-text-input"
+				id={searchInputId}
+				name="search"
+				placeholder="Search this site"
+				type="search"
+			/>
+			<button class="rvt-button rvt-button--subtle rvt-button--small" type="button" data-rvt-search-clear>
+				<rvt-icon name="close"></rvt-icon>
+				<span class="rvt-sr-only">Clear</span>
+			</button>
+			<button class="rvt-button rvt-button--strong" type="submit">
+				Go
+			</button>
+			<!--
+			<button
+				class="rvt-button rvt-button--subtle rvt-button--icon-only"
+				data-rvt-dialog-close={id}
+				type="button"
+			>
+				<rvt-icon name="close"></rvt-icon>
+				<span class="rvt-sr-only">Close search</span>
+			</button>
+			-->
+		</form>
+	</div>
+</div>
+
+<script>
+document.addEventListener("keydown", (event) => {
+	if (event.key !== "Escape") {
+		return;
+	}
+	const { tagName, type, value } = event.target as HTMLInputElement;
+	const isSearch = tagName === "INPUT" && type === "search";
+	if (isSearch && value.length > 0) {
+		event.stopPropagation();
+	}
+}, { capture: true });
+
+document.addEventListener("click", (event) => {
+	const clearButton: HTMLElement = (event.target as HTMLElement).closest("[data-rvt-search-clear");
+	if (!clearButton) {
+		return;
+	}
+	const input: HTMLInputElement = clearButton.parentElement.querySelector("input[type='search']");
+	if (!input) {
+		return;
+	}
+	input.value = "";
+	input.focus();
+});
+</script>

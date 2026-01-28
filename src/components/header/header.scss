@@ -6,18 +6,20 @@
 .rvt-header {
 	anchor-name: --rvt-header;
 	background-color: var(--rvt-color-theme-background);
-	padding-block: var(--rvt-spacing-sm);
+	padding-block: var(--rvt-size-16);
 
 	&__inner {
 		align-items: center;
 		display: flex;
-		gap: var(--rvt-spacing-sm);
+		gap: var(--rvt-size-32);
+		justify-content: space-between;
 		@include container;
 	}
 
 	&__controls {
-		display: none;
-		flex-grow: 1;
+		align-items: center;
+		display: flex;
+		gap: var(--rvt-size-8);
 	}
 
 	&__button {
@@ -28,30 +30,35 @@
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
 		display: flex;
+		flex-shrink: 0;
 		height: var(--rvt-size-40);
 		justify-content: center;
 		width: var(--rvt-size-40);
 	}
 
 	&-menu {
-		align-items: center;
-		display: flex;
-		gap: var(--rvt-spacing-sm);
-
 		> ul {
 			display: flex;
+			flex-wrap: wrap;
+			height: var(--rvt-graphic-logo-iu-container-height);
+			justify-content: flex-end;
 			list-style: "";
 			margin: 0;
+			//overflow: hidden;
 			padding: 0;
 
 			> li {
-				--li-offset: calc((var(--rvt-graphic-logo-iu-container-height) - var(--rvt-size-32)) / 2);
+				--offset-y: calc((var(--rvt-graphic-logo-iu-container-height) - var(--rvt-size-32)) / 2);
 				align-items: center;
 				display: flex;
 				flex-shrink: 0;
-				padding-block: var(--li-offset);
+				padding-block: var(--offset-y);
 				padding-inline: var(--rvt-size-8);
 				position: relative;
+
+				&[aria-hidden="true"] {
+					visibility: hidden;
+				}
 
 				&:has([data-rvt-dropdown-toggle][aria-expanded="true"]) {
 					z-index: var(--rvt-z-index-1000);
@@ -107,13 +114,14 @@
 
 				[data-rvt-dropdown-menu] {
 					--padding-block: var(--rvt-size-32);
-					--padding-block-start: calc(var(--padding-block) - var(--li-offset));
+					--padding-block-start: calc(var(--padding-block) - var(--offset-y));
 					--padding-inline: 100vw;
+					--padding-inline: var(--padding-block);
 					background-color: var(--rvt-color-theme-background);
 					box-shadow: 0 0.5rem 0.5rem rgba(7, 35, 50, 0.16);
-					_box-shadow: 0 100vh 0 100vh rgba(7, 35, 50, 0.85);
+					//box-shadow: 0 100vh 0 100vh rgba(7, 35, 50, 0.85);
 					left: 0;
-					margin-block-start: var(--li-offset);
+					margin-block-start: var(--offset-y);
 					margin-inline-start: calc(var(--padding-inline) * -1);
 					padding-block: var(--padding-block-start) var(--padding-block);
 					padding-inline: var(--padding-inline);
@@ -176,28 +184,33 @@
 	&__buttons {
 		align-items: center;
 		display: flex;
-		gap: var(--rvt-spacing-sm);
+		gap: var(--rvt-size-16);
 		margin-left: auto;
 	}
 
 	&__search-bar {
-		box-shadow: 0 var(--rvt-size-infinite) 0 var(--rvt-size-infinite)
-			var(--rvt-color-shadow-dark);
+		--offset: calc((var(--rvt-graphic-logo-iu-container-height) - var(--rvt-size-40)) / 2);
+		--padding-block: var(--rvt-size-32);
+		--padding-block-start: calc(var(--padding-block) - var(--offset));
+		--padding-inline: 100vw;
+		background-color: var(--rvt-color-theme-background);
+		box-shadow: 0 0.5rem 0.5rem rgba(7, 35, 50, 0.16);
+		_box-shadow: 0 100vh 0 100vh rgba(7, 35, 50, 0.85);
+		left: 50vw;
+		margin-block-start: var(--offset);
+		margin-inline-start: calc(var(--padding-inline) * -1);
+		padding-block: var(--padding-block-start) var(--padding-block);
+		padding-inline: var(--padding-inline);
 		position: absolute;
-		position-anchor: --rvt-header;
-		top: calc(var(--rvt-graphic-logo-iu-container-height) + var(--rvt-size-32));
-		top: anchor(bottom);
-		width: 100%;
+		width: max-content;
 		z-index: var(--rvt-z-index-1000);
 
 		form {
 			--form-gap: var(--rvt-size-8);
-			background-color: var(--rvt-color-theme-background-accent);
-			border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 			display: flex;
-			gap: var(--form-gap);
-			padding-block: var(--rvt-size-16);
-			position: relative;
+			//gap: var(--form-gap);
+			margin-inline-start: -50%;
+			width: 100vw;
 
 			&::before {
 				background-color: currentColor;
@@ -212,9 +225,17 @@
 				z-index: var(--rvt-z-index-1000);
 			}
 
-			input {
-				margin-inline-end: calc(var(--form-gap) * -1);
+			input[type="search"] {
+				//margin-inline-end: calc(var(--form-gap) * -1);
 				padding-inline-start: var(--rvt-size-48);
+
+				&::-webkit-search-cancel-button {
+					display: none;
+				}
+
+				&:placeholder-shown + button[data-rvt-search-clear] {
+					display: none;
+				}
 			}
 		}
 	}
@@ -242,11 +263,11 @@
 @include mq($breakpoint-md) {
 	.rvt-header {
 		&__controls {
-			display: block;
+			//display: block;
 		}
 
 		&__button--mobile-menu {
-			display: none;
+			//display: none;
 		}
 	}
 }

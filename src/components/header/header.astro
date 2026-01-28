@@ -3,11 +3,10 @@ import { createId } from "@src/utilities/createId.js";
 import Lockup from "../lockup/lockup.astro";
 import MobileMenu from "./header-mobile-menu.astro";
 import PriorityNav from "./header-priority-nav.astro";
-import SearchDialog from "./header-search-dialog.astro";
+import Search from "./header-search.astro";
 export const title = "Header";
 
 const mobileMenuId = createId();
-const searchBarId = createId();
 ---
 
 <header class="rvt-header">
@@ -16,12 +15,7 @@ const searchBarId = createId();
 		<Lockup />
 		<div class="rvt-header__controls">
 			<PriorityNav />
-		</div>
-		<div class="rvt-header__buttons">
-			<button class="rvt-header__button" data-rvt-dialog-trigger={searchBarId}>
-				<rvt-icon name="magnifying-glass"></rvt-icon>
-				<span class="rvt-sr-only">Search</span>
-			</button>
+			<Search />
 			<div class="rvt-dropdown" data-rvt-dropdown>
 				<button class="rvt-header__button" data-rvt-dropdown-toggle>
 					<div class="rvt-avatar rvt-avatar--xs">
@@ -59,18 +53,7 @@ const searchBarId = createId();
 				<rvt-icon name="menu"></rvt-icon>
 				<span class="rvt-sr-only">Toggle menu</span>
 			</button>
-			<!--
-        TODO: the "rvt-header__buttons" element allows multiple
-        buttons in addition to the search and mobile menu buttons.
-        For example and "Apply" CTA. This needs a bit more thought
-        and design work to figure out a smaller size for CTA buttons,
-        mobile behavior, etc.
-      -->
-
-			<!-- <a href="#" class="rvt-button rvt-button--cta rvt-button--strong">Visit</a>
-      <a href="#" class="rvt-button rvt-button--cta">Apply</a> -->
 		</div>
 	</div>
 </header>
 <MobileMenu id={mobileMenuId} />
-<SearchDialog id={searchBarId} />

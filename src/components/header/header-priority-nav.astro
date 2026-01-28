@@ -1,5 +1,5 @@
-<nav class="rvt-header-menu" data-rvt-priority-nav>
-	<ul data-rvt-priority-nav-links>
+<nav class="rvt-header-menu">
+	<ul data-rvt-header-menu>
 		<li>
 			<a href="#">Academics</a>
 		</li>
@@ -62,3 +62,26 @@
 		</li>
 	</ul>
 </nav>
+
+<script>
+	const container = document.querySelector("[data-rvt-header-menu]");
+	const links = container.querySelectorAll(":scope > li");
+	const observerOptions = {
+		root: container,
+		threshold: 1,
+	};
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			const item = entry.target;
+			const link = item.querySelector(":scope > a");
+			if (entry.isIntersecting) {
+				item.removeAttribute("aria-hidden");
+				link.removeAttribute("tabindex");
+			} else {
+				item.setAttribute("aria-hidden", "true");
+				link.setAttribute("tabindex", "-1");
+			}
+		});
+	}, observerOptions);
+	links.forEach((link) => observer.observe(link));
+</script>
