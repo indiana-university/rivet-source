@@ -1,72 +1,81 @@
-<nav class="rvt-header-menu">
-	<ul data-rvt-header-menu>
-		<li>
-			<a href="#">Academics</a>
-		</li>
-		<li data-rvt-dropdown-open-on-hover>
-			<a href="#">Admissions</a>
-			<div data-rvt-dropdown>
-				<button data-rvt-dropdown-toggle>
-					<span class="rvt-sr-only">Admissions menu</span>
-					<rvt-icon name="chevron-down"></rvt-icon>
-				</button>
-				<div data-rvt-dropdown-menu hidden>
-					<ul>
-						<li><a href="#">Explore Admissions</a></li>
-						<li><a href="#">How to Apply</a></li>
-						<li><a href="#">Visit</a></li>
-						<li><a href="#">Request Information</a></li>
-						<li><a href="#">Class Profile</a></li>
-						<li><a href="#">Meet Your Counselor</a></li>
-						<li><a href="#">After Admission</a></li>
-						<li><a href="#">Orientation</a></li>
-						<li><a href="#">Youth &amp; Pre-College Programs</a></li>
-					</ul>
+<div class="rvt-header-menu">
+	<nav>
+		<ul data-rvt-header-menu>
+			<li>
+				<a href="#">Academics</a>
+			</li>
+			<li data-rvt-dropdown-open-on-hover>
+				<a href="#">Admissions</a>
+				<div data-rvt-dropdown>
+					<button data-rvt-dropdown-toggle>
+						<span class="rvt-sr-only">Admissions menu</span>
+						<rvt-icon name="chevron-down"></rvt-icon>
+					</button>
+					<div data-rvt-dropdown-menu hidden>
+						<ul>
+							<li><a href="#">Explore Admissions</a></li>
+							<li><a href="#">How to Apply</a></li>
+							<li><a href="#">Visit</a></li>
+							<li><a href="#">Request Information</a></li>
+							<li><a href="#">Class Profile</a></li>
+							<li><a href="#">Meet Your Counselor</a></li>
+							<li><a href="#">After Admission</a></li>
+							<li><a href="#">Orientation</a></li>
+							<li><a href="#">Youth &amp; Pre-College Programs</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</li>
-		<li data-rvt-dropdown-open-on-hover>
-			<a href="#">Cost &amp; Financial Aid</a>
-			<div data-rvt-dropdown>
-				<button data-rvt-dropdown-toggle>
-					<span class="rvt-sr-only">Cost &amp; Financial Aid menu</span>
-					<rvt-icon name="chevron-down"></rvt-icon>
-				</button>
-				<div data-rvt-dropdown-menu hidden>
-					<ul>
-						<li><a href="#">Explore Cost &amp; Financial Aid</a></li>
-						<li><a href="#">Cost of Attendance</a></li>
-						<li><a href="#">Financial Aid</a></li>
-						<li><a href="#">Scholarships</a></li>
-						<li><a href="#">Loans</a></li>
-						<li><a href="#">Grants</a></li>
-						<li><a href="#">Additional Funding Options</a></li>
-						<li><a href="#">Work-Study</a></li>
-						<li><a href="#">Bill Pay</a></li>
-					</ul>
+			</li>
+			<li data-rvt-dropdown-open-on-hover>
+				<a href="#">Cost &amp; Financial Aid</a>
+				<div data-rvt-dropdown>
+					<button data-rvt-dropdown-toggle>
+						<span class="rvt-sr-only">Cost &amp; Financial Aid menu</span>
+						<rvt-icon name="chevron-down"></rvt-icon>
+					</button>
+					<div data-rvt-dropdown-menu hidden>
+						<ul>
+							<li><a href="#">Explore Cost &amp; Financial Aid</a></li>
+							<li><a href="#">Cost of Attendance</a></li>
+							<li><a href="#">Financial Aid</a></li>
+							<li><a href="#">Scholarships</a></li>
+							<li><a href="#">Loans</a></li>
+							<li><a href="#">Grants</a></li>
+							<li><a href="#">Additional Funding Options</a></li>
+							<li><a href="#">Work-Study</a></li>
+							<li><a href="#">Bill Pay</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</li>
-		<li>
-			<a href="#">Research</a>
-		</li>
-		<li>
-			<a href="#">Student Support</a>
-		</li>
-		<li>
-			<a href="#">Campus Life</a>
-		</li>
-		<li>
-			<a href="#">About</a>
-		</li>
-		<li>
-			<a href="#">Alumni and Giving</a>
-		</li>
-	</ul>
-</nav>
+			</li>
+			<li>
+				<a href="#">Research</a>
+			</li>
+			<li>
+				<a href="#">Student Support</a>
+			</li>
+			<li>
+				<a href="#">Campus Life</a>
+			</li>
+			<li>
+				<a href="#">About</a>
+			</li>
+			<li>
+				<a href="#">Alumni and Giving</a>
+			</li>
+		</ul>
+	</nav>
+	<button
+		data-rvt-header-menu-toggle
+		class="rvt-header__button rvt-header__button--mobile-menu"
+	>
+		<rvt-icon name="menu"></rvt-icon>
+		<span class="rvt-sr-only">Nav menu</span>
+	</button>
+</div>
 
 <script>
-	document.querySelectorAll("[data-rvt-header-menu]").forEach((container) => {
+	document.querySelectorAll(".rvt-header-menu > nav > ul").forEach((container) => {
 		const links = container.querySelectorAll(":scope > li");
 		const observerOptions = {
 			root: container,
@@ -86,5 +95,20 @@
 			});
 		}, observerOptions);
 		links.forEach((link) => observer.observe(link));
+	});
+
+	document.addEventListener("click", (event) => {
+		const target = event.target as HTMLElement;
+		const button = target.closest("[data-rvt-header-menu-toggle]");
+		if (!button) {
+			return;
+		}
+		const expanded = button.getAttribute("aria-expanded") === "true";
+		if (expanded) {
+			button.removeAttribute("aria-expanded");
+		}
+		else {
+			button.setAttribute("aria-expanded", "true");
+		}
 	});
 </script>

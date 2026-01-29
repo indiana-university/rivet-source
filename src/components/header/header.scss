@@ -6,6 +6,7 @@
 .rvt-header {
 	background-color: var(--rvt-color-theme-background);
 	padding-block: var(--rvt-size-16);
+	position: relative;
 
 	.rvt-header__inner {
 		align-items: center;
@@ -13,6 +14,11 @@
 		gap: var(--rvt-size-32);
 		justify-content: space-between;
 		@include container;
+	}
+
+	.rvt-lockup {
+		position: relative;
+		z-index: 1000;
 	}
 
 	.rvt-header__controls {
@@ -40,7 +46,11 @@
 	}
 
 	.rvt-header-menu {
-		> ul {
+		align-items: center;
+		display: flex;
+		gap: var(--rvt-size-8);
+
+		> nav:has(+ button:not([aria-expanded="true"])) > ul {
 			display: flex;
 			flex-wrap: wrap;
 			height: var(--rvt-graphic-logo-iu-container-height);
@@ -147,6 +157,86 @@
 					}
 				}
 			}
+		}
+
+		> nav:has(+ button[aria-expanded="true"]) {
+			background-color: var(--rvt-color-theme-background);
+			box-shadow: var(--rvt-shadow-heavy);
+			left: 0;
+			height: max-content;
+			padding-block: calc(var(--rvt-graphic-logo-iu-container-height) + var(--rvt-size-64));
+			padding-block-end: var(--rvt-size-64);
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 100;
+			@include container;
+
+			> ul {
+				display: flex;
+				flex-direction: column;
+				gap: var(--rvt-size-16);
+				list-style: "";
+				margin: 0;
+				padding: 0;
+				position: relative;
+
+				> li {
+					align-items: center;
+					display: flex;
+					gap: var(--rvt-size-8);
+
+					> a {
+						color: unset;
+						font: var(--rvt-font-26-fluid-black);
+						text-decoration: none;
+
+						&:hover {
+							color: var(--rvt-color-theme-text-accent);
+							text-decoration: underline;
+						}
+					}
+
+					> div {
+						> button rvt-icon {
+							transform: rotate(-90deg);
+						}
+
+						> [data-rvt-dropdown-menu] {
+							border-inline-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+							left: 26rem;
+							padding-inline: var(--rvt-size-32);
+							position: absolute;
+							top: 0;
+
+							> ul {
+								display: flex;
+								flex-direction: column;
+								gap: var(--rvt-size-8);
+								list-style: "";
+								margin: 0;
+								padding: 0;
+
+								> li > a {
+									color: unset;
+									font: var(--rvt-font-18-fluid-bold);
+									text-decoration: none;
+
+									&:hover {
+										color: var(--rvt-color-theme-text-accent);
+										text-decoration: underline;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		> button[aria-expanded="true"] {
+			position: absolute;
+			z-index: 100;
 		}
 	}
 
