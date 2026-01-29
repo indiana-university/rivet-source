@@ -33,6 +33,10 @@
 		height: var(--rvt-size-40);
 		justify-content: center;
 		width: var(--rvt-size-40);
+
+		&:hover {
+			background-color: var(--rvt-color-theme-ui);
+		}
 	}
 
 	.rvt-header-menu {
@@ -205,6 +209,24 @@
 				margin-inline-end: var(--rvt-size-12);
 				position: relative;
 			}
+		}
+	}
+
+	.rvt-header__account-button {
+		background-color: var(--rvt-color-theme-text-accent);
+		border-radius: var(--rvt-size-16);
+		border: none;
+		color: var(--rvt-color-theme-text-inverse);
+		cursor: pointer;
+		display: flex;
+		flex-shrink: 0;
+		font: var(--rvt-font-14-bold);
+		gap: var(--rvt-size-4);
+		padding: var(--rvt-size-6) var(--rvt-size-12);
+		white-space: nowrap;
+
+		&:hover {
+			background-color: var(--rvt-color-theme-accent-strong);
 		}
 	}
 

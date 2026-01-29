@@ -66,24 +66,25 @@
 </nav>
 
 <script>
-	const container = document.querySelector("[data-rvt-header-menu]");
-	const links = container.querySelectorAll(":scope > li");
-	const observerOptions = {
-		root: container,
-		threshold: 1,
-	};
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			const item = entry.target;
-			const link = item.querySelector(":scope > a");
-			if (entry.isIntersecting) {
-				item.removeAttribute("aria-hidden");
-				link.removeAttribute("tabindex");
-			} else {
-				item.setAttribute("aria-hidden", "true");
-				link.setAttribute("tabindex", "-1");
-			}
-		});
-	}, observerOptions);
-	links.forEach((link) => observer.observe(link));
+	document.querySelectorAll("[data-rvt-header-menu]").forEach((container) => {
+		const links = container.querySelectorAll(":scope > li");
+		const observerOptions = {
+			root: container,
+			threshold: 1,
+		};
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				const item = entry.target;
+				const link = item.querySelector(":scope > a");
+				if (entry.isIntersecting) {
+					item.removeAttribute("aria-hidden");
+					link.removeAttribute("tabindex");
+				} else {
+					item.setAttribute("aria-hidden", "true");
+					link.setAttribute("tabindex", "-1");
+				}
+			});
+		}, observerOptions);
+		links.forEach((link) => observer.observe(link));
+	});
 </script>

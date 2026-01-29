@@ -1,8 +1,9 @@
 ---
 import { createId } from "@src/utilities/createId.js";
 import Lockup from "../lockup/lockup.astro";
+import Account from "./header-account.astro";
+import Menu from "./header-menu.astro";
 import MobileMenu from "./header-mobile-menu.astro";
-import PriorityNav from "./header-priority-nav.astro";
 import Search from "./header-search.astro";
 export const title = "Header";
 
@@ -14,7 +15,7 @@ const mobileMenuId = createId();
 	<div class="rvt-header__inner">
 		<Lockup />
 		<div class="rvt-header__controls">
-			<PriorityNav />
+			<Menu />
 			<button
 				data-rvt-dialog-trigger={mobileMenuId}
 				class="rvt-header__button rvt-header__button--mobile-menu"
@@ -23,36 +24,7 @@ const mobileMenuId = createId();
 				<span class="rvt-sr-only">Toggle menu</span>
 			</button>
 			<Search />
-			<div class="rvt-dropdown" data-rvt-dropdown>
-				<button class="rvt-header__button" data-rvt-dropdown-toggle>
-					<div class="rvt-avatar rvt-avatar--xs">
-						<span class="rvt-avatar__text">CX</span>
-					</div>
-					<div class="rvt-sr-only">Account</div>
-				</button>
-				<div
-					class="rvt-dropdown__menu rvt-dropdown__menu--right"
-					data-rvt-dropdown-menu
-					hidden
-				>
-					<div
-						class="rvt-flex rvt-gap-sm rvt-p-top-xs rvt-p-bottom-sm rvt-p-lr-sm rvt-border-bottom rvt-m-bottom-xs"
-					>
-						<div class="rvt-avatar rvt-avatar--sm">
-							<span class="rvt-avatar__text">CX</span>
-						</div>
-						<div>
-							<div class="rvt-ts-16">Charles Xavier</div>
-							<div class="rvt-ts-14">cxavier@iu.edu</div>
-						</div>
-					</div>
-					<ul>
-						<li>
-							<a href="#">Log out</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<Account />
 		</div>
 	</div>
 </header>
