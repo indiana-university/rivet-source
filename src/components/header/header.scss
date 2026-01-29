@@ -4,11 +4,10 @@
 @use "../../base/core.scss" as *;
 
 .rvt-header {
-	anchor-name: --rvt-header;
 	background-color: var(--rvt-color-theme-background);
 	padding-block: var(--rvt-size-16);
 
-	&__inner {
+	.rvt-header__inner {
 		align-items: center;
 		display: flex;
 		gap: var(--rvt-size-32);
@@ -16,13 +15,13 @@
 		@include container;
 	}
 
-	&__controls {
+	.rvt-header__controls {
 		align-items: center;
 		display: flex;
 		gap: var(--rvt-size-8);
 	}
 
-	&__button {
+	.rvt-header__button {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
 		border: none;
@@ -36,7 +35,7 @@
 		width: var(--rvt-size-40);
 	}
 
-	&-menu {
+	.rvt-header-menu {
 		> ul {
 			display: flex;
 			flex-wrap: wrap;
@@ -44,7 +43,6 @@
 			justify-content: flex-end;
 			list-style: "";
 			margin: 0;
-			//overflow: hidden;
 			padding: 0;
 
 			> li {
@@ -113,18 +111,13 @@
 				}
 
 				[data-rvt-dropdown-menu] {
-					--padding-block: var(--rvt-size-32);
-					--padding-block-start: calc(var(--padding-block) - var(--offset-y));
-					--padding-inline: 100vw;
-					--padding-inline: var(--padding-block);
+					--padding: var(--rvt-size-32);
 					background-color: var(--rvt-color-theme-background);
-					box-shadow: 0 0.5rem 0.5rem rgba(7, 35, 50, 0.16);
-					//box-shadow: 0 100vh 0 100vh rgba(7, 35, 50, 0.85);
+					box-shadow: var(--rvt-shadow-heavy);
 					left: 0;
 					margin-block-start: var(--offset-y);
-					margin-inline-start: calc(var(--padding-inline) * -1);
-					padding-block: var(--padding-block-start) var(--padding-block);
-					padding-inline: var(--padding-inline);
+					margin-inline-start: calc(var(--padding) * -1);
+					padding: var(--padding);
 					position: absolute;
 					width: max-content;
 					z-index: var(--rvt-z-index-1000);
@@ -153,64 +146,34 @@
 		}
 	}
 
-	&-menu__more {
-		> button {
-			align-items: center;
-			background-color: var(--rvt-color-theme-background-strong);
-			border: none;
-			border-radius: var(--rvt-border-radius-circle);
-			color: var(--rvt-color-theme-text-strong);
-			cursor: pointer;
-			display: flex;
-			font: var(--rvt-font-14-bold);
-			gap: var(--rvt-size-8);
-			padding-block: var(--rvt-size-6);
-			padding-inline: var(--rvt-size-16);
-		}
-
-		> button[hidden] {
-			display: none;
-		}
-
-		ul li a {
-			font-weight: var(--rvt-font-weight-normal);
-		}
-
-		.rvt-header-menu__item .rvt-dropdown {
-			display: none;
-		}
+	[data-rvt-dropdown]:has(.rvt-header__search-bar) {
+		position: relative;
 	}
 
-	&__buttons {
-		align-items: center;
-		display: flex;
-		gap: var(--rvt-size-16);
-		margin-left: auto;
-	}
-
-	&__search-bar {
+	.rvt-header__search-bar {
 		--offset: calc((var(--rvt-graphic-logo-iu-container-height) - var(--rvt-size-40)) / 2);
 		--padding-block: var(--rvt-size-32);
 		--padding-block-start: calc(var(--padding-block) - var(--offset));
 		--padding-inline: 100vw;
+		--padding-inline: var(--padding-block);
 		background-color: var(--rvt-color-theme-background);
 		box-shadow: 0 0.5rem 0.5rem rgba(7, 35, 50, 0.16);
-		_box-shadow: 0 100vh 0 100vh rgba(7, 35, 50, 0.85);
-		left: 50vw;
+		box-shadow: var(--rvt-shadow-heavy);
+		right: calc(var(--padding-inline) * -1);
 		margin-block-start: var(--offset);
 		margin-inline-start: calc(var(--padding-inline) * -1);
 		padding-block: var(--padding-block-start) var(--padding-block);
+		padding-block: var(--padding-block);
 		padding-inline: var(--padding-inline);
 		position: absolute;
-		width: max-content;
 		z-index: var(--rvt-z-index-1000);
 
 		form {
 			--form-gap: var(--rvt-size-8);
+			align-items: center;
 			display: flex;
-			//gap: var(--form-gap);
-			margin-inline-start: -50%;
-			width: 100vw;
+			position: relative;
+			min-width: 20rem;
 
 			&::before {
 				background-color: currentColor;
@@ -226,8 +189,7 @@
 			}
 
 			input[type="search"] {
-				//margin-inline-end: calc(var(--form-gap) * -1);
-				padding-inline-start: var(--rvt-size-48);
+				padding-inline: var(--rvt-size-48);
 
 				&::-webkit-search-cancel-button {
 					display: none;
@@ -237,10 +199,16 @@
 					display: none;
 				}
 			}
+
+			button[data-rvt-search-clear] {
+				margin-inline-start: calc(var(--rvt-size-36) * -1);
+				margin-inline-end: var(--rvt-size-12);
+				position: relative;
+			}
 		}
 	}
 
-	&__mobile-menu {
+	.rvt-header__mobile-menu {
 		background-color: var(--rvt-color-theme-background);
 		box-shadow: 0 0 0 var(--rvt-size-infinite) var(--rvt-color-shadow-dark);
 		height: 100vh;
@@ -253,21 +221,9 @@
 		z-index: 999;
 	}
 
-	&__button--mobile-menu-close {
+	.rvt-header__button--mobile-menu-close {
 		position: absolute;
 		right: var(--rvt-size-16);
 		top: 1.35rem;
-	}
-}
-
-@include mq($breakpoint-md) {
-	.rvt-header {
-		&__controls {
-			//display: block;
-		}
-
-		&__button--mobile-menu {
-			//display: none;
-		}
 	}
 }

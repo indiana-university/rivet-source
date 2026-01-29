@@ -11,7 +11,7 @@ const searchInputId = createId();
 			<span class="rvt-sr-only">Search</span>
 	</button>
 	<div class="rvt-header__search-bar" data-rvt-dropdown-menu hidden>
-		<form action="" class="rvt-container">
+		<form action="">
 			<label for={searchInputId} class="rvt-sr-only"> Search this site </label>
 			<input
 				class="rvt-text-input"
@@ -20,23 +20,13 @@ const searchInputId = createId();
 				placeholder="Search this site"
 				type="search"
 			/>
-			<button class="rvt-button rvt-button--subtle rvt-button--small" type="button" data-rvt-search-clear>
+			<button class="rvt-button rvt-button--subtle rvt-button--icon-only rvt-button--small" type="button" data-rvt-search-clear>
 				<rvt-icon name="close"></rvt-icon>
 				<span class="rvt-sr-only">Clear</span>
 			</button>
 			<button class="rvt-button rvt-button--strong" type="submit">
 				Go
 			</button>
-			<!--
-			<button
-				class="rvt-button rvt-button--subtle rvt-button--icon-only"
-				data-rvt-dialog-close={id}
-				type="button"
-			>
-				<rvt-icon name="close"></rvt-icon>
-				<span class="rvt-sr-only">Close search</span>
-			</button>
-			-->
 		</form>
 	</div>
 </div>
