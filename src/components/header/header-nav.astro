@@ -1,0 +1,90 @@
+<nav>
+	<ul data-rvt-header-menu>
+		<li>
+			<a href="#">Academics</a>
+		</li>
+		<li data-rvt-dropdown-open-on-hover>
+			<a href="#">Admissions</a>
+			<div data-rvt-dropdown>
+				<button data-rvt-dropdown-toggle>
+					<span class="rvt-sr-only">Admissions menu</span>
+					<rvt-icon name="chevron-down"></rvt-icon>
+				</button>
+				<div data-rvt-dropdown-menu hidden>
+					<ul>
+						<li><a href="#">Explore Admissions</a></li>
+						<li><a href="#">How to Apply</a></li>
+						<li><a href="#">Visit</a></li>
+						<li><a href="#">Request Information</a></li>
+						<li><a href="#">Class Profile</a></li>
+						<li><a href="#">Meet Your Counselor</a></li>
+						<li><a href="#">After Admission</a></li>
+						<li><a href="#">Orientation</a></li>
+						<li><a href="#">Youth &amp; Pre-College Programs</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li data-rvt-dropdown-open-on-hover>
+			<a href="#">Cost &amp; Financial Aid</a>
+			<div data-rvt-dropdown>
+				<button data-rvt-dropdown-toggle>
+					<span class="rvt-sr-only">Cost &amp; Financial Aid menu</span>
+					<rvt-icon name="chevron-down"></rvt-icon>
+				</button>
+				<div data-rvt-dropdown-menu hidden>
+					<ul>
+						<li><a href="#">Explore Cost &amp; Financial Aid</a></li>
+						<li><a href="#">Cost of Attendance</a></li>
+						<li><a href="#">Financial Aid</a></li>
+						<li><a href="#">Scholarships</a></li>
+						<li><a href="#">Loans</a></li>
+						<li><a href="#">Grants</a></li>
+						<li><a href="#">Additional Funding Options</a></li>
+						<li><a href="#">Work-Study</a></li>
+						<li><a href="#">Bill Pay</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li>
+			<a href="#">Research</a>
+		</li>
+		<li>
+			<a href="#">Student Support</a>
+		</li>
+		<li>
+			<a href="#">Campus Life</a>
+		</li>
+		<li>
+			<a href="#">About</a>
+		</li>
+		<li>
+			<a href="#">Alumni and Giving</a>
+		</li>
+	</ul>
+</nav>
+
+<script>
+	document.querySelectorAll("rvt-header nav > ul").forEach((container) => {
+		const links = container.querySelectorAll(":scope > li");
+		const observerOptions = {
+			root: container,
+			threshold: 1,
+		};
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				const item = entry.target;
+				const link = item.querySelector(":scope > a");
+				if (entry.isIntersecting) {
+					item.removeAttribute("aria-hidden");
+					link.removeAttribute("tabindex");
+				} else {
+					item.setAttribute("aria-hidden", "true");
+					link.setAttribute("tabindex", "-1");
+				}
+			});
+		}, observerOptions);
+		links.forEach((link) => observer.observe(link));
+	});
+</script>
