@@ -1,35 +1,16 @@
 ---
-import { createId } from "@src/utilities/createId.js";
 import Lockup from "../lockup/lockup.astro";
 import Account from "./header-account.astro";
 import Menu from "./header-menu.astro";
-import MobileMenu from "./header-mobile-menu.astro";
-import Search from "./header-search.astro";
-export const title = "Header";
 
-const mobileMenuId = createId();
+export const title = "Header";
 ---
 
-<header class="rvt-header">
+<rvt-header>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
-	<div class="rvt-header__inner">
+	<header class="rvt-container">
 		<Lockup />
-		<div class="rvt-header__controls">
-			<Menu />
-			<!--
-			<button
-				data-rvt-dialog-trigger={mobileMenuId}
-				class="rvt-header__button rvt-header__button--mobile-menu"
-			>
-				<rvt-icon name="menu"></rvt-icon>
-				<span class="rvt-sr-only">Toggle menu</span>
-			</button>
-			-->
-			<Search />
-			<Account />
-		</div>
-	</div>
-</header>
-<!--
-<MobileMenu id={mobileMenuId} />
--->
+		<Menu />
+		<Account />
+	</header>
+</rvt-header>

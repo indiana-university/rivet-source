@@ -3,8 +3,8 @@
 		"$type": "graphic",
 		"logo-iu": {
 			"$value": {
-				"container-height": 54,
-				"container-width": 46,
+				"container-height": 56,
+				"container-width": 48,
 				"height": 38,
 				"path": "M0 5V8H2V26L6 30H12V34H10V38H20V34H18V30H24L28 26V8H30V5H20V8H22V24H18V3H20V0H10V3H12V24H8V8H10V5H0Z",
 				"width": 30

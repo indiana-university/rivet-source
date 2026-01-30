@@ -1,4 +1,29 @@
-<div class="rvt-header-menu">
+---
+import { createId } from "@src/utilities/createId.js";
+
+const searchInputId = createId();
+---
+
+<div class="rvt-header__menu">
+	<search>
+		<form action="">
+			<label for={searchInputId} class="rvt-sr-only"> Search this site </label>
+			<input
+				class="rvt-text-input"
+				id={searchInputId}
+				name="search"
+				placeholder="Search this site"
+				type="search"
+			/>
+			<button class="rvt-button rvt-button--subtle rvt-button--icon-only rvt-button--small" type="button" data-rvt-search-clear>
+				<rvt-icon name="close"></rvt-icon>
+				<span class="rvt-sr-only">Clear</span>
+			</button>
+			<button class="rvt-button rvt-button--strong" type="submit">
+				Go
+			</button>
+		</form>
+	</search>
 	<nav>
 		<ul data-rvt-header-menu>
 			<li>
@@ -66,10 +91,12 @@
 		</ul>
 	</nav>
 	<button
+		aria-expanded="true"
 		data-rvt-header-menu-toggle
-		class="rvt-header__button rvt-header__button--mobile-menu"
+		class="rvt-button rvt-button--icon-only rvt-header__button"
 	>
 		<rvt-icon name="menu"></rvt-icon>
+		<rvt-icon name="magnifying-glass"></rvt-icon>
 		<span class="rvt-sr-only">Nav menu</span>
 	</button>
 </div>
