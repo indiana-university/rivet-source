@@ -167,9 +167,11 @@ export default class Dropdown extends Component {
 
 			_initProperties() {
 				const openOnHoverAttribute = "data-rvt-dropdown-open-on-hover";
-
+				const selector = `[${openOnHoverAttribute}]`;
+				const descendant = this.element.querySelector(selector);
+				const ancestor = this.element.closest(selector);
+				this.openOnHover = descendant || ancestor;
 				this.isOpen = false;
-				this.openOnHover = this.element.closest(`[${openOnHoverAttribute}]`);
 			},
 
 			/************************************************************************
