@@ -1,15 +1,16 @@
 <nav>
+	<h2 class="rvt-sr-only">Primary menu</h2>
 	<ul data-rvt-header-menu>
 		<li>
 			<a href="/">Academics</a>
 		</li>
-		<li data-rvt-dropdown data-rvt-dropdown-open-on-hover>
+		<li data-rvt-dropdown _data-rvt-dropdown-open-on-hover>
 			<a href="/">Admissions</a>
 			<button data-rvt-dropdown-toggle>
 				<span class="rvt-sr-only">Admissions menu</span>
 				<rvt-icon name="chevron-down"></rvt-icon>
 			</button>
-			<div data-rvt-dropdown-menu _hidden>
+			<div data-rvt-dropdown-menu hidden>
 				<ul>
 					<li><a href="/">Explore Admissions</a></li>
 					<li><a href="/">How to Apply</a></li>
@@ -23,7 +24,7 @@
 				</ul>
 			</div>
 		</li>
-		<li data-rvt-dropdown data-rvt-dropdown-open-on-hover>
+		<li data-rvt-dropdown _data-rvt-dropdown-open-on-hover>
 			<a href="/">Cost &amp; Financial Aid</a>
 			<button data-rvt-dropdown-toggle>
 				<span class="rvt-sr-only">Cost &amp; Financial Aid menu</span>
@@ -81,6 +82,6 @@
 				}
 			});
 		}, observerOptions);
-		links.forEach((link) => observer.observe(link));
+		//links.forEach((link) => observer.observe(link));
 	});
 </script>
