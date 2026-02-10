@@ -12,9 +12,13 @@ export const title = "Header";
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<header class="rvt-container">
 		<Lockup />
-		<Search />
-		<Nav />
+		<div class="rvt-dropdown" data-rvt-dropdown>
+			<Toggle />
+			<div class="rvt-dropdown__menu" data-rvt-dropdown-menu>
+				<Search />
+				<Nav />
+			</div>
+		</div>
 		<Account />
-		<Toggle />
 	</header>
 </rvt-header>
