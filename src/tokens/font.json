@@ -47,10 +47,10 @@
 				"$value": 650
 			},
 			"black": {
-				"$value": 800
+				"$value": 750
 			},
 			"extra-black": {
-				"$value": 900
+				"$value": 825
 			}
 		},
 		"width": {

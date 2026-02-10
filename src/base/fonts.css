@@ -199,11 +199,11 @@
 		var(--rvt-font-weight-black) var(--rvt-size-36-54) / var(--rvt-size-40-56)
 		var(--rvt-font-family-sans);
 
-	--rvt-font-41-extra-black: var(--rvt-font-width-extra-expanded)
-		var(--rvt-font-weight-extra-black) var(--rvt-size-41) / var(--rvt-size-44)
+	--rvt-font-42-extra-black: var(--rvt-font-width-extra-expanded)
+		var(--rvt-font-weight-extra-black) var(--rvt-size-42) / var(--rvt-size-44)
 		var(--rvt-font-family-sans);
 
-	--rvt-font-42-fluid-black: var(--rvt-font-weight-black)
+	--rvt-font-42-fluid-extra-black: var(--rvt-font-weight-extra-black)
 		var(--rvt-size-42-68) / var(--rvt-size-42-68) var(--rvt-font-family-sans);
 
 	--rvt-font-variation-black: "YTAS" 720, "YTLC" 530;

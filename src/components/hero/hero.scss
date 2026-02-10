@@ -211,9 +211,11 @@
 	}
 }
 
-:is(.rvt-hero--feature, .rvt-hero--split) {
+:is(.rvt-hero--feature, .rvt-hero--split, .rvt-hero--statement) {
 	.rvt-hero__title {
-		font: var(--rvt-font-36-fluid-black);
+		font: var(--rvt-font-42-fluid-extra-black);
+		font-style: oblique 10deg;
+		text-transform: uppercase;
 	}
 }
 
@@ -233,12 +235,6 @@
 	.rvt-hero__body > * {
 		margin-inline: auto;
 		text-align: center;
-	}
-
-	.rvt-hero__title {
-		font: var(--rvt-font-42-fluid-black);
-		font-style: oblique 10deg;
-		text-transform: uppercase;
 	}
 
 	.rvt-hero__actions {

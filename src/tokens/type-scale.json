@@ -48,11 +48,8 @@
 		"36": {
 			"$value": "{size.36}"
 		},
-		"41": {
-			"$value": "{size.41}"
-		},
 		"xl": {
-			"$value": "{size.41}"
+			"$value": "{size.42}"
 		},
 		"46": {
 			"$value": "{size.46}"
