@@ -89,17 +89,12 @@
 				height: var(--rvt-spacing-sm);
 				margin: calc((1lh - var(--rvt-spacing-sm)) / 2) 0;
 				pointer-events: none;
-				transition: all 0.2s ease;
 				width: var(--rvt-spacing-sm);
 			}
 
 			&:hover {
 				color: var(--rvt-color-theme-accent);
 				text-decoration: underline;
-
-				&::after {
-					transform: translateX(var(--rvt-spacing-xs));
-				}
 			}
 		}
 	}
@@ -197,7 +192,6 @@
 		pointer-events: none;
 		position: absolute;
 		right: var(--position);
-		transition: all 0.2s ease;
 		width: var(--rvt-spacing-sm);
 	}
 
