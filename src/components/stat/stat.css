@@ -9,7 +9,7 @@
 
 	.rvt-stat__number {
 		color: var(--rvt-color-theme-text-accent);
-		font: var(--rvt-font-41-extra-black);
+		font: var(--rvt-font-42-extra-black);
 		margin-block-start: var(--rvt-spacing-md);
 	}
 
