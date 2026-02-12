@@ -12,13 +12,28 @@ export const title = "Header";
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<header class="rvt-container">
 		<Lockup />
-		<div class="rvt-dropdown" data-rvt-dropdown>
-			<Toggle />
-			<div class="rvt-dropdown__menu" data-rvt-dropdown-menu>
-				<Search />
-				<Nav />
+		<div data-rvt-header-dropdowns>
+			<div data-rvt-dropdown="header-menu">
+				<Toggle />
+				<div data-rvt-dropdown-menu hidden>
+					<Search />
+					<Nav />
+					<div data-rvt-header-cta>
+						<a href="/" class="rvt-button rvt-button--cta">Apply now</a>
+						<a href="/" class="rvt-button rvt-button--cta">Visit</a>
+					</div>
+					<div>
+						<button
+							class="rvt-button rvt-button--subtle rvt-button--small"
+							data-rvt-dropdown-toggle
+						>
+							<rvt-icon name="close"></rvt-icon>
+							Close menu
+						</button>
+					</div>
+				</div>
 			</div>
+			<Account />
 		</div>
-		<Account />
 	</header>
 </rvt-header>
