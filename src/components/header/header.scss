@@ -262,7 +262,6 @@ rvt-header {
 	[data-rvt-dropdown="header-menu"]:has(> [data-rvt-dropdown-toggle][aria-expanded="true"]) {
 		> [data-rvt-dropdown-menu] {
 			background-color: var(--rvt-color-theme-background);
-			box-shadow: 0 var(--rvt-size-20) var(--rvt-size-16) var(--rvt-color-shadow-light);
 			display: flex;
 			flex-direction: column;
 			gap: var(--rvt-size-32);
@@ -364,6 +363,10 @@ rvt-header {
 	*/
 					}
 
+					[data-rvt-dropdown-menu] {
+						display: none;
+					}
+
 					&:has([data-rvt-dropdown-toggle][aria-expanded="true"]) > li {
 						align-items: start;
 						flex-direction: column;
@@ -391,6 +394,7 @@ rvt-header {
 
 						> [data-rvt-dropdown-menu] {
 							align-self: stretch;
+							display: block;
 						}
 					}
 				}
@@ -452,5 +456,11 @@ rvt-header {
 				position: relative;
 			}
 		}
+	}
+}
+
+body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
+	> :not(:has([data-rvt-header-menu-toggle])) {
+		display: none;
 	}
 }

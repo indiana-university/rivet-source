@@ -4,13 +4,13 @@
 		<li>
 			<a href="/">Academics</a>
 		</li>
-		<li data-rvt-dropdown _data-rvt-dropdown-open-on-hover>
+		<li data-rvt-escape-close>
 			<a href="/">Admissions</a>
-			<button data-rvt-dropdown-toggle>
+			<button data-rvt-toggle-expanded data-rvt-dropdown-toggle aria-expanded="false">
 				<span class="rvt-sr-only">Admissions menu</span>
 				<rvt-icon name="chevron-down"></rvt-icon>
 			</button>
-			<div data-rvt-dropdown-menu hidden>
+			<div data-rvt-dropdown-menu>
 				<ul>
 					<li><a href="/">How to Apply</a></li>
 					<li><a href="/" aria-current="page">Visit</a></li>
@@ -23,13 +23,13 @@
 				</ul>
 			</div>
 		</li>
-		<li data-rvt-dropdown _data-rvt-dropdown-open-on-hover>
+		<li data-rvt-escape-close>
 			<a href="/">Cost &amp; Financial Aid</a>
-			<button data-rvt-dropdown-toggle>
+			<button data-rvt-toggle-expanded data-rvt-dropdown-toggle aria-expanded="false">
 				<span class="rvt-sr-only">Cost &amp; Financial Aid menu</span>
 				<rvt-icon name="chevron-down"></rvt-icon>
 			</button>
-			<div data-rvt-dropdown-menu hidden>
+			<div data-rvt-dropdown-menu>
 				<ul>
 					<li><a href="/">Cost of Attendance</a></li>
 					<li><a href="/">Financial Aid</a></li>
@@ -61,6 +61,37 @@
 </nav>
 
 <script>
+	document.addEventListener("keydown", (event) => {
+		if (event.key !== "Escape") {
+			return;
+		}
+		const eventTarget = event.target as HTMLElement;
+		const escapeTarget = eventTarget.closest("[data-rvt-escape-close]");
+		if (!escapeTarget) {
+			return;
+		}
+		const closeTarget = escapeTarget.querySelector("button[data-rvt-toggle-expanded]") as HTMLElement;
+		if (!closeTarget) {
+			return;
+		}
+		if (closeTarget.getAttribute("aria-expanded") === "true") {
+			closeTarget.setAttribute("aria-expanded", "false");
+			closeTarget.focus();
+			event.stopPropagation();
+		}
+	}, { capture: true });
+
+	document.addEventListener("click", (event) => {
+		const eventTarget = event.target as HTMLElement;
+		const target = eventTarget.closest("button[data-rvt-toggle-expanded]");
+		if (!target) {
+			return;
+		}
+		const value = target.getAttribute("aria-expanded");
+		const newValue = value === "true" ? "false" : "true";
+		target.setAttribute("aria-expanded", newValue);
+	});
+
 	document.querySelectorAll("rvt-header nav > ul").forEach((container) => {
 		const links = container.querySelectorAll(":scope > li");
 		const observerOptions = {
