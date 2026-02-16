@@ -27,6 +27,27 @@ rvt-header {
 			z-index: 100;
 		}
 
+		&[data-rvt-header-menu-toggle] {
+			--path: var(--rvt-graphic-menu-magnifying-glass-path);
+			--height: var(--rvt-graphic-menu-magnifying-glass-height);
+			--width: var(--rvt-graphic-menu-magnifying-glass-width);
+
+			&[aria-expanded="true"] {
+				--path: var(--rvt-graphic-close-path);
+				--height: var(--rvt-graphic-close-height);
+				--width: var(--rvt-graphic-close-width);
+			}
+
+			&::before {
+				background-color: currentColor;
+				content: "";
+				display: block;
+				clip-path: path(var(--path));
+				height: var(--height);
+				width: var(--width);
+			}
+		}
+
 		&[data-rvt-header-account-toggle] {
 			//margin-inline-end: var(--rvt-size-16);
 
@@ -286,7 +307,7 @@ rvt-header {
 						a {
 							color: unset;
 							font: var(--rvt-font-16);
-							padding: var(--rvt-size-4);
+							padding: var(--rvt-size-4) var(--rvt-size-8);
 							text-decoration: none;
 
 							&:visited {
@@ -308,7 +329,6 @@ rvt-header {
 							align-items: center;
 							background-color: var(--rvt-color-theme-background-strong);
 							border: var(--rvt-size-1) solid transparent;
-							border-radius: var(--rvt-border-radius-circle);
 							color: var(--rvt-color-theme-text-strong);
 							cursor: pointer;
 							display: flex;
@@ -362,6 +382,7 @@ rvt-header {
 
 						> [data-rvt-dropdown-toggle] {
 							order: -1;
+							padding: calc(var(--rvt-size-16) - var(--rvt-size-1));
 
 							rvt-icon {
 								--name: var(--rvt-icon-chevron-left);
