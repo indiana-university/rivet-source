@@ -60,6 +60,69 @@ export const title = "Header";
 		}
 		const value = target.getAttribute("aria-expanded");
 		const newValue = value === "true" ? "false" : "true";
+		const autoFocusElements = document.querySelectorAll("[data-trait-auto-focus-on-show]");
+		const hiddenAutoFocusElements = Array.from(autoFocusElements)
+			.filter(isHidden);
 		target.setAttribute("aria-expanded", newValue);
+		const firstAutoFocusElement = hiddenAutoFocusElements
+			.filter(isVisible)
+			.at(0);
+		autoFocus(firstAutoFocusElement);
 	});
+
+	function isVisible(el) {
+		const style = window.getComputedStyle(el);
+		return (
+			style.display !== 'none' && 
+			style.visibility !== 'hidden' && 
+			el.offsetWidth > 0 && 
+			el.offsetHeight > 0
+		);
+	}
+
+	function isHidden(el) {
+		return !isVisible(el);
+	}
+
+	function getFirstFocusableDescendant(parent) {
+		if (!parent || parent.closest('[inert]')) {
+			return null;
+		}
+
+		const focusableSelectors = [
+			'button:not([disabled])',
+			'[href]',
+			'input:not([disabled]):not([type="hidden"])',
+			'select:not([disabled])',
+			'textarea:not([disabled])',
+			'[tabindex]:not([tabindex="-1"])',
+			'details',
+			'audio[controls]',
+			'video[controls]',
+			'[contenteditable]:not([contenteditable="false"])',
+		].join(',');
+
+		const candidates = parent.querySelectorAll(focusableSelectors);
+
+		for (const candidate of candidates) {
+			if (candidate.closest('[inert]')) {
+				continue;
+			}
+			if (isVisible(candidate)) {
+				return candidate;
+			}
+		}
+
+		return null;
+	}
+
+	function autoFocus(el) {
+		const target = getFirstFocusableDescendant(el);
+		if (!target) {
+			return;
+		}
+		window.requestAnimationFrame(() => {
+			target?.focus();
+		});
+	}
 </script>
