@@ -2,16 +2,19 @@
 import { createId } from "@src/utilities/createId.js";
 
 const searchInputId = createId();
+const searchLabel = "Search this site";
 ---
 
 <search>
 	<form action="">
-		<label for={searchInputId} class="rvt-sr-only"> Search this site </label>
+		<label for={searchInputId} class="rvt-sr-only">
+			{searchLabel}
+		</label>
 		<input
 			class="rvt-text-input"
 			id={searchInputId}
 			name="search"
-			placeholder="Search this site"
+			placeholder={searchLabel}
 			type="search"
 		/>
 		<button

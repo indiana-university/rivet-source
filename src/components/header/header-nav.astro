@@ -61,40 +61,6 @@
 </nav>
 
 <script>
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape") {
-			escapeToClose(event.target);
-		}
-	});
-
-	function escapeToClose(target) {
-		const escapeTarget = target.closest("[data-trait-escape-close]");
-		if (!escapeTarget) {
-			return;
-		}
-		const closeTarget = escapeTarget.querySelector("button[data-trait-toggle-expanded]");
-		if (!closeTarget) {
-			return;
-		}
-		if (closeTarget.getAttribute("aria-expanded") === "true") {
-			closeTarget.setAttribute("aria-expanded", "false");
-			closeTarget.focus();
-		} else {
-			escapeToClose(escapeTarget.parentElement);
-		}
-	}
-
-	document.addEventListener("click", (event) => {
-		const eventTarget = event.target as HTMLElement;
-		const target = eventTarget.closest("button[data-trait-toggle-expanded]");
-		if (!target) {
-			return;
-		}
-		const value = target.getAttribute("aria-expanded");
-		const newValue = value === "true" ? "false" : "true";
-		target.setAttribute("aria-expanded", newValue);
-	});
-
 	document.querySelectorAll("rvt-header nav > ul").forEach((container) => {
 		const links = container.querySelectorAll(":scope > li");
 		const observerOptions = {
