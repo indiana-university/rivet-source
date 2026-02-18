@@ -1,9 +1,7 @@
 ---
-import Lockup from "../lockup/lockup.astro";
 import Account from "./header-account.astro";
-import Nav from "./header-nav.astro";
-import Search from "./header-search.astro";
-import Toggle from "./header-toggle.astro";
+import Lockup from "../lockup/lockup.astro";
+import Menu from "./header-menu.astro";
 
 export const title = "Header";
 ---
@@ -13,26 +11,7 @@ export const title = "Header";
 	<header class="rvt-container">
 		<Lockup />
 		<div data-rvt-header-dropdowns>
-			<div data-trait-escape-close data-rvt-header-menu-container _data-rvt-dropdown="header-menu">
-				<Toggle />
-				<div data-rvt-header-menu _data-rvt-dropdown-menu>
-					<Search />
-					<Nav />
-					<div data-rvt-header-cta>
-						<a href="/" class="rvt-button rvt-button--cta">Apply now</a>
-						<a href="/" class="rvt-button rvt-button--cta">Visit</a>
-					</div>
-					<div>
-						<button
-							class="rvt-button rvt-button--subtle rvt-button--small"
-							data-rvt-dropdown-toggle
-						>
-							<rvt-icon name="close"></rvt-icon>
-							Close menu
-						</button>
-					</div>
-				</div>
-			</div>
+			<Menu />
 			<Account />
 		</div>
 	</header>
