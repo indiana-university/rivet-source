@@ -3,31 +3,28 @@ import Nav from "./header-nav.astro";
 import Search from "./header-search.astro";
 ---
 
-<div data-trait-escape-close>
-	<button
-		aria-expanded="true"
-		class="rvt-button rvt-button--icon-only rvt-header__button"
-		data-trait-toggle-expanded
-		data-rvt-header-menu-toggle
-	>
-		<span class="rvt-sr-only">Search and browse</span>
-	</button>
-	<div data-rvt-header-menu>
-		<Search />
-		<Nav />
-		<div data-rvt-header-cta>
-			<a href="/" class="rvt-button rvt-button--cta">Apply now</a>
-			<a href="/" class="rvt-button rvt-button--cta">Visit</a>
-		</div>
-		<div>
-			<button
-				class="rvt-button rvt-button--subtle rvt-button--small"
-				data-rvt-dropdown-toggle
-			>
-				<rvt-icon name="close"></rvt-icon>
-				Close menu
-			</button>
-		</div>
+<div data-rvt-header-menu data-trait-auto-focus-on-show>
+	<Search />
+	<Nav />
+	<div data-rvt-header-cta>
+		<a href="/" class="rvt-button rvt-button--cta">Apply now</a>
+		<a href="/" class="rvt-button rvt-button--cta">Visit</a>
+	</div>
+	<div>
+		<button
+			class="rvt-button rvt-button--subtle rvt-button--small"
+			data-rvt-dropdown-toggle
+		>
+			<rvt-icon name="close"></rvt-icon>
+			Close menu
+		</button>
 	</div>
 </div>
-
+<button
+	aria-expanded="true"
+	class="rvt-button rvt-button--icon-only rvt-header__button"
+	data-trait-toggle-expanded
+	data-rvt-header-menu-toggle
+>
+	<span class="rvt-sr-only">Search and browse</span>
+</button>

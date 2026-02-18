@@ -8,12 +8,10 @@ export const title = "Header";
 
 <rvt-header>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
-	<header class="rvt-container">
+	<header class="rvt-container" data-trait-escape-close>
 		<Lockup />
-		<div data-rvt-header-dropdowns>
-			<Menu />
-			<Account />
-		</div>
+		<Menu />
+		<Account />
 	</header>
 </rvt-header>
 
@@ -24,12 +22,25 @@ export const title = "Header";
 		}
 	});
 
+	function getDepth(el, ancestor = null) {
+		let depth = 0;
+		while (el.parentElement !== ancestor) {
+			el = el.parentElement;
+			depth++;
+		}
+		return depth;
+	}
+
 	function escapeToClose(target) {
 		const escapeTarget = target.closest("[data-trait-escape-close]");
 		if (!escapeTarget) {
 			return;
 		}
-		const closeTarget = escapeTarget.querySelector("button[data-trait-toggle-expanded]");
+		const closeTargets = escapeTarget.querySelectorAll("[data-trait-toggle-expanded]");
+		const closeTarget = Array.from(closeTargets)
+			.reduce((prev, curr) =>
+				getDepth(curr, escapeTarget) < getDepth(prev, escapeTarget) ? curr : prev
+			) as HTMLElement;
 		if (!closeTarget) {
 			return;
 		}
