@@ -6,7 +6,7 @@
 		</li>
 		<li data-trait-escape-close>
 			<a href="/">Admissions</a>
-			<button data-trait-toggle-expanded aria-expanded="true">
+			<button data-trait-toggle-expanded aria-expanded="false">
 				<span class="rvt-sr-only">Admissions menu</span>
 				<rvt-icon name="chevron-down"></rvt-icon>
 			</button>
@@ -61,13 +61,41 @@
 </nav>
 
 <script>
-	document.querySelectorAll("rvt-header nav > ul").forEach((container) => {
-		const links = container.querySelectorAll(":scope > li");
+	document.querySelectorAll("rvt-header [data-rvt-header-menu]").forEach((container) => {
+		const items = [...container.querySelectorAll("nav > ul > li")];
 		const observerOptions = {
 			root: container,
 			threshold: 1,
 		};
 		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				const item = entry.target;
+				if (entry.isIntersecting) {
+					item.removeAttribute("aria-hidden");
+				} else {
+					item.setAttribute("aria-hidden", "true");
+				}
+			});
+			const someHidden = items.some((item) => item?.getAttribute("aria-hidden") === "true");
+			items.forEach((i) => {
+				console.log('##', i, i.getAttribute('aria-hidden'))
+			})
+			console.log('WWW', someHidden);
+		}, observerOptions);
+		items.forEach((item) => observer.observe(item));
+	});
+	/*
+		document.querySelectorAll("rvt-header [data-rvt-header-menu]").forEach((container) => {
+		const links = container.querySelectorAll("nav > ul > li");
+		const nav = container.querySelector("nav");
+		const observerOptions = {
+			root: container,
+			threshold: 1,
+		};
+		const observer = new IntersectionObserver((entries) => {
+			
+			const hasSpace = entries.every((entry) => entry.isIntersecting)
+			console.log(hasSpace);
 			entries.forEach((entry) => {
 				const item = entry.target;
 				const link = item.querySelector(":scope > a");
@@ -80,6 +108,7 @@
 				}
 			});
 		}, observerOptions);
-		//links.forEach((link) => observer.observe(link));
+		links.forEach((link) => observer.observe(link));
 	});
+	*/
 </script>
