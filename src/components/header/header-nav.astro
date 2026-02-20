@@ -1,6 +1,6 @@
 <nav>
 	<h2 class="rvt-sr-only">Primary menu</h2>
-	<ul>
+	<ul data-trait-hide-child-overflow>
 		<li>
 			<a href="/">Academics</a>
 		</li>
@@ -61,54 +61,20 @@
 </nav>
 
 <script>
-	document.querySelectorAll("rvt-header [data-rvt-header-menu]").forEach((container) => {
-		const items = [...container.querySelectorAll("nav > ul > li")];
-		const observerOptions = {
-			root: container,
-			threshold: 1,
-		};
-		const observer = new IntersectionObserver((entries) => {
+	document.querySelectorAll("[data-trait-hide-child-overflow]").forEach((root) => {
+		const intersectionObserver = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
-				const item = entry.target;
-				if (entry.isIntersecting) {
-					item.removeAttribute("aria-hidden");
-				} else {
-					item.setAttribute("aria-hidden", "true");
-				}
+				entry.target.toggleAttribute("hidden", !entry.isIntersecting);
 			});
-			const someHidden = items.some((item) => item?.getAttribute("aria-hidden") === "true");
-			items.forEach((i) => {
-				console.log('##', i, i.getAttribute('aria-hidden'))
-			})
-			console.log('WWW', someHidden);
-		}, observerOptions);
-		items.forEach((item) => observer.observe(item));
+		}, { root, threshold: 1 });
+		const mutationObserver = new MutationObserver(observeChildren);
+		mutationObserver.observe(root, { childList: true });
+		observeChildren();
+
+		function observeChildren () {
+			for (const child of root.children) {
+				intersectionObserver.observe(child);
+			}
+		}
 	});
-	/*
-		document.querySelectorAll("rvt-header [data-rvt-header-menu]").forEach((container) => {
-		const links = container.querySelectorAll("nav > ul > li");
-		const nav = container.querySelector("nav");
-		const observerOptions = {
-			root: container,
-			threshold: 1,
-		};
-		const observer = new IntersectionObserver((entries) => {
-			
-			const hasSpace = entries.every((entry) => entry.isIntersecting)
-			console.log(hasSpace);
-			entries.forEach((entry) => {
-				const item = entry.target;
-				const link = item.querySelector(":scope > a");
-				if (entry.isIntersecting) {
-					item.removeAttribute("aria-hidden");
-					link.removeAttribute("tabindex");
-				} else {
-					item.setAttribute("aria-hidden", "true");
-					link.setAttribute("tabindex", "-1");
-				}
-			});
-		}, observerOptions);
-		links.forEach((link) => observer.observe(link));
-	});
-	*/
 </script>

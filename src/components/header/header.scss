@@ -252,11 +252,16 @@ body:not(:has([data-rvt-header-menu-toggle][aria-expanded="true"])) {
 		[data-rvt-header-menu] {
 			nav {
 				display: block;
-				display: none;
+				visibility: hidden;
+
+				&:not(:has(> ul > li[hidden])) {
+					visibility: visible;
+				}
 
 				ul {
 					display: flex;
 					gap: var(--rvt-size-16);
+					justify-content: end;
 					list-style: "";
 					margin: 0;
 					padding: 0;
