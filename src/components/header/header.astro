@@ -60,11 +60,12 @@ export const title = "Header";
 		}
 		const value = target.getAttribute("aria-expanded");
 		const newValue = value === "true" ? "false" : "true";
-		const autoFocusElements = document.querySelectorAll("[data-trait-auto-focus-on-show]");
-		const hiddenAutoFocusElements = Array.from(autoFocusElements)
+		const preAutoFocusElements = document.querySelectorAll("[data-trait-auto-focus-on-show]");
+		const hiddenAutoFocusElements = Array.from(preAutoFocusElements)
 			.filter(isHidden);
 		target.setAttribute("aria-expanded", newValue);
-		const firstAutoFocusElement = hiddenAutoFocusElements
+		const postAutoFocusElements = document.querySelectorAll("[data-trait-auto-focus-on-show]");
+		const firstAutoFocusElement = Array.from(postAutoFocusElements)
 			.filter(isVisible)
 			.at(0);
 		autoFocus(firstAutoFocusElement);
@@ -73,9 +74,9 @@ export const title = "Header";
 	function isVisible(el) {
 		const style = window.getComputedStyle(el);
 		return (
-			style.display !== 'none' && 
-			style.visibility !== 'hidden' && 
-			el.offsetWidth > 0 && 
+			style.display !== 'none' &&
+			style.visibility !== 'hidden' &&
+			el.offsetWidth > 0 &&
 			el.offsetHeight > 0
 		);
 	}

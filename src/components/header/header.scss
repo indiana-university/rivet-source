@@ -250,12 +250,17 @@ rvt-header {
 body:not(:has([data-rvt-header-menu-toggle][aria-expanded="true"])) {
 	rvt-header {
 		[data-rvt-header-menu] {
+			position: relative;
+
 			nav {
 				display: block;
 				visibility: hidden;
+				position: absolute;
+				width: 100%;
 
 				&:not(:has(> ul > li[hidden])) {
-					visibility: visible;
+					position: unset;
+					visibility: unset;
 				}
 
 				ul {
