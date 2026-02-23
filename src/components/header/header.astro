@@ -60,16 +60,34 @@ export const title = "Header";
 		}
 		const value = target.getAttribute("aria-expanded");
 		const newValue = value === "true" ? "false" : "true";
-		const preAutoFocusElements = document.querySelectorAll("[data-trait-auto-focus-on-show]");
-		const hiddenAutoFocusElements = Array.from(preAutoFocusElements)
-			.filter(isHidden);
+		const autoFocusTrait = "--rvt-trait-auto-focus";
+		const preexistingAutoFocusElements = queryTraitAll(autoFocusTrait);
 		target.setAttribute("aria-expanded", newValue);
-		const postAutoFocusElements = document.querySelectorAll("[data-trait-auto-focus-on-show]");
-		const firstAutoFocusElement = Array.from(postAutoFocusElements)
-			.filter(isVisible)
+		const firstAutoFocusElement = queryTraitAll(autoFocusTrait)
+			.filter((el) => !preexistingAutoFocusElements.includes(el))
 			.at(0);
 		autoFocus(firstAutoFocusElement);
 	});
+
+	type QueryTraitOptions = { root?: HTMLElement, value?: string };
+	function queryTraitAll(trait, options: QueryTraitOptions = {}) {
+		const root = options.root || document;
+		return Array.from(root.querySelectorAll("*"))
+			.filter((el: HTMLElement) => {
+				const value = [el.style, getComputedStyle(el)]
+					.map((style) => style.getPropertyValue(trait).trim())
+					.filter((v) => v)
+					.at(0);
+				if (options.value) {
+					return options.value === value;
+				}
+				return !!value;
+			});
+	}
+
+	function queryTrait(...args: [string, QueryTraitOptions]) {
+		return queryTraitAll(...args).at(0);
+	}
 
 	function isVisible(el) {
 		const style = window.getComputedStyle(el);
@@ -86,27 +104,27 @@ export const title = "Header";
 	}
 
 	function getFirstFocusableDescendant(parent) {
-		if (!parent || parent.closest('[inert]')) {
+		if (!parent || parent.closest("[inert]")) {
 			return null;
 		}
 
 		const focusableSelectors = [
-			'button:not([disabled])',
-			'[href]',
-			'input:not([disabled]):not([type="hidden"])',
-			'select:not([disabled])',
-			'textarea:not([disabled])',
-			'[tabindex]:not([tabindex="-1"])',
-			'details',
-			'audio[controls]',
-			'video[controls]',
-			'[contenteditable]:not([contenteditable="false"])',
-		].join(',');
+			"button:not([disabled])",
+			"[href]",
+			"input:not([disabled]):not([type='hidden'])",
+			"select:not([disabled])",
+			"textarea:not([disabled])",
+			"[tabindex]:not([tabindex='-1'])",
+			"details",
+			"audio[controls]",
+			"video[controls]",
+			"[contenteditable]:not([contenteditable='false'])",
+		].join(",");
 
 		const candidates = parent.querySelectorAll(focusableSelectors);
 
 		for (const candidate of candidates) {
-			if (candidate.closest('[inert]')) {
+			if (candidate.closest("[inert]")) {
 				continue;
 			}
 			if (isVisible(candidate)) {

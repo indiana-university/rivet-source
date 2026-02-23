@@ -365,6 +365,7 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 		}
 
 		[data-rvt-header-menu] {
+			--rvt-trait-auto-focus: true;
 			display: flex;
 			flex-direction: column;
 			gap: var(--rvt-size-32);
@@ -372,6 +373,10 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 			max-width: 40rem;
 			padding-block: var(--rvt-size-32) var(--rvt-size-16);
 			width: 100%;
+
+			> * {
+				--rvt-trait-auto-focus: initial;
+			}
 
 			*:focus {
 				scroll-margin-top: calc(var(--rvt-graphic-logo-iu-container-height) + var(--rvt-size-48));
@@ -522,7 +527,12 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 						}
 
 						> [data-rvt-header-submenu] {
+							--rvt-trait-auto-focus: true;
 							display: block;
+
+							> * {
+								--rvt-trait-auto-focus: initial;
+							}
 						}
 					}
 				}
