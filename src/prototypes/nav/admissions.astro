@@ -1,0 +1,45 @@
+---
+import Header from "@src/components/header/header.astro";
+import Subnav from "./subnav.astro";
+
+export const title = "Admissions";
+---
+
+<Header />
+<main>
+	<header class="rvt-container">
+		<nav aria-label="Breadcrumbs">
+			<ol class="rvt-breadcrumbs">
+				<li><a href="home.astro">Home</a></li>
+				<li aria-current="page">{title}</li>
+			</ol>
+		</nav>
+		<h1>{title}</h1>
+		<Subnav>
+			<li><a href="apply.astro">Apply</a></li>
+			<li><a href="#">Admissions Paths</a></li>
+			<li><a href="#">Admissions Events</a></li>
+			<li><a href="#">Visit IU</a></li>
+			<li><a href="#">Meet Your Counselors</a></li>
+			<li><a href="#">Precollege Programs</a></li>
+			<li><a href="#">Planning for IU</a></li>
+			<li><a href="#">Class Profile</a></li>
+			<li><a href="#">After Admission</a></li>
+			<li><a href="#">Admissions Viewbook</a></li>
+			<li><a href="#">For Councelors</a></li>
+			<li><a href="#">For Families</a></li>
+			<li><a href="#">Request Information</a></li>
+		</Subnav>
+	</header>
+</main>
+
+<style>
+	nav {
+		margin-block-start: var(--rvt-size-16);
+	}
+
+	h1 {
+		font: var(--rvt-font-26-fluid-black);
+		margin-block-start: var(--rvt-size-8);
+	}
+</style>

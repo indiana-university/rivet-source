@@ -41,10 +41,12 @@ export function getStaticPaths() {
 		const type = isFile ? "file" : "folder";
 		const isComponent = /\/components\//.test(path);
 		const isLayout = /\/layouts\//.test(path);
+		const isPrototype = /\/prototypes\//.test(path);
 		const isUtility = /\/utilities\//.test(path);
 		const [fileType] = [
 			isComponent && "component",
 			isLayout && "layout",
+			isPrototype && "layout",
 			isUtility && "utility",
 		].filter((ft) => ft);
 		const children = [];
