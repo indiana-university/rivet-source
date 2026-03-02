@@ -25,7 +25,6 @@
 	rvt-alpha-subnav {
 		border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		display: flex;
-		justify-content: space-between;
 		position: relative;
 
 		ul {
@@ -82,13 +81,14 @@
 			}
 
 			ul {
+				background-color: var(--rvt-color-theme-background);
 				box-shadow: var(--rvt-shadow-base);
 				display: none;
 				margin-block-start: var(--rvt-size-8);
 				padding-block: var(--rvt-size-8);
 				position: absolute;
-				right: 0;
 				width: max-content;
+				z-index: var(--rvt-z-index-100);
 			}
 
 			a {
@@ -99,32 +99,33 @@
 </style>
 
 <script>
-	const root: HTMLElement = document.querySelector("rvt-alpha-subnav");
-	const navList: HTMLElement = root.querySelector(":scope > ul");
-	const navItems = navList.querySelectorAll(":scope > li");
-	const moreContainer: HTMLElement = root.querySelector("[data-subnav-more]");
-	const moreButton: HTMLElement = moreContainer.querySelector(":scope > button");
-	const moreList = moreContainer.querySelector(":scope > ul");
-	
-	const items = Array.from(navItems)
-		.map((el: HTMLElement) => ({
-			el,
-			width: el.offsetWidth
-		}));
+	document.querySelectorAll("rvt-alpha-subnav").forEach((root: HTMLElement) => {
+		const navList: HTMLElement = root.querySelector(":scope > ul");
+		const navItems = navList.querySelectorAll(":scope > li");
+		const moreContainer: HTMLElement = root.querySelector("[data-subnav-more]");
+		const moreButton: HTMLElement = moreContainer.querySelector(":scope > button");
+		const moreList = moreContainer.querySelector(":scope > ul");
+		
+		const items = Array.from(navItems)
+			.map((el: HTMLElement) => ({
+				el,
+				width: el.offsetWidth
+			}));
 
-	const resizer = new ResizeObserver(() => {
-		let availableWidth = root.offsetWidth - moreButton.offsetWidth;
-		let usedWidth = 0;
+		const resizer = new ResizeObserver(() => {
+			let availableWidth = root.offsetWidth - moreButton.offsetWidth;
+			let usedWidth = 0;
 
-		items.forEach((item) => {
-			usedWidth += item.width;
+			items.forEach((item) => {
+				usedWidth += item.width;
 
-			if (usedWidth > availableWidth) {
-				moreList.appendChild(item.el);
-			} else {
-				navList.appendChild(item.el);
-			}
+				if (usedWidth > availableWidth) {
+					moreList.appendChild(item.el);
+				} else {
+					navList.appendChild(item.el);
+				}
+			});
 		});
+		resizer.observe(root);
 	});
-	resizer.observe(root);
 </script>
