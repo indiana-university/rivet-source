@@ -1,0 +1,32 @@
+---
+import Layout from "./layout.astro";
+
+export const title = "Cost & Aid";
+---
+
+<Layout title={title}>
+	<Fragment slot="siblings">
+		<li><a href="#">Academics</a></li>
+		<li><a href="admissions.astro">Admissions</a></li>
+		<li><a href="cost-aid.astro" aria-current="page">Cost & Aid</a></li>
+		<li><a href="#">Campus Life</a></li>
+		<li><a href="#">Support & Services</a></li>
+		<li><a href="#">Research</a></li>
+		<li><a href="#">About IU</a></li>
+		<li><a href="#">Alumni & Giving</a></li>
+		<li><a href="#">Required Disclosures</a></li>
+	</Fragment>
+	<Fragment slot="breadcrumbs">
+		<li><a href="home.astro">Home</a></li>
+	</Fragment>
+	<Fragment slot="content">
+		<ul>
+			<li><a href="#">Cost of Attendance</a></li>
+			<li><a href="#">Financial Aid</a></li>
+			<li><a href="#">Scholarships</a></li>
+			<li><a href="#">Grants & Fellowships</a></li>
+			<li><a href="#">Loans</a></li>
+			<li><a href="#">Pay Your Bill</a></li>
+		</ul>
+	</Fragment>
+</Layout>

@@ -1,0 +1,91 @@
+<rvt-list-more>
+	<ul>
+		<slot />
+	</ul>
+	<div data-rvt-list-more-overflow data-trait-escape-close>
+		<button
+			aria-expanded="false"
+			class="rvt-button rvt-button--small rvt-button--subtle"
+			data-trait-toggle-expanded
+		>
+			More
+			<rvt-icon name="chevron-down"></rvt-icon>
+		</button>
+		<ul></ul>
+	</div>
+</rvt-list-more>
+
+<style>
+	rvt-list-more {
+		display: flex;
+		flex-grow: 1;
+
+		[data-rvt-list-more-overflow] {
+			display: flex;
+
+			&:has(ul:empty) {
+				visibility: hidden;
+			}
+
+			&:has(button[aria-expanded="true"]) ul {
+				--rvt-trait-auto-focus: true;
+				display: block;
+
+				> * {
+					--rvt-trait-auto-focus: initial;
+				}
+			}
+
+			ul {
+				background-color: var(--rvt-color-theme-background);
+				box-shadow: var(--rvt-shadow-base);
+				display: none;
+				margin-block-start: var(--rvt-size-8);
+				padding-block: var(--rvt-size-8);
+				position: absolute;
+				width: max-content;
+				z-index: var(--rvt-z-index-100);
+			}
+
+			a {
+				padding-block: var(--rvt-size-8);
+			}
+		}
+	}
+</style>
+
+<script>
+	document.querySelectorAll("rvt-list-more").forEach((root) => {
+		const navList = root.querySelector(":scope > ul");
+		const navItems = navList?.querySelectorAll(":scope > li");
+		const moreContainer = root.querySelector("[data-rvt-list-more-overflow]");
+		const moreList = moreContainer?.querySelector(":scope > ul");
+		
+		if (!navList || !navItems || !moreContainer || !moreList) {
+			return;
+		}
+
+		const items = Array.from(navItems)
+			.map((el) => {
+				const width = (el as HTMLElement).offsetWidth;
+				return { el, width };
+			});
+		const resizeObserver = new ResizeObserver(() => {
+			const rootWidth = (root as HTMLElement).offsetWidth;
+			const moreContainerWidth = (moreContainer as HTMLElement).offsetWidth;
+			const availableWidth = rootWidth - moreContainerWidth;
+			let usedWidth = 0;
+
+			items.forEach((item) => {
+				usedWidth += item.width;
+
+				if (usedWidth > availableWidth) {
+					moreList.appendChild(item.el);
+				} else {
+					navList.appendChild(item.el);
+				}
+			});
+		});
+		resizeObserver.observe(root);
+	});
+</script>

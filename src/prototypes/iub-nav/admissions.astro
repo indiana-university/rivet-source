@@ -1,0 +1,39 @@
+---
+import Layout from "./layout.astro";
+
+export const title = "Admissions";
+---
+
+<Layout title={title}>
+	<Fragment slot="siblings">
+		<li><a href="#">Academics</a></li>
+		<li><a href="admissions.astro" aria-current="page">Admissions</a></li>
+		<li><a href="cost-aid.astro">Cost & Aid</a></li>
+		<li><a href="#">Campus Life</a></li>
+		<li><a href="#">Support & Services</a></li>
+		<li><a href="#">Research</a></li>
+		<li><a href="#">About IU</a></li>
+		<li><a href="#">Alumni & Giving</a></li>
+		<li><a href="#">Required Disclosures</a></li>
+	</Fragment>
+	<Fragment slot="breadcrumbs">
+		<li><a href="home.astro">Home</a></li>
+	</Fragment>
+	<Fragment slot="content">
+		<ul>
+			<li><a href="apply.astro">Apply</a></li>
+			<li><a href="#">Admissions Paths</a></li>
+			<li><a href="#">Admissions Events</a></li>
+			<li><a href="#">Visit IU</a></li>
+			<li><a href="#">Meet Your Counselors</a></li>
+			<li><a href="#">Precollege Programs</a></li>
+			<li><a href="#">Planning for IU</a></li>
+			<li><a href="#">Class Profile</a></li>
+			<li><a href="#">After Admission</a></li>
+			<li><a href="#">Admissions Viewbook</a></li>
+			<li><a href="#">For Councelors</a></li>
+			<li><a href="#">For Families</a></li>
+			<li><a href="#">Request Information</a></li>
+		</ul>
+	</Fragment>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Search from "../../components/header/header-search.astro";
+---
+
+<rvt-header>
+	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
+	<header class="rvt-container" data-trait-escape-close>
+		<a class="rvt-lockup" href="home.astro">
+			<rvt-logo-iu tab></rvt-logo-iu>
+			<div class="rvt-lockup__body">
+				<div class="rvt-lockup__title">Indiana University</div>
+				<div class="rvt-lockup__subtitle">Bloomington</div>
+			</div>
+		</a>
+		<div data-rvt-header-menu>
+			<Search />
+		</div>
+		<button
+			aria-expanded="false"
+			class="rvt-button rvt-button--icon-only rvt-header__button"
+			data-trait-toggle-expanded
+			data-rvt-header-menu-toggle
+		>
+			<span class="rvt-sr-only">Search and browse</span>
+		</button>
+	</header>
+</rvt-header>

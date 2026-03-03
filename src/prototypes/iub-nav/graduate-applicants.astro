@@ -1,0 +1,29 @@
+---
+import Layout from "./layout.astro";
+
+export const title = "Graduate Applicants";
+---
+
+<Layout title={title}>
+	<Fragment slot="parent">
+		<a href="apply.astro">
+			Apply
+		</a>
+	</Fragment>
+	<Fragment slot="siblings">
+		<li><a href="freshman-applicants.astro">Freshman Applicants</a></li>
+		<li><a href="graduate-applicants.astro" aria-current="page">Graduate Applicants</a></li>
+		<li><a href="#">Returning Applicants</a></li>
+		<li><a href="#">Visiting & Non-degree Applicants</a></li>
+		<li><a href="#">Transfer Applicants</a></li>
+		<li><a href="#">Application Materials</a></li>
+		<li><a href="#">Credits & Transfer</a></li>
+		<li><a href="#">Manage Your Application</a></li>
+		<li><a href="#">How to Apply</a></li>
+	</Fragment>
+	<Fragment slot="breadcrumbs">
+		<li><a href="home.astro">Home</a></li>
+		<li><a href="admissions.astro">Admissions</a></li>
+		<li><a href="apply.astro">Apply</a></li>
+	</Fragment>
+</Layout>
