@@ -66,8 +66,8 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 		a {
 			color: inherit;
 			display: block;
-			font: var(--rvt-font-16);
-			_padding-block: var(--rvt-size-2);
+			font: var(--rvt-font-14);
+			padding-block: var(--rvt-size-2);
 			text-decoration: none;
 
 			&:hover {
@@ -77,8 +77,10 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 
 			&[aria-current="page"] {
 				color: var(--rvt-color-theme-text-accent);
-				font: var(--rvt-font-16-bold);
+				font-variation-settings: "GRAD" 150;
 				text-decoration: underline;
+				text-decoration-thickness: var(--rvt-size-2);
+				text-underline-offset: var(--rvt-size-6);
 			}
 		}
 
