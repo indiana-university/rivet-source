@@ -20,6 +20,11 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 			<rvt-breadcrumbs>
 				<nav aria-label="Breadcrumbs">
 					<ol class="rvt-breadcrumbs">
+						<li>
+							<a href="home.astro">
+								<span class="rvt-sr-only">Home</span>
+							</a>
+						</li>
 						<slot name="breadcrumbs" />
 						<li aria-current="page">{title}</li>
 					</ol>
