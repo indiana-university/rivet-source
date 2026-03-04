@@ -36,7 +36,7 @@ const parentPage = breadcrumbs.at(-2);
 	</head>
 	<body>
 		<header
-			class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm rvt-theme-dark"
+			class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm"
 		>
 			<a
 				class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle"
@@ -62,3 +62,9 @@ const parentPage = breadcrumbs.at(-2);
 		<slot />
 	</body>
 </html>
+
+<style>
+	header {
+		background-color: var(--rvt-color-theme-background-strong);
+	}
+</style>

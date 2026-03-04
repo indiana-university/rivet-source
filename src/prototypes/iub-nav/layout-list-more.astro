@@ -1,6 +1,6 @@
 ---
 import Header from "./header.astro";
-import ScrollSnap from "./scroll-snap.astro";
+import ListMore from "./list-more.astro";
 
 const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 ---
@@ -10,15 +10,12 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 	<rvt-main-header>
 		<header class="rvt-container">
 			<rvt-related-nav>
-				<ScrollSnap>
-					<nav aria-label="Related pages">
-						<slot name="parent" />
-						<ul>
-							<slot name="siblings" />
-						</ul>
-					</nav>
-				</ScrollSnap>
-			</rvt-related-nav>
+				<nav aria-label="Related pages">
+					<slot name="parent" />
+					<ListMore>
+						<slot name="siblings" />
+					</ListMore>
+				</nav>
 			</rvt-related-nav>
 			{showBreadcrumbs && (
 				<rvt-breadcrumbs>
@@ -87,12 +84,12 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 
 	rvt-related-nav {
 		display: block;
+		padding-block: var(--rvt-size-16);
 
 		nav {
 			align-items: center;
 			display: flex;
 			gap: var(--rvt-size-24);
-			padding: var(--rvt-size-16) 0;
 
 			> a:first-child {
 				align-items: center;
@@ -100,7 +97,6 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 				font: var(--rvt-font-18-bold);
 				gap: var(--rvt-size-8);
 				padding: 0;
-				scroll-snap-align: start;
 
 				&::before {
 					background-color: currentColor;
@@ -113,24 +109,11 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 			}
 		}
 
-		ul {
-			display: flex;
-			list-style: "";
-			margin: 0;
-			padding: 0;
-		}
-
-		li {
-			flex-shrink: 0;
-			padding-inline-end: var(--rvt-size-24);
-		}
-
 		a {
 			color: inherit;
 			display: block;
 			font: var(--rvt-font-14);
 			padding-block: var(--rvt-size-2);
-			scroll-snap-align: start;
 			text-decoration: none;
 
 			&:hover {
@@ -144,6 +127,25 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 				text-decoration: underline;
 				text-decoration-thickness: var(--rvt-size-2);
 				text-underline-offset: var(--rvt-size-6);
+			}
+		}
+
+		ul {
+			list-style: "";
+			margin: 0;
+			padding: 0;
+		}
+
+		rvt-list-more {
+			> ul {
+				display: flex;
+				flex-wrap: nowrap;
+				_gap: var(--rvt-size-24);
+
+				> li {
+					flex-shrink: 0;
+					padding-inline-end: var(--rvt-size-24);
+				}
 			}
 		}
 	}
