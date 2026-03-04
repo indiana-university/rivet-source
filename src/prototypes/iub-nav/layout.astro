@@ -7,41 +7,82 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 
 <Header />
 <main>
-	<header class="rvt-container">
-		<rvt-main-header>
-			<nav>
-				<slot name="parent" />
-				<ListMore>
-					<slot name="siblings" />
-				</ListMore>
-			</nav>
-		</rvt-main-header>
-		{showBreadcrumbs && (
-			<rvt-breadcrumbs>
-				<nav aria-label="Breadcrumbs">
-					<ol class="rvt-breadcrumbs">
-						<li>
-							<a href="home.astro">
-								<span class="rvt-sr-only">Home</span>
-							</a>
-						</li>
-						<slot name="breadcrumbs" />
-						<li aria-current="page">{title}</li>
-					</ol>
+	<rvt-main-header>
+		<header class="rvt-container">
+			<rvt-related-nav>
+				<nav aria-label="Related pages">
+					<slot name="parent" />
+					<ListMore>
+						<slot name="siblings" />
+					</ListMore>
 				</nav>
-			</rvt-breadcrumbs>
-		)}
-		{showTitle && <h1>{title}</h1>}
-		{!showTitle && <h1 class="rvt-sr-only">{title}</h1>}
-	</header>
+			</rvt-related-nav>
+			{showBreadcrumbs && (
+				<rvt-breadcrumbs>
+					<nav aria-label="Breadcrumbs">
+						<ol class="rvt-breadcrumbs">
+							<li>
+								<a href="home.astro">
+									<span class="rvt-sr-only">Home</span>
+								</a>
+							</li>
+							<slot name="breadcrumbs" />
+							<li aria-current="page">{title}</li>
+						</ol>
+					</nav>
+				</rvt-breadcrumbs>
+			)}
+			{showTitle && <h1>{title}</h1>}
+			{!showTitle && <h1 class="rvt-sr-only">{title}</h1>}
+		</header>
+	</rvt-main-header>
 	<div class="rvt-container">
 		<slot name="content" />
 	</div>
 </main>
 
-<style>
+<style is:global>
 	rvt-main-header {
-		border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		display: block;
+		container-type: inline-size;
+
+		rvt-related-nav {
+			&:where(:not(:has(nav > a:first-child))) {
+				display: none;
+			}
+
+			rvt-list-more {
+				visibility: hidden;
+			}
+		}
+
+		rvt-breadcrumbs {
+			display: none;
+			margin-block-start: var(--rvt-size-24);
+		}
+
+		h1 {
+			font: var(--rvt-font-26-fluid-black);
+			margin-block-start: var(--rvt-size-24);
+		}
+
+		@container (width > 40rem) {
+			rvt-related-nav {
+				border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+				display: block;
+
+				rvt-list-more {
+					visibility: visible;
+				}
+			}
+
+			rvt-breadcrumbs {
+				display: block;
+			}
+		}
+	}
+
+	rvt-related-nav {
 		display: block;
 		padding-block: var(--rvt-size-16);
 
@@ -107,15 +148,5 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 				}
 			}
 		}
-	}
-
-	rvt-breadcrumbs {
-		display: block;
-		margin-block-start: var(--rvt-size-24);
-	}
-
-	h1 {
-		font: var(--rvt-font-26-fluid-black);
-		margin-block-start: var(--rvt-size-24);
 	}
 </style>
