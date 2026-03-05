@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
-		["@src/**/*.astro", "!@src/sandbox/**/*.astro"],
+		["@src/**/*.astro", "!@src/sandbox/**/*.astro", "!@src/**/*.tmp.astro"],
 		{ eager: true },
 	);
 	const pageEntries: [string, any][] = Object.entries(allPages)
