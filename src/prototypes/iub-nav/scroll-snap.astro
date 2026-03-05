@@ -1,12 +1,12 @@
 <rvt-scroll-snap>
-	<button class="rvt-button rvt-button--medium rvt-button--icon-only" data-prev hidden>
+	<button class="rvt-button rvt-button--icon-only" data-prev hidden>
 		<rvt-icon name="chevron-left"></rvt-icon>
 		<span class="rvt-sr-only">Previous</span>
 	</button>
 	<div data-content>
 		<slot />
 	</div>
-	<button class="rvt-button rvt-button--medium rvt-button--icon-only" data-next hidden>
+	<button class="rvt-button rvt-button--icon-only" data-next hidden>
 		<rvt-icon name="chevron-right"></rvt-icon>
 		<span class="rvt-sr-only">Next</span>
 	</button>
@@ -23,6 +23,7 @@
 			--color-background-hover: var(--rvt-color-theme-background);
 			--color-border: var(--rvt-color-theme-ui);
 			--color-border-hover: var(--rvt-color-theme-ui);
+			align-self: stretch;
 			visibility: hidden;
 			z-index: var(--rvt-z-index-100);
 
@@ -32,6 +33,8 @@
 		}
 
 		[data-prev] {
+			border-color: transparent var(--color-border) transparent transparent;
+			_box-shadow: 1rem 0 1rem 0 white;
 			grid-column: 1 / 2;
 			grid-row: 1 / 2;
 		}
@@ -49,11 +52,10 @@
 		}
 
 		[data-next] {
-			align-self: stretch;
 			border-color: transparent transparent transparent var(--color-border);
+			_box-shadow: -1rem 0 1rem 0 white;
 			grid-column: -2 / -1;
 			grid-row: 1 / 2;
-			box-shadow: -1rem 0 1rem 0 white;
 		}
 	}
 </style>
