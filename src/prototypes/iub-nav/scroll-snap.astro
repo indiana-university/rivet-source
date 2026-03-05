@@ -1,12 +1,12 @@
 <rvt-scroll-snap>
-	<button class="rvt-button rvt-button--medium rvt-button--icon-only" data-prev>
+	<button class="rvt-button rvt-button--medium rvt-button--icon-only" data-prev hidden>
 		<rvt-icon name="chevron-left"></rvt-icon>
 		<span class="rvt-sr-only">Previous</span>
 	</button>
 	<div data-content>
 		<slot />
 	</div>
-	<button class="rvt-button rvt-button--medium rvt-button--icon-only" data-next>
+	<button class="rvt-button rvt-button--medium rvt-button--icon-only" data-next hidden>
 		<rvt-icon name="chevron-right"></rvt-icon>
 		<span class="rvt-sr-only">Next</span>
 	</button>
@@ -45,18 +45,26 @@
 			scroll-behavior: smooth;
 			scroll-padding-inline: var(--rvt-size-60);
 			scroll-snap-type: inline mandatory;
+			scrollbar-width: none;
 		}
 
 		[data-next] {
+			align-self: stretch;
+			border-color: transparent transparent transparent var(--color-border);
 			grid-column: -2 / -1;
 			grid-row: 1 / 2;
+			box-shadow: -1rem 0 1rem 0 white;
 		}
 	}
 </style>
 
 <script>
 	function handleScrollSnap(root) {
-		const container = (root as HTMLElement)?.closest("rvt-scroll-snap");
+		if (!(root instanceof HTMLElement)) {
+			return;
+		}
+
+		const container = root.closest("rvt-scroll-snap");
 
 		if (!container) {
 			return;
@@ -69,41 +77,50 @@
 		const maxScroll = content.scrollWidth - content.clientWidth;
 		const perc = maxScroll > 0 ? content.scrollLeft / maxScroll : 0;
 		const tolerance = 0.01;
+		const isScrollable = maxScroll > 0;
 		const isAtStart = perc <= (0 + tolerance);
 		const isAtEnd = perc >= (1 - tolerance);
 
 		if (prev) {
-			prev.hidden = isAtStart;
+			prev.hidden = !isScrollable || isAtStart;
 		}
 		if (next) {
-			next.hidden = isAtEnd;
+			next.hidden = !isScrollable || isAtEnd;
 		}
 	}
 
-	document.querySelectorAll("rvt-scroll-snap").forEach(handleScrollSnap);
+	function handleAllScrollSnap() {
+		document.querySelectorAll("rvt-scroll-snap").forEach(handleScrollSnap);
+	}
 
 	document.addEventListener("scroll", (event) => {
 		handleScrollSnap(event.target);
 	}, { capture: true, passive: true });
 
+	const resizeObserver = new ResizeObserver(handleAllScrollSnap);
+	resizeObserver.observe(document.body);
+
 	document.addEventListener("click", (event) => {
-		const target = event.target as HTMLElement;
-		const button = target.closest("rvt-scroll-snap [data-prev], rvt-scroll-snap [data-next]");
+		if (!(event.target instanceof HTMLElement)) {
+			return;
+		}
+
+		const button = event.target.closest("rvt-scroll-snap [data-prev], rvt-scroll-snap [data-next]");
 
 		if (!button) {
 			return;
 		}
 
 		const container = button.closest("rvt-scroll-snap");
-		const content = container.querySelector("[data-content]");
+		const content = container?.querySelector("[data-content]");
 
 		if (!content) {
 			return;
 		}
 
-		const pages = Math.ceil(content.scrollWidth / content.clientWidth) * 2;
 		const direction = button.matches("[data-prev]") ? -1 : 1;
-		const left = content.scrollWidth / pages * direction;
-		content.scrollBy({ left, behavior: "smooth" });
+		const contentWidth = content.scrollWidth - (button.clientWidth * 2);
+		const step = contentWidth * direction * 0.3;
+		content.scrollBy({ left: step, behavior: "smooth" });
 	});
 </script>
