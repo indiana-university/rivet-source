@@ -14,13 +14,16 @@
 
 <style is:global>
 	rvt-scroll-snap {
+		--offset: var(--rvt-size-4);
+		--offset-n: calc(var(--offset) * -1);
+		--size-button: var(--rvt-size-48);
 		align-items: center;
 		display: grid;
 		grid-template-columns: auto 1fr auto;
 
 		:is([data-prev], [data-next]) {
 			--color-background: var(--rvt-color-theme-background);
-			--color-background-hover: var(--rvt-color-theme-background);
+			--color-background-hover: var(--rvt-color-theme-background-strong);
 			--color-border: var(--rvt-color-theme-ui);
 			--color-border-hover: var(--rvt-color-theme-ui);
 			align-self: stretch;
@@ -33,8 +36,7 @@
 		}
 
 		[data-prev] {
-			border-color: transparent var(--color-border) transparent transparent;
-			_box-shadow: 1rem 0 1rem 0 white;
+			box-shadow: var(--offset-n) 0 0 0 var(--rvt-color-theme-background);
 			grid-column: 1 / 2;
 			grid-row: 1 / 2;
 		}
@@ -44,16 +46,16 @@
 			grid-column: 1 / -1;
 			grid-row: 1 / 2;
 			overflow-x: auto;
-			padding-inline: var(--rvt-size-4);
+			padding: var(--offset);
+			margin: var(--offset-n);
 			scroll-behavior: smooth;
-			scroll-padding-inline: var(--rvt-size-60);
+			scroll-padding: calc(var(--size-button) + var(--offset));
 			scroll-snap-type: inline mandatory;
 			scrollbar-width: none;
 		}
 
 		[data-next] {
-			border-color: transparent transparent transparent var(--color-border);
-			_box-shadow: -1rem 0 1rem 0 white;
+			box-shadow: var(--offset) 0 0 0 var(--rvt-color-theme-background);
 			grid-column: -2 / -1;
 			grid-row: 1 / 2;
 		}

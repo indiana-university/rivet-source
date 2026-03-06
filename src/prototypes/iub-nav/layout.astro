@@ -45,6 +45,10 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 </main>
 
 <style is:global>
+	rvt-header header {
+		padding-block: var(--rvt-size-24);
+	}
+
 	rvt-main-header {
 		display: block;
 		container-type: inline-size;
@@ -71,7 +75,7 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 
 		@container (width > 40rem) {
 			rvt-related-nav {
-				border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+				_border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 				display: block;
 
 				rvt-list-more {
@@ -86,21 +90,25 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 	}
 
 	rvt-related-nav {
+		--height: var(--rvt-size-48);
+		--padding: var(--rvt-size-12);
 		display: block;
 
 		nav {
-			align-items: center;
+			border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 			display: flex;
-			gap: var(--rvt-size-24);
-			padding: var(--rvt-size-16) 0;
+			flex-grow: 1;
+			flex-shrink: 0;
+
+			> * {
+				margin-block: var(--rvt-size-n1);
+			}
 
 			> a:first-child {
 				align-items: center;
 				display: flex;
 				font: var(--rvt-font-18-bold);
 				gap: var(--rvt-size-8);
-				padding: 0;
-				scroll-snap-align: start;
 
 				&::before {
 					background-color: currentColor;
@@ -116,20 +124,16 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 		ul {
 			display: flex;
 			list-style: "";
-			margin: 0;
 			padding: 0;
 		}
 
-		li {
-			flex-shrink: 0;
-			padding-inline-end: var(--rvt-size-24);
-		}
-
 		a {
+			border: var(--rvt-size-1) solid transparent;
 			color: inherit;
 			display: block;
 			font: var(--rvt-font-14);
-			padding-block: var(--rvt-size-2);
+			padding-block: calc((var(--height) - 1lh - var(--rvt-size-2)) / 2);
+			padding-inline: var(--padding);
 			scroll-snap-align: start;
 			text-decoration: none;
 
@@ -139,11 +143,9 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 			}
 
 			&[aria-current="page"] {
-				color: var(--rvt-color-theme-text-accent);
+				background-color: var(--rvt-color-theme-background-strong);
+				border-color: var(--rvt-color-theme-ui);
 				font-variation-settings: "GRAD" 150;
-				text-decoration: underline;
-				text-decoration-thickness: var(--rvt-size-2);
-				text-underline-offset: var(--rvt-size-6);
 			}
 		}
 	}
