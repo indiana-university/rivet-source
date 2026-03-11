@@ -1,4 +1,5 @@
 ---
+import Nav from "./header-nav.astro";
 import Search from "../../components/header/header-search.astro";
 
 const { theme = "light" } = Astro.props;
@@ -16,6 +17,7 @@ const { theme = "light" } = Astro.props;
 		</a>
 		<div data-rvt-header-menu>
 			<Search />
+			<Nav />
 		</div>
 		<button
 			aria-expanded="false"
@@ -27,3 +29,21 @@ const { theme = "light" } = Astro.props;
 		</button>
 	</header>
 </rvt-header>
+
+<style>
+	rvt-header {
+		nav {
+			display: none;
+		}
+	}
+
+	body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
+		rvt-header nav {
+			display: block;
+		}
+	}
+</style>
+
+<script>
+	import "@src/components/header/header.ts";
+</script>

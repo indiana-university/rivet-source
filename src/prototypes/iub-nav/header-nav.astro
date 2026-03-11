@@ -1,0 +1,64 @@
+---
+import { createId } from "@src/utilities/createId.js";
+
+const admissionsMenu = {
+	id: createId(),
+	label: "Admissions",
+	items: [
+		["Apply", "apply.astro"],
+		["Admissions Paths", "admissions-paths.astro"],
+		["Admissions Events"],
+		["Visit IU"],
+		["Meet Your Counselors"],
+		["Precollege Programs"],
+		["Planning for IU"],
+		["Class Profile"],
+		["After Admission"],
+		["Admissions Viewbook"],
+		["For Councelors"],
+		["For Families"],
+		["Request Information"],
+	]
+}
+const mainMenu = {
+	id: createId(),
+	label: "Main",
+	items: [
+		["Home", "home.astro"],
+		["Academics"],
+		["Admissions", "admissions.astro", admissionsMenu.id],
+		["Cost & Aid", "cost-aid.astro"],
+		["Campus Life"],
+		["Support & Services"],
+		["Research"],
+		["About IU"],
+		["Alumni & Giving"],
+		["Required Disclosures"],
+	]
+}
+const menus = [
+	mainMenu,
+	admissionsMenu,
+];
+---
+
+<nav>
+	{menus.map((menu) => (
+		<div id={menu.id}>
+			<h2 class="rvt-sr-only">{`${menu.label} menu`}</h2>
+			<ul>
+				{menu.items.map((item) => (
+					<li>
+						<a href={item[1] || "#"}>{item[0]}</a>
+						{item[2] && (
+							<button data-menu={item[2]}>
+								<span class="rvt-sr-only">{`${item[0]} menu`}</span>
+								<rvt-icon name="chevron-right"></rvt-icon>
+							</button>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	))}
+</nav>
