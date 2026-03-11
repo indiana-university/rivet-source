@@ -39,7 +39,7 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 			{!showTitle && <h1 class="rvt-sr-only">{title}</h1>}
 		</header>
 	</rvt-main-header>
-	<div class="rvt-container">
+	<div class="rvt-section">
 		<slot name="content" />
 	</div>
 </main>

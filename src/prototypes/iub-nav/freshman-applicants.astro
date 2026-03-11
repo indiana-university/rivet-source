@@ -4,14 +4,15 @@ import Layout from "./layout.astro";
 export const title = "Freshman Applicants";
 ---
 
-<Layout title={title}>
+<Layout showTitle={false} title={title}>
 	<Fragment slot="parent">
-		<a href="apply.astro">
-			Apply
-		</a>
+		<a href="apply.astro"> Apply </a>
 	</Fragment>
 	<Fragment slot="siblings">
-		<li><a href="freshman-applicants.astro" aria-current="page">Freshman Applicants</a></li>
+		<li>
+			<a href="freshman-applicants.astro" aria-current="page"
+				>Freshman Applicants</a>
+		</li>
 		<li><a href="graduate-applicants.astro">Graduate Applicants</a></li>
 		<li><a href="#">Returning Applicants</a></li>
 		<li><a href="#">Visiting & Non-degree Applicants</a></li>
@@ -24,5 +25,23 @@ export const title = "Freshman Applicants";
 	<Fragment slot="breadcrumbs">
 		<li><a href="admissions.astro">Admissions</a></li>
 		<li><a href="apply.astro">Apply</a></li>
+	</Fragment>
+	<Fragment slot="content">
+		<div class="rvt-hero">
+			<div class="rvt-hero__body">
+				<h2 class="rvt-hero__title">The application process for future freshmen</h2>
+				<p class="rvt-hero__teaser">
+					How to apply to Indiana University, in a few easy steps.
+				</p>
+				<div class="rvt-hero__actions">
+					<a href="#" class="rvt-button rvt-button--cta rvt-button--strong">
+						See steps to apply
+					</a>
+					<a href="apply.astro" class="rvt-button rvt-button--cta">
+						Apply now
+					</a>
+				</div>
+			</div>
+		</div>
 	</Fragment>
 </Layout>

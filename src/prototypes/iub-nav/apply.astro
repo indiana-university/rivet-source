@@ -4,11 +4,9 @@ import Layout from "./layout.astro";
 export const title = "Apply";
 ---
 
-<Layout title={title}>
+<Layout showTitle={false} title={title}>
 	<Fragment slot="parent">
-		<a href="admissions.astro">
-			Admissions
-		</a>
+		<a href="admissions.astro"> Admissions </a>
 	</Fragment>
 	<Fragment slot="siblings">
 		<li><a href="apply.astro" aria-current="page">Apply</a></li>
@@ -29,34 +27,110 @@ export const title = "Apply";
 		<li><a href="admissions.astro">Admissions</a></li>
 	</Fragment>
 	<Fragment slot="content">
-		<ul>
-			<li>
-				<a href="freshman-applicants.astro">Freshman Applicants</a>
-			</li>
-			<li>
-				<a href="#">Graduate Applicants</a>
-			</li>
-			<li>
-				<a href="#">Returning Applicants</a>
-			</li>
-			<li>
-				<a href="#">Visiting & Non-degree Applicants</a>
-			</li>
-			<li>
-				<a href="#">Transfer Applicants</a>
-			</li>
-			<li>
-				<a href="#">Application Materials</a>
-			</li>
-			<li>
-				<a href="#">Credits & Transfer</a>
-			</li>
-			<li>
-				<a href="#">Manage Your Application</a>
-			</li>
-			<li>
-				<a href="#">How to Apply</a>
-			</li>
-		</ul>
+		<div class="rvt-hero">
+			<div class="rvt-hero__body">
+				<h2 class="rvt-hero__title">Your journey starts here</h2>
+				<p class="rvt-hero__teaser">
+					Whether you're just starting your application or have questions about
+					the process, we're ready to help you find your way home to IU.
+				</p>
+			</div>
+		</div>
+		<div class="rvt-container rvt-section">
+			<h3>Which best describes you?</h3>
+			<ul class="rvt-card-grid">
+				<li>
+					<div class="rvt-card rvt-card--feature">
+						<div class="rvt-card__sticker">
+							<rvt-sticker name="person" theme="crimson" size="sm">
+							</rvt-sticker>
+						</div>
+						<div class="rvt-card__body">
+							<h4 class="rvt-card__title">
+								<a href="freshman-applicants.astro">Freshman applicant</a>
+							</h4>
+							<div class="rvt-card__content">
+								<p>
+									You're a first-time college student ready to join our traditions and build your legacy from day one.
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="rvt-card rvt-card--feature">
+						<div class="rvt-card__sticker">
+							<rvt-sticker name="arrows-right-left" theme="crimson" size="sm">
+							</rvt-sticker>
+						</div>
+						<div class="rvt-card__body">
+							<h4 class="rvt-card__title">
+								<a href="#">Transfer applicant</a>
+							</h4>
+							<div class="rvt-card__content">
+								<p>
+									You've started your journey elsewhere and are ready to bring your experience to the campus where you belong.
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="rvt-card rvt-card--feature">
+						<div class="rvt-card__sticker">
+							<rvt-sticker name="cap" theme="crimson" size="sm">
+							</rvt-sticker>
+						</div>
+						<div class="rvt-card__body">
+							<h4 class="rvt-card__title">
+								<a href="graduate-applicants.astro">Graduate applicant</a>
+							</h4>
+							<div class="rvt-card__content">
+								<p>
+									You're a scholar or professional seeking world-class mentorship to lead your field and advance your expertise.
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<hr />
+			<ul>
+				<li>
+					<a href="freshman-applicants.astro">Freshman Applicants</a>
+				</li>
+				<li>
+					<a href="#">Graduate Applicants</a>
+				</li>
+				<li>
+					<a href="#">Returning Applicants</a>
+				</li>
+				<li>
+					<a href="#">Visiting & Non-degree Applicants</a>
+				</li>
+				<li>
+					<a href="#">Transfer Applicants</a>
+				</li>
+				<li>
+					<a href="#">Application Materials</a>
+				</li>
+				<li>
+					<a href="#">Credits & Transfer</a>
+				</li>
+				<li>
+					<a href="#">Manage Your Application</a>
+				</li>
+				<li>
+					<a href="#">How to Apply</a>
+				</li>
+			</ul>
+		</div>
 	</Fragment>
 </Layout>
+
+<style>
+	h3 {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-26-fluid-black);
+	}
+</style>
