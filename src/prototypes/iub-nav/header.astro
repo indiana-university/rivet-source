@@ -1,8 +1,10 @@
 ---
 import Search from "../../components/header/header-search.astro";
+
+const { theme = "light" } = Astro.props;
 ---
 
-<rvt-header>
+<rvt-header class={`rvt-theme-${theme}`}>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<header class="rvt-container" data-trait-escape-close>
 		<a class="rvt-lockup" href="home.astro">

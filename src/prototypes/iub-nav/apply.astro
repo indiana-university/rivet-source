@@ -26,7 +26,7 @@ export const title = "Apply";
 	<Fragment slot="breadcrumbs">
 		<li><a href="admissions.astro">Admissions</a></li>
 	</Fragment>
-	<Fragment slot="content">
+	<Fragment slot="hero">
 		<div class="rvt-hero">
 			<div class="rvt-hero__body">
 				<h2 class="rvt-hero__title">Your journey starts here</h2>
@@ -36,95 +36,96 @@ export const title = "Apply";
 				</p>
 			</div>
 		</div>
-		<div class="rvt-container rvt-section">
-			<h3>Which best describes you?</h3>
-			<ul class="rvt-card-grid">
-				<li>
-					<div class="rvt-card rvt-card--feature">
-						<div class="rvt-card__sticker">
-							<rvt-sticker name="person" theme="crimson" size="sm">
-							</rvt-sticker>
-						</div>
-						<div class="rvt-card__body">
-							<h4 class="rvt-card__title">
-								<a href="freshman-applicants.astro">Freshman applicant</a>
-							</h4>
-							<div class="rvt-card__content">
-								<p>
-									You're a first-time college student ready to join our traditions and build your legacy from day one.
-								</p>
-							</div>
+	</Fragment>
+	<Fragment slot="content">
+		<h3>Which best describes you?</h3>
+		<ul class="rvt-card-grid">
+			<li>
+				<div class="rvt-card rvt-card--feature">
+					<div class="rvt-card__sticker">
+						<rvt-sticker name="person" theme="crimson" size="sm">
+						</rvt-sticker>
+					</div>
+					<div class="rvt-card__body">
+						<h4 class="rvt-card__title">
+							<a href="freshman-applicants.astro">Freshman applicant</a>
+						</h4>
+						<div class="rvt-card__content">
+							<p>
+								You're a first-time college student ready to join our traditions and build your legacy from day one.
+							</p>
 						</div>
 					</div>
-				</li>
-				<li>
-					<div class="rvt-card rvt-card--feature">
-						<div class="rvt-card__sticker">
-							<rvt-sticker name="arrows-right-left" theme="crimson" size="sm">
-							</rvt-sticker>
-						</div>
-						<div class="rvt-card__body">
-							<h4 class="rvt-card__title">
-								<a href="#">Transfer applicant</a>
-							</h4>
-							<div class="rvt-card__content">
-								<p>
-									You've started your journey elsewhere and are ready to bring your experience to the campus where you belong.
-								</p>
-							</div>
+				</div>
+			</li>
+			<li>
+				<div class="rvt-card rvt-card--feature">
+					<div class="rvt-card__sticker">
+						<rvt-sticker name="arrows-right-left" theme="crimson" size="sm">
+						</rvt-sticker>
+					</div>
+					<div class="rvt-card__body">
+						<h4 class="rvt-card__title">
+							<a href="#">Transfer applicant</a>
+						</h4>
+						<div class="rvt-card__content">
+							<p>
+								You've started your journey elsewhere and are ready to bring your experience to the campus where you belong.
+							</p>
 						</div>
 					</div>
-				</li>
-				<li>
-					<div class="rvt-card rvt-card--feature">
-						<div class="rvt-card__sticker">
-							<rvt-sticker name="cap" theme="crimson" size="sm">
-							</rvt-sticker>
-						</div>
-						<div class="rvt-card__body">
-							<h4 class="rvt-card__title">
-								<a href="graduate-applicants.astro">Graduate applicant</a>
-							</h4>
-							<div class="rvt-card__content">
-								<p>
-									You're a scholar or professional seeking world-class mentorship to lead your field and advance your expertise.
-								</p>
-							</div>
+				</div>
+			</li>
+			<li>
+				<div class="rvt-card rvt-card--feature">
+					<div class="rvt-card__sticker">
+						<rvt-sticker name="cap" theme="crimson" size="sm">
+						</rvt-sticker>
+					</div>
+					<div class="rvt-card__body">
+						<h4 class="rvt-card__title">
+							<a href="graduate-applicants.astro">Graduate applicant</a>
+						</h4>
+						<div class="rvt-card__content">
+							<p>
+								You're a scholar or professional seeking world-class mentorship to lead your field and advance your expertise.
+							</p>
 						</div>
 					</div>
-				</li>
-			</ul>
-			<hr />
-			<ul>
-				<li>
-					<a href="freshman-applicants.astro">Freshman Applicants</a>
-				</li>
-				<li>
-					<a href="#">Graduate Applicants</a>
-				</li>
-				<li>
-					<a href="#">Returning Applicants</a>
-				</li>
-				<li>
-					<a href="#">Visiting & Non-degree Applicants</a>
-				</li>
-				<li>
-					<a href="#">Transfer Applicants</a>
-				</li>
-				<li>
-					<a href="#">Application Materials</a>
-				</li>
-				<li>
-					<a href="#">Credits & Transfer</a>
-				</li>
-				<li>
-					<a href="#">Manage Your Application</a>
-				</li>
-				<li>
-					<a href="#">How to Apply</a>
-				</li>
-			</ul>
-		</div>
+				</div>
+			</li>
+		</ul>
+	</Fragment>
+	<Fragment slot="children">
+		<ul>
+			<li>
+				<a href="freshman-applicants.astro">Freshman Applicants</a>
+			</li>
+			<li>
+				<a href="#">Graduate Applicants</a>
+			</li>
+			<li>
+				<a href="#">Returning Applicants</a>
+			</li>
+			<li>
+				<a href="#">Visiting & Non-degree Applicants</a>
+			</li>
+			<li>
+				<a href="#">Transfer Applicants</a>
+			</li>
+			<li>
+				<a href="#">Application Materials</a>
+			</li>
+			<li>
+				<a href="#">Credits & Transfer</a>
+			</li>
+			<li>
+				<a href="#">Manage Your Application</a>
+			</li>
+			<li>
+				<a href="#">How to Apply</a>
+			</li>
+		</ul>
 	</Fragment>
 </Layout>
 

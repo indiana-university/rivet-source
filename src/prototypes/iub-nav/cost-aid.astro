@@ -4,7 +4,7 @@ import Layout from "./layout.astro";
 export const title = "Cost & Aid";
 ---
 
-<Layout title={title}>
+<Layout headerTheme="light" title={title}>
 	<Fragment slot="siblings">
 		<li><a href="#">Academics</a></li>
 		<li><a href="admissions.astro">Admissions</a></li>
@@ -16,17 +16,14 @@ export const title = "Cost & Aid";
 		<li><a href="#">Alumni & Giving</a></li>
 		<li><a href="#">Required Disclosures</a></li>
 	</Fragment>
-	<Fragment slot="content">
-		<div class="rvt-container">
-			<hr>
-			<ul>
-				<li><a href="#">Cost of Attendance</a></li>
-				<li><a href="#">Financial Aid</a></li>
-				<li><a href="#">Scholarships</a></li>
-				<li><a href="#">Grants & Fellowships</a></li>
-				<li><a href="#">Loans</a></li>
-				<li><a href="#">Pay Your Bill</a></li>
-			</ul>
-		</div>
+	<Fragment slot="children">
+		<ul>
+			<li><a href="#">Cost of Attendance</a></li>
+			<li><a href="#">Financial Aid</a></li>
+			<li><a href="#">Scholarships</a></li>
+			<li><a href="#">Grants & Fellowships</a></li>
+			<li><a href="#">Loans</a></li>
+			<li><a href="#">Pay Your Bill</a></li>
+		</ul>
 	</Fragment>
 </Layout>

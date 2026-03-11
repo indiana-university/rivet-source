@@ -2,12 +2,13 @@
 import Header from "./header.astro";
 import ScrollSnap from "./scroll-snap.astro";
 
-const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
+const { headerTheme = "crimson", showTitle = true, showBreadcrumbs = true, title } = Astro.props;
+const themeClass = `rvt-theme-${headerTheme}`;
 ---
 
-<Header />
+<Header theme={headerTheme} />
 <main>
-	<rvt-main-header>
+	<rvt-main-header class={themeClass}>
 		<header class="rvt-container">
 			<rvt-related-nav>
 				<ScrollSnap>
@@ -39,9 +40,21 @@ const { title, showTitle = true, showBreadcrumbs = true } = Astro.props;
 			{!showTitle && <h1 class="rvt-sr-only">{title}</h1>}
 		</header>
 	</rvt-main-header>
-	<div class="rvt-section">
-		<slot name="content" />
-	</div>
+	{Astro.slots.has("hero") && (
+		<div class:list={["rvt-section", themeClass]}>
+			<slot name="hero" />
+		</div>
+	)}
+	{Astro.slots.has("content") && (
+		<div class="rvt-container rvt-section">
+			<slot name="content" />
+		</div>
+	)}
+	{Astro.slots.has("children") && (
+		<div class="rvt-container rvt-section">
+			<slot name="children" />
+		</div>
+	)}
 </main>
 
 <style is:global>
