@@ -184,12 +184,13 @@ const currentPage = Astro.params.path.split("/").pop();
 		triggerMenuButton(button);
 	});
 
-	function openFirstMenu() {
-		const firstMenu = document.querySelector("[data-menu");
-		openMenu(firstMenu);
+	function openCurrentMenu() {
+		const currentMenu = document.querySelector("[data-menu]:has([aria-current=page])");
+		const firstMenu = document.querySelector("[data-menu]");
+		openMenu(currentMenu || firstMenu);
 	}
 
-	openFirstMenu();
+	openCurrentMenu();
 
 	document.addEventListener("keydown", (event) => {
 		if (event.key !== "Escape") {
