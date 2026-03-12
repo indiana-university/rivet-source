@@ -1,11 +1,35 @@
 ---
 import { createId } from "@src/utilities/createId.js";
 
-const admissionsMenu = {
-	id: createId(),
-	label: "Admissions",
+const ids = {
+	main: createId(),
+	admissions: createId(),
+	apply: createId(),
+	costAid: createId(),
+};
+const mainMenu = {
+	id: ids.main,
+	label: "Main",
+	parent: null,
 	items: [
-		["Apply", "apply.astro"],
+		["Home", "home.astro"],
+		["Academics"],
+		["Admissions", "admissions.astro", ids.admissions],
+		["Cost & Aid", "cost-aid.astro"],
+		["Campus Life"],
+		["Support & Services"],
+		["Research"],
+		["About IU"],
+		["Alumni & Giving"],
+		["Required Disclosures"],
+	]
+};
+const admissionsMenu = {
+	id: ids.admissions,
+	label: "Admissions",
+	parent: ids.main,
+	items: [
+		["Apply", "apply.astro", ids.apply],
 		["Admissions Paths", "admissions-paths.astro"],
 		["Admissions Events"],
 		["Visit IU"],
@@ -15,43 +39,71 @@ const admissionsMenu = {
 		["Class Profile"],
 		["After Admission"],
 		["Admissions Viewbook"],
-		["For Councelors"],
+		["For Counselors"],
 		["For Families"],
 		["Request Information"],
 	]
-}
-const mainMenu = {
-	id: createId(),
-	label: "Main",
+};
+const applyMenu = {
+	id: ids.apply,
+	label: "Apply",
+	parent: ids.admissions,
 	items: [
-		["Home", "home.astro"],
-		["Academics"],
-		["Admissions", "admissions.astro", admissionsMenu.id],
-		["Cost & Aid", "cost-aid.astro"],
-		["Campus Life"],
-		["Support & Services"],
-		["Research"],
-		["About IU"],
-		["Alumni & Giving"],
-		["Required Disclosures"],
+		["Freshman Applicants", "freshman-applicants.astro"],
+		["Graduate Applicants", "graduate-applicants.astro"],
+		["Returning Applicants"],
+		["Visiting & Non-degree Applicants"],
+		["Transfer Applicants"],
+		["Application Materials"],
+		["Credits & Transfer"],
+		["Manage Your Application"],
+		["How to Apply"],
 	]
-}
+};
+const costAidMenu = {
+	id: ids.costAid,
+	label: "Cost & Aid",
+	parent: ids.main,
+	items: [
+		["Cost of Attendance"],
+		["Financial Aid"],
+		["Scholarships"],
+		["Grants & Fellowships"],
+		["Loans"],
+		["Pay Your Bill"],
+	]
+};
 const menus = [
 	mainMenu,
 	admissionsMenu,
+	applyMenu,
+	costAidMenu,
 ];
+
+const currentPage = Astro.params.path.split("/").pop();
 ---
 
 <nav>
 	{menus.map((menu) => (
-		<div id={menu.id}>
+		<div data-menu={menu.id}>
 			<h2 class="rvt-sr-only">{`${menu.label} menu`}</h2>
+			{menu.parent && (
+				<button data-open-menu={menu.parent}>
+					<rvt-icon name="arrow-left"></rvt-icon>
+					{menu.label}
+				</button>
+			)}
 			<ul>
 				{menu.items.map((item) => (
 					<li>
-						<a href={item[1] || "#"}>{item[0]}</a>
+						<a
+							aria-current={item[1] === currentPage ? "page" : null}
+							href={item[1] || "#"}
+						>
+							{item[0]}
+						</a>
 						{item[2] && (
-							<button data-menu={item[2]}>
+							<button data-open-menu={item[2]}>
 								<span class="rvt-sr-only">{`${item[0]} menu`}</span>
 								<rvt-icon name="chevron-right"></rvt-icon>
 							</button>
@@ -62,3 +114,96 @@ const menus = [
 		</div>
 	))}
 </nav>
+
+<style>
+	nav {
+		button {
+			align-items: center;
+			background-color: var(--rvt-color-theme-background-strong);
+			border: var(--rvt-size-1) solid transparent;
+			color: var(--rvt-color-theme-text-strong);
+			cursor: pointer;
+			display: flex;
+			gap: var(--rvt-size-8);
+			justify-content: center;
+			margin-block: var(--rvt-size-8);
+			margin-inline-end: var(--rvt-size-8);
+			padding: calc(var(--rvt-size-8) - var(--rvt-size-1));
+
+			&:hover {
+				color: var(--rvt-color-theme-text-accent);
+			}
+		}
+
+		> div > button[data-open-menu] {
+			background-color: transparent;
+			font: var(--rvt-font-18-bold);
+		}
+
+		ul {
+			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		}
+
+		li {
+			display: flex;
+
+			a {
+				flex-grow: 1;
+			}
+		}
+	}
+</style>
+
+<script>
+	function openMenu(menuElement) {
+		document.querySelectorAll("[data-menu]").forEach((el) => {
+			if (!(el instanceof HTMLElement)) {
+				return;
+			}
+			el.hidden = el !== menuElement;
+		});
+		window.requestAnimationFrame(() => {
+			menuElement.querySelector("a")?.focus();
+		});
+	}
+
+	function triggerMenuButton(button) {
+		if (!(button instanceof HTMLElement)) {
+			return;
+		}
+		const selector = `[data-menu=${button.dataset.openMenu}]`;
+		const menuElement = document.querySelector(selector);
+		openMenu(menuElement);
+	}
+
+	document.addEventListener("click", (event) => {
+		if (!(event.target instanceof HTMLElement)) {
+			return;
+		}
+		const button = event.target.closest("[data-open-menu]");
+		triggerMenuButton(button);
+	});
+
+	function openFirstMenu() {
+		const firstMenu = document.querySelector("[data-menu");
+		openMenu(firstMenu);
+	}
+
+	openFirstMenu();
+
+	document.addEventListener("keydown", (event) => {
+		if (event.key !== "Escape") {
+			return;
+		}
+		if (!(event.target instanceof HTMLElement)) {
+			return;
+		}
+		const menu = event.target.closest("[data-menu]");
+		if (!menu) {
+			return;
+		}
+		const button = menu.querySelector(":scope > div > [data-open-menu]");
+		triggerMenuButton(button);
+		event.preventDefault();
+	}, { capture: true });
+</script>

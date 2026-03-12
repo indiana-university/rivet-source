@@ -10,7 +10,7 @@ rvt-header {
 	header {
 		align-items: center;
 		display: grid;
-		gap: var(--rvt-size-16);
+		gap: var(--rvt-size-24);
 		grid-template-areas: "lockup menu menu-toggle";
 		grid-template-columns: auto 1fr auto;
 		padding-block: var(--rvt-size-16);
@@ -371,11 +371,12 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 			grid-template-columns: auto 1fr auto;
 
 			&::before {
+				--offset: var(--rvt-size-24);
 				background-color: var(--rvt-color-theme-background);
 				box-shadow:
-					var(--rvt-size-16) 0 0 var(--rvt-size-16) var(--rvt-color-theme-background),
-					calc(var(--rvt-size-16) * -1) 0 0 var(--rvt-size-16) var(--rvt-color-theme-background),
-					0 var(--rvt-size-4) var(--rvt-size-8) var(--rvt-size-16) var(--rvt-color-shadow-light);
+					var(--offset) 0 0 var(--offset) var(--rvt-color-theme-background),
+					calc(var(--offset) * -1) 0 0 var(--offset) var(--rvt-color-theme-background),
+					0 var(--rvt-size-4) var(--rvt-size-8) var(--offset) var(--rvt-color-shadow-light);
 				content: "";
 				display: block;
 				grid-column: 1 / -1;
