@@ -9,10 +9,10 @@ const ids = {
 };
 const mainMenu = {
 	id: ids.main,
-	label: "Main",
+	label: "Home",
 	parent: null,
+	url: "home.astro",
 	items: [
-		["Home", "home.astro"],
 		["Academics"],
 		["Admissions", "admissions.astro", ids.admissions],
 		["Cost & Aid", "cost-aid.astro"],
@@ -28,6 +28,7 @@ const admissionsMenu = {
 	id: ids.admissions,
 	label: "Admissions",
 	parent: ids.main,
+	url: "admissions.astro",
 	items: [
 		["Apply", "apply.astro", ids.apply],
 		["Admissions Paths", "admissions-paths.astro"],
@@ -48,6 +49,7 @@ const applyMenu = {
 	id: ids.apply,
 	label: "Apply",
 	parent: ids.admissions,
+	url: "apply.astro",
 	items: [
 		["Freshman Applicants", "freshman-applicants.astro"],
 		["Graduate Applicants", "graduate-applicants.astro"],
@@ -64,6 +66,7 @@ const costAidMenu = {
 	id: ids.costAid,
 	label: "Cost & Aid",
 	parent: ids.main,
+	url: "cost-aid.astro",
 	items: [
 		["Cost of Attendance"],
 		["Financial Aid"],
@@ -81,18 +84,38 @@ const menus = [
 ];
 
 const currentPage = Astro.params.path.split("/").pop();
+const currentMenu = menus
+	.find((menu) => menu.items.some((item) => item[1] === currentPage));
 ---
 
 <nav>
 	{menus.map((menu) => (
 		<div data-menu={menu.id}>
-			<h2 class="rvt-sr-only">{`${menu.label} menu`}</h2>
-			{menu.parent && (
-				<button data-open-menu={menu.parent}>
-					<rvt-icon name="arrow-left"></rvt-icon>
-					{menu.label}
-				</button>
-			)}
+			<header>
+				{menu.id !== ids.main && menu.parent !== ids.main && (
+					<button data-open-menu={ids.main}>
+						<rvt-icon name="chevrons-left"></rvt-icon>
+						<span class="rvt-sr-only">Back to beginning</span>
+					</button>
+				)}
+				{menu.parent && (
+					<button data-open-menu={menu.parent}>
+						<rvt-icon name="chevron-left"></rvt-icon>
+						<span class="rvt-sr-only">Back</span>
+					</button>
+				)}
+				<h2>
+					<a href={menu.url}>
+						{menu.label}
+					</a>
+				</h2>
+				{false && menu !== currentMenu && currentMenu && (
+					<button data-open-menu={currentMenu.id}>
+						<rvt-icon name="arrow-anchor-down-right"></rvt-icon>
+						<span>Current page</span>
+					</button>
+				)}
+			</header>
 			<ul>
 				{menu.items.map((item) => (
 					<li>
@@ -135,9 +158,29 @@ const currentPage = Astro.params.path.split("/").pop();
 			}
 		}
 
-		> div > button[data-open-menu] {
-			background-color: transparent;
-			font: var(--rvt-font-18-bold);
+		header {
+			align-items: center;
+			display: flex;
+			gap: var(--rvt-size-8);
+			padding-block: var(--rvt-size-8);
+
+			button {
+				margin: 0;
+			}
+
+			h2 {
+				flex-grow: 1;
+
+				a {
+					background-color: transparent;
+					font: var(--rvt-font-18-bold);
+					margin: 0;
+				}
+			}
+
+			h2 ~ button {
+				padding-block: var(--rvt-size-3);
+			}
 		}
 
 		ul {
@@ -146,9 +189,16 @@ const currentPage = Astro.params.path.split("/").pop();
 
 		li {
 			display: flex;
+			gap: var(--rvt-size-8);
+			padding: var(--rvt-size-8);
 
 			a {
 				flex-grow: 1;
+				margin: 0;
+			}
+
+			button {
+				margin: 0;
 			}
 		}
 	}
@@ -163,7 +213,7 @@ const currentPage = Astro.params.path.split("/").pop();
 			el.hidden = el !== menuElement;
 		});
 		window.requestAnimationFrame(() => {
-			menuElement.querySelector("a")?.focus();
+			menuElement.querySelector("ul a")?.focus();
 		});
 	}
 

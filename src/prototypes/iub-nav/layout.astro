@@ -2,7 +2,12 @@
 import Header from "./header.astro";
 import ScrollSnap from "./scroll-snap.astro";
 
-const { headerTheme = "light", showTitle = true, showBreadcrumbs = true, title } = Astro.props;
+const {
+	headerTheme = "light",
+	showTitle = true,
+	showBreadcrumbs = true,
+	title,
+} = Astro.props;
 const themeClass = `rvt-theme-${headerTheme}`;
 ---
 
@@ -58,7 +63,7 @@ const themeClass = `rvt-theme-${headerTheme}`;
 </main>
 
 <style is:global>
-	rvt-header header {
+	rvt-header > header {
 		padding-block: var(--rvt-size-24);
 	}
 
@@ -67,8 +72,21 @@ const themeClass = `rvt-theme-${headerTheme}`;
 		container-type: inline-size;
 
 		rvt-related-nav {
+			display: none;
+			margin-block-end: var(--rvt-size-24);
+
 			&:where(:not(:has(nav > a:first-child))) {
 				display: none;
+			}
+
+			&:where(:has(nav > a:first-child)) {
+				nav {
+					border-block-start-color: transparent;
+				}
+
+				ul {
+					display: none;
+				}
 			}
 
 			rvt-list-more {
@@ -77,8 +95,8 @@ const themeClass = `rvt-theme-${headerTheme}`;
 		}
 
 		rvt-breadcrumbs {
-			display: none;
-			margin-block-start: var(--rvt-size-24);
+			_display: none;
+			_margin-block-start: var(--rvt-size-24);
 		}
 
 		h1 {
@@ -88,8 +106,15 @@ const themeClass = `rvt-theme-${headerTheme}`;
 
 		@container (width > 40rem) {
 			rvt-related-nav {
-				_border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 				display: block;
+
+				nav {
+					border-block-start-color: var(--rvt-color-theme-ui);
+				}
+
+				ul {
+					display: flex;
+				}
 
 				rvt-list-more {
 					visibility: visible;
@@ -97,7 +122,7 @@ const themeClass = `rvt-theme-${headerTheme}`;
 			}
 
 			rvt-breadcrumbs {
-				display: block;
+				_display: block;
 			}
 		}
 	}

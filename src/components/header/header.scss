@@ -7,7 +7,7 @@ rvt-header {
 	background-color: var(--rvt-color-theme-background);
 	display: block;
 
-	header {
+	> header {
 		align-items: center;
 		display: grid;
 		gap: var(--rvt-size-24);
@@ -364,7 +364,7 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 	}
 
 	rvt-header {
-		header {
+		> header {
 			grid-template-areas:
 				"lockup . menu-toggle"
 				"menu menu menu";
