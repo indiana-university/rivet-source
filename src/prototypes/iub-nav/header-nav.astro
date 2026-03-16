@@ -133,7 +133,7 @@ const currentMenu = menus
 					</a>
 				</li>
 				{menu.items.map((item) => (
-					<li>
+					<li data-menu-child={item.child}>
 						<a
 							aria-current={item.url === currentPage ? "page" : null}
 							href={item.url || "#"}
@@ -143,7 +143,7 @@ const currentMenu = menus
 						{item.child && (
 							<button
 								class="rvt-button rvt-button--medium rvt-button--icon-only"
-								data-open-menu={item.child}
+								data-open-menu="child"
 							>
 								<span class="rvt-sr-only">{`${item.label} menu`}</span>
 								<rvt-icon name="chevron-right"></rvt-icon>
@@ -207,6 +207,8 @@ const currentMenu = menus
 </style>
 
 <script>
+	const prefix = "data-menu";
+
 	function isNotHTML(element) {
 		return !(element instanceof HTMLElement);
 	}
@@ -215,7 +217,7 @@ const currentMenu = menus
 		if (isNotHTML(menuElement)) {
 			return;
 		}
-		document.querySelectorAll("[data-menu]").forEach((el) => {
+		document.querySelectorAll(`[${prefix}]`).forEach((el) => {
 			if (isNotHTML(el)) {
 				return;
 			}
@@ -234,9 +236,12 @@ const currentMenu = menus
 		if (isNotHTML(button)) {
 			return;
 		}
-		const selector = `[data-menu=${button.dataset.openMenu}]`;
-		const menuElement = document.querySelector(selector);
-		openMenu(menuElement);
+		const type = button.dataset.openMenu;
+		const attribute = `${prefix}-${type}`;
+		const source = button.closest(`[${attribute}]`);
+		const id = source.getAttribute(attribute);
+		const menu = document.querySelector(`[${prefix}=${id}]`);
+		openMenu(menu);
 	}
 
 	document.addEventListener("click", (event) => {
@@ -254,20 +259,21 @@ const currentMenu = menus
 		if (isNotHTML(event.target)) {
 			return;
 		}
-		const menuType = event.shiftKey ? "main" : "parent";
-		const menuSource = event.target.closest(`[data-menu-${menuType}]`);
-		if (isNotHTML(menuSource)) {
+		const type = event.shiftKey ? "main" : "parent";
+		const attribute = `${prefix}-${type}`;
+		const source = event.target.closest(`[${attribute}]`);
+		if (isNotHTML(source)) {
 			return;
 		}
-		const menuId = menuSource.dataset[event.shiftKey ? "menuMain" : "menuParent"];
-		const menu = document.querySelector(`[data-menu="${menuId}"]`);
+		const id = source.getAttribute(attribute);
+		const menu = document.querySelector(`[${prefix}=${id}]`);
 		openMenu(menu);
 		event.stopPropagation();
 	}, { capture: true });
 
 	function openCurrentMenu() {
-		const currentMenu = document.querySelector("[data-menu]:has([aria-current=page])");
-		const firstMenu = document.querySelector("[data-menu]");
+		const currentMenu = document.querySelector(`[${prefix}]:has([aria-current=page])`);
+		const firstMenu = document.querySelector(`[${prefix}]`);
 		openMenu(currentMenu || firstMenu);
 	}
 
