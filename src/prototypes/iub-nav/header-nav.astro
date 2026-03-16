@@ -97,19 +97,19 @@ const currentMenu = menus
 	.find((menu) => menu.items.some((item) => item[1] === currentPage));
 ---
 
-<nav>
+<nav data-menu-main={ids.main}>
 	{menus.map((menu) => (
-		<div data-menu={menu.id}>
+		<div data-menu={menu.id} data-menu-parent={menu.parent}>
 			<header>
 				{menu.parent && (
 					<div class="rvt-button-group">
 						{menu.id !== ids.main && menu.parent !== ids.main && (
-							<button class="rvt-button rvt-button--medium" data-open-menu={ids.main}>
+							<button class="rvt-button rvt-button--medium" data-open-menu="main">
 								<rvt-icon name="chevrons-left"></rvt-icon>
 								Main
 							</button>
 						)}
-						<button class="rvt-button rvt-button--medium" data-open-menu={menu.parent}>
+						<button class="rvt-button rvt-button--medium" data-open-menu="parent">
 							<rvt-icon name="chevron-left"></rvt-icon>
 							Back
 						</button>
@@ -207,20 +207,31 @@ const currentMenu = menus
 </style>
 
 <script>
+	function isNotHTML(element) {
+		return !(element instanceof HTMLElement);
+	}
+
 	function openMenu(menuElement) {
+		if (isNotHTML(menuElement)) {
+			return;
+		}
 		document.querySelectorAll("[data-menu]").forEach((el) => {
-			if (!(el instanceof HTMLElement)) {
+			if (isNotHTML(el)) {
 				return;
 			}
 			el.hidden = el !== menuElement;
 		});
 		window.requestAnimationFrame(() => {
-			menuElement.querySelector("ul a")?.focus();
+			const firstLink = menuElement.querySelector("ul a");
+			if (isNotHTML(firstLink)) {
+				return;
+			}
+			firstLink.focus();
 		});
 	}
 
 	function triggerMenuButton(button) {
-		if (!(button instanceof HTMLElement)) {
+		if (isNotHTML(button)) {
 			return;
 		}
 		const selector = `[data-menu=${button.dataset.openMenu}]`;
@@ -229,12 +240,30 @@ const currentMenu = menus
 	}
 
 	document.addEventListener("click", (event) => {
-		if (!(event.target instanceof HTMLElement)) {
+		if (isNotHTML(event.target)) {
 			return;
 		}
 		const button = event.target.closest("[data-open-menu]");
 		triggerMenuButton(button);
 	});
+
+	document.addEventListener("keydown", (event) => {
+		if (event.key !== "Escape") {
+			return;
+		}
+		if (isNotHTML(event.target)) {
+			return;
+		}
+		const menuType = event.shiftKey ? "main" : "parent";
+		const menuSource = event.target.closest(`[data-menu-${menuType}]`);
+		if (isNotHTML(menuSource)) {
+			return;
+		}
+		const menuId = menuSource.dataset[event.shiftKey ? "menuMain" : "menuParent"];
+		const menu = document.querySelector(`[data-menu="${menuId}"]`);
+		openMenu(menu);
+		event.stopPropagation();
+	}, { capture: true });
 
 	function openCurrentMenu() {
 		const currentMenu = document.querySelector("[data-menu]:has([aria-current=page])");
@@ -243,20 +272,4 @@ const currentMenu = menus
 	}
 
 	openCurrentMenu();
-
-	document.addEventListener("keydown", (event) => {
-		if (event.key !== "Escape") {
-			return;
-		}
-		if (!(event.target instanceof HTMLElement)) {
-			return;
-		}
-		const menu = event.target.closest("[data-menu]");
-		if (!menu) {
-			return;
-		}
-		const button = menu.querySelector(":scope > div > [data-open-menu]");
-		triggerMenuButton(button);
-		event.preventDefault();
-	}, { capture: true });
 </script>
