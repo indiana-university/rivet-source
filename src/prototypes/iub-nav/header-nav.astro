@@ -9,7 +9,7 @@ const ids = {
 };
 const mainMenu = {
 	id: ids.main,
-	label: "Home",
+	label: "IU Bloomington",
 	parent: null,
 	url: "home.astro",
 	items: [
@@ -81,7 +81,16 @@ const menus = [
 	admissionsMenu,
 	applyMenu,
 	costAidMenu,
-];
+].map((menu) => {
+	const items = menu.items.map((item) => {
+		const [label, url, child] = item;
+		return { label, url, child };
+	})
+	return {
+		...menu,
+		items
+	};
+});
 
 const currentPage = Astro.params.path.split("/").pop();
 const currentMenu = menus
@@ -92,22 +101,23 @@ const currentMenu = menus
 	{menus.map((menu) => (
 		<div data-menu={menu.id}>
 			<header>
-				{menu.id !== ids.main && menu.parent !== ids.main && (
-					<button data-open-menu={ids.main}>
-						<rvt-icon name="chevrons-left"></rvt-icon>
-						<span class="rvt-sr-only">Back to beginning</span>
-					</button>
-				)}
 				{menu.parent && (
-					<button data-open-menu={menu.parent}>
-						<rvt-icon name="chevron-left"></rvt-icon>
-						<span class="rvt-sr-only">Back</span>
-					</button>
+					<div class="rvt-button-group">
+						{menu.id !== ids.main && menu.parent !== ids.main && (
+							<button class="rvt-button rvt-button--medium" data-open-menu={ids.main}>
+								<rvt-icon name="chevrons-left"></rvt-icon>
+								Main
+							</button>
+						)}
+						<button class="rvt-button rvt-button--medium" data-open-menu={menu.parent}>
+							<rvt-icon name="chevron-left"></rvt-icon>
+							Back
+						</button>
+					</div>
 				)}
+
 				<h2>
-					<a href={menu.url}>
-						{menu.label}
-					</a>
+					{menu.label}
 				</h2>
 				{false && menu !== currentMenu && currentMenu && (
 					<button data-open-menu={currentMenu.id}>
@@ -117,17 +127,25 @@ const currentMenu = menus
 				)}
 			</header>
 			<ul>
+				<li>
+					<a href={menu.url}>
+						{menu.parent ? `Explore ${menu.label}` : "Home"}
+					</a>
+				</li>
 				{menu.items.map((item) => (
 					<li>
 						<a
-							aria-current={item[1] === currentPage ? "page" : null}
-							href={item[1] || "#"}
+							aria-current={item.url === currentPage ? "page" : null}
+							href={item.url || "#"}
 						>
-							{item[0]}
+							{item.label}
 						</a>
-						{item[2] && (
-							<button data-open-menu={item[2]}>
-								<span class="rvt-sr-only">{`${item[0]} menu`}</span>
+						{item.child && (
+							<button
+								class="rvt-button rvt-button--medium rvt-button--icon-only"
+								data-open-menu={item.child}
+							>
+								<span class="rvt-sr-only">{`${item.label} menu`}</span>
 								<rvt-icon name="chevron-right"></rvt-icon>
 							</button>
 						)}
@@ -141,50 +159,24 @@ const currentMenu = menus
 <style>
 	nav {
 		button {
-			align-items: center;
-			background-color: var(--rvt-color-theme-background-strong);
-			border: var(--rvt-size-1) solid transparent;
-			color: var(--rvt-color-theme-text-strong);
-			cursor: pointer;
-			display: flex;
-			gap: var(--rvt-size-8);
-			justify-content: center;
-			margin-block: var(--rvt-size-8);
-			margin-inline-end: var(--rvt-size-8);
-			padding: calc(var(--rvt-size-8) - var(--rvt-size-1));
-
-			&:hover {
-				color: var(--rvt-color-theme-text-accent);
-			}
+			--color-border: var(--rvt-color-theme-ui);
+			--color-border-hover: var(--rvt-color-theme-ui);
+			--color-text-hover: var(--rvt-color-theme-text-accent);
 		}
 
 		header {
-			align-items: center;
-			display: flex;
-			gap: var(--rvt-size-8);
-			padding-block: var(--rvt-size-8);
-
-			button {
-				margin: 0;
-			}
-
 			h2 {
-				flex-grow: 1;
+				font: var(--rvt-font-20-bold);
 
-				a {
-					background-color: transparent;
-					font: var(--rvt-font-18-bold);
-					margin: 0;
+				&:not(:first-child) {
+					margin-block-start: var(--rvt-size-24);
 				}
-			}
-
-			h2 ~ button {
-				padding-block: var(--rvt-size-3);
 			}
 		}
 
 		ul {
 			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			margin-block-start: var(--rvt-size-8);
 		}
 
 		li {
@@ -197,8 +189,18 @@ const currentMenu = menus
 				margin: 0;
 			}
 
-			button {
-				margin: 0;
+			&:has([aria-current="page"]) {
+				background-color: var(--rvt-color-theme-background-strong);
+
+				a {
+					color: inherit;
+					font: var(--rvt-font-16);
+					font-variation-settings: "GRAD" 150;
+
+					&:hover {
+						color: var(--rvt-color-theme-text-accent);
+					}
+				}
 			}
 		}
 	}
