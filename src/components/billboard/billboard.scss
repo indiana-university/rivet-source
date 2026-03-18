@@ -3,6 +3,10 @@
 
 @use "../../base/core" as *;
 
+*:has(> .rvt-billboard) {
+	container-type: inline-size;
+}
+
 .rvt-billboard {
 	background-color: var(--rvt-color-theme-background-accent);
 	position: relative;
@@ -28,13 +32,13 @@
 	}
 
 	&__body {
-		margin-top: var(--rvt-spacing-md);
-		padding: var(--rvt-spacing-md);
+		_margin-top: var(--rvt-size-24);
+		padding: var(--rvt-size-24);
 	}
 
 	&__content {
 		color: var(--rvt-color-theme-text);
-		margin-top: var(--rvt-spacing-md);
+		margin-top: var(--rvt-size-24);
 
 		> * {
 			margin: 0;
@@ -46,24 +50,28 @@
 	}
 
 	&__image {
+		padding-block: var(--rvt-size-24) var(--rvt-size-8);
+		padding-inline: var(--rvt-size-24);
 		z-index: 1;
 
 		img {
+			aspect-ratio: 1;
 			display: block;
+			max-width: 25rem;
+			object-fit: cover;
 			width: 100%;
 		}
 	}
-}
 
-.rvt-billboard--compact {
-	.rvt-billboard__title {
-		font: var(--rvt-font-26-black);
-		font-variation-settings: var(--rvt-font-variation-black);
+	.rvt-list-hub__link {
+		font: var(--rvt-font-16-bold);
+
+		&::before {
+			margin-block-start: var(--rvt-size-4);
+		}
 	}
-}
 
-@include mq($breakpoint-md) {
-	.rvt-billboard {
+	@container (width > 50rem) {
 		display: flex;
 		flex-direction: row-reverse;
 
@@ -72,13 +80,13 @@
 		}
 
 		&__image {
+			padding-block: var(--rvt-size-24);
+			padding-inline-start: 0;
 			width: 66%;
 		}
 
 		&__image img {
-			height: 100%;
-			object-fit: cover;
-			width: 100%;
+			max-width: unset;
 		}
 
 		&__body {
@@ -88,28 +96,11 @@
 			flex-grow: 1;
 			justify-content: flex-end;
 			margin-top: 0;
-			padding-bottom: var(--rvt-spacing-xxl);
-			padding-inline: var(--rvt-spacing-xxl);
+			padding: var(--rvt-size-48);
 		}
 
 		&--reverse {
 			flex-direction: row;
-		}
-
-		&--compact {
-			align-items: center;
-			border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-		}
-
-		&--compact &__body {
-			justify-content: center;
-			padding-block: var(--rvt-spacing-md);
-			padding-inline: var(--rvt-spacing-xxl);
-		}
-
-		&--compact &__body,
-		&--compact &__image {
-			width: 50%;
 		}
 	}
 }
