@@ -12,7 +12,7 @@
 	position: relative;
 
 	& + & {
-		margin-top: var(--rvt-spacing-lg);
+		margin-block-start: var(--rvt-size-32);
 	}
 
 	&__eyebrow {
@@ -22,29 +22,27 @@
 	}
 
 	&__eyebrow + &__title {
-		margin-top: var(--rvt-spacing-xs);
+		margin-block-start: var(--rvt-size-8);
 	}
 
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-29-black);
-		font-variation-settings: var(--rvt-font-variation-black);
 	}
 
 	&__body {
-		_margin-top: var(--rvt-size-24);
 		padding: var(--rvt-size-24);
 	}
 
 	&__content {
 		color: var(--rvt-color-theme-text);
-		margin-top: var(--rvt-size-24);
+		margin-block-start: var(--rvt-size-24);
 
 		> * {
 			margin: 0;
 
 			+ * {
-				margin-top: var(--rvt-spacing-lg);
+				margin-block-start: var(--rvt-size-32);
 			}
 		}
 	}
@@ -76,17 +74,17 @@
 		flex-direction: row-reverse;
 
 		& + & {
-			margin-top: var(--rvt-spacing-xxl);
+			margin-block-start: var(--rvt-size-64);
 		}
 
 		&__image {
 			padding-block: var(--rvt-size-24);
 			padding-inline-start: 0;
 			width: 66%;
-		}
 
-		&__image img {
-			max-width: unset;
+			img {
+				max-width: unset;
+			}
 		}
 
 		&__body {
@@ -95,7 +93,7 @@
 			flex-direction: column;
 			flex-grow: 1;
 			justify-content: flex-end;
-			margin-top: 0;
+			margin-block-start: 0;
 			padding: var(--rvt-size-48);
 		}
 
