@@ -26,7 +26,7 @@
 	blockquote {
 		font: var(--rvt-font-29-fluid-serif);
 		margin: var(--rvt-spacing-sm) 0 0 0;
-		max-width: var(--rvt-line-length-short);
+		max-width: var(--rvt-line-length-tight);
 
 		p {
 			margin: 0;
