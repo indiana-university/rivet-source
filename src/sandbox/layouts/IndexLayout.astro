@@ -1,4 +1,5 @@
 ---
+import { baseUrl } from "@src/utilities/baseUrl.js";
 import Layout from "./Layout.astro";
 const { children } = Astro.props;
 ---
@@ -8,7 +9,7 @@ const { children } = Astro.props;
 		{
 			children.map((page) => (
 				<li>
-					<a href={page.path}>{page.title}</a>
+					<a href={baseUrl(page.path)}>{page.title}</a>
 				</li>
 			))
 		}
