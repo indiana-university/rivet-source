@@ -63,7 +63,7 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
         run: |
-          ${{ steps.detect-package-manager.outputs.runner }} build
+          ${{ steps.detect-package-manager.outputs.manager }} run build
         working-directory: ${{ env.BUILD_PATH }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
