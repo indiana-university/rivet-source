@@ -119,7 +119,9 @@ const currentMenu = menus
 				)}
 
 				<h2>
-					{menu.label}
+					<a href={menu.url}>
+						{menu.label}
+					</a>
 				</h2>
 				{false && menu !== currentMenu && currentMenu && (
 					<button data-open-menu={currentMenu.id}>
@@ -129,11 +131,6 @@ const currentMenu = menus
 				)}
 			</header>
 			<ul>
-				<li>
-					<a href={menu.url}>
-						{menu.parent ? `Explore ${menu.label}` : "Home"}
-					</a>
-				</li>
 				{menu.items.map((item) => (
 					<li data-menu-child={item.child}>
 						<a
@@ -168,10 +165,14 @@ const currentMenu = menus
 
 		header {
 			h2 {
-				font: var(--rvt-font-20-bold);
-
 				&:not(:first-child) {
 					margin-block-start: var(--rvt-size-24);
+				}
+
+				a {
+					font: var(--rvt-font-20-bold);
+					margin: 0;
+					padding-inline: 0;
 				}
 			}
 		}
