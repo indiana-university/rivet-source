@@ -7,13 +7,13 @@ export const title = "Admissions Paths";
 
 <Layout headerTheme="light" title={title}>
 	<Fragment slot="parent">
-		<a href={url("admissions")}>
-			Admissions
-		</a>
+		<a href={url("admissions")}> Admissions </a>
 	</Fragment>
 	<Fragment slot="siblings">
 		<li><a href={url("apply")}>Apply</a></li>
-		<li><a href={url("admissions-paths")} aria-current="page">Admissions Paths</a></li>
+		<li>
+			<a href={url("admissions-paths")} aria-current="page">Admissions Paths</a>
+		</li>
 		<li><a href="#">Admissions Events</a></li>
 		<li><a href="#">Visit IU</a></li>
 		<li><a href="#">Meet Your Counselors</a></li>

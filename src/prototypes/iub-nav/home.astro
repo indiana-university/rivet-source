@@ -5,7 +5,12 @@ import { url } from "./util.js";
 export const title = "Home";
 ---
 
-<Layout headerTheme="light" showTitle={false} showBreadcrumbs={false} title={title}>
+<Layout
+	headerTheme="light"
+	showTitle={false}
+	showBreadcrumbs={false}
+	title={title}
+>
 	<Fragment slot="siblings">
 		<li><a href="#">Academics</a></li>
 		<li><a href={url("admissions")}>Admissions</a></li>
@@ -22,10 +27,16 @@ export const title = "Home";
 			<div class="rvt-hero__body">
 				<h2 class="rvt-hero__title">Welcome home</h2>
 				<p class="rvt-hero__teaser">
-					Indiana University is more than a campus &mdash; it's a community that feels like family and a global stage for your ambition. Surround yourself with mentors who invest in your future and a landscape designed to inspire.
+					Indiana University is more than a campus &mdash; it's a community that
+					feels like family and a global stage for your ambition. Surround
+					yourself with mentors who invest in your future and a landscape
+					designed to inspire.
 				</p>
 				<div class="rvt-hero__actions">
-					<a href={url("apply")} class="rvt-button rvt-button--cta rvt-button--strong">
+					<a
+						href={url("apply")}
+						class="rvt-button rvt-button--cta rvt-button--strong"
+					>
 						Apply to Bloomington
 					</a>
 					<a href={url("home")} class="rvt-button rvt-button--cta">

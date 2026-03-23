@@ -30,16 +30,20 @@ const searchLabel = "Search this site";
 </search>
 
 <script>
-	document.addEventListener("keydown", (event) => {
-		if (event.key !== "Escape") {
-			return;
-		}
-		const { tagName, type, value } = event.target as HTMLInputElement;
-		const isSearch = tagName === "INPUT" && type === "search";
-		if (isSearch && value.length > 0) {
-			event.stopPropagation();
-		}
-	}, { capture: true });
+	document.addEventListener(
+		"keydown",
+		(event) => {
+			if (event.key !== "Escape") {
+				return;
+			}
+			const { tagName, type, value } = event.target as HTMLInputElement;
+			const isSearch = tagName === "INPUT" && type === "search";
+			if (isSearch && value.length > 0) {
+				event.stopPropagation();
+			}
+		},
+		{ capture: true },
+	);
 
 	document.addEventListener("click", (event) => {
 		const clearButton: HTMLElement = (event.target as HTMLElement).closest(

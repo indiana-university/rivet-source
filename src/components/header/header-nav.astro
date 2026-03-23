@@ -63,20 +63,25 @@
 </nav>
 
 <script>
-	document.querySelectorAll("[data-trait-hide-child-overflow]").forEach((root) => {
-		const intersectionObserver = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				entry.target.toggleAttribute("hidden", !entry.isIntersecting);
-			});
-		}, { root, threshold: 1 });
-		const mutationObserver = new MutationObserver(observeChildren);
-		mutationObserver.observe(root, { childList: true });
-		observeChildren();
+	document
+		.querySelectorAll("[data-trait-hide-child-overflow]")
+		.forEach((root) => {
+			const intersectionObserver = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						entry.target.toggleAttribute("hidden", !entry.isIntersecting);
+					});
+				},
+				{ root, threshold: 1 },
+			);
+			const mutationObserver = new MutationObserver(observeChildren);
+			mutationObserver.observe(root, { childList: true });
+			observeChildren();
 
-		function observeChildren () {
-			for (const child of root.children) {
-				intersectionObserver.observe(child);
+			function observeChildren() {
+				for (const child of root.children) {
+					intersectionObserver.observe(child);
+				}
 			}
-		}
-	});
+		});
 </script>

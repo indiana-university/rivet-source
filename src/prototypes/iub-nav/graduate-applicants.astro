@@ -7,13 +7,14 @@ export const title = "Graduate Applicants";
 
 <Layout headerTheme="light" title={title}>
 	<Fragment slot="parent">
-		<a href={url("apply")}>
-			Apply
-		</a>
+		<a href={url("apply")}> Apply </a>
 	</Fragment>
 	<Fragment slot="siblings">
 		<li><a href={url("freshman-applicants")}>Freshman Applicants</a></li>
-		<li><a href={url("graduate-applicants")} aria-current="page">Graduate Applicants</a></li>
+		<li>
+			<a href={url("graduate-applicants")} aria-current="page"
+				>Graduate Applicants</a>
+		</li>
 		<li><a href="#">Returning Applicants</a></li>
 		<li><a href="#">Visiting & Non-degree Applicants</a></li>
 		<li><a href="#">Transfer Applicants</a></li>

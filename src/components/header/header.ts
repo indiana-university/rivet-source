@@ -18,11 +18,12 @@ function escapeToClose(target) {
 	if (!escapeTarget) {
 		return;
 	}
-	const closeTargets = escapeTarget.querySelectorAll("[data-trait-toggle-expanded]");
-	const closeTarget = Array.from(closeTargets)
-		.reduce((prev, curr) =>
-			getDepth(curr, escapeTarget) < getDepth(prev, escapeTarget) ? curr : prev
-		) as HTMLElement;
+	const closeTargets = escapeTarget.querySelectorAll(
+		"[data-trait-toggle-expanded]",
+	);
+	const closeTarget = Array.from(closeTargets).reduce((prev, curr) =>
+		getDepth(curr, escapeTarget) < getDepth(prev, escapeTarget) ? curr : prev,
+	) as HTMLElement;
 	if (!closeTarget) {
 		return;
 	}
@@ -51,20 +52,19 @@ document.addEventListener("click", (event) => {
 	autoFocus(firstAutoFocusElement);
 });
 
-type QueryTraitOptions = { root?: HTMLElement, value?: string };
+type QueryTraitOptions = { root?: HTMLElement; value?: string };
 function queryTraitAll(trait, options: QueryTraitOptions = {}) {
 	const root = options.root || document;
-	return Array.from(root.querySelectorAll("*"))
-		.filter((el: HTMLElement) => {
-			const value = [el.style, getComputedStyle(el)]
-				.map((style) => style.getPropertyValue(trait).trim())
-				.filter((v) => v)
-				.at(0);
-			if (options.value) {
-				return options.value === value;
-			}
-			return !!value;
-		});
+	return Array.from(root.querySelectorAll("*")).filter((el: HTMLElement) => {
+		const value = [el.style, getComputedStyle(el)]
+			.map((style) => style.getPropertyValue(trait).trim())
+			.filter((v) => v)
+			.at(0);
+		if (options.value) {
+			return options.value === value;
+		}
+		return !!value;
+	});
 }
 
 function queryTrait(...args: [string, QueryTraitOptions]) {
@@ -74,8 +74,8 @@ function queryTrait(...args: [string, QueryTraitOptions]) {
 function isVisible(el) {
 	const style = window.getComputedStyle(el);
 	return (
-		style.display !== 'none' &&
-		style.visibility !== 'hidden' &&
+		style.display !== "none" &&
+		style.visibility !== "hidden" &&
 		el.offsetWidth > 0 &&
 		el.offsetHeight > 0
 	);

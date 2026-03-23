@@ -26,40 +26,48 @@ const themeClass = `rvt-theme-${headerTheme}`;
 					</nav>
 				</ScrollSnap>
 			</rvt-related-nav>
-			{showBreadcrumbs && (
-				<rvt-breadcrumbs>
-					<nav aria-label="Breadcrumbs">
-						<ol class="rvt-breadcrumbs">
-							<li>
-								<a href={url("home")}>
-									<span class="rvt-sr-only">Home</span>
-								</a>
-							</li>
-							<slot name="breadcrumbs" />
-							<li aria-current="page">{title}</li>
-						</ol>
-					</nav>
-				</rvt-breadcrumbs>
-			)}
+			{
+				showBreadcrumbs && (
+					<rvt-breadcrumbs>
+						<nav aria-label="Breadcrumbs">
+							<ol class="rvt-breadcrumbs">
+								<li>
+									<a href={url("home")}>
+										<span class="rvt-sr-only">Home</span>
+									</a>
+								</li>
+								<slot name="breadcrumbs" />
+								<li aria-current="page">{title}</li>
+							</ol>
+						</nav>
+					</rvt-breadcrumbs>
+				)
+			}
 			{showTitle && <h1>{title}</h1>}
 			{!showTitle && <h1 class="rvt-sr-only">{title}</h1>}
 		</header>
 	</rvt-main-header>
-	{Astro.slots.has("hero") && (
-		<div class:list={["rvt-section", themeClass]}>
-			<slot name="hero" />
-		</div>
-	)}
-	{Astro.slots.has("content") && (
-		<div class="rvt-container rvt-section">
-			<slot name="content" />
-		</div>
-	)}
-	{Astro.slots.has("children") && (
-		<div class="rvt-container rvt-section">
-			<slot name="children" />
-		</div>
-	)}
+	{
+		Astro.slots.has("hero") && (
+			<div class:list={["rvt-section", themeClass]}>
+				<slot name="hero" />
+			</div>
+		)
+	}
+	{
+		Astro.slots.has("content") && (
+			<div class="rvt-container rvt-section">
+				<slot name="content" />
+			</div>
+		)
+	}
+	{
+		Astro.slots.has("children") && (
+			<div class="rvt-container rvt-section">
+				<slot name="children" />
+			</div>
+		)
+	}
 </main>
 
 <style is:global>

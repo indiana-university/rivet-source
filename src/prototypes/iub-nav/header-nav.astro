@@ -24,7 +24,7 @@ const mainMenu = {
 		["About IU"],
 		["Alumni & Giving"],
 		["Required Disclosures"],
-	]
+	],
 };
 const admissionsMenu = {
 	id: ids.admissions,
@@ -45,7 +45,7 @@ const admissionsMenu = {
 		["For Counselors"],
 		["For Families"],
 		["Request Information"],
-	]
+	],
 };
 const applyMenu = {
 	id: ids.apply,
@@ -62,7 +62,7 @@ const applyMenu = {
 		["Credits & Transfer"],
 		["Manage Your Application"],
 		["How to Apply"],
-	]
+	],
 };
 const costAidMenu = {
 	id: ids.costAid,
@@ -76,83 +76,85 @@ const costAidMenu = {
 		["Grants & Fellowships"],
 		["Loans"],
 		["Pay Your Bill"],
-	]
+	],
 };
-const menus = [
-	mainMenu,
-	admissionsMenu,
-	applyMenu,
-	costAidMenu,
-].map((menu) => {
+const menus = [mainMenu, admissionsMenu, applyMenu, costAidMenu].map((menu) => {
 	const items = menu.items.map((item) => {
 		const [label, url, child] = item;
 		return { label, url, child };
-	})
+	});
 	return {
 		...menu,
-		items
+		items,
 	};
 });
 
 const currentPage = removeEnd(Astro.url.pathname, "/");
-const currentMenu = menus
-	.find((menu) => menu.items.some((item) => item[1] === currentPage));
+const currentMenu = menus.find((menu) =>
+	menu.items.some((item) => item[1] === currentPage),
+);
 ---
 
 <nav data-menu-main={ids.main}>
-	{menus.map((menu) => (
-		<div data-menu={menu.id} data-menu-parent={menu.parent}>
-			<header>
-				{menu.parent && (
-					<div class="rvt-button-group">
-						{menu.id !== ids.main && menu.parent !== ids.main && (
-							<button class="rvt-button rvt-button--medium" data-open-menu="main">
-								<rvt-icon name="chevrons-left"></rvt-icon>
-								Main
-							</button>
-						)}
-						<button class="rvt-button rvt-button--medium" data-open-menu="parent">
-							<rvt-icon name="chevron-left"></rvt-icon>
-							Back
-						</button>
-					</div>
-				)}
-
-				<h2>
-					<a href={menu.url}>
-						{menu.label}
-					</a>
-				</h2>
-				{false && menu !== currentMenu && currentMenu && (
-					<button data-open-menu={currentMenu.id}>
-						<rvt-icon name="arrow-anchor-down-right"></rvt-icon>
-						<span>Current page</span>
-					</button>
-				)}
-			</header>
-			<ul>
-				{menu.items.map((item) => (
-					<li data-menu-child={item.child}>
-						<a
-							aria-current={item.url === currentPage ? "page" : null}
-							href={item.url || "#"}
-						>
-							{item.label}
-						</a>
-						{item.child && (
+	{
+		menus.map((menu) => (
+			<div data-menu={menu.id} data-menu-parent={menu.parent}>
+				<header>
+					{menu.parent && (
+						<div class="rvt-button-group">
+							{menu.id !== ids.main && menu.parent !== ids.main && (
+								<button
+									class="rvt-button rvt-button--medium"
+									data-open-menu="main"
+								>
+									<rvt-icon name="chevrons-left" />
+									Main
+								</button>
+							)}
 							<button
-								class="rvt-button rvt-button--medium rvt-button--icon-only"
-								data-open-menu="child"
+								class="rvt-button rvt-button--medium"
+								data-open-menu="parent"
 							>
-								<span class="rvt-sr-only">{`${item.label} menu`}</span>
-								<rvt-icon name="chevron-right"></rvt-icon>
+								<rvt-icon name="chevron-left" />
+								Back
 							</button>
-						)}
-					</li>
-				))}
-			</ul>
-		</div>
-	))}
+						</div>
+					)}
+
+					<h2>
+						<a href={menu.url}>{menu.label}</a>
+					</h2>
+					{false && menu !== currentMenu && currentMenu && (
+						<button data-open-menu={currentMenu.id}>
+							<rvt-icon name="arrow-anchor-down-right" />
+							<span>Current page</span>
+						</button>
+					)}
+				</header>
+				<ul>
+					{menu.items.map((item) => (
+						<li data-menu-child={item.child}>
+							<a
+								aria-current={item.url === currentPage ? "page" : null}
+								href={item.url || "#"}
+							>
+								{item.label}
+							</a>
+							{item.child && (
+								<button
+									class="rvt-button rvt-button--medium rvt-button--icon-only"
+									data-open-menu="child"
+								>
+									<span class="rvt-sr-only">{`${item.label} menu`}</span>
+									<rvt-icon name="chevron-right" />
+								</button>
+							)}
+						</li>
+					))}
+				</ul>
+			</div>
+		))
+	}
 </nav>
 
 <style>
@@ -255,27 +257,33 @@ const currentMenu = menus
 		triggerMenuButton(button);
 	});
 
-	document.addEventListener("keydown", (event) => {
-		if (event.key !== "Escape") {
-			return;
-		}
-		if (isNotHTML(event.target)) {
-			return;
-		}
-		const type = event.shiftKey ? "main" : "parent";
-		const attribute = `${prefix}-${type}`;
-		const source = event.target.closest(`[${attribute}]`);
-		if (isNotHTML(source)) {
-			return;
-		}
-		const id = source.getAttribute(attribute);
-		const menu = document.querySelector(`[${prefix}=${id}]`);
-		openMenu(menu);
-		event.stopPropagation();
-	}, { capture: true });
+	document.addEventListener(
+		"keydown",
+		(event) => {
+			if (event.key !== "Escape") {
+				return;
+			}
+			if (isNotHTML(event.target)) {
+				return;
+			}
+			const type = event.shiftKey ? "main" : "parent";
+			const attribute = `${prefix}-${type}`;
+			const source = event.target.closest(`[${attribute}]`);
+			if (isNotHTML(source)) {
+				return;
+			}
+			const id = source.getAttribute(attribute);
+			const menu = document.querySelector(`[${prefix}=${id}]`);
+			openMenu(menu);
+			event.stopPropagation();
+		},
+		{ capture: true },
+	);
 
 	function openCurrentMenu() {
-		const currentMenu = document.querySelector(`[${prefix}]:has([aria-current=page])`);
+		const currentMenu = document.querySelector(
+			`[${prefix}]:has([aria-current=page])`,
+		);
 		const firstMenu = document.querySelector(`[${prefix}]`);
 		openMenu(currentMenu || firstMenu);
 	}
