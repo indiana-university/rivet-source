@@ -1,5 +1,6 @@
 ---
 import { createId } from "@src/utilities/createId.js";
+import { removeEnd } from "@src/utilities/removeEnd.js";
 import { url } from "./util.js";
 
 const ids = {
@@ -93,7 +94,7 @@ const menus = [
 	};
 });
 
-const currentPage = Astro.params.path.split("/").pop();
+const currentPage = removeEnd(Astro.url.pathname, "/");
 const currentMenu = menus
 	.find((menu) => menu.items.some((item) => item[1] === currentPage));
 ---
