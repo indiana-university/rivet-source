@@ -1,7 +1,8 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import ComponentLayout from "../layouts/ComponentLayout.astro";
 import IndexLayout from "../layouts/IndexLayout.astro";
-import Layout from "../layouts/Layout.astro";
+import SandboxLayout from "../layouts/SandboxLayout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
@@ -36,6 +37,8 @@ export function getStaticPaths() {
 	for (const path of sortedPaths as string[]) {
 		const segments = path.split("/");
 		const page = pageMap.get(path);
+		const root = page?.root;
+		const site = page?.site;
 		const title = page?.title || segments.at(-1);
 		const isFile = /\.[^/]*$/.test(path);
 		const type = isFile ? "file" : "folder";
@@ -46,11 +49,11 @@ export function getStaticPaths() {
 		const [fileType] = [
 			isComponent && "component",
 			isLayout && "layout",
-			isPrototype && "layout",
+			isPrototype && "prototype",
 			isUtility && "utility",
 		].filter((ft) => ft);
 		const children = [];
-		const currentNode = { children, fileType, page, path, title, type };
+		const currentNode = { children, fileType, page, path, root, site, title, type };
 		pathMap.set(path, currentNode);
 		const parentPath = path.replace(/\/[^/]*$/, "") || "/";
 
@@ -80,19 +83,27 @@ const { page, fileType, type } = Astro.props;
 
 {
 	type === "file" && fileType === "layout" && (
-		<Layout {...Astro.props}>
+		<SandboxLayout {...Astro.props}>
 			<page.default />
-		</Layout>
+		</SandboxLayout>
+	)
+}
+
+{
+	type === "file" && fileType === "prototype" && (
+		<BaseLayout {...Astro.props}>
+			<page.default />
+		</BaseLayout>
 	)
 }
 
 {
 	type === "file" && fileType === "utility" && (
-		<Layout {...Astro.props}>
+		<SandboxLayout {...Astro.props}>
 			<div class="rvt-p-all-sm">
 				<page.default />
 			</div>
-		</Layout>
+		</SandboxLayout>
 	)
 }
 

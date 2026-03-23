@@ -1,0 +1,55 @@
+---
+import Layout from "./BaseLayout.astro";
+import { baseUrl } from "@src/utilities/baseUrl.js";
+import { removeEnd } from "@src/utilities/removeEnd.js";
+import { removeStart } from "@src/utilities/removeStart.js";
+
+const APP_NAME = "Rivet";
+const title = Astro.props.title || APP_NAME;
+const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
+const breadcrumbs = removeEnd(currentPath, "/")
+	.split("/")
+	.map((part, i, source) => {
+		const last = i === source.length - 1;
+		const current: boolean | "page" = last ? "page" : false;
+		const label = current ? title : part || APP_NAME;
+		const _url = source.slice(1, i + 1).join("/");
+		const url = baseUrl(_url);
+		return { current, label, last, url };
+	});
+const parentPage = breadcrumbs.at(-2);
+---
+
+<Layout {...Astro.props}>
+	<header
+		class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm"
+	>
+		<a
+			class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle"
+			href={parentPage?.url}
+		>
+			<rvt-icon name="arrow-left"></rvt-icon>
+			<span class="rvt-sr-only">{parentPage?.label}</span>
+		</a>
+		<nav class="rvt-border-left rvt-flex rvt-p-left-sm">
+			<ol class="rvt-breadcrumbs">
+				{
+					breadcrumbs.map((item) => (
+						<li aria-current={item.current}>
+							{!item.last && <a href={item.url}>{item.label}</a>}
+							{item.last && item.label}
+						</li>
+					))
+				}
+			</ol>
+		</nav>
+		<h1 class="rvt-sr-only">{title}</h1>
+	</header>
+	<slot />
+</Layout>
+
+<style>
+	header {
+		background-color: var(--rvt-color-theme-background-strong);
+	}
+</style>

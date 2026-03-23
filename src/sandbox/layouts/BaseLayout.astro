@@ -1,0 +1,31 @@
+---
+import { removeStart } from "@src/utilities/removeStart.js";
+import "@src/rivet.scss";
+
+const APP_NAME = "Rivet";
+const site = Astro.props.site || APP_NAME;
+const title = Astro.props.title || site;
+const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
+const isRoot = Astro.props.root || currentPath === "/";
+const docTitle = isRoot ? site : [title, site].join(" - ");
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{docTitle}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<script>
+			import Rivet from "@src/rivet.js";
+			import "@src/rivet-icons.js";
+			import "@src/rivet-stickers.js";
+			Rivet.init();
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
