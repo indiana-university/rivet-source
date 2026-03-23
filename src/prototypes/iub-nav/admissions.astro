@@ -1,5 +1,6 @@
 ---
 import Layout from "./layout.astro";
+import { url } from "./util.js";
 
 export const title = "Admissions";
 ---
@@ -7,8 +8,8 @@ export const title = "Admissions";
 <Layout showTitle={false} title={title}>
 	<Fragment slot="siblings">
 		<li><a href="#">Academics</a></li>
-		<li><a href="admissions.astro" aria-current="page">Admissions</a></li>
-		<li><a href="cost-aid.astro">Cost & Aid</a></li>
+		<li><a href={url("admissions")} aria-current="page">Admissions</a></li>
+		<li><a href={url("cost-aid")}>Cost & Aid</a></li>
 		<li><a href="#">Campus Life</a></li>
 		<li><a href="#">Support & Services</a></li>
 		<li><a href="#">Research</a></li>
@@ -24,7 +25,7 @@ export const title = "Admissions";
 					Applying to IU is more than a step &mdash; it's the start of your best chapter. Work with world-class mentors, intern with industry leaders, and join a community that bleeds cream and crimson.
 				</p>
 				<div class="rvt-hero__actions">
-					<a href="apply.astro" class="rvt-button rvt-button--cta rvt-button--strong">
+					<a href={url("apply")} class="rvt-button rvt-button--cta rvt-button--strong">
 						Apply now
 					</a>
 					<a href="#" class="rvt-button rvt-button--cta">
@@ -45,7 +46,7 @@ export const title = "Admissions";
 					<h2 class="rvt-list-hub__title">Quick links</h2>
 					<ul class="rvt-list-hub__list">
 						<li class="rvt-list-hub__item">
-							<a class="rvt-list-hub__link" href="admissions-paths.astro">
+							<a class="rvt-list-hub__link" href={url("admissions-paths")}>
 								Explore admissions paths
 							</a>
 						</li>
@@ -76,8 +77,8 @@ export const title = "Admissions";
 	</Fragment>
 	<Fragment slot="children">
 		<ul>
-			<li><a href="apply.astro">Apply</a></li>
-			<li><a href="admissions-paths.astro">Admissions Paths</a></li>
+			<li><a href={url("apply")}>Apply</a></li>
+			<li><a href={url("admissions-paths")}>Admissions Paths</a></li>
 			<li><a href="#">Admissions Events</a></li>
 			<li><a href="#">Visit IU</a></li>
 			<li><a href="#">Meet Your Counselors</a></li>

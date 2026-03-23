@@ -1,6 +1,7 @@
 ---
 import Nav from "./header-nav.astro";
 import Search from "../../components/header/header-search.astro";
+import { url } from "./util.js";
 
 const { theme = "light" } = Astro.props;
 ---
@@ -8,7 +9,7 @@ const { theme = "light" } = Astro.props;
 <rvt-header class={`rvt-theme-${theme}`}>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<header class="rvt-container" data-trait-escape-close>
-		<a class="rvt-lockup" href="home.astro">
+		<a class="rvt-lockup" href={url("home")}>
 			<rvt-logo-iu tab></rvt-logo-iu>
 			<div class="rvt-lockup__body">
 				<div class="rvt-lockup__title">Indiana University</div>

@@ -1,6 +1,7 @@
 ---
 import Header from "./header.astro";
 import ScrollSnap from "./scroll-snap.astro";
+import { url } from "./util.js";
 
 const {
 	headerTheme = "light",
@@ -31,7 +32,7 @@ const themeClass = `rvt-theme-${headerTheme}`;
 					<nav aria-label="Breadcrumbs">
 						<ol class="rvt-breadcrumbs">
 							<li>
-								<a href="home.astro">
+								<a href={url("home")}>
 									<span class="rvt-sr-only">Home</span>
 								</a>
 							</li>

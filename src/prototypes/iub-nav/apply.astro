@@ -1,16 +1,17 @@
 ---
 import Layout from "./layout.astro";
+import { url } from "./util.js";
 
 export const title = "Apply";
 ---
 
 <Layout showTitle={false} title={title}>
 	<Fragment slot="parent">
-		<a href="admissions.astro"> Admissions </a>
+		<a href={url("admissions")}> Admissions </a>
 	</Fragment>
 	<Fragment slot="siblings">
-		<li><a href="apply.astro" aria-current="page">Apply</a></li>
-		<li><a href="admissions-paths.astro">Admissions Paths</a></li>
+		<li><a href={url("apply")} aria-current="page">Apply</a></li>
+		<li><a href={url("admissions-paths")}>Admissions Paths</a></li>
 		<li><a href="#">Admissions Events</a></li>
 		<li><a href="#">Visit IU</a></li>
 		<li><a href="#">Meet Your Counselors</a></li>
@@ -24,7 +25,7 @@ export const title = "Apply";
 		<li><a href="#">Request Information</a></li>
 	</Fragment>
 	<Fragment slot="breadcrumbs">
-		<li><a href="admissions.astro">Admissions</a></li>
+		<li><a href={url("admissions")}>Admissions</a></li>
 	</Fragment>
 	<Fragment slot="hero">
 		<div class="rvt-hero">
@@ -48,7 +49,7 @@ export const title = "Apply";
 					</div>
 					<div class="rvt-card__body">
 						<h4 class="rvt-card__title">
-							<a href="freshman-applicants.astro">Freshman applicant</a>
+							<a href={url("freshman-applicants")}>Freshman applicant</a>
 						</h4>
 						<div class="rvt-card__content">
 							<p>
@@ -84,7 +85,7 @@ export const title = "Apply";
 					</div>
 					<div class="rvt-card__body">
 						<h4 class="rvt-card__title">
-							<a href="graduate-applicants.astro">Graduate applicant</a>
+							<a href={url("graduate-applicants")}>Graduate applicant</a>
 						</h4>
 						<div class="rvt-card__content">
 							<p>
@@ -99,7 +100,7 @@ export const title = "Apply";
 	<Fragment slot="children">
 		<ul>
 			<li>
-				<a href="freshman-applicants.astro">Freshman Applicants</a>
+				<a href={url("freshman-applicants")}>Freshman Applicants</a>
 			</li>
 			<li>
 				<a href="#">Graduate Applicants</a>

@@ -1,5 +1,6 @@
 ---
 import Layout from "./layout.astro";
+import { url } from "./util.js";
 
 export const title = "Cost & Aid";
 ---
@@ -7,8 +8,8 @@ export const title = "Cost & Aid";
 <Layout headerTheme="light" title={title}>
 	<Fragment slot="siblings">
 		<li><a href="#">Academics</a></li>
-		<li><a href="admissions.astro">Admissions</a></li>
-		<li><a href="cost-aid.astro" aria-current="page">Cost & Aid</a></li>
+		<li><a href={url("admissions")}>Admissions</a></li>
+		<li><a href={url("cost-aid")} aria-current="page">Cost & Aid</a></li>
 		<li><a href="#">Campus Life</a></li>
 		<li><a href="#">Support & Services</a></li>
 		<li><a href="#">Research</a></li>

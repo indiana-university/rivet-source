@@ -1,5 +1,6 @@
 ---
 import { createId } from "@src/utilities/createId.js";
+import { url } from "./util.js";
 
 const ids = {
 	main: createId(),
@@ -11,11 +12,11 @@ const mainMenu = {
 	id: ids.main,
 	label: "IU Bloomington",
 	parent: null,
-	url: "home.astro",
+	url: url("home"),
 	items: [
 		["Academics"],
-		["Admissions", "admissions.astro", ids.admissions],
-		["Cost & Aid", "cost-aid.astro"],
+		["Admissions", url("admissions"), ids.admissions],
+		["Cost & Aid", url("cost-aid")],
 		["Campus Life"],
 		["Support & Services"],
 		["Research"],
@@ -28,10 +29,10 @@ const admissionsMenu = {
 	id: ids.admissions,
 	label: "Admissions",
 	parent: ids.main,
-	url: "admissions.astro",
+	url: url("admissions"),
 	items: [
-		["Apply", "apply.astro", ids.apply],
-		["Admissions Paths", "admissions-paths.astro"],
+		["Apply", url("apply"), ids.apply],
+		["Admissions Paths", url("admissions-paths")],
 		["Admissions Events"],
 		["Visit IU"],
 		["Meet Your Counselors"],
@@ -49,10 +50,10 @@ const applyMenu = {
 	id: ids.apply,
 	label: "Apply",
 	parent: ids.admissions,
-	url: "apply.astro",
+	url: url("apply"),
 	items: [
-		["Freshman Applicants", "freshman-applicants.astro"],
-		["Graduate Applicants", "graduate-applicants.astro"],
+		["Freshman Applicants", url("freshman-applicants")],
+		["Graduate Applicants", url("graduate-applicants")],
 		["Returning Applicants"],
 		["Visiting & Non-degree Applicants"],
 		["Transfer Applicants"],
@@ -66,7 +67,7 @@ const costAidMenu = {
 	id: ids.costAid,
 	label: "Cost & Aid",
 	parent: ids.main,
-	url: "cost-aid.astro",
+	url: url("cost-aid"),
 	items: [
 		["Cost of Attendance"],
 		["Financial Aid"],
