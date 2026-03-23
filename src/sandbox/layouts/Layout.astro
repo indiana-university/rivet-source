@@ -1,5 +1,6 @@
 ---
 import { baseUrl } from "@src/utilities/baseUrl.js";
+import { removeEnd } from "@src/utilities/removeEnd.js";
 import { removeStart } from "@src/utilities/removeStart.js";
 import "@src/rivet.scss";
 
@@ -8,7 +9,7 @@ const title = Astro.props.title || APP_NAME;
 const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
 const isRoot = currentPath === "/";
 const docTitle = isRoot ? APP_NAME : [title, APP_NAME].join(" - ");
-const breadcrumbs = (isRoot ? "" : currentPath)
+const breadcrumbs = removeEnd(currentPath, "/")
 	.split("/")
 	.map((part, i, source) => {
 		const last = i === source.length - 1;
@@ -29,10 +30,10 @@ const parentPage = breadcrumbs.at(-2);
 		<title>{docTitle}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<script type="module">
-			import Rivet from "/src/rivet.js";
-			import "/src/rivet-icons.js";
-			import "/src/rivet-stickers.js";
+		<script>
+			import Rivet from "@src/rivet.js";
+			import "@src/rivet-icons.js";
+			import "@src/rivet-stickers.js";
 			Rivet.init();
 		</script>
 	</head>

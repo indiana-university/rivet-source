@@ -32,7 +32,9 @@
 		"build:zip": "zip -r rivet.zip dist",
 		"build:astro": "astro build",
 		"changelog": "node tasks/generate-changelog.js",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"preview": "run-s build preview:astro",
+		"preview:astro": "astro preview --open --host"
 	},
 	"files": [
 		"dist/**/*",
