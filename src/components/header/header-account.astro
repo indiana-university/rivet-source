@@ -1,0 +1,56 @@
+<div class="rvt-dropdown" data-rvt-dropdown>
+	<button
+		class="rvt-button rvt-button--icon-only rvt-header__button"
+		data-rvt-dropdown-toggle
+		data-rvt-header-account-toggle
+	>
+		<rvt-icon name="user"></rvt-icon>
+		<span>CX</span>
+		<span class="rvt-sr-only">Account</span>
+	</button>
+	<div
+		class="rvt-dropdown__menu rvt-dropdown__menu--right"
+		data-rvt-dropdown-menu
+		hidden
+	>
+		<div class="rvt-account">
+			<div class="rvt-avatar rvt-avatar--sm">
+				<span class="rvt-avatar__text">CX</span>
+			</div>
+			<div>
+				<div class="rvt-account__name">Charles Xavier</div>
+				<div class="rvt-account__description">cxavier@iu.edu</div>
+			</div>
+		</div>
+		<ul>
+			<li>
+				<a href="#">Log out</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<style>
+	[data-rvt-dropdown-menu]:has(.rvt-account) {
+		margin-block-start: var(--rvt-size-8);
+	}
+
+	.rvt-account {
+		align-items: center;
+		border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		display: flex;
+		gap: var(--rvt-size-16);
+		margin-block-end: var(--rvt-size-8);
+		padding-block: var(--rvt-size-8) var(--rvt-size-16);
+		padding-inline: var(--rvt-size-16);
+
+		.rvt-account__name {
+			font: var(--rvt-font-16-bold);
+			white-space: nowrap;
+		}
+
+		.rvt-account__description {
+			font: var(--rvt-font-14);
+		}
+	}
+</style>

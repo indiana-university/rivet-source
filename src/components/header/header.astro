@@ -1,11 +1,20 @@
 ---
 import Lockup from "../lockup/lockup.astro";
+import Account from "./header-account.astro";
+import Nav from "./header-nav.astro";
+import Search from "./header-search.astro";
+import Toggle from "./header-toggle.astro";
+
 export const title = "Header";
 ---
 
-<header data-site-header class="rvt-header">
+<rvt-header>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
-	<div class="rvt-header__inner">
+	<header class="rvt-container">
 		<Lockup />
-	</div>
-</header>
+		<Search />
+		<Nav />
+		<Toggle />
+		<Account />
+	</header>
+</rvt-header>

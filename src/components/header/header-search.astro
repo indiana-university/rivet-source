@@ -1,0 +1,61 @@
+---
+import { createId } from "@src/utilities/createId.js";
+
+const searchInputId = createId();
+---
+
+<search>
+	<form action="">
+		<label for={searchInputId} class="rvt-sr-only"> Search this site </label>
+		<input
+			class="rvt-text-input"
+			id={searchInputId}
+			name="search"
+			placeholder="Search this site"
+			type="search"
+		/>
+		<button
+			class="rvt-button rvt-button--subtle rvt-button--icon-only rvt-button--small"
+			type="button"
+			data-rvt-header-search-clear
+		>
+			<rvt-icon name="close"></rvt-icon>
+			<span class="rvt-sr-only">Clear</span>
+		</button>
+		<button class="rvt-button rvt-button--strong" type="submit"> Go </button>
+	</form>
+</search>
+
+<script>
+	document.addEventListener(
+		"keydown",
+		(event) => {
+			if (event.key !== "Escape") {
+				return;
+			}
+			const { tagName, type, value } = event.target as HTMLInputElement;
+			const isSearch = tagName === "INPUT" && type === "search";
+			if (isSearch && value.length > 0) {
+				event.stopPropagation();
+			}
+		},
+		{ capture: true },
+	);
+
+	document.addEventListener("click", (event) => {
+		const clearButton: HTMLElement = (event.target as HTMLElement).closest(
+			"[data-rvt-header-search-clear",
+		);
+		if (!clearButton) {
+			return;
+		}
+		const input: HTMLInputElement = clearButton.parentElement.querySelector(
+			"input[type='search']",
+		);
+		if (!input) {
+			return;
+		}
+		input.value = "";
+		input.focus();
+	});
+</script>
