@@ -53,7 +53,17 @@ export function getStaticPaths() {
 			isUtility && "utility",
 		].filter((ft) => ft);
 		const children = [];
-		const currentNode = { children, fileType, page, path, root, site, title, type };
+		const cleanPath = path.replace(".astro", "");
+		const currentNode = {
+			children,
+			fileType,
+			page,
+			path: cleanPath,
+			root,
+			site,
+			title,
+			type,
+		};
 		pathMap.set(path, currentNode);
 		const parentPath = path.replace(/\/[^/]*$/, "") || "/";
 
