@@ -33,12 +33,10 @@ export function getMenus(menus, Astro) {
 
 	const main = all.find((menu) => menu.main);
 	const current = all.find((menu) => menu.hasCurrent) || main;
-	const home = isCurrentPage("home", Astro);
 
 	return {
 		all,
 		current,
-		home,
 		main,
 	};
 }

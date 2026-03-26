@@ -6,6 +6,7 @@ import { getMenus, getUrl } from "./util.js";
 
 const {
 	headerTheme = "light",
+	root = false,
 	showTitle = true,
 	title,
 } = Astro.props;
@@ -39,7 +40,7 @@ const menus = getMenus(_menus, Astro);
 				</ScrollSnap>
 			</rvt-related-nav>
 			{
-				!menus.home && (
+				!root && (
 					<rvt-breadcrumbs>
 						<nav aria-label="Breadcrumbs">
 							<ol class="rvt-breadcrumbs">
