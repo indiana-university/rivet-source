@@ -13,7 +13,7 @@ rvt-header {
 		gap: var(--rvt-size-24);
 		grid-template-areas: "lockup menu menu-toggle";
 		grid-template-columns: auto 1fr auto;
-		padding-block: var(--rvt-size-16);
+		padding-block: var(--rvt-size-24);
 
 		&:has([data-rvt-header-account]) {
 			grid-template-areas: "lockup menu menu-toggle account";
