@@ -1,6 +1,5 @@
 import { createId } from "@src/utilities/createId.js";
-import { removeEnd } from "@src/utilities/removeEnd.js";
-import { url } from "./util.js";
+import { getUrl, isCurrentPage } from "./util.js";
 
 export const site = "Indiana University Bloomington";
 
@@ -15,11 +14,11 @@ const menus = [
 		id: ids.main,
 		label: "IU Bloomington",
 		parent: null,
-		url: url("home"),
+		slug: "home",
 		items: [
 			["Academics"],
-			["Admissions", url("admissions"), ids.admissions],
-			["Cost & Aid", url("cost-aid")],
+			["Admissions", "admissions", ids.admissions],
+			["Cost & Aid", "cost-aid"],
 			["Campus Life"],
 			["Support & Services"],
 			["Research"],
@@ -31,10 +30,10 @@ const menus = [
 		id: ids.admissions,
 		label: "Admissions",
 		parent: ids.main,
-		url: url("admissions"),
+		slug: "admissions",
 		items: [
-			["Apply", url("apply"), ids.apply],
-			["Admissions Paths", url("admissions-paths")],
+			["Apply", "apply", ids.apply],
+			["Admissions Paths", "admissions-paths"],
 			["Admissions Events"],
 			["Visit IU"],
 			["Meet Your Counselors"],
@@ -52,10 +51,10 @@ const menus = [
 		id: ids.apply,
 		label: "Apply",
 		parent: ids.admissions,
-		url: url("apply"),
+		slug: "apply",
 		items: [
-			["Freshman Applicants", url("freshman-applicants")],
-			["Graduate Applicants", url("graduate-applicants")],
+			["Freshman Applicants", "freshman-applicants"],
+			["Graduate Applicants", "graduate-applicants"],
 			["Returning Applicants"],
 			["Visiting & Non-degree Applicants"],
 			["Transfer Applicants"],
@@ -69,7 +68,7 @@ const menus = [
 		id: ids.costAid,
 		label: "Cost & Aid",
 		parent: ids.main,
-		url: url("cost-aid"),
+		slug: "cost-aid",
 		items: [
 			["Cost of Attendance"],
 			["Financial Aid"],
@@ -82,12 +81,12 @@ const menus = [
 ];
 
 export function getMenus(Astro) {
-	const currentPage = removeEnd(Astro.url.pathname, "/");
 	const menuDepth = new Map();
 	return menus.map((menu) => {
 		const items = menu.items.map((item) => {
-			const [label, url, child] = item;
-			const current = url === currentPage;
+			const [label, slug, child] = item;
+			const current = isCurrentPage(slug, Astro);
+			const url = getUrl(slug);
 			return { current, label, url, child };
 		});
 		const main = !menu.parent;
@@ -95,12 +94,14 @@ export function getMenus(Astro) {
 		const parentDepth = menuDepth.get(menu.parent) || 0;
 		const depth = parentDepth + 1;
 		menuDepth.set(menu.id, depth);
+		const url = getUrl(menu.slug);
 		return {
 			...menu,
 			current,
 			depth,
 			items,
 			main,
+			url,
 		};
 	});
 }

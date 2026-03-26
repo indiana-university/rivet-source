@@ -1,17 +1,13 @@
 ---
 import Layout from "./layout.astro";
-import { url } from "./util.js";
+import { getUrl } from "./util.js";
 
 export const root = true;
 export { site } from "./const.js";
 export const title = "Home";
 ---
 
-<Layout
-	showTitle={false}
-	showBreadcrumbs={false}
-	title={title}
->
+<Layout showTitle={false} title={title}>
 	<Fragment slot="hero">
 		<div class="rvt-hero rvt-hero--statement">
 			<div class="rvt-hero__body">
@@ -24,12 +20,12 @@ export const title = "Home";
 				</p>
 				<div class="rvt-hero__actions">
 					<a
-						href={url("apply")}
+						href={getUrl("apply")}
 						class="rvt-button rvt-button--cta rvt-button--strong"
 					>
 						Apply to Bloomington
 					</a>
-					<a href={url("home")} class="rvt-button rvt-button--cta">
+					<a href={getUrl("home")} class="rvt-button rvt-button--cta">
 						Explore degree programs
 					</a>
 				</div>

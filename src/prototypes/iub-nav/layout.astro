@@ -2,18 +2,18 @@
 import Header from "./header.astro";
 import ScrollSnap from "./scroll-snap.astro";
 import { getMenus } from "./const.js";
-import { url } from "./util.js";
+import { getUrl, isCurrentPage } from "./util.js";
 
 const {
 	headerTheme = "light",
 	showTitle = true,
-	showBreadcrumbs = true,
 	title,
 } = Astro.props;
 const themeClass = `rvt-theme-${headerTheme}`;
 const menus = getMenus(Astro);
 const mainMenu = menus.find((menu) => menu.main);
 const currentMenu = menus.find((menu) => menu.current) || mainMenu;
+const home = isCurrentPage("home", Astro);
 ---
 
 <Header menus={menus} theme={headerTheme} />
@@ -42,12 +42,12 @@ const currentMenu = menus.find((menu) => menu.current) || mainMenu;
 				</ScrollSnap>
 			</rvt-related-nav>
 			{
-				showBreadcrumbs && (
+				!home && (
 					<rvt-breadcrumbs>
 						<nav aria-label="Breadcrumbs">
 							<ol class="rvt-breadcrumbs">
 								<li>
-									<a href={url("home")}>
+									<a href={getUrl("home")}>
 										<span class="rvt-sr-only">Home</span>
 									</a>
 								</li>

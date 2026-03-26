@@ -1,6 +1,6 @@
 ---
 import Layout from "./layout.astro";
-import { url } from "./util.js";
+import { getUrl } from "./util.js";
 
 export { site } from "./const.js";
 export const title = "Graduate Applicants";
@@ -8,7 +8,7 @@ export const title = "Graduate Applicants";
 
 <Layout title={title}>
 	<Fragment slot="breadcrumbs">
-		<li><a href={url("admissions")}>Admissions</a></li>
-		<li><a href={url("apply")}>Apply</a></li>
+		<li><a href={getUrl("admissions")}>Admissions</a></li>
+		<li><a href={getUrl("apply")}>Apply</a></li>
 	</Fragment>
 </Layout>

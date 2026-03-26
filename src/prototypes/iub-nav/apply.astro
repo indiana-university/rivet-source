@@ -1,6 +1,6 @@
 ---
 import Layout from "./layout.astro";
-import { url } from "./util.js";
+import { getUrl } from "./util.js";
 
 export { site } from "./const.js";
 export const title = "Apply";
@@ -8,7 +8,7 @@ export const title = "Apply";
 
 <Layout showTitle={false} title={title}>
 	<Fragment slot="breadcrumbs">
-		<li><a href={url("admissions")}>Admissions</a></li>
+		<li><a href={getUrl("admissions")}>Admissions</a></li>
 	</Fragment>
 	<Fragment slot="hero">
 		<div class="rvt-hero">
@@ -31,7 +31,7 @@ export const title = "Apply";
 					</div>
 					<div class="rvt-card__body">
 						<h4 class="rvt-card__title">
-							<a href={url("freshman-applicants")}>Freshman applicant</a>
+							<a href={getUrl("freshman-applicants")}>Freshman applicant</a>
 						</h4>
 						<div class="rvt-card__content">
 							<p>
@@ -68,7 +68,7 @@ export const title = "Apply";
 					</div>
 					<div class="rvt-card__body">
 						<h4 class="rvt-card__title">
-							<a href={url("graduate-applicants")}>Graduate applicant</a>
+							<a href={getUrl("graduate-applicants")}>Graduate applicant</a>
 						</h4>
 						<div class="rvt-card__content">
 							<p>
