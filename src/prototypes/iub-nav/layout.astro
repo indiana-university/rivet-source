@@ -7,7 +7,6 @@ import { getMenus, getUrl } from "./util.js";
 const {
 	headerTheme = "light",
 	root = false,
-	showTitle = true,
 	title,
 } = Astro.props;
 const themeClass = `rvt-theme-${headerTheme}`;
@@ -56,8 +55,8 @@ const menus = getMenus(_menus, Astro);
 					</rvt-breadcrumbs>
 				)
 			}
-			{showTitle && <h1>{title}</h1>}
-			{!showTitle && <h1 class="rvt-sr-only">{title}</h1>}
+			{!Astro.slots.has("hero") && <h1>{title}</h1>}
+			{Astro.slots.has("hero") && <h1 class="rvt-sr-only">{title}</h1>}
 		</header>
 	</rvt-main-header>
 	{
