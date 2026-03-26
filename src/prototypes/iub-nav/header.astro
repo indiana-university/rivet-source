@@ -3,7 +3,7 @@ import Nav from "./header-nav.astro";
 import Search from "../../components/header/header-search.astro";
 import { url } from "./util.js";
 
-const { theme = "light" } = Astro.props;
+const { menus, theme = "light" } = Astro.props;
 ---
 
 <rvt-header class={`rvt-theme-${theme}`}>
@@ -18,7 +18,7 @@ const { theme = "light" } = Astro.props;
 		</a>
 		<div data-rvt-header-menu>
 			<Search />
-			<Nav />
+			<Nav menus={menus} />
 		</div>
 		<button
 			aria-expanded="false"

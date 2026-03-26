@@ -1,107 +1,16 @@
 ---
-import { createId } from "@src/utilities/createId.js";
-import { removeEnd } from "@src/utilities/removeEnd.js";
-import { url } from "./util.js";
-
-const ids = {
-	main: createId(),
-	admissions: createId(),
-	apply: createId(),
-	costAid: createId(),
-};
-const mainMenu = {
-	id: ids.main,
-	label: "IU Bloomington",
-	parent: null,
-	url: url("home"),
-	items: [
-		["Academics"],
-		["Admissions", url("admissions"), ids.admissions],
-		["Cost & Aid", url("cost-aid")],
-		["Campus Life"],
-		["Support & Services"],
-		["Research"],
-		["About IU"],
-		["Alumni & Giving"],
-	],
-};
-const admissionsMenu = {
-	id: ids.admissions,
-	label: "Admissions",
-	parent: ids.main,
-	url: url("admissions"),
-	items: [
-		["Apply", url("apply"), ids.apply],
-		["Admissions Paths", url("admissions-paths")],
-		["Admissions Events"],
-		["Visit IU"],
-		["Meet Your Counselors"],
-		["Precollege Programs"],
-		["Planning for IU"],
-		["Class Profile"],
-		["After Admission"],
-		["Admissions Viewbook"],
-		["For Counselors"],
-		["For Families"],
-		["Request Information"],
-	],
-};
-const applyMenu = {
-	id: ids.apply,
-	label: "Apply",
-	parent: ids.admissions,
-	url: url("apply"),
-	items: [
-		["Freshman Applicants", url("freshman-applicants")],
-		["Graduate Applicants", url("graduate-applicants")],
-		["Returning Applicants"],
-		["Visiting & Non-degree Applicants"],
-		["Transfer Applicants"],
-		["Application Materials"],
-		["Credits & Transfer"],
-		["Manage Your Application"],
-		["How to Apply"],
-	],
-};
-const costAidMenu = {
-	id: ids.costAid,
-	label: "Cost & Aid",
-	parent: ids.main,
-	url: url("cost-aid"),
-	items: [
-		["Cost of Attendance"],
-		["Financial Aid"],
-		["Scholarships"],
-		["Grants & Fellowships"],
-		["Loans"],
-		["Pay Your Bill"],
-	],
-};
-const menus = [mainMenu, admissionsMenu, applyMenu, costAidMenu].map((menu) => {
-	const items = menu.items.map((item) => {
-		const [label, url, child] = item;
-		return { label, url, child };
-	});
-	return {
-		...menu,
-		items,
-	};
-});
-
-const currentPage = removeEnd(Astro.url.pathname, "/");
-const currentMenu = menus.find((menu) =>
-	menu.items.some((item) => item[1] === currentPage),
-);
+const { menus } = Astro.props;
+const mainMenu = menus.find((menu) => menu.main);
 ---
 
-<nav data-menu-main={ids.main}>
+<nav data-menu-main={mainMenu.id}>
 	{
 		menus.map((menu) => (
 			<div data-menu={menu.id} data-menu-parent={menu.parent}>
 				<header>
 					{menu.parent && (
 						<div class="rvt-button-group">
-							{menu.id !== ids.main && menu.parent !== ids.main && (
+							{menu.depth > 2 && (
 								<button
 									class="rvt-button rvt-button--medium"
 									data-open-menu="main"
@@ -119,22 +28,15 @@ const currentMenu = menus.find((menu) =>
 							</button>
 						</div>
 					)}
-
 					<h2>
 						<a href={menu.url}>{menu.label}</a>
 					</h2>
-					{false && menu !== currentMenu && currentMenu && (
-						<button data-open-menu={currentMenu.id}>
-							<rvt-icon name="arrow-anchor-down-right" />
-							<span>Current page</span>
-						</button>
-					)}
 				</header>
 				<ul>
 					{menu.items.map((item) => (
 						<li data-menu-child={item.child}>
 							<a
-								aria-current={item.url === currentPage ? "page" : null}
+								aria-current={item.current ? "page" : null}
 								href={item.url || "#"}
 							>
 								{item.label}

@@ -1,30 +1,9 @@
 ---
 import Layout from "./layout.astro";
-import { url } from "./util.js";
 
 export { site } from "./const.js";
 export const title = "Cost & Aid";
 ---
 
 <Layout headerTheme="light" title={title}>
-	<Fragment slot="siblings">
-		<li><a href="#">Academics</a></li>
-		<li><a href={url("admissions")}>Admissions</a></li>
-		<li><a href={url("cost-aid")} aria-current="page">Cost & Aid</a></li>
-		<li><a href="#">Campus Life</a></li>
-		<li><a href="#">Support & Services</a></li>
-		<li><a href="#">Research</a></li>
-		<li><a href="#">About IU</a></li>
-		<li><a href="#">Alumni & Giving</a></li>
-	</Fragment>
-	<Fragment slot="children">
-		<ul>
-			<li><a href="#">Cost of Attendance</a></li>
-			<li><a href="#">Financial Aid</a></li>
-			<li><a href="#">Scholarships</a></li>
-			<li><a href="#">Grants & Fellowships</a></li>
-			<li><a href="#">Loans</a></li>
-			<li><a href="#">Pay Your Bill</a></li>
-		</ul>
-	</Fragment>
 </Layout>

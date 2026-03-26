@@ -7,24 +7,6 @@ export const title = "Freshman Applicants";
 ---
 
 <Layout showTitle={false} title={title}>
-	<Fragment slot="parent">
-		<a href={url("apply")}> Apply </a>
-	</Fragment>
-	<Fragment slot="siblings">
-		<li>
-			<a href={url("freshman-applicants")} aria-current="page">
-				Freshman Applicants
-			</a>
-		</li>
-		<li><a href={url("graduate-applicants")}>Graduate Applicants</a></li>
-		<li><a href="#">Returning Applicants</a></li>
-		<li><a href="#">Visiting & Non-degree Applicants</a></li>
-		<li><a href="#">Transfer Applicants</a></li>
-		<li><a href="#">Application Materials</a></li>
-		<li><a href="#">Credits & Transfer</a></li>
-		<li><a href="#">Manage Your Application</a></li>
-		<li><a href="#">How to Apply</a></li>
-	</Fragment>
 	<Fragment slot="breadcrumbs">
 		<li><a href={url("admissions")}>Admissions</a></li>
 		<li><a href={url("apply")}>Apply</a></li>
