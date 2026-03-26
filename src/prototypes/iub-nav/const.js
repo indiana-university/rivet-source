@@ -1,106 +1,83 @@
-import { createId } from "@src/utilities/createId.js";
 import { getUrl, isCurrentPage } from "./util.js";
 
 export const site = "Indiana University Bloomington";
 
-const ids = {
-	main: createId(),
-	admissions: createId(),
-	apply: createId(),
-	costAid: createId(),
-};
 const menus = [
-	{
-		id: ids.main,
-		label: "IU Bloomington",
-		parent: null,
-		slug: "home",
-		items: [
-			["Academics"],
-			["Admissions", "admissions", ids.admissions],
-			["Cost & Aid", "cost-aid"],
-			["Campus Life"],
-			["Support & Services"],
-			["Research"],
-			["About IU"],
-			["Alumni & Giving"],
-		],
-	},
-	{
-		id: ids.admissions,
-		label: "Admissions",
-		parent: ids.main,
-		slug: "admissions",
-		items: [
-			["Apply", "apply", ids.apply],
-			["Admissions Paths", "admissions-paths"],
-			["Admissions Events"],
-			["Visit IU"],
-			["Meet Your Counselors"],
-			["Precollege Programs"],
-			["Planning for IU"],
-			["Class Profile"],
-			["After Admission"],
-			["Admissions Viewbook"],
-			["For Counselors"],
-			["For Families"],
-			["Request Information"],
-		],
-	},
-	{
-		id: ids.apply,
-		label: "Apply",
-		parent: ids.admissions,
-		slug: "apply",
-		items: [
-			["Freshman Applicants", "freshman-applicants"],
-			["Graduate Applicants", "graduate-applicants"],
-			["Returning Applicants"],
-			["Visiting & Non-degree Applicants"],
-			["Transfer Applicants"],
-			["Application Materials"],
-			["Credits & Transfer"],
-			["Manage Your Application"],
-			["How to Apply"],
-		],
-	},
-	{
-		id: ids.costAid,
-		label: "Cost & Aid",
-		parent: ids.main,
-		slug: "cost-aid",
-		items: [
-			["Cost of Attendance"],
-			["Financial Aid"],
-			["Scholarships"],
-			["Grants & Fellowships"],
-			["Loans"],
-			["Pay Your Bill"],
-		],
-	},
+	[
+		["IU Bloomington", "home", null],
+		["Academics"],
+		["Admissions", "admissions", true],
+		["Cost & Aid", "cost-aid"],
+		["Campus Life"],
+		["Support & Services"],
+		["Research"],
+		["About IU"],
+		["Alumni & Giving"],
+	],
+	[
+		["Admissions", "admissions", "home"],
+		["Apply", "apply", true],
+		["Admissions Paths", "admissions-paths"],
+		["Admissions Events"],
+		["Visit IU"],
+		["Meet Your Counselors"],
+		["Precollege Programs"],
+		["Planning for IU"],
+		["Class Profile"],
+		["After Admission"],
+		["Admissions Viewbook"],
+		["For Counselors"],
+		["For Families"],
+		["Request Information"],
+	],
+	[
+		["Apply", "apply", "admissions"],
+		["Freshman Applicants", "freshman-applicants"],
+		["Graduate Applicants", "graduate-applicants"],
+		["Returning Applicants"],
+		["Visiting & Non-degree Applicants"],
+		["Transfer Applicants"],
+		["Application Materials"],
+		["Credits & Transfer"],
+		["Manage Your Application"],
+		["How to Apply"],
+	],
+	[
+		["Cost & Aid", "cost-aid", "home"],
+		["Cost of Attendance"],
+		["Financial Aid"],
+		["Scholarships"],
+		["Grants & Fellowships"],
+		["Loans"],
+		["Pay Your Bill"],
+	]
 ];
 
 export function getMenus(Astro) {
 	const menuDepth = new Map();
 	return menus.map((menu) => {
-		const items = menu.items.map((item) => {
-			const [label, slug, child] = item;
-			const current = isCurrentPage(slug, Astro);
-			const url = getUrl(slug);
-			return { current, label, url, child };
+		const [meta, ...menuItems] = menu;
+		const [label, id, parent] = meta;
+		const items = menuItems.map((item) => {
+			const [label, id, child] = item;
+			const current = isCurrentPage(id, Astro);
+			const url = getUrl(id);
+			return { child, current, id, label, url };
 		});
-		const main = !menu.parent;
+		const main = !parent;
 		const current = items.some((item) => item.current);
-		const parentDepth = menuDepth.get(menu.parent) || 0;
+		const parentDepth = menuDepth.get(parent) || 0;
 		const depth = parentDepth + 1;
-		menuDepth.set(menu.id, depth);
-		const url = getUrl(menu.slug);
+		menuDepth.set(id, depth);
+		const url = getUrl(id);
 		return {
-			...menu,
 			current,
 			depth,
+			id,
 			items,
+			label,
 			main,
+			parent,
 			url,
 		};
 	});

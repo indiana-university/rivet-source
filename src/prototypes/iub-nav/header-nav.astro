@@ -34,7 +34,7 @@ const mainMenu = menus.find((menu) => menu.main);
 				</header>
 				<ul>
 					{menu.items.map((item) => (
-						<li data-menu-child={item.child}>
+						<li data-menu-child={item.id}>
 							<a
 								aria-current={item.current ? "page" : null}
 								href={item.url || "#"}
