@@ -1,16 +1,15 @@
 ---
 const { menus } = Astro.props;
-const mainMenu = menus.find((menu) => menu.main);
 ---
 
-<nav data-menu-main={mainMenu.id}>
+<nav data-menu-main={menus.main.id}>
 	{
-		menus.map((menu) => (
+		menus.all.map((menu) => (
 			<div data-menu={menu.id} data-menu-parent={menu.parent}>
 				<header>
 					{menu.parent && (
 						<div class="rvt-button-group">
-							{menu.depth > 2 && (
+							{menu.depth > 1 && (
 								<button
 									class="rvt-button rvt-button--medium"
 									data-open-menu="main"
@@ -41,7 +40,7 @@ const mainMenu = menus.find((menu) => menu.main);
 							>
 								{item.label}
 							</a>
-							{item.child && (
+							{item.hasChildren && (
 								<button
 									class="rvt-button rvt-button--medium rvt-button--icon-only"
 									data-open-menu="child"
@@ -185,8 +184,10 @@ const mainMenu = menus.find((menu) => menu.main);
 		const currentMenu = document.querySelector(
 			`[${prefix}]:has([aria-current=page])`,
 		);
-		const firstMenu = document.querySelector(`[${prefix}]`);
-		openMenu(currentMenu || firstMenu);
+		const attribute = `${prefix}-main`;
+		const mainMenuId = document.querySelector(`[${attribute}]`).getAttribute(attribute);
+		const mainMenu = document.querySelector(`[${prefix}="${mainMenuId}"]`);
+		openMenu(currentMenu || mainMenu);
 	}
 
 	openCurrentMenu();
