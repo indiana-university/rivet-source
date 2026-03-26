@@ -35,5 +35,5 @@ const homeMenu = [
 	["Research"],
 	["About IU"],
 	["Alumni & Giving"],
-]
+];
 export const menus = ["IU Bloomington", "home", homeMenu];

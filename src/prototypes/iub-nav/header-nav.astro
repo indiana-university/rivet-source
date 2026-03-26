@@ -185,7 +185,9 @@ const { menus } = Astro.props;
 			`[${prefix}]:has([aria-current=page])`,
 		);
 		const attribute = `${prefix}-main`;
-		const mainMenuId = document.querySelector(`[${attribute}]`).getAttribute(attribute);
+		const mainMenuId = document
+			.querySelector(`[${attribute}]`)
+			.getAttribute(attribute);
 		const mainMenu = document.querySelector(`[${prefix}="${mainMenuId}"]`);
 		openMenu(currentMenu || mainMenu);
 	}

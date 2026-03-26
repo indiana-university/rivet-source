@@ -4,11 +4,7 @@ import ScrollSnap from "./scroll-snap.astro";
 import { menus as _menus } from "./const.js";
 import { getMenus, getUrl } from "./util.js";
 
-const {
-	headerTheme = "light",
-	root = false,
-	title,
-} = Astro.props;
+const { headerTheme = "light", root = false, title } = Astro.props;
 const themeClass = `rvt-theme-${headerTheme}`;
 const menus = getMenus(_menus, Astro);
 ---
@@ -20,20 +16,24 @@ const menus = getMenus(_menus, Astro);
 			<rvt-related-nav>
 				<ScrollSnap>
 					<nav aria-label="Related pages">
-						{menus.current.parent && (
-							<a href={menus.current.url}>{menus.current.label}</a>
-						)}
+						{
+							menus.current.parent && (
+								<a href={menus.current.url}>{menus.current.label}</a>
+							)
+						}
 						<ul>
-							{menus.current.items.map((item) => (
-								<li>
-									<a
-										aria-current={item.current ? "page" : null}
-										href={item.url}
-									>
-										{item.label}
-									</a>
-								</li>
-							))}
+							{
+								menus.current.items.map((item) => (
+									<li>
+										<a
+											aria-current={item.current ? "page" : null}
+											href={item.url}
+										>
+											{item.label}
+										</a>
+									</li>
+								))
+							}
 						</ul>
 					</nav>
 				</ScrollSnap>

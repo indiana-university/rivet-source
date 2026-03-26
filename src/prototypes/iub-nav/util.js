@@ -42,12 +42,7 @@ export function getMenus(menus, Astro) {
 }
 
 export function getUrl(path) {
-	return [
-		import.meta.env.BASE_URL,
-		"prototypes",
-		"iub-nav",
-		path,
-	].join("/");
+	return [import.meta.env.BASE_URL, "prototypes", "iub-nav", path].join("/");
 }
 
 export function isCurrentPage(path, Astro) {
