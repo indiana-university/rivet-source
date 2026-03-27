@@ -1,16 +1,20 @@
 ---
-import Template from "./template.astro";
+import Layout from "./layout.astro";
 import { menus as _menus, site } from "./const.js";
 import { getMenus, getUrl } from "./util.js";
 
 export function getStaticPaths() {
 	const menus = getMenus(_menus, Astro);
-	return menus.pages.map((page) => ({
+	const files = import.meta.glob(["./*.astro"], { eager: true });
+	const contentMap = new Map(Object.entries(files));
+	return menus.pages.map((data) => ({
+		Content: contentMap.get(`./${data.id}.astro`)?.default,
+		data,
 		fileType: "prototype",
-		page: { default: Template },
-		path: getUrl(page.id, { excludeBase: true }),
+		page: { default: Layout },
+		path: getUrl(data.id, { excludeBase: true }),
 		site,
-		title: page.label,
+		title: data.label,
 		type: "file",
 	}));
 }

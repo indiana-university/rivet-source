@@ -7,22 +7,25 @@ export function getMenus(menus, Astro) {
 		const [label, _id, menuItems = []] = data;
 		const main = depth === 0;
 		const id = _id ? _id : toSlug(label);
-		const items = menuItems.map((item) => getMenu(item, depth + 1, id));
-		const hasCurrent = items.some((item) => item.current);
-		const hasChildren = !!items.length;
 		const current = isCurrentPage(id, Astro);
 		const url = id ? getUrl(id) : "#";
-		const menu = {
+		const page = {
 			current,
 			depth,
-			hasChildren,
-			hasCurrent,
 			id,
-			items,
 			label,
 			main,
 			parent,
 			url,
+		};
+		const items = menuItems.map((item) => getMenu(item, depth + 1, page));
+		const hasCurrent = items.some((item) => item.current);
+		const hasChildren = !!items.length;
+		const menu = {
+			...page,
+			hasChildren,
+			hasCurrent,
+			items,
 		};
 		pages.push(menu);
 		return menu;

@@ -5,7 +5,7 @@ const { menus } = Astro.props;
 <nav data-menu-main={menus.main.id}>
 	{
 		menus.all.map((menu) => (
-			<div data-menu={menu.id} data-menu-parent={menu.parent}>
+			<div data-menu={menu.id} data-menu-parent={menu.parent?.id}>
 				<header>
 					{menu.parent && (
 						<div class="rvt-button-group">

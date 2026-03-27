@@ -2,11 +2,20 @@
 import Header from "./header.astro";
 import ScrollSnap from "./scroll-snap.astro";
 import { menus as _menus } from "./const.js";
-import { getMenus, getUrl } from "./util.js";
+import { getMenus } from "./util.js";
 
-const { headerTheme = "light", root = false, title } = Astro.props;
+const { Content, data, headerTheme = "light", root = false, title } = Astro.props;
 const themeClass = `rvt-theme-${headerTheme}`;
 const menus = getMenus(_menus, Astro);
+const breadcrumbs = [];
+if (data) {
+	let { parent } = data;
+	while (parent) {
+		breadcrumbs.unshift(parent);
+		parent = parent.parent;
+	}
+}
+const hideTitle = Astro.slots.has("default") || !!Content;
 ---
 
 <Header menus={menus} theme={headerTheme} />
@@ -43,43 +52,36 @@ const menus = getMenus(_menus, Astro);
 					<rvt-breadcrumbs>
 						<nav aria-label="Breadcrumbs">
 							<ol class="rvt-breadcrumbs">
-								<li>
-									<a href={getUrl("home")}>
-										<span class="rvt-sr-only">Home</span>
-									</a>
-								</li>
-								<slot name="breadcrumbs" />
+								{breadcrumbs.map((item, i) => (
+									<li>
+										<a href={item.url}>
+											{i === 0 && (
+												<span class="rvt-sr-only">Home</span>
+											)}
+											{i > 0 && item.label}
+										</a>
+									</li>
+								))}
 								<li aria-current="page">{title}</li>
 							</ol>
 						</nav>
 					</rvt-breadcrumbs>
 				)
 			}
-			{!Astro.slots.has("hero") && <h1>{title}</h1>}
-			{Astro.slots.has("hero") && <h1 class="rvt-sr-only">{title}</h1>}
+			{!hideTitle && <h1>{title}</h1>}
+			{hideTitle && <h1 class="rvt-sr-only">{title}</h1>}
 		</header>
 	</rvt-main-header>
-	{
-		Astro.slots.has("hero") && (
-			<div class:list={["rvt-section", themeClass]}>
-				<slot name="hero" />
-			</div>
-		)
-	}
-	{
-		Astro.slots.has("content") && (
-			<div class="rvt-container">
-				<slot name="content" />
-			</div>
-		)
-	}
-	{
-		Astro.slots.has("children") && (
-			<div class="rvt-container rvt-section">
-				<slot name="children" />
-			</div>
-		)
-	}
+	{Content && (
+		<div class="rvt-section">
+			<Content />
+		</div>
+	)}
+	{Astro.slots.has("default") && (
+		<div class="rvt-section">
+			<slot />
+		</div>
+	)}
 </main>
 
 <style is:global>
