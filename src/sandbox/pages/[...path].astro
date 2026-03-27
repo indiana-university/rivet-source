@@ -6,7 +6,12 @@ import SandboxLayout from "../layouts/SandboxLayout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
-		["@src/**/*.astro", "!@src/sandbox/**/*.astro", "!@src/**/*.tmp.astro"],
+		[
+			"@src/**/*.astro",
+			"!@src/sandbox/**/*.astro",
+			"!@src/**/*.tmp.astro",
+			"!@src/**/getStaticPaths.astro"
+		],
 		{ eager: true },
 	);
 	const pageEntries: [string, any][] = Object.entries(allPages)
@@ -73,7 +78,14 @@ export function getStaticPaths() {
 		}
 	}
 
-	return Array.from(pathMap.values()).map((props) => {
+	const staticPathPages = import.meta.glob(
+		["@src/**/getStaticPaths.astro"],
+		{ eager: true },
+	);
+	const staticPaths = Object.values(staticPathPages)
+		.flatMap((file: any) => file.getStaticPaths() || []);
+
+	return [...staticPaths, ...pathMap.values()].map((props) => {
 		const { path } = props;
 		const params = { path };
 		return { params, props };
@@ -102,7 +114,7 @@ const { page, fileType, type } = Astro.props;
 {
 	type === "file" && fileType === "prototype" && (
 		<BaseLayout {...Astro.props}>
-			<page.default />
+			<page.default {...Astro.props} />
 		</BaseLayout>
 	)
 }

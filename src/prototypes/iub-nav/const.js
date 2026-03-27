@@ -1,8 +1,8 @@
 export const site = "Indiana University Bloomington";
 
 const applyMenu = [
-	["Freshman Applicants", "freshman-applicants"],
-	["Graduate Applicants", "graduate-applicants"],
+	["Freshman Applicants"],
+	["Graduate Applicants"],
 	["Returning Applicants"],
 	["Visiting & Non-degree Applicants"],
 	["Transfer Applicants"],
@@ -12,8 +12,8 @@ const applyMenu = [
 	["How to Apply"],
 ];
 const admissionsMenu = [
-	["Apply", "apply", applyMenu],
-	["Admissions Paths", "admissions-paths"],
+	["Apply", null, applyMenu],
+	["Admissions Paths"],
 	["Admissions Events"],
 	["Visit IU"],
 	["Meet Your Counselors"],
@@ -28,8 +28,8 @@ const admissionsMenu = [
 ];
 const homeMenu = [
 	["Academics"],
-	["Admissions", "admissions", admissionsMenu],
-	["Cost & Aid", "cost-aid"],
+	["Admissions", null, admissionsMenu],
+	["Cost & Aid"],
 	["Campus Life"],
 	["Support & Services"],
 	["Research"],
