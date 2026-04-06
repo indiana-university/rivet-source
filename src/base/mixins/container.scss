@@ -3,7 +3,7 @@
 
 @use "../tokens.tmp" as *;
 
-@mixin container($max-width: $breakpoint-xl) {
+@mixin container($max-width: $breakpoint-xxl) {
 	box-sizing: content-box;
 	margin-inline: auto;
 	max-width: var(--rvt-container-max-width, #{$max-width});
