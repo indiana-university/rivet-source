@@ -19,7 +19,8 @@
 		".": {
 			"browser": "./dist/rivet.js",
 			"import": "./dist/rivet.js"
-		}
+		},
+		"./dist/": "./dist/"
 	},
 	"scripts": {
 		"start": "run-s build:tokens start:astro",
