@@ -13,7 +13,7 @@
 		border: none;
 		color: var(--rvt-color-theme-accent);
 		display: flex;
-		font: var(--rvt-font-16-bold);
+		font: var(--rvt-font-16-bold-wide);
 		gap: var(--rvt-spacing-xs);
 		padding: 0;
 

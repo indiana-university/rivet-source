@@ -126,9 +126,11 @@
 	--rvt-font-12-fluid-mono: var(--rvt-font-weight-normal)
 		var(--rvt-size-12-14) / var(--rvt-size-16) var(--rvt-font-family-mono);
 
-	--rvt-font-14: var(--rvt-font-width-expanded) var(--rvt-font-weight-normal)
+	--rvt-font-14: var(--rvt-font-width-semi-expanded) var(--rvt-font-weight-normal)
 		var(--rvt-size-14) / var(--rvt-size-20) var(--rvt-font-family-sans);
-	--rvt-font-14-bold: var(--rvt-font-width-expanded) var(--rvt-font-weight-bold)
+	--rvt-font-14-bold: var(--rvt-font-width-semi-expanded) var(--rvt-font-weight-bold)
+		var(--rvt-size-14) / var(--rvt-size-20) var(--rvt-font-family-sans);
+	--rvt-font-14-bold-wide: var(--rvt-font-width-expanded) var(--rvt-font-weight-bold)
 		var(--rvt-size-14) / var(--rvt-size-20) var(--rvt-font-family-sans);
 	--rvt-font-14-mono: var(--rvt-font-weight-normal) var(--rvt-size-14) /
 		var(--rvt-size-16) var(--rvt-font-family-mono);
@@ -139,7 +141,9 @@
 	--rvt-font-16-fluid: var(--rvt-font-width-semi-expanded)
 		var(--rvt-font-weight-normal) var(--rvt-size-16-18) / var(--rvt-size-24-28)
 		var(--rvt-font-family-sans);
-	--rvt-font-16-bold: var(--rvt-font-width-expanded) var(--rvt-font-weight-bold)
+	--rvt-font-16-bold: var(--rvt-font-width-semi-expanded) var(--rvt-font-weight-bold)
+		var(--rvt-size-16) / var(--rvt-size-24) var(--rvt-font-family-sans);
+	--rvt-font-16-bold-wide: var(--rvt-font-width-expanded) var(--rvt-font-weight-bold)
 		var(--rvt-size-16) / var(--rvt-size-24) var(--rvt-font-family-sans);
 	--rvt-font-16-mono: var(--rvt-font-weight-normal) var(--rvt-size-16) /
 		var(--rvt-size-24) var(--rvt-font-family-mono);
