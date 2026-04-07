@@ -99,7 +99,7 @@
 
 	&-menu__link {
 		color: var(--rvt-color-theme-text-strong);
-		font: var(--rvt-font-14-bold);
+		font: var(--rvt-font-14-bold-wide);
 		padding-block: var(--rvt-spacing-xs);
 		text-decoration: none;
 
@@ -117,7 +117,7 @@
 			color: var(--rvt-color-theme-text-strong);
 			cursor: pointer;
 			display: flex;
-			font: var(--rvt-font-14-bold);
+			font: var(--rvt-font-14-bold-wide);
 			gap: var(--rvt-spacing-xs);
 			margin-top: var(--rvt-size-3);
 			padding-block: var(--rvt-spacing-xxs);
