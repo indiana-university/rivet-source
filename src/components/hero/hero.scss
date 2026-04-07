@@ -31,7 +31,7 @@
 			margin-block-start: 0;
 		}
 
-		> * {
+		> *:not(.rvt-hero__title) {
 			max-width: var(--width-max);
 		}
 	}
