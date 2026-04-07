@@ -25,14 +25,17 @@
 	"scripts": {
 		"start": "run-s build:tokens start:astro",
 		"start:astro": "astro dev --open --host",
-		"build": "run-s build:clean build:tokens build:dist build:dist:clean build:zip",
-		"build:clean": "rimraf src/**/*tmp* src/**/**/*tmp* dist rivet.zip",
+		"build": "run-s build:clean build:tokens build:dist build:dist:clean build:zip build:astro",
+		"build:clean": "rimraf src/**/*tmp* src/**/**/*tmp* dist rivet.zip site",
 		"build:tokens": "style-dictionary build -c tokens.config.js",
 		"build:dist": "vite build",
 		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
+		"build:astro": "astro build",
 		"changelog": "node tasks/generate-changelog.js",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"preview": "run-s build preview:astro",
+		"preview:astro": "astro preview --open --host"
 	},
 	"files": [
 		"dist/**/*",

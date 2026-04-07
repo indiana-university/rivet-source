@@ -1,11 +1,17 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import ComponentLayout from "../layouts/ComponentLayout.astro";
 import IndexLayout from "../layouts/IndexLayout.astro";
-import Layout from "../layouts/Layout.astro";
+import SandboxLayout from "../layouts/SandboxLayout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
-		["@src/**/*.astro", "!@src/sandbox/**/*.astro"],
+		[
+			"@src/**/*.astro",
+			"!@src/sandbox/**/*.astro",
+			"!@src/**/*.tmp.astro",
+			"!@src/**/getStaticPaths.astro"
+		],
 		{ eager: true },
 	);
 	const pageEntries: [string, any][] = Object.entries(allPages)
@@ -36,19 +42,33 @@ export function getStaticPaths() {
 	for (const path of sortedPaths as string[]) {
 		const segments = path.split("/");
 		const page = pageMap.get(path);
+		const root = page?.root;
+		const site = page?.site;
 		const title = page?.title || segments.at(-1);
 		const isFile = /\.[^/]*$/.test(path);
 		const type = isFile ? "file" : "folder";
 		const isComponent = /\/components\//.test(path);
 		const isLayout = /\/layouts\//.test(path);
+		const isPrototype = /\/prototypes\//.test(path);
 		const isUtility = /\/utilities\//.test(path);
 		const [fileType] = [
 			isComponent && "component",
 			isLayout && "layout",
+			isPrototype && "prototype",
 			isUtility && "utility",
 		].filter((ft) => ft);
 		const children = [];
-		const currentNode = { children, fileType, page, path, title, type };
+		const cleanPath = path.replace(".astro", "");
+		const currentNode = {
+			children,
+			fileType,
+			page,
+			path: cleanPath,
+			root,
+			site,
+			title,
+			type,
+		};
 		pathMap.set(path, currentNode);
 		const parentPath = path.replace(/\/[^/]*$/, "") || "/";
 
@@ -58,7 +78,14 @@ export function getStaticPaths() {
 		}
 	}
 
-	return Array.from(pathMap.values()).map((props) => {
+	const staticPathPages = import.meta.glob(
+		["@src/**/getStaticPaths.astro"],
+		{ eager: true },
+	);
+	const staticPaths = Object.values(staticPathPages)
+		.flatMap((file: any) => file.getStaticPaths() || []);
+
+	return [...staticPaths, ...pathMap.values()].map((props) => {
 		const { path } = props;
 		const params = { path };
 		return { params, props };
@@ -78,19 +105,27 @@ const { page, fileType, type } = Astro.props;
 
 {
 	type === "file" && fileType === "layout" && (
-		<Layout {...Astro.props}>
+		<SandboxLayout {...Astro.props}>
 			<page.default />
-		</Layout>
+		</SandboxLayout>
+	)
+}
+
+{
+	type === "file" && fileType === "prototype" && (
+		<BaseLayout {...Astro.props}>
+			<page.default {...Astro.props} />
+		</BaseLayout>
 	)
 }
 
 {
 	type === "file" && fileType === "utility" && (
-		<Layout {...Astro.props}>
+		<SandboxLayout {...Astro.props}>
 			<div class="rvt-p-all-sm">
 				<page.default />
 			</div>
-		</Layout>
+		</SandboxLayout>
 	)
 }
 
