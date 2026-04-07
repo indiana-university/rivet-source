@@ -5,6 +5,17 @@ A system for designing and building digital interfaces at IU—built with plain 
 ![GitHub](https://img.shields.io/github/license/indiana-university/rivet?style=flat-square)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/indiana-university/rivet?style=flat-square)
 
+## Demo Rivet 3
+
+[Explore the Rivet 3 development sandbox](https://indiana-university.github.io/rivet-source/) to see the latest live examples of components and layouts.
+
+You can also run the development sandbox locally after cloning the repo:
+
+```
+npm install
+npm start
+```
+
 ## Using Rivet
 
 To use Rivet on your website or web application, follow the instructions on one of the pages listed below:
