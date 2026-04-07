@@ -7,7 +7,9 @@ A system for designing and building digital interfaces at IU—built with plain 
 
 ## Demo Rivet 3
 
-[Explore the Rivet 3 development sandbox](https://indiana-university.github.io/rivet-source/) to see the latest live examples of components and layouts.
+[Browse the `v3-main` branch](https://github.com/indiana-university/rivet-source/tree/v3-main) to see the latest Rivet 3 source code.
+
+[Explore the development sandbox](https://indiana-university.github.io/rivet-source/) to see the latest live examples of Rivet 3 components and layouts.
 
 You can also run the development sandbox locally after cloning the repo:
 
