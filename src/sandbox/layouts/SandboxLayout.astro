@@ -1,4 +1,5 @@
 ---
+import pkg from "@root/package.json";
 import Layout from "./BaseLayout.astro";
 import { baseUrl } from "@src/utilities/baseUrl.js";
 import { removeEnd } from "@src/utilities/removeEnd.js";
@@ -31,7 +32,7 @@ const parentPage = breadcrumbs.at(-2);
 			<rvt-icon name="arrow-left"></rvt-icon>
 			<span class="rvt-sr-only">{parentPage?.label}</span>
 		</a>
-		<nav class="rvt-border-left rvt-flex rvt-p-left-sm">
+		<nav class="rvt-border-left rvt-flex rvt-grow-1 rvt-p-left-sm">
 			<ol class="rvt-breadcrumbs">
 				{
 					breadcrumbs.map((item: any) => (
@@ -43,6 +44,9 @@ const parentPage = breadcrumbs.at(-2);
 				}
 			</ol>
 		</nav>
+		<span class="version">
+			{`v${pkg.version}`}
+		</span>
 		<h1 class="rvt-sr-only">{title}</h1>
 	</header>
 	<slot />
@@ -51,5 +55,9 @@ const parentPage = breadcrumbs.at(-2);
 <style>
 	header {
 		background-color: var(--rvt-color-theme-background-strong);
+	}
+
+	.version {
+		font: var(--rvt-font-14);
 	}
 </style>
