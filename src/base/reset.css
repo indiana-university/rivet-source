@@ -30,6 +30,14 @@ body {
 	-webkit-text-size-adjust: 100%;
 }
 
+code {
+	background-color: var(--rvt-color-theme-background-strong);
+	border-radius: var(--rvt-size-2);
+	font-family: var(--rvt-font-family-mono);
+	font-size: 0.96em;
+	padding: var(--rvt-size-2) var(--rvt-size-4);
+}
+
 h1,
 h2,
 h3,
