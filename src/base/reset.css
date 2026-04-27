@@ -34,7 +34,7 @@ code {
 	background-color: var(--rvt-color-theme-background-strong);
 	border-radius: var(--rvt-size-2);
 	font-family: var(--rvt-font-family-mono);
-	font-size: 0.96em;
+	font-size: 96%;
 	padding: var(--rvt-size-2) var(--rvt-size-4);
 }
 
