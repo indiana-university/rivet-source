@@ -2,10 +2,7 @@
 export const title = "Billboard";
 
 const { reverse = false } = Astro.props;
-const classList = [
-	"rvt-billboard",
-	{ "rvt-billboard--reverse": reverse }
-];
+const classList = ["rvt-billboard", { "rvt-billboard--reverse": reverse }];
 ---
 
 <div class:list={classList}>
