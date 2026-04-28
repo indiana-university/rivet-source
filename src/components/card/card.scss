@@ -164,7 +164,7 @@
 	--aspect-ratio: var(--aspect-ratio-rectangle);
 	--padding: var(--rvt-size-32);
 
-	&::before {
+	&:has(.rvt-card__title a)::before {
 		border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		bottom: 0;
@@ -176,7 +176,7 @@
 		width: var(--padding);
 	}
 
-	&::after {
+	&:has(.rvt-card__title a)::after {
 		--position: calc((var(--padding) - var(--rvt-size-16)) / 2);
 		background-color: currentColor;
 		bottom: var(--position);
