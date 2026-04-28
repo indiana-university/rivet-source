@@ -45,10 +45,6 @@
 
 	.rvt-card__sticker {
 		display: flex;
-
-		rvt-sticker {
-			border-radius: 0;
-		}
 	}
 
 	.rvt-card__body {
@@ -211,6 +207,7 @@
 			--size: 9rem;
 			aspect-ratio: var(--aspect-ratio);
 			background-color: var(--rvt-color-brand-extra-light);
+			border-radius: 0;
 			height: 100%;
 			width: 100%;
 		}
