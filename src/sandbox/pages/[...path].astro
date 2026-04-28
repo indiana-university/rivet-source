@@ -47,11 +47,13 @@ export function getStaticPaths() {
 		const title = page?.title || segments.at(-1);
 		const isFile = /\.[^/]*$/.test(path);
 		const type = isFile ? "file" : "folder";
+		const isBase = /\/base\//.test(path);
 		const isComponent = /\/components\//.test(path);
 		const isLayout = /\/layouts\//.test(path);
 		const isPrototype = /\/prototypes\//.test(path);
 		const isUtility = /\/utilities\//.test(path);
 		const [fileType] = [
+			isBase && "component",
 			isComponent && "component",
 			isLayout && "layout",
 			isPrototype && "prototype",
