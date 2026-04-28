@@ -9,6 +9,10 @@
 
 .rvt-billboard {
 	background-color: var(--rvt-color-theme-background-accent);
+	display: flex;
+	flex-direction: column;
+	gap: var(--rvt-size-32);
+	padding: var(--rvt-size-24);
 	position: relative;
 
 	& + & {
@@ -30,10 +34,6 @@
 		font: var(--rvt-font-29-black);
 	}
 
-	&__body {
-		padding: var(--rvt-size-24);
-	}
-
 	&__content {
 		color: var(--rvt-color-theme-text);
 		margin-block-start: var(--rvt-size-24);
@@ -48,8 +48,6 @@
 	}
 
 	&__image {
-		padding-block: var(--rvt-size-24) var(--rvt-size-8);
-		padding-inline: var(--rvt-size-24);
 		z-index: 1;
 
 		img {
@@ -70,7 +68,7 @@
 	}
 
 	@container (width > 50rem) {
-		display: flex;
+		gap: var(--rvt-size-24);
 		flex-direction: row-reverse;
 
 		& + & {
@@ -78,8 +76,6 @@
 		}
 
 		&__image {
-			padding-block: var(--rvt-size-24);
-			padding-inline-start: 0;
 			width: 66%;
 
 			img {
@@ -94,7 +90,7 @@
 			flex-grow: 1;
 			justify-content: flex-end;
 			margin-block-start: 0;
-			padding: var(--rvt-size-48);
+			padding: var(--rvt-size-24);
 		}
 
 		&--reverse {

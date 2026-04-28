@@ -1,8 +1,14 @@
 ---
 export const title = "Billboard";
+
+const { reverse = false } = Astro.props;
+const classList = [
+	"rvt-billboard",
+	{ "rvt-billboard--reverse": reverse }
+];
 ---
 
-<div class="rvt-billboard">
+<div class:list={classList}>
 	<div class="rvt-billboard__image">
 		<img
 			src="https://picsum.photos/id/10/1200/800"
