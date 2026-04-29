@@ -1,11 +1,14 @@
 ---
 export const title = "Billboard";
+
+const { reverse = false } = Astro.props;
+const classList = ["rvt-billboard", { "rvt-billboard--reverse": reverse }];
 ---
 
-<div class="rvt-billboard">
+<div class:list={classList}>
 	<div class="rvt-billboard__image">
 		<img
-			src="https://picsum.photos/id/10/800/800"
+			src="https://picsum.photos/id/10/1200/800"
 			alt="Student in vintage-style Indiana University t-shirt"
 		/>
 	</div>
@@ -24,6 +27,19 @@ export const title = "Billboard";
 			<p>
 				<a class="rvt-button rvt-button--cta" href="/#">Explore more of IU</a>
 			</p>
+			<div class="rvt-list-hub">
+				<ul class="rvt-list-hub__list">
+					<li class="rvt-list-hub__item">
+						<a class="rvt-list-hub__link" href="/">Learn about the process</a>
+					</li>
+					<li class="rvt-list-hub__item">
+						<a class="rvt-list-hub__link" href="/">Planning workstreams</a>
+					</li>
+					<li class="rvt-list-hub__item">
+						<a class="rvt-list-hub__link" href="/">Share your feedback</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

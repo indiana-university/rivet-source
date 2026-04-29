@@ -4,7 +4,7 @@ import { menus as _menus, site } from "./const.js";
 import { getMenus, getUrl } from "./util.js";
 
 export function getStaticPaths() {
-	const menus = getMenus(_menus, Astro);
+	const menus = getMenus(_menus);
 	const files = import.meta.glob(["./*.astro"], { eager: true });
 	const contentMap = new Map(Object.entries(files));
 	return menus.pages.map((data) => ({

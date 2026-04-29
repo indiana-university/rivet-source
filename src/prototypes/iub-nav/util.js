@@ -56,7 +56,7 @@ export function getUrl(path, options = {}) {
 }
 
 export function isCurrentPage(path, Astro) {
-	if (!Astro.url) {
+	if (!Astro?.url) {
 		return false;
 	}
 	return getUrl(path) === removeEnd(Astro.url.pathname, "/");

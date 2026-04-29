@@ -4,16 +4,16 @@
 			"$value": "{size.480}"
 		},
 		"md": {
-			"$value": "{size.740}"
+			"$value": "{size.800}"
 		},
 		"lg": {
-			"$value": "{size.1080}"
+			"$value": "{size.1024}"
 		},
 		"xl": {
-			"$value": "{size.1260}"
+			"$value": "{size.1280}"
 		},
 		"xxl": {
-			"$value": "{size.1400}"
+			"$value": "{size.1440}"
 		}
 	}
 }

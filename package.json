@@ -2,7 +2,7 @@
 	"name": "rivet-core",
 	"description": "Rivet Design System for Indiana University",
 	"homepage": "https://rivet.iu.edu",
-	"version": "3.0.0-alpha.8",
+	"version": "3.0.0-alpha.10",
 	"license": "BSD-3-Clause",
 	"repository": {
 		"type": "git",
@@ -19,7 +19,8 @@
 		".": {
 			"browser": "./dist/rivet.js",
 			"import": "./dist/rivet.js"
-		}
+		},
+		"./dist/": "./dist/"
 	},
 	"scripts": {
 		"start": "run-s build:tokens start:astro",
@@ -42,14 +43,14 @@
 	],
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
-		"astro": "5.16.7",
+		"astro": "6.1.10",
 		"npm-run-all": "4.1.5",
-		"prettier": "3.7.4",
+		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1",
-		"rimraf": "6.1.2",
-		"sass": "1.97.2",
-		"style-dictionary": "5.1.3",
-		"vite": "7.3.1",
+		"rimraf": "6.1.3",
+		"sass": "1.99.0",
+		"style-dictionary": "5.4.0",
+		"vite": "7.3.2",
 		"vite-plugin-banner": "0.8.1"
 	},
 	"dependencies": {

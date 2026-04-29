@@ -1,4 +1,5 @@
 ---
+import pkg from "@root/package.json";
 import Layout from "./BaseLayout.astro";
 import { baseUrl } from "@src/utilities/baseUrl.js";
 import { removeEnd } from "@src/utilities/removeEnd.js";
@@ -9,7 +10,7 @@ const title = Astro.props.title || APP_NAME;
 const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
 const breadcrumbs = removeEnd(currentPath, "/")
 	.split("/")
-	.map((part, i, source) => {
+	.map((part: any, i: any, source: any) => {
 		const last = i === source.length - 1;
 		const current: boolean | "page" = last ? "page" : false;
 		const label = current ? title : part || APP_NAME;
@@ -31,10 +32,10 @@ const parentPage = breadcrumbs.at(-2);
 			<rvt-icon name="arrow-left"></rvt-icon>
 			<span class="rvt-sr-only">{parentPage?.label}</span>
 		</a>
-		<nav class="rvt-border-left rvt-flex rvt-p-left-sm">
+		<nav class="rvt-border-left rvt-flex rvt-grow-1 rvt-p-left-sm">
 			<ol class="rvt-breadcrumbs">
 				{
-					breadcrumbs.map((item) => (
+					breadcrumbs.map((item: any) => (
 						<li aria-current={item.current}>
 							{!item.last && <a href={item.url}>{item.label}</a>}
 							{item.last && item.label}
@@ -43,6 +44,9 @@ const parentPage = breadcrumbs.at(-2);
 				}
 			</ol>
 		</nav>
+		<span class="version">
+			{`v${pkg.version}`}
+		</span>
 		<h1 class="rvt-sr-only">{title}</h1>
 	</header>
 	<slot />
@@ -51,5 +55,9 @@ const parentPage = breadcrumbs.at(-2);
 <style>
 	header {
 		background-color: var(--rvt-color-theme-background-strong);
+	}
+
+	.version {
+		font: var(--rvt-font-14);
 	}
 </style>

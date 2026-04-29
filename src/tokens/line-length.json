@@ -1,5 +1,8 @@
 {
 	"line-length": {
+		"tight": {
+			"$value": "30ch"
+		},
 		"short": {
 			"$value": "45ch"
 		},

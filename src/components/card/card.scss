@@ -45,10 +45,6 @@
 
 	.rvt-card__sticker {
 		display: flex;
-
-		rvt-sticker {
-			border-radius: 0;
-		}
 	}
 
 	.rvt-card__body {
@@ -89,17 +85,12 @@
 				height: var(--rvt-spacing-sm);
 				margin: calc((1lh - var(--rvt-spacing-sm)) / 2) 0;
 				pointer-events: none;
-				transition: all 0.2s ease;
 				width: var(--rvt-spacing-sm);
 			}
 
 			&:hover {
 				color: var(--rvt-color-theme-accent);
 				text-decoration: underline;
-
-				&::after {
-					transform: translateX(var(--rvt-spacing-xs));
-				}
 			}
 		}
 	}
@@ -173,7 +164,7 @@
 	--aspect-ratio: var(--aspect-ratio-rectangle);
 	--padding: var(--rvt-size-32);
 
-	&::before {
+	&:has(.rvt-card__title a)::before {
 		border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		bottom: 0;
@@ -185,7 +176,7 @@
 		width: var(--padding);
 	}
 
-	&::after {
+	&:has(.rvt-card__title a)::after {
 		--position: calc((var(--padding) - var(--rvt-size-16)) / 2);
 		background-color: currentColor;
 		bottom: var(--position);
@@ -197,7 +188,6 @@
 		pointer-events: none;
 		position: absolute;
 		right: var(--position);
-		transition: all 0.2s ease;
 		width: var(--rvt-spacing-sm);
 	}
 
@@ -217,6 +207,7 @@
 			--size: 9rem;
 			aspect-ratio: var(--aspect-ratio);
 			background-color: var(--rvt-color-brand-extra-light);
+			border-radius: 0;
 			height: 100%;
 			width: 100%;
 		}
