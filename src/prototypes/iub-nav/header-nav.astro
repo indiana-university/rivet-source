@@ -2,63 +2,84 @@
 const { menus } = Astro.props;
 ---
 
-<nav data-menu-main={menus.main.id}>
-	{
-		menus.all.map((menu) => (
-			<div data-menu={menu.id} data-menu-parent={menu.parent?.id}>
-				<header>
-					{menu.parent && (
-						<div class="rvt-button-group">
-							{menu.depth > 1 && (
+<nav aria-label="Related">
+	<rvt-drilldown data-drilldown-main={menus.main.id}>
+		{
+			menus.all.map((menu) => (
+				<div data-drilldown-menu={menu.id} data-drilldown-parent={menu.parent?.id}>
+					<header>
+						{menu.parent && (
+							<div class="rvt-button-group">
+								{menu.depth > 1 && (
+									<button
+										class="rvt-button rvt-button--medium"
+										data-drilldown-open="main"
+									>
+										<rvt-icon name="chevrons-left" />
+										Main
+									</button>
+								)}
 								<button
 									class="rvt-button rvt-button--medium"
-									data-open-menu="main"
+									data-drilldown-open="parent"
 								>
-									<rvt-icon name="chevrons-left" />
-									Main
+									<rvt-icon name="chevron-left" />
+									Back
 								</button>
-							)}
-							<button
-								class="rvt-button rvt-button--medium"
-								data-open-menu="parent"
-							>
-								<rvt-icon name="chevron-left" />
-								Back
-							</button>
-						</div>
-					)}
-					<h2>
-						<a href={menu.url}>{menu.label}</a>
-					</h2>
-				</header>
-				<ul>
-					{menu.items.map((item) => (
-						<li data-menu-child={item.id}>
-							<a
-								aria-current={item.current ? "page" : null}
-								href={item.url || "#"}
-							>
-								{item.label}
-							</a>
-							{item.hasChildren && (
-								<button
-									class="rvt-button rvt-button--medium rvt-button--icon-only"
-									data-open-menu="child"
+							</div>
+						)}
+						<h2>
+							<a href={menu.url}>{menu.label}</a>
+						</h2>
+					</header>
+					<ul>
+						{menu.items.map((item) => (
+							<li data-drilldown-child={item.id}>
+								<a
+									aria-current={item.current ? "page" : null}
+									href={item.url || "#"}
 								>
-									<span class="rvt-sr-only">{`${item.label} menu`}</span>
-									<rvt-icon name="chevron-right" />
-								</button>
-							)}
-						</li>
-					))}
-				</ul>
-			</div>
-		))
-	}
+									{item.label}
+								</a>
+								{item.hasChildren && (
+									<button
+										class="rvt-button rvt-button--medium rvt-button--icon-only"
+										data-drilldown-open="child"
+									>
+										<span class="rvt-sr-only">{`${item.label} menu`}</span>
+										<rvt-icon name="chevron-right" />
+									</button>
+								)}
+							</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
+	</rvt-drilldown>
 </nav>
 
-<style>
-	nav {
+<style is:global>
+	rvt-drilldown {
+		display: block;
+
+		a {
+			color: unset;
+			display: block;
+			flex-grow: 1;
+			margin: 0;
+			text-decoration: none;
+
+			&:visited {
+				color: inherit;
+			}
+
+			&:hover {
+				color: var(--rvt-color-theme-text-accent);
+				text-decoration: underline;
+			}
+		}
+
 		button {
 			--color-border: var(--rvt-color-theme-ui);
 			--color-border-hover: var(--rvt-color-theme-ui);
@@ -66,45 +87,46 @@ const { menus } = Astro.props;
 		}
 
 		header {
+			align-items: start;
+			display: flex;
+			gap: var(--rvt-size-8);
+			padding-block: var(--rvt-size-8);
+
 			h2 {
-				&:not(:first-child) {
-					margin-block-start: var(--rvt-size-24);
-				}
+				display: block;
+				flex-grow: 1;
 
 				a {
-					font: var(--rvt-font-20-bold);
-					margin: 0;
-					padding-inline: 0;
+					font: var(--rvt-font-18-bold);
+					padding-block: var(--rvt-size-4);
 				}
 			}
 		}
 
 		ul {
-			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-			margin-block-start: var(--rvt-size-8);
+			border-block-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			margin: 0;
+			padding: 0;
 		}
 
 		li {
+			align-items: start;
+			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			border-block-start: none;
 			display: flex;
 			gap: var(--rvt-size-8);
 			padding: var(--rvt-size-8);
 
 			a {
-				flex-grow: 1;
-				margin: 0;
+				padding: var(--rvt-size-4) var(--rvt-size-8);
 			}
 
 			&:has([aria-current="page"]) {
 				background-color: var(--rvt-color-theme-background-strong);
 
 				a {
-					color: inherit;
-					font: var(--rvt-font-16);
-					font-variation-settings: "GRAD" 150;
-
-					&:hover {
-						color: var(--rvt-color-theme-text-accent);
-					}
+					font: inherit;
+					font-variation-settings: var(--rvt-font-variation-grade);
 				}
 			}
 		}
@@ -112,22 +134,23 @@ const { menus } = Astro.props;
 </style>
 
 <script>
-	const prefix = "data-menu";
+	const prefix = "data-drilldown";
+	const attr = {
+		child: `${prefix}-child`,
+		main: `${prefix}-main`,
+		menu: `${prefix}-menu`,
+		open: `${prefix}-open`,
+		parent: `${prefix}-parent`,
+	};
 
 	function isNotHTML(element) {
 		return !(element instanceof HTMLElement);
 	}
 
-	function openMenu(menuElement) {
+	function focusMenu(menuElement) {
 		if (isNotHTML(menuElement)) {
 			return;
 		}
-		document.querySelectorAll(`[${prefix}]`).forEach((el) => {
-			if (isNotHTML(el)) {
-				return;
-			}
-			el.hidden = el !== menuElement;
-		});
 		window.requestAnimationFrame(() => {
 			const firstLink = menuElement.querySelector("ul a");
 			if (isNotHTML(firstLink)) {
@@ -137,60 +160,65 @@ const { menus } = Astro.props;
 		});
 	}
 
-	function triggerMenuButton(button) {
-		if (isNotHTML(button)) {
+	function openMenu(menuElement) {
+		if (isNotHTML(menuElement)) {
 			return;
 		}
-		const type = button.dataset.openMenu;
-		const attribute = `${prefix}-${type}`;
-		const source = button.closest(`[${attribute}]`);
-		const id = source.getAttribute(attribute);
-		const menu = document.querySelector(`[${prefix}=${id}]`);
-		openMenu(menu);
+		document.querySelectorAll(`[${attr.menu}]`).forEach((el) => {
+			if (isNotHTML(el)) {
+				return;
+			}
+			el.hidden = el !== menuElement;
+		});
 	}
-
-	document.addEventListener("click", (event) => {
-		if (isNotHTML(event.target)) {
-			return;
-		}
-		const button = event.target.closest("[data-open-menu]");
-		triggerMenuButton(button);
-	});
-
-	document.addEventListener(
-		"keydown",
-		(event) => {
-			if (event.key !== "Escape") {
-				return;
-			}
-			if (isNotHTML(event.target)) {
-				return;
-			}
-			const type = event.shiftKey ? "main" : "parent";
-			const attribute = `${prefix}-${type}`;
-			const source = event.target.closest(`[${attribute}]`);
-			if (isNotHTML(source)) {
-				return;
-			}
-			const id = source.getAttribute(attribute);
-			const menu = document.querySelector(`[${prefix}=${id}]`);
-			openMenu(menu);
-			event.stopPropagation();
-		},
-		{ capture: true },
-	);
 
 	function openCurrentMenu() {
 		const currentMenu = document.querySelector(
-			`[${prefix}]:has([aria-current=page])`,
+			`[${attr.menu}]:has([aria-current=page])`,
 		);
-		const attribute = `${prefix}-main`;
 		const mainMenuId = document
-			.querySelector(`[${attribute}]`)
-			.getAttribute(attribute);
-		const mainMenu = document.querySelector(`[${prefix}="${mainMenuId}"]`);
+			.querySelector(`[${attr.main}]`)
+			.getAttribute(attr.main);
+		const mainMenu = document.querySelector(`[${attr.menu}="${mainMenuId}"]`);
 		openMenu(currentMenu || mainMenu);
 	}
 
+	function handleClick(event) {
+		if (isNotHTML(event.target)) {
+			return;
+		}
+		const button = event.target.closest(`[${attr.open}]`);
+		if (isNotHTML(button)) {
+			return;
+		}
+		const type = button.getAttribute(attr.open);
+		const source = button.closest(`[${attr[type]}]`);
+		const id = source.getAttribute(attr[type]);
+		const menu = document.querySelector(`[${attr.menu}="${id}"]`);
+		openMenu(menu);
+		focusMenu(menu);
+	}
+
+	function handleKeydown(event) {
+		if (event.key !== "Escape") {
+			return;
+		}
+		if (isNotHTML(event.target)) {
+			return;
+		}
+		const type = event.shiftKey ? "main" : "parent";
+		const source = event.target.closest(`[${attr[type]}]`);
+		if (isNotHTML(source)) {
+			return;
+		}
+		const id = source.getAttribute(attr[type]);
+		const menu = document.querySelector(`[${attr.menu}="${id}"]`);
+		openMenu(menu);
+		focusMenu(menu);
+		event.stopPropagation();
+	}
+
+	document.addEventListener("click", handleClick);
+	document.addEventListener("keydown", handleKeydown, { capture: true });
 	openCurrentMenu();
 </script>
