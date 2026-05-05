@@ -42,13 +42,14 @@
 	@container stat-group (width > 40em) {
 		> ul > li {
 			min-width: 50%;
-			padding: var(--rvt-size-48);
+			padding: var(--rvt-size-40);
 		}
 	}
 
 	@container stat-group (width > 75em) {
 		> ul > li {
 			min-width: auto;
+			padding: var(--rvt-size-48);
 		}
 	}
 }
