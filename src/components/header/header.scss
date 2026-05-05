@@ -391,7 +391,7 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 		.rvt-lockup,
 		[data-rvt-header-menu-toggle] {
 			position: sticky;
-			top: calc(var(--rvt-size-16) + var(--offset-top, 0rem));
+			top: calc(var(--rvt-size-24) + var(--offset-top, 0rem));
 			z-index: var(--rvt-z-index-200);
 		}
 
