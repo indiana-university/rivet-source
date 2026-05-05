@@ -1,39 +1,30 @@
 ---
 export const title = "Stat Group";
+
+const stats = [
+	"microscope|$1B+|Research funding driving global breakthroughs",
+	"money-symbol|$75M|Invested in the future of engineering and tech",
+	"trophy|Top 10|Ranked for developing future leaders (TIME)",
+	"globe|805,000+|Alumni leading change in every sector worldwide",
+].map((stat) => {
+	const [sticker, number, description] = stat.split("|");
+	return { sticker, number, description };
+});
 ---
 
 <div class="rvt-stat-group">
 	<ul>
-		<li>
-			<div class="rvt-stat">
-				<rvt-sticker name="microscope" theme="crimson" size="sm"></rvt-sticker>
-				<div class="rvt-stat__number">$1B+</div>
-				<div class="rvt-stat__description">Research funding driving global breakthroughs</div>
-			</div>
-		</li>
-		<li>
-			<div class="rvt-stat">
-				<rvt-sticker name="money-symbol" theme="crimson" size="sm"></rvt-sticker>
-				<div class="rvt-stat__number">$75M</div>
-				<div class="rvt-stat__description">
-					Invested in the future of engineering and tech
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="rvt-stat">
-				<rvt-sticker name="trophy" theme="crimson" size="sm"></rvt-sticker>
-				<div class="rvt-stat__number">Top 10</div>
-				<div class="rvt-stat__description">Ranked for developing future leaders (TIME)</div>
-			</div>
-		</li>
-		<li>
-			<div class="rvt-stat">
-				<rvt-sticker name="globe" theme="crimson" size="sm"></rvt-sticker>
-				<div class="rvt-stat__number">805,000+</div>
-				<div class="rvt-stat__description">Alumni leading change in every sector worldwide</div>
-			</div>
-		</li>
+		{
+			stats.map((stat) => (
+				<li>
+					<div class="rvt-stat">
+						<rvt-sticker name={stat.sticker} theme="crimson" size="sm" />
+						<div class="rvt-stat__number">{stat.number}</div>
+						<div class="rvt-stat__description">{stat.description}</div>
+					</div>
+				</li>
+			))
+		}
 	</ul>
-	<p>* Stats current as of 2025</p>
+	<p>Stats current as of 2025</p>
 </div>

@@ -42,6 +42,10 @@
 		font: var(--rvt-font-12-mono);
 		margin: 0;
 		padding: var(--rvt-size-16) var(--padding);
+
+		&::before {
+			content: "*";
+		}
 	}
 
 	@container stat-group (width > 40em) {
