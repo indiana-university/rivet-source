@@ -48,14 +48,14 @@
 		}
 	}
 
-	@container stat-group (width > 40em) {
+	@container stat-group (width > 40rem) {
 		> * {
 			--min-width: 50%;
 			--padding: var(--rvt-size-40);
 		}
 	}
 
-	@container stat-group (width > 80em) {
+	@container stat-group (width > 80rem) {
 		> * {
 			--min-width: auto;
 			--padding: var(--rvt-size-48);
