@@ -3,92 +3,113 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-const prefix = "data-drilldown";
-const attr = {
-	child: `${prefix}-child`,
-	main: `${prefix}-main`,
-	menu: `${prefix}-menu`,
-	open: `${prefix}-open`,
-	parent: `${prefix}-parent`,
-};
+const ELEMENT_NAME = "rvt-drilldown";
+const DATA_ATTR_PREFIX = "data-drilldown";
+const MAIN = "main";
+const MENU = "menu";
+const OPEN = "open";
+const PARENT = "parent";
+
+function attr(key) {
+	return [DATA_ATTR_PREFIX, key].join("-");
+}
 
 function isNotHTML(element) {
 	return !(element instanceof HTMLElement);
 }
 
-function focusMenu(menuElement) {
-	if (isNotHTML(menuElement)) {
-		return;
+class RivetDrilldown extends HTMLElement {
+	#abortController;
+
+	connectedCallback() {
+		this.#abortController = new AbortController();
+		const { signal } = this.#abortController;
+		this.addEventListener("click", this.#handleClick, { signal });
+		this.addEventListener("keydown", this.#handleKeydown, {
+			capture: true,
+			signal,
+		});
+		this.#openMenu(this.#currentMenu || this.#mainMenu);
 	}
-	window.requestAnimationFrame(() => {
-		const firstLink = menuElement.querySelector("ul a");
-		if (isNotHTML(firstLink)) {
+
+	disconnectedCallback() {
+		this.#abortController.abort();
+	}
+
+	#handleClick(event) {
+		if (isNotHTML(event.target)) {
 			return;
 		}
-		firstLink.focus();
-	});
-}
-
-function openMenu(menuElement) {
-	if (isNotHTML(menuElement)) {
-		return;
-	}
-	document.querySelectorAll(`[${attr.menu}]`).forEach((el) => {
-		if (isNotHTML(el)) {
+		const button = event.target.closest(`[${attr(OPEN)}]`);
+		if (isNotHTML(button)) {
 			return;
 		}
-		el.hidden = el !== menuElement;
-	});
+		// data-drilldown-open="child|main|parent"
+		const type = button.getAttribute(attr(OPEN));
+		const source = button.closest(`[${attr(type)}]`);
+		const id = source.getAttribute(attr(type));
+		const menu = this.querySelector(`[${attr(MENU)}="${id}"]`);
+		this.#openMenu(menu);
+		this.#focusMenu(menu);
+	}
+
+	#handleKeydown(event) {
+		if (event.key !== "Escape") {
+			return;
+		}
+		if (isNotHTML(event.target)) {
+			return;
+		}
+		const type = event.shiftKey ? MAIN : PARENT;
+		const source = event.target.closest(`[${attr(type)}]`);
+		if (isNotHTML(source)) {
+			return;
+		}
+		const id = source.getAttribute(attr(type));
+		const menu = this.querySelector(`[${attr(MENU)}="${id}"]`);
+		this.#openMenu(menu);
+		this.#focusMenu(menu);
+		event.stopPropagation();
+	}
+
+	#focusMenu(menu) {
+		if (isNotHTML(menu)) {
+			return;
+		}
+		window.requestAnimationFrame(() => {
+			const firstLink = menu.querySelector("ul a");
+			if (isNotHTML(firstLink)) {
+				return;
+			}
+			firstLink.focus();
+		});
+	}
+
+	#openMenu(menu) {
+		if (isNotHTML(menu)) {
+			return;
+		}
+		this.querySelectorAll(`[${attr(MENU)}]`).forEach((el) => {
+			if (isNotHTML(el)) {
+				return;
+			}
+			el.hidden = el !== menu;
+		});
+	}
+
+	get #currentMenu() {
+		return this.querySelector(`[${attr(MENU)}]:has([aria-current=page])`);
+	}
+
+	get #mainMenu() {
+		const selector = `[${attr(MAIN)}]`;
+		const config = this.matches(selector) ? this : this.querySelector(selector);
+		if (isNotHTML(config)) {
+			return;
+		}
+		const id = config.getAttribute(attr(MAIN));
+		return this.querySelector(`[${attr(MENU)}="${id}"]`);
+	}
 }
 
-function openCurrentMenu() {
-	const currentMenu = document.querySelector(
-		`[${attr.menu}]:has([aria-current=page])`,
-	);
-	const mainMenuAttr = document.querySelector(`[${attr.main}]`);
-	if (isNotHTML(mainMenuAttr)) {
-		return;
-	}
-	const mainMenuId = mainMenuAttr.getAttribute(attr.main);
-	const mainMenu = document.querySelector(`[${attr.menu}="${mainMenuId}"]`);
-	openMenu(currentMenu || mainMenu);
-}
-
-function handleClick(event) {
-	if (isNotHTML(event.target)) {
-		return;
-	}
-	const button = event.target.closest(`[${attr.open}]`);
-	if (isNotHTML(button)) {
-		return;
-	}
-	const type = button.getAttribute(attr.open);
-	const source = button.closest(`[${attr[type]}]`);
-	const id = source.getAttribute(attr[type]);
-	const menu = document.querySelector(`[${attr.menu}="${id}"]`);
-	openMenu(menu);
-	focusMenu(menu);
-}
-
-function handleKeydown(event) {
-	if (event.key !== "Escape") {
-		return;
-	}
-	if (isNotHTML(event.target)) {
-		return;
-	}
-	const type = event.shiftKey ? "main" : "parent";
-	const source = event.target.closest(`[${attr[type]}]`);
-	if (isNotHTML(source)) {
-		return;
-	}
-	const id = source.getAttribute(attr[type]);
-	const menu = document.querySelector(`[${attr.menu}="${id}"]`);
-	openMenu(menu);
-	focusMenu(menu);
-	event.stopPropagation();
-}
-
-document.addEventListener("click", handleClick);
-document.addEventListener("keydown", handleKeydown, { capture: true });
-openCurrentMenu();
+window.customElements.define(ELEMENT_NAME, RivetDrilldown);
