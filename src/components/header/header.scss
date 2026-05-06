@@ -467,6 +467,7 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 			}
 		}
 
+		/*
 		nav {
 			container-type: inline-size;
 			display: block;
@@ -580,6 +581,7 @@ body:has([data-rvt-header-menu-toggle][aria-expanded="true"]) {
 				}
 			}
 		}
+		*/
 
 		[data-rvt-header-cta] {
 			display: flex;

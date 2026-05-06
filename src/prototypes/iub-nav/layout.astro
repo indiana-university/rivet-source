@@ -4,7 +4,13 @@ import ScrollSnap from "./scroll-snap.astro";
 import { menus as _menus } from "./const.js";
 import { getMenus } from "./util.js";
 
-const { Content, data, headerTheme = "light", root = false, title } = Astro.props;
+const {
+	Content,
+	data,
+	headerTheme = "light",
+	root = false,
+	title,
+} = Astro.props;
 const themeClass = `rvt-theme-${headerTheme}`;
 const menus = getMenus(_menus, Astro);
 const breadcrumbs = [];
@@ -55,9 +61,7 @@ const hideTitle = Astro.slots.has("default") || !!Content;
 								{breadcrumbs.map((item, i) => (
 									<li>
 										<a href={item.url}>
-											{i === 0 && (
-												<span class="rvt-sr-only">Home</span>
-											)}
+											{i === 0 && <span class="rvt-sr-only">Home</span>}
 											{i > 0 && item.label}
 										</a>
 									</li>
@@ -72,16 +76,20 @@ const hideTitle = Astro.slots.has("default") || !!Content;
 			{hideTitle && <h1 class="rvt-sr-only">{title}</h1>}
 		</header>
 	</rvt-main-header>
-	{Content && (
-		<div class="rvt-section">
-			<Content />
-		</div>
-	)}
-	{Astro.slots.has("default") && (
-		<div class="rvt-section">
-			<slot />
-		</div>
-	)}
+	{
+		Content && (
+			<div class="rvt-section">
+				<Content />
+			</div>
+		)
+	}
+	{
+		Astro.slots.has("default") && (
+			<div class="rvt-section">
+				<slot />
+			</div>
+		)
+	}
 </main>
 
 <style is:global>

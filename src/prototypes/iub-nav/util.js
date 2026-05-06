@@ -52,7 +52,9 @@ export function getUrl(path, options = {}) {
 		"prototypes",
 		"iub-nav",
 		path,
-	].filter((p) => p).join("/");
+	]
+		.filter((p) => p)
+		.join("/");
 }
 
 export function isCurrentPage(path, Astro) {

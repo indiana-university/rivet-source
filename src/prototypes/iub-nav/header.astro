@@ -1,5 +1,5 @@
 ---
-import Nav from "./header-nav.astro";
+import Drilldown from "@src/components/drilldown/drilldown.astro";
 import Search from "@src/components/header/header-search.astro";
 import { getUrl } from "./util.js";
 
@@ -18,7 +18,9 @@ const { menus, theme = "light" } = Astro.props;
 		</a>
 		<div data-rvt-header-menu>
 			<Search />
-			<Nav menus={menus} />
+			<nav aria-label="Related">
+				<Drilldown menus={menus} />
+			</nav>
 		</div>
 		<button
 			aria-expanded="false"
