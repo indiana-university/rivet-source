@@ -11,8 +11,8 @@ export const example = [
 		items: [
 			{ ...createItem("Academics"), current: true },
 			{ ...createItem("Admissions"), hasChildren: true },
-			createItem("Cost & Aid", "cost-aid")
-		]
+			createItem("Cost & Aid", "cost-aid"),
+		],
 	},
 	{
 		...createItem("Admissions"),
@@ -23,7 +23,7 @@ export const example = [
 			createItem("Visit"),
 			createItem("Meet Your Counselors"),
 		],
-		parent: createItem("IU Bloomington", "home")
+		parent: createItem("IU Bloomington", "home"),
 	},
 	{
 		...createItem("Apply"),
@@ -35,6 +35,6 @@ export const example = [
 			createItem("Visiting"),
 			createItem("Transfer"),
 		],
-		parent: createItem("Admissions")
+		parent: createItem("Admissions"),
 	},
 ];

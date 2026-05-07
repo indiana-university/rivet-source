@@ -119,7 +119,9 @@ class RivetDrilldown extends HTMLElement {
 	}
 
 	get #mainMenu() {
-		return this.querySelector(`${attrSelector(MENU)}:not(${attrSelector(PARENT)})`);
+		return this.querySelector(
+			`${attrSelector(MENU)}:not(${attrSelector(PARENT)})`,
+		);
 	}
 }
 
