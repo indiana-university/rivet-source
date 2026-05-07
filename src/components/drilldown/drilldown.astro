@@ -6,8 +6,8 @@ const { menus } = Astro.props;
 	{
 		menus.all.map((menu: any) => (
 			<div
-				data-drilldown-menu={menu.id}
-				data-drilldown-parent={menu.parent?.id}
+				data-rvt-drilldown-menu={menu.id}
+				data-rvt-drilldown-parent={menu.parent?.id}
 			>
 				<header>
 					{menu.parent && (
@@ -15,7 +15,7 @@ const { menus } = Astro.props;
 							{menu.depth > 1 && (
 								<button
 									class="rvt-button rvt-button--medium"
-									data-drilldown-open="main"
+									data-rvt-drilldown-open="main"
 								>
 									<rvt-icon name="chevrons-left" />
 									Main
@@ -23,7 +23,7 @@ const { menus } = Astro.props;
 							)}
 							<button
 								class="rvt-button rvt-button--medium"
-								data-drilldown-open="parent"
+								data-rvt-drilldown-open="parent"
 							>
 								<rvt-icon name="chevron-left" />
 								Back
@@ -36,7 +36,7 @@ const { menus } = Astro.props;
 				</header>
 				<ul>
 					{menu.items.map((item: any) => (
-						<li data-drilldown-child={item.id}>
+						<li data-rvt-drilldown-child={item.id}>
 							<a
 								aria-current={item.current ? "page" : null}
 								href={item.url || "#"}
@@ -46,7 +46,7 @@ const { menus } = Astro.props;
 							{item.hasChildren && (
 								<button
 									class="rvt-button rvt-button--medium rvt-button--icon-only"
-									data-drilldown-open="child"
+									data-rvt-drilldown-open="child"
 								>
 									<span class="rvt-sr-only">{`${item.label} menu`}</span>
 									<rvt-icon name="chevron-right" />

@@ -4,13 +4,12 @@
  *****************************************************************************/
 
 const ELEMENT_NAME = "rvt-drilldown";
-const DATA_ATTR_PREFIX = "data-drilldown";
 const MENU = "menu";
 const OPEN = "open";
 const PARENT = "parent";
 
 function attr(name) {
-	return [DATA_ATTR_PREFIX, name].join("-");
+	return ["data", ELEMENT_NAME, name].join("-");
 }
 
 function attrSelector(name, value) {
