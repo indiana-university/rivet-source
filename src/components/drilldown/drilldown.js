@@ -5,13 +5,41 @@
 
 const ELEMENT_NAME = "rvt-drilldown";
 const DATA_ATTR_PREFIX = "data-drilldown";
-const MAIN = "main";
 const MENU = "menu";
 const OPEN = "open";
 const PARENT = "parent";
 
-function attr(key) {
-	return [DATA_ATTR_PREFIX, key].join("-");
+function attr(name) {
+	return [DATA_ATTR_PREFIX, name].join("-");
+}
+
+function attrSelector(name, value) {
+	const equals = value ? `="${value}"` : "";
+	return `[${attr(name)}${equals}]`;
+}
+
+function focusOnFirstMatch(target, selector) {
+	window.requestAnimationFrame(() => {
+		if (isNotHTML(target)) {
+			return;
+		}
+		const el = target.querySelector(selector);
+		if (isNotHTML(el)) {
+			return;
+		}
+		el.focus();
+	});
+}
+
+function getClosestAttributeValue(target, name) {
+	if (isNotHTML(target)) {
+		return;
+	}
+	const source = target.closest(attrSelector(name));
+	if (isNotHTML(source)) {
+		return;
+	}
+	return source.getAttribute(attr(name));
 }
 
 function isNotHTML(element) {
@@ -37,18 +65,9 @@ class RivetDrilldown extends HTMLElement {
 	}
 
 	#handleClick(event) {
-		if (isNotHTML(event.target)) {
-			return;
-		}
-		const button = event.target.closest(`[${attr(OPEN)}]`);
-		if (isNotHTML(button)) {
-			return;
-		}
-		// data-drilldown-open="child|main|parent"
-		const type = button.getAttribute(attr(OPEN));
-		const source = button.closest(`[${attr(type)}]`);
-		const id = source.getAttribute(attr(type));
-		const menu = this.querySelector(`[${attr(MENU)}="${id}"]`);
+		const { target } = event;
+		const type = getClosestAttributeValue(target, OPEN);
+		const menu = this.#getMenu(target, type);
 		this.#openMenu(menu);
 		this.#focusMenu(menu);
 	}
@@ -57,39 +76,34 @@ class RivetDrilldown extends HTMLElement {
 		if (event.key !== "Escape") {
 			return;
 		}
-		if (isNotHTML(event.target)) {
+		const menu = event.shiftKey
+			? this.#mainMenu
+			: this.#getMenu(event.target, PARENT) || this.#mainMenu;
+		if (menu === this.#activeMenu) {
 			return;
 		}
-		const type = event.shiftKey ? MAIN : PARENT;
-		const source = event.target.closest(`[${attr(type)}]`);
-		if (isNotHTML(source)) {
-			return;
-		}
-		const id = source.getAttribute(attr(type));
-		const menu = this.querySelector(`[${attr(MENU)}="${id}"]`);
 		this.#openMenu(menu);
 		this.#focusMenu(menu);
 		event.stopPropagation();
 	}
 
 	#focusMenu(menu) {
-		if (isNotHTML(menu)) {
+		focusOnFirstMatch(menu, "ul a");
+	}
+
+	#getMenu(target, type) {
+		const id = getClosestAttributeValue(target, type);
+		if (!id) {
 			return;
 		}
-		window.requestAnimationFrame(() => {
-			const firstLink = menu.querySelector("ul a");
-			if (isNotHTML(firstLink)) {
-				return;
-			}
-			firstLink.focus();
-		});
+		return this.querySelector(attrSelector(MENU, id));
 	}
 
 	#openMenu(menu) {
 		if (isNotHTML(menu)) {
 			return;
 		}
-		this.querySelectorAll(`[${attr(MENU)}]`).forEach((el) => {
+		this.querySelectorAll(attrSelector(MENU)).forEach((el) => {
 			if (isNotHTML(el)) {
 				return;
 			}
@@ -97,18 +111,16 @@ class RivetDrilldown extends HTMLElement {
 		});
 	}
 
+	get #activeMenu() {
+		return this.querySelector(`${attrSelector(MENU)}:not([hidden])`);
+	}
+
 	get #currentMenu() {
-		return this.querySelector(`[${attr(MENU)}]:has([aria-current=page])`);
+		return this.querySelector(`${attrSelector(MENU)}:has([aria-current=page])`);
 	}
 
 	get #mainMenu() {
-		const selector = `[${attr(MAIN)}]`;
-		const config = this.matches(selector) ? this : this.querySelector(selector);
-		if (isNotHTML(config)) {
-			return;
-		}
-		const id = config.getAttribute(attr(MAIN));
-		return this.querySelector(`[${attr(MENU)}="${id}"]`);
+		return this.querySelector(`${attrSelector(MENU)}:not(${attrSelector(PARENT)})`);
 	}
 }
 
