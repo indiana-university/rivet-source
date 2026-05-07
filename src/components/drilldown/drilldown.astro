@@ -1,10 +1,14 @@
 ---
-const { menus } = Astro.props;
+import { example } from "./example.js";
+
+export const title = "Drilldown";
+
+const { menus = example } = Astro.props;
 ---
 
 <rvt-drilldown>
 	{
-		menus.all.map((menu: any) => (
+		menus.map((menu: any) => (
 			<div
 				data-rvt-drilldown-menu={menu.id}
 				data-rvt-drilldown-parent={menu.parent?.id}

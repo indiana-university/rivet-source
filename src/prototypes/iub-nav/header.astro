@@ -19,7 +19,7 @@ const { menus, theme = "light" } = Astro.props;
 		<div data-rvt-header-menu>
 			<Search />
 			<nav aria-label="Related">
-				<Drilldown menus={menus} />
+				<Drilldown menus={menus.all} />
 			</nav>
 		</div>
 		<button
