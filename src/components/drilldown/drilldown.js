@@ -4,6 +4,7 @@
  *****************************************************************************/
 
 const ELEMENT_NAME = "rvt-drilldown";
+const MAIN = "main";
 const MENU = "menu";
 const OPEN = "open";
 const PARENT = "parent";
@@ -91,6 +92,9 @@ class RivetDrilldown extends HTMLElement {
 	}
 
 	#getMenu(target, type) {
+		if (type === MAIN) {
+			return this.#mainMenu;
+		}
 		const id = getClosestAttributeValue(target, type);
 		if (!id) {
 			return;
