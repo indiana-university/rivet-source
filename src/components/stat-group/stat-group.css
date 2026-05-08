@@ -8,57 +8,57 @@
 	container-type: inline-size;
 
 	.rvt-container > & {
-		padding-block: var(--rvt-spacing-lg);
+		padding-block: var(--rvt-size-32);
+	}
+
+	> * {
+		--min-width: 100%;
+		--padding: var(--rvt-size-32);
 	}
 
 	> ul {
+		border-block-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-inline-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
 		list-style-type: "";
 		margin: 0;
 		padding: 0;
 
 		> li {
 			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-			padding: var(--rvt-spacing-lg) 0;
+			border-inline-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			flex-basis: 0;
+			flex-grow: 1;
+			min-width: var(--min-width);
+			padding: var(--padding);
 		}
 	}
 
-	.rvt-stat-group__note {
+	> p {
+		border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-inline: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		color: var(--rvt-color-theme-accent);
 		font: var(--rvt-font-12-mono);
-		margin-block: var(--rvt-spacing-sm) 0;
-	}
+		margin: 0;
+		padding: var(--rvt-size-16) var(--padding);
 
-	@container stat-group (width > 40em) {
-		> ul {
-			flex-direction: row;
-			flex-wrap: wrap;
-
-			> li {
-				border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-				flex-basis: 0;
-				flex-grow: 1;
-				margin-block-start: var(--rvt-size-n1);
-				margin-inline-start: var(--rvt-size-n1);
-				min-width: 50%;
-				padding: var(--rvt-size-64);
-			}
+		&::before {
+			content: "*";
 		}
 	}
 
-	@container stat-group (width > 68.75em) {
-		> ul > li {
-			border-block-end: none;
-			border-block-start: none;
-			border-inline-start: none;
-			margin-block-start: 0;
-			margin-inline-start: 0;
-			min-width: auto;
+	@container stat-group (width > 40rem) {
+		> * {
+			--min-width: 50%;
+			--padding: var(--rvt-size-40);
+		}
+	}
 
-			&:last-child {
-				border-inline-end: none;
-			}
+	@container stat-group (width > 80rem) {
+		> * {
+			--min-width: auto;
+			--padding: var(--rvt-size-48);
 		}
 	}
 }
