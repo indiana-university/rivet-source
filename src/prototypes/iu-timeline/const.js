@@ -2,6 +2,7 @@ export const site = "IU Timeline";
 
 const startDate = "1970-01-01";
 const endDate = getYMD();
+const articleFillPercentage = 0.05;
 const content = `
 2026-01-19
 IU wins the national football championship
@@ -49,62 +50,74 @@ Indiana defeated Michigan 86-68 in the NCAA championship.
 `;
 
 function parseContent(content) {
-	const extra = getDatesBetween(startDate, endDate)
+	const articles = content.trim().split("\n\n")
+	const fillerDates = getDatesBetween(startDate, endDate)
 		.filter((d) => !content.includes(d));
-	const data = [
-		...content.trim().split("\n\n"),
-		...getRandomItems(extra, 100)
-	].map((entry) => {
-		const [date, heading, description] = entry.split("\n");
-		const [year, month, day] = date.split("-");
-		const yearMonth = [year, month].join("-");
-		const decade = String(getDecade(date));
-		return { date, decade, yearMonth, year, month, day, heading, description };
-	}).sort((a, b) => a.date.localeCompare(b.date)).reverse();
+	const fillerTotal = fillerDates.length * articleFillPercentage;
+	const fillerArticles = getRandomItems(fillerDates, fillerTotal);
+	const data = [...articles, ...fillerArticles]
+		.map((entry) => {
+			const [date, label, description] = entry.split("\n");
+			return { date, label, description };
+		})
+		.sort((a, b) => a.date.localeCompare(b.date))
+		.reverse();
 
-	const decadesObj = Object.groupBy(data, (({ decade }) => decade));
-	const decades = Object.entries(decadesObj).map(([key, value]) => {
-		const years = [...new Set(value.map(({ year }) => year))].sort();
-		return [key, years];
+	const longDateFormat = new Intl.DateTimeFormat('en-US', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric'
 	});
-
-	const yearObj = Object.groupBy(data, (({ year }) => year));
-	const years = Object.entries(yearObj).map(([key, value]) => {
-		const months = [...new Set(value.map(({ month }) => month))].sort();
-		return [key, months];
-	});
-
-	const yearMonthObj = Object.groupBy(data, (({ yearMonth }) => yearMonth));
-	const yearMonths = Object.entries(yearMonthObj).map(([key, value]) => {
-		const days = [...new Set(value.map(({ day }) => day))].sort();
-		return [key, days];
-	});
-
 	const yearMonthDayObj = Object.groupBy(data, (({ date }) => date));
-	const yearMonthDays = Object.entries(yearMonthDayObj);
+	const yearMonthDays = Object.entries(yearMonthDayObj)
+		.map(([date, articles]) => {
+			const [year, month, day] = date.split("-");
+			const yearMonth = [year, month].join("-");
+			const decade = String(getDecade(date));
+			const label = longDateFormat.format(new Date(date));
+			const id = date;
+			return { id, date, decade, yearMonth, year, month, day, label, articles };
+		})
+		.sort((a, b) => a.id.localeCompare(b.id))
+		.reverse();
 
-	console.log("##", yearMonthDays);
+	const monthDateFormat = new Intl.DateTimeFormat('en-US', {
+		month: 'long',
+		year: 'numeric'
+	});
+	const yearMonthObj = Object.groupBy(yearMonthDays, (({ yearMonth }) => yearMonth));
+	const yearMonths = Object.entries(yearMonthObj)
+		.map(([yearMonth, items]) => {
+			const id = yearMonth;
+			const { date, year, decade } = items.at(0);
+			const label = monthDateFormat.format(new Date(date));
+			return { id, label, items, year, decade };
+		})
+		.sort((a, b) => a.id.localeCompare(b.id))
+		.reverse();
 
-	/*
+	const yearObj = Object.groupBy(yearMonths, (({ year }) => year));
+	const years = Object.entries(yearObj)
+		.map(([year, items]) => {
+			const { decade } = items.at(0);
+			const id = year;
+			const label = id;
+			return { id, label, items, decade };
+		})
+		.sort((a, b) => a.id.localeCompare(b.id))
+		.reverse();
 
-	const byDate = Object.groupBy(data, ({ date }) => date);
-	const dates = Object.keys(byDate).sort();
-	const firstDate = dates.at(0);
-	const firstYear = getYear(firstDate);
-	const lastDate = dates.at(-1);
-	const lastYear = getYear(lastDate);
-	const decades = getDecades(firstDate, lastDate)
-		.map((decade) => {
-			const years = getYearsInDecade(decade)
-				.filter((year) => year >= firstYear && year <= lastYear);
-			return {
-				decade,
-				years,
-			};
-		});
+	const decadesObj = Object.groupBy(years, (({ decade }) => decade));
+	const decades = Object.entries(decadesObj)
+		.map(([decade, items]) => {
+			const id = `${decade}s`;
+			const label = id;
+			return { id, label, items };
+		})
+		.sort((a, b) => a.id.localeCompare(b.id))
+		.reverse();
 
-	console.log("##", data);
-	*/
+	return decades;
 }
 
 function getDatesBetween(start, end) {
@@ -130,66 +143,17 @@ function getDecade(date) {
 	return Math.floor(year / 10) * 10;
 }
 
-function getDecades(minDate, maxDate) {
-	const minDecade = getDecade(minDate);
-	const maxDecade = getDecade(maxDate);
-	const decades = [];
-	for (let decade = minDecade; decade <= maxDecade; decade += 10) {
-		decades.push(decade);
-	}
-	return decades;
-}
-
 function getRandomItems(arr, count = 1) {
 	const shuffled = [...arr].sort(() => 0.5 - Math.random());
 	return shuffled.slice(0, count);
 }
 
-
 function getYear(date) {
 	return new Date(date).getFullYear();
 }
 
-function getYearsInDecade(decade) {
-	return Array.from({ length: 10 }, (_, i) => decade + i);
-}
-
-parseContent(content);
-
-const applyMenu = [
-	["Freshman Applicants"],
-	["Graduate Applicants"],
-	["Returning Applicants"],
-	["Visiting & Non-degree Applicants"],
-	["Transfer Applicants"],
-	["Application Materials"],
-	["Credits & Transfer"],
-	["Manage Your Application"],
-	["How to Apply"],
-];
-const admissionsMenu = [
-	["Apply", null, applyMenu],
-	["Admissions Paths"],
-	["Admissions Events"],
-	["Visit IU"],
-	["Meet Your Counselors"],
-	["Precollege Programs"],
-	["Planning for IU"],
-	["Class Profile"],
-	["After Admission"],
-	["Admissions Viewbook"],
-	["For Counselors"],
-	["For Families"],
-	["Request Information"],
-];
-const homeMenu = [
-	["Academics"],
-	["Admissions", null, admissionsMenu],
-	["Cost & Aid"],
-	["Campus Life"],
-	["Support & Services"],
-	["Research"],
-	["About IU"],
-	["Alumni & Giving"],
-];
-export const menus = ["IU Bloomington", "home", homeMenu];
+export const menus = {
+	id: "home",
+	label: site,
+	items: parseContent(content),
+};

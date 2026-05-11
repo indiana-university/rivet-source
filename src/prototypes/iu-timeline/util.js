@@ -4,7 +4,7 @@ export function getMenus(menus, Astro) {
 	const pages = [];
 
 	function getMenu(data, depth = 0, parent = null) {
-		const [label, _id, menuItems = []] = data;
+		const { id: _id, label = "", items: _items = [] } = data;
 		const main = depth === 0;
 		const id = _id ? _id : toSlug(label);
 		const current = isCurrentPage(id, Astro);
@@ -18,7 +18,7 @@ export function getMenus(menus, Astro) {
 			parent,
 			url,
 		};
-		const items = menuItems.map((item) => getMenu(item, depth + 1, page));
+		const items = _items.map((item) => getMenu(item, depth + 1, page));
 		const hasCurrent = items.some((item) => item.current);
 		const hasChildren = !!items.length;
 		const menu = {

@@ -1,6 +1,6 @@
 ---
 import Drilldown from "@src/components/drilldown/drilldown.astro";
-import Search from "@src/components/header/header-search.astro";
+import { site } from "./const.js";
 import { getUrl } from "./util.js";
 
 const { menus, theme = "light" } = Astro.props;
@@ -12,12 +12,11 @@ const { menus, theme = "light" } = Astro.props;
 		<a class="rvt-lockup" href={getUrl("home")}>
 			<rvt-logo-iu tab></rvt-logo-iu>
 			<div class="rvt-lockup__body">
-				<div class="rvt-lockup__title">Hoosier Heritage</div>
+				<div class="rvt-lockup__title">{site}</div>
 				<div class="rvt-lockup__subtitle">Indiana University</div>
 			</div>
 		</a>
 		<div data-rvt-header-menu>
-			<Search />
 			<nav aria-label="Related">
 				<Drilldown menus={menus.all} />
 			</nav>
