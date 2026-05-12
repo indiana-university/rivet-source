@@ -1,8 +1,8 @@
-export const site = "IU Timeline";
+export const site = "Hoosier Highlights";
 
 const startDate = "1970-01-01";
 const endDate = getYMD();
-const articleFillPercentage = 0.05;
+const articleFillPercentage = 0.005;
 const content = `
 2026-01-19
 IU wins the national football championship
@@ -26,7 +26,7 @@ IU Esports Arena Opening (Bloomington)
 Little 500 70th Anniversary Race
 
 2016-10-22
-Assembly Hall Renamed Ceremony (Simon Skjodt Assembly Hall)
+Assembly Hall Renaming Ceremony (Simon Skjodt Assembly Hall)
 Official public dedication ceremony begins.
 
 2012-12-12
@@ -44,20 +44,17 @@ Texas Tech (Knight's team) wins, breaking Dean Smith's record.
 1976-03-29
 IU's Last Undefeated Season Final Buzzer (Still modern-recorded)
 Indiana defeated Michigan 86-68 in the NCAA championship.
-
-1976-03-29
-(Just a test)
 `;
 
 function parseContent(content) {
 	const articles = content.trim().split("\n\n")
 	const fillerDates = getDatesBetween(startDate, endDate)
 		.filter((d) => !content.includes(d));
-	const fillerTotal = fillerDates.length * articleFillPercentage;
+	const fillerTotal = Math.round(fillerDates.length * articleFillPercentage);
 	const fillerArticles = getRandomItems(fillerDates, fillerTotal);
 	const data = [...articles, ...fillerArticles]
 		.map((entry) => {
-			const [date, label, description] = entry.split("\n");
+			const [date, label = "(Title of highlight)", description = "(Description)"] = entry.split("\n");
 			return { date, label, description };
 		})
 		.sort((a, b) => a.date.localeCompare(b.date))
@@ -66,7 +63,8 @@ function parseContent(content) {
 	const longDateFormat = new Intl.DateTimeFormat('en-US', {
 		month: 'long',
 		day: 'numeric',
-		year: 'numeric'
+		year: 'numeric',
+		timeZone: "UTC"
 	});
 	const yearMonthDayObj = Object.groupBy(data, (({ date }) => date));
 	const yearMonthDays = Object.entries(yearMonthDayObj)
@@ -83,7 +81,8 @@ function parseContent(content) {
 
 	const monthDateFormat = new Intl.DateTimeFormat('en-US', {
 		month: 'long',
-		year: 'numeric'
+		year: 'numeric',
+		timeZone: "UTC"
 	});
 	const yearMonthObj = Object.groupBy(yearMonthDays, (({ yearMonth }) => yearMonth));
 	const yearMonths = Object.entries(yearMonthObj)

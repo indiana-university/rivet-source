@@ -4,12 +4,13 @@ export function getMenus(menus, Astro) {
 	const pages = [];
 
 	function getMenu(data, depth = 0, parent = null) {
-		const { id: _id, label = "", items: _items = [] } = data;
+		const { id: _id, label = "", items: _items = [], ...other } = data;
 		const main = depth === 0;
 		const id = _id ? _id : toSlug(label);
 		const current = isCurrentPage(id, Astro);
 		const url = id ? getUrl(id) : "#";
 		const page = {
+			...other,
 			current,
 			depth,
 			id,

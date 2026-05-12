@@ -22,6 +22,7 @@ if (data) {
 	}
 }
 const hideTitle = Astro.slots.has("default") || !!Content;
+const childItems = data?.items || menus.current.items
 ---
 
 <Header menus={menus} theme={headerTheme} />
@@ -77,6 +78,18 @@ const hideTitle = Astro.slots.has("default") || !!Content;
 		</header>
 	</rvt-main-header>
 	{
+		data?.articles && (
+			<div class="rvt-container content">
+				{data.articles.map((article: any) => (
+					<>
+						<h2>{article.label}</h2>
+						<p>{article.description}</p>
+					</>
+				))}
+			</div>
+		)
+	}
+	{
 		Content && (
 			<div class="rvt-section">
 				<Content />
@@ -90,9 +103,33 @@ const hideTitle = Astro.slots.has("default") || !!Content;
 			</div>
 		)
 	}
+	{childItems && (
+		<div class="rvt-container">
+			<ul class="rvt-card-grid">
+				{childItems.map((item: any) => (
+					<li>
+						<div class="rvt-card">
+							<div class="rvt-card__body">
+								<h3 class="rvt-card__title">
+									<a href={item.url}>{item.label}</a>
+								</h3>
+								{item.articles && (
+									<div class="rvt-card__content">
+										{item.articles.map((article: any) => (
+											<p>{article.label}</p>
+										))}
+									</div>
+								)}
+							</div>
+						</div>
+					</li>
+				))}
+			</ul>
+		</div>
+	)}
 </main>
 
-<style is:global>
+<style>
 	rvt-related-nav {
 		--height: var(--rvt-size-48);
 		--padding: var(--rvt-size-12);
@@ -165,7 +202,8 @@ const hideTitle = Astro.slots.has("default") || !!Content;
 	rvt-main-header {
 		display: block;
 		container-type: inline-size;
-		padding-block-end: var(--rvt-size-24);
+		margin-block-end: var(--rvt-size-32);
+		padding-block-end: 0;
 
 		rvt-related-nav {
 			display: none;
@@ -214,6 +252,13 @@ const hideTitle = Astro.slots.has("default") || !!Content;
 			rvt-breadcrumbs {
 				margin-block-start: var(--rvt-size-24);
 			}
+		}
+	}
+
+	.content {
+		h2 {
+			font: var(--rvt-font-20-fluid-black);
+			margin-block-start: var(--rvt-size-32);
 		}
 	}
 </style>
