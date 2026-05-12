@@ -1,0 +1,5 @@
+# The --verbose flag ensures 'console.log' will display
+npx lint-staged --verbose
+
+# Add extra blank line
+echo ""
