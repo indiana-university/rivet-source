@@ -1,4 +1,4 @@
-# The --verbose flag ensures 'console.log' will display
+# --verbose flag ensures display of 'console.log' lines
 npx lint-staged --verbose
 
 # Add extra blank line

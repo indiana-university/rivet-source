@@ -43,7 +43,7 @@
 		"rivet.zip"
 	],
 	"lint-staged": {
-		"src/*.js": "node tasks/add-license.js"
+		"src/*.{js,css}": "node tasks/add-license.js"
 	},	
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
