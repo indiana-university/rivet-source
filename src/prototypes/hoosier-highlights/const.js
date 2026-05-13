@@ -47,26 +47,31 @@ Indiana defeated Michigan 86-68 in the NCAA championship.
 `;
 
 function parseContent(content) {
-	const articles = content.trim().split("\n\n")
-	const fillerDates = getDatesBetween(startDate, endDate)
-		.filter((d) => !content.includes(d));
+	const articles = content.trim().split("\n\n");
+	const fillerDates = getDatesBetween(startDate, endDate).filter(
+		(d) => !content.includes(d),
+	);
 	const fillerTotal = Math.round(fillerDates.length * articleFillPercentage);
 	const fillerArticles = getRandomItems(fillerDates, fillerTotal);
 	const data = [...articles, ...fillerArticles]
 		.map((entry) => {
-			const [date, label = "(Title of highlight)", description = "(Description)"] = entry.split("\n");
+			const [
+				date,
+				label = "(Title of highlight)",
+				description = "(Description)",
+			] = entry.split("\n");
 			return { date, label, description };
 		})
 		.sort((a, b) => a.date.localeCompare(b.date))
 		.reverse();
 
-	const longDateFormat = new Intl.DateTimeFormat('en-US', {
-		month: 'long',
-		day: 'numeric',
-		year: 'numeric',
-		timeZone: "UTC"
+	const longDateFormat = new Intl.DateTimeFormat("en-US", {
+		month: "long",
+		day: "numeric",
+		year: "numeric",
+		timeZone: "UTC",
 	});
-	const yearMonthDayObj = Object.groupBy(data, (({ date }) => date));
+	const yearMonthDayObj = Object.groupBy(data, ({ date }) => date);
 	const yearMonthDays = Object.entries(yearMonthDayObj)
 		.map(([date, articles]) => {
 			const [year, month, day] = date.split("-");
@@ -79,12 +84,15 @@ function parseContent(content) {
 		.sort((a, b) => a.id.localeCompare(b.id))
 		.reverse();
 
-	const monthDateFormat = new Intl.DateTimeFormat('en-US', {
-		month: 'long',
-		year: 'numeric',
-		timeZone: "UTC"
+	const monthDateFormat = new Intl.DateTimeFormat("en-US", {
+		month: "long",
+		year: "numeric",
+		timeZone: "UTC",
 	});
-	const yearMonthObj = Object.groupBy(yearMonthDays, (({ yearMonth }) => yearMonth));
+	const yearMonthObj = Object.groupBy(
+		yearMonthDays,
+		({ yearMonth }) => yearMonth,
+	);
 	const yearMonths = Object.entries(yearMonthObj)
 		.map(([yearMonth, items]) => {
 			const id = yearMonth;
@@ -95,7 +103,7 @@ function parseContent(content) {
 		.sort((a, b) => a.id.localeCompare(b.id))
 		.reverse();
 
-	const yearObj = Object.groupBy(yearMonths, (({ year }) => year));
+	const yearObj = Object.groupBy(yearMonths, ({ year }) => year);
 	const years = Object.entries(yearObj)
 		.map(([year, items]) => {
 			const { decade } = items.at(0);
@@ -106,7 +114,7 @@ function parseContent(content) {
 		.sort((a, b) => a.id.localeCompare(b.id))
 		.reverse();
 
-	const decadesObj = Object.groupBy(years, (({ decade }) => decade));
+	const decadesObj = Object.groupBy(years, ({ decade }) => decade);
 	const decades = Object.entries(decadesObj)
 		.map(([decade, items]) => {
 			const id = `${decade}s`;
@@ -133,7 +141,7 @@ function getDatesBetween(start, end) {
 }
 
 function getYMD(date) {
-	const d = date ? (new Date(date)) : (new Date());
+	const d = date ? new Date(date) : new Date();
 	return d.toISOString().substring(0, 10);
 }
 

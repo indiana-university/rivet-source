@@ -51,7 +51,7 @@ export function getUrl(path, options = {}) {
 	return [
 		excludeBase ? null : import.meta.env.BASE_URL,
 		"prototypes",
-		"iu-timeline",
+		"hoosier-highlights",
 		path,
 	]
 		.filter((p) => p)

@@ -1,17 +1,11 @@
 ---
+import Footer from "@src/components/footer/footer.astro";
 import Header from "./header.astro";
-import ScrollSnap from "./scroll-snap.astro";
+import ScrollSnap from "../iub-nav/scroll-snap.astro";
 import { menus as _menus } from "./const.js";
 import { getMenus } from "./util.js";
 
-const {
-	Content,
-	data,
-	headerTheme = "light",
-	root = false,
-	title,
-} = Astro.props;
-const themeClass = `rvt-theme-${headerTheme}`;
+const { Content, data, root = false, title } = Astro.props;
 const menus = getMenus(_menus, Astro);
 const breadcrumbs = [];
 if (data) {
@@ -22,12 +16,12 @@ if (data) {
 	}
 }
 const hideTitle = Astro.slots.has("default") || !!Content;
-const childItems = data?.items || menus.current.items
+const childItems = data?.items || menus.current.items;
 ---
 
-<Header menus={menus} theme={headerTheme} />
+<Header menus={menus} />
 <main id="main-content">
-	<rvt-main-header class={themeClass}>
+	<rvt-main-header>
 		<header class="rvt-container">
 			<rvt-related-nav>
 				<ScrollSnap>
@@ -89,45 +83,35 @@ const childItems = data?.items || menus.current.items
 			</div>
 		)
 	}
+	<slot />
 	{
-		Content && (
-			<div class="rvt-section">
-				<Content />
-			</div>
-		)
-	}
-	{
-		Astro.slots.has("default") && (
-			<div class="rvt-section">
-				<slot />
-			</div>
-		)
-	}
-	{childItems && (
-		<div class="rvt-container">
-			<ul class="rvt-card-grid">
-				{childItems.map((item: any) => (
-					<li>
-						<div class="rvt-card">
-							<div class="rvt-card__body">
-								<h3 class="rvt-card__title">
-									<a href={item.url}>{item.label}</a>
-								</h3>
-								{item.articles && (
-									<div class="rvt-card__content">
-										{item.articles.map((article: any) => (
-											<p>{article.label}</p>
-										))}
-									</div>
-								)}
+		childItems && (
+			<div class="rvt-container">
+				<ul class="rvt-card-grid">
+					{childItems.map((item: any) => (
+						<li>
+							<div class="rvt-card">
+								<div class="rvt-card__body">
+									<h3 class="rvt-card__title">
+										<a href={item.url}>{item.label}</a>
+									</h3>
+									{item.articles && (
+										<div class="rvt-card__content">
+											{item.articles.map((article: any) => (
+												<p>{article.label}</p>
+											))}
+										</div>
+									)}
+								</div>
 							</div>
-						</div>
-					</li>
-				))}
-			</ul>
-		</div>
-	)}
+						</li>
+					))}
+				</ul>
+			</div>
+		)
+	}
 </main>
+<Footer />
 
 <style>
 	rvt-related-nav {
@@ -260,5 +244,13 @@ const childItems = data?.items || menus.current.items
 			font: var(--rvt-font-20-fluid-black);
 			margin-block-start: var(--rvt-size-32);
 		}
+	}
+
+	.rvt-card-grid {
+		--gap: clamp(var(--rvt-size-16), 5vw, var(--rvt-size-40));
+	}
+
+	main {
+		padding-block-end: var(--rvt-size-32);
 	}
 </style>

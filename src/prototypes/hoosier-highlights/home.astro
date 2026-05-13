@@ -1,6 +1,5 @@
 ---
 import Layout from "./layout.astro";
-import { getUrl } from "./util.js";
 
 export { site } from "./const.js";
 export const root = true;
@@ -8,11 +7,13 @@ export const title = "Home";
 ---
 
 <Layout root={root} title={title}>
-	<div class="rvt-hero rvt-hero--statement">
+	<div class="rvt-hero rvt-hero--statement rvt-section">
 		<div class="rvt-hero__body">
 			<h2 class="rvt-hero__title">Dig into history</h2>
 			<p class="rvt-hero__teaser">
-				Discover major milestones and events over Indiana University's 200-year legacy. Be inspired and make your mark for the next generation of Hoosiers.
+				Discover major milestones and events over Indiana University's 200-year
+				legacy. Be inspired to make your mark for the next generation of
+				Hoosiers.
 			</p>
 		</div>
 	</div>
