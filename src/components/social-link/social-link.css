@@ -5,7 +5,7 @@
 
 .rvt-social-link {
 	align-items: center;
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	border-radius: var(--rvt-border-radius-circle);
 	color: var(--rvt-color-theme-accent);
 	display: flex;

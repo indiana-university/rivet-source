@@ -12,7 +12,7 @@
 	padding-block: var(--rvt-spacing-sm);
 
 	&:not(:first-child) {
-		border-block-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-block-start: var(--rvt-border);
 	}
 
 	&::before {

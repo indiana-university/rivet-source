@@ -4,7 +4,7 @@
 @use "../../base/core.scss" as *;
 
 .rvt-callout {
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	background-color: var(--rvt-color-theme-background);
 	color: var(--rvt-color-theme-text);
 	container-name: callout;

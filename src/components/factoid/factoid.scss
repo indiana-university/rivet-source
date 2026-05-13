@@ -23,7 +23,7 @@
 		flex-wrap: wrap;
 
 		&__item {
-			border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			border: var(--rvt-border);
 			flex-basis: 50%;
 			flex-grow: 999;
 			margin-left: var(--rvt-size-n1);

@@ -39,7 +39,7 @@
 	}
 
 	&__sidebar {
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-border);
 		padding-bottom: var(--rvt-spacing-lg);
 		padding-top: var(--rvt-spacing-lg);
 	}
@@ -52,7 +52,7 @@
 		}
 
 		&__sidebar {
-			border-right: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			border-right: var(--rvt-border);
 			border-top: none;
 			flex-basis: var(--rvt-width-md);
 			flex-grow: 1;

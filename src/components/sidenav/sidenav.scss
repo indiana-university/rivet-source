@@ -29,14 +29,14 @@
 
 	&__item {
 		align-items: center;
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-border);
 		display: flex;
 		flex-wrap: wrap;
 		margin-top: 0; // resets Rivet default margin-top
 	}
 
 	&__item &__item {
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-border);
 	}
 
 	&__item &__list {

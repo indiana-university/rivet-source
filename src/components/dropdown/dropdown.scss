@@ -94,13 +94,13 @@
 
 	&__menu-divider,
 	&__menu-separator {
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-border);
 		margin-bottom: var(--rvt-spacing-xs);
 		margin-top: var(--rvt-spacing-xs);
 	}
 
 	[role="group"] {
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-border);
 		margin-top: var(--rvt-spacing-xs);
 		padding-top: var(--rvt-spacing-xs);
 

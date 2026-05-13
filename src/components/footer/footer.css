@@ -4,7 +4,7 @@
  */
 
 .rvt-footer {
-	border-block-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border-block-start: var(--rvt-border);
 	container-type: inline-size;
 
 	a:not(.rvt-social-link) {

@@ -4,7 +4,7 @@
  */
 
 .rvt-disclosure {
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	padding: var(--rvt-spacing-sm);
 
 	.rvt-disclosure__toggle {

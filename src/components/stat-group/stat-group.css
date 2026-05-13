@@ -19,7 +19,7 @@
 		padding: 0;
 
 		> li {
-			border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			border-block-end: var(--rvt-border);
 			padding: var(--rvt-spacing-lg) 0;
 		}
 	}
@@ -36,7 +36,7 @@
 			flex-wrap: wrap;
 
 			> li {
-				border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+				border: var(--rvt-border);
 				flex-basis: 0;
 				flex-grow: 1;
 				margin-block-start: var(--rvt-size-n1);
