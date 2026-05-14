@@ -42,6 +42,9 @@
 		"rivet.zip"
 	],
 	"devDependencies": {
+		"@fontsource-variable/azeret-mono": "5.2.11",
+		"@fontsource-variable/playfair-display": "5.2.8",
+		"@fontsource-variable/roboto-flex": "5.2.8",
 		"@octokit/rest": "22.0.1",
 		"astro": "6.1.10",
 		"npm-run-all": "4.1.5",
