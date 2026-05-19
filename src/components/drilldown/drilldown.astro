@@ -1,0 +1,65 @@
+---
+import { example } from "./example.js";
+
+export const title = "Drilldown";
+
+const { menus = example } = Astro.props;
+---
+
+<rvt-drilldown>
+	{
+		menus.map((menu: any) => (
+			<div
+				data-rvt-drilldown-menu={menu.id}
+				data-rvt-drilldown-parent={menu.parent?.id}
+			>
+				<header>
+					{menu.parent && (
+						<div class="rvt-button-group">
+							{menu.depth > 1 && (
+								<button
+									class="rvt-button rvt-button--medium"
+									data-rvt-drilldown-open="main"
+								>
+									<rvt-icon name="chevrons-left" />
+									Main
+								</button>
+							)}
+							<button
+								class="rvt-button rvt-button--medium"
+								data-rvt-drilldown-open="parent"
+							>
+								<rvt-icon name="chevron-left" />
+								Back
+							</button>
+						</div>
+					)}
+					<h2>
+						<a href={menu.url}>{menu.label}</a>
+					</h2>
+				</header>
+				<ul>
+					{menu.items.map((item: any) => (
+						<li data-rvt-drilldown-child={item.id}>
+							<a
+								aria-current={item.current ? "page" : null}
+								href={item.url || "#"}
+							>
+								{item.label}
+							</a>
+							{item.hasChildren && (
+								<button
+									class="rvt-button rvt-button--medium rvt-button--icon-only"
+									data-rvt-drilldown-open="child"
+								>
+									<span class="rvt-sr-only">{`${item.label} menu`}</span>
+									<rvt-icon name="chevron-right" />
+								</button>
+							)}
+						</li>
+					))}
+				</ul>
+			</div>
+		))
+	}
+</rvt-drilldown>
