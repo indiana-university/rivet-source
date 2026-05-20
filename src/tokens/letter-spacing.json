@@ -3,6 +3,9 @@
 		"normal": {
 			"$value": "normal"
 		},
+		"semi-wide": {
+			"$value": "0.06em"
+		},
 		"wide": {
 			"$value": "0.12em"
 		}

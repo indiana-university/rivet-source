@@ -2,10 +2,25 @@
 export const title = "Lockup";
 ---
 
-<a class="rvt-lockup" href="/">
-	<rvt-logo-iu tab></rvt-logo-iu>
-	<div class="rvt-lockup__body">
-		<div class="rvt-lockup__title">Indiana University</div>
-		<div class="rvt-lockup__subtitle">Indianapolis</div>
-	</div>
-</a>
+<div class="rvt-flex rvt-gap-md rvt-items-start rvt-wrap">
+	<rvt-lockup>
+		<rvt-logo-iu tab></rvt-logo-iu>
+		<span slot="title">Indiana University</span>
+	</rvt-lockup>
+
+	<a href="/">
+		<rvt-lockup>
+			<rvt-logo-iu tab></rvt-logo-iu>
+			<span slot="parent">Indiana University</span>
+			<span slot="title">Bloomington</span>
+		</rvt-lockup>
+	</a>
+
+	<a href="/">
+		<rvt-lockup type="compact">
+			<rvt-logo-iu tab></rvt-logo-iu>
+			<span slot="parent">IU Bloomington</span>
+			<span slot="title">Metropolitan Governance and Management Transitions Laboratory</span>
+		</rvt-lockup>
+	</a>
+</div>
