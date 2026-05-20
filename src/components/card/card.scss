@@ -164,7 +164,7 @@
 	--aspect-ratio: var(--aspect-ratio-rectangle);
 	--padding: var(--rvt-size-32);
 
-	&::before {
+	&:has(.rvt-card__title a)::before {
 		border-left: var(--rvt-border);
 		border-top: var(--rvt-border);
 		bottom: 0;
@@ -174,25 +174,6 @@
 		position: absolute;
 		right: 0;
 		width: var(--padding);
-	}
-
-	&::after {
-		--position: calc((var(--padding) - var(--rvt-size-16)) / 2);
-		background-color: currentColor;
-		bottom: var(--position);
-		clip-path: path(var(--rvt-icon-arrow-right));
-		content: "";
-		display: block;
-		flex-shrink: 0;
-		height: var(--rvt-spacing-sm);
-		pointer-events: none;
-		position: absolute;
-		right: var(--position);
-		width: var(--rvt-spacing-sm);
-	}
-
-	&:has(.rvt-card__title a:hover)::after {
-		background-color: var(--rvt-color-theme-text-accent);
 	}
 
 	.rvt-card__image {
@@ -226,7 +207,11 @@
 			color: var(--rvt-color-theme-text-accent);
 
 			&::after {
-				display: none;
+				--position: calc((var(--padding) - var(--rvt-size-16)) / 2);
+				bottom: var(--position);
+				position: absolute;
+				margin: 0;
+				right: var(--position);
 			}
 		}
 	}

@@ -5,6 +5,8 @@
 
 import "./rivet.scss";
 
+import "./components/drilldown/drilldown.js";
+
 import Accordion from "./components/accordion/accordion.js";
 import Alert from "./components/alert/alert.js";
 import Dialog from "./components/dialog/dialog.js";

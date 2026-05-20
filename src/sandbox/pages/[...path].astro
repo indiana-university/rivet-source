@@ -10,7 +10,7 @@ export function getStaticPaths() {
 			"@src/**/*.astro",
 			"!@src/sandbox/**/*.astro",
 			"!@src/**/*.tmp.astro",
-			"!@src/**/getStaticPaths.astro"
+			"!@src/**/getStaticPaths.astro",
 		],
 		{ eager: true },
 	);
@@ -80,12 +80,12 @@ export function getStaticPaths() {
 		}
 	}
 
-	const staticPathPages = import.meta.glob(
-		["@src/**/getStaticPaths.astro"],
-		{ eager: true },
+	const staticPathPages = import.meta.glob(["@src/**/getStaticPaths.astro"], {
+		eager: true,
+	});
+	const staticPaths = Object.values(staticPathPages).flatMap(
+		(file: any) => file.getStaticPaths() || [],
 	);
-	const staticPaths = Object.values(staticPathPages)
-		.flatMap((file: any) => file.getStaticPaths() || []);
 
 	return [...staticPaths, ...pathMap.values()].map((props) => {
 		const { path } = props;

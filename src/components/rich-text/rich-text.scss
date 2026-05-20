@@ -10,7 +10,6 @@
 	}
 
 	:is(h1, h2, h3, h4, h5, h6) {
-		font-stretch: var(--rvt-font-width-expanded);
 		font-weight: var(--rvt-font-weight-bold);
 		margin-block: 1lh 0.5lh;
 		scroll-margin-top: 1lh;

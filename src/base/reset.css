@@ -92,7 +92,7 @@ sup {
 }
 
 :focus-visible {
+	isolation: isolate;
 	outline: var(--rvt-size-2) solid var(--rvt-color-theme-accent-strong);
 	outline-offset: var(--rvt-size-2);
-	position: relative;
 }
