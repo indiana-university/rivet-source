@@ -2,7 +2,7 @@
 export const title = "Lockup";
 ---
 
-<div class="rvt-flex rvt-gap-md rvt-items-start rvt-wrap">
+<div class="resize">
 	<rvt-lockup>
 		<rvt-logo-iu tab></rvt-logo-iu>
 		<span slot="title">Indiana University</span>
@@ -24,3 +24,15 @@ export const title = "Lockup";
 		</rvt-lockup>
 	</a>
 </div>
+
+<style>
+	.resize {
+		align-items: start;
+		display: inline-flex;
+		flex-direction: column;
+		gap: var(--rvt-size-24);
+		overflow: auto;
+		padding: var(--rvt-size-8);
+		resize: horizontal;
+	}
+</style>

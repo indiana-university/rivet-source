@@ -9,10 +9,14 @@ rvt-lockup {
 	display: inline-grid;
 	font-stretch: var(--rvt-font-width-ultra-condensed);
 	gap: var(--rvt-size-2) var(--rvt-size-12);
-	grid-template-columns: auto auto;
+	grid-template-columns: auto fit-content(20rem);
 	grid-template-rows: 1fr auto auto 1fr;
-	max-width: 28rem;
+	height: var(--rvt-graphic-logo-iu-container-height);
+	min-width: var(--rvt-graphic-logo-iu-container-width);
+	max-width: max-content;
+	overflow: hidden;
 	text-wrap: balance;
+	width: 100%;
 
 	> rvt-logo-iu {
 		align-self: start;
@@ -25,8 +29,9 @@ rvt-lockup {
 		grid-column: 2;
 		grid-row: 2;
 		letter-spacing: var(--rvt-letter-spacing-semi-wide);
-		line-height: var(--rvt-size-14);
+		line-height: var(--parent-line-height, var(--rvt-size-14));
 		text-transform: uppercase;
+		white-space: nowrap;
 	}
 
 	> [slot="title"] {
@@ -39,12 +44,26 @@ rvt-lockup {
 
 	&[type="compact"] {
 		--parent-font-size: var(--rvt-size-12);
+		--parent-line-height: var(--rvt-size-12);
 		--title-font-size: var(--rvt-size-18);
 		--title-line-height: var(--rvt-size-18);
+	}
+
+	&[data-state="overflowing"] > :is([slot="parent"], [slot="title"]) {
+		_position: absolute;
+		visibility: hidden;
 	}
 }
 
 a:has(> rvt-lockup) {
 	display: inline-flex;
 	text-decoration: none;
+	max-width: max-content;
+	min-width: var(--rvt-graphic-logo-iu-container-width);
+	width: 100%;
+
+	&:has(> rvt-lockup[data-state="overflowing"]) {
+		_max-width: var(--rvt-graphic-logo-iu-container-width);
+		_max-width: 5rem;
+	}
 }
