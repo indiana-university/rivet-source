@@ -3,6 +3,7 @@
  */
 
 import { readFileSync, writeFileSync } from "fs";
+import { ANSI } from "../ansi-colors.js";
 import { licenseText } from "../license-header.js";
 
 // Build header comment from license text
@@ -19,13 +20,6 @@ for (const file of files) {
 
 	if (!firstFewLines.includes("SPDX-License-Identifier")) {
 		writeFileSync(file, `${header}\n\n${contents}`);
-		/*
-		 * Add ANSI green `+` symbol before each changelog
-		 * ===============================================
-		 * \x1b[32m - sets color to green
-		 * prints the `+` symbol
-		 * \x1b[0m - resets back to default color
-		 */
-		console.log(`\x1b[32m+\x1b[0m Added license: ${file}`);
+		console.log(`${ANSI.green}+${ANSI.reset} Added license: ${file}`);
 	}
 }
