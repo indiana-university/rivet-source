@@ -3,11 +3,12 @@
  */
 
 import { readFileSync, writeFileSync } from "fs";
+import { licenseText } from "../license-header.js";
 
-const header = `/*
- * Copyright (C) 2018 The Trustees of Indiana University
- * SPDX-License-Identifier: BSD-3-Clause
- */`;
+// Build header comment from license text
+const rawLines = licenseText.split("\n");
+const commentLines = rawLines.map(line => ` * ${line}`);
+const header = `/*\n${commentLines.join("\n")}\n */`;
 
 const files = process.argv.slice(2);
 
