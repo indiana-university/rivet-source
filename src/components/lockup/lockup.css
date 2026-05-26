@@ -8,6 +8,13 @@ rvt-lockup {
 	font-stretch: var(--rvt-font-width-ultra-condensed);
 	text-wrap: balance;
 
+	&:not(:has(> a)),
+	> a {
+		display: inline-grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr auto auto 1fr;
+	}
+
 	> a {
 		color: var(--rvt-color-theme-text);
 		display: inline-flex;
@@ -19,23 +26,27 @@ rvt-lockup {
 		flex-direction: column;
 		justify-content: center;
 		padding-inline-start: var(--rvt-size-12);
+	}
 
-		[slot="parent"] {
-			display: block;
-			font-size: var(--parent-font-size, var(--rvt-size-14));
-			letter-spacing: var(--rvt-letter-spacing-semi-wide);
-			line-height: var(--parent-line-height, var(--rvt-size-14));
-			text-transform: uppercase;
-			white-space: nowrap;
-			margin-block-end: var(--rvt-size-2);
-		}
+	[slot="parent"] {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		display: block;
+		font-size: var(--parent-font-size, var(--rvt-size-14));
+		letter-spacing: var(--rvt-letter-spacing-semi-wide);
+		line-height: var(--parent-line-height, var(--rvt-size-14));
+		text-transform: uppercase;
+		white-space: nowrap;
+		margin-block-end: var(--rvt-size-2);
+	}
 
-		[slot="title"] {
-			display: block;
-			font-size: var(--title-font-size, var(--rvt-size-23));
-			font-weight: var(--rvt-font-weight-black);
-			line-height: var(--title-line-height, var(--rvt-size-24));
-		}
+	[slot="title"] {
+		grid-column: 1 / 2;
+		grid-row: 3 / 4;
+		display: block;
+		font-size: var(--title-font-size, var(--rvt-size-23));
+		font-weight: var(--rvt-font-weight-black);
+		line-height: var(--title-line-height, var(--rvt-size-24));
 	}
 
 	&[size="sm"] {
