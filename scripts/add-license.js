@@ -3,8 +3,8 @@
  */
 
 import { readFileSync, writeFileSync } from "fs";
-import { ANSI } from "../ansi-colors.js";
-import { licenseText } from "../license-header.js";
+import { ANSI } from "./utils/ansi-colors.js";
+import { licenseText } from "./utils/license-header.js";
 
 // Build header comment from license text
 const rawLines = licenseText.split("\n");
