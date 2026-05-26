@@ -4,58 +4,25 @@
  */
 
 rvt-lockup {
-	display: block;
-	_display: inline-grid;
+	display: inline-flex;
 	font-stretch: var(--rvt-font-width-ultra-condensed);
-	_gap: var(--rvt-size-2) var(--rvt-size-12);
-	_grid-template-columns: auto fit-content(20rem);
-	_grid-template-rows: 1fr auto auto 1fr;
-
-	&:not(:has(> a)),
-	> a {
-		_align-items: center;
-		display: inline-flex;
-		_height: var(--rvt-graphic-logo-iu-container-height);
-		_min-width: var(--rvt-graphic-logo-iu-container-width);
-		_max-width: max-content;
-		_overflow: hidden;
-		text-wrap: balance;
-		_width: 100%;
-	}
+	text-wrap: balance;
 
 	> a {
 		color: var(--rvt-color-theme-text);
-		_display: inline-flex;
+		display: inline-flex;
 		text-decoration: none;
-		_max-width: max-content;
-		_min-width: var(--rvt-graphic-logo-iu-container-width);
-		_width: 100%;
-
-		&:has(> rvt-lockup[data-state="overflowing"]) {
-			_max-width: var(--rvt-graphic-logo-iu-container-width);
-			_max-width: 5rem;
-		}
-	}
-
-	rvt-logo-iu {
-		align-self: start;
-		grid-column: 1;
-		grid-row: 1 / -1;
 	}
 
 	div {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		max-height: var(--rvt-graphic-logo-iu-container-height);
-		max-width: 20rem;
 		padding-inline-start: var(--rvt-size-12);
 
 		[slot="parent"] {
 			display: block;
 			font-size: var(--parent-font-size, var(--rvt-size-14));
-			grid-column: 2;
-			grid-row: 2;
 			letter-spacing: var(--rvt-letter-spacing-semi-wide);
 			line-height: var(--parent-line-height, var(--rvt-size-14));
 			text-transform: uppercase;
@@ -67,34 +34,22 @@ rvt-lockup {
 			display: block;
 			font-size: var(--title-font-size, var(--rvt-size-23));
 			font-weight: var(--rvt-font-weight-black);
-			grid-column: 2;
-			grid-row: 3;
 			line-height: var(--title-line-height, var(--rvt-size-24));
 		}
 	}
 
-	&[type="compact"] {
+	&[size="sm"] {
+		div {
+			position: absolute;
+			visibility: hidden;
+		}
+	}
+
+	&[size="sm"],
+	&[size="md"] {
 		--parent-font-size: var(--rvt-size-12);
 		--parent-line-height: var(--rvt-size-12);
 		--title-font-size: var(--rvt-size-18);
 		--title-line-height: var(--rvt-size-18);
-	}
-
-	&[data-state="overflowing"] div {
-		_position: absolute;
-		visibility: hidden;
-	}
-}
-
-a:has(> rvt-lockup) {
-	display: inline-flex;
-	text-decoration: none;
-	max-width: max-content;
-	min-width: var(--rvt-graphic-logo-iu-container-width);
-	width: 100%;
-
-	&:has(> rvt-lockup[data-state="overflowing"]) {
-		_max-width: var(--rvt-graphic-logo-iu-container-width);
-		_max-width: 5rem;
 	}
 }

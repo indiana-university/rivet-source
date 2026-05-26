@@ -4,35 +4,18 @@
  */
 
 const ELEMENT_NAME = "rvt-lockup";
+const SIZES = ["lg", "md", "sm"];
 
 class RivetLockup extends HTMLElement {
 	#resizeObserver;
 
 	connectedCallback() {
 		this.#resizeObserver = new ResizeObserver(() => {
-			const el = this.querySelector("div");
-			const style = window.getComputedStyle(this);
-			const sourceWidth = this.style.width;
-			//this.style.width = "min-content";
-			const minWidth = this.offsetWidth;
-			//this.style.width = "max-content";
-			const maxWidth = this.offsetWidth;
-			//this.style.width = sourceWidth;
-
-			//this.setAttribute("data-state", "resizing");
-			const xOverflow = el.scrollWidth > el.clientWidth;
-			const yOverflow = el.scrollHeight > el.clientHeight;
-			const isOverflowing = xOverflow || yOverflow;
-			//this.setAttribute("data-overflow-width", this.scrollWidth);
-			//this.setAttribute("data-overflow-width2", this.clientWidth);
-			//this.setAttribute("data-min", minWidth);
-			//this.setAttribute("data-max", maxWidth);
-			//this.querySelector(":scope > div").classList.toggle("rvt-sr-only", isOverflowing);
-			if (isOverflowing) {
-				this.setAttribute("data-state", "overflowing");
-			}
-			else {
-				this.removeAttribute("data-state");
+			for (const size of SIZES) {
+				this.setAttribute("size", size);
+				if (!this.#isOverflowing) {
+					return;
+				}
 			}
 		});
 		this.#resizeObserver.observe(this);
@@ -40,6 +23,12 @@ class RivetLockup extends HTMLElement {
 
 	disconnectedCallback() {
 		this.#resizeObserver.disconnect();
+	}
+
+	get #isOverflowing() {
+		const xOverflow = this.scrollWidth > this.clientWidth;
+		const yOverflow = this.scrollHeight > this.clientHeight;
+		return xOverflow || yOverflow;
 	}
 }
 
