@@ -4,32 +4,47 @@
  */
 
 rvt-lockup {
-	display: inline-flex;
-	font-stretch: var(--rvt-font-width-ultra-condensed);
-	text-wrap: balance;
+	display: flex;
 
 	&:not(:has(> a)),
 	> a {
+		color: var(--rvt-color-theme-text);
 		display: inline-grid;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: 1fr auto auto 1fr;
-	}
-
-	> a {
-		color: var(--rvt-color-theme-text);
 		text-decoration: none;
-	}
 
-	rvt-logo-iu {
-		grid-column: 1 / 2;
-		grid-row: 1 / -1;
+		&::before,
+		&::after {
+			align-self: center;
+			content: "";
+			display: block;
+			grid-column: 1 / 2;
+			grid-row: 1 / -1;
+			justify-self: center;
+		}
+
+		&::before {
+			background-color: var(--rvt-color-theme-text-accent);
+			height: var(--rvt-graphic-logo-iu-container-height);
+			width: var(--rvt-graphic-logo-iu-container-width);
+		}
+
+		&::after {
+			background-color: var(--rvt-color-theme-text-accent-inverse);
+			clip-path: path(var(--rvt-graphic-logo-iu-path));
+			height: var(--rvt-graphic-logo-iu-height);
+			width: var(--rvt-graphic-logo-iu-width);
+		}
 	}
 
 	:is(small, span) {
+		font-stretch: var(--rvt-font-width-ultra-condensed);
 		grid-column: 2 / 3;
 		line-height: 1;
 		padding-inline-start: var(--rvt-size-12);
 		position: var(--position, static);
+		text-wrap: balance;
 		visibility: var(--visibility, visible);
 	}
 
@@ -48,6 +63,7 @@ rvt-lockup {
 		font-weight: var(--rvt-font-weight-black);
 	}
 
+	&:not(:defined),
 	&[size="sm"] {
 		--position: absolute;
 		--visibility: hidden;
