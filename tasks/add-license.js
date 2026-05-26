@@ -10,6 +10,7 @@ const rawLines = licenseText.split("\n");
 const commentLines = rawLines.map(line => ` * ${line}`);
 const header = `/*\n${commentLines.join("\n")}\n */`;
 
+// Store git staged files from lint-staged
 const files = process.argv.slice(2);
 
 for (const file of files) {
