@@ -5,6 +5,7 @@
 
 rvt-lockup {
 	display: flex;
+	max-width: 30rem;
 
 	&:not(:has(> a)),
 	> a {
