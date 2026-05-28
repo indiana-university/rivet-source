@@ -15,7 +15,9 @@
 
 	&__menu {
 		background-color: var(--rvt-color-theme-background);
+		//border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		box-shadow: var(--rvt-shadow-standard);
+		box-shadow: var(--rvt-shadow-heavy);
 		min-width: 12.5rem;
 		padding-block: var(--rvt-size-8);
 		position: absolute;
@@ -116,4 +118,9 @@
 // header nav.
 .rvt-header-menu__item .rvt-dropdown__menu {
 	top: 165%;
+}
+
+.rvt-theme-crimson .rvt-dropdown__menu {
+	//background-color: var(--rvt-color-theme-background-strong);
+	//border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }
