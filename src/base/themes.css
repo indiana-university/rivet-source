@@ -50,7 +50,7 @@
 	--rvt-color-theme-background-inverse-strong: var(
 		--rvt-color-base-ultra-light
 	);
-	--rvt-color-theme-ui: var(--rvt-color-brand-dark);
+	--rvt-color-theme-ui: var(--rvt-color-base-ultra-dark);
 	--rvt-color-theme-text: var(--rvt-color-base-ultra-light);
 	--rvt-color-theme-text-accent: var(--rvt-color-base-ultra-light);
 	--rvt-color-theme-text-accent-inverse: var(--rvt-color-brand-main);

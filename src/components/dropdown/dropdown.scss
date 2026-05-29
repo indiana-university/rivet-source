@@ -14,10 +14,8 @@
 	}
 
 	&__menu {
-		background-color: var(--rvt-color-theme-background);
-		//border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		background-color: var(--menu-background-color, var(--rvt-color-theme-background));
 		box-shadow: var(--rvt-shadow-standard);
-		box-shadow: var(--rvt-shadow-heavy);
 		min-width: 12.5rem;
 		padding-block: var(--rvt-size-8);
 		position: absolute;
@@ -57,7 +55,7 @@
 			width: 100%;
 
 			&:hover {
-				background-color: var(--rvt-color-theme-background-strong);
+				background-color: var(--item-background-color-hover, var(--rvt-color-theme-background-strong));
 				color: inherit;
 				text-decoration: none;
 			}
@@ -69,7 +67,7 @@
 			&.rvt-is-selected,
 			&[aria-current]:not([aria-current="false"]),
 			&[aria-checked="true"] {
-				background-color: var(--rvt-color-theme-background-strong);
+				background-color: var(--item-background-color-current, var(--rvt-color-theme-background-strong));
 				color: var(--rvt-color-theme-accent);
 				font-weight: var(--rvt-font-weight-bold);
 
@@ -120,7 +118,8 @@
 	top: 165%;
 }
 
-.rvt-theme-crimson .rvt-dropdown__menu {
-	//background-color: var(--rvt-color-theme-background-strong);
-	//border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+.rvt-theme-crimson .rvt-dropdown {
+	--menu-background-color: var(--rvt-color-theme-background-strong);
+	--item-background-color-current: var(--rvt-color-theme-background-accent-strong);
+	--item-background-color-hover: var(--rvt-color-theme-background-accent-strong);
 }
