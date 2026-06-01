@@ -4,7 +4,7 @@
  */
 
 .rvt-tabs {
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 
 	.rvt-tabs__tablist {
 		display: flex;
@@ -14,7 +14,7 @@
 	.rvt-tabs__tab {
 		background-color: transparent;
 		border: none;
-		border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-bottom: var(--rvt-border);
 		color: var(--rvt-color-theme-text-strong);
 		cursor: pointer;
 		flex-grow: 1;
@@ -23,7 +23,7 @@
 		z-index: var(--rvt-z-index-100);
 
 		&:not(:first-child) {
-			border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			border-left: var(--rvt-border);
 			/* Fixes double border when tabs wrap on to multiple lines */
 			margin-left: var(--rvt-size-n1);
 		}

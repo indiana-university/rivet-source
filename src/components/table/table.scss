@@ -5,7 +5,7 @@
 
 table,
 .rvt-table {
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	border-collapse: collapse;
 	border-spacing: 0;
 	text-align: left;
@@ -35,7 +35,7 @@ thead {
 }
 
 tr {
-	border-bottom: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border-bottom: var(--rvt-border);
 }
 
 tbody tr :is(td, th) {
@@ -72,10 +72,10 @@ tbody tr :is(td, th) {
 }
 
 .rvt-table-cells {
-	border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border-top: var(--rvt-border);
 
 	tr :is(td, th) {
-		border-right: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-right: var(--rvt-border);
 
 		&:first-child {
 			border-left: var(--rvt-color-theme-ui);
@@ -136,7 +136,7 @@ tbody tr :is(td, th) {
 		var(--rvt-size-14) 100%,
 		var(--rvt-size-14) 100%;
 	/* stylelint-enable */
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	border-radius: var(--rvt-spacing-xs);
 	overflow: auto;
 }

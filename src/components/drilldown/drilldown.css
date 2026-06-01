@@ -47,14 +47,14 @@ rvt-drilldown {
 	}
 
 	ul {
-		border-block-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-block-start: var(--rvt-border);
 		margin: 0;
 		padding: 0;
 	}
 
 	li {
 		align-items: center;
-		border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-block-end: var(--rvt-border);
 		border-block-start: none;
 		display: flex;
 		gap: var(--rvt-size-8);

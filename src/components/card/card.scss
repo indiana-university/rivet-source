@@ -9,7 +9,7 @@
 	--aspect-ratio: var(--aspect-ratio-rectangle);
 	--padding: var(--rvt-spacing-md);
 	background-color: var(--rvt-color-theme-background);
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	position: relative;
 
 	.rvt-theme-dark &,
@@ -165,8 +165,8 @@
 	--padding: var(--rvt-size-32);
 
 	&:has(.rvt-card__title a)::before {
-		border-left: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-left: var(--rvt-border);
+		border-top: var(--rvt-border);
 		bottom: 0;
 		content: "";
 		display: block;

@@ -5,11 +5,11 @@
 
 .rvt-accordion {
 	background-color: var(--rvt-color-theme-background);
-	border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+	border: var(--rvt-border);
 	color: var(--rvt-color-theme-text);
 
 	.rvt-accordion__summary:not(:first-child) {
-		border-top: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-top: var(--rvt-border);
 	}
 
 	.rvt-accordion__toggle {
