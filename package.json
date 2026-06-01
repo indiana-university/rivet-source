@@ -41,6 +41,13 @@
 		"dist/**/*",
 		"rivet.zip"
 	],
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^11.5.0",
+			"onFail": "download"
+		}
+	},
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
 		"astro": "6.1.10",

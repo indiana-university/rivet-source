@@ -29,20 +29,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "11"
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-          cache: "npm"
-          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+          cache: "pnpm"
+          cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build Astro
-        run: npm run build
+        run: pnpm build
         working-directory: ${{ env.BUILD_PATH }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
