@@ -1,7 +1,6 @@
 ---
 import Footer from "@src/components/footer/footer.astro";
 import Header from "./header.astro";
-import ScrollSnap from "../iub-nav/scroll-snap.astro";
 import { menus as _menus } from "./const.js";
 import { getMenus } from "./util.js";
 
@@ -22,26 +21,71 @@ const childItems = data?.items || menus.current.items;
 <Header menus={menus} />
 <div class="rvt-container">
 	<div class="layout-side">
-		<rvt-side-nav>
-			<nav aria-label="Related pages">
-				{
-					menus.current.parent && (
-						<a href={menus.current.url}>{menus.current.label}</a>
-					)
-				}
-				<ul>
+		{!root && (
+			<rvt-side-nav>
+				<rvt-drilldown>
 					{
-						menus.current.items.map((item) => (
-							<li>
-								<a aria-current={item.current ? "page" : null} href={item.url}>
-									{item.label}
-								</a>
-							</li>
+						menus.all.map((menu: any) => (
+							<div
+								data-rvt-drilldown-menu={menu.id}
+								data-rvt-drilldown-parent={menu.parent?.id}
+								hidden={!menu.current}
+							>
+								<header>
+									{menu.parent && !menu.hasCurrent && (
+										<div class="rvt-button-group">
+											{menu.depth > 1 && false && (
+												<button
+													class="rvt-button rvt-button--medium"
+													data-rvt-drilldown-open="main"
+												>
+													<rvt-icon name="chevrons-left" />
+													Main
+												</button>
+											)}
+											<button
+												class="rvt-button rvt-button--medium"
+												data-rvt-drilldown-open="parent"
+											>
+												<rvt-icon name="chevron-left" />
+												Back
+											</button>
+										</div>
+									)}
+									<h2>
+										<a href={menu.url}>
+											<rvt-icon name="arrow-left" />
+											{menu.label}
+										</a>
+									</h2>
+								</header>
+								<ul>
+									{menu.items.map((item: any) => (
+										<li data-rvt-drilldown-child={item.id}>
+											<a
+												aria-current={item.current ? "page" : null}
+												href={item.url || "#"}
+											>
+												{item.label}
+											</a>
+											{item.hasChildren && (
+												<button
+													class="rvt-button rvt-button--medium rvt-button--icon-only"
+													data-rvt-drilldown-open="child"
+												>
+													<span class="rvt-sr-only">{`${item.label} menu`}</span>
+													<rvt-icon name="chevron-right" />
+												</button>
+											)}
+										</li>
+									))}
+								</ul>
+							</div>
 						))
 					}
-				</ul>
-			</nav>
-		</rvt-side-nav>
+				</rvt-drilldown>
+			</rvt-side-nav>
+		)}
 		{
 			!root && (
 				<rvt-breadcrumbs>
@@ -109,43 +153,85 @@ const childItems = data?.items || menus.current.items;
 <Footer />
 
 <style>
+	.rvt-container:has(> .layout-side) {
+		container-type: inline-size;
+	}
+
 	.layout-side {
 		--border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		--gap: var(--rvt-size-40);
-		display: grid;
-		grid-template-columns: 16rem 1fr;
-		grid-template-rows: auto auto;
 
 		rvt-side-nav {
-			border-block-start: var(--border);
-			border-inline-end: var(--border);
-			grid-column: 1 / 2;
-			grid-row: 1 / -1;
-			padding-inline-end: var(--gap);
-		}
-
-		&:has(rvt-breadcrumbs) rvt-breadcrumbs,
-		&:not(:has(rvt-breadcrumbs)) main {
-			border-block-start: var(--border);
-			padding-block-start: var(--gap);
+			display: none;
 		}
 
 		rvt-breadcrumbs {
-			grid-column: 2 / 3;
-			grid-row: 1 / 2;
 			padding-block-end: var(--rvt-size-16);
-			padding-inline-start: var(--gap);
 		}
 
 		main {
-			grid-column: 2 / 3;
-			grid-row: 2 / 3;
-			padding-block-end: var(--gap);
-			padding-inline-start: var(--gap);
-
 			h1 {
 				font: var(--rvt-font-26-fluid-black);
 				margin-block-end: var(--gap);
+			}
+		}
+	}
+
+	@container (width > 45rem) {
+		.layout-side:has(rvt-side-nav) {
+			display: grid;
+			grid-template-columns: 20rem 1fr;
+			grid-template-rows: auto 1fr;
+
+			rvt-side-nav {
+				border-block-start: var(--border);
+				border-inline-end: var(--border);
+				display: block;
+				grid-column: 1 / 2;
+				grid-row: 1 / -1;
+				padding-block: var(--gap);
+				padding-inline-end: var(--gap);
+			}
+
+			&:has(rvt-breadcrumbs) rvt-breadcrumbs,
+			&:not(:has(rvt-breadcrumbs)) main {
+				border-block-start: var(--border);
+				padding-block-start: var(--gap);
+			}
+
+			rvt-breadcrumbs {
+				grid-column: 2 / 3;
+				grid-row: 1 / 2;
+				padding-inline-start: var(--gap);
+			}
+
+			rvt-drilldown {
+				header {
+					flex-direction: column;
+					gap: var(--rvt-size-16);
+					padding-block-start: 0;
+
+					h2 a {
+						display: flex;
+						gap: var(--rvt-size-8);
+
+						rvt-icon {
+							margin-block: var(--rvt-size-4);
+						}
+					}
+				}
+			}
+
+			main {
+				grid-column: 2 / 3;
+				grid-row: 2 / 3;
+				padding-block-end: var(--gap);
+				padding-inline-start: var(--gap);
+
+				h1 {
+					font: var(--rvt-font-26-fluid-black);
+					margin-block-end: var(--gap);
+				}
 			}
 		}
 	}
@@ -284,6 +370,7 @@ const childItems = data?.items || menus.current.items;
 
 	.rvt-card-grid {
 		--gap: clamp(var(--rvt-size-16), 5vw, var(--rvt-size-40));
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 	}
 
 	main {
