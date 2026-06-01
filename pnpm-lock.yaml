@@ -207,6 +207,9 @@ importers:
 
   .:
     dependencies:
+      '@rivet-iu/tokens':
+        specifier: workspace:*
+        version: link:packages/tokens
       wicked-elements:
         specifier: 3.1.2
         version: 3.1.2
@@ -232,15 +235,18 @@ importers:
       sass:
         specifier: 1.99.0
         version: 1.99.0
-      style-dictionary:
-        specifier: 5.4.0
-        version: 5.4.0
       vite:
         specifier: 7.3.2
         version: 7.3.2(sass@1.99.0)
       vite-plugin-banner:
         specifier: 0.8.1
         version: 0.8.1
+
+  packages/tokens:
+    devDependencies:
+      style-dictionary:
+        specifier: 5.4.0
+        version: 5.4.0
 
 packages:
 

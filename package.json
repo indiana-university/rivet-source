@@ -23,11 +23,11 @@
 		"./dist/": "./dist/"
 	},
 	"scripts": {
-		"start": "run-s build:tokens start:astro",
-		"start:astro": "astro dev --open --host",
-		"build": "run-s build:clean build:tokens build:dist build:dist:clean build:zip build:astro",
-		"build:clean": "rimraf src/**/*tmp* src/**/**/*tmp* dist rivet.zip site",
-		"build:tokens": "style-dictionary build -c tokens.config.js",
+		"start:core": "pnpm --filter rivet-core... start",
+		"start": "astro dev --open --host",
+		"build:core": "pnpm --filter rivet-core... build",
+		"build": "run-s build:clean build:dist build:dist:clean build:zip build:astro",
+		"build:clean": "rimraf dist rivet.zip site",
 		"build:dist": "vite build",
 		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
@@ -56,11 +56,11 @@
 		"prettier-plugin-astro": "0.14.1",
 		"rimraf": "6.1.3",
 		"sass": "1.99.0",
-		"style-dictionary": "5.4.0",
 		"vite": "7.3.2",
 		"vite-plugin-banner": "0.8.1"
 	},
 	"dependencies": {
+		"@rivet-iu/tokens": "workspace:*",
 		"wicked-elements": "3.1.2"
 	}
 }

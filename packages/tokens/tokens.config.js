@@ -26,7 +26,7 @@ function formatStickerComponent(name) {
 }
 
 export default {
-	source: ["src/tokens/**/*.json"],
+	source: ["tokens/**/*.json"],
 	expand: {
 		include: ["graphic", "sticker"],
 		typesMap: {
@@ -77,7 +77,7 @@ export default {
 			transformGroup: transformGroups.scss,
 			files: [
 				{
-					destination: "src/base/tokens.tmp.scss",
+					destination: "dist/tokens.scss",
 					format: formats.scssMapDeep,
 				},
 			],
@@ -88,32 +88,32 @@ export default {
 			prefix: PREFIX,
 			files: [
 				{
-					destination: "src/base/tokens.tmp.css",
+					destination: "dist/tokens.css",
 					filter: "core",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "src/components/icon/icon-core.tmp.css",
+					destination: "dist/icon-core.css",
 					filter: "core-icon",
 					format: "css/icons",
 				},
 				{
-					destination: "src/base/tokens-icon-extra.tmp.css",
+					destination: "dist/tokens-icon-extra.css",
 					filter: "extra-icon",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "src/components/icon/icon-extra.tmp.css",
+					destination: "dist/icon-extra.css",
 					filter: "extra-icon",
 					format: "css/icons",
 				},
 				{
-					destination: "src/base/tokens-sticker.tmp.css",
+					destination: "dist/tokens-sticker.css",
 					filter: "sticker",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "src/components/sticker/sticker.tmp.css",
+					destination: "dist/sticker.css",
 					filter: "sticker",
 					format: "css/stickers",
 				},
@@ -126,7 +126,7 @@ export default {
 			files: [
 				{
 					destination: "dist/tokens.json",
-					format: formats.jsonFlat,
+					format: formats.jsonNested,
 				},
 			],
 			transforms: [transforms.nameKebab],

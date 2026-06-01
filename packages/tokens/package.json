@@ -1,0 +1,25 @@
+	{
+	"name": "@rivet-iu/tokens",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"main": "index.js",
+	"exports": {
+		"./dist/": "./dist/",
+		"./tokens/": "./tokens/"
+	},
+	"files": [
+		"dist/**/*"
+	],
+	"scripts": {
+		"prebuild": "rm -rf dist",
+		"build": "style-dictionary build -c tokens.config.js",
+		"start": "pnpm build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "BSD-3-Clause",
+	"devDependencies": {
+		"style-dictionary": "5.4.0"
+	}
+}
