@@ -34,27 +34,17 @@ const childItems = data?.items || menus.current.items;
 								<header>
 									{menu.parent && !menu.hasCurrent && (
 										<div class="rvt-button-group">
-											{menu.depth > 1 && false && (
-												<button
-													class="rvt-button rvt-button--medium"
-													data-rvt-drilldown-open="main"
-												>
-													<rvt-icon name="chevrons-left" />
-													Main
-												</button>
-											)}
 											<button
-												class="rvt-button rvt-button--medium"
+												class="rvt-button rvt-button--medium rvt-button--icon-only"
 												data-rvt-drilldown-open="parent"
 											>
 												<rvt-icon name="chevron-left" />
-												Back
+												<span class="rvt-sr-only">Back</span>
 											</button>
 										</div>
 									)}
 									<h2>
 										<a href={menu.url}>
-											<rvt-icon name="arrow-left" />
 											{menu.label}
 										</a>
 									</h2>
@@ -106,7 +96,13 @@ const childItems = data?.items || menus.current.items;
 			)
 		}
 		<main id="main-content">
-			{!hideTitle && <h1>{title}</h1>}
+			{!hideTitle && (
+				<div class="rvt-hero">
+					<div class="rvt-hero__body">
+						<h1 class="rvt-hero__title">Highlights in {title}</h1>
+					</div>
+				</div>
+			)}
 			{hideTitle && <h1 class="rvt-sr-only">{title}</h1>}
 			{
 				data?.articles && (
@@ -168,13 +164,6 @@ const childItems = data?.items || menus.current.items;
 		rvt-breadcrumbs {
 			padding-block-end: var(--rvt-size-16);
 		}
-
-		main {
-			h1 {
-				font: var(--rvt-font-26-fluid-black);
-				margin-block-end: var(--gap);
-			}
-		}
 	}
 
 	@container (width > 45rem) {
@@ -207,18 +196,7 @@ const childItems = data?.items || menus.current.items;
 
 			rvt-drilldown {
 				header {
-					flex-direction: column;
-					gap: var(--rvt-size-16);
 					padding-block-start: 0;
-
-					h2 a {
-						display: flex;
-						gap: var(--rvt-size-8);
-
-						rvt-icon {
-							margin-block: var(--rvt-size-4);
-						}
-					}
 				}
 			}
 
@@ -228,8 +206,7 @@ const childItems = data?.items || menus.current.items;
 				padding-block-end: var(--gap);
 				padding-inline-start: var(--gap);
 
-				h1 {
-					font: var(--rvt-font-26-fluid-black);
+				.rvt-hero {
 					margin-block-end: var(--gap);
 				}
 			}
@@ -305,6 +282,10 @@ const childItems = data?.items || menus.current.items;
 		}
 	}
 
+	.rvt-hero {
+		padding-inline: 0;
+	}
+
 	rvt-main-header {
 		display: block;
 		container-type: inline-size;
@@ -331,11 +312,6 @@ const childItems = data?.items || menus.current.items;
 			rvt-list-more {
 				visibility: hidden;
 			}
-		}
-
-		h1 {
-			font: var(--rvt-font-26-fluid-black);
-			margin-block-start: var(--rvt-size-24);
 		}
 
 		@container (width > 40rem) {
