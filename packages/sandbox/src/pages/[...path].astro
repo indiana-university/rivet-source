@@ -6,17 +6,12 @@ import SandboxLayout from "../layouts/SandboxLayout.astro";
 
 export function getStaticPaths() {
 	const allPages = import.meta.glob(
-		[
-			"@src/**/*.astro",
-			"!@src/sandbox/**/*.astro",
-			"!@src/**/*.tmp.astro",
-			"!@src/**/getStaticPaths.astro",
-		],
+		["@src/**/*.astro"],
 		{ eager: true },
 	);
 	const pageEntries: [string, any][] = Object.entries(allPages)
 		.map(([k, page]) => {
-			const key = k.replace("/src", "");
+			const key = k.replace("../../src", "");
 			return [key, page] as [string, any];
 		})
 		.filter(([key, page]) => page.title);
@@ -34,8 +29,8 @@ export function getStaticPaths() {
 		}
 	}
 
-	const sortedPaths = Array.from(allUniquePaths).sort((a: string, b: string) =>
-		a.localeCompare(b),
+	const sortedPaths = Array.from(allUniquePaths).sort((a, b) =>
+		(a as string).localeCompare((b as string)),
 	);
 	const pathMap = new Map();
 
@@ -45,13 +40,13 @@ export function getStaticPaths() {
 		const root = page?.root;
 		const site = page?.site;
 		const title = page?.title || segments.at(-1);
-		const isFile = /\.[^/]*$/.test(path);
+		const isFile = /\.astro$/.test(path);
 		const type = isFile ? "file" : "folder";
-		const isBase = /\/base\//.test(path);
-		const isComponent = /\/components\//.test(path);
-		const isLayout = /\/layouts\//.test(path);
-		const isPrototype = /\/prototypes\//.test(path);
-		const isUtility = /\/utilities\//.test(path);
+		const isBase = /^\/base\//.test(path);
+		const isComponent = /^\/components\//.test(path);
+		const isLayout = /^\/layouts\//.test(path);
+		const isPrototype = /^\/prototypes\//.test(path);
+		const isUtility = /^\/utilities\//.test(path);
 		const [fileType] = [
 			isBase && "component",
 			isComponent && "component",
@@ -59,8 +54,9 @@ export function getStaticPaths() {
 			isPrototype && "prototype",
 			isUtility && "utility",
 		].filter((ft) => ft);
-		const children = [];
-		const cleanPath = path.replace(".astro", "");
+		const children: any[] = [];
+		const cleanPath = path
+			.replace(".astro", "");
 		const currentNode = {
 			children,
 			fileType,

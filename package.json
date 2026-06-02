@@ -20,22 +20,20 @@
 			"browser": "./dist/rivet.js",
 			"import": "./dist/rivet.js"
 		},
-		"./dist/": "./dist/"
+		"./dist/": "./dist/",
+		"./src/": "./src/"
 	},
 	"scripts": {
-		"start:core": "pnpm --filter rivet-core... start",
-		"start": "astro dev --open --host",
+		"start": "pnpm --filter @rivet-iu/sandbox... start",
 		"build:core": "pnpm --filter rivet-core... build",
-		"build": "run-s build:clean build:dist build:dist:clean build:zip build:astro",
+		"build": "run-s build:clean build:dist build:dist:clean build:zip",
 		"build:clean": "rimraf dist rivet.zip site",
 		"build:dist": "vite build",
 		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
-		"build:astro": "astro build",
 		"changelog": "node tasks/generate-changelog.js",
 		"format": "prettier --write .",
-		"preview": "run-s build preview:astro",
-		"preview:astro": "astro preview --open --host"
+		"preview": "pnpm --filter @rivet-iu/sandbox... preview"
 	},
 	"files": [
 		"dist/**/*",
@@ -50,7 +48,6 @@
 	},
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
-		"astro": "6.1.10",
 		"npm-run-all": "4.1.5",
 		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1",

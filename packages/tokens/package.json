@@ -20,6 +20,6 @@
 	"author": "",
 	"license": "BSD-3-Clause",
 	"devDependencies": {
-		"style-dictionary": "5.4.0"
+		"style-dictionary": "5.4.2"
 	}
 }

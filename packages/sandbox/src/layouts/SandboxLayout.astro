@@ -1,9 +1,9 @@
 ---
 import pkg from "@root/package.json";
 import Layout from "./BaseLayout.astro";
-import { baseUrl } from "@src/utilities/baseUrl.js";
-import { removeEnd } from "@src/utilities/removeEnd.js";
-import { removeStart } from "@src/utilities/removeStart.js";
+import { baseUrl } from "../utils/baseUrl.js";
+import { removeEnd } from "../utils/removeEnd.js";
+import { removeStart } from "../utils/removeStart.js";
 
 const APP_NAME = "Rivet";
 const title = Astro.props.title || APP_NAME;

@@ -1,7 +1,7 @@
 ---
 import pkg from "@root/package.json";
-import { removeStart } from "@src/utilities/removeStart.js";
 import "@src/rivet.scss";
+import { removeStart } from "../utils/removeStart.js";
 
 const APP_NAME = `Rivet v${pkg.version}`;
 const site = Astro.props.site || APP_NAME;
