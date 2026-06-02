@@ -32,7 +32,7 @@
 		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
 		"build:astro": "astro build",
-		"changelog": "node tasks/generate-changelog.js",
+		"changelog": "node scripts/generate-changelog.js",
 		"format": "prettier --write .",
 		"preview": "run-s build preview:astro",
 		"preview:astro": "astro preview --open --host",
@@ -43,7 +43,7 @@
 		"rivet.zip"
 	],
 	"lint-staged": {
-		"src/*.{js,css}": "node scripts/add-license.js"
+		"src/*.{js,css,scss}": "node scripts/add-license.js"
 	},	
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
