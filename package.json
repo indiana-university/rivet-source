@@ -32,6 +32,7 @@
 		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
 		"build:astro": "astro build",
+		"add-license": "node scripts/add-license.js",
 		"changelog": "node scripts/generate-changelog.js",
 		"format": "prettier --write .",
 		"preview": "run-s build preview:astro",
