@@ -36,8 +36,7 @@
 		"changelog": "node scripts/generate-changelog.js",
 		"format": "npx lint-staged",
 		"preview": "run-s build preview:astro",
-		"preview:astro": "astro preview --open --host",
-		"prepare": "husky"
+		"preview:astro": "astro preview --open --host"
 	},
 	"files": [
 		"dist/**/*",
