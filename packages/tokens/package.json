@@ -2,7 +2,16 @@
 	"name": "@rivet-iu/tokens",
 	"version": "1.0.0",
 	"description": "Design tokens for the Rivet Design System",
+	"homepage": "https://rivet.iu.edu",
 	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/indiana-university/rivet-source"
+	},
+	"bugs": {
+		"url": "https://github.com/indiana-university/rivet-source/issues",
+		"email": "rivet@iu.edu"
+	},
 	"type": "module",
 	"exports": {
 		"./dist/": "./dist/",

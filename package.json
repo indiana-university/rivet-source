@@ -1,18 +1,10 @@
 {
 	"name": "rivet-source",
+	"private": true,
 	"description": "Rivet Design System for Indiana University",
 	"homepage": "https://rivet.iu.edu",
-	"private": true,
-	"type": "module",
 	"license": "BSD-3-Clause",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/indiana-university/rivet-source"
-	},
-	"bugs": {
-		"url": "https://github.com/indiana-university/rivet-source/issues",
-		"email": "rivet@iu.edu"
-	},
+	"type": "module",
 	"scripts": {
 		"build": "pnpm --filter @rivet-iu/core... build",
 		"changelog": "node tasks/generate-changelog.js",

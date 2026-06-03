@@ -1,8 +1,8 @@
 {
 	"name": "@rivet-iu/core",
+	"version": "3.0.0-alpha.10",
 	"description": "Rivet Design System for Indiana University",
 	"homepage": "https://rivet.iu.edu",
-	"version": "3.0.0-alpha.10",
 	"license": "BSD-3-Clause",
 	"repository": {
 		"type": "git",
@@ -23,9 +23,7 @@
 		"./dist/": "./dist/",
 		"./src/": "./src/"
 	},
-	"files": [
-		"dist/**/*"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "vite build",
 		"postbuild": "zip -r dist/rivet.zip dist"
