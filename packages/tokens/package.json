@@ -13,8 +13,7 @@
 	],
 	"scripts": {
 		"prebuild": "rm -rf dist",
-		"build": "style-dictionary build -c tokens.config.js",
-		"start": "pnpm build"
+		"build": "style-dictionary build -c tokens.config.js"
 	},
 	"keywords": [],
 	"author": "",

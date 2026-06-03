@@ -1,0 +1,49 @@
+{
+	"name": "@rivet-iu/core",
+	"description": "Rivet Design System for Indiana University",
+	"homepage": "https://rivet.iu.edu",
+	"version": "3.0.0-alpha.10",
+	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/indiana-university/rivet-source"
+	},
+	"bugs": {
+		"url": "https://github.com/indiana-university/rivet-source/issues",
+		"email": "rivet@iu.edu"
+	},
+	"type": "module",
+	"module": "./dist/rivet.js",
+	"unpkg": "./dist/rivet.js",
+	"exports": {
+		".": {
+			"browser": "./dist/rivet.js",
+			"import": "./dist/rivet.js"
+		},
+		"./dist/": "./dist/",
+		"./src/": "./src/"
+	},
+	"files": [
+		"dist/**/*",
+		"rivet.zip"
+	],
+	"scripts": {
+		"build": "run-s build:clean build:dist build:dist:clean build:zip",
+		"build:clean": "rimraf dist rivet.zip",
+		"build:dist": "vite build",
+		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
+		"build:zip": "zip -r rivet.zip dist",
+		"dev": "pnpm build"
+	},
+	"devDependencies": {
+		"npm-run-all": "4.1.5",
+		"rimraf": "6.1.3",
+		"sass": "1.99.0",
+		"vite": "7.3.2",
+		"vite-plugin-banner": "0.8.1"
+	},
+	"dependencies": {
+		"@rivet-iu/tokens": "workspace:*",
+		"wicked-elements": "3.1.2"
+	}
+}

@@ -51,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: ${{ env.BUILD_PATH }}/dist-astro
+          path: ${{ env.BUILD_PATH }}/packages/sandbox/dist
 
   deploy:
     environment:

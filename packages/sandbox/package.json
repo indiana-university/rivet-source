@@ -5,12 +5,15 @@
 	"type": "module",
 	"license": "BSD-3-Clause",
 	"scripts": {
-		"start": "astro dev --open --host",
 		"build": "astro build",
+		"dev": "astro dev --open --host",
 		"prepreview": "pnpm build",
 		"preview": "astro preview --open --host"
 	},
 	"devDependencies": {
 		"astro": "6.4.2"
+	},
+	"dependencies": {
+		"@rivet-iu/core": "workspace:*"
 	}
 }

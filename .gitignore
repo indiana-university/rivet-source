@@ -1,7 +1,4 @@
-cypress/screenshots
-cypress/videos
 dist
-dist-astro
 node_modules
 .astro
 .DS_Store
