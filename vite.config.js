@@ -1,13 +1,13 @@
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
 import pkg from "./package.json";
+import { blockCommentBody } from "./scripts/utils/license-header.js";
 
 const [fileName] = pkg.name.split("-");
 const license = `/*!
  * ${pkg.name} - @version ${pkg.version}
  *
- * Copyright (C) 2018 The Trustees of Indiana University
- * SPDX-License-Identifier: BSD-3-Clause
+${blockCommentBody}
  */`;
 
 const buildConfig = {
