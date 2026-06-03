@@ -1,24 +1,20 @@
-	{
+{
 	"name": "@rivet-iu/tokens",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Design tokens for the Rivet Design System",
+	"license": "BSD-3-Clause",
 	"type": "module",
-	"main": "index.js",
 	"exports": {
 		"./dist/": "./dist/",
 		"./tokens/": "./tokens/"
 	},
-	"files": [
-		"dist/**/*"
-	],
+	"files": ["dist"],
 	"scripts": {
-		"prebuild": "rm -rf dist",
-		"build": "style-dictionary build -c tokens.config.js"
+		"prebuild": "rimraf dist",
+		"build": "style-dictionary build"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "BSD-3-Clause",
 	"devDependencies": {
+		"rimraf": "6.1.3",
 		"style-dictionary": "5.4.2"
 	}
 }

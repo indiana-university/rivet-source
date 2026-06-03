@@ -1,6 +1,8 @@
 ---
 import pkg from "@core/package.json";
 import "@src/rivet.scss";
+import "@src/rivet-icons.css";
+import "@src/rivet-stickers.css";
 import { removeStart } from "../utils/removeStart.js";
 
 const APP_NAME = `Rivet v${pkg.version}`;
@@ -21,8 +23,6 @@ const docTitle = isRoot ? site : [title, site].join(" - ");
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<script>
 			import Rivet from "@src/rivet.js";
-			import "@src/rivet-icons.js";
-			import "@src/rivet-stickers.js";
 			Rivet.init();
 		</script>
 	</head>
