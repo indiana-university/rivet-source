@@ -1,23 +1,10 @@
-const licenseTextRaw = `Copyright (C) 2018 The Trustees of Indiana University
+const raw = `Copyright (C) 2018 The Trustees of Indiana University
 SPDX-License-Identifier: BSD-3-Clause`;
 
+// Output license as block comment body only
+const body = raw.split("\n").map(line => ` * ${line}`).join("\n");
+
 // Output license as full multi-line/block comment
-function buildFullBlockComment() {
-    const rawLines = licenseTextRaw.split("\n");
-    const commentLines = rawLines.map(line => ` * ${line}`);
-    const fullBlockComment = `/*\n${commentLines.join("\n")}\n */`;
-    
-    return fullBlockComment;
-}
+const header = `/*\n${body}\n */\n\n`;
 
-// Output license as block comment content only
-function buildBlockCommentBodyOnly() {
-    const rawLines = licenseTextRaw.split("\n");
-    const commentLines = rawLines.map(line => ` * ${line}`);
-    const blockContentOnly = `${commentLines.join("\n")}`;
-
-    return blockContentOnly;
-}
-
-export const blockComment = buildFullBlockComment();
-export const blockCommentBody = buildBlockCommentBodyOnly();
+export const license = { raw, body, header };

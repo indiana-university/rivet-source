@@ -1,17 +1,17 @@
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
 import pkg from "./package.json";
-import { blockCommentBody } from "./scripts/utils/license-header.js";
+import { license } from "./scripts/utils/license-header.js";
 
 const [fileName] = pkg.name.split("-");
-const license = `/*!
+const licenseHeader = `/*!
  * ${pkg.name} - @version ${pkg.version}
  *
-${blockCommentBody}
+${license.body}
  */`;
 
 const buildConfig = {
-	plugins: [bannerPlugin(license)],
+	plugins: [bannerPlugin(licenseHeader)],
 	build: {
 		cssCodeSplit: true,
 		emptyOutDir: false,
