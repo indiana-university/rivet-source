@@ -14,13 +14,12 @@ const buildConfig = {
 	plugins: [bannerPlugin(license)],
 	build: {
 		cssCodeSplit: true,
-		emptyOutDir: false,
 		lib: {
 			cssFileName: fileName,
 			entry: {
 				rivet: "src/rivet.js",
-				"rivet-icons": "src/rivet-icons.js",
-				"rivet-stickers": "src/rivet-stickers.js",
+				"rivet-icons": "src/rivet-icons.css",
+				"rivet-stickers": "src/rivet-stickers.css",
 			},
 			formats: ["es"],
 		},

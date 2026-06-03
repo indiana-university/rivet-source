@@ -24,20 +24,14 @@
 		"./src/": "./src/"
 	},
 	"files": [
-		"dist/**/*",
-		"rivet.zip"
+		"dist/**/*"
 	],
 	"scripts": {
-		"build": "run-s build:clean build:dist build:dist:clean build:zip",
-		"build:clean": "rimraf dist rivet.zip",
-		"build:dist": "vite build",
-		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
-		"build:zip": "zip -r rivet.zip dist",
+		"build": "vite build",
+		"postbuild": "zip -r dist/rivet.zip dist",
 		"dev": "pnpm build"
 	},
 	"devDependencies": {
-		"npm-run-all": "4.1.5",
-		"rimraf": "6.1.3",
 		"sass": "1.99.0",
 		"vite": "7.3.2",
 		"vite-plugin-banner": "0.8.1"
