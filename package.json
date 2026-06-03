@@ -34,7 +34,7 @@
 		"build:astro": "astro build",
 		"add-license": "node scripts/add-license.js",
 		"changelog": "node scripts/generate-changelog.js",
-		"format": "prettier --write .",
+		"format": "npx lint-staged",
 		"preview": "run-s build preview:astro",
 		"preview:astro": "astro preview --open --host",
 		"prepare": "husky"
@@ -44,7 +44,10 @@
 		"rivet.zip"
 	],
 	"lint-staged": {
-		"src/*.{js,css,scss}": "node scripts/add-license.js"
+		"src/*.{js,css,scss}": [
+			"node scripts/add-license.js",
+			"prettier --write ."
+		]
 	},
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
