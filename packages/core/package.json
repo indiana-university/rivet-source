@@ -28,8 +28,7 @@
 	],
 	"scripts": {
 		"build": "vite build",
-		"postbuild": "zip -r dist/rivet.zip dist",
-		"dev": "pnpm build"
+		"postbuild": "zip -r dist/rivet.zip dist"
 	},
 	"devDependencies": {
 		"sass": "1.99.0",
