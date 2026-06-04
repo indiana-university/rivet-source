@@ -1,7 +1,7 @@
 {
 	"name": "rivet-source",
-	"private": true,
 	"description": "Rivet Design System for Indiana University",
+	"private": true,
 	"homepage": "https://rivet.iu.edu",
 	"license": "BSD-3-Clause",
 	"type": "module",

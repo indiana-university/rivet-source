@@ -1,9 +1,9 @@
 	{
 	"name": "@rivet-iu/sandbox",
-	"private": true,
 	"description": "Development environment",
-	"homepage": "https://rivet.iu.edu",
+	"private": true,
 	"license": "BSD-3-Clause",
+	"homepage": "https://rivet.iu.edu",
 	"type": "module",
 	"scripts": {
 		"build": "astro build",

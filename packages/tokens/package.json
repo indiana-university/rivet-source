@@ -1,9 +1,12 @@
 {
 	"name": "@rivet-iu/tokens",
-	"version": "1.0.0",
 	"description": "Design tokens for the Rivet Design System",
-	"homepage": "https://rivet.iu.edu",
+	"version": "1.0.0",
 	"license": "BSD-3-Clause",
+	"publishConfig": {
+		"access": "public"
+	},
+	"homepage": "https://rivet.iu.edu",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/indiana-university/rivet-source"
@@ -14,10 +17,13 @@
 	},
 	"type": "module",
 	"exports": {
-		"./dist/": "./dist/",
-		"./tokens/": "./tokens/"
+		"./dist/tokens.json": "./dist/tokens.json",
+		"./tokens/*": "./tokens/*"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist/tokens.json",
+		"tokens"
+	],
 	"scripts": {
 		"prebuild": "rimraf dist",
 		"build": "style-dictionary build"
