@@ -17,11 +17,11 @@
 	},
 	"type": "module",
 	"exports": {
-		"./dist/tokens.json": "./dist/tokens.json",
+		"./dist/*": "./dist/*",
 		"./tokens/*": "./tokens/*"
 	},
 	"files": [
-		"dist/tokens.json",
+		"dist",
 		"tokens"
 	],
 	"scripts": {
