@@ -30,7 +30,7 @@ export function getStaticPaths() {
 	}
 
 	const sortedPaths = Array.from(allUniquePaths).sort((a, b) =>
-		(a as string).localeCompare((b as string)),
+		(a as string).localeCompare(b as string),
 	);
 	const pathMap = new Map();
 
@@ -55,8 +55,7 @@ export function getStaticPaths() {
 			isUtility && "utility",
 		].filter((ft) => ft);
 		const children: any[] = [];
-		const cleanPath = path
-			.replace(".astro", "");
+		const cleanPath = path.replace(".astro", "");
 		const currentNode = {
 			children,
 			fileType,
