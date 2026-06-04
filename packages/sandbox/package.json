@@ -12,7 +12,7 @@
 		"preview": "astro preview --open --host"
 	},
 	"devDependencies": {
-		"astro": "6.4.2"
+		"astro": "6.4.4"
 	},
 	"dependencies": {
 		"@rivet-iu/core": "workspace:*"
