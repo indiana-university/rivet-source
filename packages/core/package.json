@@ -16,8 +16,13 @@
 		"email": "rivet@iu.edu"
 	},
 	"type": "module",
+	"imports": {
+		"#components/*": "./src/components/*",
+		"#layouts/*": "./src/layouts/*"
+	},
 	"exports": {
 		".": "./dist/rivet.js",
+		"./package.json": "./package.json",
 		"./dist/*": "./dist/*",
 		"./src/*": "./src/*"
 	},

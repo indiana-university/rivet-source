@@ -1,8 +1,8 @@
 ---
-import pkg from "@core/package.json";
-import "@src/rivet.scss";
-import "@src/rivet-icons.css";
-import "@src/rivet-stickers.css";
+import pkg from "@rivet-iu/core/package.json";
+import "@rivet-iu/core/src/rivet.scss";
+import "@rivet-iu/core/src/rivet-icons.css";
+import "@rivet-iu/core/src/rivet-stickers.css";
 import { removeStart } from "../utils/removeStart.js";
 
 const APP_NAME = `Rivet v${pkg.version}`;
@@ -22,7 +22,7 @@ const docTitle = isRoot ? site : [title, site].join(" - ");
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<script>
-			import Rivet from "@src/rivet.js";
+			import Rivet from "@rivet-iu/core/src/rivet.js";
 			Rivet.init();
 		</script>
 	</head>
