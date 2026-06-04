@@ -13,9 +13,14 @@
 		"preview": "pnpm --filter @rivet-iu/sandbox... preview"
 	},
 	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "24.x",
+			"onFail": "download"
+		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "^11.5.0",
+			"version": "11.x",
 			"onFail": "download"
 		}
 	},
