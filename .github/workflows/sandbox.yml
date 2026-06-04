@@ -1,4 +1,4 @@
-name: Deploy Astro site to Pages
+name: Deploy sandbox site to GitHub Pages
 
 on:
   push:
@@ -45,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
-      - name: Build Astro
+      - name: Build sandbox site
         run: pnpm build
         working-directory: ${{ env.BUILD_PATH }}
       - name: Upload artifact
