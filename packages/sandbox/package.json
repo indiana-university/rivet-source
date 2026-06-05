@@ -7,11 +7,16 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev --open --host",
-		"prepreview": "astro build",
+		"prebuild": "rimraf public",
+		"build": "copyfiles ../core/dist/* public/@rivet-iu/*",
+		"postbuild": "astro build",
+		"prepreview": "pnpm build",
 		"preview": "astro preview --open --host"
 	},
 	"devDependencies": {
-		"astro": "6.4.4"
+		"astro": "6.4.4",
+		"copyfiles": "2.4.1",
+		"rimraf": "6.1.3"
 	},
 	"dependencies": {
 		"@rivet-iu/core": "workspace:*"

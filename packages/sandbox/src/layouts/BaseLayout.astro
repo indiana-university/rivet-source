@@ -1,9 +1,18 @@
 ---
 import pkg from "@rivet-iu/core/package.json";
-import "@rivet-iu/core/src/rivet.scss";
-import "@rivet-iu/core/src/rivet-icons.css";
-import "@rivet-iu/core/src/rivet-stickers.css";
 import { removeStart } from "../utils/removeStart.js";
+
+//import "@rivet-iu/core/src/rivet.scss";
+
+if (import.meta.env.DEV) {
+	//await import("@rivet-iu/core/src/rivet.scss");
+	//await import("@rivet-iu/core/src/rivet-icons.css");
+	//await import("@rivet-iu/core/src/rivet-stickers.css");
+} else {
+	//await import("@rivet-iu/core/dist/rivet.css");
+	//await import("@rivet-iu/core/dist/rivet-icons.css");
+	//await import("@rivet-iu/core/dist/rivet-stickers.css");
+}
 
 const APP_NAME = `Rivet v${pkg.version}`;
 const site = Astro.props.site || APP_NAME;
@@ -11,6 +20,8 @@ const title = Astro.props.title || site;
 const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
 const isRoot = Astro.props.root || currentPath === "/" || currentPath === "";
 const docTitle = isRoot ? site : [title, site].join(" - ");
+
+const corePath = `${import.meta.env.BASE_URL}/@rivet-iu/core/dist`;
 ---
 
 <!doctype html>
@@ -21,10 +32,23 @@ const docTitle = isRoot ? site : [title, site].join(" - ");
 		<title>{docTitle}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<script>
-			import Rivet from "@rivet-iu/core/src/rivet.js";
-			Rivet.init();
-		</script>
+		{
+			import.meta.env.DEV && (
+				<script>
+					import Rivet from "@rivet-iu/core/src/rivet.js"; Rivet.init();
+				</script>
+			)
+		}
+		{
+			!import.meta.env.DEV && (
+				<link rel="stylesheet" href={`${corePath}/rivet.css`} />
+				<link rel="stylesheet" href={`${corePath}/rivet-icons.css`} />
+				<link rel="stylesheet" href={`${corePath}/rivet-stickers.css`} />
+				<script>
+					import Rivet from "@rivet-iu/core/dist/rivet.js"; Rivet.init();
+				</script>
+			)
+		}
 	</head>
 	<body>
 		<slot />

@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  *****************************************************************************/
 
-import "./rivet.scss";
-
 import "./components/drilldown/drilldown.js";
 
 import Accordion from "./components/accordion/accordion.js";

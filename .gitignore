@@ -1,11 +1,9 @@
 dist
 node_modules
 tmp
-.astro
 .DS_Store
 .env
 .idea
 .vscode
 *.tgz
 *.zip
-*.tmp.*

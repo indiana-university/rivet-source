@@ -6,7 +6,7 @@
 	"license": "BSD-3-Clause",
 	"type": "module",
 	"scripts": {
-		"build": "pnpm --filter @rivet-iu/core... build",
+		"build": "pnpm --filter @rivet-iu/sandbox... build",
 		"changelog": "node tasks/generate-changelog.js",
 		"dev": "pnpm --filter @rivet-iu/sandbox... dev",
 		"format": "prettier --write .",
