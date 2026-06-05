@@ -1,5 +1,6 @@
 dist
 node_modules
+tmp
 .astro
 .DS_Store
 .env

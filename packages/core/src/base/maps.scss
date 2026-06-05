@@ -1,4 +1,4 @@
-@use "@rivet-iu/tokens/dist/tokens.scss" as *;
+@use "@rivet-iu/tokens/tmp/core-vars.scss" as *;
 @use "sass:map";
 
 $breakpoints: map.get($tokens, "breakpoint");

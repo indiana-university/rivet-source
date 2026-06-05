@@ -31,7 +31,8 @@
 		"src"
 	],
 	"scripts": {
-		"build": "vite build"
+		"build": "vite build",
+		"preview": "pnpm build"
 	},
 	"devDependencies": {
 		"sass": "1.100.0",

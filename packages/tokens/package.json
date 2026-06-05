@@ -19,6 +19,7 @@
 	"exports": {
 		"./package.json": "./package.json",
 		"./dist/*": "./dist/*",
+		"./tmp/*": "./tmp/*",
 		"./tokens/*": "./tokens/*"
 	},
 	"files": [
@@ -26,8 +27,10 @@
 		"tokens"
 	],
 	"scripts": {
-		"prebuild": "rimraf dist",
-		"build": "style-dictionary build"
+		"prebuild": "rimraf dist tmp",
+		"build": "style-dictionary build",
+		"dev": "pnpm build",
+		"preview": "pnpm build"
 	},
 	"devDependencies": {
 		"rimraf": "6.1.3",

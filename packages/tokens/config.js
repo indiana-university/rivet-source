@@ -77,7 +77,7 @@ export default {
 			transformGroup: transformGroups.scss,
 			files: [
 				{
-					destination: "dist/tokens.scss",
+					destination: "tmp/core-vars.scss",
 					format: formats.scssMapDeep,
 				},
 			],
@@ -88,32 +88,32 @@ export default {
 			prefix: PREFIX,
 			files: [
 				{
-					destination: "dist/tokens.css",
+					destination: "tmp/core-vars.css",
 					filter: "core",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "dist/icon-core.css",
+					destination: "tmp/core-icon.css",
 					filter: "core-icon",
 					format: "css/icons",
 				},
 				{
-					destination: "dist/tokens-icon-extra.css",
+					destination: "tmp/icon-vars.css",
 					filter: "extra-icon",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "dist/icon-extra.css",
+					destination: "tmp/icon.css",
 					filter: "extra-icon",
 					format: "css/icons",
 				},
 				{
-					destination: "dist/tokens-sticker.css",
+					destination: "tmp/sticker-vars.css",
 					filter: "sticker",
 					format: formats.cssVariables,
 				},
 				{
-					destination: "dist/sticker.css",
+					destination: "tmp/sticker.css",
 					filter: "sticker",
 					format: "css/stickers",
 				},

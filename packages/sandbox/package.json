@@ -6,9 +6,8 @@
 	"homepage": "https://rivet.iu.edu",
 	"type": "module",
 	"scripts": {
-		"build": "astro build",
 		"dev": "astro dev --open --host",
-		"prepreview": "pnpm build",
+		"prepreview": "astro build",
 		"preview": "astro preview --open --host"
 	},
 	"devDependencies": {

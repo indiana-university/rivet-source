@@ -4,6 +4,6 @@
  */
 
 @import "layers.css";
-@import "@rivet-iu/tokens/dist/tokens-sticker.css" layer(rivet.base);
+@import "@rivet-iu/tokens/tmp/sticker-vars.css" layer(rivet.base);
 @import "components/sticker/sticker.css" layer(rivet.components);
-@import "@rivet-iu/tokens/dist/sticker.css" layer(rivet.components);
+@import "@rivet-iu/tokens/tmp/sticker.css" layer(rivet.components);

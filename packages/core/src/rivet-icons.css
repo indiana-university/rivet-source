@@ -4,5 +4,5 @@
  */
 
 @import "layers.css";
-@import "@rivet-iu/tokens/dist/tokens-icon-extra.css" layer(rivet.base);
-@import "@rivet-iu/tokens/dist/icon-extra.css" layer(rivet.components);
+@import "@rivet-iu/tokens/tmp/icon-vars.css" layer(rivet.base);
+@import "@rivet-iu/tokens/tmp/icon.css" layer(rivet.components);
