@@ -19,7 +19,7 @@
 			},
 			"serif": {
 				"$value": [
-					"Playfair Display",
+					"Crimson Pro",
 					"GeorgiaPro",
 					"Georgia",
 					"Times New Roman",
@@ -29,7 +29,7 @@
 			},
 			"mono": {
 				"$value": [
-					"Azeret Mono",
+					"Roboto Mono",
 					"Consolas",
 					"Monaco",
 					"Andale Mono",
