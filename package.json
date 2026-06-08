@@ -44,7 +44,7 @@
 		"rivet.zip"
 	],
 	"lint-staged": {
-		"src/*.{css,js,scss}": "node scripts/add-license.js",
+		"src/**/*.{css,js,scss}": "node scripts/add-license.js",
 		"*.{astro,css,js,json,md,mjs,scss}": "prettier --write"
 	},
 	"devDependencies": {
