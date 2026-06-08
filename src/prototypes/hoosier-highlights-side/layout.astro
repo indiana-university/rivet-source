@@ -22,59 +22,40 @@ const childItems = data?.items || menus.current.items;
 <div class="rvt-container">
 	<div class="layout-side">
 		{!root && (
-			<rvt-side-nav>
-				<rvt-drilldown>
-					{
-						menus.all.map((menu: any) => (
-							<div
-								data-rvt-drilldown-menu={menu.id}
-								data-rvt-drilldown-parent={menu.parent?.id}
-								hidden={!menu.current}
-							>
-								<header>
-									{menu.parent && !menu.hasCurrent && (
-										<div class="rvt-button-group">
-											<button
-												class="rvt-button rvt-button--medium rvt-button--icon-only"
-												data-rvt-drilldown-open="parent"
-											>
-												<rvt-icon name="chevron-left" />
-												<span class="rvt-sr-only">Back</span>
-											</button>
-										</div>
-									)}
-									<h2>
-										<a href={menu.url}>
-											{menu.label}
-										</a>
-									</h2>
-								</header>
-								<ul>
-									{menu.items.map((item: any) => (
-										<li data-rvt-drilldown-child={item.id}>
-											<a
-												aria-current={item.current ? "page" : null}
-												href={item.url || "#"}
-											>
-												{item.label}
-											</a>
-											{item.hasChildren && (
-												<button
-													class="rvt-button rvt-button--medium rvt-button--icon-only"
-													data-rvt-drilldown-open="child"
-												>
-													<span class="rvt-sr-only">{`${item.label} menu`}</span>
-													<rvt-icon name="chevron-right" />
-												</button>
-											)}
-										</li>
-									))}
-								</ul>
-							</div>
-						))
-					}
-				</rvt-drilldown>
-			</rvt-side-nav>
+			<rvt-prototype-related-nav>
+				<nav aria-labelledby="rvt-prototype-related-nav-heading">
+					<header>
+						<h2 id="rvt-prototype-related-nav-heading">
+							<a href={menus.current.url}>
+								{menus.current.label}
+							</a>
+						</h2>
+					</header>
+					<ul>
+						{menus.current.items.map((item: any) => (
+							<li>
+								<a
+									aria-current={item.current ? "page" : null}
+									href={item.url || "#"}
+								>
+									{item.label}
+								</a>
+								{item.current && item.hasChildren && (
+									<ul>
+										{item.items.map((child: any) => (
+											<li>
+												<a href={child.url || "#"}>
+													{child.label}
+												</a>
+											</li>
+										))}
+									</ul>
+								)}
+							</li>
+						))}
+					</ul>
+				</nav>
+			</rvt-prototype-related-nav>
 		)}
 		{
 			!root && (
@@ -157,7 +138,7 @@ const childItems = data?.items || menus.current.items;
 		--border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 		--gap: var(--rvt-size-40);
 
-		rvt-side-nav {
+		rvt-prototype-related-nav {
 			display: none;
 		}
 
@@ -171,12 +152,12 @@ const childItems = data?.items || menus.current.items;
 	}
 
 	@container (width > 45rem) {
-		.layout-side:has(rvt-side-nav) {
+		.layout-side:has(rvt-prototype-related-nav) {
 			display: grid;
 			grid-template-columns: 20rem 1fr;
 			grid-template-rows: auto 1fr;
 
-			rvt-side-nav {
+			rvt-prototype-related-nav {
 				border-block-start: var(--border);
 				border-inline-end: var(--border);
 				display: block;
@@ -198,12 +179,6 @@ const childItems = data?.items || menus.current.items;
 				padding-inline-start: var(--gap);
 			}
 
-			rvt-drilldown {
-				header {
-					padding-block-start: 0;
-				}
-			}
-
 			main {
 				grid-column: 2 / 3;
 				grid-row: 2 / 3;
@@ -213,63 +188,63 @@ const childItems = data?.items || menus.current.items;
 		}
 	}
 
-	rvt-related-nav {
-		--height: var(--rvt-size-48);
-		--padding: var(--rvt-size-12);
-		display: block;
-
+	rvt-prototype-related-nav {
 		nav {
-			border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-			display: flex;
-			flex-grow: 1;
-			flex-shrink: 0;
+			a {
+				color: unset;
+				display: block;
+				text-decoration: none;
 
-			> * {
-				margin-block: var(--rvt-size-n1);
-			}
+				&:visited {
+					color: inherit;
+				}
 
-			> a:first-child {
-				align-items: center;
-				display: flex;
-				font: var(--rvt-font-18-bold);
-				gap: var(--rvt-size-8);
+				&:hover {
+					color: var(--rvt-color-theme-text-accent);
+					text-decoration: underline;
+				}
 
-				&::before {
-					background-color: currentColor;
-					display: block;
-					content: "";
-					clip-path: path(var(--rvt-icon-arrow-left));
-					height: var(--rvt-size-16);
-					width: var(--rvt-size-16);
+				&[aria-current="page"] {
+					color: var(--rvt-color-theme-text-accent);
+					font: inherit;
+					font-variation-settings: var(--rvt-font-variation-grade);
+					text-decoration: underline;
+					text-underline-offset: var(--rvt-size-4);
 				}
 			}
-		}
 
-		ul {
-			display: flex;
-			list-style: "";
-			padding: 0;
-		}
+			> header {
+				margin-block-end: var(--rvt-size-8);
 
-		a {
-			border: var(--rvt-size-1) solid transparent;
-			color: inherit;
-			display: block;
-			font: var(--rvt-font-14);
-			padding-block: calc((var(--height) - 1lh - var(--rvt-size-2)) / 2);
-			padding-inline: var(--padding);
-			scroll-snap-align: start;
-			text-decoration: none;
-
-			&:hover {
-				color: var(--rvt-color-theme-text-accent);
-				text-decoration: underline;
+				:is(h2, h3, h4, h5, h6) {
+					a {
+						font: var(--rvt-font-18-bold);
+					}
+				}
 			}
 
-			&[aria-current="page"] {
-				background-color: var(--rvt-color-theme-background-strong);
-				border-color: var(--rvt-color-theme-ui);
-				font-variation-settings: "GRAD" 150;
+			ul {
+				list-style-type: "";
+				margin: 0;
+				padding: 0;
+			}
+
+			> ul {
+				border-block-start: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+
+				> li {
+					border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+					border-block-start: none;
+					padding-block: var(--rvt-size-8);
+
+					li {
+						padding-block-start: var(--rvt-size-8);
+
+						> a {
+							padding-inline-start: var(--rvt-size-16);
+						}
+					}
+				}
 			}
 		}
 	}
@@ -284,57 +259,6 @@ const childItems = data?.items || menus.current.items;
 
 	.rvt-hero {
 		padding-inline: 0;
-	}
-
-	rvt-main-header {
-		display: block;
-		container-type: inline-size;
-		margin-block-end: var(--rvt-size-32);
-		padding-block-end: 0;
-
-		rvt-related-nav {
-			display: none;
-
-			&:where(:not(:has(nav > a:first-child))) {
-				display: none;
-			}
-
-			&:where(:has(nav > a:first-child)) {
-				nav {
-					border-block-start-color: transparent;
-				}
-
-				ul {
-					display: none;
-				}
-			}
-
-			rvt-list-more {
-				visibility: hidden;
-			}
-		}
-
-		@container (width > 40rem) {
-			rvt-related-nav {
-				display: block;
-
-				nav {
-					border-block-start-color: var(--rvt-color-theme-ui);
-				}
-
-				ul {
-					display: flex;
-				}
-
-				rvt-list-more {
-					visibility: visible;
-				}
-			}
-
-			rvt-breadcrumbs {
-				margin-block-start: var(--rvt-size-24);
-			}
-		}
 	}
 
 	.content {
