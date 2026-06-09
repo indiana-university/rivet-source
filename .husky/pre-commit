@@ -1,0 +1,5 @@
+# Ensure the commit doesn't continue if lint-staged modifies any files
+npx lint-staged --fail-on-changes
+
+# Add extra blank line
+echo ""

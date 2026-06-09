@@ -32,18 +32,26 @@
 		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
 		"build:zip": "zip -r rivet.zip dist",
 		"build:astro": "astro build",
-		"changelog": "node tasks/generate-changelog.js",
-		"format": "prettier --write .",
+		"add-license": "node scripts/add-license.js",
+		"changelog": "node scripts/generate-changelog.js",
+		"format": "npx lint-staged",
 		"preview": "run-s build preview:astro",
-		"preview:astro": "astro preview --open --host"
+		"preview:astro": "astro preview --open --host",
+		"prepare": "husky"
 	},
 	"files": [
 		"dist/**/*",
 		"rivet.zip"
 	],
+	"lint-staged": {
+		"src/**/*.{css,js,scss}": "node scripts/add-license.js",
+		"*.{astro,css,js,json,md,mjs,scss}": "prettier --write"
+	},
 	"devDependencies": {
 		"@octokit/rest": "22.0.1",
 		"astro": "6.1.10",
+		"husky": "9.1.7",
+		"lint-staged": "16.4.0",
 		"npm-run-all": "4.1.5",
 		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1",
