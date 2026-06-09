@@ -1,7 +1,7 @@
-/******************************************************************************
- * Copyright (C) 2023 The Trustees of Indiana University
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
- *****************************************************************************/
+ */
 
 import Component from "../component/component.js";
 import { SUPPRESS_EVENT } from "../../constants.js";
