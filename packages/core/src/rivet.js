@@ -29,6 +29,8 @@ function init() {
 	Tabs.initAll();
 }
 
+init();
+
 export {
 	Accordion,
 	Alert,

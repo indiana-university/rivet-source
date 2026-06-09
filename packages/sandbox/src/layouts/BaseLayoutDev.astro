@@ -1,0 +1,14 @@
+---
+import Template from "./BaseLayoutTemplate.astro";
+
+import "@rivet-iu/core/src/rivet.scss";
+import "@rivet-iu/core/src/rivet-icons.css";
+import "@rivet-iu/core/src/rivet-stickers.css";
+---
+
+<Template {...Astro.props}>
+	<Fragment slot="head">
+		<script src="@rivet-iu/core/src/rivet.js"></script>
+	</Fragment>
+	<slot />
+</Template>

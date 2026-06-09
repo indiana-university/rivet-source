@@ -1,0 +1,26 @@
+---
+import pkg from "@rivet-iu/core/package.json";
+import { removeStart } from "../utils/removeStart.js";
+
+const APP_NAME = `Rivet v${pkg.version}`;
+const site = Astro.props.site || APP_NAME;
+const title = Astro.props.title || site;
+const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
+const isRoot = Astro.props.root || currentPath === "/" || currentPath === "";
+const docTitle = isRoot ? site : [title, site].join(" - ");
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{docTitle}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<slot name="head" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
