@@ -5,59 +5,68 @@ import { baseUrl } from "../utils/baseUrl.js";
 import { removeEnd } from "../utils/removeEnd.js";
 import { removeStart } from "../utils/removeStart.js";
 
-const APP_NAME = "Rivet";
+const APP_NAME = `Rivet v${pkg.version}`;
 const title = Astro.props.title || APP_NAME;
 const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
 const breadcrumbs = removeEnd(currentPath, "/")
 	.split("/")
 	.map((part: any, i: any, source: any) => {
+		const first = i === 0;
 		const last = i === source.length - 1;
 		const current: boolean | "page" = last ? "page" : false;
 		const label = current ? title : part || APP_NAME;
 		const _url = source.slice(1, i + 1).join("/");
 		const url = baseUrl(_url);
-		return { current, label, last, url };
+		return { current, first, label, last, url };
 	});
-const parentPage = breadcrumbs.at(-2);
 ---
 
 <Layout {...Astro.props}>
-	<header
-		class="rvt-border-bottom rvt-flex rvt-items-center rvt-gap-sm rvt-p-all-sm"
-	>
-		<a
-			class="rvt-button rvt-button--small rvt-button--icon-only rvt-button--subtle"
-			href={parentPage?.url}
-		>
-			<rvt-icon name="arrow-left"></rvt-icon>
-			<span class="rvt-sr-only">{parentPage?.label}</span>
-		</a>
-		<nav class="rvt-border-left rvt-flex rvt-grow-1 rvt-p-left-sm">
-			<ol class="rvt-breadcrumbs">
-				{
-					breadcrumbs.map((item: any) => (
-						<li aria-current={item.current}>
-							{!item.last && <a href={item.url}>{item.label}</a>}
-							{item.last && item.label}
-						</li>
-					))
-				}
-			</ol>
-		</nav>
-		<span class="version">
-			{`v${pkg.version}`}
-		</span>
-		<h1 class="rvt-sr-only">{title}</h1>
+	<header>
+		<a href={breadcrumbs.at(0).url}>{APP_NAME}</a>
+		{breadcrumbs.length > 1 && (
+			<nav>
+				<ol class="rvt-breadcrumbs">
+					{
+						breadcrumbs.map((item: any) => (
+							<li aria-current={item.current}>
+								{!item.last && (
+									<a href={item.url}>
+										<span class={item.first && "rvt-sr-only"}>
+											{item.label}
+										</span>
+									</a>
+								)}
+								{item.last && item.label}
+							</li>
+						))
+					}
+				</ol>
+			</nav>
+		)}
 	</header>
+	<h1 class="rvt-sr-only">{title}</h1>
 	<slot />
 </Layout>
 
 <style>
 	header {
+		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
-	}
+		border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--rvt-size-8) var(--rvt-size-32);
+		padding: var(--rvt-size-16);
 
-	.version {
-		font: var(--rvt-font-14);
+		> a {
+			color: inherit;
+			font: var(--rvt-font-16-bold);
+			text-decoration: none;
+		}
+
+		> nav {
+			display: flex;
+		}
 	}
 </style>
