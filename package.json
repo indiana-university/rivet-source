@@ -7,7 +7,6 @@
 	"type": "module",
 	"scripts": {
 		"build": "pnpm --filter @rivet-iu/sandbox... build",
-		"changelog": "node tasks/generate-changelog.js",
 		"dev": "pnpm --filter @rivet-iu/sandbox... dev",
 		"format": "prettier --write .",
 		"preview": "pnpm --filter @rivet-iu/sandbox... preview"
@@ -25,7 +24,6 @@
 		}
 	},
 	"devDependencies": {
-		"@octokit/rest": "22.0.1",
 		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1"
 	}
