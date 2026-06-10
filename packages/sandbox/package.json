@@ -14,7 +14,7 @@
 		"preview": "astro preview --open --host"
 	},
 	"devDependencies": {
-		"astro": "6.4.4",
+		"astro": "6.4.5",
 		"copyfiles": "2.4.1",
 		"rimraf": "6.1.3"
 	},
