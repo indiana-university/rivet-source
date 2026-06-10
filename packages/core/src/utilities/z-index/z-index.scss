@@ -1,7 +1,9 @@
-@use "../../base/core.scss" as *;
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 
-// Copyright (C) 2018 The Trustees of Indiana University
-// SPDX-License-Identifier: BSD-3-Clause
+@use "../../base/core.scss" as *;
 
 /* stylelint-disable */
 @each $index, $level in $z-index {
