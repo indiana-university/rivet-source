@@ -24,11 +24,11 @@ const breadcrumbs = removeEnd(currentPath, "/")
 <Layout {...Astro.props}>
 	<header>
 		<a href={breadcrumbs.at(0).url}>{APP_NAME}</a>
-		{breadcrumbs.length > 1 && (
-			<nav>
-				<ol class="rvt-breadcrumbs">
-					{
-						breadcrumbs.map((item: any) => (
+		{
+			breadcrumbs.length > 1 && (
+				<nav>
+					<ol class="rvt-breadcrumbs">
+						{breadcrumbs.map((item: any) => (
 							<li aria-current={item.current}>
 								{!item.last && (
 									<a href={item.url}>
@@ -39,11 +39,11 @@ const breadcrumbs = removeEnd(currentPath, "/")
 								)}
 								{item.last && item.label}
 							</li>
-						))
-					}
-				</ol>
-			</nav>
-		)}
+						))}
+					</ol>
+				</nav>
+			)
+		}
 	</header>
 	<h1 class="rvt-sr-only">{title}</h1>
 	<slot />
@@ -53,7 +53,7 @@ const breadcrumbs = removeEnd(currentPath, "/")
 	header {
 		align-items: center;
 		background-color: var(--rvt-color-theme-background-strong);
-		border-block-end: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+		border-block-end: var(--rvt-border);
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--rvt-size-8) var(--rvt-size-32);
