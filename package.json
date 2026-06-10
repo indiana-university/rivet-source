@@ -8,7 +8,8 @@
 	"scripts": {
 		"build": "pnpm --filter @rivet-iu/sandbox... build",
 		"dev": "pnpm --filter @rivet-iu/sandbox... dev",
-		"format": "prettier --write .",
+		"lint": "lint-staged",
+		"prepare": "husky",
 		"preview": "pnpm --filter @rivet-iu/sandbox... preview"
 	},
 	"devEngines": {
@@ -24,6 +25,8 @@
 		}
 	},
 	"devDependencies": {
+		"husky": "9.1.7",
+		"lint-staged": "16.4.0",
 		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1"
 	}

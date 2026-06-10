@@ -1,0 +1,4 @@
+{
+	"**/{scripts,src}/**/*.{css,js,mjs,scss,ts}": "node scripts/add-license.js",
+	"*.{astro,css,js,json,md,mjs,scss,ts,yaml}": "prettier --write"
+}
