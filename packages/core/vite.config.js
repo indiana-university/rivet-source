@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
 import pkg from "./package.json";
-import { license } from "./scripts/utils/license-header.js";
+import { license } from "../../scripts/utils/license-header.js";
 
 const licenseHeader = `/*!
  * ${pkg.name} - @version ${pkg.version}
