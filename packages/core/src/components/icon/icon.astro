@@ -1,0 +1,26 @@
+---
+import tokens from "@rivet-iu/tokens/tokens/icon.json";
+export const title = "Icons";
+
+const icons: any = Object.entries(tokens.icon).filter(
+	([key]) => !key.startsWith("$"),
+);
+---
+
+<ul class="rvt-list-plain">
+	{
+		icons.map(([name, value]) => (
+			<li class="rvt-items-center rvt-flex rvt-gap-xs">
+				<rvt-icon name={name} />
+				<span>{`${name}${value?.$core ? " (core)" : ""}`}</span>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	ul {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	}
+</style>

@@ -1,67 +1,33 @@
 {
-	"name": "rivet-core",
+	"name": "rivet-source",
 	"description": "Rivet Design System for Indiana University",
+	"private": true,
 	"homepage": "https://rivet.iu.edu",
-	"version": "3.0.0-alpha.10",
 	"license": "BSD-3-Clause",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/indiana-university/rivet-source"
-	},
-	"bugs": {
-		"url": "https://github.com/indiana-university/rivet-source/issues",
-		"email": "rivet@iu.edu"
-	},
 	"type": "module",
-	"module": "./dist/rivet.js",
-	"unpkg": "./dist/rivet.js",
-	"exports": {
-		".": {
-			"browser": "./dist/rivet.js",
-			"import": "./dist/rivet.js"
-		},
-		"./dist/": "./dist/"
-	},
 	"scripts": {
-		"start": "run-s build:tokens start:astro",
-		"start:astro": "astro dev --open --host",
-		"build": "run-s build:clean build:tokens build:dist build:dist:clean build:zip build:astro",
-		"build:clean": "rimraf src/**/*tmp* src/**/**/*tmp* dist rivet.zip site",
-		"build:tokens": "style-dictionary build -c tokens.config.js",
-		"build:dist": "vite build",
-		"build:dist:clean": "rimraf dist/rivet-{icons,stickers}.js*",
-		"build:zip": "zip -r rivet.zip dist",
-		"build:astro": "astro build",
-		"add-license": "node scripts/add-license.js",
-		"changelog": "node scripts/generate-changelog.js",
-		"format": "npx lint-staged",
-		"preview": "run-s build preview:astro",
-		"preview:astro": "astro preview --open --host",
-		"prepare": "husky"
+		"build": "pnpm --filter @rivet-iu/sandbox... build",
+		"dev": "pnpm --filter @rivet-iu/sandbox... dev",
+		"lint": "lint-staged",
+		"prepare": "husky",
+		"preview": "pnpm --filter @rivet-iu/sandbox... preview"
 	},
-	"files": [
-		"dist/**/*",
-		"rivet.zip"
-	],
-	"lint-staged": {
-		"src/**/*.{css,js,scss}": "node scripts/add-license.js",
-		"*.{astro,css,js,json,md,mjs,scss}": "prettier --write"
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "24.x",
+			"onFail": "download"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": "11.x",
+			"onFail": "download"
+		}
 	},
 	"devDependencies": {
-		"@octokit/rest": "22.0.1",
-		"astro": "6.1.10",
 		"husky": "9.1.7",
-		"lint-staged": "16.4.0",
-		"npm-run-all": "4.1.5",
-		"prettier": "3.8.3",
-		"prettier-plugin-astro": "0.14.1",
-		"rimraf": "6.1.3",
-		"sass": "1.99.0",
-		"style-dictionary": "5.4.0",
-		"vite": "7.3.2",
-		"vite-plugin-banner": "0.8.1"
-	},
-	"dependencies": {
-		"wicked-elements": "3.1.2"
+		"lint-staged": "17.0.7",
+		"prettier": "3.8.4",
+		"prettier-plugin-astro": "0.14.1"
 	}
 }
