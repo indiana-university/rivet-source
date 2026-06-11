@@ -258,8 +258,8 @@ importers:
         version: link:../core
     devDependencies:
       astro:
-        specifier: 6.4.5
-        version: 6.4.5(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.100.0)(yaml@2.9.0)
+        specifier: 6.4.6
+        version: 6.4.6(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.100.0)(yaml@2.9.0)
       cpy-cli:
         specifier: 7.0.0
         version: 7.0.0
@@ -1227,8 +1227,8 @@ packages:
   assert@2.1.0:
     resolution: {integrity: sha512-eLHpSK/Y4nhMJ07gDaAzoX/XAKS8PSaojml3M0DM4JpV1LAi5JOJ/p6H/XWrl8L+DzVEvVCW1z3vWAaB9oTsQw==}
 
-  astro@6.4.5:
-    resolution: {integrity: sha512-0R7WLD1+WD/mTPcZxyKtcF0CztQi9ahFRtGM7oChJhxjNbr4lSBenxi+mk91k5bPTaUEoZ6edg1fDo2qP8bCwg==}
+  astro@6.4.6:
+    resolution: {integrity: sha512-48OBTBKR9ctbf+DQxpOuxGl8ebfn59zTuNQMBzptmG/Mi/H8IdfMSbJgGuX1I/4U6g9yazG1p4BHlf4+2hWU4Q==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2569,10 +2569,6 @@ packages:
   tinycolor2@1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
 
-  tinyexec@1.1.1:
-    resolution: {integrity: sha512-VKS/ZaQhhkKFMANmAOhhXVoIfBXblQxGX1myCQ2faQrfmobMftXeJPcZGp0gS07ocvGJWDLZGyOZDadDBqYIJg==}
-    engines: {node: '>=18'}
-
   tinyexec@1.2.4:
     resolution: {integrity: sha512-SHf/r48b7vOrjve9PxJo3MN5v5yuyjHvdUcrQffT3WXMUfnGmHDVbC4k3sHJaJTgZCwpUplIaAo5ANtMyp3YHg==}
     engines: {node: '>=18'}
@@ -3609,7 +3605,7 @@ snapshots:
       object.assign: 4.1.7
       util: 0.12.5
 
-  astro@6.4.5(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.100.0)(yaml@2.9.0):
+  astro@6.4.6(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.100.0)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
@@ -3654,7 +3650,7 @@ snapshots:
       smol-toml: 1.6.1
       svgo: 4.0.1
       tinyclip: 0.1.12
-      tinyexec: 1.1.1
+      tinyexec: 1.2.4
       tinyglobby: 0.2.17
       ultrahtml: 1.6.0
       unifont: 0.7.4
@@ -5251,8 +5247,6 @@ snapshots:
   tinyclip@0.1.12: {}
 
   tinycolor2@1.6.0: {}
-
-  tinyexec@1.1.1: {}
 
   tinyexec@1.2.4: {}
 
