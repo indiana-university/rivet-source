@@ -30,6 +30,7 @@
 		"prebuild": "rimraf dist tmp",
 		"build": "style-dictionary build",
 		"dev": "pnpm build",
+		"prepare": "pnpm build",
 		"preview": "pnpm build"
 	},
 	"devDependencies": {
