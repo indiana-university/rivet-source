@@ -1,0 +1,35 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+.rvt-stack,
+.rvt-flow {
+	--rvt-stack-space: var(--rvt-spacing-lg);
+}
+
+.rvt-flow > *,
+.rvt-stack > * {
+	// This acts as a reset of sorts to create an even starting point in
+	// terms of vertical margin.
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+// With every direct child of the stack utility zeroed out we can create
+// consistent vertical space.
+
+.rvt-flow > * + *,
+.rvt-stack > * + * {
+	margin-top: var(--rvt-stack-space);
+	margin-bottom: 0;
+}
+
+@include mq($breakpoint-md) {
+	.rvt-flow,
+	.rvt-stack {
+		--rvt-stack-space: calc(var(--rvt-spacing-sm) * 5);
+	}
+}

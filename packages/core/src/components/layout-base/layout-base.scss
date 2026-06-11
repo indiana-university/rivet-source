@@ -1,0 +1,73 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+.rvt-layout-base {
+	display: grid;
+	gap: var(--rvt-spacing-md);
+	@include container;
+
+	&__sidebar {
+		padding-block-start: var(--rvt-spacing-lg);
+	}
+
+	&__main {
+		padding-block-start: var(--rvt-spacing-md);
+		padding-block-end: var(--rvt-spacing-md);
+	}
+
+	&--single-column &__main {
+		margin-inline: auto;
+		max-width: var(--rvt-line-length-normal);
+		width: 100%;
+	}
+
+	&__breakout {
+		margin-left: calc(50% - 50vw);
+		padding-block: var(--rvt-spacing-xl);
+		width: 100vw;
+	}
+
+	&__breakout-inner {
+		@include container;
+	}
+
+	&--single-column &__breakout {
+		// Breakout styles for single column...
+		margin-left: calc(50% - 50vw);
+	}
+}
+
+@include mq($breakpoint-lg) {
+	.rvt-layout-base {
+		grid-template-columns: calc(var(--rvt-spacing-sm) * 18) 1fr;
+		gap: var(--rvt-spacing-xxl);
+
+		&__sidebar {
+			border-right: var(--rvt-border);
+		}
+
+		&__sidebar {
+			padding-block: calc(var(--rvt-spacing-xxl) * 1.25);
+		}
+
+		&__main {
+			padding-block-end: var(--rvt-spacing-xxl);
+		}
+
+		&__breakout {
+			// 18rem = sidebar width
+			// 4rem = grid gap
+			// --------------------
+			// 22rem / 2 = 11rem
+			margin-left: calc(-50vw + calc(50% - 11rem));
+		}
+
+		&--single-column {
+			grid-template-columns: 1fr;
+		}
+	}
+}

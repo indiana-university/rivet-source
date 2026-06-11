@@ -1,8 +1,0 @@
-/*
- * Copyright (C) 2025 The Trustees of Indiana University
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
-:root {
-	--rvt-border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
-}
