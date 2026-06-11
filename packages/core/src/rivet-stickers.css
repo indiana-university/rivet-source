@@ -1,0 +1,9 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@import "layers.css";
+@import "@rivet-iu/tokens/tmp/sticker-vars.css" layer(rivet.base);
+@import "components/sticker/sticker.css" layer(rivet.components);
+@import "@rivet-iu/tokens/tmp/sticker.css" layer(rivet.components);

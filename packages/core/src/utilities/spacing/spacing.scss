@@ -1,0 +1,246 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+/* stylelint-disable */
+
+// Spacing direction values
+// NOTE: using "-bottom" will break the original version of the bottom utility classes
+// That used "-btm" for class names. The documentation needs to be updated to reflect
+// This change.
+$spacing-directions: (null, -top, -right, -bottom, -left);
+
+// Spacing size values
+// NOTE you can reference these sizes in core/_variables.scss
+
+$spacing-sizes: (
+	-xxs: var(--rvt-spacing-xxs),
+	-xs: var(--rvt-spacing-xs),
+	-sm: var(--rvt-spacing-sm),
+	-md: var(--rvt-spacing-md),
+	-lg: var(--rvt-spacing-lg),
+	-xl: var(--rvt-spacing-xl),
+	-xxl: var(--rvt-spacing-xxl),
+	-3-xl: var(--rvt-spacing-3-xl),
+	-4-xl: var(--rvt-spacing-4-xl)
+);
+
+// Super gnarly loop here, but it saves sooo much time
+
+// Based on this great example by Harry Roberts:
+// https://github.com/NHSLeadership/nightingale/blob/develop/utilities/_utilities.spacing.scss#L48
+
+@each $direction in $spacing-directions {
+	@each $size, $value in $spacing-sizes {
+		// If the direction is "null", add margin to all directions.
+		@if $direction == null {
+			.rvt-m-all#{$size} {
+				margin: $value;
+			}
+
+			.rvt-p-all#{$size} {
+				padding: $value;
+			}
+
+			.rvt-m-tb#{$size} {
+				margin-bottom: $value;
+				margin-top: $value;
+			}
+
+			.rvt-m-lr#{$size} {
+				margin-left: $value;
+				margin-right: $value;
+			}
+
+			.rvt-p-tb#{$size} {
+				padding-bottom: $value;
+				padding-top: $value;
+			}
+
+			.rvt-p-lr#{$size} {
+				padding-left: $value;
+				padding-right: $value;
+			}
+
+			// Otherwise create individual direction utilities.
+		} @else {
+			.rvt-m#{$direction}#{$size} {
+				margin#{$direction}: $value;
+			}
+
+			.-rvt-m#{$direction}#{$size} {
+				margin#{$direction}: -$value;
+			}
+
+			.rvt-p#{$direction}#{$size} {
+				padding#{$direction}: $value;
+			}
+		}
+	} // End $spacing-sizes loop
+} // End $spacing-directions loop
+
+// Builds responsive spacing classes
+
+// TODO: This can be refactored to use fewer nested loops
+
+@each $variable, $size in $breakpoints {
+	@include mq($size) {
+		@each $direction in $spacing-directions {
+			@each $suffix, $refs in $spacing-sizes {
+				// NOTE: We use here because we want these utilities to always
+				// produced the same result.
+
+				// If the direction is "null", add margin to all directions.
+				@if $direction == null {
+					.rvt-m-all#{$suffix}-#{$variable}-up {
+						margin: $refs;
+					}
+
+					.rvt-p-all#{$suffix}-#{$variable}-up {
+						padding: $refs;
+					}
+
+					.rvt-m-tb#{$suffix}-#{$variable}-up {
+						margin-bottom: $refs;
+						margin-top: $refs;
+					}
+
+					.rvt-m-lr#{$suffix}-#{$variable}-up {
+						margin-left: $refs;
+						margin-right: $refs;
+					}
+
+					.rvt-p-tb#{$suffix}-#{$variable}-up {
+						padding-bottom: $refs;
+						padding-top: $refs;
+					}
+
+					.rvt-p-lr#{$suffix}-#{$variable}-up {
+						padding-left: $refs;
+						padding-right: $refs;
+					}
+
+					// Otherwise create individual direction utilities.
+				} @else {
+					.rvt-m#{$direction}#{$suffix}-#{$variable}-up {
+						margin#{$direction}: $refs;
+					}
+
+					.-rvt-m#{$direction}#{$suffix}-#{$variable}-up {
+						margin#{$direction}: -$refs;
+					}
+
+					.rvt-p#{$direction}#{$suffix}-#{$variable}-up {
+						padding#{$direction}: $refs;
+					}
+				}
+			} // End $spacing-sizes loop
+		} // End $spacing-directions loop
+	}
+}
+
+// This loop creates classes that remove margin and padding from
+// an element.
+
+// NOTE: Adding the "-none" alias here without un-prefixed version
+// because the "-none" alias is totally new. We will always prefix every
+// class with "rvt-" moving forward.
+@each $direction in $spacing-directions {
+	@if $direction == null {
+		.rvt-m-all-remove,
+		.rvt-m-all-none {
+			margin: 0;
+		}
+
+		.rvt-m-tb-remove,
+		.rvt-m-tb-none {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.rvt-m-lr-remove,
+		.rvt-m-lr-none {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.rvt-p-all-remove,
+		.rvt-p-all-none {
+			padding: 0;
+		}
+
+		.rvt-p-tb-remove,
+		.rvt-p-tb-none {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		.rvt-p-lr-remove,
+		.rvt-p-lr-none {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	} @else {
+		.rvt-m#{$direction}-remove,
+		.rvt-m#{$direction}-none {
+			margin#{$direction}: 0;
+		}
+
+		.rvt-p#{$direction}-remove,
+		.rvt-p#{$direction}-none {
+			padding#{$direction}: 0;
+		}
+	}
+} // End remove loop
+
+// NOTE: Adding the "-none" alias to the responsive classes without
+// un-prefixed version because the "-none" alias is totally new. We will
+// always prefix every class with "rvt-" moving forward.
+@each $variable, $size in $breakpoints {
+	@include mq($size) {
+		@each $direction in $spacing-directions {
+			@if $direction == null {
+				.rvt-m-all-none-#{$variable}-up {
+					margin: 0;
+				}
+
+				.rvt-p-all-none-#{$variable}-up {
+					padding: 0;
+				}
+
+				.rvt-m-tb-none-#{$variable}-up {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
+				.rvt-p-tb-none-#{$variable}-up {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+
+				.rvt-m-lr-none-#{$variable}-up {
+					margin-right: 0;
+					margin-left: 0;
+				}
+
+				.rvt-p-lr-none-#{$variable}-up {
+					padding-right: 0;
+					padding-left: 0;
+				}
+			} @else {
+				.rvt-m#{$direction}-none-#{$variable}-up {
+					margin#{$direction}: 0;
+				}
+
+				.rvt-p#{$direction}-none-#{$variable}-up {
+					padding#{$direction}: 0;
+				}
+			}
+		}
+	}
+}
+
+/* stylelint-enable */

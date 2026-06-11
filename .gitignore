@@ -1,13 +1,9 @@
-cypress/screenshots
-cypress/videos
 dist
-dist-astro
 node_modules
-.astro
+tmp
 .DS_Store
 .env
 .idea
 .vscode
 *.tgz
 *.zip
-*.tmp.*

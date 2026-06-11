@@ -1,0 +1,21 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+.rvt-section {
+	/* @link https://utopia.fyi/clamp/calculator?a=330,1260,24—88 */
+	--rvt-padding-section-fluid: clamp(1.5rem, 0.0806rem + 6.8817vw, 5.5rem);
+	padding-block: var(--rvt-padding-section-fluid);
+	position: relative;
+
+	&--collapse {
+		padding-block: 0;
+	}
+}
+
+.rvt-section.rvt-theme-light + .rvt-section.rvt-theme-light,
+.rvt-section.rvt-theme-crimson + .rvt-section.rvt-theme-crimson,
+.rvt-section.rvt-theme-dark + .rvt-section.rvt-theme-dark {
+	padding-block-start: 0;
+}

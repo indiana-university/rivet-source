@@ -1,0 +1,72 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+.rvt-grid {
+	display: grid;
+	gap: var(--rvt-spacing-md);
+
+	& + & {
+		margin-top: var(--rvt-spacing-md);
+	}
+}
+
+:where(ul.rvt-grid),
+:where(ol.rvt-grid) {
+	list-style: "";
+	padding-left: 0;
+	padding-inline-start: 0;
+	margin: 0;
+}
+
+// This will make each grid list item the same/equal height.
+.rvt-grid > li {
+	flex-direction: column;
+	display: flex;
+}
+
+@include mq($breakpoint-md) {
+	.rvt-grid--2,
+	.rvt-grid--3,
+	.rvt-grid--4 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.rvt-grid.rvt-grid--collapse {
+		gap: 0;
+
+		> * + * {
+			margin-left: var(--rvt-size-n1);
+		}
+
+		* {
+			margin-bottom: var(--rvt-size-n1);
+		}
+	}
+}
+
+@include mq($breakpoint-lg) {
+	.rvt-grid {
+		gap: var(--rvt-spacing-lg);
+	}
+
+	// Make the sidebar layout variant kick in once
+	// there is plenty of space for the two-column layout.
+	.rvt-grid--sidebar {
+		grid-template-columns: 1fr 2fr;
+	}
+
+	.rvt-grid--3,
+	.rvt-grid--4 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@include mq($breakpoint-xl) {
+	.rvt-grid--4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

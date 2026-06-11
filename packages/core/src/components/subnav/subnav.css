@@ -1,0 +1,60 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+.rvt-subnav {
+	border-bottom: var(--rvt-border);
+	overflow-x: auto;
+	-webkit-overflow-scrolling: auto;
+
+	.rvt-subnav__list {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding-left: var(--rvt-spacing-xxs);
+		padding-right: var(--rvt-spacing-xxs);
+		padding-top: var(--rvt-spacing-xxs);
+	}
+
+	.rvt-subnav__item {
+		flex-shrink: 0;
+		margin: 0;
+	}
+
+	.rvt-subnav__item :is(a, button) {
+		align-items: center;
+		appearance: none;
+		border: none;
+		color: var(--rvt-color-theme-text-strong);
+		display: flex;
+		font: var(--rvt-font-14);
+		padding: var(--rvt-spacing-sm);
+		position: relative;
+		text-decoration: none;
+
+		> svg {
+			color: currentColor;
+		}
+	}
+
+	.rvt-subnav__item a[aria-current="page"] {
+		color: var(--rvt-color-theme-accent);
+		font-weight: var(--rvt-font-weight-bold);
+	}
+
+	.rvt-subnav__item a[aria-current="page"]::after {
+		background-color: var(--rvt-color-theme-accent);
+		bottom: 0;
+		content: "";
+		display: block;
+		height: var(--rvt-spacing-xxs);
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	.rvt-subnav__item :is(a, button):hover {
+		background-color: var(--rvt-color-theme-background-strong);
+	}
+}

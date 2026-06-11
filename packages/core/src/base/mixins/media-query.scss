@@ -1,0 +1,12 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+// Media query helper function
+
+@mixin mq($size) {
+	@media screen and (min-width: $size) {
+		@content;
+	}
+}

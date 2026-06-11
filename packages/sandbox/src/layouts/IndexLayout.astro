@@ -1,0 +1,17 @@
+---
+import Layout from "./SandboxLayout.astro";
+import { baseUrl } from "../utils/baseUrl.js";
+const { children } = Astro.props;
+---
+
+<Layout {...Astro.props}>
+	<ul>
+		{
+			children.map((page: any) => (
+				<li>
+					<a href={baseUrl(page.path)}>{page.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</Layout>
