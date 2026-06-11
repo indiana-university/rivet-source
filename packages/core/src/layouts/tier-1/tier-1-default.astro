@@ -1,0 +1,154 @@
+---
+import ContactInfo from "#components/contact-info/contact-info-demo.astro";
+import Header from "#components/header/header-demo.astro";
+import HeroFeature from "#components/hero/hero-feature-demo.astro";
+import Footer from "#components/footer/footer-demo.astro";
+import ListHub from "#components/list-hub/list-hub-demo.astro";
+import Quote from "#components/quote/quote-citation.astro";
+import StatGroup from "#components/stat-group/stat-group.astro";
+export const title = "Tier 1";
+---
+
+<Header />
+<main>
+	<div class="rvt-section rvt-theme-light">
+		<HeroFeature />
+	</div>
+	<div
+		class="rvt-section rvt-theme-light [ rvt-border-top rvt-p-bottom-none-lg-up ]"
+	>
+		<div class="rvt-container">
+			<StatGroup />
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-crimson" id="section-one">
+		<div class="rvt-container">
+			<!-- Section intro component -->
+			<div class="rvt-section-intro rvt-section-intro--feature">
+				<div class="rvt-section-intro__eyebrow">Section or category</div>
+				<h2 class="rvt-section-intro__title">
+					Section title not exceed 40 characters
+				</h2>
+				<div class="rvt-section-intro__teaser">
+					<p>
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos
+						adipisci perferendis, voluptas alias officiis repudiandae nemo ut ex
+						mollitia est quaerat temporibus dolor tenetur accusamus? Soluta quos
+						doloremque nisi voluptas!
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+						exercitationem eaque repudiandae culpa officia porro quidem debitis
+						repellat quas necessitatibus maxime iste molestias magnam, assumenda
+						modi? Vel corrupti quos necessitatibus!
+					</p>
+				</div>
+				<div class="rvt-section-intro__actions">
+					<a class="rvt-button rvt-button--cta" href="/#0">More about CTA</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-light">
+		<div class="rvt-container">
+			<div class="rvt-billboard rvt-billboard--reverse">
+				<div class="rvt-billboard__image">
+					<img
+						src="https://picsum.photos/id/20/800/800"
+						alt="Student in vintage-style Indiana University t-shirt"
+					/>
+				</div>
+				<div class="rvt-billboard__body">
+					<p class="rvt-billboard__eyebrow">Tag or category</p>
+					<h2 class="rvt-billboard__title">
+						title should not exceed 32 characters
+					</h2>
+					<div class="rvt-billboard__content">
+						<p>
+							Billboard descriptions should not exceed one paragraph or 32
+							characters. One to two brief sentences will keep the user engaged
+							with your content.
+						</p>
+						<p>
+							<a class="rvt-button rvt-button--cta" href="/#">Lorem Ipusum</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="rvt-billboard">
+				<div class="rvt-billboard__image">
+					<img
+						src="https://picsum.photos/id/10/800/800"
+						alt="Student in vintage-style Indiana University t-shirt"
+					/>
+				</div>
+				<div class="rvt-billboard__body">
+					<p class="rvt-billboard__eyebrow">Tag or category</p>
+					<h2 class="rvt-billboard__title">
+						title should not exceed 32 characters
+					</h2>
+					<div class="rvt-billboard__content">
+						<p>
+							Billboard descriptions should not exceed one paragraph or 32
+							characters. One to two brief sentences will keep the user engaged
+							with your content.
+						</p>
+						<p>
+							<a class="rvt-button rvt-button--cta" href="/#">Lorem Ipusum</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="rvt-billboard rvt-billboard--reverse">
+				<div class="rvt-billboard__image">
+					<img
+						src="https://picsum.photos/id/56/800/800"
+						alt="Student in vintage-style Indiana University t-shirt"
+					/>
+				</div>
+				<div class="rvt-billboard__body">
+					<p class="rvt-billboard__eyebrow">Tag or category</p>
+					<h2 class="rvt-billboard__title">
+						title should not exceed 32 characters
+					</h2>
+					<div class="rvt-billboard__content">
+						<p>
+							Billboard descriptions should not exceed one paragraph or 32
+							characters. One to two brief sentences will keep the user engaged
+							with your content.
+						</p>
+						<p>
+							<a class="rvt-button rvt-button--cta" href="/#">Lorem Ipusum</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-crimson">
+		<div class="rvt-container">
+			<Quote />
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-light">
+		<div class="rvt-container">
+			<ContactInfo />
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-light">
+		<div class="rvt-container">
+			<div class="rvt-grid rvt-grid--2 [ rvt-gap-xxl ]">
+				<div>
+					<img
+						src="https://picsum.photos/id/33/600/400"
+						alt="Student in vintage-style Indiana University t-shirt"
+					/>
+				</div>
+				<div>
+					<ListHub />
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<Footer />

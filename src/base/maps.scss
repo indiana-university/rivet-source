@@ -1,9 +1,0 @@
-@use "tokens.tmp" as *;
-@use "sass:map";
-
-$breakpoints: map.get($tokens, "breakpoint");
-$colors: map.get($tokens, "colors");
-$spacing: map.get($tokens, "spacing");
-$type-scale: map.get($tokens, "ts");
-$widths: map.get($tokens, "width");
-$z-index: map.get($tokens, "z-index");

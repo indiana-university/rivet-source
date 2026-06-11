@@ -1,0 +1,29 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+@each $variable, $size in $breakpoints {
+	.rvt-hide-#{$variable}-down {
+		display: none;
+	}
+
+	@include mq($size) {
+		.rvt-hide-#{$variable}-down {
+			display: block;
+		}
+
+		th.rvt-hide-#{$variable}-down,
+		td.rvt-hide-#{$variable}-down {
+			display: table-cell;
+		}
+	}
+
+	@include mq($size) {
+		.rvt-hide-#{$variable}-up {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+---
+import Dev from "./BaseLayoutDev.astro";
+import Preview from "./BaseLayoutPreview.astro";
+
+const Layout = import.meta.env.DEV ? Dev : Preview;
+---
+
+<Layout {...Astro.props}>
+	<slot />
+</Layout>

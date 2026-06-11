@@ -1,0 +1,15 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+.rvt-page {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	overflow-x: hidden;
+
+	main {
+		flex-grow: 1;
+	}
+}
