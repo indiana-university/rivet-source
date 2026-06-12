@@ -15,7 +15,7 @@
 		"public": "cpy ../../packages/core/dist public/@rivet-iu/core"
 	},
 	"devDependencies": {
-		"astro": "6.4.5",
+		"astro": "6.4.6",
 		"cpy-cli": "7.0.0",
 		"rimraf": "6.1.3"
 	},
