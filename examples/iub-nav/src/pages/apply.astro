@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout>
+	<div class="rvt-hero">
+		<div class="rvt-hero__body">
+			<h2 class="rvt-hero__title">Your journey starts here</h2>
+			<p class="rvt-hero__teaser">
+				Whether you're just starting your application or have questions about
+				the process, we're ready to help you find your way home to IU.
+			</p>
+		</div>
+	</div>
+	<div class="rvt-section rvt-container">
+		<h3>Which best describes you?</h3>
+		<ul class="rvt-card-grid">
+			<li>
+				<div class="rvt-card rvt-card--feature">
+					<div class="rvt-card__sticker">
+						<rvt-sticker name="person" theme="crimson" size="sm"> </rvt-sticker>
+					</div>
+					<div class="rvt-card__body">
+						<h4 class="rvt-card__title">
+							<a href="/freshman-applicants">Freshman applicant</a>
+						</h4>
+						<div class="rvt-card__content">
+							<p>
+								You're a first-time college student ready to join our traditions
+								and build your legacy from day one.
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="rvt-card rvt-card--feature">
+					<div class="rvt-card__sticker">
+						<rvt-sticker name="arrows-right-left" theme="crimson" size="sm">
+						</rvt-sticker>
+					</div>
+					<div class="rvt-card__body">
+						<h4 class="rvt-card__title">
+							<a href="#">Transfer applicant</a>
+						</h4>
+						<div class="rvt-card__content">
+							<p>
+								You've started your journey elsewhere and are ready to bring
+								your experience to the campus where you belong.
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="rvt-card rvt-card--feature">
+					<div class="rvt-card__sticker">
+						<rvt-sticker name="cap" theme="crimson" size="sm"> </rvt-sticker>
+					</div>
+					<div class="rvt-card__body">
+						<h4 class="rvt-card__title">
+							<a href="/graduate-applicants">Graduate applicant</a>
+						</h4>
+						<div class="rvt-card__content">
+							<p>
+								You're a scholar or professional seeking world-class mentorship
+								to lead your field and advance your expertise.
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</Layout>
+
+<style>
+	h3 {
+		color: var(--rvt-color-theme-text-accent);
+		font: var(--rvt-font-26-fluid-black);
+	}
+</style>

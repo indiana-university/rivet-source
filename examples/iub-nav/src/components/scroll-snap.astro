@@ -63,7 +63,7 @@
 </style>
 
 <script>
-	function handleScrollSnap(root) {
+	function handleScrollSnap(root: any) {
 		if (!(root instanceof HTMLElement)) {
 			return;
 		}
@@ -77,6 +77,10 @@
 		const content = container.querySelector("[data-content]");
 		const prev = container.querySelector("[data-prev]") as HTMLElement;
 		const next = container.querySelector("[data-next]") as HTMLElement;
+
+		if (!content) {
+			return;
+		}
 
 		const maxScroll = content.scrollWidth - content.clientWidth;
 		const perc = maxScroll > 0 ? content.scrollLeft / maxScroll : 0;

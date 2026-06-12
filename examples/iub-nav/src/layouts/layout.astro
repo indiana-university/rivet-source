@@ -1,96 +1,99 @@
 ---
-import Header from "./header.astro";
-import ScrollSnap from "./scroll-snap.astro";
-import { menus as _menus } from "./const.js";
-import { getMenus } from "./util.js";
+import Header from "../components/header.astro";
+import ScrollSnap from "../components/scroll-snap.astro";
+import { menus as _menus, site } from "../const.js";
+import { getMenus } from "../util.js";
 
-const {
-	Content,
-	data,
-	headerTheme = "light",
-	root = false,
-	title,
-} = Astro.props;
-const themeClass = `rvt-theme-${headerTheme}`;
 const menus = getMenus(_menus, Astro);
+const { label: title } = menus.page;
+const root = Astro.url.pathname === "/";
+const docTitle = root ? site : [title, site].join(" - ");
+const hideTitle = Astro.slots.has("default");
 const breadcrumbs = [];
-if (data) {
-	let { parent } = data;
+
+if (menus.page) {
+	let { parent } = menus.page;
 	while (parent) {
 		breadcrumbs.unshift(parent);
 		parent = parent.parent;
 	}
 }
-const hideTitle = Astro.slots.has("default") || !!Content;
 ---
 
-<Header menus={menus} theme={headerTheme} />
-<main id="main-content">
-	<rvt-main-header class={themeClass}>
-		<header class="rvt-container">
-			<rvt-related-nav>
-				<ScrollSnap>
-					<nav aria-label="Related pages">
-						{
-							menus.current.parent && (
-								<a href={menus.current.url}>{menus.current.label}</a>
-							)
-						}
-						<ul>
-							{
-								menus.current.items.map((item) => (
-									<li>
-										<a
-											aria-current={item.current ? "page" : null}
-											href={item.url}
-										>
-											{item.label}
-										</a>
-									</li>
-								))
-							}
-						</ul>
-					</nav>
-				</ScrollSnap>
-			</rvt-related-nav>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{docTitle}</title>
+		<link rel="stylesheet" href="/@rivet-iu/core/dist/rivet.css" />
+		<link rel="stylesheet" href="/@rivet-iu/core/dist/rivet-icons.css" />
+		<link rel="stylesheet" href="/@rivet-iu/core/dist/rivet-stickers.css" />
+		<script type="module" src="/@rivet-iu/core/dist/rivet.js"></script>
+	</head>
+	<body>
+		<Header menus={menus} />
+		<main id="main-content">
+			<rvt-main-header>
+				<header class="rvt-container">
+					<rvt-related-nav>
+						<ScrollSnap>
+							<nav aria-label="Related pages">
+								{
+									menus.current.parent && (
+										<a href={menus.current.url}>{menus.current.label}</a>
+									)
+								}
+								<ul>
+									{
+										menus.current.items.map((item: any) => (
+											<li>
+												<a
+													aria-current={item.current ? "page" : null}
+													href={item.url}
+												>
+													{item.label}
+												</a>
+											</li>
+										))
+									}
+								</ul>
+							</nav>
+						</ScrollSnap>
+					</rvt-related-nav>
+					{
+						!root && (
+							<rvt-breadcrumbs>
+								<nav aria-label="Breadcrumbs">
+									<ol class="rvt-breadcrumbs">
+										{breadcrumbs.map((item, i) => (
+											<li>
+												<a href={item.url}>
+													{i === 0 && <span class="rvt-sr-only">Home</span>}
+													{i > 0 && item.label}
+												</a>
+											</li>
+										))}
+										<li aria-current="page">{title}</li>
+									</ol>
+								</nav>
+							</rvt-breadcrumbs>
+						)
+					}
+					{!hideTitle && <h1>{title}</h1>}
+					{hideTitle && <h1 class="rvt-sr-only">{title}</h1>}
+				</header>
+			</rvt-main-header>
 			{
-				!root && (
-					<rvt-breadcrumbs>
-						<nav aria-label="Breadcrumbs">
-							<ol class="rvt-breadcrumbs">
-								{breadcrumbs.map((item, i) => (
-									<li>
-										<a href={item.url}>
-											{i === 0 && <span class="rvt-sr-only">Home</span>}
-											{i > 0 && item.label}
-										</a>
-									</li>
-								))}
-								<li aria-current="page">{title}</li>
-							</ol>
-						</nav>
-					</rvt-breadcrumbs>
+				Astro.slots.has("default") && (
+					<div class="rvt-section">
+						<slot />
+					</div>
 				)
 			}
-			{!hideTitle && <h1>{title}</h1>}
-			{hideTitle && <h1 class="rvt-sr-only">{title}</h1>}
-		</header>
-	</rvt-main-header>
-	{
-		Content && (
-			<div class="rvt-section">
-				<Content />
-			</div>
-		)
-	}
-	{
-		Astro.slots.has("default") && (
-			<div class="rvt-section">
-				<slot />
-			</div>
-		)
-	}
-</main>
+		</main>
+	</body>
+</html>
 
 <style is:global>
 	rvt-related-nav {

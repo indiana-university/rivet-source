@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
 export const site = "Indiana University Bloomington";
 
 const applyMenu = [
@@ -36,4 +41,4 @@ const homeMenu = [
 	["About IU"],
 	["Alumni & Giving"],
 ];
-export const menus = ["IU Bloomington", "home", homeMenu];
+export const menus = [site, "", homeMenu];

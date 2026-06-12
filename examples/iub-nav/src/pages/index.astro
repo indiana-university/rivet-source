@@ -1,13 +1,8 @@
 ---
-import Layout from "./layout.astro";
-import { getUrl } from "./util.js";
-
-export { site } from "./const.js";
-export const root = true;
-export const title = "Home";
+import Layout from "../layouts/layout.astro";
 ---
 
-<Layout root={root} title={title}>
+<Layout>
 	<div class="rvt-hero rvt-hero--statement">
 		<div class="rvt-hero__body">
 			<h2 class="rvt-hero__title">Welcome home</h2>
@@ -18,13 +13,10 @@ export const title = "Home";
 				to inspire.
 			</p>
 			<div class="rvt-hero__actions">
-				<a
-					href={getUrl("apply")}
-					class="rvt-button rvt-button--cta rvt-button--strong"
-				>
+				<a href="/apply" class="rvt-button rvt-button--cta rvt-button--strong">
 					Apply to Bloomington
 				</a>
-				<a href={getUrl("home")} class="rvt-button rvt-button--cta">
+				<a href="/" class="rvt-button rvt-button--cta">
 					Explore degree programs
 				</a>
 			</div>
