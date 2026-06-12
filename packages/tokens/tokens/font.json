@@ -4,7 +4,6 @@
 			"$type": "fontFamily",
 			"sans": {
 				"$value": [
-					"Roboto Flex Variable",
 					"Roboto Flex",
 					"-apple-system",
 					"BlinkMacSystemFont",
@@ -20,8 +19,7 @@
 			},
 			"serif": {
 				"$value": [
-					"Playfair Display Variable",
-					"Playfair Display",
+					"Crimson Pro",
 					"GeorgiaPro",
 					"Georgia",
 					"Times New Roman",
@@ -31,8 +29,7 @@
 			},
 			"mono": {
 				"$value": [
-					"Azeret Mono Variable",
-					"Azeret Mono",
+					"Roboto Mono",
 					"Consolas",
 					"Monaco",
 					"Andale Mono",

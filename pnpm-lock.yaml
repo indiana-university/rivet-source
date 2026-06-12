@@ -225,15 +225,15 @@ importers:
 
   packages/core:
     dependencies:
-      '@fontsource-variable/azeret-mono':
-        specifier: 5.2.11
-        version: 5.2.11
-      '@fontsource-variable/playfair-display':
+      '@fontsource-variable/crimson-pro':
         specifier: 5.2.8
         version: 5.2.8
       '@fontsource-variable/roboto-flex':
         specifier: 5.2.8
         version: 5.2.8
+      '@fontsource-variable/roboto-mono':
+        specifier: 5.2.9
+        version: 5.2.9
       '@rivet-iu/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -241,6 +241,9 @@ importers:
         specifier: 3.1.2
         version: 3.1.2
     devDependencies:
+      '@laynezh/vite-plugin-lib-assets':
+        specifier: 2.2.0
+        version: 2.2.0(vite@8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0))
       sass:
         specifier: 1.100.0
         version: 1.100.0
@@ -499,14 +502,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/azeret-mono@5.2.11':
-    resolution: {integrity: sha512-C2lkE7Pg0yg46ze3+AaJkolyldWBxluGiRG4pB5vHSdQRApOdQME6WbdsfYyy6wFDn/zPNx+1mwRJPnMRnovpA==}
-
-  '@fontsource-variable/playfair-display@5.2.8':
-    resolution: {integrity: sha512-ZzVIXPOrL85yyOvZYoBzUszIJM+xKkHqni4IYn2CVLaGQQdJR8sBeC8yFNgjxSJ7ludTwta8qpULeOFuk5X75A==}
+  '@fontsource-variable/crimson-pro@5.2.8':
+    resolution: {integrity: sha512-En4uvz5Wb9gZFi/EVPA9jfC7Bh5NLYwOGc2KhUIT5mPSKrOSCaI1IyvQ3SbUXeHJ04MhWJiRLJSuU9CmyDcOIA==}
 
   '@fontsource-variable/roboto-flex@5.2.8':
     resolution: {integrity: sha512-Q9zbz+P2VrDeIxBu9YAIG+eYpLmQF5FIJEEwAWn8En9Lao1TOISnoYcywGV+jSv7LGsHEndCR8hveXPnvCBEQQ==}
+
+  '@fontsource-variable/roboto-mono@5.2.9':
+    resolution: {integrity: sha512-OzFO2AXlSGcXl/NcXS3CGjImb6rczCByPJ1C+Dzp9kkYOrUPyrGTuAtqPcmA/d+nZGX5oyOWKXLk5BrwVLYqkw==}
 
   '@img/colour@1.0.0':
     resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
@@ -770,6 +773,11 @@ packages:
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
+
+  '@laynezh/vite-plugin-lib-assets@2.2.0':
+    resolution: {integrity: sha512-1c3LeMasJ3QtiHDutMLataXzjsq5pddjan5dz0RKHt5Qo5f6Cq1u0SXLfK3NUYtCAB1MC4gCRt7SBKykFgW0xA==}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
   '@napi-rs/wasm-runtime@1.1.4':
     resolution: {integrity: sha512-3NQNNgA1YSlJb/kMH1ildASP9HW7/7kYnRI2szWJaofaS1hWmbGI4H+d3+22aGzXXN9IJ+n+GiFVcGipJP18ow==}
@@ -1491,6 +1499,10 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  escape-string-regexp@4.0.0:
+    resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
+    engines: {node: '>=10'}
+
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
@@ -1859,6 +1871,10 @@ packages:
     resolution: {integrity: sha512-7I5knELsJKTUjXG+A6BkKAiGkW1i25fNa/xlUl9hFtk15WbE9jndA89xu5FzQKrY5llajE1hfZZFMILXkDHk/Q==}
     engines: {node: '>=22.13.0'}
 
+  loader-utils@3.3.1:
+    resolution: {integrity: sha512-FMJTLMXfCLMLfJxcX9PFqX5qD88Z5MRGaZCVzfuqeZSPsyiBzs+pahDQjbIWz2QIzPZz0NX9Zy4FX3lmK6YHIg==}
+    engines: {node: '>= 12.13.0'}
+
   log-update@6.1.0:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
     engines: {node: '>=18'}
@@ -2040,6 +2056,10 @@ packages:
   minipass@7.1.3:
     resolution: {integrity: sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==}
     engines: {node: '>=16 || 14 >=14.17'}
+
+  mrmime@1.0.1:
+    resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
+    engines: {node: '>=10'}
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -3061,11 +3081,11 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
-  '@fontsource-variable/azeret-mono@5.2.11': {}
-
-  '@fontsource-variable/playfair-display@5.2.8': {}
+  '@fontsource-variable/crimson-pro@5.2.8': {}
 
   '@fontsource-variable/roboto-flex@5.2.8': {}
+
+  '@fontsource-variable/roboto-mono@5.2.9': {}
 
   '@img/colour@1.0.0':
     optional: true
@@ -3284,6 +3304,14 @@ snapshots:
       '@jsonjoy.com/buffers': 17.67.0(tslib@2.8.1)
       '@jsonjoy.com/codegen': 17.67.0(tslib@2.8.1)
       tslib: 2.8.1
+
+  '@laynezh/vite-plugin-lib-assets@2.2.0(vite@8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0))':
+    dependencies:
+      escape-string-regexp: 4.0.0
+      loader-utils: 3.3.1
+      mrmime: 1.0.1
+      semver: 7.7.4
+      vite: 8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0)
 
   '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
     dependencies:
@@ -3951,6 +3979,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.27.7
       '@esbuild/win32-x64': 0.27.7
 
+  escape-string-regexp@4.0.0: {}
+
   escape-string-regexp@5.0.0: {}
 
   estree-walker@2.0.2: {}
@@ -4335,6 +4365,8 @@ snapshots:
       rfdc: 1.4.1
       wrap-ansi: 10.0.0
 
+  loader-utils@3.3.1: {}
+
   log-update@6.1.0:
     dependencies:
       ansi-escapes: 7.3.0
@@ -4709,6 +4741,8 @@ snapshots:
       brace-expansion: 5.0.5
 
   minipass@7.1.3: {}
+
+  mrmime@1.0.1: {}
 
   mrmime@2.0.1: {}
 

@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-/* Azeret Mono Variable – upright + italic, wght 100–900 */
-@import "@fontsource-variable/azeret-mono/wght.css";
-@import "@fontsource-variable/azeret-mono/wght-italic.css";
+/* Crimson Pro Variable – upright + italic, wght 200–900 */
+@import "@fontsource-variable/crimson-pro/wght.css";
+@import "@fontsource-variable/crimson-pro/wght-italic.css";
 
-/* Playfair Display Variable – upright + italic, wght 400–900 */
-@import "@fontsource-variable/playfair-display/wght.css";
-@import "@fontsource-variable/playfair-display/wght-italic.css";
+/* Roboto Mono Variable – upright + italic, wght 100–700 */
+@import "@fontsource-variable/roboto-mono/wght.css";
+@import "@fontsource-variable/roboto-mono/wght-italic.css";
 
 /* Roboto Flex Variable – all axes (opsz, slnt, wdth, wght, GRAD, YTAS, YTLC, …) */
 @import "@fontsource-variable/roboto-flex/full.css";

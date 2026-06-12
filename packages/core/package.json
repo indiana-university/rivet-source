@@ -35,14 +35,15 @@
 		"preview": "pnpm build"
 	},
 	"devDependencies": {
+		"@laynezh/vite-plugin-lib-assets": "2.2.0",
 		"sass": "1.100.0",
 		"vite": "8.0.16",
 		"vite-plugin-banner": "0.8.1"
 	},
 	"dependencies": {
-		"@fontsource-variable/azeret-mono": "5.2.11",
-		"@fontsource-variable/playfair-display": "5.2.8",
+		"@fontsource-variable/crimson-pro": "5.2.8",
 		"@fontsource-variable/roboto-flex": "5.2.8",
+		"@fontsource-variable/roboto-mono": "5.2.9",
 		"@rivet-iu/tokens": "workspace:*",
 		"wicked-elements": "3.1.2"
 	}
