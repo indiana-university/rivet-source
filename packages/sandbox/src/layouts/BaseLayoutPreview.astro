@@ -1,0 +1,15 @@
+---
+import Template from "./BaseLayoutTemplate.astro";
+
+const corePath = `${import.meta.env.BASE_URL}/@rivet-iu/core/dist`;
+---
+
+<Template {...Astro.props}>
+	<Fragment slot="head">
+		<link rel="stylesheet" href={`${corePath}/rivet.css`} />
+		<link rel="stylesheet" href={`${corePath}/rivet-icons.css`} />
+		<link rel="stylesheet" href={`${corePath}/rivet-stickers.css`} />
+		<script type="module" src={`${corePath}/rivet.js`}></script>
+	</Fragment>
+	<slot />
+</Template>

@@ -1,0 +1,119 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+@include all-inputs(".rvt-validation-info") {
+	background-color: var(--rvt-color-info-background);
+	border-color: var(--rvt-color-info-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-info-border);
+}
+
+@include all-inputs(".rvt-validation-warning") {
+	background-color: var(--rvt-color-warning-background);
+	border-color: var(--rvt-color-warning-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-warning-border);
+}
+
+@include all-inputs(".rvt-validation-danger") {
+	background-color: var(--rvt-color-danger-background);
+	border-color: var(--rvt-color-danger-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-danger-border);
+}
+
+@include all-inputs(".rvt-validation-success") {
+	background-color: var(--rvt-color-success-background);
+	border-color: var(--rvt-color-success-border);
+	box-shadow: 0 0 0 var(--rvt-size-1) var(--rvt-color-success-border);
+}
+
+/**
+ * Inline alerts:
+ * These inline alerts are handy for displaying validation messages
+ * alongside groups of form inputs like radio buttons and checkboxes
+ */
+
+.rvt-text-input + .rvt-inline-alert,
+.rvt-select + .rvt-inline-alert,
+.rvt-textarea + .rvt-inline-alert {
+	margin-block-start: var(--rvt-spacing-xs);
+}
+
+.rvt-inline-alert {
+	align-items: center;
+	display: flex;
+	font: var(--rvt-font-14);
+
+	&__icon {
+		height: var(--rvt-spacing-sm);
+		width: var(--rvt-spacing-sm);
+	}
+
+	&__message {
+		margin-left: var(--rvt-spacing-xs);
+	}
+
+	&--success {
+		color: var(--rvt-color-success-main);
+	}
+
+	&--warning {
+		color: var(--rvt-color-warning-main);
+	}
+
+	&--warning &__message {
+		color: var(--rvt-color-base-main);
+	}
+
+	&--danger {
+		color: var(--rvt-color-danger-main);
+	}
+
+	&--info {
+		color: var(--rvt-color-info-main);
+	}
+
+	/**
+   * This standalone modifier should be used with groups of form inputs
+   * like radios and checkboxes.
+   */
+
+	&--standalone {
+		padding: var(--rvt-spacing-xs);
+
+		&.rvt-inline-alert--is-invalid,
+		&.rvt-inline-alert--danger {
+			background-color: var(--rvt-color-danger-background);
+
+			.rvt-inline-alert__message {
+				color: var(--rvt-color-danger-main);
+			}
+		}
+
+		&.rvt-inline-alert--success {
+			background-color: var(--rvt-color-success-background);
+
+			.rvt-inline-alert__message {
+				color: var(--rvt-color-success-main);
+			}
+		}
+
+		&.rvt-inline-alert--warning {
+			background-color: var(--rvt-color-warning-background);
+
+			.rvt-inline-alert__message {
+				color: var(--rvt-color-warning-main);
+			}
+		}
+
+		&.rvt-inline-alert--info {
+			background-color: var(--rvt-color-info-background);
+
+			.rvt-inline-alert__message {
+				color: var(--rvt-color-info-main);
+			}
+		}
+	}
+}

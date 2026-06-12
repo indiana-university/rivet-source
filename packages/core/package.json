@@ -1,0 +1,47 @@
+{
+	"name": "@rivet-iu/core",
+	"version": "3.0.0-alpha.10",
+	"description": "Rivet Design System for Indiana University",
+	"publishConfig": {
+		"access": "public"
+	},
+	"license": "BSD-3-Clause",
+	"homepage": "https://rivet.iu.edu",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/indiana-university/rivet-source"
+	},
+	"bugs": {
+		"url": "https://github.com/indiana-university/rivet-source/issues",
+		"email": "rivet@iu.edu"
+	},
+	"type": "module",
+	"imports": {
+		"#components/*": "./src/components/*",
+		"#layouts/*": "./src/layouts/*",
+		"#utilities/*": "./src/utilities/*"
+	},
+	"exports": {
+		".": "./dist/rivet.js",
+		"./package.json": "./package.json",
+		"./dist/*": "./dist/*",
+		"./src/*": "./src/*"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"scripts": {
+		"build": "vite build",
+		"preview": "pnpm build"
+	},
+	"devDependencies": {
+		"sass": "1.100.0",
+		"vite": "8.0.16",
+		"vite-plugin-banner": "0.8.1"
+	},
+	"dependencies": {
+		"@rivet-iu/tokens": "workspace:*",
+		"wicked-elements": "3.1.2"
+	}
+}

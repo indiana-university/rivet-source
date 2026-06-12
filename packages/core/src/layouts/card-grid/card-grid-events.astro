@@ -1,0 +1,127 @@
+---
+import Callout from "#components/callout/callout-demo.astro";
+import ContactInfo from "#components/contact-info/contact-info-demo.astro";
+import Footer from "#components/footer/footer-demo.astro";
+import Header from "#components/header/header.astro";
+import ListHub from "#components/list-hub/list-hub-demo.astro";
+import Pagination from "#components/pagination/pagination.astro";
+export const title = "Card grid - Events";
+---
+
+<div class="rvt-theme-crimson">
+	<Header />
+</div>
+<main>
+	<div class="rvt-section rvt-theme-crimson">
+		<Callout />
+	</div>
+	<div class="rvt-section rvt-theme-light [ rvt-p-top-sm ]">
+		<div class="rvt-container">
+			<nav role="navigation" aria-label="Breadcrumbs">
+				<ol class="rvt-breadcrumbs">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Visited page</a></li>
+					<li><a href="#">Visited page</a></li>
+					<li><a href="#">Visited page</a></li>
+					<li aria-current="page">Current page</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-light">
+		<div class="rvt-container">
+			<!--
+        NOT using the "collapsed" modifier for the grid here.
+        Not using it was part of the design specs for regular
+        non-"Category" card grid items like people, etc.
+      -->
+			<ul class="rvt-card-grid">
+				{
+					Array(8)
+						.fill(null)
+						.map(() => (
+							<li>
+								<div class="rvt-card">
+									<div class="rvt-card__body">
+										<div class="rvt-card__eyebrow">Campus or category</div>
+										<h2 class="rvt-card__title">
+											<a href="#">Title should not exceed 32 characters</a>
+										</h2>
+										<div class="rvt-contact-info [ rvt-m-top-lg ]">
+											<ul class="rvt-contact-info__icon-list">
+												<li class="rvt-contact-info__icon-list-item">
+													<rvt-icon name="calendar" />
+													<span class="rvt-color-black-400">
+														<span class="rvt-sr-only">Date :</span> March 11,
+														2025
+													</span>
+												</li>
+												<li class="rvt-contact-info__icon-list-item">
+													<rvt-icon name="clock" />
+													<span class="rvt-color-black-400">
+														<span class="rvt-sr-only">Time :</span> 5–6pm
+													</span>
+												</li>
+												<li class="rvt-contact-info__icon-list-item">
+													<rvt-icon name="map-pin" />
+													<span class="rvt-color-black-400">
+														<span class="rvt-sr-only">Location :</span>{" "}
+														Indianapolis Camus Center
+													</span>
+												</li>
+											</ul>
+										</div>
+										<div class="rvt-card__meta">
+											<time datetime="">October 1, 2025</time>
+											<ul class="rvt-list-reset rvt-flex rvt-wrap rvt-gap-sm rvt-m-top-sm">
+												<li>
+													<span class="rvt-badge rvt-badge--secondary">
+														Tag Lorem 1
+													</span>
+												</li>
+												<li>
+													<span class="rvt-badge rvt-badge--secondary">
+														Tag Lorem 1
+													</span>
+												</li>
+												<li>
+													<span class="rvt-badge rvt-badge--secondary">
+														Tag Lorem 1
+													</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+						))
+				}
+			</ul>
+			<div class="rvt-flex rvt-justify-center rvt-m-top-xxl">
+				<Pagination />
+			</div>
+		</div>
+	</div>
+	<!-- End second card grid -->
+	<div class="rvt-section rvt-theme-light">
+		<div class="rvt-container">
+			<ContactInfo />
+		</div>
+	</div>
+	<div class="rvt-section rvt-theme-light">
+		<div class="rvt-container">
+			<div class="rvt-grid rvt-grid--2 [ rvt-gap-xxl ]">
+				<div>
+					<img
+						src="https://picsum.photos/id/33/600/400"
+						alt="Student in vintage-style Indiana University t-shirt"
+					/>
+				</div>
+				<div>
+					<ListHub />
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<Footer />

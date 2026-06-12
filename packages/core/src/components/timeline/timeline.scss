@@ -1,0 +1,137 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+@use "../../base/core.scss" as *;
+
+.rvt-timeline {
+	--marker-size: var(--rvt-size-24);
+	padding-block: var(--rvt-size-8);
+	position: relative;
+
+	&::before {
+		background: var(--rvt-color-theme-ui);
+		content: "";
+		height: 100%;
+		left: 50%;
+		position: absolute;
+		top: 0;
+		width: var(--rvt-size-1);
+	}
+
+	.rvt-timeline__item {
+		background-color: var(--rvt-color-theme-background);
+		box-shadow: var(--rvt-shadow-standard);
+		margin-block: var(--rvt-size-48);
+		position: relative;
+
+		&::before {
+			--radius: calc(var(--marker-size) / 4);
+			--size: calc(var(--marker-size) / 2);
+			background-color: var(--rvt-color-theme-accent);
+			border-radius: var(--rvt-border-radius-circle);
+			box-shadow:
+				0 0 0 calc(var(--radius) - var(--rvt-size-1))
+					var(--rvt-color-theme-background),
+				0 0 0 var(--radius) var(--rvt-color-theme-ui);
+			content: "";
+			height: var(--size);
+			left: calc(50% - var(--radius));
+			position: absolute;
+			top: calc(var(--rvt-size-24) * -1);
+			width: var(--size);
+		}
+	}
+
+	.rvt-timeline__label {
+		background-color: var(--rvt-color-theme-accent);
+		color: var(--rvt-color-theme-background);
+		font: var(--rvt-font-14-mono);
+		letter-spacing: var(--rvt-letter-spacing-wide);
+		padding-block: var(--rvt-spacing-md);
+		padding-inline: var(--rvt-spacing-lg);
+		text-transform: uppercase;
+	}
+
+	.rvt-timeline__content {
+		padding: var(--rvt-spacing-lg);
+	}
+
+	.rvt-timeline__title {
+		font: var(--rvt-font-20-bold);
+	}
+
+	.rvt-timeline__description {
+		margin-block-start: var(--rvt-spacing-sm);
+	}
+
+	.rvt-timeline__dates {
+		margin-block-start: var(--rvt-spacing-lg);
+
+		> p {
+			align-items: center;
+			color: var(--rvt-color-theme-accent);
+			display: flex;
+			font: var(--rvt-font-16-bold);
+			gap: var(--rvt-spacing-xs);
+
+			rvt-icon {
+				background-color: var(--rvt-color-theme-background-accent);
+				border-radius: var(--rvt-border-radius-circle);
+				padding: var(--rvt-spacing-xs);
+			}
+		}
+
+		strong {
+			font: var(--rvt-font-16-bold);
+		}
+	}
+
+	.rvt-timeline__actions {
+		margin-block-start: var(--rvt-spacing-lg);
+	}
+}
+
+@include mq($breakpoint-md) {
+	.rvt-timeline {
+		--marker-size: var(--rvt-size-32);
+		padding-block: var(--rvt-size-24);
+	}
+
+	.rvt-timeline:not(.rvt-timeline--center) {
+		&::before {
+			left: var(--rvt-size-16);
+		}
+
+		.rvt-timeline__item {
+			margin-inline-start: var(--rvt-size-56);
+
+			&::before {
+				left: calc(var(--rvt-size-48) * -1);
+				top: var(--rvt-size-24);
+			}
+		}
+	}
+
+	.rvt-timeline--center {
+		.rvt-timeline__item {
+			margin-inline: auto 0;
+			max-width: calc(50% - var(--rvt-size-40));
+
+			&::before {
+				left: calc(var(--rvt-size-48) * -1);
+				top: var(--rvt-size-24);
+			}
+
+			&:nth-child(odd) {
+				margin-inline: 0 auto;
+
+				&::before {
+					left: auto;
+					right: calc(var(--rvt-size-48) * -1);
+				}
+			}
+		}
+	}
+}
