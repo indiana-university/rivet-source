@@ -32,6 +32,7 @@
 	],
 	"scripts": {
 		"build": "vite build",
+		"prepare": "pnpm build",
 		"preview": "pnpm build"
 	},
 	"devDependencies": {
