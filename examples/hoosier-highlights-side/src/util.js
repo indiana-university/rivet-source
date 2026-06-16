@@ -1,4 +1,7 @@
-import { removeEnd } from "@src/utilities/removeEnd.js";
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 
 export function getMenus(menus, Astro) {
 	const pages = [];
@@ -6,9 +9,9 @@ export function getMenus(menus, Astro) {
 	function getMenu(data, depth = 0, parent = null) {
 		const { id: _id, label = "", items: _items = [], ...other } = data;
 		const main = depth === 0;
-		const id = _id ? _id : toSlug(label);
-		const current = isCurrentPage(id, Astro);
-		const url = id ? getUrl(id) : "#";
+		const id = _id ?? toSlug(label);
+		const url = `/${id}`;
+		const current = url === removeEnd(Astro?.url?.pathname, "/");
 		const page = {
 			...other,
 			current,
@@ -35,34 +38,25 @@ export function getMenus(menus, Astro) {
 	getMenu(menus);
 
 	const all = pages.filter((page) => page.hasChildren);
-	const main = all.find((menu) => menu.main);
-	const current = all.find((menu) => menu.hasCurrent) || main;
+	const main = pages.find((menu) => menu.main);
+	const current = pages.find((menu) => menu.hasCurrent) || main;
+	const page = pages.find((menu) => menu.current) || main;
 
 	return {
 		all,
 		current,
 		main,
+		page,
 		pages,
 	};
 }
 
-export function getUrl(path, options = {}) {
-	const { excludeBase = false } = options;
-	return [
-		excludeBase ? null : import.meta.env.BASE_URL,
-		"prototypes",
-		"hoosier-highlights-side",
-		path,
-	]
-		.filter((p) => p)
-		.join("/");
-}
-
-export function isCurrentPage(path, Astro) {
-	if (!Astro?.url) {
-		return false;
+export function removeEnd(str, end) {
+	if (!str) {
+		return null;
 	}
-	return getUrl(path) === removeEnd(Astro.url.pathname, "/");
+	const endsWith = new RegExp(`${end}$`);
+	return str.replace(endsWith, "");
 }
 
 export function toSlug(string) {

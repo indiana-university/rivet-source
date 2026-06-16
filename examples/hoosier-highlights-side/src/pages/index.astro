@@ -1,12 +1,10 @@
 ---
-import Layout from "./layout.astro";
+import Layout from "../layouts/layout.astro";
 
-export { site } from "./const.js";
-export const root = true;
 export const title = "Home";
 ---
 
-<Layout root={root} title={title}>
+<Layout title={title}>
 	<div class="rvt-hero rvt-hero--statement rvt-section">
 		<div class="rvt-hero__body">
 			<h2 class="rvt-hero__title">Dig into history</h2>
