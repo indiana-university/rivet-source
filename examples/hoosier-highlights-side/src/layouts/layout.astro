@@ -4,11 +4,6 @@ import Header from "../components/header.astro";
 import { menus as _menus, site } from "../const.js";
 import { getMenus } from "../util.js";
 
-/*
-const { data, title } = Astro.props;
-const childItems = data?.items || menus.current.items;
-*/
-
 const menus = getMenus(_menus, Astro);
 const { label: title } = menus.page;
 const root = Astro.url.pathname === "/";

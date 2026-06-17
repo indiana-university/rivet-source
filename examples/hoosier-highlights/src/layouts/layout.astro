@@ -1,0 +1,272 @@
+---
+import Footer from "@rivet-iu/core/src/components/footer/footer.astro";
+import ScrollSnap from "../../../iub-nav/src/components/scroll-snap.astro";
+import Header from "../components/header.astro";
+import { menus as _menus, site } from "../const.js";
+import { getMenus } from "../util.js";
+
+const menus = getMenus(_menus, Astro);
+const { label: title } = menus.page;
+const root = Astro.url.pathname === "/";
+const docTitle = root ? site : [title, site].join(" - ");
+const hideTitle = Astro.slots.has("default");
+const breadcrumbs = [];
+
+if (menus.page) {
+	let { parent } = menus.page;
+	while (parent) {
+		breadcrumbs.unshift(parent);
+		parent = parent.parent;
+	}
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{docTitle}</title>
+		<link rel="stylesheet" href="/@rivet-iu/core/dist/rivet.css" />
+		<link rel="stylesheet" href="/@rivet-iu/core/dist/rivet-icons.css" />
+		<link rel="stylesheet" href="/@rivet-iu/core/dist/rivet-stickers.css" />
+		<script type="module" src="/@rivet-iu/core/dist/rivet.js"></script>
+	</head>
+	<body>
+		<Header menus={menus} />
+		<main id="main-content">
+			<rvt-main-header>
+				<header class="rvt-container">
+					<rvt-related-nav>
+						<ScrollSnap>
+							<nav aria-label="Related pages">
+								{
+									menus.current.parent && (
+										<a href={menus.current.url}>{menus.current.label}</a>
+									)
+								}
+								<ul>
+									{
+										menus.current.items.map((item: any) => (
+											<li>
+												<a
+													aria-current={item.current ? "page" : null}
+													href={item.url}
+												>
+													{item.label}
+												</a>
+											</li>
+										))
+									}
+								</ul>
+							</nav>
+						</ScrollSnap>
+					</rvt-related-nav>
+					{
+						!root && (
+							<rvt-breadcrumbs>
+								<nav aria-label="Breadcrumbs">
+									<ol class="rvt-breadcrumbs">
+										{breadcrumbs.map((item, i) => (
+											<li>
+												<a href={item.url}>
+													{i === 0 && <span class="rvt-sr-only">Home</span>}
+													{i > 0 && item.label}
+												</a>
+											</li>
+										))}
+										<li aria-current="page">{title}</li>
+									</ol>
+								</nav>
+							</rvt-breadcrumbs>
+						)
+					}
+					{!hideTitle && <h1>{title}</h1>}
+					{hideTitle && <h1 class="rvt-sr-only">{title}</h1>}
+				</header>
+			</rvt-main-header>
+			{
+				menus.page?.articles && (
+					<div class="rvt-container content">
+						{menus.page.articles.map((article: any) => (
+							<>
+								<h2>{article.label}</h2>
+								<p>{article.description}</p>
+							</>
+						))}
+					</div>
+				)
+			}
+			<slot />
+			{
+				menus.page.items && (
+					<div class="rvt-container">
+						<ul class="rvt-card-grid">
+							{menus.page.items.map((item: any) => (
+								<li>
+									<div class="rvt-card">
+										<div class="rvt-card__body">
+											<h3 class="rvt-card__title">
+												<a href={item.url}>{item.label}</a>
+											</h3>
+											{item.articles && (
+												<div class="rvt-card__content">
+													{item.articles.map((article: any) => (
+														<p>{article.label}</p>
+													))}
+												</div>
+											)}
+										</div>
+									</div>
+								</li>
+							))}
+						</ul>
+					</div>
+				)
+			}
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	rvt-related-nav {
+		--height: var(--rvt-size-48);
+		--padding: var(--rvt-size-12);
+		display: block;
+
+		nav {
+			border-block: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
+			display: flex;
+			flex-grow: 1;
+			flex-shrink: 0;
+
+			> * {
+				margin-block: var(--rvt-size-n1);
+			}
+
+			> a:first-child {
+				align-items: center;
+				display: flex;
+				font: var(--rvt-font-18-bold);
+				gap: var(--rvt-size-8);
+
+				&::before {
+					background-color: currentColor;
+					display: block;
+					content: "";
+					clip-path: path(var(--rvt-icon-arrow-left));
+					height: var(--rvt-size-16);
+					width: var(--rvt-size-16);
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+			list-style: "";
+			padding: 0;
+		}
+
+		a {
+			border: var(--rvt-size-1) solid transparent;
+			color: inherit;
+			display: block;
+			font: var(--rvt-font-14);
+			padding-block: calc((var(--height) - 1lh - var(--rvt-size-2)) / 2);
+			padding-inline: var(--padding);
+			scroll-snap-align: start;
+			text-decoration: none;
+
+			&:hover {
+				color: var(--rvt-color-theme-text-accent);
+				text-decoration: underline;
+			}
+
+			&[aria-current="page"] {
+				background-color: var(--rvt-color-theme-background-strong);
+				border-color: var(--rvt-color-theme-ui);
+				font-variation-settings: "GRAD" 150;
+			}
+		}
+	}
+
+	rvt-breadcrumbs {
+		display: block;
+
+		nav {
+			display: flex;
+		}
+	}
+
+	rvt-main-header {
+		display: block;
+		container-type: inline-size;
+		margin-block-end: var(--rvt-size-32);
+		padding-block-end: 0;
+
+		rvt-related-nav {
+			display: none;
+
+			&:where(:not(:has(nav > a:first-child))) {
+				display: none;
+			}
+
+			&:where(:has(nav > a:first-child)) {
+				nav {
+					border-block-start-color: transparent;
+				}
+
+				ul {
+					display: none;
+				}
+			}
+
+			rvt-list-more {
+				visibility: hidden;
+			}
+		}
+
+		h1 {
+			font: var(--rvt-font-26-fluid-black);
+			margin-block-start: var(--rvt-size-24);
+		}
+
+		@container (width > 40rem) {
+			rvt-related-nav {
+				display: block;
+
+				nav {
+					border-block-start-color: var(--rvt-color-theme-ui);
+				}
+
+				ul {
+					display: flex;
+				}
+
+				rvt-list-more {
+					visibility: visible;
+				}
+			}
+
+			rvt-breadcrumbs {
+				margin-block-start: var(--rvt-size-24);
+			}
+		}
+	}
+
+	.content {
+		h2 {
+			font: var(--rvt-font-20-fluid-black);
+			margin-block-start: var(--rvt-size-32);
+		}
+	}
+
+	.rvt-card-grid {
+		--gap: clamp(var(--rvt-size-16), 5vw, var(--rvt-size-40));
+	}
+
+	main {
+		padding-block-end: var(--rvt-size-32);
+	}
+</style>
