@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
+import libAssetsPlugin from "@laynezh/vite-plugin-lib-assets";
 import pkg from "./package.json";
 import { license } from "../../scripts/utils/license-header.js";
 
@@ -10,7 +11,17 @@ ${license.body}
  */`;
 
 const buildConfig = {
-	plugins: [bannerPlugin(licenseHeader)],
+	plugins: [
+		bannerPlugin(licenseHeader),
+		// Vite lib mode inlines all CSS url() assets as base64 regardless of
+		// assetsInlineLimit. This plugin extracts woff2 fonts as real files in
+		// dist/fonts/ and rewrites the CSS references to relative paths.
+		libAssetsPlugin({
+			include: /\.woff2?(\?.*)?$/,
+			name: "[name].[ext]",
+			outputPath: "fonts",
+		}),
+	],
 	build: {
 		cssCodeSplit: true,
 		lib: {
