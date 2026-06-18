@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
 function createItem(label, _id) {
 	const id = _id ? _id : label.toLowerCase().replaceAll(" ", "-");
 	const url = `?${id}`;

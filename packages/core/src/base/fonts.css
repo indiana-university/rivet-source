@@ -3,7 +3,16 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,YTAS,YTLC@8..144,-10..0,25..151,100..1000,-200..150,649..854,416..570&display=swap");
+/* Crimson Pro Variable – upright + italic, wght 200–900 */
+@import "@fontsource-variable/crimson-pro/wght.css";
+@import "@fontsource-variable/crimson-pro/wght-italic.css";
+
+/* Roboto Mono Variable – upright + italic, wght 100–700 */
+@import "@fontsource-variable/roboto-mono/wght.css";
+@import "@fontsource-variable/roboto-mono/wght-italic.css";
+
+/* Roboto Flex Variable – all axes (opsz, slnt, wdth, wght, GRAD, YTAS, YTLC, …) */
+@import "@fontsource-variable/roboto-flex/full.css";
 
 /* @link https://utopia.fyi/clamp/calculator?a=320,864,18—20&p=rvt-font-size */
 
