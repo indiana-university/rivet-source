@@ -3,6 +3,5 @@ allowBuilds:
   esbuild: true
   sharp: true
 packages:
-  - "examples/*"
   - "packages/*"
 saveExact: true
