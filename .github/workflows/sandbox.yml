@@ -2,7 +2,7 @@ name: Deploy sandbox site to GitHub Pages
 
 on:
   push:
-    branches: ["v3-header-nav"]
+    branches: ["v3-main"]
 
   # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
