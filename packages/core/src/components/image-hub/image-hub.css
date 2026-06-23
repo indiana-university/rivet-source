@@ -14,14 +14,14 @@
 
 	p:first-child {
 		color: var(--rvt-color-theme-text-accent);
-		font: var(--rvt-font-29-fluid-serif);
+		font: var(--rvt-font-36-fluid-serif);
 		margin: 0;
 		max-width: var(--rvt-line-length-short);
 
 		a {
 			font-weight: var(--rvt-font-weight-bold);
-			text-decoration-thickness: var(--rvt-spacing-xs);
-			text-underline-offset: var(--rvt-spacing-xs);
+			text-decoration-thickness: 0.075em;
+			text-underline-offset: 0.075em;
 		}
 	}
 

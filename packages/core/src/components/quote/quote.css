@@ -24,8 +24,8 @@
 	}
 
 	blockquote {
-		font: var(--rvt-font-29-fluid-serif);
-		margin: var(--rvt-spacing-sm) 0 0 0;
+		font: var(--rvt-font-36-fluid-serif);
+		margin: var(--rvt-size-16) 0 0 0;
 
 		p {
 			margin: 0;
@@ -34,7 +34,7 @@
 
 	figcaption {
 		font: var(--rvt-font-18-fluid);
-		margin-block: var(--rvt-spacing-md) 0;
+		margin-block: var(--rvt-size-32) 0;
 
 		> :first-child {
 			font-weight: var(--rvt-font-weight-bold);
@@ -53,5 +53,6 @@
 
 	figcaption {
 		font: var(--rvt-font-18);
+		margin-block: var(--rvt-size-16) 0;
 	}
 }

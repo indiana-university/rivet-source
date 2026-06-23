@@ -7,12 +7,12 @@
 @import "@fontsource-variable/crimson-pro/wght.css";
 @import "@fontsource-variable/crimson-pro/wght-italic.css";
 
+/* Roboto Flex Variable – all axes (opsz, slnt, wdth, wght, GRAD, YTAS, YTLC, …) */
+@import "@fontsource-variable/roboto-flex/full.css";
+
 /* Roboto Mono Variable – upright + italic, wght 100–700 */
 @import "@fontsource-variable/roboto-mono/wght.css";
 @import "@fontsource-variable/roboto-mono/wght-italic.css";
-
-/* Roboto Flex Variable – all axes (opsz, slnt, wdth, wght, GRAD, YTAS, YTLC, …) */
-@import "@fontsource-variable/roboto-flex/full.css";
 
 /* @link https://utopia.fyi/clamp/calculator?a=320,864,18—20&p=rvt-font-size */
 
@@ -218,6 +218,8 @@
 		var(--rvt-font-family-sans);
 	--rvt-font-36-fluid-extra-black: var(--rvt-font-weight-extra-black)
 		var(--rvt-size-36-54) / var(--rvt-size-40-56) var(--rvt-font-family-sans);
+	--rvt-font-36-fluid-serif: var(--rvt-font-weight-normal)
+		var(--rvt-size-36-54) / var(--rvt-size-40-56) var(--rvt-font-family-serif);
 
 	--rvt-font-42-extra-black: var(--rvt-font-width-extra-expanded)
 		var(--rvt-font-weight-extra-black) var(--rvt-size-42) / var(--rvt-size-44)

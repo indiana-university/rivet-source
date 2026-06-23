@@ -211,8 +211,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       lint-staged:
-        specifier: 17.0.7
-        version: 17.0.7
+        specifier: 17.0.8
+        version: 17.0.8
       node:
         specifier: runtime:24.x
         version: runtime:24.16.0
@@ -243,13 +243,13 @@ importers:
     devDependencies:
       '@laynezh/vite-plugin-lib-assets':
         specifier: 2.2.0
-        version: 2.2.0(vite@8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0))
+        version: 2.2.0(vite@8.0.16(esbuild@0.27.7)(sass@1.101.0)(yaml@2.9.0))
       sass:
-        specifier: 1.100.0
-        version: 1.100.0
+        specifier: 1.101.0
+        version: 1.101.0
       vite:
         specifier: 8.0.16
-        version: 8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0)
+        version: 8.0.16(esbuild@0.27.7)(sass@1.101.0)(yaml@2.9.0)
       vite-plugin-banner:
         specifier: 0.8.1
         version: 0.8.1
@@ -261,8 +261,8 @@ importers:
         version: link:../core
     devDependencies:
       astro:
-        specifier: 6.4.6
-        version: 6.4.6(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.100.0)(yaml@2.9.0)
+        specifier: 6.4.8
+        version: 6.4.8(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.101.0)(yaml@2.9.0)
       cpy-cli:
         specifier: 7.0.0
         version: 7.0.0
@@ -276,8 +276,8 @@ importers:
         specifier: 6.1.3
         version: 6.1.3
       style-dictionary:
-        specifier: 5.4.4
-        version: 5.4.4(tslib@2.8.1)
+        specifier: 5.5.0
+        version: 5.5.0(tslib@2.8.1)
 
 packages:
 
@@ -1235,8 +1235,8 @@ packages:
   assert@2.1.0:
     resolution: {integrity: sha512-eLHpSK/Y4nhMJ07gDaAzoX/XAKS8PSaojml3M0DM4JpV1LAi5JOJ/p6H/XWrl8L+DzVEvVCW1z3vWAaB9oTsQw==}
 
-  astro@6.4.6:
-    resolution: {integrity: sha512-48OBTBKR9ctbf+DQxpOuxGl8ebfn59zTuNQMBzptmG/Mi/H8IdfMSbJgGuX1I/4U6g9yazG1p4BHlf4+2hWU4Q==}
+  astro@6.4.8:
+    resolution: {integrity: sha512-KK5lX90uU9EeVaTjINyj3sy9/NFXVa59aowaqbWBDDKLXZh4rr7GwIaCFYVetE22MJtsCNFerQXn0vlCLmpP/Q==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1862,8 +1862,8 @@ packages:
     resolution: {integrity: sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==}
     engines: {node: '>= 12.0.0'}
 
-  lint-staged@17.0.7:
-    resolution: {integrity: sha512-JrSobt+tW3rH8IOMi8tDZd3foorM5yPEkLD/V2NxobgHrFfHWGee4MOLVuZeScgxftEwbHrPHIFA/ZL+nUJeuA==}
+  lint-staged@17.0.8:
+    resolution: {integrity: sha512-B2P/d+jVW0UXOQ0MVMLrB/9ydA1P+zz6jYfdrbbEd9ur3S2rcbduFWKiUCC02Sm5hbC8nrm7y24WuYMG54HfxA==}
     engines: {node: '>=22.22.1'}
     hasBin: true
 
@@ -2463,8 +2463,8 @@ packages:
   sass-formatter@0.7.9:
     resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
 
-  sass@1.100.0:
-    resolution: {integrity: sha512-B5j0rYMlinhhOo9tjQebMVVn0TfyXAF+wB3b2ggZUuJ/is/Y+7+JGjirAMxHZ9Z3hIP98NPfamlAkBHa1lAaXQ==}
+  sass@1.101.0:
+    resolution: {integrity: sha512-OL3GoQyoUdDt843DpVmDO6y2k1sc5IhUDSpu8XucEI+35neq5QivZ1iuegnpraEVTJXlQGK1gl27zKcTLEPbQw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -2560,8 +2560,8 @@ packages:
     resolution: {integrity: sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==}
     engines: {node: '>=12'}
 
-  style-dictionary@5.4.4:
-    resolution: {integrity: sha512-Sd7dkEOLn33EpvlMyS8ykUu0us2EIFUqsysf4DSwZQ46nqQkZ2Q9o5mozu8cSizj3t7E220HaPk7EV1O7LjvDQ==}
+  style-dictionary@5.5.0:
+    resolution: {integrity: sha512-AGkOZtAc3OTz99wlzstrmj5OM5BWOW2IbmXD74sf0MXFPi271TGBdywokgd7bS3L0tKOk9M0FR+R9gnbXRSSfg==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -3305,13 +3305,13 @@ snapshots:
       '@jsonjoy.com/codegen': 17.67.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@laynezh/vite-plugin-lib-assets@2.2.0(vite@8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0))':
+  '@laynezh/vite-plugin-lib-assets@2.2.0(vite@8.0.16(esbuild@0.27.7)(sass@1.101.0)(yaml@2.9.0))':
     dependencies:
       escape-string-regexp: 4.0.0
       loader-utils: 3.3.1
       mrmime: 1.0.1
       semver: 7.7.4
-      vite: 8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0)
+      vite: 8.0.16(esbuild@0.27.7)(sass@1.101.0)(yaml@2.9.0)
 
   '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
     dependencies:
@@ -3633,7 +3633,7 @@ snapshots:
       object.assign: 4.1.7
       util: 0.12.5
 
-  astro@6.4.6(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.100.0)(yaml@2.9.0):
+  astro@6.4.8(lightningcss@1.32.0)(rollup@4.60.1)(sass@1.101.0)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
@@ -3685,8 +3685,8 @@ snapshots:
       unist-util-visit: 5.1.0
       unstorage: 1.17.5
       vfile: 6.0.3
-      vite: 7.3.2(lightningcss@1.32.0)(sass@1.100.0)(yaml@2.9.0)
-      vitefu: 1.1.3(vite@7.3.2(lightningcss@1.32.0)(sass@1.100.0)(yaml@2.9.0))
+      vite: 7.3.2(lightningcss@1.32.0)(sass@1.101.0)(yaml@2.9.0)
+      vitefu: 1.1.3(vite@7.3.2(lightningcss@1.32.0)(sass@1.101.0)(yaml@2.9.0))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.3.6
@@ -4348,7 +4348,7 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.32.0
       lightningcss-win32-x64-msvc: 1.32.0
 
-  lint-staged@17.0.7:
+  lint-staged@17.0.8:
     dependencies:
       listr2: 10.2.1
       picomatch: 4.0.4
@@ -5098,7 +5098,7 @@ snapshots:
     dependencies:
       suf-log: 2.5.3
 
-  sass@1.100.0:
+  sass@1.101.0:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.5
@@ -5240,7 +5240,7 @@ snapshots:
     dependencies:
       ansi-regex: 6.2.2
 
-  style-dictionary@5.4.4(tslib@2.8.1):
+  style-dictionary@5.5.0(tslib@2.8.1):
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.2
       '@bundled-es-modules/glob': 13.0.6
@@ -5253,7 +5253,7 @@ snapshots:
       is-plain-obj: 4.1.0
       json5: 2.2.3
       path-unified: 0.2.0
-      prettier: 3.8.3
+      prettier: 3.8.4
       tinycolor2: 1.6.0
     transitivePeerDependencies:
       - tslib
@@ -5414,7 +5414,7 @@ snapshots:
 
   vite-plugin-banner@0.8.1: {}
 
-  vite@7.3.2(lightningcss@1.32.0)(sass@1.100.0)(yaml@2.9.0):
+  vite@7.3.2(lightningcss@1.32.0)(sass@1.101.0)(yaml@2.9.0):
     dependencies:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
@@ -5425,10 +5425,10 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
       lightningcss: 1.32.0
-      sass: 1.100.0
+      sass: 1.101.0
       yaml: 2.9.0
 
-  vite@8.0.16(esbuild@0.27.7)(sass@1.100.0)(yaml@2.9.0):
+  vite@8.0.16(esbuild@0.27.7)(sass@1.101.0)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -5438,12 +5438,12 @@ snapshots:
     optionalDependencies:
       esbuild: 0.27.7
       fsevents: 2.3.3
-      sass: 1.100.0
+      sass: 1.101.0
       yaml: 2.9.0
 
-  vitefu@1.1.3(vite@7.3.2(lightningcss@1.32.0)(sass@1.100.0)(yaml@2.9.0)):
+  vitefu@1.1.3(vite@7.3.2(lightningcss@1.32.0)(sass@1.101.0)(yaml@2.9.0)):
     optionalDependencies:
-      vite: 7.3.2(lightningcss@1.32.0)(sass@1.100.0)(yaml@2.9.0)
+      vite: 7.3.2(lightningcss@1.32.0)(sass@1.101.0)(yaml@2.9.0)
 
   web-namespaces@2.0.1: {}
 
