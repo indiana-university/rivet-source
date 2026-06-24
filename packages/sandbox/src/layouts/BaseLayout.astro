@@ -1,8 +1,11 @@
 ---
-import Dev from "./BaseLayoutDev.astro";
-import Preview from "./BaseLayoutPreview.astro";
-
-const Layout = import.meta.env.DEV ? Dev : Preview;
+let module = null;
+if (import.meta.env.DEV) {
+	module = await import("./BaseLayoutDev.astro");
+} else {
+	module = await import("./BaseLayoutPreview.astro");
+}
+const { default: Layout } = module;
 ---
 
 <Layout {...Astro.props}>
