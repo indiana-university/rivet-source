@@ -33,8 +33,15 @@ const searchCommand = new Command("search")
 				withFileTypes: true,
 			});
 
-			// Filter out everything except files
-			const files = entries.filter((entry) => entry.isFile());
+			// Filter out everything but desired files
+			const excludedDirs = ["dist", "node_modules"];
+			const files = entries.filter(
+				(entry) =>
+					entry.isFile() &&
+					!entry.parentPath
+						.split(path.sep)
+						.some((seg) => excludedDirs.includes(seg)),
+			);
 
 			for (const file of files) {
 				// Construct full file path from Dirent properties
