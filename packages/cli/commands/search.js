@@ -21,7 +21,7 @@ const searchCommand = new Command("search")
 		// Global search, ignores case
 		const regex = new RegExp(patterns.join("|"), "gi");
 
-		// Results for each file
+		// Matches for each file
 		const filesWithMatches = [];
 
 		const search = (searchedDir) => {
@@ -48,9 +48,9 @@ const searchCommand = new Command("search")
 					.split(/\r?\n/)
 
 					// Put line and its line number into an object
-					.map((line, i) => ({
+					.map((line, index) => ({
 						line,
-						lineNumber: i + 1,
+						lineNumber: index + 1,
 					}))
 
 					// Filter to only lines containing a pattern match
@@ -76,6 +76,99 @@ const searchCommand = new Command("search")
 		};
 
 		search(dirPath);
+
+		/*
+		 * Total matches
+		 * -------------
+		 * Get integer value of total matches of all patterns across every file
+		 */
+
+		const totalMatches = filesWithMatches.reduce((acc, file) => {
+			// Get total matches for each attached 'matches' array
+			return (
+				acc +
+				file.lines.reduce((lineAcc, line) => {
+					return lineAcc + line.matches.length;
+				}, 0)
+			);
+		}, 0);
+
+		/*
+		 * Total matches per pattern
+		 * -------------------------
+		 * Get object with total match integer value per each pattern
+		 */
+
+		// Get matches for each pattern
+		const matchesByPattern = filesWithMatches.reduce((acc, file) => {
+			// Each matched line
+			file.lines.forEach((line) => {
+				// Each matched pattern per line
+				line.matches.forEach((match) => {
+					const normalizedMatch = match.toLowerCase();
+					const currentCount = acc[normalizedMatch] || 0;
+					acc[normalizedMatch] = currentCount + 1;
+				});
+			});
+			return acc;
+		}, {});
+
+		/*
+		 * Output results
+		 */
+
+		// Write results to user-named file
+		if (options.output) {
+			// Construct Markdown syntax
+			const markdown = [
+				`# Search results for: ${patterns.join(", ")}`,
+
+				``,
+
+				`**Total matches: ${totalMatches}**`,
+
+				``,
+
+				`| Pattern | Count |`,
+				`|---------|-------|`,
+				...Object.entries(matchesByPattern).map(
+					([pattern, count]) => `| ${pattern} | ${count} |`,
+				),
+
+				``,
+			].join("\n");
+
+			// Write Markdown syntax file
+			fs.writeFileSync(options.output, markdown);
+			console.log(`\nResults written to ${options.output}\n`);
+		} else {
+			const patternResults = Object.entries(matchesByPattern)
+				.map(([pattern, count]) => `  * ${pattern}: ${count}`)
+				.join("\n");
+
+			console.log(`\n--------------------------------`);
+			console.log(`Rivet CLI - Search results`);
+			console.log(`--------------------------------`);
+
+			console.log(`\nSEARCH QUERY`);
+
+			console.log(`\nQueried patterns: `, `"${patterns.join('", "')}"`);
+
+			console.log(`\n--------------------------------`);
+
+			console.log(`\nMATCHES`);
+
+			console.log(`\nTotal matches: ${totalMatches}\n`);
+
+			const tableData = Object.entries(matchesByPattern).map(
+				([pattern, count]) => ({
+					Pattern: pattern,
+					Count: count,
+				}),
+			);
+
+			console.table(tableData);
+		}
 	});
 
 export default searchCommand;
