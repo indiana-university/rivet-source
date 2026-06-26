@@ -112,6 +112,7 @@ const searchCommand = new Command("search")
 
 					acc[normalizedMatch].push({
 						filePath: file.filePath,
+						fileName: path.basename(file.filePath),
 						lineNumber: line.lineNumber,
 						line: line.line,
 					});
@@ -152,18 +153,41 @@ const searchCommand = new Command("search")
 
 			const patternSections = Object.entries(matchesByPattern).flatMap(
 				([pattern, lines]) => {
-					const rows = lines.map(
-						({ filePath, lineNumber, line }) =>
-							`| ${filePath} | ${lineNumber} | ${line} |`,
+					const fileData = lines.reduce(
+						(acc, { filePath, fileName, lineNumber, line }) => {
+							if (!acc[filePath]) {
+								acc[filePath] = { fileName, filePath, occurrences: [] };
+							}
+
+							acc[filePath].occurrences.push({ lineNumber, line });
+							return acc;
+						},
+						{},
 					);
 
-					return [
-						`## ${pattern}`,
-						`| File | Line | Match |`,
-						`|------|------|-------|`,
-						...rows,
-						``,
-					];
+					const fileSections = Object.values(fileData).flatMap(
+						({ filePath, fileName, occurrences }) => {
+							// Construct relative path for CTRL/CMD + clicking and opening files
+							const relativePath = path.relative(
+								path.dirname(path.resolve(options.output)),
+								filePath,
+							);
+
+							const rows = occurrences.map(
+								({ lineNumber, line }) => `| ${lineNumber} | ${line} |`,
+							);
+							return [
+								`### [${fileName}](${relativePath})`,
+								`\`${filePath}\``,
+								`| Line | Match |`,
+								`|------|-------|`,
+								...rows,
+								``,
+							];
+						},
+					);
+
+					return [`## ${pattern}`, ``, ...fileSections];
 				},
 			);
 
@@ -189,7 +213,7 @@ const searchCommand = new Command("search")
 			console.log(`\nResults written to ${options.output}\n`);
 		} else {
 			const patternResults = Object.entries(matchesByPattern)
-				.map(([pattern, count]) => `  * ${pattern}: ${count}`)
+				.map(([pattern, lines]) => ` * ${pattern}: ${lines.length}`)
 				.join("\n");
 
 			console.log(`\n--------------------------------`);
@@ -207,9 +231,9 @@ const searchCommand = new Command("search")
 			console.log(`\nTotal matches: ${totalMatches}\n`);
 
 			const tableData = Object.entries(matchesByPattern).map(
-				([pattern, count]) => ({
+				([pattern, lines]) => ({
 					Pattern: pattern,
-					Count: count,
+					Count: lines.length,
 				}),
 			);
 
