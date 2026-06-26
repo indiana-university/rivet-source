@@ -2,6 +2,15 @@ import { Command } from "commander";
 import fs from "fs";
 import path from "path";
 
+import { searchRegexFlags } from "../lib/config.js";
+import { searchFiles } from "../lib/searchFiles.js";
+import { printConsoleResults } from "../lib/output/console.js";
+import { printMarkdownResults } from "../lib/output/markdown.js";
+import {
+	getMatchesByPattern,
+	getTotalMatches,
+} from "../lib/aggregateResults.js";
+
 const searchCommand = new Command("search")
 	.description("find strings matching a pattern")
 	.argument("<dir>", "directory to search in")
@@ -19,70 +28,10 @@ const searchCommand = new Command("search")
 
 		// Build regex from pattern(s)
 		// Global search, ignores case
-		const regex = new RegExp(patterns.join("|"), "gi");
+		const regex = new RegExp(patterns.join("|"), searchRegexFlags);
 
-		// Matches for each file
-		const filesWithMatches = [];
-
-		const search = (searchedDir) => {
-			// Get every file and directory in the searched directory
-			const entries = fs.readdirSync(searchedDir, {
-				recursive: true,
-
-				// Include <fs.Dirent> information about directories
-				withFileTypes: true,
-			});
-
-			// Filter out everything but desired files
-			const excludedDirs = ["dist", "node_modules"];
-			const files = entries.filter(
-				(entry) =>
-					entry.isFile() &&
-					!entry.parentPath
-						.split(path.sep)
-						.some((seg) => excludedDirs.includes(seg)),
-			);
-
-			for (const file of files) {
-				// Construct full file path from Dirent properties
-				const fullPath = path.join(file.parentPath, file.name);
-
-				// Get contents of file
-				const contents = fs.readFileSync(fullPath, "utf8");
-
-				const lines = contents
-					// Split contents line by line
-					.split(/\r?\n/)
-
-					// Put line and its line number into an object
-					.map((line, index) => ({
-						line,
-						lineNumber: index + 1,
-					}))
-
-					// Filter to only lines containing a pattern match
-					.filter(({ line }) => {
-						regex.lastIndex = 0;
-						return regex.test(line);
-					})
-
-					// Attach every matched pattern to each result
-					.map(({ line, lineNumber }) => ({
-						line,
-						lineNumber,
-						matches: line.match(regex),
-					}));
-
-				if (lines.length > 0) {
-					filesWithMatches.push({
-						filePath: fullPath,
-						lines,
-					});
-				}
-			}
-		};
-
-		search(dirPath);
+		// Search files for matches
+		const filesWithMatches = searchFiles(dirPath, regex);
 
 		/*
 		 * Total matches
@@ -90,15 +39,7 @@ const searchCommand = new Command("search")
 		 * Get integer value of total matches of all patterns across every file
 		 */
 
-		const totalMatches = filesWithMatches.reduce((acc, file) => {
-			// Get total matches for each attached 'matches' array
-			return (
-				acc +
-				file.lines.reduce((lineAcc, line) => {
-					return lineAcc + line.matches.length;
-				}, 0)
-			);
-		}, 0);
+		const totalMatches = getTotalMatches(filesWithMatches);
 
 		/*
 		 * Total matches per pattern
@@ -106,145 +47,23 @@ const searchCommand = new Command("search")
 		 * Get object with total match integer value per each pattern
 		 */
 
-		// Get matches for each pattern
-		const matchesByPattern = filesWithMatches.reduce((acc, file) => {
-			// Each matched line
-			file.lines.forEach((line) => {
-				// Each matched pattern per line
-				line.matches.forEach((match) => {
-					const normalizedMatch = match.toLowerCase();
-					if (!acc[normalizedMatch]) {
-						acc[normalizedMatch] = [];
-					}
-
-					acc[normalizedMatch].push({
-						filePath: file.filePath,
-						fileName: path.basename(file.filePath),
-						lineNumber: line.lineNumber,
-						line: line.line,
-					});
-				});
-			});
-			return acc;
-		}, {});
+		const matchesByPattern = getMatchesByPattern(filesWithMatches);
 
 		/*
 		 * Output results
 		 */
 
-		// Write results to user-named file
 		if (options.output) {
-			const fileIntro = () => {
-				return [
-					`# Rivet CLI`,
-
-					``,
-
-					`## Search results for: \"${patterns.join('\", \"')}\"`,
-
-					``,
-
-					`**Total matches: ${totalMatches}**`,
-				];
-			};
-
-			const patternTable = () => {
-				return [
-					`| Pattern | Count |`,
-					`|---------|-------|`,
-					...Object.entries(matchesByPattern).map(
-						([pattern, lines]) => `| ${pattern} | ${lines.length} |`,
-					),
-				];
-			};
-
-			const patternSections = Object.entries(matchesByPattern).flatMap(
-				([pattern, lines]) => {
-					const fileData = lines.reduce(
-						(acc, { filePath, fileName, lineNumber, line }) => {
-							if (!acc[filePath]) {
-								acc[filePath] = { fileName, filePath, occurrences: [] };
-							}
-
-							acc[filePath].occurrences.push({ lineNumber, line });
-							return acc;
-						},
-						{},
-					);
-
-					const fileSections = Object.values(fileData).flatMap(
-						({ filePath, fileName, occurrences }) => {
-							// Construct relative path for CTRL/CMD + clicking and opening files
-							const relativePath = path.relative(
-								path.dirname(path.resolve(options.output)),
-								filePath,
-							);
-
-							const rows = occurrences.map(
-								({ lineNumber, line }) => `| ${lineNumber} | ${line} |`,
-							);
-							return [
-								`### [${fileName}](${relativePath})`,
-								`\`${filePath}\``,
-								`| Line | Match |`,
-								`|------|-------|`,
-								...rows,
-								``,
-							];
-						},
-					);
-
-					return [`## ${pattern}`, ``, ...fileSections];
-				},
+			// Write results to user-named file
+			printMarkdownResults(
+				patterns,
+				matchesByPattern,
+				totalMatches,
+				options.output,
 			);
-
-			const markdown = [
-				...fileIntro(),
-
-				``,
-
-				...patternTable(),
-
-				``,
-
-				...patternSections,
-			].join("\n");
-
-			// Write Markdown syntax file
-			fs.writeFileSync(options.output, markdown);
-
-			console.log(`\n-----------------------------------`);
-			console.log(`Rivet CLI`);
-			console.log(`-----------------------------------`);
-
-			console.log(`\nResults written to ${options.output}\n`);
 		} else {
-			const patternResults = Object.entries(matchesByPattern)
-				.map(([pattern, lines]) => ` * ${pattern}: ${lines.length}`)
-				.join("\n");
-
-			console.log(`\n--------------------------------`);
-			console.log(`Rivet CLI - Search results`);
-			console.log(`--------------------------------`);
-
-			console.log(`\nSEARCH QUERY`);
-
-			console.log(`\nQueried patterns: `, `"${patterns.join('", "')}"`);
-
-			console.log(`\n--------------------------------`);
-
-			console.log(`\nMATCHES`);
-
-			console.log(`\nTotal matches: ${totalMatches}\n`);
-
-			const tableData = Object.entries(matchesByPattern).map(
-				([pattern, lines]) => ({
-					Pattern: pattern,
-					Count: lines.length,
-				}),
-			);
-
-			console.table(tableData);
+			// Print results to command line
+			printConsoleResults(patterns, matchesByPattern, totalMatches);
 		}
 	});
 
