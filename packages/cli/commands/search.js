@@ -106,8 +106,15 @@ const searchCommand = new Command("search")
 				// Each matched pattern per line
 				line.matches.forEach((match) => {
 					const normalizedMatch = match.toLowerCase();
-					const currentCount = acc[normalizedMatch] || 0;
-					acc[normalizedMatch] = currentCount + 1;
+					if (!acc[normalizedMatch]) {
+						acc[normalizedMatch] = [];
+					}
+
+					acc[normalizedMatch].push({
+						filePath: file.filePath,
+						lineNumber: line.lineNumber,
+						line: line.line,
+					});
 				});
 			});
 			return acc;
@@ -119,27 +126,66 @@ const searchCommand = new Command("search")
 
 		// Write results to user-named file
 		if (options.output) {
-			// Construct Markdown syntax
+			const fileIntro = () => {
+				return [
+					`# Rivet CLI`,
+
+					``,
+
+					`## Search results for: \"${patterns.join('\", \"')}\"`,
+
+					``,
+
+					`**Total matches: ${totalMatches}**`,
+				];
+			};
+
+			const patternTable = () => {
+				return [
+					`| Pattern | Count |`,
+					`|---------|-------|`,
+					...Object.entries(matchesByPattern).map(
+						([pattern, lines]) => `| ${pattern} | ${lines.length} |`,
+					),
+				];
+			};
+
+			const patternSections = Object.entries(matchesByPattern).flatMap(
+				([pattern, lines]) => {
+					const rows = lines.map(
+						({ filePath, lineNumber, line }) =>
+							`| ${filePath} | ${lineNumber} | ${line} |`,
+					);
+
+					return [
+						`## ${pattern}`,
+						`| File | Line | Match |`,
+						`|------|------|-------|`,
+						...rows,
+						``,
+					];
+				},
+			);
+
 			const markdown = [
-				`# Search results for: ${patterns.join(", ")}`,
+				...fileIntro(),
 
 				``,
 
-				`**Total matches: ${totalMatches}**`,
+				...patternTable(),
 
 				``,
 
-				`| Pattern | Count |`,
-				`|---------|-------|`,
-				...Object.entries(matchesByPattern).map(
-					([pattern, count]) => `| ${pattern} | ${count} |`,
-				),
-
-				``,
+				...patternSections,
 			].join("\n");
 
 			// Write Markdown syntax file
 			fs.writeFileSync(options.output, markdown);
+
+			console.log(`\n-----------------------------------`);
+			console.log(`Rivet CLI`);
+			console.log(`-----------------------------------`);
+
 			console.log(`\nResults written to ${options.output}\n`);
 		} else {
 			const patternResults = Object.entries(matchesByPattern)
