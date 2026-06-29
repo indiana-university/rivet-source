@@ -20,9 +20,12 @@
 	"bin": {
 		"rivet": "index.js"
 	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
+	"files": [
+		"index.js",
+		"README.md",
+		"commands/",
+		"lib/"
+	],
 	"dependencies": {
 		"commander": "15.0.0"
 	}
