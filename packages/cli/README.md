@@ -2,43 +2,41 @@
 
 CLI tool for the Rivet Design System
 
-## Commands
-
-### Search
+## Search
 
 Searches contents of files based on one or more patterns:
 
 `pnpm dlx @rivet-cli/cli search <directory> <patterns> --output <file-name>.md`
 
-**`<directory>`**
+| Element                   | Description                             |
+| ------------------------- | --------------------------------------- |
+| `search`                  | the search command                      |
+| `<directory>`             | name of directory to recursively search |
+| `<patterns>`              | search pattern(s) separated by a space  |
+| `--output <file-name>.md` | output full results to a Markdown file  |
 
-name of directory to search
+### Usage
 
-**`<patterns>`**
-
-search pattern(s) separated by a space
-
-_Single pattern_
-
+```shell
+# Single pattern
 `pnpm dlx @rivet-cli/cli ... foo`
 
-_Multiple patterns_
-
+# Multiple patterns
 `pnpm dlx @rivet-cli/cli ... foo bar`
 
-You can also add quotes around each pattern for easier readability:
-
+# You can also add quotes around each pattern for easier readability
 `pnpm dlx @rivet-cli/cli ... "foo" "bar"`
+```
 
-#### Examples
+### Examples
 
-**Find all instances of Rivet margin and padding utility classes**:
+```shell
+# Find all instances of Rivet margin and padding utility classes
+`pnpm dlx @rivet-cli/cli search src "rvt-m" "rvt-p"`
 
-`pnpm dlx @rivet-cli/cli search <dir-name> rvt-m rvt-p`
-
-**Find all instances of custom Rivet override classes**:
-
-`pnpm dlx @rivet-cli/cli search <dir-name> rvt-c`
+# Find all instances of custom Rivet override classes
+`pnpm dlx @rivet-cli/cli search src "rvt-c"`
+```
 
 ## Write full results to Markdown file
 
@@ -46,6 +44,6 @@ By default, a simplified output of results are printed to the command line. If y
 
 `pnpm dlx @rivet-cli/cli <command> <patterns> --output <file-name>.md`
 
-**Example: find all instances of custom Rivet override classes and write results to file**:
+By default, the file is written to the path from which you are running the command. You can also output the file to a preferred location on your computer:
 
-`pnpm dlx @rivet-cli/cli search <dir-name> rvt-c --output overrides.md`
+`pnpm dlx @rivet-cli/cli search <dir-name> rvt-c --output ~/Desktop/<file-name>.md`
