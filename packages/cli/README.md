@@ -19,23 +19,23 @@ Searches contents of files based on one or more patterns:
 
 ```shell
 # Single pattern
-`pnpm dlx @rivet-iu/cli ... foo`
+pnpm dlx @rivet-iu/cli search src foo
 
 # Multiple patterns
-`pnpm dlx @rivet-iu/cli ... foo bar`
+pnpm dlx @rivet-iu/cli search src foo bar
 
 # You can also add quotes around each pattern for easier readability
-`pnpm dlx @rivet-iu/cli ... "foo" "bar"`
+pnpm dlx @rivet-iu/cli search src "foo" "bar"
 ```
 
 ### Examples
 
 ```shell
 # Find all instances of Rivet margin and padding utility classes
-`pnpm dlx @rivet-iu/cli search src "rvt-m" "rvt-p"`
+pnpm dlx @rivet-iu/cli search src "rvt-m" "rvt-p"
 
 # Find all instances of custom Rivet override classes
-`pnpm dlx @rivet-iu/cli search src "rvt-c"`
+pnpm dlx @rivet-iu/cli search src "rvt-c"
 ```
 
 ## Write full results to Markdown file
