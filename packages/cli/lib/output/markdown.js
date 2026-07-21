@@ -26,7 +26,7 @@ export function printMarkdownResults(
 	const patternTable = () => {
 		return [
 			`| Pattern | Count |`,
-			`|---------|-------|`,
+			`|---------|------:|`,
 			...Object.entries(matchesByPattern).map(
 				([pattern, lines]) => `| ${pattern} | ${lines.length} |`,
 			),
@@ -55,16 +55,22 @@ export function printMarkdownResults(
 						filePath,
 					);
 
-					const rows = occurrences.map(
-						({ lineNumber, line }) => `| ${lineNumber} | ${line} |`,
+					// Get value of longest line number to right align values in output
+					const maxWidth = Math.max(
+						...occurrences.map(({ lineNumber }) => String(lineNumber).length),
 					);
+
+					const rows = occurrences.map(
+						({ lineNumber, line }) =>
+							`${String(lineNumber).padStart(maxWidth)} | ${line.trim()}`,
+					);
+
 					return [
 						`### [${fileName}](${relativePath})`,
 						`\`${filePath}\``,
-						`| Line | Match |`,
-						`|------|-------|`,
+						`\`\`\``,
 						...rows,
-						``,
+						`\`\`\``,
 					];
 				},
 			);
