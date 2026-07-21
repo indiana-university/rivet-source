@@ -38,12 +38,16 @@ pnpm dlx @rivet-iu/cli search src "rvt-m" "rvt-p"
 pnpm dlx @rivet-iu/cli search src "rvt-c"
 ```
 
-## Write full results to Markdown file
+### Write full results to Markdown file
 
 By default, a simplified output of results are printed to the command line. If you'd like a thorough report written to a Markdown file, add the `--output` flag:
 
-`pnpm dlx @rivet-iu/cli <command> <patterns> --output <file-name>.md`
+```
+pnpm dlx @rivet-iu/cli <command> <patterns> --output <file-name>.md
+```
 
 By default, the file is written to the path from which you are running the command. You can also output the file to a preferred location on your computer:
 
-`pnpm dlx @rivet-iu/cli search <dir-name> rvt-c --output ~/Desktop/<file-name>.md`
+```
+pnpm dlx @rivet-iu/cli search <dir-name> rvt-c --output ~/Desktop/<file-name>.md
+```
