@@ -13,6 +13,7 @@ rvt-lockup {
 		display: inline-grid;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: 1fr auto auto 1fr;
+		row-gap: var(--row-gap, var(--rvt-size-3));
 		text-decoration: none;
 
 		&::before,
@@ -39,11 +40,20 @@ rvt-lockup {
 		}
 	}
 
+	&[type="campus"] {
+		--row-gap: var(--rvt-size-2);
+
+		span {
+			font-stretch: var(--rvt-font-width-ultra-condensed);
+			letter-spacing: calc(var(--rvt-size-1) / 4);
+			text-transform: uppercase;
+		}
+	}
+
 	:is(small, span) {
-		font-stretch: var(--rvt-font-width-ultra-condensed);
 		grid-column: 2 / 3;
 		line-height: 1;
-		padding-inline-start: var(--rvt-size-12);
+		padding-inline-start: var(--rvt-size-8);
 		position: var(--position, static);
 		text-wrap: balance;
 		visibility: var(--visibility, visible);
@@ -52,16 +62,25 @@ rvt-lockup {
 	small {
 		grid-row: 2 / 3;
 		font-size: var(--small-font-size, var(--rvt-size-14));
-		letter-spacing: var(--rvt-letter-spacing-semi-wide);
-		padding-block-end: var(--rvt-size-2);
+		font-stretch: var(--rvt-font-width-ultra-condensed);
+		letter-spacing: calc(var(--rvt-size-1) / 2);
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
 
 	span {
 		grid-row: 3 / 4;
-		font-size: var(--span-font-size, var(--rvt-size-23));
+		font-size: var(--span-font-size, var(--rvt-size-20));
+		font-stretch: var(--rvt-font-width-semi-condensed);
 		font-weight: var(--rvt-font-weight-black);
+	}
+
+	span:has(+ small) {
+		grid-row: 2 / 3;
+	}
+
+	span + small {
+		grid-row: 3 / 4;
 	}
 
 	&:not(:defined),
@@ -71,7 +90,7 @@ rvt-lockup {
 	}
 
 	&[size="md"] {
-		--small-font-size: var(--rvt-size-12);
-		--span-font-size: var(--rvt-size-18);
+		--small-font-size: calc(11rem / 16);
+		--span-font-size: var(--rvt-size-16);
 	}
 }

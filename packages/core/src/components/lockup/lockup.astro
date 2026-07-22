@@ -3,32 +3,93 @@ export const title = "Lockup";
 ---
 
 <div class="resize">
-	<rvt-lockup>
-		<span>Indiana University</span>
-	</rvt-lockup>
+	<div>
+		<h2>Campus</h2>
 
-	<rvt-lockup>
-		<a href="/">
-			<small>Indiana University</small>
-			<span>Bloomington</span>
-		</a>
-	</rvt-lockup>
+		<rvt-lockup type="campus">
+			<span>Indiana University</span>
+		</rvt-lockup>
 
-	<rvt-lockup>
-		<a href="/">
-			<small>IU Bloomington</small>
-			<span>Metropolitan Governance and Management Transitions Laboratory</span>
-		</a>
-	</rvt-lockup>
+		<rvt-lockup type="campus">
+			<a href="/">
+				<span>Indiana University</span>
+				<small>East</small>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup type="campus">
+			<a href="/">
+				<span>Indiana University</span>
+				<small>South Bend</small>
+			</a>
+		</rvt-lockup>
+	</div>
+
+	<div>
+		<h2>School or department</h2>
+
+		<rvt-lockup>
+			<a href="/">
+				<small>Indiana University</small>
+				<span>Office of the President</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<small>Indiana University</small>
+				<span>Paul H. O'Neill School of Public and Environmental Affairs</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<small>Indiana University Bloomington</small>
+				<span
+					>Metropolitan Governance and Management Transitions Laboratory</span
+				>
+			</a>
+		</rvt-lockup>
+	</div>
+
+	<div>
+		<h2>Application</h2>
+
+		<rvt-lockup>
+			<a href="/">
+				<small>Indiana University</small>
+				<span>Apply IU</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>Canvas</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>IU Zoom</span>
+			</a>
+		</rvt-lockup>
+	</div>
 </div>
 
 <style>
 	.resize {
-		display: flex;
-		flex-direction: column;
+		display: grid;
 		gap: var(--rvt-size-24);
+		grid-auto-columns: minmax(0, 1fr);
+		grid-auto-flow: column;
 		overflow: auto;
 		padding: var(--rvt-size-8);
 		resize: horizontal;
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			gap: var(--rvt-size-24);
+		}
 	}
 </style>
