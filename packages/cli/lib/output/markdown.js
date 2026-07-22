@@ -12,13 +12,9 @@ export function printMarkdownResults(
 	const fileIntro = () => {
 		return [
 			`# Rivet CLI`,
-
 			``,
-
 			`## Search results for: \"${patterns.join('\", \"')}\"`,
-
 			``,
-
 			`**Total matches: ${totalMatches}**`,
 		];
 	};
