@@ -3,7 +3,7 @@
 	"tag": "alpha",
 	"initialVersions": {
 		"@rivet-iu/core": "3.0.0-alpha.10",
-		"@rivet-iu/tokens": "1.0.0"
+		"@rivet-iu/tokens": "1.0.0-alpha.0"
 	},
 	"changesets": []
 }
