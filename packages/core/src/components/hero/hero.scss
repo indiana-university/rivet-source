@@ -216,7 +216,7 @@
 :is(.rvt-hero--feature, .rvt-hero--split, .rvt-hero--statement) {
 	.rvt-hero__title {
 		font: var(--rvt-font-36-fluid-extra-black);
-		font-style: oblique 10deg;
+		font-variation-settings: var(--rvt-font-variation-slant);
 		text-transform: uppercase;
 	}
 }
