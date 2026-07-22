@@ -66,11 +66,11 @@ export function printMarkdownResults(
 					);
 
 					return [
-						`### [${fileName}](${relativePath})`,
-						`\`${filePath}\``,
-						`\`\`\``,
+						`### [${fileName}](${relativePath})\n`,
+						`\`${filePath}\`\n`,
+						"```",
 						...rows,
-						`\`\`\``,
+						"```\n",
 					];
 				},
 			);
@@ -81,13 +81,9 @@ export function printMarkdownResults(
 
 	const markdown = [
 		...fileIntro(),
-
 		``,
-
 		...patternTable(),
-
 		``,
-
 		...patternSections,
 	].join("\n");
 
