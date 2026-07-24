@@ -43,6 +43,10 @@ rvt-lockup {
 	&[type="campus"] {
 		--row-gap: var(--rvt-size-2);
 
+		:is(small, span) {
+			white-space: nowrap;
+		}
+
 		span {
 			font-stretch: var(--rvt-font-width-ultra-condensed);
 			letter-spacing: calc(var(--rvt-size-1) / 4);
