@@ -1,0 +1,32 @@
+{
+	"name": "@rivet-iu/cli",
+	"version": "1.0.0-alpha.0",
+	"description": "CLI tool for the Rivet Design System",
+	"publishConfig": {
+		"access": "public"
+	},
+	"license": "BSD-3-Clause",
+	"homepage": "https://rivet.iu.edu",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/indiana-university/rivet-source"
+	},
+	"bugs": {
+		"url": "https://github.com/indiana-university/rivet-source/issues",
+		"email": "rivet@iu.edu"
+	},
+	"type": "module",
+	"main": "index.js",
+	"bin": {
+		"rivet": "index.js"
+	},
+	"files": [
+		"index.js",
+		"README.md",
+		"commands/",
+		"lib/"
+	],
+	"dependencies": {
+		"commander": "15.0.0"
+	}
+}
