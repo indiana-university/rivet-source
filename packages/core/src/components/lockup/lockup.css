@@ -4,16 +4,26 @@
  */
 
 rvt-lockup {
+	--main-font-size: var(--rvt-lockup-main-font-size, var(--rvt-size-20));
+	--main-font-stretch: var(
+		--rvt-lockup-main-font-stretch,
+		var(--rvt-font-width-semi-condensed)
+	);
+	--main-font-weight: var(--rvt-font-weight-black);
+	--main-letter-spacing: var(--rvt-lockup-main-letter-spacing, 0);
+	--main-text-transform: var(--rvt-lockup-main-text-transform);
 	display: flex;
-	max-width: 30rem;
 
 	&:not(:has(> a)),
 	> a {
 		color: var(--rvt-color-theme-text);
+		column-gap: var(--rvt-size-8);
 		display: inline-grid;
-		grid-template-columns: auto 1fr;
-		grid-template-rows: 1fr auto auto 1fr;
-		row-gap: var(--row-gap, var(--rvt-size-3));
+		grid-template:
+			"logo ." 1fr
+			"logo l1" auto
+			"logo l2" auto
+			"logo ." 1fr / auto 1fr;
 		text-decoration: none;
 
 		&::before,
@@ -21,8 +31,7 @@ rvt-lockup {
 			align-self: center;
 			content: "";
 			display: block;
-			grid-column: 1 / 2;
-			grid-row: 1 / -1;
+			grid-area: logo;
 			justify-self: center;
 		}
 
@@ -38,63 +47,71 @@ rvt-lockup {
 			height: var(--rvt-graphic-logo-iu-height);
 			width: var(--rvt-graphic-logo-iu-width);
 		}
+
+		span {
+			font-size: var(--main-font-size);
+			font-stretch: var(--main-font-stretch);
+			font-weight: var(--main-font-weight);
+			letter-spacing: var(--rvt-lockup-main-letter-spacing);
+			line-height: 1;
+			text-transform: var(--main-text-transform);
+			white-space: nowrap;
+
+			&:nth-of-type(1) {
+				font-size: var(--rvt-lockup-l1-font-size, var(--main-font-size));
+				font-stretch: var(
+					--rvt-lockup-l1-font-stretch,
+					var(--main-font-stretch)
+				);
+				font-weight: var(--rvt-lockup-l1-font-weight, var(--main-font-weight));
+				grid-area: l1;
+				letter-spacing: var(
+					--rvt-lockup-l1-letter-spacing,
+					var(--main-letter-spacing)
+				);
+				margin-block: var(--rvt-lockup-l1-margin-block, 0);
+				text-transform: var(
+					--rvt-lockup-l1-text-transform,
+					var(--main-text-transform)
+				);
+			}
+
+			&:nth-of-type(2) {
+				font-size: var(--rvt-lockup-l2-font-size, var(--main-font-size));
+				font-weight: var(--rvt-lockup-l2-font-weight, var(--main-font-weight));
+				grid-area: l2;
+				letter-spacing: var(
+					--rvt-lockup-l2-letter-spacing,
+					var(--main-letter-spacing)
+				);
+				margin-block: var(--rvt-lockup-l2-margin-block, 0);
+			}
+		}
 	}
 
 	&[type="campus"] {
-		--row-gap: var(--rvt-size-2);
+		--rvt-lockup-main-font-stretch: var(--rvt-font-width-ultra-condensed);
+		--rvt-lockup-main-letter-spacing: calc(var(--rvt-size-1) / 4);
+		--rvt-lockup-main-text-transform: uppercase;
+		--rvt-lockup-l2-font-size: var(--rvt-size-14);
+		--rvt-lockup-l2-font-weight: var(--rvt-font-weight-normal);
+		--rvt-lockup-l2-letter-spacing: calc(var(--rvt-size-1) / 2);
+		--rvt-lockup-l2-margin-block: var(--rvt-size-2) 0;
+	}
 
-		:is(small, span) {
-			white-space: nowrap;
+	&:not([type="campus"]) {
+		&:has(span:where(:nth-of-type(2))) {
+			--rvt-lockup-l1-font-size: var(--rvt-size-14);
+			--rvt-lockup-l1-font-stretch: var(--rvt-font-width-ultra-condensed);
+			--rvt-lockup-l1-font-weight: var(--rvt-font-weight-normal);
+			--rvt-lockup-l1-letter-spacing: calc(var(--rvt-size-1) / 2);
+			--rvt-lockup-l1-margin-block: 0 var(--rvt-size-3);
+			--rvt-lockup-l1-text-transform: uppercase;
 		}
 
-		span {
-			font-stretch: var(--rvt-font-width-ultra-condensed);
-			letter-spacing: calc(var(--rvt-size-1) / 4);
-			text-transform: uppercase;
+		&:has(span > br) {
+			--rvt-lockup-main-font-size: var(--rvt-size-16);
+			--rvt-lockup-l1-font-size: calc(11rem / 16);
 		}
-	}
-
-	:is(small, span) {
-		grid-column: 2 / 3;
-		line-height: 1;
-		padding-inline-start: var(--rvt-size-8);
-		position: var(--position, static);
-		text-wrap: balance;
-		visibility: var(--visibility, visible);
-	}
-
-	small {
-		grid-row: 2 / 3;
-		font-size: var(--small-font-size, var(--rvt-size-14));
-		font-stretch: var(--rvt-font-width-ultra-condensed);
-		letter-spacing: calc(var(--rvt-size-1) / 2);
-		text-transform: uppercase;
-		white-space: nowrap;
-	}
-
-	span {
-		grid-row: 3 / 4;
-		font-size: var(--span-font-size, var(--rvt-size-20));
-		font-stretch: var(--rvt-font-width-semi-condensed);
-		font-weight: var(--rvt-font-weight-black);
-	}
-
-	span:has(+ small) {
-		grid-row: 2 / 3;
-	}
-
-	span + small {
-		grid-row: 3 / 4;
-	}
-
-	&:not(:defined),
-	&[size="sm"] {
-		--position: absolute;
-		--visibility: hidden;
-	}
-
-	&[size="md"] {
-		--small-font-size: calc(11rem / 16);
-		--span-font-size: var(--rvt-size-16);
 	}
 }

@@ -12,7 +12,7 @@ class RivetLockup extends HTMLElement {
 	connectedCallback() {
 		this.#resizeObserver = new ResizeObserver(() => {
 			for (const size of SIZES) {
-				this.setAttribute("size", size);
+				//this.setAttribute("size", size);
 				if (!this.#isOverflowing) {
 					return;
 				}
