@@ -1,7 +1,7 @@
 {
 	"name": "@rivet-iu/tokens",
 	"description": "Design tokens for the Rivet Design System",
-	"version": "1.0.0",
+	"version": "1.0.0-alpha.0",
 	"license": "BSD-3-Clause",
 	"publishConfig": {
 		"access": "public"

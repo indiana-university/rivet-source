@@ -1,0 +1,10 @@
+{
+	"mode": "pre",
+	"tag": "alpha",
+	"initialVersions": {
+		"@rivet-iu/cli": "1.0.0-alpha.0",
+		"@rivet-iu/core": "3.0.0-alpha.10",
+		"@rivet-iu/tokens": "1.0.0-alpha.0"
+	},
+	"changesets": []
+}
