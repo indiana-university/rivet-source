@@ -47,4 +47,4 @@ const commandMap = {
 	build: buildConfig,
 };
 
-export default defineConfig(({ command }) => commandMap[command]);
+export default defineConfig(({ command }) => commandMap[command] ?? {});

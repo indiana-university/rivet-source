@@ -37,9 +37,11 @@
 	},
 	"devDependencies": {
 		"@laynezh/vite-plugin-lib-assets": "2.2.0",
+		"html-validate": "11.5.6",
 		"sass": "1.101.0",
 		"vite": "8.0.16",
-		"vite-plugin-banner": "0.8.1"
+		"vite-plugin-banner": "0.8.1",
+		"vitest": "4.1.10"
 	},
 	"dependencies": {
 		"@fontsource-variable/crimson-pro": "5.2.8",

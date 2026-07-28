@@ -1,0 +1,5 @@
+{
+	"root": true,
+	"plugins": ["./rules/no-legacy-accordion-icon.js"],
+	"extends": ["rivet-migration:recommended"]
+}
