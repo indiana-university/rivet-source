@@ -4,14 +4,21 @@
  */
 
 rvt-lockup {
-	--main-font-size: var(--rvt-lockup-main-font-size, var(--rvt-size-20));
-	--main-font-stretch: var(
-		--rvt-lockup-main-font-stretch,
-		var(--rvt-font-width-semi-condensed)
-	);
-	--main-font-weight: var(--rvt-font-weight-black);
-	--main-letter-spacing: var(--rvt-lockup-main-letter-spacing, 0);
-	--main-text-transform: var(--rvt-lockup-main-text-transform);
+	--__rvt-lockup-default-font-size: var(--rvt-size-20);
+	--__rvt-lockup-default-font-stretch: var(--rvt-font-width-semi-condensed);
+	--__rvt-lockup-default-font-weight: var(--rvt-font-weight-black);
+	--__rvt-lockup-default-letter-spacing: initial;
+	--__rvt-lockup-default-text-transform: initial;
+	--__rvt-lockup-l1-font-stretch: var(--__rvt-lockup-default-font-stretch);
+	--__rvt-lockup-l1-font-size: var(--__rvt-lockup-default-font-size);
+	--__rvt-lockup-l1-font-weight: var(--__rvt-lockup-default-font-weight);
+	--__rvt-lockup-l1-letter-spacing: var(--__rvt-lockup-default-letter-spacing);
+	--__rvt-lockup-l1-margin-block: initial;
+	--__rvt-lockup-l1-text-transform: var(--__rvt-lockup-default-text-transform);
+	--__rvt-lockup-l2-font-size: var(--__rvt-lockup-default-font-size);
+	--__rvt-lockup-l2-font-weight: var(--__rvt-lockup-default-font-weight);
+	--__rvt-lockup-l2-letter-spacing: var(--__rvt-lockup-default-letter-spacing);
+	--__rvt-lockup-l2-margin-block: initial;
 	display: flex;
 
 	&:not(:has(> a)),
@@ -49,69 +56,57 @@ rvt-lockup {
 		}
 
 		span {
-			font-size: var(--main-font-size);
-			font-stretch: var(--main-font-stretch);
-			font-weight: var(--main-font-weight);
-			letter-spacing: var(--rvt-lockup-main-letter-spacing);
+			font-size: var(--__rvt-lockup-default-font-size);
+			font-stretch: var(--__rvt-lockup-default-font-stretch);
+			font-weight: var(--__rvt-lockup-default-font-weight);
+			letter-spacing: var(--__rvt-lockup-default-letter-spacing);
 			line-height: 1;
-			text-transform: var(--main-text-transform);
+			text-transform: var(--__rvt-lockup-default-text-transform);
 			white-space: nowrap;
 
 			&:nth-of-type(1) {
-				font-size: var(--rvt-lockup-l1-font-size, var(--main-font-size));
-				font-stretch: var(
-					--rvt-lockup-l1-font-stretch,
-					var(--main-font-stretch)
-				);
-				font-weight: var(--rvt-lockup-l1-font-weight, var(--main-font-weight));
+				font-size: var(--__rvt-lockup-l1-font-size);
+				font-stretch: var(--__rvt-lockup-l1-font-stretch);
+				font-weight: var(--__rvt-lockup-l1-font-weight);
 				grid-area: l1;
-				letter-spacing: var(
-					--rvt-lockup-l1-letter-spacing,
-					var(--main-letter-spacing)
-				);
-				margin-block: var(--rvt-lockup-l1-margin-block, 0);
-				text-transform: var(
-					--rvt-lockup-l1-text-transform,
-					var(--main-text-transform)
-				);
+				letter-spacing: var(--__rvt-lockup-l1-letter-spacing);
+				margin-block: var(--__rvt-lockup-l1-margin-block);
+				text-transform: var(--__rvt-lockup-l1-text-transform);
 			}
 
 			&:nth-of-type(2) {
-				font-size: var(--rvt-lockup-l2-font-size, var(--main-font-size));
-				font-weight: var(--rvt-lockup-l2-font-weight, var(--main-font-weight));
+				font-size: var(--__rvt-lockup-l2-font-size);
+				font-weight: var(--__rvt-lockup-l2-font-weight);
 				grid-area: l2;
-				letter-spacing: var(
-					--rvt-lockup-l2-letter-spacing,
-					var(--main-letter-spacing)
-				);
-				margin-block: var(--rvt-lockup-l2-margin-block, 0);
+				letter-spacing: var(--__rvt-lockup-l2-letter-spacing);
+				margin-block: var(--__rvt-lockup-l2-margin-block);
 			}
 		}
 	}
 
 	&[type="campus"] {
-		--rvt-lockup-main-font-stretch: var(--rvt-font-width-ultra-condensed);
-		--rvt-lockup-main-letter-spacing: calc(var(--rvt-size-1) / 4);
-		--rvt-lockup-main-text-transform: uppercase;
-		--rvt-lockup-l2-font-size: var(--rvt-size-14);
-		--rvt-lockup-l2-font-weight: var(--rvt-font-weight-normal);
-		--rvt-lockup-l2-letter-spacing: calc(var(--rvt-size-1) / 2);
-		--rvt-lockup-l2-margin-block: var(--rvt-size-2) 0;
+		--__rvt-lockup-default-font-stretch: var(--rvt-font-width-ultra-condensed);
+		--__rvt-lockup-default-letter-spacing: calc(var(--rvt-size-1) / 4);
+		--__rvt-lockup-default-text-transform: uppercase;
+		--__rvt-lockup-l2-font-size: var(--rvt-size-14);
+		--__rvt-lockup-l2-font-weight: var(--rvt-font-weight-normal);
+		--__rvt-lockup-l2-letter-spacing: calc(var(--rvt-size-1) / 2);
+		--__rvt-lockup-l2-margin-block: var(--rvt-size-2) 0;
 	}
 
 	&:not([type="campus"]) {
 		&:has(span:where(:nth-of-type(2))) {
-			--rvt-lockup-l1-font-size: var(--rvt-size-14);
-			--rvt-lockup-l1-font-stretch: var(--rvt-font-width-ultra-condensed);
-			--rvt-lockup-l1-font-weight: var(--rvt-font-weight-normal);
-			--rvt-lockup-l1-letter-spacing: calc(var(--rvt-size-1) / 2);
-			--rvt-lockup-l1-margin-block: 0 var(--rvt-size-3);
-			--rvt-lockup-l1-text-transform: uppercase;
+			--__rvt-lockup-l1-font-size: var(--rvt-size-14);
+			--__rvt-lockup-l1-font-stretch: var(--rvt-font-width-ultra-condensed);
+			--__rvt-lockup-l1-font-weight: var(--rvt-font-weight-normal);
+			--__rvt-lockup-l1-letter-spacing: calc(var(--rvt-size-1) / 2);
+			--__rvt-lockup-l1-margin-block: 0 var(--rvt-size-3);
+			--__rvt-lockup-l1-text-transform: uppercase;
 		}
 
 		&:has(span > br) {
-			--rvt-lockup-main-font-size: var(--rvt-size-16);
-			--rvt-lockup-l1-font-size: calc(11rem / 16);
+			--__rvt-lockup-default-font-size: var(--rvt-size-16);
+			--__rvt-lockup-l1-font-size: calc(11rem / 16);
 		}
 	}
 }
