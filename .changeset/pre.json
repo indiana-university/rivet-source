@@ -1,10 +1,31 @@
 {
-	"mode": "pre",
-	"tag": "alpha",
-	"initialVersions": {
-		"@rivet-iu/cli": "1.0.0-alpha.0",
-		"@rivet-iu/core": "3.0.0-alpha.10",
-		"@rivet-iu/tokens": "1.0.0-alpha.0"
-	},
-	"changesets": []
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@rivet-iu/cli": "1.0.0-alpha.0",
+    "@rivet-iu/core": "3.0.0-alpha.10",
+    "@rivet-iu/tokens": "1.0.0-alpha.0"
+  },
+  "changesets": [
+    "blue-moose-yawn",
+    "dark-pianos-shout",
+    "dull-ghosts-end",
+    "eighty-bears-camp",
+    "fast-maps-cough",
+    "fine-parks-pump",
+    "floppy-adults-mate",
+    "full-years-decide",
+    "heavy-pugs-feel",
+    "lazy-brooms-draw",
+    "long-ways-swim",
+    "many-rice-rest",
+    "public-seals-sip",
+    "smooth-tires-rhyme",
+    "sweet-rings-read",
+    "tame-deserts-return",
+    "tired-icons-peel",
+    "yellow-candies-melt",
+    "yellow-cloths-fold",
+    "yummy-queens-invent"
+  ]
 }
