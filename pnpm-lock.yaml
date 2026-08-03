@@ -207,6 +207,9 @@ importers:
 
   .:
     devDependencies:
+      '@changesets/changelog-github':
+        specifier: 1.0.0-next.9
+        version: 1.0.0-next.9
       '@changesets/cli':
         specifier: 3.0.0-next.11
         version: 3.0.0-next.11
@@ -463,6 +466,10 @@ packages:
     resolution: {integrity: sha512-v9YatKMVoljRPRPzI9PoxDHxBsLXZs+ndKBts6nOJlRpGHoGyzScOyC2YYce0krYhFxhn+lOiIto/7AOlTFuwA==}
     engines: {node: ^22.11 || ^24 || >=26}
 
+  '@changesets/changelog-github@1.0.0-next.9':
+    resolution: {integrity: sha512-xGtpDLiJeQdyoOGNfKIKp09+o41J7KTNJ+QXWq8OqrzFbOCuI+KZC1AlyIDAsjZce3tBYLhu9sQtAMkmRnGOew==}
+    engines: {node: ^22.11 || ^24 || >=26}
+
   '@changesets/cli@3.0.0-next.11':
     resolution: {integrity: sha512-yH79OtoLPruqx0BTO0eKE1rxupgk7Qf1SzmVhwdDqikkOoFlPD5/QEAN3zvRXLoGcT0VN0Wuq2zCFTi8CyJgLA==}
     engines: {node: ^22.11 || ^24 || >=26, npm: '>=10.9.0', pnpm: '>=10.0.0', yarn: '>=4.5.2'}
@@ -482,6 +489,10 @@ packages:
 
   '@changesets/get-dependents-graph@3.0.0-next.9':
     resolution: {integrity: sha512-zyukhblBz0TO7Ze4rJHS/LN8dLvNpKPGEm3YhYRpZnlRCT+r4X9YtrHJjUFHbnjn2wNRRzzy6eHzsFn43YI3jQ==}
+    engines: {node: ^22.11 || ^24 || >=26}
+
+  '@changesets/get-github-info@1.0.0-next.4':
+    resolution: {integrity: sha512-Bosh+XOoFvLMzAj301tg6phbrEggBtvEccrnceEvYsKSM7PjcIa32Fy22SU5g+501HZywkdwcAlybdWF+e/zzw==}
     engines: {node: ^22.11 || ^24 || >=26}
 
   '@changesets/git@4.0.0-next.9':
@@ -1698,6 +1709,9 @@ packages:
   csso@5.0.5:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
+
+  dataloader@2.2.3:
+    resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
 
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
@@ -3204,6 +3218,11 @@ snapshots:
     dependencies:
       '@changesets/types': 7.0.0-next.9
 
+  '@changesets/changelog-github@1.0.0-next.9':
+    dependencies:
+      '@changesets/get-github-info': 1.0.0-next.4
+      '@changesets/types': 7.0.0-next.9
+
   '@changesets/cli@3.0.0-next.11':
     dependencies:
       '@changesets/apply-release-plan': 8.0.0-next.10
@@ -3247,6 +3266,10 @@ snapshots:
     dependencies:
       '@changesets/types': 7.0.0-next.9
       semver: 7.8.5
+
+  '@changesets/get-github-info@1.0.0-next.4':
+    dependencies:
+      dataloader: 2.2.3
 
   '@changesets/git@4.0.0-next.9':
     dependencies:
@@ -4275,6 +4298,8 @@ snapshots:
   csso@5.0.5:
     dependencies:
       css-tree: 2.2.1
+
+  dataloader@2.2.3: {}
 
   deepmerge@4.3.1: {}
 
