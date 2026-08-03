@@ -1,5 +1,12 @@
 # @rivet-iu/core
 
+## 3.0.0-alpha.12
+
+### Patch Changes
+
+- Updated dependencies [a6ad8cf]
+  - @rivet-iu/tokens@1.0.0-alpha.2
+
 ## 3.0.0-alpha.11
 
 ### Minor Changes

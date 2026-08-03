@@ -1,5 +1,11 @@
 # @rivet-iu/tokens
 
+## 1.0.0-alpha.2
+
+### Minor Changes
+
+- a6ad8cf: Add color brand token.
+
 ## 1.0.0-alpha.1
 
 ### Minor Changes
