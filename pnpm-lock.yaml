@@ -271,7 +271,13 @@ importers:
       '@rivet-iu/core':
         specifier: workspace:*
         version: link:../core
+      rivet-source:
+        specifier: workspace:*
+        version: link:../..
     devDependencies:
+      '@rollup/plugin-yaml':
+        specifier: 5.0.0
+        version: 5.0.0(rollup@4.60.1)
       astro:
         specifier: 7.1.6
         version: 7.1.6(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(rollup@4.60.1)(sass@1.102.0)(yaml@2.9.0)
@@ -1320,6 +1326,15 @@ packages:
 
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
+
+  '@rollup/plugin-yaml@5.0.0':
+    resolution: {integrity: sha512-9XOiRGYJjDwmEwR15kuxw+RytZFKtEWshoXuITrtS6+57BVMQMzDfhmSO/xfQOAY5psQv1IrxhQTUqPNppe4lQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^2.78.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
 
   '@rollup/pluginutils@5.3.0':
     resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
@@ -2774,6 +2789,10 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
+  tosource@2.0.0-alpha.3:
+    resolution: {integrity: sha512-KAB2lrSS48y91MzFPFuDg4hLbvDiyTjOVgaK7Erw+5AmZXNq4sFRVn8r6yxSLuNs15PaokrDRpS61ERY9uZOug==}
+    engines: {node: '>=10'}
+
   tree-dump@1.1.0:
     resolution: {integrity: sha512-rMuvhU4MCDbcbnleZTFezWsaZXRFemSqAM+7jPnzUl1fo9w3YEKOxAeui0fz3OI4EU4hf23iyA7uQRVko+UaBA==}
     engines: {node: '>=10.0'}
@@ -3895,11 +3914,19 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
+  '@rollup/plugin-yaml@5.0.0(rollup@4.60.1)':
+    dependencies:
+      '@rollup/pluginutils': 5.3.0(rollup@4.60.1)
+      js-yaml: 4.3.1
+      tosource: 2.0.0-alpha.3
+    optionalDependencies:
+      rollup: 4.60.1
+
   '@rollup/pluginutils@5.3.0(rollup@4.60.1)':
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
-      picomatch: 4.0.4
+      picomatch: 4.0.5
     optionalDependencies:
       rollup: 4.60.1
 
@@ -5337,6 +5364,8 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
+
+  tosource@2.0.0-alpha.3: {}
 
   tree-dump@1.1.0(tslib@2.8.1):
     dependencies:
