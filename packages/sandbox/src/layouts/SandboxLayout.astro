@@ -1,12 +1,11 @@
 ---
-import pkg from "@rivet-iu/core/package.json";
 import Layout from "./BaseLayout.astro";
+import { SITE_TITLE } from "../const.js";
 import { baseUrl } from "../utils/baseUrl.js";
 import { removeEnd } from "../utils/removeEnd.js";
 import { removeStart } from "../utils/removeStart.js";
 
-const APP_NAME = `Rivet v${pkg.version}`;
-const title = Astro.props.title || APP_NAME;
+const title = Astro.props.title || SITE_TITLE;
 const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
 const breadcrumbs = removeEnd(currentPath, "/")
 	.split("/")
@@ -14,7 +13,7 @@ const breadcrumbs = removeEnd(currentPath, "/")
 		const first = i === 0;
 		const last = i === source.length - 1;
 		const current: boolean | "page" = last ? "page" : false;
-		const label = current ? title : part || APP_NAME;
+		const label = current ? title : part || SITE_TITLE;
 		const _url = source.slice(1, i + 1).join("/");
 		const url = baseUrl(_url);
 		return { current, first, label, last, url };
@@ -23,7 +22,7 @@ const breadcrumbs = removeEnd(currentPath, "/")
 
 <Layout {...Astro.props}>
 	<header>
-		<a href={breadcrumbs.at(0).url}>{APP_NAME}</a>
+		<a href={breadcrumbs.at(0).url}>{SITE_TITLE}</a>
 		{
 			breadcrumbs.length > 1 && (
 				<nav>

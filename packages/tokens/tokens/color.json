@@ -45,6 +45,9 @@
 			},
 			"extra-light": {
 				"$value": "#FAF6EF"
+			},
+			"ultra-light": {
+				"$value": "#FDFAF7"
 			}
 		},
 		"danger": {
