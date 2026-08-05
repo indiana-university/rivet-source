@@ -4,7 +4,6 @@
  */
 
 import "./components/drilldown/drilldown.js";
-import "./components/lockup/lockup.js";
 
 import Accordion from "./components/accordion/accordion.js";
 import Alert from "./components/alert/alert.js";
