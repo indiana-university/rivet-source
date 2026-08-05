@@ -85,13 +85,14 @@ rvt-lockup {
 	}
 
 	&[type="campus"] {
+		--__rvt-lockup-default-font-size: var(--rvt-size-18);
 		--__rvt-lockup-default-font-stretch: var(--rvt-font-width-ultra-condensed);
 		--__rvt-lockup-default-letter-spacing: calc(var(--rvt-size-1) / 4);
 		--__rvt-lockup-default-text-transform: uppercase;
-		--__rvt-lockup-l2-font-size: var(--rvt-size-14);
+		--__rvt-lockup-l2-font-size: var(--rvt-size-16);
 		--__rvt-lockup-l2-font-weight: var(--rvt-font-weight-normal);
 		--__rvt-lockup-l2-letter-spacing: calc(var(--rvt-size-1) / 2);
-		--__rvt-lockup-l2-margin-block: var(--rvt-size-2) 0;
+		--__rvt-lockup-l2-margin-block: var(--rvt-size-3) 0;
 	}
 
 	&:not([type="campus"]) {
