@@ -19,14 +19,18 @@ const crimsonTheme = theme === "crimson";
 		</div>
 		<div class="rvt-header__buttons">
 			<button
-				aria-label="Toggle menu"
-				class="rvt-header__button rvt-header__button--mobile-menu"
+				class="rvt-button rvt-button--medium rvt-button--icon-only rvt-header__button--mobile-menu"
 				data-rvt-dialog-trigger="mobile-menu"
 			>
 				<rvt-icon name="menu"></rvt-icon>
+				<span class="rvt-sr-only">Menu</span>
 			</button>
-			<button class="rvt-header__button" data-rvt-dialog-trigger="search-bar">
+			<button
+				class="rvt-button rvt-button--medium rvt-button--icon-only"
+				data-rvt-dialog-trigger="search-bar"
+			>
 				<rvt-icon name="magnifying-glass"></rvt-icon>
+				<span class="rvt-sr-only">Search</span>
 			</button>
 		</div>
 	</div>

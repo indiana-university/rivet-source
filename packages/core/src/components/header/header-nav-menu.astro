@@ -1,54 +1,126 @@
 ---
-const list = [
-	["Academics"],
-	["Admissions"],
-	[
-		"Cost &amp; Financial Aid",
-		"page",
-		["Cost of Attendance", "Financial Aid", "Scholarships"],
-	],
-	["Research"],
-	["Student Support"],
-	["Campus Life"],
-	["About"],
-	["Alumni and Giving"],
-];
+const pages = `
+Academics
+Degrees & Majors
+Schools
+Experimental Learning
+Classes & Registration
+Academic Calendars
+Student Records & Grades
+Degree Requirements & Policies
+
+Admissions
+How to Apply
+Admission Paths
+Visit IU
+Admission Counselors
+Precollege Programs
+Planning for IU
+Class Profile
+Undergraduate Orientation
+Graduate Orientation
+Steps to Enroll
+
+Cost & Aid
+Cost of Attendance
+Financial Aid
+Scholarships
+Grants & Fellowships
+Loans
+Pay Your Bill
+
+Campus Life
+Campus Traditions
+Community & Involvement
+Athletics & Recreation
+Housing & Dining
+Life in Bloomington
+Campus Events
+Arts and Culture
+Campus Safety
+Campus Map, Parking & Transportation
+
+Research
+Events & Workshops
+Innovation & Entrepreneurship
+Centers, Museums, & Institutes
+In the News
+Student Research Opportunities
+
+Student Support
+Academic Advising & Support
+Career Services & Jobs
+Money & Essential Needs
+Health & Wellness
+Campus Technology
+Recruit IU Students
+
+Alumni & Giving
+Give to IU
+
+About
+History
+Rankings and Statistics
+Strategic Plan
+Bloomington Leadership & Administration
+Campus Initiatives
+Faculty & Staff Community
+News & Communication
+`;
+const links = pages
+	.trim()
+	.split("\n\n")
+	.map((group) => {
+		const [label, ...items] = group.trim().split("\n");
+		const children = items.map(processItem);
+		const hasChildren = !!children.length;
+		return {
+			...processItem(label),
+			children,
+			hasChildren,
+		};
+	});
+
+function processItem(label: string) {
+	const url = `?page=${toSlug(label)}`;
+	return { label, url };
+}
+
+function toSlug(str: string) {
+	return str
+		.trim()
+		.toLowerCase()
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "")
+		.replace(/[^a-z0-9\s-]/g, "")
+		.replace(/\s+/g, "-")
+		.replace(/-+/g, "-")
+		.replace(/^-+|-+$/g, "");
+}
 ---
 
 <nav class="rvt-header-menu" data-rvt-priority-nav>
 	<ul class="rvt-header-menu__list" data-rvt-priority-nav-links>
 		{
-			list.map(([label, current, children = []]: any) => (
+			links.map((link) => (
 				<li
 					class="rvt-header-menu__item"
-					data-rvt-dropdown-open-on-hover={!!children.length}
+					data-rvt-dropdown-open-on-hover={link.hasChildren}
 				>
-					<a
-						aria-current={current}
-						class="rvt-header-menu__link"
-						href="#"
-						set:html={label}
-					/>
-					{!!children.length && (
+					<a class="rvt-header-menu__link" href={link.url}>
+						{link.label}
+					</a>
+					{link.hasChildren && (
 						<div class="rvt-dropdown" data-rvt-dropdown>
 							<button data-rvt-dropdown-toggle>
-								<svg
-									aria-hidden="true"
-									fill="currentColor"
-									focusable="false"
-									height="16"
-									viewBox="0 0 16 16"
-									width="16"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z" />
-								</svg>
+								<rvt-icon name="chevron-down" />
+								<span class="rvt-sr-only">{link.label}</span>
 							</button>
 							<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden>
 								<ul>
-									{children.map((childLabel: String) => (
+									{link.children.map((child) => (
 										<li>
-											<a href="#">{childLabel}</a>
+											<a href={child.url}>{child.label}</a>
 										</li>
 									))}
 								</ul>
@@ -60,3 +132,24 @@ const list = [
 		}
 	</ul>
 </nav>
+
+<script>
+	const ATTR = "aria-current";
+	const KEY = "page";
+	const page = getParam(KEY);
+
+	document.querySelectorAll(".rvt-header-menu__list a").forEach((link) => {
+		const href = link.getAttribute("href") ?? undefined;
+		const current = getParam(KEY, href) === page;
+		if (current) {
+			link.setAttribute(ATTR, KEY);
+		} else {
+			link.removeAttribute(ATTR);
+		}
+	});
+
+	function getParam(key: string, source = window.location.search) {
+		const params = new URLSearchParams(source);
+		return params.get(key);
+	}
+</script>
