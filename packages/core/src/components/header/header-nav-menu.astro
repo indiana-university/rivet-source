@@ -107,9 +107,7 @@ function toSlug(str: string) {
 					class="rvt-header-menu__item"
 					data-rvt-dropdown-open-on-hover={link.hasChildren}
 				>
-					<a class="rvt-header-menu__link" href={link.url}>
-						{link.label}
-					</a>
+					<a href={link.url}>{link.label}</a>
 					{link.hasChildren && (
 						<div class="rvt-dropdown" data-rvt-dropdown>
 							<button data-rvt-dropdown-toggle>
