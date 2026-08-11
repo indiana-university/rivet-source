@@ -33,7 +33,9 @@
 	"scripts": {
 		"build": "vite build",
 		"prepare": "pnpm build",
-		"preview": "pnpm build"
+		"preview": "pnpm build",
+		"lint:html": "html-validate --config .htmlvalidate.json --ext=astro,html",
+		"lint:html:migration": "html-validate --config .htmlvalidate.migration.json --ext=astro,html"
 	},
 	"devDependencies": {
 		"@laynezh/vite-plugin-lib-assets": "2.2.0",

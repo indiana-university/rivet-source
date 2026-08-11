@@ -1,7 +1,4 @@
 {
 	"extends": ["html-validate:recommended"],
-	"plugins": ["./rules/no-legacy-accordion-icon.js"],
-	"rules": {
-		"rivet-migration/no-legacy-accordion-icon": "error"
-	}
+	"elements": ["html5", "./rules/no-legacy-accordion-icon.js"]
 }

@@ -1,5 +1,7 @@
 {
 	"root": true,
-	"plugins": ["./rules/no-legacy-accordion-icon.js"],
-	"extends": ["rivet-migration:recommended"]
+	"elements": ["html5", "./rules/no-legacy-accordion-icon.js"],
+	"rules": {
+		"element-permitted-content": "error"
+	}
 }
