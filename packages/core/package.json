@@ -18,7 +18,8 @@
 	"type": "module",
 	"imports": {
 		"#components/*": "./src/components/*",
-		"#layouts/*": "./src/layouts/*"
+		"#layouts/*": "./src/layouts/*",
+		"#utilities/*": "./src/utilities/*"
 	},
 	"exports": {
 		".": "./dist/rivet.js",

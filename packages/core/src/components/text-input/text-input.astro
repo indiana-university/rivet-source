@@ -1,6 +1,21 @@
 ---
+import { createId } from "#utilities/createId.js";
+
 export const title = "Text Input";
+
+const inputId = createId();
+const descriptionId = createId();
 ---
 
-<label for="text-input-default" class="rvt-label">Text Input</label>
-<input type="text" id="text-input-default" class="rvt-text-input" />
+<rvt-field size="10">
+	<label for={inputId}>Favorite board game</label>
+	<small id={descriptionId}>Your all time favorite or recent favorite</small>
+	<input
+		aria-describedby={descriptionId}
+		data-1p-ignore
+		id={inputId}
+		name="board-game"
+		required
+		type="text"
+	/>
+</rvt-field>
