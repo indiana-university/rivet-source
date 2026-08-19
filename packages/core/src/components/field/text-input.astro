@@ -1,0 +1,35 @@
+---
+import { createId } from "#utilities/createId.js";
+
+export const title = "Text Input";
+
+const inputId = createId();
+const descriptionId = createId();
+const alertId = createId();
+const describedby = [descriptionId, alertId].join(" ");
+---
+
+<rvt-field size="10">
+	<label for={inputId}>Favorite board game</label>
+	<small id={descriptionId}>Your all time favorite or recent favorite</small>
+	<rvt-alert id={alertId} type="danger">
+		<p data-rvt-alert-message>Enter a board game name</p>
+	</rvt-alert>
+	<rvt-alert id={alertId} type="info">
+		<p data-rvt-alert-message>Enter a board game name</p>
+	</rvt-alert>
+	<rvt-alert id={alertId} type="warning">
+		<p data-rvt-alert-message>Enter a board game name</p>
+	</rvt-alert>
+	<rvt-alert id={alertId} type="success">
+		<p data-rvt-alert-message>Enter a board game name</p>
+	</rvt-alert>
+	<input
+		aria-describedby={describedby}
+		data-1p-ignore
+		id={inputId}
+		name="board-game"
+		required
+		type="text"
+	/>
+</rvt-field>

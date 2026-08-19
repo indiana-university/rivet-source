@@ -4,16 +4,29 @@
  */
 
 rvt-field {
-	display: block;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	gap: var(--rvt-size-4);
 
-	label {
-		display: inline-block;
-		font: var(--rvt-font-16-bold);
+	&[size="10"] input {
+		width: calc(10em + var(--rvt-size-16));
 	}
 
 	&:has(input[required]) label::after {
 		color: var(--rvt-color-danger-main);
 		content: " *" / "(required)";
+	}
+
+	label,
+	small,
+	rvt-alert {
+		max-width: var(--rvt-line-length-normal);
+	}
+
+	label {
+		display: inline-block;
+		font: var(--rvt-font-16-bold);
 	}
 
 	small {
@@ -36,9 +49,5 @@ rvt-field {
 			border-color: var(--rvt-color-theme-ui);
 			cursor: not-allowed;
 		}
-	}
-
-	&[size="10"] input {
-		width: calc(10em + var(--rvt-size-16));
 	}
 }
