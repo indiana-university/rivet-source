@@ -59,6 +59,10 @@
 		padding-inline: var(--rvt-size-8);
 		position: relative;
 
+		&:last-child {
+			--__rvt-header-menu-item-inset-inline: auto 0;
+		}
+
 		> a {
 			color: var(--__rvt-header-menu-item-color);
 			font: var(--rvt-font-14);
@@ -71,6 +75,8 @@
 		}
 
 		.rvt-dropdown {
+			position: unset;
+
 			> button {
 				align-items: center;
 				background-color: transparent;
@@ -83,12 +89,17 @@
 			}
 
 			> .rvt-dropdown__menu {
-				inset: unset;
+				inset-inline: var(--__rvt-header-menu-item-inset-inline, 0 auto);
 				margin-inline-start: calc(var(--__rvt-dropdown-menu-offset) * -1);
-				position: fixed;
-				position-anchor: --rvt-header-menu-item;
-				position-area: block-end span-inline-end;
-				position-try-fallbacks: block-end span-inline-start;
+				position: absolute;
+
+				@supports ((anchor-name: --test) and (position-anchor: --test)) {
+					inset-inline: unset;
+					position: fixed;
+					position-anchor: --rvt-header-menu-item;
+					position-area: block-end span-inline-end;
+					position-try-fallbacks: block-end span-inline-start;
+				}
 			}
 		}
 
