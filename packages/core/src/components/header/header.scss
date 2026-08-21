@@ -89,16 +89,16 @@
 			}
 
 			> .rvt-dropdown__menu {
-				inset-inline: var(--__rvt-header-menu-item-inset-inline, 0 auto);
-				margin-inline-start: calc(var(--__rvt-dropdown-menu-offset) * -1);
-				position: absolute;
+				inset-inline: unset;
+				position: fixed;
+				position-anchor: --rvt-header-menu-item;
+				position-area: block-end span-inline-end;
+				position-try-fallbacks: block-end span-inline-start;
 
-				@supports ((anchor-name: --test) and (position-anchor: --test)) {
-					inset-inline: unset;
-					position: fixed;
-					position-anchor: --rvt-header-menu-item;
-					position-area: block-end span-inline-end;
-					position-try-fallbacks: block-end span-inline-start;
+				@supports not ((anchor-name: --test) and (position-anchor: --test)) {
+					inset-inline: var(--__rvt-header-menu-item-inset-inline, 0 auto);
+					margin-inline-start: calc(var(--__rvt-dropdown-menu-offset) * -1);
+					position: absolute;
 				}
 			}
 		}
