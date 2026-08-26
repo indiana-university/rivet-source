@@ -2,10 +2,118 @@
 export const title = "Lockup";
 ---
 
-<a class="rvt-lockup" href="/">
-	<rvt-logo-iu tab></rvt-logo-iu>
-	<div class="rvt-lockup__body">
-		<div class="rvt-lockup__title">Indiana University</div>
-		<div class="rvt-lockup__subtitle">Indianapolis</div>
+<div class="resize">
+	<div>
+		<h2>Campus</h2>
+
+		<rvt-lockup type="campus">
+			<span>Indiana University</span>
+		</rvt-lockup>
+
+		<rvt-lockup type="campus">
+			<a href="/">
+				<span>Indiana University</span>
+				<span>East</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup type="campus">
+			<a href="/">
+				<span>Indiana University</span>
+				<span>South Bend</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup type="campus">
+			<a href="/">
+				<span>Indiana University</span>
+				<span>Online</span>
+			</a>
+		</rvt-lockup>
 	</div>
-</a>
+
+	<div>
+		<h2>School or department</h2>
+
+		<rvt-lockup>
+			<span>Indiana University</span>
+			<span>Office of the President</span>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>Indiana University</span>
+				<span>
+					Paul H. O&rsquo;Neill School of Public<br />
+					and Environmental Affairs
+				</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>Indiana University Bloomington</span>
+				<span>
+					Metropolitan Governance and<br />
+					Management Transitions Laboratory
+				</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span class="rvt-sr-only">Indiana University</span>
+				<span>
+					Office of the Vice President for<br />
+					Student Success, Enrollment and<br />
+					Institutional Effectiveness
+				</span>
+			</a>
+		</rvt-lockup>
+	</div>
+
+	<div>
+		<h2>Application</h2>
+
+		<rvt-lockup>
+			<span>Indiana University</span>
+			<span>Application for Admission</span>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>Canvas</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>IU Zoom</span>
+			</a>
+		</rvt-lockup>
+
+		<rvt-lockup>
+			<a href="/">
+				<span>iGPS</span>
+			</a>
+		</rvt-lockup>
+	</div>
+</div>
+
+<style>
+	.resize {
+		display: grid;
+		gap: var(--rvt-size-24);
+		grid-auto-columns: minmax(0, 1fr);
+		grid-auto-flow: column;
+		overflow: auto;
+		padding: var(--rvt-size-8);
+		resize: horizontal;
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			gap: var(--rvt-size-24);
+		}
+	}
+</style>

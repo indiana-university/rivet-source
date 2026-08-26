@@ -3,26 +3,111 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-.rvt-lockup {
-	align-items: center;
-	display: inline-flex;
-	gap: var(--rvt-size-12);
-	text-decoration: none;
+rvt-lockup {
+	--__rvt-lockup-default-font-size: var(--rvt-size-20);
+	--__rvt-lockup-default-font-stretch: var(--rvt-font-width-semi-condensed);
+	--__rvt-lockup-default-font-weight: var(--rvt-font-weight-black);
+	--__rvt-lockup-default-letter-spacing: initial;
+	--__rvt-lockup-default-text-transform: initial;
+	--__rvt-lockup-l1-font-stretch: var(--__rvt-lockup-default-font-stretch);
+	--__rvt-lockup-l1-font-size: var(--__rvt-lockup-default-font-size);
+	--__rvt-lockup-l1-font-weight: var(--__rvt-lockup-default-font-weight);
+	--__rvt-lockup-l1-letter-spacing: var(--__rvt-lockup-default-letter-spacing);
+	--__rvt-lockup-l1-margin-block: initial;
+	--__rvt-lockup-l1-text-transform: var(--__rvt-lockup-default-text-transform);
+	--__rvt-lockup-l2-font-size: var(--__rvt-lockup-default-font-size);
+	--__rvt-lockup-l2-font-weight: var(--__rvt-lockup-default-font-weight);
+	--__rvt-lockup-l2-letter-spacing: var(--__rvt-lockup-default-letter-spacing);
+	--__rvt-lockup-l2-margin-block: initial;
+	display: flex;
 
-	.rvt-lockup__body {
-		text-transform: uppercase;
-	}
-
-	.rvt-lockup__title {
-		color: var(--rvt-color-theme-text-strong);
-		font: var(--rvt-font-20-black);
-		line-height: var(--rvt-size-20);
-	}
-
-	.rvt-lockup__subtitle {
+	&:not(:has(> a)),
+	> a {
 		color: var(--rvt-color-theme-text);
-		font-stretch: var(--rvt-font-width-ultra-condensed);
-		line-height: var(--rvt-size-16);
-		margin-block-start: var(--rvt-size-3);
+		column-gap: var(--rvt-size-8);
+		display: inline-grid;
+		grid-template:
+			"logo ." 1fr
+			"logo l1" auto
+			"logo l2" auto
+			"logo ." 1fr / auto 1fr;
+		text-decoration: none;
+
+		&::before,
+		&::after {
+			align-self: center;
+			content: "";
+			display: block;
+			grid-area: logo;
+			justify-self: center;
+		}
+
+		&::before {
+			background-color: var(--rvt-color-theme-text-accent);
+			height: var(--rvt-graphic-logo-iu-container-height);
+			width: var(--rvt-graphic-logo-iu-container-width);
+		}
+
+		&::after {
+			background-color: var(--rvt-color-theme-text-accent-inverse);
+			clip-path: path(var(--rvt-graphic-logo-iu-path));
+			height: var(--rvt-graphic-logo-iu-height);
+			width: var(--rvt-graphic-logo-iu-width);
+		}
+
+		span {
+			font-size: var(--__rvt-lockup-default-font-size);
+			font-stretch: var(--__rvt-lockup-default-font-stretch);
+			font-weight: var(--__rvt-lockup-default-font-weight);
+			letter-spacing: var(--__rvt-lockup-default-letter-spacing);
+			line-height: 1;
+			text-transform: var(--__rvt-lockup-default-text-transform);
+			white-space: nowrap;
+
+			&:nth-of-type(1) {
+				font-size: var(--__rvt-lockup-l1-font-size);
+				font-stretch: var(--__rvt-lockup-l1-font-stretch);
+				font-weight: var(--__rvt-lockup-l1-font-weight);
+				grid-area: l1;
+				letter-spacing: var(--__rvt-lockup-l1-letter-spacing);
+				margin-block: var(--__rvt-lockup-l1-margin-block);
+				text-transform: var(--__rvt-lockup-l1-text-transform);
+			}
+
+			&:nth-of-type(2) {
+				font-size: var(--__rvt-lockup-l2-font-size);
+				font-weight: var(--__rvt-lockup-l2-font-weight);
+				grid-area: l2;
+				letter-spacing: var(--__rvt-lockup-l2-letter-spacing);
+				margin-block: var(--__rvt-lockup-l2-margin-block);
+			}
+		}
+	}
+
+	&[type="campus"] {
+		--__rvt-lockup-default-font-size: var(--rvt-size-18);
+		--__rvt-lockup-default-font-stretch: var(--rvt-font-width-ultra-condensed);
+		--__rvt-lockup-default-letter-spacing: calc(var(--rvt-size-1) / 4);
+		--__rvt-lockup-default-text-transform: uppercase;
+		--__rvt-lockup-l2-font-size: var(--rvt-size-16);
+		--__rvt-lockup-l2-font-weight: var(--rvt-font-weight-normal);
+		--__rvt-lockup-l2-letter-spacing: calc(var(--rvt-size-1) / 2);
+		--__rvt-lockup-l2-margin-block: var(--rvt-size-3) 0;
+	}
+
+	&:not([type="campus"]) {
+		&:has(span:where(:nth-of-type(2))) {
+			--__rvt-lockup-l1-font-size: var(--rvt-size-14);
+			--__rvt-lockup-l1-font-stretch: var(--rvt-font-width-ultra-condensed);
+			--__rvt-lockup-l1-font-weight: var(--rvt-font-weight-normal);
+			--__rvt-lockup-l1-letter-spacing: calc(var(--rvt-size-1) / 2);
+			--__rvt-lockup-l1-margin-block: 0 var(--rvt-size-3);
+			--__rvt-lockup-l1-text-transform: uppercase;
+		}
+
+		&:has(span > br) {
+			--__rvt-lockup-default-font-size: var(--rvt-size-16);
+			--__rvt-lockup-l1-font-size: calc(11rem / 16);
+		}
 	}
 }

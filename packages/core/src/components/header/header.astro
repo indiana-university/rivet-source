@@ -1,11 +1,39 @@
 ---
-import Lockup from "../lockup/lockup.astro";
-export const title = "Header";
+import Lockup from "../lockup/lockup-demo.astro";
+import MobileMenu from "./header-mobile-menu.astro";
+import NavMenu from "./header-nav-menu.astro";
+import SearchDialog from "./header-search-dialog.astro";
+
+export const title = "Header with nav and search";
+
+const { theme } = Astro.props;
+const crimsonTheme = theme === "crimson";
 ---
 
-<header data-site-header class="rvt-header">
+<header class:list={["rvt-header", { "rvt-theme-crimson": crimsonTheme }]}>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<div class="rvt-header__inner">
 		<Lockup />
+		<div class="rvt-header__controls">
+			<NavMenu />
+		</div>
+		<div class="rvt-header__buttons">
+			<button
+				class="rvt-button rvt-button--medium rvt-button--icon-only rvt-header__button--mobile-menu"
+				data-rvt-dialog-trigger="mobile-menu"
+			>
+				<rvt-icon name="menu"></rvt-icon>
+				<span class="rvt-sr-only">Menu</span>
+			</button>
+			<button
+				class="rvt-button rvt-button--medium rvt-button--icon-only"
+				data-rvt-dialog-trigger="search-bar"
+			>
+				<rvt-icon name="magnifying-glass"></rvt-icon>
+				<span class="rvt-sr-only">Search</span>
+			</button>
+		</div>
 	</div>
 </header>
+<MobileMenu />
+<SearchDialog />
