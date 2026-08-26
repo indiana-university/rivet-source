@@ -45,8 +45,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           # Docs: https://aka.ms/swaworkflowconfig
-          app_location: "/packages/sandbox"
-          output_location: "dist"
+          app_location: "packages/sandbox/dist"
           skip_app_build: true
 
   close_pull_request_job:
