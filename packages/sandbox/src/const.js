@@ -3,7 +3,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import sandboxWorkflow from "rivet-source/.github/workflows/sandbox.yml";
+import { execSync } from "node:child_process";
 
-const branch = sandboxWorkflow.on.push.branches.at(0);
+const currentBranch = execSync("git branch --show-current", {
+	encoding: "utf-8",
+}).trim();
+const branch = process.env.BRANCH_NAME ?? (currentBranch || "unknown");
 export const SITE_TITLE = `Rivet ${branch} branch`;
