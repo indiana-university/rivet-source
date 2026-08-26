@@ -38,6 +38,13 @@ const buildConfig = {
 			output: {
 				assetFileNames: ({ name }) =>
 					name.endsWith(".css.css") ? name.replace(".css", "") : name,
+				chunkFileNames: (chunkInfo) => {
+					const { facadeModuleId = "", isDynamicEntry = false } = chunkInfo;
+					if (isDynamicEntry && facadeModuleId.includes("node_modules")) {
+						return "polyfills/[name].js";
+					}
+					return "[name].js";
+				},
 			},
 		},
 	},
