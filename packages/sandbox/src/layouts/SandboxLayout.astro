@@ -3,11 +3,9 @@ import Layout from "./BaseLayout.astro";
 import { SITE_TITLE } from "../const.js";
 import { baseUrl } from "../utils/baseUrl.js";
 import { removeEnd } from "../utils/removeEnd.js";
-import { removeStart } from "../utils/removeStart.js";
 
 const title = Astro.props.title || SITE_TITLE;
-const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
-const breadcrumbs = removeEnd(currentPath, "/")
+const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 	.split("/")
 	.map((part: any, i: any, source: any) => {
 		const first = i === 0;

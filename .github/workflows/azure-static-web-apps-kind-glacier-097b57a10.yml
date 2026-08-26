@@ -12,6 +12,7 @@ on:
 
 env:
   BUILD_PATH: "."
+  BRANCH_NAME: ${{ github.ref_name }}
 
 jobs:
   build_and_deploy_job:
