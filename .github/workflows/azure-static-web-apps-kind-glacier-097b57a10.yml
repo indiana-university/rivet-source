@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  BUILD_PATH: "."
+  BUILD_PATH: .
   BRANCH_NAME: ${{ github.ref_name }}
 
 jobs:
@@ -25,12 +25,12 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: "11"
+          version: 11
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: "24"
-          cache: "pnpm"
+          node-version: 24
+          cache: pnpm
           cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -43,11 +43,11 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_GLACIER_097B57A10 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
+          action: upload
           # Docs: https://aka.ms/swaworkflowconfig
-          app_location: "packages/sandbox/dist"
+          app_location: packages/sandbox/dist
           skip_app_build: true
-          production_branch: "v3-develop"
+          production_branch: v3-develop
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -59,4 +59,4 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_GLACIER_097B57A10 }}
-          action: "close"
+          action: close
