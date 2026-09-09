@@ -1,6 +1,22 @@
-import { formats, transformGroups, transforms } from "style-dictionary/enums";
+import { optimize } from "svgo";
+import {
+	formats,
+	transformGroups,
+	transformTypes,
+	transforms,
+} from "style-dictionary/enums";
 
 const PREFIX = "rvt";
+
+const SVGO_PATH_PLUGINS = [
+	{
+		name: "convertPathData",
+		params: {
+			floatPrecision: 2,
+			transformPrecision: 5,
+		},
+	},
+];
 
 function isIcon(token) {
 	return token.attributes.category === "icon";
@@ -8,6 +24,37 @@ function isIcon(token) {
 
 function isSticker(token) {
 	return token.attributes.category === "sticker";
+}
+
+function isStickerPath(token) {
+	return (
+		isSticker(token) &&
+		(token.attributes.item === "path-fill" ||
+			token.attributes.item === "path-stroke")
+	);
+}
+
+function optimizeSvgPath(d) {
+	let optimized = d;
+	const wrapped = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`;
+	optimize(wrapped, {
+		plugins: [
+			...SVGO_PATH_PLUGINS,
+			{
+				name: "capture-path-d",
+				fn: () => ({
+					element: {
+						enter: (node) => {
+							if (node.name === "path") {
+								optimized = node.attributes.d;
+							}
+						},
+					},
+				}),
+			},
+		],
+	});
+	return optimized;
 }
 
 function formatIconComponent(name) {
@@ -57,6 +104,13 @@ export default {
 			"core-icon": (token) => isIcon(token) && token.$core,
 			"extra-icon": (token) => isIcon(token) && !token.$core,
 			sticker: (token) => isSticker(token),
+		},
+		transforms: {
+			"content/svg-path": {
+				type: transformTypes.value,
+				filter: isStickerPath,
+				transform: (token) => optimizeSvgPath(token.$value),
+			},
 		},
 		formats: {
 			"css/icons": ({ dictionary }) =>
@@ -118,7 +172,11 @@ export default {
 					format: "css/stickers",
 				},
 			],
-			transforms: [transforms.contentQuote, transforms.sizePxToRem],
+			transforms: [
+				"content/svg-path",
+				transforms.contentQuote,
+				transforms.sizePxToRem,
+			],
 		},
 		json: {
 			transformGroup: transformGroups.json,
