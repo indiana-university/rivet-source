@@ -3,6 +3,7 @@
 import pkg from "./package.json" with { type: "json" };
 import { Command } from "commander";
 import searchCommand from "./commands/search.js";
+import initCommand from "./commands/init.js";
 
 const program = new Command();
 
@@ -12,5 +13,6 @@ program
 	.version(`${pkg.version}`);
 
 program.addCommand(searchCommand);
+program.addCommand(initCommand);
 
 program.parse();
