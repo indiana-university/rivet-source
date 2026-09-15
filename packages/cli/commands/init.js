@@ -19,10 +19,12 @@ const configTemplate = `# Rivet CLI configuration
 
 const initCommand = new Command("init")
 	.description(`generate a starter ${configFileName} file`)
-	.option("-f, --force", "overwrite an existing rivet.yaml file")
+	.option("-f, --force", `overwrite an existing ${configFileName} file`)
 	.action((options) => {
+		// Set up config file path based on current working directory
 		const configFilePath = path.resolve(configFileName);
 
+		// Check if the file exists and that --force wasn't invoked, otherwise exit
 		if (fs.existsSync(configFilePath) && !options.force) {
 			console.error(
 				`\n${styleText("red", "Error")}: ${configFileName} already exists.\n\nUse the --force option to overwrite it.\n`,
@@ -30,6 +32,7 @@ const initCommand = new Command("init")
 			process.exit(1);
 		}
 
+		// Write the config template contents to the file
 		fs.writeFileSync(configFilePath, configTemplate);
 
 		console.log(
