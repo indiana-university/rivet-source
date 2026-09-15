@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { styleText } from "util";
 
-const configFileName = "rivet.yaml";
+import { configFileName } from "../lib/config.js";
 
 const configTemplate = `# Rivet CLI configuration
 # https://rivet.iu.edu
