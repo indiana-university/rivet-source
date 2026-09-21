@@ -1,6 +1,46 @@
 {
 	"graphic": {
 		"$type": "graphic",
+		"apple-touch-icon": {
+			"$value": {
+				"container-height": 60,
+				"container-width": 60,
+				"height": 38,
+				"path": "{graphic.logo-iu.path}",
+				"width": 30
+			},
+			"$description": "Dimensions mirror graphic.logo-iu; the generator asserts they stay in sync."
+		},
+		"favicon-16": {
+			"$value": {
+				"container-height": 16,
+				"container-width": 16,
+				"height": 14,
+				"path": "M4 0H8V1H7V9H9V3H8V2H12V3H11V10L10 11H7V13H8V14H4V13H5V11H2L1 10V3H0V2H4V3H3V9H5V1H4V0Z",
+				"width": 12
+			},
+			"$description": "Pixel-hinted trident drawn specifically for 16px."
+		},
+		"favicon-32": {
+			"$value": {
+				"container-height": 32,
+				"container-width": 32,
+				"height": 26,
+				"path": "M14 0H7V2H8.5V16.5H5.5V5.5H7V3.5H0V5.5H1.5V18L4 20.5H8.5V23H7V26H14V23H12.5V20.5H17L19.5 18V5.5H21V3.5H14V5.5H15.5V16.5H12.5V2H14V0Z",
+				"width": 21
+			},
+			"$description": "Pixel-hinted trident drawn specifically for 32px."
+		},
+		"favicon-48": {
+			"$value": {
+				"container-height": 48,
+				"container-width": 48,
+				"height": 38,
+				"path": "{graphic.logo-iu.path}",
+				"width": 30
+			},
+			"$description": "Dimensions mirror graphic.logo-iu; the generator asserts they stay in sync."
+		},
 		"logo-iu": {
 			"$value": {
 				"container-height": 54,
