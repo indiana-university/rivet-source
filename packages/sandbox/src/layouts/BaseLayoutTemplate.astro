@@ -1,9 +1,8 @@
 ---
-import pkg from "@rivet-iu/core/package.json";
+import { SITE_TITLE } from "../const.js";
 import { removeStart } from "../utils/removeStart.js";
 
-const APP_NAME = `Rivet v${pkg.version}`;
-const site = Astro.props.site || APP_NAME;
+const site = Astro.props.site || SITE_TITLE;
 const title = Astro.props.title || site;
 const currentPath = removeStart(Astro.url.pathname, import.meta.env.BASE_URL);
 const isRoot = Astro.props.root || currentPath === "/" || currentPath === "";

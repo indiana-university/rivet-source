@@ -275,7 +275,7 @@ export default class Dropdown extends Component {
 			 * Opens the dropdown.
 			 ***********************************************************************/
 
-			open() {
+			open(event) {
 				if (this._toggleElementIsDisabled()) {
 					return;
 				}
@@ -284,7 +284,7 @@ export default class Dropdown extends Component {
 					return;
 				}
 
-				this._setOpenState();
+				this._setOpenState(event);
 			},
 
 			/************************************************************************
@@ -304,10 +304,13 @@ export default class Dropdown extends Component {
 			 * @private
 			 ***********************************************************************/
 
-			_setOpenState() {
+			_setOpenState(event) {
 				this.toggleElement.setAttribute("aria-expanded", "true");
 				this.menuElement.removeAttribute("hidden");
-				this.firstMenuItem.focus();
+
+				if (!(event instanceof MouseEvent)) {
+					this.firstMenuItem.focus();
+				}
 
 				this.isOpen = true;
 			},

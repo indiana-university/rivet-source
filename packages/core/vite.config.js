@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import bannerPlugin from "vite-plugin-banner";
 import libAssetsPlugin from "@laynezh/vite-plugin-lib-assets";
-import pkg from "./package.json";
+import pkg from "./package.json" with { type: "json" };
 import { license } from "../../scripts/utils/license-header.js";
 
 const licenseHeader = `/*!
@@ -38,6 +38,13 @@ const buildConfig = {
 			output: {
 				assetFileNames: ({ name }) =>
 					name.endsWith(".css.css") ? name.replace(".css", "") : name,
+				chunkFileNames: (chunkInfo) => {
+					const { facadeModuleId = "", isDynamicEntry = false } = chunkInfo;
+					if (isDynamicEntry && facadeModuleId.includes("node_modules")) {
+						return "polyfills/[name].js";
+					}
+					return "[name].js";
+				},
 			},
 		},
 	},

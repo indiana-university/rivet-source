@@ -63,7 +63,7 @@ tbody tr :is(td, th) {
 
 .rvt-table-stripes {
 	tr:nth-child(even) {
-		background-color: var(--rvt-color-theme-background-strong);
+		background-color: var(--rvt-color-theme-background-light);
 	}
 }
 
