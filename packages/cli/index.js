@@ -15,6 +15,5 @@ program
 
 program.addCommand(searchCommand);
 program.addCommand(initCommand);
-program.addCommand(stickerCommand);
 
 program.parse();

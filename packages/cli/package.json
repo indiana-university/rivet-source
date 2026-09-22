@@ -20,18 +20,19 @@
 	"bin": {
 		"rivet": "index.js"
 	},
+	"scripts": {
+		"build": "node bin/build.js"
+	},
 	"files": [
 		"index.js",
 		"README.md",
+		"bin/",
 		"commands/",
 		"lib/"
 	],
 	"dependencies": {
+		"@rivet-iu/core": "workspace:*",
 		"commander": "15.0.0",
-		"postcss": "8.5.28",
-		"postcss-cli": "12.0.0",
-		"postcss-import": "17.0.0",
-		"svgo": "4.1.0",
 		"yaml": "2.9.1"
 	}
 }

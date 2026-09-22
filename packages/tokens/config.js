@@ -34,6 +34,19 @@ function isStickerPath(token) {
 	);
 }
 
+// Get the selected sticker names
+const selectedStickers = process.env.RIVET_STICKERS
+	? JSON.parse(process.env.RIVET_STICKERS)
+	: null;
+
+// Get the selected (or all) stickers
+function isSelectedStickers(token) {
+	if (!isSticker(token)) return false;
+	if (!selectedStickers) return true;
+	return selectedStickers.includes(token.attributes.type);
+}
+
+// Optimize SVG data using SVGO
 function optimizeSvgPath(d) {
 	let optimized = d;
 	const wrapped = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`;
@@ -103,7 +116,7 @@ export default {
 			},
 			"core-icon": (token) => isIcon(token) && token.$core,
 			"extra-icon": (token) => isIcon(token) && !token.$core,
-			sticker: (token) => isSticker(token),
+			sticker: (token) => isSelectedStickers(token),
 		},
 		transforms: {
 			"content/svg-path": {
