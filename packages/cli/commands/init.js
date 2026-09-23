@@ -20,9 +20,14 @@ const configTemplate = `# Rivet CLI configuration
 const initCommand = new Command("init")
 	.description(`generate a starter ${configFileName} file`)
 	.option("-f, --force", `overwrite an existing ${configFileName} file`)
+	.option(
+		"-c, --config <file>",
+		"name of the Rivet config file to generate",
+		configFileName,
+	)
 	.action((options) => {
 		// Set up config file path based on current working directory
-		const configFilePath = path.resolve(configFileName);
+		const configFilePath = path.resolve(options.config);
 
 		// Check if the file exists and that --force wasn't invoked, otherwise exit
 		if (fs.existsSync(configFilePath) && !options.force) {
@@ -36,7 +41,7 @@ const initCommand = new Command("init")
 		fs.writeFileSync(configFilePath, configTemplate);
 
 		console.log(
-			`\n${styleText("green", "Success")}: Created ${configFileName}.\n`,
+			`\n${styleText("green", "Success")}: Created ${options.config}.\n`,
 		);
 	});
 
