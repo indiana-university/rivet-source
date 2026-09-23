@@ -20,13 +20,9 @@
 	"bin": {
 		"rivet": "index.js"
 	},
-	"scripts": {
-		"build": "node bin/stickers.js"
-	},
 	"files": [
 		"index.js",
 		"README.md",
-		"bin/",
 		"commands/",
 		"lib/"
 	],

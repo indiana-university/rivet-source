@@ -4,7 +4,7 @@ import pkg from "./package.json" with { type: "json" };
 import { Command } from "commander";
 import searchCommand from "./commands/search.js";
 import initCommand from "./commands/init.js";
-import stickerCommand from "./commands/sticker.js";
+import buildCommand from "./commands/build.js";
 
 const program = new Command();
 
@@ -15,5 +15,6 @@ program
 
 program.addCommand(searchCommand);
 program.addCommand(initCommand);
+program.addCommand(buildCommand);
 
 program.parse();
