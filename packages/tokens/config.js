@@ -26,6 +26,7 @@ function isSticker(token) {
 	return token.attributes.category === "sticker";
 }
 
+// Return only tokens with "path-fill" or "path-stroke"
 function isStickerPath(token) {
 	return (
 		isSticker(token) &&
@@ -34,15 +35,20 @@ function isStickerPath(token) {
 	);
 }
 
-// Get the selected sticker names
+// Populated by build.js from the "stickers" list in Rivet config
+// Set to "null" if no filter was set
 const selectedStickers = process.env.RIVET_STICKERS
 	? JSON.parse(process.env.RIVET_STICKERS)
 	: null;
 
-// Get the selected (or all) stickers
-function isSelectedStickers(token) {
+// Returns true if this token is one of the selected stickers
+function isSelectedSticker(token) {
+	// Exit if token is not a sticker
 	if (!isSticker(token)) return false;
-	if (!selectedStickers) return true;
+
+	// If no "stickers" list is found in Rivet config, include every sticker
+	if (selectedStickers === null) return true;
+
 	return selectedStickers.includes(token.attributes.type);
 }
 
@@ -70,6 +76,7 @@ function optimizeSvgPath(d) {
 	return optimized;
 }
 
+// Return the <rvt-icon> CSS rule from token name
 function formatIconComponent(name) {
 	return `${PREFIX}-icon[name="${name}"] {
 	--name: var(--${PREFIX}-icon-${name});
@@ -77,6 +84,7 @@ function formatIconComponent(name) {
 `;
 }
 
+// Generate the <rvt-sticker> CSS rule from token name
 function formatStickerComponent(name) {
 	return `${PREFIX}-sticker[name="${name}"] {
 	--path-fill: var(--${PREFIX}-sticker-${name}-path-fill);
@@ -116,7 +124,7 @@ export default {
 			},
 			"core-icon": (token) => isIcon(token) && token.$core,
 			"extra-icon": (token) => isIcon(token) && !token.$core,
-			sticker: (token) => isSelectedStickers(token),
+			sticker: (token) => isSelectedSticker(token),
 		},
 		transforms: {
 			"content/svg-path": {

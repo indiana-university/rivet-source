@@ -21,7 +21,7 @@
 		"rivet": "index.js"
 	},
 	"scripts": {
-		"build": "node bin/build.js"
+		"build": "node bin/stickers.js"
 	},
 	"files": [
 		"index.js",
