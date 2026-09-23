@@ -81,8 +81,9 @@ const links = pages
 		};
 	});
 
-function processItem(label: string) {
-	const url = `?page=${toSlug(label)}`;
+function processItem(rawLabel: string) {
+	const url = `?page=${toSlug(rawLabel)}`;
+	const label = rawLabel.replaceAll("&", "&amp;");
 	return { label, url };
 }
 
@@ -107,7 +108,7 @@ function toSlug(str: string) {
 					class="rvt-header-menu__item"
 					data-rvt-dropdown-open-on-hover={link.hasChildren}
 				>
-					<a href={link.url}>{link.label}</a>
+					<a href={link.url} set:html={link.label} />
 					{link.hasChildren && (
 						<div class="rvt-dropdown" data-rvt-dropdown>
 							<button data-rvt-dropdown-toggle type="button">
@@ -118,7 +119,7 @@ function toSlug(str: string) {
 								<ul>
 									{link.children.map((child) => (
 										<li>
-											<a href={child.url}>{child.label}</a>
+											<a href={child.url} set:html={child.label} />
 										</li>
 									))}
 								</ul>
