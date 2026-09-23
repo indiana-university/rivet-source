@@ -27,6 +27,8 @@
 		"lib/"
 	],
 	"dependencies": {
-		"commander": "15.0.0"
+		"@rivet-iu/core": "workspace:*",
+		"commander": "15.0.0",
+		"yaml": "2.9.1"
 	}
 }
