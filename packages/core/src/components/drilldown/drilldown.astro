@@ -20,6 +20,7 @@ const { menus = example } = Astro.props;
 								<button
 									class="rvt-button rvt-button--medium"
 									data-rvt-drilldown-open="main"
+									type="button"
 								>
 									<rvt-icon name="chevrons-left" />
 									Main
@@ -28,6 +29,7 @@ const { menus = example } = Astro.props;
 							<button
 								class="rvt-button rvt-button--medium"
 								data-rvt-drilldown-open="parent"
+								type="button"
 							>
 								<rvt-icon name="chevron-left" />
 								Back
@@ -51,6 +53,7 @@ const { menus = example } = Astro.props;
 								<button
 									class="rvt-button rvt-button--medium rvt-button--icon-only"
 									data-rvt-drilldown-open="child"
+									type="button"
 								>
 									<span class="rvt-sr-only">{`${item.label} menu`}</span>
 									<rvt-icon name="chevron-right" />

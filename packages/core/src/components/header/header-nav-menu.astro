@@ -110,7 +110,7 @@ function toSlug(str: string) {
 					<a href={link.url}>{link.label}</a>
 					{link.hasChildren && (
 						<div class="rvt-dropdown" data-rvt-dropdown>
-							<button data-rvt-dropdown-toggle>
+							<button data-rvt-dropdown-toggle type="button">
 								<rvt-icon name="chevron-down" />
 								<span class="rvt-sr-only">{link.label}</span>
 							</button>

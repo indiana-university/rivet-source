@@ -5,9 +5,9 @@ export const title = "Dialog - Mounted";
 <div id="app" data-rvt-dialog-mount>
 	<h1>Some test header</h1>
 	<button
-		type="button"
 		class="rvt-button"
 		data-rvt-dialog-trigger="dialog-example"
+		type="button"
 	>
 		<span>Dialog example</span>
 	</button>
@@ -35,14 +35,14 @@ export const title = "Dialog - Mounted";
 			</p>
 		</div>
 		<div class="rvt-dialog__controls">
-			<button type="button" class="rvt-button" role="button">
+			<button class="rvt-button" role="button" type="button">
 				<span>OK</span>
 			</button>
 			<button
-				type="button"
 				class="rvt-button rvt-button--secondary"
 				data-rvt-dialog-close="dialog-example"
 				role="button"
+				type="button"
 			>
 				<span>Cancel</span>
 			</button>
@@ -51,6 +51,7 @@ export const title = "Dialog - Mounted";
 			class="rvt-button rvt-button--subtle rvt-dialog__close"
 			data-rvt-dialog-close="dialog-example"
 			role="button"
+			type="button"
 		>
 			<span class="rvt-sr-only">Close</span>
 			<svg
