@@ -1,7 +1,36 @@
 import { execSync } from "node:child_process";
+import { styleText } from "util";
 
 // Run the tokens and core builds with the given environment variables
-export function runWorkspaceBuild(env) {
-	execSync("pnpm --filter @rivet-iu/tokens build", { stdio: "inherit", env });
-	execSync("pnpm --filter @rivet-iu/core build", { stdio: "inherit", env });
+export function runWorkspaceBuild(env, verbose) {
+	let debug;
+	if (verbose === true) {
+		debug = "inherit";
+		console.log(
+			`\n${styleText("#990000", "=>")} Starting build (verbose output)...`,
+		);
+	} else if (verbose === false) {
+		debug = "ignore";
+		console.log(`\n${styleText("#990000", "=>")} Starting build...`);
+	}
+
+	console.log(`${styleText("#990000", "=>")} Reading tokens...`);
+
+	if (verbose === true) {
+		console.log(``);
+	}
+
+	execSync("pnpm --filter @rivet-iu/tokens build", { stdio: `${debug}`, env });
+
+	if (verbose === true) {
+		console.log(``);
+	}
+
+	console.log(`${styleText("#990000", "=>")} Building core assets...`);
+
+	if (verbose === true) {
+		console.log(``);
+	}
+
+	execSync("pnpm --filter @rivet-iu/core build", { stdio: `${debug}`, env });
 }

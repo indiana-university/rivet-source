@@ -5,6 +5,7 @@ import { styleText } from "util";
 import YAML from "yaml";
 
 import { configFileName } from "../lib/config.js";
+import { printWrapper } from "../lib/output/console.js";
 import { runWorkspaceBuild } from "../lib/runBuild.js";
 
 const buildCommand = new Command("build")
@@ -13,6 +14,11 @@ const buildCommand = new Command("build")
 		"-c, --config <file>",
 		"name of the Rivet config file to use",
 		configFileName,
+	)
+	.option(
+		"-v, --verbose",
+		"print detailed output from the build process",
+		false,
 	)
 	.action((options) => {
 		// Get Rivet config file
@@ -48,28 +54,28 @@ const buildCommand = new Command("build")
 		}
 
 		// Run the "tokens" and "core" pnpm workspace builds with the custom environment variables
-		runWorkspaceBuild(buildEnv);
+		runWorkspaceBuild(buildEnv, options.verbose);
 
-		// Report results
-		console.log(`\n====================================\n`);
+		// Print build results
+		printWrapper(() => {
+			console.log(`Build completed successfully\n`);
 
-		console.log(`Build completed successfully\n`);
-
-		console.log(`${styleText("blue", "Configuration")}:\n ${options.config}\n`);
-
-		console.log(`${styleText("blue", "Stickers")}:`);
-
-		if (stickersExist === false) {
 			console.log(
-				`- No stickers found in configuration\n- CSS will include all stickers\n`,
+				`${styleText("blue", "Configuration")}:\n ${options.config}\n`,
 			);
-		} else {
-			console.log(
-				`- Stickers found in configuration\n- Generated CSS using only these stickers\n`,
-			);
-		}
 
-		console.log(`====================================\n`);
+			console.log(`${styleText("blue", "Stickers")}:`);
+
+			if (stickersExist === false) {
+				console.log(
+					`- Stickers defined in config: No\n- CSS will include all stickers\n`,
+				);
+			} else {
+				console.log(
+					`- Stickers defined in config: Yes\n- Generated CSS using only these stickers\n`,
+				);
+			}
+		});
 	});
 
 export default buildCommand;
