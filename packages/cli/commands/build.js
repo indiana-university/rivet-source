@@ -15,6 +15,7 @@ const buildCommand = new Command("build")
 		"name of the Rivet config file to use",
 		configFileName,
 	)
+	.option("-o, --output <dir>", "directory to output built assets into")
 	.option(
 		"-v, --verbose",
 		"print detailed output from the build process",
@@ -53,8 +54,13 @@ const buildCommand = new Command("build")
 			stickersExist = true;
 		}
 
+		const outputDir = path.resolve(
+			process.cwd(),
+			options.output ?? "rivet-assets",
+		);
+
 		// Run the "tokens" and "core" pnpm workspace builds with the custom environment variables
-		runWorkspaceBuild(buildEnv, options.verbose);
+		runWorkspaceBuild(buildEnv, options.verbose, { outputDir });
 
 		// Print build results
 		printWrapper(() => {

@@ -2,7 +2,7 @@ import { execSync } from "node:child_process";
 import { styleText } from "util";
 
 // Run the tokens and core builds with the given environment variables
-export function runWorkspaceBuild(env, verbose) {
+export function runWorkspaceBuild(env, verbose, { outputDir }) {
 	let debug;
 	if (verbose === true) {
 		debug = "inherit";
@@ -32,5 +32,12 @@ export function runWorkspaceBuild(env, verbose) {
 		console.log(``);
 	}
 
-	execSync("pnpm --filter @rivet-iu/core build", { stdio: `${debug}`, env });
+	let coreBuildCommand;
+	if (outputDir) {
+		coreBuildCommand = `pnpm --filter @rivet-iu/core build --outDir ${JSON.stringify(outputDir)} --emptyOutDir`;
+	} else {
+		coreBuildCommand = `pnpm --filter @rivet-iu/core build`;
+	}
+
+	execSync(coreBuildCommand, { stdio: `${debug}`, env });
 }
