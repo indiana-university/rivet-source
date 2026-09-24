@@ -1,8 +1,10 @@
 ---
 export const title = "Pagination";
+
+const label = `${title} (${Astro.props.label})`;
 ---
 
-<nav aria-label="Pages">
+<nav aria-label={label}>
 	<ul class="rvt-pagination">
 		<li class="rvt-pagination__item">
 			<a href="#0">

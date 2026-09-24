@@ -1,20 +1,28 @@
+---
+import { createId } from "../../utilities/createId.js";
+
+const labelId = `sidenav-label-${createId()}`;
+const dialogTitleId = `mobile-menu-title-${createId()}`;
+const dialogDescriptionId = `mobile-menu-description-${createId()}`;
+---
+
 <div
 	class="rvt-header__mobile-menu"
 	id="mobile-menu"
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby="dialog-title"
-	aria-describedby="dialog-description"
+	aria-labelledby={dialogTitleId}
+	aria-describedby={dialogDescriptionId}
 	data-rvt-dialog="mobile-menu"
 	data-rvt-dialog-modal
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
 	hidden
 >
-	<nav class="rvt-sidenav" aria-labelledby="sidenav-label" data-rvt-sidenav>
-		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id="sidenav-label"
-			>Site navigation</span
-		>
+	<nav class="rvt-sidenav" aria-labelledby={labelId} data-rvt-sidenav>
+		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id={labelId}>
+			Site navigation <span class="rvt-sr-only">({Astro.props.label})</span>
+		</span>
 		<ul class="rvt-sidenav__list [ rvt-p-top-xs ]">
 			<li class="rvt-sidenav__item">
 				<a href="#" class="rvt-sidenav__link">Section nav one</a>

@@ -1,8 +1,10 @@
 ---
-export const title = "Subnav with icons";
+export const title = "Subnav icons";
+
+const label = Astro.props.label ? `Section (${Astro.props.label})` : "Section";
 ---
 
-<nav class="rvt-subnav" aria-label="Section navigation">
+<nav class="rvt-subnav" aria-label={label}>
 	<ul class="rvt-subnav__list">
 		<li class="rvt-subnav__item">
 			<a href="#0">

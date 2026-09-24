@@ -1,5 +1,9 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dialog - Help widget";
+
+const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <div
@@ -8,13 +12,13 @@ export const title = "Dialog - Help widget";
 	role="dialog"
 	tabindex="-1"
 	hidden
-	aria-describedby="dialog-description"
+	aria-describedby={dialogDescriptionId}
 	data-rvt-dialog="dialog-help-widget"
 	data-rvt-dialog-open-on-init
 	data-rvt-dialog-bottom-right
 >
 	<div class="rvt-dialog__body">
-		<p class="rvt-m-all-none" id="dialog-description">
+		<p class="rvt-m-all-none" id={dialogDescriptionId}>
 			Do you need help with your task? Support center technicians are available
 			over chat to provide live assistance.
 		</p>

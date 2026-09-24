@@ -1,18 +1,20 @@
 ---
 import Footer from "./footer.astro";
 export const title = "Footer";
+
+const { label } = Astro.props;
 ---
 
-<Footer />
+<Footer label={`bare ${label}`} />
 
 <div class="rvt-m-top-lg">
-	<Footer social />
+	<Footer social label={`social ${label}`} />
 </div>
 
 <div class="rvt-m-top-lg">
-	<Footer resources />
+	<Footer resources label={`resources ${label}`} />
 </div>
 
 <div class="rvt-m-top-lg">
-	<Footer resources social />
+	<Footer resources social label={`social and resources ${label}`} />
 </div>

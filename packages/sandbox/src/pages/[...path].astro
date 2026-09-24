@@ -87,9 +87,7 @@ const { page, fileType, type } = Astro.props;
 
 {
 	type === "file" && fileType === "component" && (
-		<ComponentLayout {...Astro.props}>
-			<page.default />
-		</ComponentLayout>
+		<ComponentLayout {...Astro.props} />
 	)
 }
 

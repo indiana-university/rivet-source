@@ -1,14 +1,20 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Sidenav - Open";
+
+const labelId = `sidenav-label-${createId()}`;
 ---
 
 <nav
 	class="rvt-sidenav"
-	aria-labelledby="sidenav-label"
+	aria-labelledby={labelId}
 	data-rvt-sidenav
 	data-rvt-sidenav-open-all
 >
-	<span class="rvt-sidenav__label" id="sidenav-label">Section pages</span>
+	<span class="rvt-sidenav__label" id={labelId}>
+		Section pages <span class="rvt-sr-only">({Astro.props.label})</span>
+	</span>
 	<ul class="rvt-sidenav__list">
 		<li class="rvt-sidenav__item">
 			<a href="#" class="rvt-sidenav__link">Section nav one</a>

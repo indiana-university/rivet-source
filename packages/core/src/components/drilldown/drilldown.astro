@@ -13,7 +13,7 @@ const { menus = example } = Astro.props;
 				data-rvt-drilldown-menu={menu.id}
 				data-rvt-drilldown-parent={menu.parent?.id}
 			>
-				<header>
+				<header aria-label={`${menu.label} (${Astro.props.label})`}>
 					{menu.parent && (
 						<div class="rvt-button-group">
 							{menu.depth > 1 && (

@@ -1,8 +1,10 @@
 ---
 export const title = "Series Nav";
+
+const label = Astro.props.label ? `Series (${Astro.props.label})` : "Series";
 ---
 
-<nav class="rvt-series-nav">
+<nav class="rvt-series-nav" aria-label={label}>
 	<a class="rvt-series-nav__previous" href="#">
 		<span class="rvt-series-nav__label">Previous</span>
 		<span class="rvt-series-nav__item">Norval Ashton</span>

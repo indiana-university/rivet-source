@@ -1,5 +1,10 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dialog";
+
+const dialogTitleId = `dialog-title-${createId()}`;
+const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <button
@@ -14,16 +19,19 @@ export const title = "Dialog";
 	id="dialog-example"
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby="dialog-title"
-	aria-describedby="dialog-description"
+	aria-labelledby={dialogTitleId}
+	aria-describedby={dialogDescriptionId}
 	data-rvt-dialog="dialog-example"
 	hidden
 >
-	<header class="rvt-dialog__header">
-		<h1 class="rvt-dialog__title" id="dialog-title">Dialog title</h1>
+	<header
+		class="rvt-dialog__header"
+		aria-label={`Dialog (${Astro.props.label})`}
+	>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
 	</header>
 	<div class="rvt-dialog__body">
-		<p id="dialog-description">
+		<p id={dialogDescriptionId}>
 			The default dialog appears near the middle of the screen. It does not
 			darken the page behind it and does not close when the user clicks outside
 			of it. You can use data attributes to configure the appearance and

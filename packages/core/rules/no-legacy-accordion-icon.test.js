@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, it, expect } from "vitest";
 import { HtmlValidate } from "html-validate";
 import accordionElements from "./no-legacy-accordion-icon.js";
@@ -41,5 +42,24 @@ describe("no-legacy-accordion-icon", () => {
 		const report = await htmlvalidate.validateString(html);
 
 		expect(report.valid).toBe(true);
+	});
+});
+
+describe("navigation landmarks", () => {
+	it("labels nav landmarks for accessibility", () => {
+		const files = [
+			new URL(
+				"../src/components/header/header-nav-menu.astro",
+				import.meta.url,
+			),
+			new URL("../src/components/series-nav/series-nav.astro", import.meta.url),
+			new URL("../src/layouts/profile/profile-content.astro", import.meta.url),
+			new URL("../../sandbox/src/layouts/SandboxLayout.astro", import.meta.url),
+		];
+
+		for (const file of files) {
+			const source = readFileSync(file, "utf8");
+			expect(source).toMatch(/<nav[^>]*aria-label=/i);
+		}
 	});
 });

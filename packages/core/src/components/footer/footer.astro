@@ -3,9 +3,13 @@ import FooterResources from "./footer-resources.astro";
 import FooterSocial from "./footer-social.astro";
 import FooterLegal from "./footer-legal.astro";
 const { crimson, resources, social } = Astro.props;
+const label = Astro.props.label ? `Site (${Astro.props.label})` : "Site";
 ---
 
-<footer class:list={["rvt-footer", { "rvt-theme-crimson": crimson }]}>
+<footer
+	class:list={["rvt-footer", { "rvt-theme-crimson": crimson }]}
+	aria-label={label}
+>
 	<div class="rvt-container">
 		{resources && <FooterResources />}
 		{social && <FooterSocial />}

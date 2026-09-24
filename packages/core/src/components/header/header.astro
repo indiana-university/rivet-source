@@ -8,14 +8,18 @@ export const title = "Header with nav and search";
 
 const { theme } = Astro.props;
 const crimsonTheme = theme === "crimson";
+const label = Astro.props.label ? `Site (${Astro.props.label})` : "Site";
 ---
 
-<header class:list={["rvt-header", { "rvt-theme-crimson": crimsonTheme }]}>
+<header
+	class:list={["rvt-header", { "rvt-theme-crimson": crimsonTheme }]}
+	aria-label={label}
+>
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<div class="rvt-header__inner">
 		<Lockup />
 		<div class="rvt-header__controls">
-			<NavMenu />
+			<NavMenu {...Astro.props} />
 		</div>
 		<div class="rvt-header__buttons">
 			<button
@@ -37,5 +41,5 @@ const crimsonTheme = theme === "crimson";
 		</div>
 	</div>
 </header>
-<MobileMenu />
+<MobileMenu {...Astro.props} />
 <SearchDialog />

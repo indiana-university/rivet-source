@@ -1,5 +1,9 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dialog form";
+
+const dialogTitleId = `dialog-title-${createId()}`;
 ---
 
 <button class="rvt-button" data-rvt-dialog-trigger="dialog-form" type="button">
@@ -10,15 +14,18 @@ export const title = "Dialog form";
 	id="dialog-form"
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby="dialog-title"
+	aria-labelledby={dialogTitleId}
 	data-rvt-dialog="dialog-form"
 	data-rvt-dialog-modal
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
 	hidden
 >
-	<header class="rvt-dialog__header">
-		<h1 class="rvt-dialog__title" id="dialog-title">Dialog title</h1>
+	<header
+		class="rvt-dialog__header"
+		aria-label={`Dialog (${Astro.props.label})`}
+	>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
 	</header>
 	<div class="rvt-dialog__body">
 		<div class="m-bottom-sm">

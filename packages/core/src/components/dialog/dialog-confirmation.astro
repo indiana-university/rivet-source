@@ -1,5 +1,10 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Confirmation Dialog";
+
+const dialogTitleId = `dialog-title-${createId()}`;
+const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <button
@@ -14,19 +19,22 @@ export const title = "Confirmation Dialog";
 	id="dialog-confirmation"
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby="dialog-title"
-	aria-describedby="dialog-description"
+	aria-labelledby={dialogTitleId}
+	aria-describedby={dialogDescriptionId}
 	data-rvt-dialog="dialog-confirmation"
 	data-rvt-dialog-modal
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
 	hidden
 >
-	<header class="rvt-dialog__header">
-		<h1 class="rvt-dialog__title" id="dialog-title">Delete files</h1>
+	<header
+		class="rvt-dialog__header"
+		aria-label={`Dialog (${Astro.props.label})`}
+	>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>Delete files</h1>
 	</header>
 	<div class="rvt-dialog__body">
-		<p class="m-top-remove m-bottom-xl" id="dialog-description">
+		<p class="m-top-remove m-bottom-xl" id={dialogDescriptionId}>
 			Are you sure you want to <strong>delete your files</strong>? This action
 			cannot be undone.
 		</p>

@@ -1,5 +1,10 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dialog - Notification";
+
+const dialogTitleId = `dialog-title-${createId()}`;
+const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <div
@@ -8,16 +13,20 @@ export const title = "Dialog - Notification";
 	role="dialog"
 	tabindex="-1"
 	hidden
-	aria-describedby="dialog-description"
+	aria-labelledby={dialogTitleId}
+	aria-describedby={dialogDescriptionId}
 	data-rvt-dialog="dialog-notification"
 	data-rvt-dialog-open-on-init
 	data-rvt-dialog-top-right
 >
-	<header class="rvt-dialog__header">
-		<h1 class="rvt-dialog__title" id="dialog-title">New version available</h1>
+	<header
+		class="rvt-dialog__header"
+		aria-label={`Dialog (${Astro.props.label})`}
+	>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>New version available</h1>
 	</header>
 	<div class="rvt-dialog__body">
-		<p class="rvt-m-all-none" id="dialog-description">
+		<p class="rvt-m-all-none" id={dialogDescriptionId}>
 			A new version of this application is available. Refresh the page to apply
 			the update.
 		</p>

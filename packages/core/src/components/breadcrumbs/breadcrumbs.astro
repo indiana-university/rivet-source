@@ -1,8 +1,10 @@
 ---
 export const title = "Breadcrumbs";
+
+const label = `${title} (${Astro.props.label})`;
 ---
 
-<nav aria-label="Breadcrumbs">
+<nav aria-label={label}>
 	<ol class="rvt-breadcrumbs">
 		<li>
 			<a href="#">Home</a>
