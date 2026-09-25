@@ -17,23 +17,22 @@ const dropdownId = `dropdown-groups-${createId()}`;
 		<svg
 			aria-hidden="true"
 			class="rvt-m-left-xs"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill="currentColor"
 				d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-			></path>
+				fill="currentColor"></path>
 		</svg>
 	</button>
-	<div class="rvt-dropdown__menu" id={dropdownId} hidden data-rvt-dropdown-menu>
+	<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden id={dropdownId}>
 		<a href="#">Item one</a>
-		<a href="#" aria-current="page">Item two</a>
+		<a aria-current="page" href="#">Item two</a>
 		<a href="#">Item three</a>
-		<div class="rvt-dropdown__menu-heading" aria-hidden="true">Group name</div>
-		<div role="group" aria-label="Group name">
+		<div aria-hidden="true" class="rvt-dropdown__menu-heading">Group name</div>
+		<div aria-label="Group name" role="group">
 			<a href="#">Item four</a>
 			<a href="#">Item five</a>
 		</div>

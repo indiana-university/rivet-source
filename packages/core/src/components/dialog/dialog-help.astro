@@ -8,15 +8,15 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <div
+	aria-describedby={dialogDescriptionId}
 	class="rvt-dialog"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-bottom-right
+	data-rvt-dialog-open-on-init
+	hidden
 	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	hidden
-	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog={dialogId}
-	data-rvt-dialog-open-on-init
-	data-rvt-dialog-bottom-right
 >
 	<div class="rvt-dialog__body">
 		<p class="rvt-m-all-none" id={dialogDescriptionId}>

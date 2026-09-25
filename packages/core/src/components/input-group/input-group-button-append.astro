@@ -6,12 +6,12 @@ export const title = "Input with button, append";
 const inputId = `search-input-${createId()}`;
 ---
 
-<label for={inputId} class="rvt-label rvt-sr-only">Search</label>
+<label class="rvt-label rvt-sr-only" for={inputId}>Search</label>
 <div class="rvt-input-group">
 	<input
 		class="rvt-text-input rvt-input-group__input"
-		type="text"
 		id={inputId}
+		type="text"
 	/>
 	<div class="rvt-input-group__append">
 		<button class="rvt-button" type="button">

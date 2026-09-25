@@ -15,24 +15,24 @@ const radioDescriptionId = `radio-description-${createId()}`;
 	<ul class="rvt-list-plain">
 		<li>
 			<div class="rvt-radio">
-				<input type="radio" name="radio-group-1" id={radioOneId} />
+				<input id={radioOneId} name="radio-group-1" type="radio" />
 				<label for={radioOneId}>Option one</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-radio">
-				<input type="radio" name="radio-group-1" id={radioTwoId} />
+				<input id={radioTwoId} name="radio-group-1" type="radio" />
 				<label for={radioTwoId}>Option two</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-radio">
 				<input
-					type="radio"
-					name="radio-group-1"
-					id={radioThreeId}
 					checked
 					disabled
+					id={radioThreeId}
+					name="radio-group-1"
+					type="radio"
 				/>
 				<label for={radioThreeId}>Option three</label>
 			</div>
@@ -40,13 +40,13 @@ const radioDescriptionId = `radio-description-${createId()}`;
 		<li>
 			<div class="rvt-radio">
 				<input
-					type="radio"
-					name="radio-group-1"
-					id={radioFourId}
 					aria-describedby={radioDescriptionId}
+					id={radioFourId}
+					name="radio-group-1"
+					type="radio"
 				/>
 				<label for={radioFourId}>Option one</label>
-				<div id={radioDescriptionId} class="rvt-radio__description">
+				<div class="rvt-radio__description" id={radioDescriptionId}>
 					This is a description for the radio button.
 				</div>
 			</div>

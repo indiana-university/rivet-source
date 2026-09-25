@@ -24,10 +24,10 @@ const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 		<li>
 			<div class="rvt-checkbox">
 				<input
-					type="checkbox"
-					name={checkboxOneName}
-					id={checkboxOneId}
 					checked
+					id={checkboxOneId}
+					name={checkboxOneName}
+					type="checkbox"
 				/>
 				<label for={checkboxOneId}>Option one</label>
 			</div>
@@ -35,10 +35,10 @@ const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 		<li>
 			<div class="rvt-checkbox">
 				<input
-					type="checkbox"
-					name={checkboxUnknownName}
 					id={checkboxUnknownId}
 					indeterminate
+					name={checkboxUnknownName}
+					type="checkbox"
 				/>
 				<label for={checkboxUnknownId}>Option unknown</label>
 			</div>
@@ -46,10 +46,10 @@ const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 		<li>
 			<div class="rvt-checkbox">
 				<input
-					type="checkbox"
-					name={checkboxTwoName}
-					id={checkboxTwoId}
 					disabled
+					id={checkboxTwoId}
+					name={checkboxTwoName}
+					type="checkbox"
 				/>
 				<label for={checkboxTwoId}>Option two</label>
 			</div>
@@ -57,11 +57,11 @@ const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 		<li>
 			<div class="rvt-checkbox">
 				<input
-					type="checkbox"
-					name={checkboxThreeName}
-					id={checkboxThreeId}
-					disabled
 					checked
+					disabled
+					id={checkboxThreeId}
+					name={checkboxThreeName}
+					type="checkbox"
 				/>
 				<label for={checkboxThreeId}>Option three</label>
 			</div>
@@ -70,12 +70,12 @@ const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 			<div class="rvt-checkbox">
 				<input
 					aria-describedby={checkboxDescriptionId}
-					type="checkbox"
-					name={checkboxLongName}
 					id={checkboxLongId}
+					name={checkboxLongName}
+					type="checkbox"
 				/>
 				<label for={checkboxLongId}>Just a quick note</label>
-				<div id={checkboxDescriptionId} class="rvt-checkbox__description">
+				<div class="rvt-checkbox__description" id={checkboxDescriptionId}>
 					This checkbox has a really long label that can wrap on to two lines
 					and still have nice left alignment.
 				</div>
@@ -84,9 +84,9 @@ const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 		<li>
 			<div class="rvt-checkbox rvt-checkbox--sr-only-label">
 				<input
-					type="checkbox"
-					name={checkboxHiddenLabelName}
 					id={checkboxHiddenLabelId}
+					name={checkboxHiddenLabelName}
+					type="checkbox"
 				/>
 				<label for={checkboxHiddenLabelId}
 					>This label text is visually hidden</label

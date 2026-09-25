@@ -14,17 +14,17 @@ const checkboxTwoId = `prevent-break-checkbox-two-${createId()}`;
 		<legend class="rvt-sr-only">Checkbox list</legend>
 		<ul class="rvt-list-reset">
 			<li class="rvt-checkbox rvt-m-bottom-sm">
-				<input type="checkbox" name={checkboxOneName} id={checkboxOneId} />
-				<label for={checkboxOneId} class="rvt-m-right-sm rvt-text-nobr"
+				<input id={checkboxOneId} name={checkboxOneName} type="checkbox" />
+				<label class="rvt-m-right-sm rvt-text-nobr" for={checkboxOneId}
 					>The label for this checkbox is quite long, but will not break onto a
 					new line</label
 				>
 			</li>
 			<li class="rvt-checkbox">
-				<input type="checkbox" name={checkboxTwoName} id={checkboxTwoId} />
+				<input id={checkboxTwoId} name={checkboxTwoName} type="checkbox" />
 				<label for={checkboxTwoId}>Option two</label>
 			</li>
 		</ul>
 	</fieldset>
-	<button type="submit" class="rvt-button rvt-button--strong">Submit</button>
+	<button class="rvt-button rvt-button--strong" type="submit">Submit</button>
 </form>

@@ -4,7 +4,7 @@ export const title = "Subnav";
 const label = Astro.props.label ? `Section (${Astro.props.label})` : "Section";
 ---
 
-<nav class="rvt-subnav" aria-label={label}>
+<nav aria-label={label} class="rvt-subnav">
 	<ul class="rvt-subnav__list">
 		<li class="rvt-subnav__item">
 			<a href="#0">Profile</a>
@@ -16,7 +16,7 @@ const label = Astro.props.label ? `Section (${Astro.props.label})` : "Section";
 			<a href="#0">Schedule</a>
 		</li>
 		<li class="rvt-subnav__item">
-			<a href="#0" aria-current="page">Settings</a>
+			<a aria-current="page" href="#0">Settings</a>
 		</li>
 	</ul>
 </nav>

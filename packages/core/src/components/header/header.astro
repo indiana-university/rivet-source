@@ -15,8 +15,8 @@ const searchDialogId = `search-dialog-${createId()}`;
 ---
 
 <header
-	class:list={["rvt-header", { "rvt-theme-crimson": crimsonTheme }]}
 	aria-label={label}
+	class:list={["rvt-header", { "rvt-theme-crimson": crimsonTheme }]}
 >
 	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
 	<div class="rvt-header__inner">
@@ -44,5 +44,5 @@ const searchDialogId = `search-dialog-${createId()}`;
 		</div>
 	</div>
 </header>
-<MobileMenu {...Astro.props} dialogId={mobileMenuDialogId} />
+<MobileMenu dialogId={mobileMenuDialogId} {...Astro.props} />
 <SearchDialog dialogId={searchDialogId} />

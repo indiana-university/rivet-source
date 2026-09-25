@@ -8,34 +8,34 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 ---
 
 <div
+	aria-describedby={dialogDescriptionId}
+	aria-labelledby={dialogTitleId}
 	class="rvt-header__mobile-menu"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-darken-page
+	data-rvt-dialog-disable-page-interaction
+	data-rvt-dialog-modal
+	hidden
 	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby={dialogTitleId}
-	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog={dialogId}
-	data-rvt-dialog-modal
-	data-rvt-dialog-darken-page
-	data-rvt-dialog-disable-page-interaction
-	hidden
 >
-	<nav class="rvt-sidenav" aria-labelledby={labelId} data-rvt-sidenav>
+	<nav aria-labelledby={labelId} class="rvt-sidenav" data-rvt-sidenav>
 		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id={labelId}>
 			Site navigation <span class="rvt-sr-only">({Astro.props.label})</span>
 		</span>
 		<ul class="rvt-sidenav__list [ rvt-p-top-xs ]">
 			<li class="rvt-sidenav__item">
-				<a href="#" class="rvt-sidenav__link">Section nav one</a>
+				<a class="rvt-sidenav__link" href="#">Section nav one</a>
 			</li>
 			<li class="rvt-sidenav__item">
-				<a href="#" class="rvt-sidenav__link" aria-current="page"
+				<a aria-current="page" class="rvt-sidenav__link" href="#"
 					>Section nav two</a
 				>
 			</li>
 			<li class="rvt-sidenav__item">
 				<div class="rvt-sidenav__item-wrapper">
-					<a href="#" class="rvt-sidenav__link">Section nav three</a>
+					<a class="rvt-sidenav__link" href="#">Section nav three</a>
 					<button
 						class="rvt-sidenav__toggle"
 						data-rvt-sidenav-toggle
@@ -43,11 +43,11 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 					>
 						<span class="rvt-sr-only">Show more section nav three links</span>
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="16"
-							height="16"
 							fill="currentColor"
+							height="16"
 							viewBox="0 0 16 16"
+							width="16"
+							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path
 								d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"
@@ -57,14 +57,14 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 				</div>
 				<ul class="rvt-sidenav__list" data-rvt-sidenav-list>
 					<li class="rvt-sidenav__item">
-						<a href="#" class="rvt-sidenav__link">Level two</a>
+						<a class="rvt-sidenav__link" href="#">Level two</a>
 					</li>
 					<li class="rvt-sidenav__item">
-						<a href="#" class="rvt-sidenav__link">Level two</a>
+						<a class="rvt-sidenav__link" href="#">Level two</a>
 					</li>
 					<li class="rvt-sidenav__item">
 						<div class="rvt-sidenav__item-wrapper">
-							<a href="#" class="rvt-sidenav__link">Level two</a>
+							<a class="rvt-sidenav__link" href="#">Level two</a>
 							<button
 								class="rvt-sidenav__toggle"
 								data-rvt-sidenav-toggle
@@ -72,11 +72,11 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 							>
 								<span class="rvt-sr-only">Show more level two links</span>
 								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="16"
-									height="16"
 									fill="currentColor"
+									height="16"
 									viewBox="0 0 16 16"
+									width="16"
+									xmlns="http://www.w3.org/2000/svg"
 								>
 									<path
 										d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"
@@ -86,10 +86,10 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 						</div>
 						<ul class="rvt-sidenav__list" data-rvt-sidenav-list>
 							<li class="rvt-sidenav__item">
-								<a href="#" class="rvt-sidenav__link">Level three</a>
+								<a class="rvt-sidenav__link" href="#">Level three</a>
 							</li>
 							<li class="rvt-sidenav__item">
-								<a href="#" class="rvt-sidenav__link">Level three</a>
+								<a class="rvt-sidenav__link" href="#">Level three</a>
 							</li>
 						</ul>
 					</li>

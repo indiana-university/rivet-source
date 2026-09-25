@@ -6,19 +6,19 @@ const searchInputId = Astro.props.searchInputId ?? `search-query-${createId()}`;
 ---
 
 <div
-	class="rvt-header__search-bar"
 	aria-label="search"
+	class="rvt-header__search-bar"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-disable-page-interaction=""
+	data-rvt-dialog-modal=""
+	hidden
 	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	data-rvt-dialog={dialogId}
-	data-rvt-dialog-modal=""
-	data-rvt-dialog-disable-page-interaction=""
-	hidden
 >
 	<div class="rvt-header__search-bar-inner">
 		<form class="rvt-container">
-			<label for={searchInputId} class="rvt-label rvt-sr-only"
+			<label class="rvt-label rvt-sr-only" for={searchInputId}
 				>Search the site</label
 			>
 			<div class="rvt-input-group [ rvt-m-top-none rvt-gap-xs ]">
@@ -29,10 +29,10 @@ const searchInputId = Astro.props.searchInputId ?? `search-query-${createId()}`;
 				</div>
 				<input
 					class="rvt-text-input rvt-input-group__input [ rvt-border-all-none ]"
+					id={searchInputId}
 					name="search"
 					placeholder="Search the site"
 					type="text"
-					id={searchInputId}
 				/>
 				<div class="rvt-input-group__append [ rvt-flex rvt-gap-xs ]">
 					<button class="rvt-button rvt-button--strong" type="submit">

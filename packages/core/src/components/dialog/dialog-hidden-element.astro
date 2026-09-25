@@ -12,18 +12,18 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 	<span>Dialog example</span>
 </button>
 <div
+	aria-describedby={dialogDescriptionId}
+	aria-labelledby={dialogTitleId}
 	class="rvt-dialog"
+	data-rvt-dialog={dialogId}
+	hidden
 	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby={dialogTitleId}
-	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog={dialogId}
-	hidden
 >
 	<header
-		class="rvt-dialog__header"
 		aria-label={`Dialog (${Astro.props.label})`}
+		class="rvt-dialog__header"
 	>
 		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
 	</header>

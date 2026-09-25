@@ -6,21 +6,21 @@ export const title = "Sidenav";
 const labelId = `sidenav-label-${createId()}`;
 ---
 
-<nav class="rvt-sidenav" aria-labelledby={labelId} data-rvt-sidenav>
+<nav aria-labelledby={labelId} class="rvt-sidenav" data-rvt-sidenav>
 	<span class="rvt-sidenav__label" id={labelId}>
 		Section pages <span class="rvt-sr-only">({Astro.props.label})</span>
 	</span>
 	<ul class="rvt-sidenav__list">
 		<li class="rvt-sidenav__item">
-			<a href="#" class="rvt-sidenav__link">Section nav one</a>
+			<a class="rvt-sidenav__link" href="#">Section nav one</a>
 		</li>
 		<li class="rvt-sidenav__item">
-			<a href="#" class="rvt-sidenav__link" aria-current="page"
+			<a aria-current="page" class="rvt-sidenav__link" href="#"
 				>Section nav two</a
 			>
 		</li>
 		<li class="rvt-sidenav__item">
-			<a href="#" class="rvt-sidenav__link">Section nav three</a>
+			<a class="rvt-sidenav__link" href="#">Section nav three</a>
 		</li>
 	</ul>
 </nav>

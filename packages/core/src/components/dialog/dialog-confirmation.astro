@@ -16,21 +16,21 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 	<span>Delete files</span>
 </button>
 <div
+	aria-describedby={dialogDescriptionId}
+	aria-labelledby={dialogTitleId}
 	class="rvt-dialog"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-darken-page
+	data-rvt-dialog-disable-page-interaction
+	data-rvt-dialog-modal
+	hidden
 	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby={dialogTitleId}
-	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog={dialogId}
-	data-rvt-dialog-modal
-	data-rvt-dialog-darken-page
-	data-rvt-dialog-disable-page-interaction
-	hidden
 >
 	<header
-		class="rvt-dialog__header"
 		aria-label={`Dialog (${Astro.props.label})`}
+		class="rvt-dialog__header"
 	>
 		<h1 class="rvt-dialog__title" id={dialogTitleId}>Delete files</h1>
 	</header>

@@ -18,27 +18,27 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 	<span>Dialog with form</span>
 </button>
 <div
+	aria-labelledby={dialogTitleId}
 	class="rvt-dialog"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-darken-page
+	data-rvt-dialog-disable-page-interaction
+	data-rvt-dialog-modal
+	hidden
 	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	aria-labelledby={dialogTitleId}
-	data-rvt-dialog={dialogId}
-	data-rvt-dialog-modal
-	data-rvt-dialog-darken-page
-	data-rvt-dialog-disable-page-interaction
-	hidden
 >
 	<header
-		class="rvt-dialog__header"
 		aria-label={`Dialog (${Astro.props.label})`}
+		class="rvt-dialog__header"
 	>
 		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
 	</header>
 	<div class="rvt-dialog__body">
 		<div class="m-bottom-sm">
 			<label class="rvt-label" for={titleInputId}>Title</label>
-			<input class="rvt-text-input" type="text" id={titleInputId} />
+			<input class="rvt-text-input" id={titleInputId} type="text" />
 		</div>
 		<label class="rvt-label" for={descriptionInputId}>Description</label>
 		<textarea class="rvt-textarea" id={descriptionInputId}></textarea>
@@ -62,10 +62,10 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 				<li>
 					<div class="rvt-checkbox">
 						<input
-							type="checkbox"
-							name={checkboxGroupName}
-							id={checkboxOneId}
 							checked
+							id={checkboxOneId}
+							name={checkboxGroupName}
+							type="checkbox"
 						/>
 						<label for={checkboxOneId}>Option one</label>
 					</div>
@@ -73,9 +73,9 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 				<li>
 					<div class="rvt-checkbox">
 						<input
-							type="checkbox"
-							name={checkboxGroupName}
 							id={checkboxTwoId}
+							name={checkboxGroupName}
+							type="checkbox"
 						/>
 						<label for={checkboxTwoId}>Option two</label>
 					</div>
@@ -83,9 +83,9 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 				<li>
 					<div class="rvt-checkbox">
 						<input
-							type="checkbox"
-							name={checkboxGroupName}
 							id={checkboxThreeId}
+							name={checkboxGroupName}
+							type="checkbox"
 						/>
 						<label for={checkboxThreeId}>Option three</label>
 					</div>
@@ -115,15 +115,14 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 		<span class="rvt-sr-only">Close</span>
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill="currentColor"
 				d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
-			></path>
+				fill="currentColor"></path>
 		</svg>
 	</button>
 </div>

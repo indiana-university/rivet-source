@@ -17,18 +17,17 @@ const dropdownId = `dropdown-buttons-${createId()}`;
 		<svg
 			aria-hidden="true"
 			class="rvt-m-left-xs"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill="currentColor"
 				d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-			></path>
+				fill="currentColor"></path>
 		</svg>
 	</button>
-	<div class="rvt-dropdown__menu" id={dropdownId} hidden data-rvt-dropdown-menu>
+	<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden id={dropdownId}>
 		<button role="menuitemradio" type="button">
 			<span>Notify all</span>
 		</button>
@@ -38,7 +37,7 @@ const dropdownId = `dropdown-buttons-${createId()}`;
 		<button role="menuitemradio" type="button">
 			<span>Notify contributors</span>
 		</button>
-		<div role="group" aria-label="Personal settings">
+		<div aria-label="Personal settings" role="group">
 			<button role="menuitem" type="button">
 				<span>Dark mode</span>
 			</button>
