@@ -9,12 +9,11 @@ export default defineMetadata({
 	"rvt-icon": {
 		attributes: {
 			name: {
-				enum: ["chevron-left"],
+				required: true,
 			},
 		},
 		flow: true,
 		permittedContent: ["@phrasing"],
-		permittedParent: ["@flow"],
 		phrasing: true,
 	},
 });

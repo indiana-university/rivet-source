@@ -5,8 +5,5 @@ const metadataFiles = globSync("./src/**/*.metadata.js");
 
 export default defineConfig({
 	extends: ["html-validate:recommended"],
-	elements: [
-		"html5",
-		//...metadataFiles
-	],
+	elements: ["html5", ...metadataFiles],
 });
