@@ -3,25 +3,26 @@ import { createId } from "../../utilities/createId.js";
 
 export const title = "Confirmation Dialog";
 
+const dialogId = `dialog-confirmation-${createId()}`;
 const dialogTitleId = `dialog-title-${createId()}`;
 const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <button
 	class="rvt-button rvt-button--strong"
-	data-rvt-dialog-trigger="dialog-confirmation"
+	data-rvt-dialog-trigger={dialogId}
 	type="button"
 >
 	<span>Delete files</span>
 </button>
 <div
 	class="rvt-dialog"
-	id="dialog-confirmation"
+	id={dialogId}
 	role="dialog"
 	tabindex="-1"
 	aria-labelledby={dialogTitleId}
 	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog="dialog-confirmation"
+	data-rvt-dialog={dialogId}
 	data-rvt-dialog-modal
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
@@ -45,7 +46,7 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		</button>
 		<button
 			class="rvt-button rvt-button--secondary"
-			data-rvt-dialog-close="dialog-confirmation"
+			data-rvt-dialog-close={dialogId}
 			role="button"
 			type="button"
 		>

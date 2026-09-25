@@ -1,4 +1,5 @@
 ---
+import { createId } from "../../utilities/createId.js";
 import Lockup from "../lockup/lockup.astro";
 import MobileMenu from "./header-mobile-menu.astro";
 import NavMenu from "./header-nav-menu.astro";
@@ -9,6 +10,8 @@ export const title = "Header with nav and search";
 const { theme } = Astro.props;
 const crimsonTheme = theme === "crimson";
 const label = Astro.props.label ? `Site (${Astro.props.label})` : "Site";
+const mobileMenuDialogId = `mobile-menu-${createId()}`;
+const searchDialogId = `search-dialog-${createId()}`;
 ---
 
 <header
@@ -24,7 +27,7 @@ const label = Astro.props.label ? `Site (${Astro.props.label})` : "Site";
 		<div class="rvt-header__buttons">
 			<button
 				class="rvt-button rvt-button--medium rvt-button--icon-only rvt-header__button--mobile-menu"
-				data-rvt-dialog-trigger="mobile-menu"
+				data-rvt-dialog-trigger={mobileMenuDialogId}
 				type="button"
 			>
 				<rvt-icon name="menu"></rvt-icon>
@@ -32,7 +35,7 @@ const label = Astro.props.label ? `Site (${Astro.props.label})` : "Site";
 			</button>
 			<button
 				class="rvt-button rvt-button--medium rvt-button--icon-only"
-				data-rvt-dialog-trigger="search-bar"
+				data-rvt-dialog-trigger={searchDialogId}
 				type="button"
 			>
 				<rvt-icon name="magnifying-glass"></rvt-icon>
@@ -41,5 +44,5 @@ const label = Astro.props.label ? `Site (${Astro.props.label})` : "Site";
 		</div>
 	</div>
 </header>
-<MobileMenu {...Astro.props} />
-<SearchDialog />
+<MobileMenu {...Astro.props} dialogId={mobileMenuDialogId} />
+<SearchDialog dialogId={searchDialogId} />

@@ -1,5 +1,12 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Inline alert no background";
+
+const defaultAlertMessageId = `inline-alert-default-${createId()}`;
+const successAlertMessageId = `inline-alert-success-${createId()}`;
+const warningAlertMessageId = `inline-alert-warning-${createId()}`;
+const dangerAlertMessageId = `inline-alert-danger-${createId()}`;
 ---
 
 <!-- Default -->
@@ -21,7 +28,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={defaultAlertMessageId}
 		>The Description tells users more about this stuff.</span
 	>
 </div>
@@ -46,7 +53,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={successAlertMessageId}
 		>First name is valid!</span
 	>
 </div>
@@ -69,7 +76,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={warningAlertMessageId}
 		>Your Password is weak.</span
 	>
 </div>
@@ -94,7 +101,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={dangerAlertMessageId}
 		>The Username you entered is taken.</span
 	>
 </div>

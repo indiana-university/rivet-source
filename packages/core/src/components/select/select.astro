@@ -1,10 +1,14 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Select";
+
+const selectId = `select-input-default-${createId()}`;
 ---
 
-<label for="select-input-default" class="rvt-label">Select Input:</label>
+<label for={selectId} class="rvt-label">Select Input:</label>
 <div class="rvt-select">
-	<select id="select-input-default">
+	<select id={selectId}>
 		<option value="option one">Option One</option>
 		<option value="option two">Option Two</option>
 		<option value="option three">Option Three</option>

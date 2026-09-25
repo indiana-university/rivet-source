@@ -1,15 +1,20 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "File Input - Secondary";
+
+const fileInputId = `single-file-input-secondary-${createId()}`;
+const fileDescriptionId = `file-description-secondary-${createId()}`;
 ---
 
-<div class="rvt-file" data-rvt-file-input="singleFileInput">
+<div class="rvt-file" data-rvt-file-input={fileInputId}>
 	<input
 		type="file"
-		data-rvt-file-input-button="singleFileInput"
-		id="singleFileInput"
-		aria-describedby="file-description"
+		data-rvt-file-input-button={fileInputId}
+		id={fileInputId}
+		aria-describedby={fileDescriptionId}
 	/>
-	<label for="singleFileInput" class="rvt-button rvt-button--secondary">
+	<label for={fileInputId} class="rvt-button rvt-button--secondary">
 		<span>Upload a file</span>
 		<svg
 			aria-hidden="true"
@@ -26,8 +31,8 @@ export const title = "File Input - Secondary";
 	</label>
 	<div
 		class="rvt-file__preview"
-		data-rvt-file-input-preview="singleFileInput"
-		id="file-description"
+		data-rvt-file-input-preview={fileInputId}
+		id={fileDescriptionId}
 	>
 		No file selected
 	</div>

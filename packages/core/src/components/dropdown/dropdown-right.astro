@@ -1,12 +1,16 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dropdown - Right-aligned";
+
+const dropdownId = `dropdown-right-${createId()}`;
 ---
 
-<div class="rvt-dropdown" data-rvt-dropdown="dropdownRight">
+<div class="rvt-dropdown" data-rvt-dropdown={dropdownId}>
 	<button
 		aria-expanded="false"
 		class="rvt-button"
-		data-rvt-dropdown-toggle="dropdownRight"
+		data-rvt-dropdown-toggle={dropdownId}
 		type="button"
 	>
 		<span class="rvt-dropdown__toggle-text">Right-aligned dropdown menu</span>
@@ -26,7 +30,7 @@ export const title = "Dropdown - Right-aligned";
 	</button>
 	<div
 		class="rvt-dropdown__menu rvt-dropdown__menu--right"
-		id="dropdownRight"
+		id={dropdownId}
 		hidden
 		data-rvt-dropdown-menu
 	>

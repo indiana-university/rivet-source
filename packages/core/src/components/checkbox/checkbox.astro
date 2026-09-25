@@ -1,5 +1,21 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Checkbox";
+
+const checkboxOneName = `checkbox-demo-${createId()}`;
+const checkboxUnknownName = `checkbox-demo-${createId()}`;
+const checkboxTwoName = `checkbox-demo-${createId()}`;
+const checkboxThreeName = `checkbox-demo-${createId()}`;
+const checkboxLongName = `checkbox-demo-${createId()}`;
+const checkboxHiddenLabelName = `checkbox-demo-${createId()}`;
+const checkboxOneId = `checkbox-one-${createId()}`;
+const checkboxUnknownId = `checkbox-unknown-${createId()}`;
+const checkboxTwoId = `checkbox-two-${createId()}`;
+const checkboxThreeId = `checkbox-three-${createId()}`;
+const checkboxLongId = `checkbox-long-${createId()}`;
+const checkboxDescriptionId = `checkbox-description-${createId()}`;
+const checkboxHiddenLabelId = `checkbox-hidden-label-${createId()}`;
 ---
 
 <fieldset class="rvt-fieldset">
@@ -7,49 +23,59 @@ export const title = "Checkbox";
 	<ul class="rvt-list-plain rvt-width-xl">
 		<li>
 			<div class="rvt-checkbox">
-				<input type="checkbox" name="checkbox-demo" id="checkbox-1" checked />
-				<label for="checkbox-1">Option one</label>
+				<input
+					type="checkbox"
+					name={checkboxOneName}
+					id={checkboxOneId}
+					checked
+				/>
+				<label for={checkboxOneId}>Option one</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-checkbox">
 				<input
 					type="checkbox"
-					name="checkbox-demo"
-					id="checkbox-5"
+					name={checkboxUnknownName}
+					id={checkboxUnknownId}
 					indeterminate
 				/>
-				<label for="checkbox-5">Option unknown</label>
-			</div>
-		</li>
-		<li>
-			<div class="rvt-checkbox">
-				<input type="checkbox" name="checkbox-demo" id="checkbox-2" disabled />
-				<label for="checkbox-2">Option two</label>
+				<label for={checkboxUnknownId}>Option unknown</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-checkbox">
 				<input
 					type="checkbox"
-					name="checkbox-demo"
-					id="checkbox-3"
+					name={checkboxTwoName}
+					id={checkboxTwoId}
+					disabled
+				/>
+				<label for={checkboxTwoId}>Option two</label>
+			</div>
+		</li>
+		<li>
+			<div class="rvt-checkbox">
+				<input
+					type="checkbox"
+					name={checkboxThreeName}
+					id={checkboxThreeId}
 					disabled
 					checked
 				/>
-				<label for="checkbox-3">Option three</label>
+				<label for={checkboxThreeId}>Option three</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-checkbox">
 				<input
-					aria-describedby="checkbox-description"
+					aria-describedby={checkboxDescriptionId}
 					type="checkbox"
-					name="checkbox-demo"
-					id="checkbox-long"
+					name={checkboxLongName}
+					id={checkboxLongId}
 				/>
-				<label for="checkbox-long">Just a quick note</label>
-				<div id="checkbox-description" class="rvt-checkbox__description">
+				<label for={checkboxLongId}>Just a quick note</label>
+				<div id={checkboxDescriptionId} class="rvt-checkbox__description">
 					This checkbox has a really long label that can wrap on to two lines
 					and still have nice left alignment.
 				</div>
@@ -59,10 +85,10 @@ export const title = "Checkbox";
 			<div class="rvt-checkbox rvt-checkbox--sr-only-label">
 				<input
 					type="checkbox"
-					name="checkbox-demo"
-					id="checkbox-hidden-label"
+					name={checkboxHiddenLabelName}
+					id={checkboxHiddenLabelId}
 				/>
-				<label for="checkbox-hidden-label"
+				<label for={checkboxHiddenLabelId}
 					>This label text is visually hidden</label
 				>
 			</div>
@@ -70,7 +96,7 @@ export const title = "Checkbox";
 	</ul>
 </fieldset>
 
-<script>
-	var checkbox = document.getElementById("checkbox-5");
+<script define:vars={{ checkboxUnknownId }}>
+	var checkbox = document.getElementById(checkboxUnknownId);
 	checkbox.indeterminate = true;
 </script>

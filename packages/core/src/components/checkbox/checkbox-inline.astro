@@ -1,5 +1,14 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Checkbox - Inline";
+
+const checkboxOneName = `checkbox-demo-${createId()}`;
+const checkboxTwoName = `checkbox-demo-${createId()}`;
+const checkboxThreeName = `checkbox-demo-${createId()}`;
+const checkboxOneId = `checkbox-inline-one-${createId()}`;
+const checkboxTwoId = `checkbox-inline-two-${createId()}`;
+const checkboxThreeId = `checkbox-inline-three-${createId()}`;
 ---
 
 <fieldset class="rvt-fieldset">
@@ -7,20 +16,25 @@ export const title = "Checkbox - Inline";
 	<ul class="rvt-list-inline">
 		<li>
 			<div class="rvt-checkbox">
-				<input type="checkbox" name="checkbox-demo" id="checkbox-1" checked />
-				<label for="checkbox-1">Option one</label>
+				<input
+					type="checkbox"
+					name={checkboxOneName}
+					id={checkboxOneId}
+					checked
+				/>
+				<label for={checkboxOneId}>Option one</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-checkbox">
-				<input type="checkbox" name="checkbox-demo" id="checkbox-2" />
-				<label for="checkbox-2">Option two</label>
+				<input type="checkbox" name={checkboxTwoName} id={checkboxTwoId} />
+				<label for={checkboxTwoId}>Option two</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-checkbox">
-				<input type="checkbox" name="checkbox-demo" id="checkbox-3" />
-				<label for="checkbox-3">Option three</label>
+				<input type="checkbox" name={checkboxThreeName} id={checkboxThreeId} />
+				<label for={checkboxThreeId}>Option three</label>
 			</div>
 		</li>
 	</ul>

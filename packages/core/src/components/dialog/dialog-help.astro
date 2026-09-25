@@ -3,17 +3,18 @@ import { createId } from "../../utilities/createId.js";
 
 export const title = "Dialog - Help widget";
 
+const dialogId = `dialog-help-widget-${createId()}`;
 const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <div
 	class="rvt-dialog"
-	id="dialog-help-widget"
+	id={dialogId}
 	role="dialog"
 	tabindex="-1"
 	hidden
 	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog="dialog-help-widget"
+	data-rvt-dialog={dialogId}
 	data-rvt-dialog-open-on-init
 	data-rvt-dialog-bottom-right
 >
@@ -29,7 +30,7 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		</button>
 		<button
 			class="rvt-button rvt-button--secondary"
-			data-rvt-dialog-close="dialog-help-widget"
+			data-rvt-dialog-close={dialogId}
 			role="button"
 			type="button"
 		>

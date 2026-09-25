@@ -1,12 +1,23 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Text Input with validation alerts";
+
+const successInputId = `text-input-success-${createId()}`;
+const warningInputId = `text-input-warning-${createId()}`;
+const dangerInputId = `text-input-danger-${createId()}`;
+const infoInputId = `text-input-info-${createId()}`;
+const successAlertMessageId = `text-input-success-alert-${createId()}`;
+const warningAlertMessageId = `text-input-warning-alert-${createId()}`;
+const dangerAlertMessageId = `text-input-danger-alert-${createId()}`;
+const infoAlertMessageId = `text-input-info-alert-${createId()}`;
 ---
 
 <!-- Success -->
-<label for="text-input-success" class="rvt-label">Text Input</label>
+<label for={successInputId} class="rvt-label">Text Input</label>
 <input
 	type="text"
-	id="text-input-success"
+	id={successInputId}
 	class="rvt-text-input rvt-validation-success"
 />
 <div class="rvt-inline-alert rvt-inline-alert--success">
@@ -28,18 +39,17 @@ export const title = "Text Input with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={successAlertMessageId}
 		>First name is valid!</span
 	>
 </div>
 
 <!-- Warning -->
-<label for="text-input-warning" class="rvt-label [ rvt-m-top-md ]"
-	>Text Input</label
+<label for={warningInputId} class="rvt-label [ rvt-m-top-md ]">Text Input</label
 >
 <input
 	type="text"
-	id="text-input-warning"
+	id={warningInputId}
 	class="rvt-text-input rvt-validation-warning"
 />
 <div class="rvt-inline-alert rvt-inline-alert--warning">
@@ -59,18 +69,16 @@ export const title = "Text Input with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={warningAlertMessageId}
 		>Your Password is weak.</span
 	>
 </div>
 
 <!-- Danger -->
-<label for="text-input-danger" class="rvt-label [ rvt-m-top-md ]"
-	>Text Input</label
->
+<label for={dangerInputId} class="rvt-label [ rvt-m-top-md ]">Text Input</label>
 <input
 	type="text"
-	id="text-input-danger"
+	id={dangerInputId}
 	class="rvt-text-input rvt-validation-danger"
 />
 <div class="rvt-inline-alert rvt-inline-alert--danger">
@@ -92,18 +100,16 @@ export const title = "Text Input with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={dangerAlertMessageId}
 		>The Username you entered is taken.</span
 	>
 </div>
 
 <!-- Info -->
-<label for="text-input-info" class="rvt-label [ rvt-m-top-md ]"
-	>Text Input</label
->
+<label for={infoInputId} class="rvt-label [ rvt-m-top-md ]">Text Input</label>
 <input
 	type="text"
-	id="text-input-info"
+	id={infoInputId}
 	class="rvt-text-input rvt-validation-info"
 />
 <div class="rvt-inline-alert rvt-inline-alert--info">
@@ -124,7 +130,7 @@ export const title = "Text Input with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={infoAlertMessageId}
 		>The Description tells users more about this stuff.</span
 	>
 </div>

@@ -1,6 +1,7 @@
 ---
 import { createId } from "../../utilities/createId.js";
 
+const dialogId = Astro.props.dialogId ?? `mobile-menu-${createId()}`;
 const labelId = `sidenav-label-${createId()}`;
 const dialogTitleId = `mobile-menu-title-${createId()}`;
 const dialogDescriptionId = `mobile-menu-description-${createId()}`;
@@ -8,12 +9,12 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 
 <div
 	class="rvt-header__mobile-menu"
-	id="mobile-menu"
+	id={dialogId}
 	role="dialog"
 	tabindex="-1"
 	aria-labelledby={dialogTitleId}
 	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog="mobile-menu"
+	data-rvt-dialog={dialogId}
 	data-rvt-dialog-modal
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
@@ -100,7 +101,7 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 	<button
 		aria-label="Toggle menu"
 		class="rvt-header__button rvt-header__button--mobile-menu-close"
-		data-rvt-dialog-close="dialog-example"
+		data-rvt-dialog-close={dialogId}
 		role="button"
 		type="button"
 	>

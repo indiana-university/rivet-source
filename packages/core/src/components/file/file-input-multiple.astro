@@ -1,16 +1,21 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "File Input - Multiple";
+
+const fileInputId = `multiple-file-input-${createId()}`;
+const fileDescriptionId = `file-description-two-${createId()}`;
 ---
 
-<div class="rvt-file" data-rvt-file-input="multipleFilesInput">
+<div class="rvt-file" data-rvt-file-input={fileInputId}>
 	<input
 		type="file"
-		data-rvt-file-input-button="multipleFilesInput"
-		id="multipleFilesInput"
-		aria-describedby="file-description-two"
+		data-rvt-file-input-button={fileInputId}
+		id={fileInputId}
+		aria-describedby={fileDescriptionId}
 		multiple
 	/>
-	<label for="multipleFilesInput" class="rvt-button">
+	<label for={fileInputId} class="rvt-button">
 		<span>Upload multiple files</span>
 		<svg
 			aria-hidden="true"
@@ -27,8 +32,8 @@ export const title = "File Input - Multiple";
 	</label>
 	<div
 		class="rvt-file__preview"
-		data-rvt-file-input-preview="multipleFilesInput"
-		id="file-description-two"
+		data-rvt-file-input-preview={fileInputId}
+		id={fileDescriptionId}
 	>
 		No files selected
 	</div>

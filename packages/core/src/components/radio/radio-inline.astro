@@ -1,5 +1,10 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Inline Radio";
+
+const radioOneId = `radio-inline-one-${createId()}`;
+const radioTwoId = `radio-inline-two-${createId()}`;
 ---
 
 <fieldset class="rvt-fieldset">
@@ -7,14 +12,14 @@ export const title = "Inline Radio";
 	<ul class="rvt-list-inline">
 		<li>
 			<div class="rvt-radio">
-				<input type="radio" name="radio-group-1" id="radio-1-1" />
-				<label for="radio-1-1">Option one</label>
+				<input type="radio" name="radio-group-1" id={radioOneId} />
+				<label for={radioOneId}>Option one</label>
 			</div>
 		</li>
 		<li>
 			<div class="rvt-radio">
-				<input type="radio" name="radio-group-1" id="radio-1-2" />
-				<label for="radio-1-2">Option two</label>
+				<input type="radio" name="radio-group-1" id={radioTwoId} />
+				<label for={radioTwoId}>Option two</label>
 			</div>
 		</li>
 	</ul>

@@ -1,12 +1,16 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dropdown with groups";
+
+const dropdownId = `dropdown-groups-${createId()}`;
 ---
 
-<div class="rvt-dropdown" data-rvt-dropdown="dropdownHeading">
+<div class="rvt-dropdown" data-rvt-dropdown={dropdownId}>
 	<button
 		aria-expanded="false"
 		class="rvt-button"
-		data-rvt-dropdown-toggle="dropdownHeading"
+		data-rvt-dropdown-toggle={dropdownId}
 		type="button"
 	>
 		<span class="rvt-dropdown__toggle-text">Dropdown with heading</span>
@@ -24,12 +28,7 @@ export const title = "Dropdown with groups";
 			></path>
 		</svg>
 	</button>
-	<div
-		class="rvt-dropdown__menu"
-		id="dropdownHeading"
-		hidden
-		data-rvt-dropdown-menu
-	>
+	<div class="rvt-dropdown__menu" id={dropdownId} hidden data-rvt-dropdown-menu>
 		<a href="#">Item one</a>
 		<a href="#" aria-current="page">Item two</a>
 		<a href="#">Item three</a>

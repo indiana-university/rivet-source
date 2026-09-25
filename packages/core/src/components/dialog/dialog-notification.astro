@@ -3,19 +3,20 @@ import { createId } from "../../utilities/createId.js";
 
 export const title = "Dialog - Notification";
 
+const dialogId = `dialog-notification-${createId()}`;
 const dialogTitleId = `dialog-title-${createId()}`;
 const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <div
 	class="rvt-dialog"
-	id="dialog-notification"
+	id={dialogId}
 	role="dialog"
 	tabindex="-1"
 	hidden
 	aria-labelledby={dialogTitleId}
 	aria-describedby={dialogDescriptionId}
-	data-rvt-dialog="dialog-notification"
+	data-rvt-dialog={dialogId}
 	data-rvt-dialog-open-on-init
 	data-rvt-dialog-top-right
 >
@@ -33,7 +34,7 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 	</div>
 	<button
 		class="rvt-button rvt-button--subtle rvt-dialog__close"
-		data-rvt-dialog-close="dialog-notification"
+		data-rvt-dialog-close={dialogId}
 		role="button"
 		type="button"
 	>

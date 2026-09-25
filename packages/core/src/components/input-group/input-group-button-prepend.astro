@@ -1,15 +1,20 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Input with button, prepend";
+
+const dropdownId = `dropdown-navigation-${createId()}`;
+const inputId = `segmented-prepend-${createId()}`;
 ---
 
-<label for="segmented-prepend" class="rvt-label rvt-sr-only">Add new</label>
+<label for={inputId} class="rvt-label rvt-sr-only">Add new</label>
 <div class="rvt-input-group">
 	<div class="rvt-input-group__prepend">
-		<div class="rvt-dropdown" data-rvt-dropdown="dropdownNavigation">
+		<div class="rvt-dropdown" data-rvt-dropdown={dropdownId}>
 			<button
 				aria-expanded="false"
 				class="rvt-button rvt-button--secondary"
-				data-rvt-dropdown-toggle="dropdownNavigation"
+				data-rvt-dropdown-toggle={dropdownId}
 				type="button"
 			>
 				<span class="rvt-dropdown__toggle-text">All stuff</span>
@@ -29,7 +34,7 @@ export const title = "Input with button, prepend";
 			</button>
 			<div
 				class="rvt-dropdown__menu"
-				id="dropdownNavigation"
+				id={dropdownId}
 				role="menu"
 				hidden
 				data-rvt-dropdown-menu
@@ -47,6 +52,6 @@ export const title = "Input with button, prepend";
 	<input
 		class="rvt-text-input rvt-input-group__input"
 		type="text"
-		id="segmented-prepend"
+		id={inputId}
 	/>
 </div>

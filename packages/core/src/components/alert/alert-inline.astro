@@ -1,15 +1,22 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Inline Alert";
+
+const defaultAlertMessageId = `inline-alert-default-${createId()}`;
+const successAlertMessageId = `inline-alert-success-${createId()}`;
+const warningAlertMessageId = `inline-alert-warning-${createId()}`;
+const errorAlertMessageId = `inline-alert-error-${createId()}`;
 ---
 
 <!-- Default -->
 <div
 	class="rvt-alert rvt-alert--medium rvt-alert--info"
 	role="alert"
-	aria-labelledby="information-alert-title"
+	aria-labelledby={defaultAlertMessageId}
 	data-rvt-alert="info"
 >
-	<p class="rvt-alert__message" id="information-alert-title">
+	<p class="rvt-alert__message" id={defaultAlertMessageId}>
 		This system will be unavailable on August 1st due to scheduled system
 		maintenance. Please check back on August 2nd.
 	</p>
@@ -19,10 +26,10 @@ export const title = "Inline Alert";
 <div
 	class="rvt-alert rvt-alert--medium rvt-alert--success [ rvt-m-top-md ]"
 	role="alert"
-	aria-labelledby="success-alert-title"
+	aria-labelledby={successAlertMessageId}
 	data-rvt-alert="success"
 >
-	<p class="rvt-alert__message" id="success-alert-title">
+	<p class="rvt-alert__message" id={successAlertMessageId}>
 		We have received your application. Check your email in a few weeks to find
 		out if you’ve been admitted.
 	</p>
@@ -32,10 +39,10 @@ export const title = "Inline Alert";
 <div
 	class="rvt-alert rvt-alert--medium rvt-alert--warning [ rvt-m-top-md ]"
 	role="alert"
-	aria-labelledby="warning-alert-title"
+	aria-labelledby={warningAlertMessageId}
 	data-rvt-alert="warning"
 >
-	<p class="rvt-alert__message" id="warning-alert-title">
+	<p class="rvt-alert__message" id={warningAlertMessageId}>
 		Your changes have not been saved. To save your changes, click ‘Save my
 		changes’ or click ‘Cancel’ to exit without saving.
 	</p>
@@ -45,10 +52,10 @@ export const title = "Inline Alert";
 <div
 	class="rvt-alert rvt-alert--medium rvt-alert--danger [ rvt-m-top-md ]"
 	role="alert"
-	aria-labelledby="error-alert-title"
+	aria-labelledby={errorAlertMessageId}
 	data-rvt-alert="error"
 >
-	<p class="rvt-alert__message" id="error-alert-title">
+	<p class="rvt-alert__message" id={errorAlertMessageId}>
 		The user ID and password you entered do not match. Please check your entries
 		and try again.
 	</p>

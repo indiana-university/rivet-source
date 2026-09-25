@@ -1,5 +1,13 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Alert";
+
+const defaultAlertTitleId = `default-alert-title-${createId()}`;
+const infoAlertTitleId = `info-alert-title-${createId()}`;
+const successAlertTitleId = `success-alert-title-${createId()}`;
+const warningAlertTitleId = `warning-alert-title-${createId()}`;
+const errorAlertTitleId = `error-alert-title-${createId()}`;
 ---
 
 <div class="rvt-stack" style="--rvt-stack-space: var(--rvt-spacing-md)">
@@ -7,10 +15,10 @@ export const title = "Alert";
 	<div
 		class="rvt-alert"
 		role="alert"
-		aria-labelledby="information-alert-title"
+		aria-labelledby={defaultAlertTitleId}
 		data-rvt-alert="info"
 	>
-		<div class="rvt-alert__title" id="information-alert-title">Please note</div>
+		<div class="rvt-alert__title" id={defaultAlertTitleId}>Please note</div>
 		<div class="rvt-alert__content">
 			<p>
 				Use the default alert to <a href="#">add inline notes</a> to text content.
@@ -36,10 +44,10 @@ export const title = "Alert";
 	<div
 		class="rvt-alert rvt-alert--info"
 		role="alert"
-		aria-labelledby="information-alert-title"
+		aria-labelledby={infoAlertTitleId}
 		data-rvt-alert="info"
 	>
-		<div class="rvt-alert__title" id="information-alert-title">
+		<div class="rvt-alert__title" id={infoAlertTitleId}>
 			Scheduled System Maintenance
 		</div>
 		<div class="rvt-alert__content">
@@ -76,10 +84,10 @@ export const title = "Alert";
 	<div
 		class="rvt-alert rvt-alert--success"
 		role="alert"
-		aria-labelledby="success-alert-title"
+		aria-labelledby={successAlertTitleId}
 		data-rvt-alert="success"
 	>
-		<div class="rvt-alert__title" id="success-alert-title">Thank you!</div>
+		<div class="rvt-alert__title" id={successAlertTitleId}>Thank you!</div>
 		<div class="rvt-alert__content">
 			<p>
 				We have <a href="#">received your application</a>. Check your email in a
@@ -106,10 +114,10 @@ export const title = "Alert";
 	<div
 		class="rvt-alert rvt-alert--warning"
 		role="alert"
-		aria-labelledby="warning-alert-title"
+		aria-labelledby={warningAlertTitleId}
 		data-rvt-alert="warning"
 	>
-		<div class="rvt-alert__title" id="warning-alert-title">Unsaved Changes</div>
+		<div class="rvt-alert__title" id={warningAlertTitleId}>Unsaved Changes</div>
 		<div class="rvt-alert__content">
 			<p>
 				Your changes have <a href="#">not been saved</a>. To save your changes,
@@ -136,10 +144,10 @@ export const title = "Alert";
 	<div
 		class="rvt-alert rvt-alert--danger"
 		role="alert"
-		aria-labelledby="error-alert-title"
+		aria-labelledby={errorAlertTitleId}
 		data-rvt-alert="error"
 	>
-		<div class="rvt-alert__title" id="error-alert-title">
+		<div class="rvt-alert__title" id={errorAlertTitleId}>
 			Incorrect User ID or Password
 		</div>
 		<div class="rvt-alert__content">

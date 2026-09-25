@@ -1,6 +1,10 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Textarea";
+
+const textareaId = `textarea-default-${createId()}`;
 ---
 
-<label for="textarea-default" class="rvt-label">Textarea</label>
-<textarea id="textarea-default" class="rvt-textarea"></textarea>
+<label for={textareaId} class="rvt-label">Textarea</label>
+<textarea id={textareaId} class="rvt-textarea"></textarea>

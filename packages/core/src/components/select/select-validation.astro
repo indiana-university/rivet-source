@@ -1,11 +1,22 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Select with validation alerts";
+
+const successSelectId = `select-input-success-${createId()}`;
+const warningSelectId = `select-input-warning-${createId()}`;
+const dangerSelectId = `select-input-danger-${createId()}`;
+const infoSelectId = `select-input-info-${createId()}`;
+const successAlertMessageId = `select-success-alert-${createId()}`;
+const warningAlertMessageId = `select-warning-alert-${createId()}`;
+const dangerAlertMessageId = `select-danger-alert-${createId()}`;
+const infoAlertMessageId = `select-info-alert-${createId()}`;
 ---
 
 <!-- Success -->
-<label for="select-input-success" class="rvt-label">Select Input:</label>
+<label for={successSelectId} class="rvt-label">Select Input:</label>
 <div class="rvt-select">
-	<select id="select-input-success" class="rvt-validation-success">
+	<select id={successSelectId} class="rvt-validation-success">
 		<option value="option one">Option One</option>
 		<option value="option two">Option Two</option>
 		<option value="option three">Option Three</option>
@@ -30,17 +41,17 @@ export const title = "Select with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={successAlertMessageId}
 		>First name is valid!</span
 	>
 </div>
 
 <!-- Warning -->
-<label for="select-input-warning" class="rvt-label [ rvt-m-top-md ]"
+<label for={warningSelectId} class="rvt-label [ rvt-m-top-md ]"
 	>Select Input:</label
 >
 <div class="rvt-select">
-	<select id="select-input-warning" class="rvt-validation-warning">
+	<select id={warningSelectId} class="rvt-validation-warning">
 		<option value="option one">Option One</option>
 		<option value="option two">Option Two</option>
 		<option value="option three">Option Three</option>
@@ -63,17 +74,17 @@ export const title = "Select with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={warningAlertMessageId}
 		>Your Password is weak.</span
 	>
 </div>
 
 <!-- Danger -->
-<label for="select-input-danger" class="rvt-label [ rvt-m-top-md ]"
+<label for={dangerSelectId} class="rvt-label [ rvt-m-top-md ]"
 	>Select Input:</label
 >
 <div class="rvt-select">
-	<select id="select-input-danger" class="rvt-validation-danger">
+	<select id={dangerSelectId} class="rvt-validation-danger">
 		<option value="option one">Option One</option>
 		<option value="option two">Option Two</option>
 		<option value="option three">Option Three</option>
@@ -98,17 +109,17 @@ export const title = "Select with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={dangerAlertMessageId}
 		>The Username you entered is taken.</span
 	>
 </div>
 
 <!-- Info -->
-<label for="select-input-info" class="rvt-label [ rvt-m-top-md ]"
+<label for={infoSelectId} class="rvt-label [ rvt-m-top-md ]"
 	>Select Input:</label
 >
 <div class="rvt-select">
-	<select id="select-input-info" class="rvt-validation-info">
+	<select id={infoSelectId} class="rvt-validation-info">
 		<option value="option one">Option One</option>
 		<option value="option two">Option Two</option>
 		<option value="option three">Option Three</option>
@@ -132,7 +143,7 @@ export const title = "Select with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={infoAlertMessageId}
 		>The Description tells users more about this stuff.</span
 	>
 </div>

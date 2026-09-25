@@ -1,17 +1,29 @@
+---
+import { createId } from "../../utilities/createId.js";
+
+const checkboxOneId = `checkbox-filter-one-${createId()}`;
+const checkboxTwoId = `checkbox-filter-two-${createId()}`;
+const checkboxThreeId = `checkbox-filter-three-${createId()}`;
+const textOneId = `filter-form-text-one-${createId()}`;
+const textTwoId = `filter-form-text-two-${createId()}`;
+const textThreeId = `filter-form-text-three-${createId()}`;
+const selectId = `filter-form-select-${createId()}`;
+---
+
 <form class="rvt-bg-black-000 rvt-p-all-md rvt-flex rvt-flex-column rvt-gap-md">
 	<div class="rvt-grid rvt-grid--4">
 		<div>
-			<label for="one" class="rvt-label">Lorem Ipsum</label>
-			<input type="text" class="rvt-input" id="one" />
+			<label for={textOneId} class="rvt-label">Lorem Ipsum</label>
+			<input type="text" class="rvt-input" id={textOneId} />
 		</div>
 		<div>
-			<label for="two" class="rvt-label">Lorem Ipsum</label>
-			<input type="text" class="rvt-input" id="two" />
+			<label for={textTwoId} class="rvt-label">Lorem Ipsum</label>
+			<input type="text" class="rvt-input" id={textTwoId} />
 		</div>
 		<div>
-			<label for="select-input-default" class="rvt-label">Select Input</label>
+			<label for={selectId} class="rvt-label">Select Input</label>
 			<div class="rvt-select">
-				<select id="select-input-default">
+				<select id={selectId}>
 					<option value="option one">Option One</option>
 					<option value="option two">Option Two</option>
 					<option value="option three">Option Three</option>
@@ -19,8 +31,8 @@
 			</div>
 		</div>
 		<div>
-			<label for="three" class="rvt-label">Lorem Ipsum</label>
-			<input type="text" class="rvt-input" id="three" />
+			<label for={textThreeId} class="rvt-label">Lorem Ipsum</label>
+			<input type="text" class="rvt-input" id={textThreeId} />
 		</div>
 	</div>
 
@@ -29,27 +41,40 @@
 		<ul class="rvt-list-inline">
 			<li>
 				<div class="rvt-checkbox">
-					<input type="checkbox" name="checkbox-demo" id="checkbox-1" checked />
-					<label for="checkbox-1">Option one</label>
+					<input
+						type="checkbox"
+						name={`checkbox-demo-${createId()}`}
+						id={checkboxOneId}
+						checked
+					/>
+					<label for={checkboxOneId}>Option one</label>
 				</div>
 			</li>
 			<li>
 				<div class="rvt-checkbox">
-					<input type="checkbox" name="checkbox-demo" id="checkbox-2" />
-					<label for="checkbox-2">Option two</label>
+					<input
+						type="checkbox"
+						name={`checkbox-demo-${createId()}`}
+						id={checkboxTwoId}
+					/>
+					<label for={checkboxTwoId}>Option two</label>
 				</div>
 			</li>
 			<li>
 				<div class="rvt-checkbox">
-					<input type="checkbox" name="checkbox-demo" id="checkbox-3" />
-					<label for="checkbox-3">Option three</label>
+					<input
+						type="checkbox"
+						name={`checkbox-demo-${createId()}`}
+						id={checkboxThreeId}
+					/>
+					<label for={checkboxThreeId}>Option three</label>
 				</div>
 			</li>
 		</ul>
 	</fieldset>
 
 	<div class="rvt-flex rvt-gap-sm rvt-justify-end">
-		<button class="rvt-button rvt-button--strong" type="button"
+		<button class="rvt-button rvt-button--strong" type="submit"
 			>Filter results</button
 		>
 		<button class="rvt-button" type="button">Filter results</button>
