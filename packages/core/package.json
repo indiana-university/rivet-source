@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"@laynezh/vite-plugin-lib-assets": "2.2.0",
 		"html-validate": "catalog:",
-		"sass": "1.102.0",
+		"sass": "1.105.0",
 		"vite": "8.3.1",
 		"vite-plugin-banner": "0.8.1",
 		"vitest": "5.0.2"
