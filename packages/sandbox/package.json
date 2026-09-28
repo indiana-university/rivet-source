@@ -10,6 +10,8 @@
 		"prebuild": "rimraf public",
 		"build": "cpy ../core/dist public/@rivet-iu/core",
 		"postbuild": "astro build",
+		"prelint": "pnpm build",
+		"lint": "html-validate --config ../core/.htmlvalidate.js ./dist",
 		"prepreview": "pnpm build",
 		"preview": "astro preview --open --host"
 	},
@@ -17,6 +19,7 @@
 		"@rollup/plugin-yaml": "5.0.0",
 		"astro": "7.1.6",
 		"cpy-cli": "7.0.0",
+		"html-validate": "catalog:",
 		"rimraf": "6.1.3"
 	},
 	"dependencies": {
