@@ -17,7 +17,7 @@
 	},
 	"devDependencies": {
 		"@rollup/plugin-yaml": "5.0.0",
-		"astro": "7.1.6",
+		"astro": "7.3.5",
 		"cpy-cli": "7.0.0",
 		"html-validate": "catalog:",
 		"rimraf": "6.1.3"
