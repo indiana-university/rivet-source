@@ -1,7 +1,0 @@
-{
-	"root": true,
-	"elements": ["html5", "./rules/no-legacy-accordion-icon.js"],
-	"rules": {
-		"element-permitted-content": "error"
-	}
-}

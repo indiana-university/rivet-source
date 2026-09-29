@@ -7,10 +7,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev --open --host",
-		"prebuild": "rimraf public",
-		"build": "cpy ../core/dist public/@rivet-iu/core",
-		"postbuild": "astro build",
-		"prelint": "pnpm build",
+		"predeps": "rimraf public",
+		"deps": "cpy ../core/dist public/@rivet-iu/core",
+		"prebuild": "pnpm deps",
+		"build": "astro build",
+		"postbuild": "pnpm lint",
 		"lint": "html-validate --config ../core/.htmlvalidate.js ./dist",
 		"prepreview": "pnpm build",
 		"preview": "astro preview --open --host"

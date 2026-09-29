@@ -7,7 +7,7 @@ import { expect, test } from "vitest";
 import "html-validate/vitest";
 
 const el = "rvt-icon";
-const Icon = (content: string = "") => `<${el} name="check">${content}</${el}>`;
+const Icon = (content = "") => `<${el} name="check">${content}</${el}>`;
 
 test("attributes", async () => {
 	await expect(`<${el}></${el}>`).toBeInvalid();
