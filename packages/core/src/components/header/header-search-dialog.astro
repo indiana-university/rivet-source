@@ -1,17 +1,26 @@
+---
+import { createId } from "../../utilities/createId.js";
+
+const dialogId = Astro.props.dialogId ?? `search-dialog-${createId()}`;
+const searchInputId = Astro.props.searchInputId ?? `search-query-${createId()}`;
+---
+
 <div
-	class="rvt-header__search-bar"
 	aria-label="search"
-	id="search-bar"
+	class="rvt-header__search-bar"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-disable-page-interaction=""
+	data-rvt-dialog-modal=""
+	hidden
+	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	data-rvt-dialog="search-bar"
-	data-rvt-dialog-modal=""
-	data-rvt-dialog-disable-page-interaction=""
-	hidden="true"
 >
 	<div class="rvt-header__search-bar-inner">
-		<form action="" class="rvt-container">
-			<label for="search" class="rvt-label rvt-sr-only">Search the site</label>
+		<form class="rvt-container">
+			<label class="rvt-label rvt-sr-only" for={searchInputId}
+				>Search the site</label
+			>
 			<div class="rvt-input-group [ rvt-m-top-none rvt-gap-xs ]">
 				<div
 					class="rvt-input-group__prepend [ rvt-p-all-sm rvt-flex rvt-items-center rvt-justify-center rvt-color-crimson-500 ]"
@@ -20,19 +29,19 @@
 				</div>
 				<input
 					class="rvt-text-input rvt-input-group__input [ rvt-border-all-none ]"
+					id={searchInputId}
 					name="search"
 					placeholder="Search the site"
 					type="text"
-					id="search"
 				/>
 				<div class="rvt-input-group__append [ rvt-flex rvt-gap-xs ]">
-					<button type="button" class="rvt-button rvt-button--strong">
+					<button class="rvt-button rvt-button--strong" type="submit">
 						<span>Search</span>
 					</button>
 					<button
-						data-rvt-dialog-close="search-bar"
-						type="button"
 						class="rvt-button rvt-sr-only rvt-focusable"
+						data-rvt-dialog-close={dialogId}
+						type="button"
 					>
 						Close search
 					</button>

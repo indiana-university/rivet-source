@@ -1,39 +1,54 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dialog form";
+
+const dialogId = `dialog-form-${createId()}`;
+const dialogTitleId = `dialog-title-${createId()}`;
+const titleInputId = `dialog-form-title-${createId()}`;
+const descriptionInputId = `dialog-form-description-${createId()}`;
+const selectInputId = `dialog-form-select-${createId()}`;
+const checkboxGroupName = `dialog-form-checkbox-demo-${createId()}`;
+const checkboxOneId = `dialog-form-checkbox-one-${createId()}`;
+const checkboxTwoId = `dialog-form-checkbox-two-${createId()}`;
+const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 ---
 
-<button type="button" class="rvt-button" data-rvt-dialog-trigger="dialog-form">
+<button class="rvt-button" data-rvt-dialog-trigger={dialogId} type="button">
 	<span>Dialog with form</span>
 </button>
 <div
+	aria-labelledby={dialogTitleId}
 	class="rvt-dialog"
-	id="dialog-form"
-	role="dialog"
-	tabindex="-1"
-	aria-labelledby="dialog-title"
-	data-rvt-dialog="dialog-form"
-	data-rvt-dialog-modal
+	data-rvt-dialog={dialogId}
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
+	data-rvt-dialog-modal
 	hidden
+	id={dialogId}
+	role="dialog"
+	tabindex="-1"
 >
-	<header class="rvt-dialog__header">
-		<h1 class="rvt-dialog__title" id="dialog-title">Dialog title</h1>
+	<header
+		aria-label={`Dialog (${Astro.props.label})`}
+		class="rvt-dialog__header"
+	>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
 	</header>
 	<div class="rvt-dialog__body">
 		<div class="m-bottom-sm">
-			<label class="rvt-label" for="the-title">Title</label>
-			<input class="rvt-text-input" type="text" id="the-title" />
+			<label class="rvt-label" for={titleInputId}>Title</label>
+			<input class="rvt-text-input" id={titleInputId} type="text" />
 		</div>
-		<label class="rvt-label" for="description">Description</label>
-		<textarea class="rvt-textarea" id="description"></textarea>
+		<label class="rvt-label" for={descriptionInputId}>Description</label>
+		<textarea class="rvt-textarea" id={descriptionInputId}></textarea>
 		<fieldset class="rvt-fieldset">
 			<legend class="rvt-ts-20 rvt-m-bottom-sm">
 				<strong>Select dropdown</strong> default
 			</legend>
-			<label class="rvt-label" for="select-demo">Select input:</label>
+			<label class="rvt-label" for={selectInputId}>Select input:</label>
 			<div class="rvt-select m-bottom-md">
-				<select id="select-demo">
+				<select id={selectInputId}>
 					<option value="">Option One</option>
 					<option value="">Option Two</option>
 					<option value="">Option Three</option>
@@ -47,59 +62,61 @@ export const title = "Dialog form";
 				<li>
 					<div class="rvt-checkbox">
 						<input
-							type="checkbox"
-							name="checkbox-demo"
-							id="checkbox-1"
 							checked
+							id={checkboxOneId}
+							name={checkboxGroupName}
+							type="checkbox"
 						/>
-						<label for="checkbox-1">Option one</label>
+						<label for={checkboxOneId}>Option one</label>
 					</div>
 				</li>
 				<li>
 					<div class="rvt-checkbox">
-						<input type="checkbox" name="checkbox-demo" id="checkbox-2" />
-						<label for="checkbox-2">Option two</label>
+						<input
+							id={checkboxTwoId}
+							name={checkboxGroupName}
+							type="checkbox"
+						/>
+						<label for={checkboxTwoId}>Option two</label>
 					</div>
 				</li>
 				<li>
 					<div class="rvt-checkbox">
-						<input type="checkbox" name="checkbox-demo" id="checkbox-3" />
-						<label for="checkbox-3">Option three</label>
+						<input
+							id={checkboxThreeId}
+							name={checkboxGroupName}
+							type="checkbox"
+						/>
+						<label for={checkboxThreeId}>Option three</label>
 					</div>
 				</li>
 			</ul>
 		</fieldset>
 	</div>
 	<div class="rvt-dialog__controls">
-		<button type="button" class="rvt-button" role="button">
+		<button class="rvt-button" type="button">
 			<span>Submit</span>
 		</button>
-		<button
-			type="button"
-			class="rvt-button"
-			data-rvt-dialog-close="dialog-form"
-			role="button"
-		>
+		<button class="rvt-button" data-rvt-dialog-close={dialogId} type="button">
 			<span>Cancel</span>
 		</button>
 	</div>
 	<button
 		class="rvt-button rvt-button--subtle rvt-dialog__close"
-		data-rvt-dialog-close="dialog-form"
-		role="button"
+		data-rvt-dialog-close={dialogId}
+		type="button"
 	>
 		<span class="rvt-sr-only">Close</span>
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill="currentColor"
 				d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
-			></path>
+				fill="currentColor"></path>
 		</svg>
 	</button>
 </div>

@@ -1,5 +1,12 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Inline alert no background";
+
+const defaultAlertMessageId = `inline-alert-default-${createId()}`;
+const successAlertMessageId = `inline-alert-success-${createId()}`;
+const warningAlertMessageId = `inline-alert-warning-${createId()}`;
+const dangerAlertMessageId = `inline-alert-danger-${createId()}`;
 ---
 
 <!-- Default -->
@@ -7,10 +14,10 @@ export const title = "Inline alert no background";
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path
@@ -21,7 +28,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={defaultAlertMessageId}
 		>The Description tells users more about this stuff.</span
 	>
 </div>
@@ -31,10 +38,10 @@ export const title = "Inline alert no background";
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path
@@ -46,7 +53,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={successAlertMessageId}
 		>First name is valid!</span
 	>
 </div>
@@ -56,10 +63,10 @@ export const title = "Inline alert no background";
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path d="M11,9H5A1,1,0,0,1,5,7h6a1,1,0,0,1,0,2Z"></path>
@@ -69,7 +76,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={warningAlertMessageId}
 		>Your Password is weak.</span
 	>
 </div>
@@ -79,10 +86,10 @@ export const title = "Inline alert no background";
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path
@@ -94,7 +101,7 @@ export const title = "Inline alert no background";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={dangerAlertMessageId}
 		>The Username you entered is taken.</span
 	>
 </div>

@@ -1,40 +1,53 @@
+---
+import { createId } from "../../utilities/createId.js";
+
+const dialogId = Astro.props.dialogId ?? `mobile-menu-${createId()}`;
+const labelId = `sidenav-label-${createId()}`;
+const dialogTitleId = `mobile-menu-title-${createId()}`;
+const dialogDescriptionId = `mobile-menu-description-${createId()}`;
+---
+
 <div
+	aria-describedby={dialogDescriptionId}
+	aria-labelledby={dialogTitleId}
 	class="rvt-header__mobile-menu"
-	id="mobile-menu"
-	role="dialog"
-	tabindex="-1"
-	aria-labelledby="dialog-title"
-	aria-describedby="dialog-description"
-	data-rvt-dialog="mobile-menu"
-	data-rvt-dialog-modal
+	data-rvt-dialog={dialogId}
 	data-rvt-dialog-darken-page
 	data-rvt-dialog-disable-page-interaction
+	data-rvt-dialog-modal
 	hidden
+	id={dialogId}
+	role="dialog"
+	tabindex="-1"
 >
-	<nav class="rvt-sidenav" aria-labelledby="sidenav-label" data-rvt-sidenav>
-		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id="sidenav-label"
-			>Site navigation</span
-		>
+	<nav aria-labelledby={labelId} class="rvt-sidenav" data-rvt-sidenav>
+		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id={labelId}>
+			Site navigation <span class="rvt-sr-only">({Astro.props.label})</span>
+		</span>
 		<ul class="rvt-sidenav__list [ rvt-p-top-xs ]">
 			<li class="rvt-sidenav__item">
-				<a href="#" class="rvt-sidenav__link">Section nav one</a>
+				<a class="rvt-sidenav__link" href="#">Section nav one</a>
 			</li>
 			<li class="rvt-sidenav__item">
-				<a href="#" class="rvt-sidenav__link" aria-current="page"
+				<a aria-current="page" class="rvt-sidenav__link" href="#"
 					>Section nav two</a
 				>
 			</li>
 			<li class="rvt-sidenav__item">
 				<div class="rvt-sidenav__item-wrapper">
-					<a href="#" class="rvt-sidenav__link">Section nav three</a>
-					<button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle>
+					<a class="rvt-sidenav__link" href="#">Section nav three</a>
+					<button
+						class="rvt-sidenav__toggle"
+						data-rvt-sidenav-toggle
+						type="button"
+					>
 						<span class="rvt-sr-only">Show more section nav three links</span>
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="16"
-							height="16"
 							fill="currentColor"
+							height="16"
 							viewBox="0 0 16 16"
+							width="16"
+							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path
 								d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"
@@ -44,22 +57,26 @@
 				</div>
 				<ul class="rvt-sidenav__list" data-rvt-sidenav-list>
 					<li class="rvt-sidenav__item">
-						<a href="#" class="rvt-sidenav__link">Level two</a>
+						<a class="rvt-sidenav__link" href="#">Level two</a>
 					</li>
 					<li class="rvt-sidenav__item">
-						<a href="#" class="rvt-sidenav__link">Level two</a>
+						<a class="rvt-sidenav__link" href="#">Level two</a>
 					</li>
 					<li class="rvt-sidenav__item">
 						<div class="rvt-sidenav__item-wrapper">
-							<a href="#" class="rvt-sidenav__link">Level two</a>
-							<button class="rvt-sidenav__toggle" data-rvt-sidenav-toggle>
+							<a class="rvt-sidenav__link" href="#">Level two</a>
+							<button
+								class="rvt-sidenav__toggle"
+								data-rvt-sidenav-toggle
+								type="button"
+							>
 								<span class="rvt-sr-only">Show more level two links</span>
 								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="16"
-									height="16"
 									fill="currentColor"
+									height="16"
 									viewBox="0 0 16 16"
+									width="16"
+									xmlns="http://www.w3.org/2000/svg"
 								>
 									<path
 										d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"
@@ -69,10 +86,10 @@
 						</div>
 						<ul class="rvt-sidenav__list" data-rvt-sidenav-list>
 							<li class="rvt-sidenav__item">
-								<a href="#" class="rvt-sidenav__link">Level three</a>
+								<a class="rvt-sidenav__link" href="#">Level three</a>
 							</li>
 							<li class="rvt-sidenav__item">
-								<a href="#" class="rvt-sidenav__link">Level three</a>
+								<a class="rvt-sidenav__link" href="#">Level three</a>
 							</li>
 						</ul>
 					</li>
@@ -82,10 +99,10 @@
 	</nav>
 
 	<button
-		class="rvt-header__button rvt-header__button--mobile-menu-close"
-		data-rvt-dialog-close="dialog-example"
-		role="button"
 		aria-label="Toggle menu"
+		class="rvt-header__button rvt-header__button--mobile-menu-close"
+		data-rvt-dialog-close={dialogId}
+		type="button"
 	>
 		<svg
 			aria-hidden="true"

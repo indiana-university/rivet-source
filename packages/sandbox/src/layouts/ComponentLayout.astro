@@ -1,15 +1,16 @@
 ---
 import Layout from "./SandboxLayout.astro";
+
+const { page } = Astro.props;
+const themes = "light|dark|crimson".split("|");
 ---
 
 <Layout {...Astro.props}>
-	<div class="rvt-theme-light rvt-p-all-sm">
-		<slot />
-	</div>
-	<div class="rvt-theme-dark rvt-p-all-sm">
-		<slot />
-	</div>
-	<div class="rvt-theme-crimson rvt-p-all-sm">
-		<slot />
-	</div>
+	{
+		themes.map((theme) => (
+			<div class={`rvt-theme-${theme} rvt-p-all-sm`}>
+				<page.default label={theme} />
+			</div>
+		))
+	}
 </Layout>
