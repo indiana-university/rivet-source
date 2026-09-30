@@ -1,6 +1,10 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Text Input";
+
+const inputId = `text-input-default-${createId()}`;
 ---
 
-<label for="text-input-default" class="rvt-label">Text Input</label>
-<input type="text" id="text-input-default" class="rvt-text-input" />
+<label class="rvt-label" for={inputId}>Text Input</label>
+<input class="rvt-text-input" id={inputId} type="text" />
