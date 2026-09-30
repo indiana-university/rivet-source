@@ -73,15 +73,17 @@ const buildCommand = new Command("build")
 				`${styleText("blue", "Configuration")}:\n ${options.config}\n`,
 			);
 
+			console.log(`${styleText("blue", "Directory")}:\n ${outputDir}\n`);
+
 			console.log(`${styleText("blue", "Stickers")}:`);
 
 			if (stickersExist === false) {
 				console.log(
-					`- Stickers defined in config: No\n- CSS will include all stickers\n`,
+					`- Stickers defined in config: No\n- ${styleText("yellow", "rivet-stickers.css")} will include all stickers\n`,
 				);
 			} else {
 				console.log(
-					`- Stickers defined in config: Yes\n- Generated CSS using only these stickers\n`,
+					`- Stickers defined in config: Yes\n- ${styleText("yellow", "rivet-stickers.css")} contains only these stickers\n`,
 				);
 			}
 		});
