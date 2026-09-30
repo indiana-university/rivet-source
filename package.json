@@ -20,16 +20,16 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "11",
+			"version": "12",
 			"onFail": "download"
 		}
 	},
 	"devDependencies": {
-		"@changesets/changelog-github": "1.0.0-next.9",
-		"@changesets/cli": "3.0.0-next.11",
+		"@changesets/changelog-github": "1.0.1",
+		"@changesets/cli": "3.0.3",
 		"husky": "9.1.7",
-		"lint-staged": "17.3.0",
-		"prettier": "3.9.6",
-		"prettier-plugin-astro": "0.14.1"
+		"lint-staged": "17.6.0",
+		"prettier": "3.9.9",
+		"prettier-plugin-astro": "1.1.0"
 	}
 }

@@ -19,11 +19,11 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 ---
 
 <Layout {...Astro.props}>
-	<header>
+	<header aria-label="Sandbox">
 		<a href={breadcrumbs.at(0).url}>{SITE_TITLE}</a>
 		{
 			breadcrumbs.length > 1 && (
-				<nav>
+				<nav aria-label="Sandbox breadcrumbs">
 					<ol class="rvt-breadcrumbs">
 						{breadcrumbs.map((item: any) => (
 							<li aria-current={item.current}>
