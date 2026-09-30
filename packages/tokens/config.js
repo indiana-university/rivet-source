@@ -8,16 +8,6 @@ import {
 
 const PREFIX = "rvt";
 
-const SVGO_PATH_PLUGINS = [
-	{
-		name: "convertPathData",
-		params: {
-			floatPrecision: 2,
-			transformPrecision: 5,
-		},
-	},
-];
-
 function isIcon(token) {
 	return token.attributes.category === "icon";
 }
@@ -52,20 +42,36 @@ function isSelectedSticker(token) {
 	return selectedStickers.includes(token.attributes.type);
 }
 
-// Optimize SVG data using SVGO
+// Optimize SVG "d" (path) data using SVGO
 function optimizeSvgPath(d) {
+	// Get unoptimized path data
 	let optimized = d;
-	const wrapped = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`;
-	optimize(wrapped, {
+
+	// Wrap path data with dummy <svg> syntax so SVGO can parse it
+	const wrappedSvg = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`;
+
+	// Run SVGO's "optimize" utility
+	optimize(wrappedSvg, {
+		// These plugins are run sequentially
 		plugins: [
-			...SVGO_PATH_PLUGINS,
+			// Run the SVGO "convertPathData" plugin with params to optimize the path data
+			// floatPrecision: 2 is a step below the default "3" value, but should be imperceptible to the human eye
 			{
-				name: "capture-path-d",
+				name: "convertPathData",
+				params: {
+					floatPrecision: 2,
+					transformPrecision: 5,
+				},
+			},
+
+			// This custom plugin hooks into SVGO's traversal and gets the (now optimized) "d" from the <path> element
+			{
+				name: "getOptimizedD",
 				fn: () => ({
 					element: {
-						enter: (node) => {
-							if (node.name === "path") {
-								optimized = node.attributes.d;
+						enter: (pathElement) => {
+							if (pathElement.name === "path") {
+								optimized = pathElement.attributes.d;
 							}
 						},
 					},
