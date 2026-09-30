@@ -6,7 +6,7 @@ import YAML from "yaml";
 
 import { configFileName } from "../lib/config.js";
 import { printWrapper } from "../lib/output/console.js";
-import { runWorkspaceBuild } from "../lib/runBuild.js";
+import { runWorkspaceBuild } from "../lib/build/runBuild.js";
 
 const buildCommand = new Command("build")
 	.description("build the design system using the Rivet config file")
@@ -55,7 +55,10 @@ const buildCommand = new Command("build")
 		}
 
 		const outputDir = path.resolve(
+			// Path where command was run
 			process.cwd(),
+
+			// Set to defined <dir>, else set to default directory name
 			options.output ?? "rivet-assets",
 		);
 
