@@ -4,31 +4,35 @@ import { createId } from "#utilities/createId.js";
 export const title = "Text Input";
 
 const inputId = createId();
+const inputName = `board-game-${createId()}`;
 const descriptionId = createId();
-const alertId = createId();
-const describedby = [descriptionId, alertId].join(" ");
+const dangerAlertId = createId();
+const infoAlertId = createId();
+const warningAlertId = createId();
+const successAlertId = createId();
+const describedby = [descriptionId, dangerAlertId].join(" ");
 ---
 
 <rvt-field size="10">
 	<label for={inputId}>Favorite board game</label>
 	<small id={descriptionId}>Your all time favorite or recent favorite</small>
-	<rvt-alert id={alertId} type="danger">
+	<rvt-alert id={dangerAlertId} type="danger">
 		<p data-rvt-alert-message>Enter a board game name</p>
 	</rvt-alert>
-	<rvt-alert id={alertId} type="info">
+	<rvt-alert id={infoAlertId} type="info">
 		<p data-rvt-alert-message>Enter a board game name</p>
 	</rvt-alert>
-	<rvt-alert id={alertId} type="warning">
+	<rvt-alert id={warningAlertId} type="warning">
 		<p data-rvt-alert-message>Enter a board game name</p>
 	</rvt-alert>
-	<rvt-alert id={alertId} type="success">
+	<rvt-alert id={successAlertId} type="success">
 		<p data-rvt-alert-message>Enter a board game name</p>
 	</rvt-alert>
 	<input
 		aria-describedby={describedby}
 		data-1p-ignore
 		id={inputId}
-		name="board-game"
+		name={inputName}
 		required
 		type="text"
 	/>
