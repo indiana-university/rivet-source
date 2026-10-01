@@ -1,6 +1,7 @@
 dist
 node_modules
 tmp
+rivet.yaml
 .DS_Store
 .env
 .idea

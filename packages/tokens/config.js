@@ -1,4 +1,10 @@
-import { formats, transformGroups, transforms } from "style-dictionary/enums";
+import { optimize } from "svgo";
+import {
+	formats,
+	transformGroups,
+	transformTypes,
+	transforms,
+} from "style-dictionary/enums";
 
 const PREFIX = "rvt";
 
@@ -10,6 +16,73 @@ function isSticker(token) {
 	return token.attributes.category === "sticker";
 }
 
+// Return only tokens with "path-fill" or "path-stroke"
+function isStickerPath(token) {
+	return (
+		isSticker(token) &&
+		(token.attributes.item === "path-fill" ||
+			token.attributes.item === "path-stroke")
+	);
+}
+
+// Populated by build.js from the "stickers" list in Rivet config
+// Set to "null" if no filter was set
+const selectedStickers = process.env.RIVET_STICKERS
+	? JSON.parse(process.env.RIVET_STICKERS)
+	: null;
+
+// Returns true if this token is one of the selected stickers
+function isSelectedSticker(token) {
+	// Exit if token is not a sticker
+	if (!isSticker(token)) return false;
+
+	// If no "stickers" list is found in Rivet config, include every sticker
+	if (selectedStickers === null) return true;
+
+	return selectedStickers.includes(token.attributes.type);
+}
+
+// Optimize SVG "d" (path) data using SVGO
+function optimizeSvgPath(d) {
+	// Get unoptimized path data
+	let optimized = d;
+
+	// Wrap path data with dummy <svg> syntax so SVGO can parse it
+	const wrappedSvg = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`;
+
+	// Run SVGO's "optimize" utility
+	optimize(wrappedSvg, {
+		// These plugins are run sequentially
+		plugins: [
+			// Run the SVGO "convertPathData" plugin with params to optimize the path data
+			// floatPrecision: 2 is a step below the default "3" value, but should be imperceptible to the human eye
+			{
+				name: "convertPathData",
+				params: {
+					floatPrecision: 2,
+					transformPrecision: 5,
+				},
+			},
+
+			// This custom plugin hooks into SVGO's traversal and gets the (now optimized) "d" from the <path> element
+			{
+				name: "getOptimizedD",
+				fn: () => ({
+					element: {
+						enter: (pathElement) => {
+							if (pathElement.name === "path") {
+								optimized = pathElement.attributes.d;
+							}
+						},
+					},
+				}),
+			},
+		],
+	});
+	return optimized;
+}
+
+// Return the <rvt-icon> CSS rule from token name
 function formatIconComponent(name) {
 	return `${PREFIX}-icon[name="${name}"] {
 	--name: var(--${PREFIX}-icon-${name});
@@ -17,6 +90,7 @@ function formatIconComponent(name) {
 `;
 }
 
+// Generate the <rvt-sticker> CSS rule from token name
 function formatStickerComponent(name) {
 	return `${PREFIX}-sticker[name="${name}"] {
 	--path-fill: var(--${PREFIX}-sticker-${name}-path-fill);
@@ -56,7 +130,14 @@ export default {
 			},
 			"core-icon": (token) => isIcon(token) && token.$core,
 			"extra-icon": (token) => isIcon(token) && !token.$core,
-			sticker: (token) => isSticker(token),
+			sticker: (token) => isSelectedSticker(token),
+		},
+		transforms: {
+			"content/svg-path": {
+				type: transformTypes.value,
+				filter: isStickerPath,
+				transform: (token) => optimizeSvgPath(token.$value),
+			},
 		},
 		formats: {
 			"css/icons": ({ dictionary }) =>
@@ -118,7 +199,11 @@ export default {
 					format: "css/stickers",
 				},
 			],
-			transforms: [transforms.contentQuote, transforms.sizePxToRem],
+			transforms: [
+				"content/svg-path",
+				transforms.contentQuote,
+				transforms.sizePxToRem,
+			],
 		},
 		json: {
 			transformGroup: transformGroups.json,

@@ -1,6 +1,13 @@
 // lib/output/console.js
 
-export function printConsoleResults(patterns, matchesByPattern, totalMatches) {
+// Generic output wrapper
+export function printWrapper(renderContent) {
+	console.log(`\n--------------------------------\n`);
+	renderContent();
+	console.log(`--------------------------------`);
+}
+
+export function printSearchResults(patterns, matchesByPattern, totalMatches) {
 	console.log(`\n--------------------------------`);
 	console.log(`Rivet CLI - Search results`);
 	console.log(`--------------------------------`);
