@@ -1,6 +1,6 @@
 ---
 import Layout from "./BaseLayout.astro";
-import { SITE_TITLE } from "../const.js";
+import { BRANCH, SITE_TITLE } from "../const.js";
 import { baseUrl } from "../utils/baseUrl.js";
 import { removeEnd } from "../utils/removeEnd.js";
 
@@ -20,27 +20,26 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 
 <Layout {...Astro.props}>
 	<header aria-label="Sandbox">
-		<a href={breadcrumbs.at(0).url}>{SITE_TITLE}</a>
-		{
-			breadcrumbs.length > 1 && (
-				<nav aria-label="Sandbox breadcrumbs">
-					<ol class="rvt-breadcrumbs">
-						{breadcrumbs.map((item: any) => (
-							<li aria-current={item.current}>
-								{!item.last && (
-									<a href={item.url}>
-										<span class={item.first && "rvt-sr-only"}>
-											{item.label}
-										</span>
-									</a>
-								)}
-								{item.last && item.label}
-							</li>
-						))}
-					</ol>
-				</nav>
-			)
-		}
+		<a href={breadcrumbs.at(0).url}>
+			{SITE_TITLE}
+			<span>Branch: {BRANCH}</span>
+		</a>
+		{breadcrumbs.length > 1 && (
+			<nav aria-label="Sandbox breadcrumbs">
+				<ol class="rvt-breadcrumbs">
+					{breadcrumbs.map((item: any) => (
+						<li aria-current={item.current}>
+							{!item.last && (
+								<a href={item.url}>
+									<span class={item.first && "rvt-sr-only"}>{item.label}</span>
+								</a>
+							)}
+							{item.last && item.label}
+						</li>
+					))}
+				</ol>
+			</nav>
+		)}
 	</header>
 	<h1 class="rvt-sr-only">{title}</h1>
 	<slot />
@@ -60,6 +59,16 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 			color: inherit;
 			font: var(--rvt-font-16-bold);
 			text-decoration: none;
+
+			&:hover {
+				color: var(--rvt-color-theme-text-accent);
+				text-decoration: underline;
+			}
+
+			> span {
+				display: block;
+				font: var(--rvt-font-14);
+			}
 		}
 
 		> nav {
