@@ -32,7 +32,7 @@ const initCommand = new Command("init")
 		// Check if the file exists and that --force wasn't invoked, otherwise exit
 		if (fs.existsSync(configFilePath) && !options.force) {
 			console.error(
-				`\n${styleText("red", "Error")}: ${configFileName} already exists.\n\nUse the --force option to overwrite it.\n`,
+				`\n${styleText("red", "Error")}: ${options.config} already exists.\n\nUse the --force option to overwrite it.\n`,
 			);
 			process.exit(1);
 		}
