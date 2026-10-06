@@ -1,3 +1,4 @@
+// lib/build/runBuild.js
 import { execSync } from "node:child_process";
 import { styleText } from "util";
 

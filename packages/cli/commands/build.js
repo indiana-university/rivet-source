@@ -7,6 +7,7 @@ import YAML from "yaml";
 import { configFileName } from "../lib/config.js";
 import { printWrapper } from "../lib/output/console.js";
 import { runWorkspaceBuild } from "../lib/build/runBuild.js";
+import { printBuildResults } from "../lib/build/results.js";
 
 const buildCommand = new Command("build")
 	.description("build the design system using the Rivet config file")
@@ -25,35 +26,10 @@ const buildCommand = new Command("build")
 		// Get Rivet config file
 		const configFilePath = path.resolve(process.cwd(), options.config);
 
-		// Check if config file exists
-		// Read data if it does
-		let file;
-
-		try {
-			file = fs.readFileSync(configFilePath, "utf8");
-		} catch (error) {
-			if (error.code === "ENOENT") {
-				console.error(
-					`\n${styleText("red", "Error")}: The configuration file "${options.config}" does not exist.\n\n1. Check the command for a misspelled config file name.\n2. See "init --help" for help with generating a configuration file.\n`,
-				);
-				process.exit(1);
-			}
-		}
-
-		// Parse contents of config for only stickers
-		let stickersExist = false;
-		const config = YAML.parse(file) ?? {};
-		const stickers = config.stickers;
-
-		// Combine default and new sticker environment variable
+		// Store default environment variables
 		const buildEnv = { ...process.env };
 
-		// Only add stickers to build env if they are set in configuration file
-		if (Array.isArray(stickers) && stickers.length > 0) {
-			buildEnv.RIVET_STICKERS = JSON.stringify(stickers);
-			stickersExist = true;
-		}
-
+		// Set output directory
 		const outputDir = path.resolve(
 			// Path where command was run
 			process.cwd(),
@@ -62,31 +38,48 @@ const buildCommand = new Command("build")
 			options.output ?? "rivet-assets",
 		);
 
+		// Initialize bool for sticker existence in config file
+		let stickersExist = false;
+
+		// Check if config file exists
+		// Read data if it does
+		let file;
+
+		try {
+			file = fs.readFileSync(configFilePath, "utf8");
+
+			console.log(
+				`\n${styleText("blue", "Configuration found")}: ${options.config}`,
+			);
+		} catch (error) {
+			if (error.code === "ENOENT") {
+				console.log(
+					`\n${styleText("yellow", "Warning")}: The configuration file "${options.config}" does not exist.\n\nContinuing build with full Rivet assets.`,
+				);
+
+				runWorkspaceBuild(buildEnv, options.verbose, { outputDir });
+				printBuildResults("None", outputDir, stickersExist);
+
+				// Bail out of remaining script
+				process.exit(1);
+			}
+		}
+
+		// Parse contents of config for only stickers
+		const config = YAML.parse(file) ?? {};
+		const stickers = config.stickers;
+
+		// Only add stickers to build env if they are set in configuration file
+		if (Array.isArray(stickers) && stickers.length > 0) {
+			buildEnv.RIVET_STICKERS = JSON.stringify(stickers);
+			stickersExist = true;
+		}
+
 		// Run the "tokens" and "core" pnpm workspace builds with the custom environment variables
 		runWorkspaceBuild(buildEnv, options.verbose, { outputDir });
 
 		// Print build results
-		printWrapper(() => {
-			console.log(`Build completed successfully\n`);
-
-			console.log(
-				`${styleText("blue", "Configuration")}:\n ${options.config}\n`,
-			);
-
-			console.log(`${styleText("blue", "Directory")}:\n ${outputDir}\n`);
-
-			console.log(`${styleText("blue", "Stickers")}:`);
-
-			if (stickersExist === false) {
-				console.log(
-					`- Stickers defined in config: No\n- ${styleText("yellow", "rivet-stickers.css")} will include all stickers\n`,
-				);
-			} else {
-				console.log(
-					`- Stickers defined in config: Yes\n- ${styleText("yellow", "rivet-stickers.css")} contains only these stickers\n`,
-				);
-			}
-		});
+		printBuildResults(options.config, outputDir, stickersExist);
 	});
 
 export default buildCommand;
