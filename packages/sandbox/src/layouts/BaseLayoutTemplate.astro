@@ -4,7 +4,6 @@ import pkg from "@rivet-iu/core/package.json";
 // under its 4KB limit as a data URI, which iOS rejects for apple-touch-icon.
 import appleTouchIcon from "@rivet-iu/core/dist/apple-touch-icon.png?no-inline";
 import faviconIco from "@rivet-iu/core/dist/favicon.ico?no-inline";
-import faviconSvg from "@rivet-iu/core/dist/favicon.svg?no-inline";
 import { removeStart } from "../utils/removeStart.js";
 
 const APP_NAME = `Rivet v${pkg.version}`;
@@ -21,8 +20,7 @@ const docTitle = isRoot ? site : [title, site].join(" - ");
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{docTitle}</title>
-		<link rel="icon" href={faviconIco} sizes="32x32" />
-		<link rel="icon" href={faviconSvg} type="image/svg+xml" />
+		<link rel="icon" href={faviconIco} sizes="16x16 32x32 48x48" />
 		<link rel="apple-touch-icon" href={appleTouchIcon} />
 		<slot name="head" />
 	</head>
