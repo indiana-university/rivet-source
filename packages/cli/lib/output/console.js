@@ -2,21 +2,20 @@
 
 // Generic output wrapper
 export function printWrapper(renderContent) {
-	console.log(`\n--------------------------------\n`);
+	console.log(`\n${"-".repeat(32)}\n`);
 	renderContent();
-	console.log(`--------------------------------`);
 }
 
 export function printSearchResults(patterns, matchesByPattern, totalMatches) {
-	console.log(`\n--------------------------------`);
+	console.log(`\n${"-".repeat(32)}`);
 	console.log(`Rivet CLI - Search results`);
-	console.log(`--------------------------------`);
+	console.log(`\n${"-".repeat(32)}`);
 
 	console.log(`\nSEARCH QUERY`);
 
 	console.log(`\nQueried patterns: `, `"${patterns.join('", "')}"`);
 
-	console.log(`\n--------------------------------`);
+	console.log(`\n${"-".repeat(32)}\n`);
 
 	console.log(`\nMATCHES`);
 
