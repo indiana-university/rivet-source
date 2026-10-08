@@ -1,7 +1,7 @@
 dist
 node_modules
-tmp
 rivet.yaml
+tmp
 .DS_Store
 .env
 .idea
