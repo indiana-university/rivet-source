@@ -37,7 +37,10 @@ export function runWorkspaceBuild(env, isVerbose, { outputDir }) {
 
 	addSpace(isVerbose);
 
-	let coreBuildCommand;
+	const coreBuildFlags = outputDir
+		? ` --outDir ${JSON.stringify(outputDir)} --emptyOutDir`
+		: "";
+	let coreBuildCommand = `pnpm exec @rivet-iu/core build${coreBuildFlags}`;
 
 	// Output assets to custom directory if flagged in command
 	if (outputDir) {
