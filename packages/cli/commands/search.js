@@ -4,7 +4,7 @@ import path from "path";
 
 import { searchRegexFlags } from "../lib/config.js";
 import { searchFiles } from "../lib/searchFiles.js";
-import { printConsoleResults } from "../lib/output/console.js";
+import { printSearchResults } from "../lib/output/console.js";
 import { printMarkdownResults } from "../lib/output/markdown.js";
 import {
 	getMatchesByPattern,
@@ -63,7 +63,7 @@ const searchCommand = new Command("search")
 			);
 		} else {
 			// Print results to command line
-			printConsoleResults(patterns, matchesByPattern, totalMatches);
+			printSearchResults(patterns, matchesByPattern, totalMatches);
 		}
 	});
 
