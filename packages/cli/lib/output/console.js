@@ -7,7 +7,7 @@ export function printWrapper(renderContent) {
 }
 
 export function printSearchResults(patterns, matchesByPattern, totalMatches) {
-	console.log(`\n${"-".repeat(32)}`);
+	console.log(`\n${"-".repeat(32)}\n`);
 	console.log(`Rivet CLI - Search results`);
 	console.log(`\n${"-".repeat(32)}`);
 
