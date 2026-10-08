@@ -79,7 +79,7 @@ const buildCommand = new Command("build")
 		runWorkspaceBuild(buildEnv, options.verbose, { outputDir });
 
 		// Print build results
-		printBuildResults(options.config, outputDir, stickersExist);
+		printBuildResults(config, outputDir, stickersExist);
 	});
 
 export default buildCommand;

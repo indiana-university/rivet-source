@@ -340,6 +340,9 @@ importers:
       '@rivet-iu/core':
         specifier: workspace:*
         version: link:../core
+      '@rivet-iu/tokens':
+        specifier: workspace:*
+        version: link:../tokens
       commander:
         specifier: 15.0.0
         version: 15.0.0
