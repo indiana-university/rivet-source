@@ -1,7 +1,5 @@
 ---
-import appleTouchIcon from "@rivet-iu/core/dist/apple-touch-icon.png?no-inline";
-import faviconIco from "@rivet-iu/core/dist/favicon.ico?no-inline";
-import { SITE_TITLE } from "../const.js";
+import { CORE_PATH, SITE_TITLE } from "../const.js";
 import { removeStart } from "../utils/removeStart.js";
 
 const site = Astro.props.site || SITE_TITLE;
@@ -17,8 +15,13 @@ const docTitle = isRoot ? site : [title, site].join(" - ");
 		<meta charset="utf-8" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<title>{docTitle}</title>
-		<link rel="icon" href={faviconIco} sizes="16x16 32x32 48x48" />
-		<link rel="apple-touch-icon" href={appleTouchIcon} />
+		<link href={`${CORE_PATH}/favicon.svg`} rel="icon" type="image/svg+xml" />
+		<link
+			href={`${CORE_PATH}/favicon.ico`}
+			rel="icon"
+			sizes="16x16 32x32 48x48"
+		/>
+		<link href={`${CORE_PATH}/apple-touch-icon.png`} rel="apple-touch-icon" />
 		<slot name="head" />
 	</head>
 	<body>

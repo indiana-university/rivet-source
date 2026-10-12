@@ -4,35 +4,21 @@ CSS and JavaScript for Rivet components.
 
 ## Favicons
 
-Rivet ships IU-branded favicons, generated from the `graphic` design tokens in
+Rivet ships IU favicons, generated from the `graphic` design tokens in
 `@rivet-iu/tokens`. Three files are published in `dist`:
 
-| File                   | Size       | Purpose                             |
-| ---------------------- | ---------- | ----------------------------------- |
-| `favicon.ico`          | 16, 32, 48 | The browser tab icon                |
-| `apple-touch-icon.png` | 180px      | Home screen icon for iOS and iPadOS |
-| `favicon.svg`          | scalable   | For the mark drawn larger than 48px |
+| File                   | Size             | Purpose                             |
+| ---------------------- | ---------------- | ----------------------------------- |
+| `apple-touch-icon.png` | 180px            | Home screen icon for iOS and iPadOS |
+| `favicon.ico`          | 16px, 32px, 48px | Legacy browsers                     |
+| `favicon.svg`          | any              | Modern browsers                     |
 
-### Usage
-
-Serve `favicon.ico` and `apple-touch-icon.png` from your site root, then
-reference them in `<head>`. Two files, two tags.
+Link these files in `<head>`.
 
 ```html
-<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+<link href="/favicon.ico" rel="icon" sizes="16x16 32x32 48x48" />
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" />
 ```
 
-Keep `favicon.ico` at the site root regardless of where anything else lives.
-Browsers and tools such as feed readers request `/favicon.ico` directly, without
-reading your markup.
-
-Copy the files into your site root as part of your build. For example:
-
-```shell
-cp node_modules/@rivet-iu/core/dist/favicon.ico public/
-cp node_modules/@rivet-iu/core/dist/apple-touch-icon.png public/
-```
-
-If you cannot serve from the root, point each `href` at wherever the files are
-published instead, and keep `/favicon.ico` as a root-level copy.
+Ideally, serve these files from the site root, since that will allow some services to find the files before needing to read the site markup. Otherwise, update the `href` value to match your use case.
