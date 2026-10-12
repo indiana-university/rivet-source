@@ -1,49 +1,47 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dropdown with buttons";
+
+const dropdownId = `dropdown-buttons-${createId()}`;
 ---
 
-<div class="rvt-dropdown" data-rvt-dropdown="dropdownButtons">
+<div class="rvt-dropdown" data-rvt-dropdown={dropdownId}>
 	<button
-		type="button"
-		class="rvt-button"
-		data-rvt-dropdown-toggle="dropdownButtons"
 		aria-expanded="false"
+		class="rvt-button"
+		data-rvt-dropdown-toggle={dropdownId}
+		type="button"
 	>
 		<span class="rvt-dropdown__toggle-text">Dropdown with buttons</span>
 		<svg
 			aria-hidden="true"
 			class="rvt-m-left-xs"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill="currentColor"
 				d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-			></path>
+				fill="currentColor"></path>
 		</svg>
 	</button>
-	<div
-		class="rvt-dropdown__menu"
-		id="dropdownButtons"
-		hidden
-		data-rvt-dropdown-menu
-	>
-		<button type="button" role="menuitemradio">
+	<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden id={dropdownId}>
+		<button role="menuitemradio" type="button">
 			<span>Notify all</span>
 		</button>
-		<button type="button" aria-checked="true" role="menuitemradio">
+		<button aria-checked="true" role="menuitemradio" type="button">
 			<span>Notify admins</span>
 		</button>
-		<button type="button" role="menuitemradio">
+		<button role="menuitemradio" type="button">
 			<span>Notify contributors</span>
 		</button>
-		<div role="group" aria-label="Personal settings">
-			<button type="button" role="menuitem">
+		<div aria-label="Personal settings" role="group">
+			<button role="menuitem" type="button">
 				<span>Dark mode</span>
 			</button>
-			<button type="button" role="menuitem">
+			<button role="menuitem" type="button">
 				<span>Sign out</span>
 			</button>
 		</div>

@@ -50,7 +50,7 @@
 		}
 
 		a:hover {
-			background-color: var(--rvt-color-theme-background-strong);
+			background-color: var(--rvt-color-theme-background-light);
 		}
 
 		a[aria-current="page"] {

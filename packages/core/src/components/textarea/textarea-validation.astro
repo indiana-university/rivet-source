@@ -1,19 +1,30 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Textarea with validation alerts";
+
+const successTextareaId = `textarea-success-${createId()}`;
+const warningTextareaId = `textarea-warning-${createId()}`;
+const dangerTextareaId = `textarea-danger-${createId()}`;
+const infoTextareaId = `textarea-info-${createId()}`;
+const successAlertMessageId = `textarea-success-alert-${createId()}`;
+const warningAlertMessageId = `textarea-warning-alert-${createId()}`;
+const dangerAlertMessageId = `textarea-danger-alert-${createId()}`;
+const infoAlertMessageId = `textarea-info-alert-${createId()}`;
 ---
 
 <!-- Success -->
-<label for="textarea-success" class="rvt-label">Textarea</label>
-<textarea id="textarea-success" class="rvt-textarea rvt-validation-success"
+<label class="rvt-label" for={successTextareaId}>Textarea</label>
+<textarea class="rvt-textarea rvt-validation-success" id={successTextareaId}
 ></textarea>
 <div class="rvt-inline-alert rvt-inline-alert--success">
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path
@@ -25,24 +36,25 @@ export const title = "Textarea with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={successAlertMessageId}
 		>Your Essay is valid!</span
 	>
 </div>
 
 <!-- Warning -->
-<label for="textarea-warning" class="rvt-label [ rvt-m-top-md ]">Textarea</label
+<label class="rvt-label [ rvt-m-top-md ]" for={warningTextareaId}
+	>Textarea</label
 >
-<textarea id="textarea-warning" class="rvt-textarea rvt-validation-warning"
+<textarea class="rvt-textarea rvt-validation-warning" id={warningTextareaId}
 ></textarea>
 <div class="rvt-inline-alert rvt-inline-alert--warning">
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path d="M11,9H5A1,1,0,0,1,5,7h6a1,1,0,0,1,0,2Z"></path>
@@ -52,23 +64,24 @@ export const title = "Textarea with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={warningAlertMessageId}
 		>Your Response has some misspellings!</span
 	>
 </div>
 
 <!-- Danger -->
-<label for="textarea-danger" class="rvt-label [ rvt-m-top-md ]">Textarea</label>
-<textarea id="textarea-danger" class="rvt-textarea rvt-validation-danger"
+<label class="rvt-label [ rvt-m-top-md ]" for={dangerTextareaId}>Textarea</label
+>
+<textarea class="rvt-textarea rvt-validation-danger" id={dangerTextareaId}
 ></textarea>
 <div class="rvt-inline-alert rvt-inline-alert--danger">
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path
@@ -80,23 +93,23 @@ export const title = "Textarea with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={dangerAlertMessageId}
 		>Your Description has special characters that need to be replaced.</span
 	>
 </div>
 
 <!-- Info -->
-<label for="textarea-info" class="rvt-label [ rvt-m-top-md ]">Textarea</label>
-<textarea id="textarea-info" class="rvt-textarea rvt-validation-info"
+<label class="rvt-label [ rvt-m-top-md ]" for={infoTextareaId}>Textarea</label>
+<textarea class="rvt-textarea rvt-validation-info" id={infoTextareaId}
 ></textarea>
 <div class="rvt-inline-alert rvt-inline-alert--info">
 	<span class="rvt-inline-alert__icon">
 		<svg
 			aria-hidden="true"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g fill="currentColor">
 				<path
@@ -107,7 +120,7 @@ export const title = "Textarea with validation alerts";
 			</g>
 		</svg>
 	</span>
-	<span class="rvt-inline-alert__message" id="first-name-message"
+	<span class="rvt-inline-alert__message" id={infoAlertMessageId}
 		>Add a Message to give users more information.</span
 	>
 </div>

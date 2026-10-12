@@ -1,16 +1,20 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Input with button, append";
+
+const inputId = `search-input-${createId()}`;
 ---
 
-<label for="search" class="rvt-label rvt-sr-only">Search</label>
+<label class="rvt-label rvt-sr-only" for={inputId}>Search</label>
 <div class="rvt-input-group">
 	<input
 		class="rvt-text-input rvt-input-group__input"
+		id={inputId}
 		type="text"
-		id="search"
 	/>
 	<div class="rvt-input-group__append">
-		<button type="button" class="rvt-button">
+		<button class="rvt-button" type="button">
 			<span>Search docs</span>
 		</button>
 	</div>

@@ -7,6 +7,7 @@
 	--rvt-color-theme-accent: var(--rvt-color-brand-main);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-dark);
 	--rvt-color-theme-background: var(--rvt-color-base-ultra-light);
+	--rvt-color-theme-background-light: var(--rvt-color-brand-ultra-light);
 	--rvt-color-theme-background-accent: var(--rvt-color-brand-extra-light);
 	--rvt-color-theme-background-accent-strong: var(--rvt-color-brand-light);
 	--rvt-color-theme-background-strong: var(--rvt-color-brand-extra-light);
@@ -24,6 +25,7 @@
 	--rvt-color-theme-accent: var(--rvt-color-brand-extra-light);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-light);
 	--rvt-color-theme-background: var(--rvt-color-base-main);
+	--rvt-color-theme-background-light: var(--rvt-color-base-dark);
 	--rvt-color-theme-background-accent: var(--rvt-color-base-dark);
 	--rvt-color-theme-background-accent-strong: var(--rvt-color-base-ultra-dark);
 	--rvt-color-theme-background-strong: var(--rvt-color-base-dark);
@@ -43,6 +45,7 @@
 	--rvt-color-theme-accent: var(--rvt-color-brand-extra-light);
 	--rvt-color-theme-accent-strong: var(--rvt-color-brand-light);
 	--rvt-color-theme-background: var(--rvt-color-brand-main);
+	--rvt-color-theme-background-light: var(--rvt-color-brand-dark);
 	--rvt-color-theme-background-accent: var(--rvt-color-brand-dark);
 	--rvt-color-theme-background-accent-strong: var(--rvt-color-brand-extra-dark);
 	--rvt-color-theme-background-strong: var(--rvt-color-brand-dark);
