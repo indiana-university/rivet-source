@@ -40,14 +40,7 @@ export function runWorkspaceBuild(env, isVerbose, { outputDir }) {
 	const coreBuildFlags = outputDir
 		? ` --outDir ${JSON.stringify(outputDir)} --emptyOutDir`
 		: "";
-	let coreBuildCommand = `pnpm exec @rivet-iu/core build${coreBuildFlags}`;
-
-	// Output assets to custom directory if flagged in command
-	if (outputDir) {
-		coreBuildCommand = `pnpm --filter @rivet-iu/core build --outDir ${JSON.stringify(outputDir)} --emptyOutDir`;
-	} else {
-		coreBuildCommand = `pnpm --filter @rivet-iu/core build`;
-	}
+	const coreBuildCommand = `pnpm --filter @rivet-iu/core build${coreBuildFlags}`;
 
 	// Run the build command within "core" package
 	execSync(coreBuildCommand, { stdio: `${debug}`, env });
