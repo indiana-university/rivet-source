@@ -4,6 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
+      - v3-develop
       - v3-main
   workflow_dispatch:
 
@@ -44,7 +45,7 @@ jobs:
           # Docs: https://aka.ms/swaworkflowconfig
           app_location: packages/sandbox/dist
           skip_app_build: true
-          production_branch: v3-develop
+          production_branch: v3-main
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
