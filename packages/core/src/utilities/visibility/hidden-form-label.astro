@@ -1,15 +1,19 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Hide field label";
+
+const inputId = `hidden-form-search-${createId()}`;
 ---
 
 <div class="rvt-input-group">
-	<label for="search" class="rvt-sr-only">Search</label>
+	<label class="rvt-sr-only" for={inputId}>Search</label>
 	<input
 		class="rvt-input-group__input rvt-text-input"
+		id={inputId}
 		type="text"
-		id="search"
 	/>
 	<div class="rvt-input-group__append">
-		<button class="rvt-button">Search</button>
+		<button class="rvt-button" type="button">Search</button>
 	</div>
 </div>

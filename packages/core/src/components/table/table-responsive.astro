@@ -1,15 +1,14 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Responsive Table";
+
+const tableLabel = `Responsive table ${createId()}`;
 ---
 
-<div
-	role="region"
-	tabindex="0"
-	class="rvt-table-responsive"
-	aria-labelledyby="responsive-table"
->
+<section aria-label={tableLabel} class="rvt-table-responsive" tabindex="0">
 	<table class="rvt-table">
-		<caption id="responsive-table"> Responsive table examples </caption>
+		<caption>{tableLabel}</caption>
 		<thead>
 			<tr>
 				<th scope="col">Services</th>
@@ -44,4 +43,4 @@ export const title = "Responsive Table";
 			</tr>
 		</tbody>
 	</table>
-</div>
+</section>

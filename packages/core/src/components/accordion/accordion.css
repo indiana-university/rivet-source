@@ -41,7 +41,7 @@
 	.rvt-accordion__toggle:hover,
 	.rvt-accordion__summary:has(.rvt-accordion__toggle:hover)
 		+ .rvt-accordion__panel {
-		background-color: var(--rvt-color-theme-background-strong);
+		background-color: var(--rvt-color-theme-background-light);
 		cursor: pointer;
 	}
 

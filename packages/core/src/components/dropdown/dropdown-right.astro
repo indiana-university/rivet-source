@@ -1,37 +1,40 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dropdown - Right-aligned";
+
+const dropdownId = `dropdown-right-${createId()}`;
 ---
 
-<div class="rvt-dropdown" data-rvt-dropdown="dropdownRight">
+<div class="rvt-dropdown" data-rvt-dropdown={dropdownId}>
 	<button
-		type="button"
-		class="rvt-button"
-		data-rvt-dropdown-toggle="dropdownRight"
 		aria-expanded="false"
+		class="rvt-button"
+		data-rvt-dropdown-toggle={dropdownId}
+		type="button"
 	>
 		<span class="rvt-dropdown__toggle-text">Right-aligned dropdown menu</span>
 		<svg
 			aria-hidden="true"
 			class="rvt-m-left-xs"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
 			height="16"
 			viewBox="0 0 16 16"
+			width="16"
+			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill="currentColor"
 				d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-			></path>
+				fill="currentColor"></path>
 		</svg>
 	</button>
 	<div
 		class="rvt-dropdown__menu rvt-dropdown__menu--right"
-		id="dropdownRight"
-		hidden
 		data-rvt-dropdown-menu
+		hidden
+		id={dropdownId}
 	>
 		<a href="#">Item one</a>
-		<a href="#" aria-current="page">Item two</a>
+		<a aria-current="page" href="#">Item two</a>
 		<a href="#">Item three</a>
 	</div>
 </div>

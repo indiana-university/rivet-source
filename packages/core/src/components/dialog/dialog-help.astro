@@ -1,33 +1,37 @@
 ---
+import { createId } from "../../utilities/createId.js";
+
 export const title = "Dialog - Help widget";
+
+const dialogId = `dialog-help-widget-${createId()}`;
+const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
 <div
+	aria-describedby={dialogDescriptionId}
 	class="rvt-dialog"
-	id="dialog-help-widget"
+	data-rvt-dialog={dialogId}
+	data-rvt-dialog-bottom-right
+	data-rvt-dialog-open-on-init
+	hidden
+	id={dialogId}
 	role="dialog"
 	tabindex="-1"
-	hidden
-	aria-describedby="dialog-description"
-	data-rvt-dialog="dialog-help-widget"
-	data-rvt-dialog-open-on-init
-	data-rvt-dialog-bottom-right
 >
 	<div class="rvt-dialog__body">
-		<p class="rvt-m-all-none" id="dialog-description">
+		<p class="rvt-m-all-none" id={dialogDescriptionId}>
 			Do you need help with your task? Support center technicians are available
 			over chat to provide live assistance.
 		</p>
 	</div>
 	<div class="rvt-dialog__controls">
-		<button type="button" class="rvt-button" role="button">
+		<button class="rvt-button" type="button">
 			<span>Chat</span>
 		</button>
 		<button
-			type="button"
 			class="rvt-button rvt-button--secondary"
-			data-rvt-dialog-close="dialog-help-widget"
-			role="button"
+			data-rvt-dialog-close={dialogId}
+			type="button"
 		>
 			<span>No thanks</span>
 		</button>
