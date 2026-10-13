@@ -6,6 +6,9 @@ on:
     branches:
       - v3-develop
       - v3-main
+  push:
+    branches:
+      - v3-main
   workflow_dispatch:
 
 env:
