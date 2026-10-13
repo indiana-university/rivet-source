@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from "../const.js";
+import { CORE_PATH, SITE_TITLE } from "../const.js";
 import { removeStart } from "../utils/removeStart.js";
 
 const site = Astro.props.site || SITE_TITLE;
@@ -15,6 +15,13 @@ const docTitle = isRoot ? site : [title, site].join(" - ");
 		<meta charset="utf-8" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<title>{docTitle}</title>
+		<link href={`${CORE_PATH}/favicon.svg`} rel="icon" type="image/svg+xml" />
+		<link
+			href={`${CORE_PATH}/favicon.ico`}
+			rel="icon"
+			sizes="16x16 32x32 48x48"
+		/>
+		<link href={`${CORE_PATH}/apple-touch-icon.png`} rel="apple-touch-icon" />
 		<slot name="head" />
 	</head>
 	<body>
