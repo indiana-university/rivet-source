@@ -10,7 +10,7 @@
 Rivet 3 is the next major version of the design system. It is in active development, but you can start exploring it today:
 
 - [`v3-main` branch](https://github.com/indiana-university/rivet-source/tree/v3-main): The latest Rivet 3 source code.
-- [Development sandbox](https://indiana-university.github.io/rivet-source/): Live examples of Rivet 3 components and layouts.
+- [Development sandbox](https://kind-glacier-097b57a10.7.azurestaticapps.net): Live examples of Rivet 3 components and layouts.
 
 ## Use Rivet 2
 
