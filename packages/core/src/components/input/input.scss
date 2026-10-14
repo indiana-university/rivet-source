@@ -18,10 +18,10 @@
 		width: 100%;
 
 		/**
-     * Prefixes get rid of browser default select element styles.
-     */
+		* Prefixes get rid of browser default select element styles.
+		*/
 
-		/* stylelint-disable  */
+		/* stylelint-disable */
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		-o-appearance: none;
@@ -36,7 +36,7 @@
 
 	&-input[type="search"] {
 		height: auto;
-		/* stylelint-disable  */
+		/* stylelint-disable */
 		-webkit-appearance: none;
 		/* stylelint-enable */
 	}

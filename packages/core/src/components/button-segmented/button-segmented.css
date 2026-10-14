@@ -45,9 +45,9 @@
 	}
 
 	/*
-   * The following helpers handle dropdowns which are nested inside of a
-   * segmented button.
-   */
+	* The following helpers handle dropdowns which are nested inside of a
+	* segmented button.
+	*/
 
 	.dropdown:first-child > .rvt-button:only-of-type,
 	.rvt-dropdown:first-child > .rvt-button:only-of-type {

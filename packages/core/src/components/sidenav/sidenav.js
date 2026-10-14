@@ -250,11 +250,11 @@ export default class Sidenav extends Component {
 					this.element.querySelector("#sidenav-label").textContent;
 
 				template.innerHTML = `
-          <button class="rvt-sidenav__mobile-toggle" data-rvt-sidebar-toggle="" aria-expanded="false" hidden>
-            <span>${sidenavLabel}</span>
-            <svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
-          </button>
-        `;
+					<button class="rvt-sidenav__mobile-toggle" data-rvt-sidebar-toggle="" aria-expanded="false" hidden>
+						<span>${sidenavLabel}</span>
+						<svg aria-hidden="true" fill="currentColor" focusable="false" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15 4H1V2h14v2Zm0 5H1V7h14v2ZM1 14h14v-2H1v2Z"></path></svg>
+					</button>
+				`;
 
 				this.collapsibleContainer =
 					template.content.cloneNode(true).firstElementChild;

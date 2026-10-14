@@ -75,19 +75,19 @@
 
 	/*
 	// Medium variant is in review.
-  &--medium {
-    height: var(--rvt-spacing-lg);
-    gap: var(--rvt-size-4);
+	&--medium {
+		height: var(--rvt-spacing-lg);
+		gap: var(--rvt-size-4);
 
-    &::after {
-      height: var(--rvt-spacing-md);
-      width: var(--rvt-spacing-md);
-    }
+		&::after {
+			height: var(--rvt-spacing-md);
+			width: var(--rvt-spacing-md);
+		}
 
-    &[aria-checked="true"]::after {
-      left: calc(100% - (var(--rvt-spacing-md) + var(--rvt-spacing-xxs)));
-    }
-  }
+		&[aria-checked="true"]::after {
+			left: calc(100% - (var(--rvt-spacing-md) + var(--rvt-spacing-xxs)));
+		}
+	}
 */
 
 	&.rvt-switch--small {
