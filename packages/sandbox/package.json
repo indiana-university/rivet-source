@@ -12,7 +12,7 @@
 		"prebuild": "pnpm deps",
 		"build": "astro build",
 		"postbuild": "pnpm lint",
-		"lint": "html-validate --dump-events --config ../core/.htmlvalidate.js ./dist",
+		"lint": "html-validate --config ../core/.htmlvalidate.js ./dist",
 		"prepreview": "pnpm build",
 		"preview": "astro preview --open --host"
 	},

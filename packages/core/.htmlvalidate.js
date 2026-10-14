@@ -1,9 +1,10 @@
 import { defineConfig, defineMetadata } from "html-validate";
 import { globSync } from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
-const metadataFiles = globSync("./src/**/*.metadata.js");
+const configDir = path.dirname(fileURLToPath(import.meta.url));
+const metadataFiles = globSync(path.join(configDir, "src/**/*.metadata.js"));
 const config = new Map();
 const noop = () => {};
 
