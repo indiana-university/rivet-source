@@ -24,7 +24,12 @@
 		font: var(--rvt-font-20-bold);
 	}
 
-	&__address-eyebrow + &__address-title {
+	rvt-eyebrow {
+		letter-spacing: unset;
+		text-transform: unset;
+	}
+
+	:is(rvt-eyebrow, &__address-eyebrow) + &__address-title {
 		margin-top: var(--rvt-spacing-xxs);
 	}
 

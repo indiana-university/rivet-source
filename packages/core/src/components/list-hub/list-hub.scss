@@ -33,15 +33,24 @@
 	}
 
 	// If the item is not a link remove eyebrow padding for proper alignment.
-	&__item:has(&__item-title) > &__eyebrow {
+	&__item:has(&__item-title) > :is(rvt-eyebrow, &__eyebrow) {
 		padding-inline-start: 0;
 	}
 
 	&__eyebrow {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-12-mono);
+	}
+
+	rvt-eyebrow {
+		letter-spacing: unset;
+		text-transform: unset;
+	}
+
+	rvt-eyebrow,
+	&__eyebrow {
 		margin-block-end: var(--rvt-size-4);
-		padding-inline-start: var(--rvt-spacing-md);
+		padding-inline-start: var(--rvt-size-24);
 	}
 
 	&__link,

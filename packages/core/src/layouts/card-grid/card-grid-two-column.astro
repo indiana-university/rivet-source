@@ -22,10 +22,18 @@ export const title = "Card grid - Two column";
 		<div class="rvt-layout-base__main">
 			<nav aria-label="Breadcrumbs">
 				<ol class="rvt-breadcrumbs">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
 					<li aria-current="page">Current page</li>
 				</ol>
 			</nav>
@@ -48,37 +56,35 @@ export const title = "Card grid - Two column";
 					</p>
 				</div>
 				<ul class="rvt-card-grid [ rvt-m-top-lg ]">
-					{
-						[...Array(6).keys()].map((i) => (
-							<li>
-								<div class="rvt-card">
-									<div class="rvt-card__image">
-										<img
-											alt="Smiling students sitting outside on a bench"
-											src={`https://picsum.photos/id/${i * 3}/600/400`}
-										/>
+					{[...Array(6).keys()].map((i) => (
+						<li>
+							<div class="rvt-card">
+								<div class="rvt-card__image">
+									<img
+										alt="Smiling students sitting outside on a bench"
+										src={`https://picsum.photos/id/${i * 3}/600/400`}
+									/>
+								</div>
+								<div class="rvt-card__body">
+									<rvt-eyebrow>Campus or category</rvt-eyebrow>
+									<h2 class="rvt-card__title">
+										<a href="#">
+											This card title should be concise and should not exceed 78
+											characters or 3 lines of text
+										</a>
+									</h2>
+									<div class="rvt-card__content">
+										<p>
+											Minus ducimus sint amet similique, saepe aut natus fuga.
+										</p>
 									</div>
-									<div class="rvt-card__body">
-										<div class="rvt-card__eyebrow">Campus or category</div>
-										<h2 class="rvt-card__title">
-											<a href="#">
-												This card title should be concise and should not exceed
-												78 characters or 3 lines of text
-											</a>
-										</h2>
-										<div class="rvt-card__content">
-											<p>
-												Minus ducimus sint amet similique, saepe aut natus fuga.
-											</p>
-										</div>
-										<div class="rvt-card__meta">
-											<time>Jun 21,2024</time>
-										</div>
+									<div class="rvt-card__meta">
+										<time>Jun 21,2024</time>
 									</div>
 								</div>
-							</li>
-						))
-					}
+							</div>
+						</li>
+					))}
 				</ul>
 				<ContactInfo />
 				<ListHub />

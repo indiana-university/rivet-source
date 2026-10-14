@@ -18,10 +18,18 @@ export const title = "Card grid - Filterable people";
 		<div class="rvt-container">
 			<nav aria-label="Breadcrumbs">
 				<ol class="rvt-breadcrumbs">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
 					<li aria-current="page">Current page</li>
 				</ol>
 			</nav>
@@ -54,67 +62,63 @@ export const title = "Card grid - Filterable people";
         non-"Category" card grid items like people, etc.
       -->
 			<ul class="rvt-card-grid">
-				{
-					Array(8)
-						.fill(null)
-						.map(() => (
-							<li>
-								<div class="rvt-card">
-									<div class="rvt-card__body">
-										<div class="rvt-avatar rvt-avatar--md [ rvt-m-bottom-sm ]">
-											<img
-												alt=""
-												class="rvt-avatar__image"
-												src="https://rivet.iu.edu/img/placeholder/avatar-1.webp"
-											/>
-										</div>
-										<div class="rvt-card__eyebrow">
-											Campus, team, or department
-										</div>
-										<h2 class="rvt-card__title">
-											<a href="#">First &amp; Last Name</a>
-										</h2>
-										<p class="rvt-m-top-xs">Person's title</p>
-										<div class="rvt-card__content">
-											<div class="rvt-contact-info">
-												<ul class="rvt-contact-info__icon-list">
-													<li class="rvt-contact-info__icon-list-item">
-														<rvt-icon name="user" />
-														<span>
-															<strong>Pronouns</strong>: She/her
-														</span>
-													</li>
-													<li class="rvt-contact-info__icon-list-item">
-														<rvt-icon name="envelope" />
-														<a href="#">info@iu.edu</a>
-													</li>
-													<li class="rvt-contact-info__icon-list-item">
-														<rvt-icon name="phone" />
-														<a href="#">(812)&nbsp;555&#8209;5555</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="rvt-card__meta">
-											<p>Areas of expertise:</p>
-											<ul class="rvt-flex rvt-flex-row rvt-wrap rvt-gap-xs rvt-list-plain rvt-m-top-sm">
-												<li class="rvt-badge rvt-badge--secondary">
-													UI/UX Design
+				{Array(8)
+					.fill(null)
+					.map(() => (
+						<li>
+							<div class="rvt-card">
+								<div class="rvt-card__body">
+									<div class="rvt-avatar rvt-avatar--md [ rvt-m-bottom-sm ]">
+										<img
+											alt=""
+											class="rvt-avatar__image"
+											src="https://rivet.iu.edu/img/placeholder/avatar-1.webp"
+										/>
+									</div>
+									<rvt-eyebrow>Campus, team, or department</rvt-eyebrow>
+									<h2 class="rvt-card__title">
+										<a href="#">First &amp; Last Name</a>
+									</h2>
+									<p class="rvt-m-top-xs">Person's title</p>
+									<div class="rvt-card__content">
+										<div class="rvt-contact-info">
+											<ul class="rvt-contact-info__icon-list">
+												<li class="rvt-contact-info__icon-list-item">
+													<rvt-icon name="user" />
+													<span>
+														<strong>Pronouns</strong>: She/her
+													</span>
 												</li>
-												<li class="rvt-badge rvt-badge--secondary">Branding</li>
-												<li class="rvt-badge rvt-badge--secondary">
-													Illustration
+												<li class="rvt-contact-info__icon-list-item">
+													<rvt-icon name="envelope" />
+													<a href="#">info@iu.edu</a>
 												</li>
-												<li class="rvt-badge rvt-badge--secondary">Lorem</li>
-												<li class="rvt-badge rvt-badge--secondary">Lorem</li>
-												<li class="rvt-badge rvt-badge--secondary">Lorem</li>
+												<li class="rvt-contact-info__icon-list-item">
+													<rvt-icon name="phone" />
+													<a href="#">(812)&nbsp;555&#8209;5555</a>
+												</li>
 											</ul>
 										</div>
 									</div>
+									<div class="rvt-card__meta">
+										<p>Areas of expertise:</p>
+										<ul class="rvt-flex rvt-flex-row rvt-wrap rvt-gap-xs rvt-list-plain rvt-m-top-sm">
+											<li class="rvt-badge rvt-badge--secondary">
+												UI/UX Design
+											</li>
+											<li class="rvt-badge rvt-badge--secondary">Branding</li>
+											<li class="rvt-badge rvt-badge--secondary">
+												Illustration
+											</li>
+											<li class="rvt-badge rvt-badge--secondary">Lorem</li>
+											<li class="rvt-badge rvt-badge--secondary">Lorem</li>
+											<li class="rvt-badge rvt-badge--secondary">Lorem</li>
+										</ul>
+									</div>
 								</div>
-							</li>
-						))
-				}
+							</div>
+						</li>
+					))}
 			</ul>
 			<div class="rvt-flex rvt-justify-center rvt-m-top-xxl">
 				<Pagination />

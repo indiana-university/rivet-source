@@ -17,10 +17,18 @@ export const title = "Card grid - Events";
 		<div class="rvt-container">
 			<nav aria-label="Breadcrumbs">
 				<ol class="rvt-breadcrumbs">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
 					<li aria-current="page">Current page</li>
 				</ol>
 			</nav>
@@ -34,66 +42,63 @@ export const title = "Card grid - Events";
         non-"Category" card grid items like people, etc.
       -->
 			<ul class="rvt-card-grid">
-				{
-					Array(8)
-						.fill(null)
-						.map(() => (
-							<li>
-								<div class="rvt-card">
-									<div class="rvt-card__body">
-										<div class="rvt-card__eyebrow">Campus or category</div>
-										<h2 class="rvt-card__title">
-											<a href="#">Title should not exceed 32 characters</a>
-										</h2>
-										<div class="rvt-contact-info [ rvt-m-top-lg ]">
-											<ul class="rvt-contact-info__icon-list">
-												<li class="rvt-contact-info__icon-list-item">
-													<rvt-icon name="calendar" />
-													<span class="rvt-color-black-400">
-														<span class="rvt-sr-only">Date :</span> March 11,
-														2025
-													</span>
-												</li>
-												<li class="rvt-contact-info__icon-list-item">
-													<rvt-icon name="clock" />
-													<span class="rvt-color-black-400">
-														<span class="rvt-sr-only">Time :</span> 5–6pm
-													</span>
-												</li>
-												<li class="rvt-contact-info__icon-list-item">
-													<rvt-icon name="map-pin" />
-													<span class="rvt-color-black-400">
-														<span class="rvt-sr-only">Location :</span>{" "}
-														Indianapolis Camus Center
-													</span>
-												</li>
-											</ul>
-										</div>
-										<div class="rvt-card__meta">
-											<time datetime="">October 1, 2025</time>
-											<ul class="rvt-list-reset rvt-flex rvt-wrap rvt-gap-sm rvt-m-top-sm">
-												<li>
-													<span class="rvt-badge rvt-badge--secondary">
-														Tag Lorem 1
-													</span>
-												</li>
-												<li>
-													<span class="rvt-badge rvt-badge--secondary">
-														Tag Lorem 1
-													</span>
-												</li>
-												<li>
-													<span class="rvt-badge rvt-badge--secondary">
-														Tag Lorem 1
-													</span>
-												</li>
-											</ul>
-										</div>
+				{Array(8)
+					.fill(null)
+					.map(() => (
+						<li>
+							<div class="rvt-card">
+								<div class="rvt-card__body">
+									<rvt-eyebrow>Campus or category</rvt-eyebrow>
+									<h2 class="rvt-card__title">
+										<a href="#">Title should not exceed 32 characters</a>
+									</h2>
+									<div class="rvt-contact-info [ rvt-m-top-lg ]">
+										<ul class="rvt-contact-info__icon-list">
+											<li class="rvt-contact-info__icon-list-item">
+												<rvt-icon name="calendar" />
+												<span class="rvt-color-black-400">
+													<span class="rvt-sr-only">Date :</span> March 11, 2025
+												</span>
+											</li>
+											<li class="rvt-contact-info__icon-list-item">
+												<rvt-icon name="clock" />
+												<span class="rvt-color-black-400">
+													<span class="rvt-sr-only">Time :</span> 5–6pm
+												</span>
+											</li>
+											<li class="rvt-contact-info__icon-list-item">
+												<rvt-icon name="map-pin" />
+												<span class="rvt-color-black-400">
+													<span class="rvt-sr-only">Location :</span>{" "}
+													Indianapolis Camus Center
+												</span>
+											</li>
+										</ul>
+									</div>
+									<div class="rvt-card__meta">
+										<time datetime="">October 1, 2025</time>
+										<ul class="rvt-list-reset rvt-flex rvt-wrap rvt-gap-sm rvt-m-top-sm">
+											<li>
+												<span class="rvt-badge rvt-badge--secondary">
+													Tag Lorem 1
+												</span>
+											</li>
+											<li>
+												<span class="rvt-badge rvt-badge--secondary">
+													Tag Lorem 1
+												</span>
+											</li>
+											<li>
+												<span class="rvt-badge rvt-badge--secondary">
+													Tag Lorem 1
+												</span>
+											</li>
+										</ul>
 									</div>
 								</div>
-							</li>
-						))
-				}
+							</div>
+						</li>
+					))}
 			</ul>
 			<div class="rvt-flex rvt-justify-center rvt-m-top-xxl">
 				<Pagination />

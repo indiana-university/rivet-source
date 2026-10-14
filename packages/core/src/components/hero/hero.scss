@@ -40,6 +40,10 @@
 
 	.rvt-hero__eyebrow {
 		@include eyebrow;
+	}
+
+	.rvt-hero__body > rvt-eyebrow,
+	.rvt-hero__eyebrow {
 		font: var(--rvt-font-12-fluid-mono);
 		grid-area: eyebrow;
 	}
