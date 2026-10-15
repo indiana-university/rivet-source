@@ -26,13 +26,6 @@
 		@include eyebrow;
 	}
 
-	rvt-eyebrow,
-	&__eyebrow {
-		@include eyebrow;
-		color: var(--rvt-color-theme-text-accent);
-		margin: 0;
-	}
-
 	&__title {
 		color: var(--rvt-color-theme-text-accent);
 		font: var(--rvt-font-29-black);

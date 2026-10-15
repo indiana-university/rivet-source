@@ -6,20 +6,23 @@
 import { expect, test } from "vitest";
 import "html-validate/vitest";
 
-const Eyebrow = (content = "") => `<rvt-eyebrow>${content}</rvt-eyebrow>`;
+test("attributes", async () => {
+	await expect(`<rvt-eyebrow size="fluid" strong></rvt-eyebrow>`).toBeValid();
+	await expect(
+		`<rvt-eyebrow size="fluid 14" strong="weak"></rvt-eyebrow>`,
+	).toBeInvalid();
+	await expect(`<rvt-eyebrow size="16"></rvt-eyebrow>`).toBeInvalid();
+});
 
 test("flow", async () => {
-	await expect(`<div>${Eyebrow()}</div>`).toBeValid();
-	await expect(`<p>${Eyebrow()}</p>`).toBeValid();
+	await expect(`<div><rvt-eyebrow></rvt-eyebrow></div>`).toBeValid();
 });
 
 test("permitted content", async () => {
-	await expect(
-		Eyebrow(`<span class="rvt-sr-only">Phrasing</span>`),
-	).toBeValid();
-	await expect(Eyebrow(`<div class="rvt-sr-only">Flow</div>`)).toBeInvalid();
+	await expect(`<rvt-eyebrow><div></div></rvt-eyebrow>`).toBeInvalid();
+	await expect(`<rvt-eyebrow><span></span></rvt-eyebrow>`).toBeValid();
 });
 
 test("phrasing", async () => {
-	await expect(`<p>${Eyebrow()}</p>`).toBeValid();
+	await expect(`<span><rvt-eyebrow></rvt-eyebrow></span>`).toBeValid();
 });

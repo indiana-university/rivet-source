@@ -7,6 +7,26 @@ rvt-eyebrow {
 	color: var(--rvt-color-theme-text-accent);
 	display: block;
 	font: var(--rvt-font-12-mono);
-	letter-spacing: var(--rvt-letter-spacing-wide);
-	text-transform: uppercase;
+
+	&[size="fluid"],
+	.rvt-hero__body > &,
+	.rvt-text-essay & {
+		font: var(--rvt-font-12-fluid-mono);
+	}
+
+	&[size="14"],
+	.rvt-series-nav & {
+		font: var(--rvt-font-14-mono);
+	}
+
+	&[strong],
+	.rvt-billboard &,
+	.rvt-callout &,
+	.rvt-hero__body > &,
+	.rvt-section-intro &,
+	.rvt-series-nav &,
+	.rvt-text-essay & {
+		letter-spacing: var(--rvt-letter-spacing-wide);
+		text-transform: uppercase;
+	}
 }

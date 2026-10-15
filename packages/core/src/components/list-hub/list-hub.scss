@@ -42,11 +42,6 @@
 		font: var(--rvt-font-12-mono);
 	}
 
-	rvt-eyebrow {
-		letter-spacing: unset;
-		text-transform: unset;
-	}
-
 	rvt-eyebrow,
 	&__eyebrow {
 		margin-block-end: var(--rvt-size-4);

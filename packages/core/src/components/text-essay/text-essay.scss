@@ -18,11 +18,11 @@
 
 	.rvt-text-essay__eyebrow {
 		@include eyebrow;
+		font: var(--rvt-font-12-fluid-mono);
 	}
 
 	rvt-eyebrow,
 	.rvt-text-essay__eyebrow {
-		font: var(--rvt-font-12-fluid-mono);
 		margin-block-start: var(--rvt-size-24);
 	}
 

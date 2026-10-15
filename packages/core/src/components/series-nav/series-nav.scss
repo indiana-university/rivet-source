@@ -35,13 +35,13 @@
 
 	&__label {
 		@include eyebrow;
+		font: var(--rvt-font-14-mono);
 	}
 
 	rvt-eyebrow,
 	&__label {
 		align-items: center;
 		display: flex;
-		font: var(--rvt-font-14-mono);
 		gap: var(--rvt-size-4);
 	}
 
