@@ -1,5 +1,4 @@
 // lib/build/results.js
-import fs from "node:fs";
 import { styleText } from "util";
 
 import stickerTokens from "@rivet-iu/tokens/tokens/sticker.json" with { type: "json" };

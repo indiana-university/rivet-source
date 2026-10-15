@@ -1,6 +1,15 @@
-// lib/build/runBuild.js
-import { execSync } from "node:child_process";
+// packages/cli/lib/build/runBuild.js
+
+/************************************************
+ * This file handles the exported build functions
+ * from the "core" and "tokens" packages
+ ************************************************/
+
 import { styleText } from "util";
+
+// Import build commands from "core" and "tokens" packages
+import { buildCore } from "@rivet-iu/core/lib/build.js";
+import { buildTokens } from "@rivet-iu/tokens/lib/build.js";
 
 // Add a space if the command is run with the --verbose flag
 function addSpace(isVerbose) {
@@ -9,16 +18,13 @@ function addSpace(isVerbose) {
 	}
 }
 
-// Run the tokens and core builds with the given environment variables
-export function runWorkspaceBuild(env, isVerbose, { outputDir }) {
-	let debug;
+// Run the tokens and core builds
+export async function runWorkspaceBuild(isVerbose, { outputDir, stickers }) {
 	if (isVerbose) {
-		debug = "inherit";
 		console.log(
 			`\n${styleText("#990000", "=>")} Starting build (verbose output)...`,
 		);
 	} else {
-		debug = "ignore";
 		console.log(`\n${styleText("#990000", "=>")} Starting build...`);
 	}
 
@@ -27,8 +33,11 @@ export function runWorkspaceBuild(env, isVerbose, { outputDir }) {
 
 	addSpace(isVerbose);
 
-	// Run the build command within "tokens" package
-	execSync("pnpm --filter @rivet-iu/tokens build", { stdio: `${debug}`, env });
+	/************************************************
+	 * Run the build command within "tokens" package
+	 ************************************************/
+
+	await buildTokens({ isVerbose, stickers });
 
 	addSpace(isVerbose);
 
@@ -37,11 +46,9 @@ export function runWorkspaceBuild(env, isVerbose, { outputDir }) {
 
 	addSpace(isVerbose);
 
-	const coreBuildFlags = outputDir
-		? ` --outDir ${JSON.stringify(outputDir)} --emptyOutDir`
-		: "";
-	const coreBuildCommand = `pnpm --filter @rivet-iu/core build${coreBuildFlags}`;
+	/************************************************
+	 * Run the "core" package build
+	 ************************************************/
 
-	// Run the build command within "core" package
-	execSync(coreBuildCommand, { stdio: `${debug}`, env });
+	await buildCore({ outputDir, isVerbose });
 }

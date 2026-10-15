@@ -24,10 +24,12 @@
 		".": "./dist/rivet.js",
 		"./package.json": "./package.json",
 		"./dist/*": "./dist/*",
+		"./lib/*": "./lib/*",
 		"./src/*": "./src/*"
 	},
 	"files": [
 		"dist",
+		"lib",
 		"src"
 	],
 	"scripts": {

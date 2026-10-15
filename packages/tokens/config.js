@@ -25,21 +25,14 @@ function isStickerPath(token) {
 	);
 }
 
-// Populated by build.js from the "stickers" list in Rivet config
-// Set to "null" if no filter was set
-const selectedStickers = process.env.RIVET_STICKERS
-	? JSON.parse(process.env.RIVET_STICKERS)
-	: null;
-
 // Returns true if this token is one of the selected stickers
-function isSelectedSticker(token) {
+function isSelectedSticker(token, stickers) {
 	// Exit if token is not a sticker
 	if (!isSticker(token)) return false;
 
 	// If no "stickers" list is found in Rivet config, include every sticker
-	if (selectedStickers === null) return true;
-
-	return selectedStickers.includes(token.attributes.type);
+	if (stickers === null) return true;
+	return stickers.includes(token.attributes.type);
 }
 
 // Optimize SVG "d" (path) data using SVGO
@@ -99,122 +92,131 @@ function formatStickerComponent(name) {
 `;
 }
 
-export default {
-	source: ["tokens/**/*.json"],
-	expand: {
-		include: ["graphic", "sticker"],
-		typesMap: {
-			graphic: {
-				"container-height": "dimension",
-				"container-width": "dimension",
-				height: "dimension",
-				path: "content",
-				width: "dimension",
-			},
-			sticker: {
-				"path-fill": "content",
-				"path-stroke": "content",
-			},
-		},
-	},
-	hooks: {
-		filters: {
-			core: (token) => {
-				if (isIcon(token)) {
-					return token.$core;
-				}
-				if (isSticker(token)) {
-					return false;
-				}
-				return true;
-			},
-			"core-icon": (token) => isIcon(token) && token.$core,
-			"extra-icon": (token) => isIcon(token) && !token.$core,
-			sticker: (token) => isSelectedSticker(token),
-		},
-		transforms: {
-			"content/svg-path": {
-				type: transformTypes.value,
-				filter: isStickerPath,
-				transform: (token) => optimizeSvgPath(token.$value),
+export function createConfig({ stickers = null } = {}) {
+	return {
+		source: ["tokens/**/*.json"],
+		expand: {
+			include: ["graphic", "sticker"],
+			typesMap: {
+				graphic: {
+					"container-height": "dimension",
+					"container-width": "dimension",
+					height: "dimension",
+					path: "content",
+					width: "dimension",
+				},
+				sticker: {
+					"path-fill": "content",
+					"path-stroke": "content",
+				},
 			},
 		},
-		formats: {
-			"css/icons": ({ dictionary }) =>
-				dictionary.allTokens
-					.map((token) => token.attributes.type)
-					.map(formatIconComponent)
-					.join("\n"),
-			"css/stickers": ({ dictionary }) =>
-				dictionary.allTokens
-					.filter((token) => token.attributes.item === "path-stroke")
-					.map((token) => token.attributes.type)
-					.map(formatStickerComponent)
-					.join("\n"),
+		hooks: {
+			filters: {
+				core: (token) => {
+					if (isIcon(token)) {
+						return token.$core;
+					}
+					if (isSticker(token)) {
+						return false;
+					}
+					return true;
+				},
+				"core-icon": (token) => isIcon(token) && token.$core,
+				"extra-icon": (token) => isIcon(token) && !token.$core,
+				sticker: (token) => isSelectedSticker(token, stickers),
+			},
+			transforms: {
+				"content/svg-path": {
+					type: transformTypes.value,
+					filter: isStickerPath,
+					transform: (token) => optimizeSvgPath(token.$value),
+				},
+			},
+			formats: {
+				"css/icons": ({ dictionary }) =>
+					dictionary.allTokens
+						.map((token) => token.attributes.type)
+						.map(formatIconComponent)
+						.join("\n"),
+				"css/stickers": ({ dictionary }) =>
+					dictionary.allTokens
+						.filter((token) => token.attributes.item === "path-stroke")
+						.map((token) => token.attributes.type)
+						.map(formatStickerComponent)
+						.join("\n"),
+			},
 		},
-	},
-	platforms: {
-		scss: {
-			transformGroup: transformGroups.scss,
-			files: [
-				{
-					destination: "tmp/core-vars.scss",
-					format: formats.scssMapDeep,
-				},
-			],
-			transforms: [transforms.contentQuote, transforms.sizePxToRem],
+		platforms: {
+			scss: {
+				transformGroup: transformGroups.scss,
+				files: [
+					{
+						destination: "tmp/core-vars.scss",
+						format: formats.scssMapDeep,
+					},
+				],
+				transforms: [transforms.contentQuote, transforms.sizePxToRem],
+			},
+			css: {
+				transformGroup: transformGroups.css,
+				prefix: PREFIX,
+				files: [
+					{
+						destination: "tmp/core-vars.css",
+						filter: "core",
+						format: formats.cssVariables,
+					},
+					{
+						destination: "tmp/core-icon.css",
+						filter: "core-icon",
+						format: "css/icons",
+					},
+					{
+						destination: "tmp/icon-vars.css",
+						filter: "extra-icon",
+						format: formats.cssVariables,
+					},
+					{
+						destination: "tmp/icon.css",
+						filter: "extra-icon",
+						format: "css/icons",
+					},
+					{
+						destination: "tmp/sticker-vars.css",
+						filter: "sticker",
+						format: formats.cssVariables,
+					},
+					{
+						destination: "tmp/sticker.css",
+						filter: "sticker",
+						format: "css/stickers",
+					},
+				],
+				transforms: [
+					"content/svg-path",
+					transforms.contentQuote,
+					transforms.sizePxToRem,
+				],
+			},
+			json: {
+				transformGroup: transformGroups.json,
+				prefix: PREFIX,
+				files: [
+					{
+						destination: "dist/tokens.json",
+						format: formats.jsonNested,
+					},
+				],
+				transforms: [transforms.nameKebab],
+			},
 		},
-		css: {
-			transformGroup: transformGroups.css,
-			prefix: PREFIX,
-			files: [
-				{
-					destination: "tmp/core-vars.css",
-					filter: "core",
-					format: formats.cssVariables,
-				},
-				{
-					destination: "tmp/core-icon.css",
-					filter: "core-icon",
-					format: "css/icons",
-				},
-				{
-					destination: "tmp/icon-vars.css",
-					filter: "extra-icon",
-					format: formats.cssVariables,
-				},
-				{
-					destination: "tmp/icon.css",
-					filter: "extra-icon",
-					format: "css/icons",
-				},
-				{
-					destination: "tmp/sticker-vars.css",
-					filter: "sticker",
-					format: formats.cssVariables,
-				},
-				{
-					destination: "tmp/sticker.css",
-					filter: "sticker",
-					format: "css/stickers",
-				},
-			],
-			transforms: [
-				"content/svg-path",
-				transforms.contentQuote,
-				transforms.sizePxToRem,
-			],
-		},
-		json: {
-			transformGroup: transformGroups.json,
-			prefix: PREFIX,
-			files: [
-				{
-					destination: "dist/tokens.json",
-					format: formats.jsonNested,
-				},
-			],
-			transforms: [transforms.nameKebab],
-		},
-	},
-};
+	};
+}
+
+// Used by `style-dictionary build` (pnpm build)
+export default createConfig({
+	stickers: process.env.RIVET_STICKERS
+		? JSON.parse(process.env.RIVET_STICKERS)
+		: null,
+});

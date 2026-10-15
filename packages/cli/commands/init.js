@@ -12,6 +12,8 @@ const configTemplate = `# Rivet CLI configuration
 # You can find a list of available stickers at:
 # https://rivet.iu.edu/icons-stickers/sticker-library/
 
+# outputDir: '@rivet-iu/core/dist'
+
 # stickers:
 #   - accessibility
 #   - airplane

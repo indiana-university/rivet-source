@@ -19,11 +19,13 @@
 	"exports": {
 		"./package.json": "./package.json",
 		"./dist/*": "./dist/*",
+		"./lib/*": "./lib/*",
 		"./tmp/*": "./tmp/*",
 		"./tokens/*": "./tokens/*"
 	},
 	"files": [
 		"dist",
+		"lib",
 		"tokens"
 	],
 	"scripts": {

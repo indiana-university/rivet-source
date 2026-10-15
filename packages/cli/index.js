@@ -17,4 +17,4 @@ program.addCommand(searchCommand);
 program.addCommand(initCommand);
 program.addCommand(buildCommand);
 
-program.parse();
+await program.parseAsync();
