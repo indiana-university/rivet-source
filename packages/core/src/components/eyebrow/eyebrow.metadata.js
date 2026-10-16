@@ -12,6 +12,9 @@ export const elements = {
 			strong: {
 				boolean: true,
 			},
+			type: {
+				enum: ["normal", "strong"],
+			},
 		},
 		flow: true,
 		permittedContent: ["@phrasing"],

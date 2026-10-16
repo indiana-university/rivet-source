@@ -19,6 +19,7 @@ rvt-eyebrow {
 		font: var(--rvt-font-14-mono);
 	}
 
+	&[type="strong"],
 	&[strong],
 	.rvt-billboard &,
 	.rvt-callout &,
