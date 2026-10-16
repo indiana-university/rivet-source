@@ -24,8 +24,6 @@
 
 	&__eyebrow {
 		@include eyebrow;
-		color: var(--rvt-color-theme-text-accent);
-		margin: 0;
 	}
 
 	&__title {
@@ -34,7 +32,7 @@
 		font-variation-settings: var(--rvt-font-variation-black);
 	}
 
-	&__eyebrow + &__title {
+	:is(rvt-eyebrow, &__eyebrow) + &__title {
 		margin-top: var(--rvt-spacing-xs);
 	}
 

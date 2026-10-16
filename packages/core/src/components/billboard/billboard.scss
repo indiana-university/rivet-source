@@ -23,12 +23,11 @@
 
 	&__eyebrow {
 		@include eyebrow;
-		color: var(--rvt-color-theme-text-accent);
-		margin: 0;
 	}
 
-	&__eyebrow + &__title {
+	:is(&__eyebrow, rvt-eyebrow) + &__title {
 		margin-block-start: var(--rvt-size-8);
+		font-weight: bold;
 	}
 
 	&__title {
