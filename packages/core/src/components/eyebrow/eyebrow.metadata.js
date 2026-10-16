@@ -7,10 +7,7 @@ export const elements = {
 	"rvt-eyebrow": {
 		attributes: {
 			size: {
-				enum: ["fluid", "14"],
-			},
-			strong: {
-				boolean: true,
+				enum: ["normal", "fluid", "large"],
 			},
 			type: {
 				enum: ["normal", "strong"],

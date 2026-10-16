@@ -6,27 +6,38 @@
 rvt-eyebrow {
 	color: var(--rvt-color-theme-text-accent);
 	display: block;
-	font: var(--rvt-font-12-mono);
+
+	&,
+	&[size="normal"] {
+		font: var(--rvt-font-12-mono);
+	}
 
 	&[size="fluid"],
-	.rvt-hero__body > &,
-	.rvt-text-essay & {
+	:where(.rvt-hero__body > &, .rvt-text-essay &):not([size]) {
 		font: var(--rvt-font-12-fluid-mono);
 	}
 
-	&[size="14"],
-	.rvt-series-nav & {
+	&[size="large"],
+	:where(.rvt-series-nav &):not([size]) {
 		font: var(--rvt-font-14-mono);
+	}
+
+	&,
+	&[type="normal"] {
+		letter-spacing: normal;
+		text-transform: none;
 	}
 
 	&[type="strong"],
 	&[strong],
-	.rvt-billboard &,
-	.rvt-callout &,
-	.rvt-hero__body > &,
-	.rvt-section-intro &,
-	.rvt-series-nav &,
-	.rvt-text-essay & {
+	:where(
+		.rvt-billboard &,
+		.rvt-callout &,
+		.rvt-hero__body > &,
+		.rvt-section-intro &,
+		.rvt-series-nav &,
+		.rvt-text-essay &
+	):not([type]) {
 		letter-spacing: var(--rvt-letter-spacing-wide);
 		text-transform: uppercase;
 	}
