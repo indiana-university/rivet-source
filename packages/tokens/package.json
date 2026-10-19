@@ -26,7 +26,8 @@
 	"files": [
 		"dist",
 		"lib",
-		"tokens"
+		"tokens",
+		"config.js"
 	],
 	"scripts": {
 		"prebuild": "rimraf dist tmp",
@@ -36,7 +37,9 @@
 		"preview": "pnpm build"
 	},
 	"devDependencies": {
-		"rimraf": "6.1.3",
+		"rimraf": "6.1.3"
+	},
+	"dependencies": {
 		"style-dictionary": "5.5.5",
 		"svgo": "4.1.0"
 	}
