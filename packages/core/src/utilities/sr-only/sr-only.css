@@ -19,10 +19,7 @@ rvt-sr-only,
 	width: var(--rvt-size-1);
 }
 
-:is(
-	:is(rvt-sr-only, [rvt-util~="sr-only"])[rvt-util~="focusable"],
-	.rvt-sr-only.rvt-focusable
-):is(&:active, &:focus) {
+:is([rvt-util~="sr-only"], .rvt-sr-only).rvt-focusable:is(&:active, &:focus) {
 	clip: auto;
 	height: auto;
 	margin: 0;
