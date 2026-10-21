@@ -36,6 +36,9 @@ export default defineConfig({
 		...getOrCreateArray(config, "elements").map(defineMetadata),
 	],
 	rules: {
+		// https://html-validate.org/rules/attribute-boolean-style.html
+		// Disable rule to permit any valid boolean style.
+		"attribute-boolean-style": "off",
 		// https://html-validate.org/rules/deprecated-class.html
 		"deprecated-class": [
 			"error",

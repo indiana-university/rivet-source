@@ -5,6 +5,14 @@
 
 export const elements = {
 	"rvt-eyebrow": {
+		attributes: {
+			size: {
+				enum: ["normal", "fluid", "large"],
+			},
+			type: {
+				enum: ["normal", "strong"],
+			},
+		},
 		flow: true,
 		permittedContent: ["@phrasing"],
 		phrasing: true,

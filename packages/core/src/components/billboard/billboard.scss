@@ -25,12 +25,6 @@
 		@include eyebrow;
 	}
 
-	&__eyebrow,
-	rvt-eyebrow {
-		color: var(--rvt-color-theme-text-accent);
-		margin: 0;
-	}
-
 	:is(&__eyebrow, rvt-eyebrow) + &__title {
 		margin-block-start: var(--rvt-size-8);
 		font-weight: bold;
