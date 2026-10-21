@@ -34,7 +34,7 @@
 
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
-import { styleText } from "node:util";
+import { parseArgs, styleText } from "node:util";
 
 const VERDACCIO_URL = "http://localhost:4873";
 
@@ -51,10 +51,29 @@ const PACKAGES = ["cli", "core", "tokens"];
 // Example: "3.0.0-alpha.11-sticker-optimization.1792437855778"
 const TEST_VERSION = /-[0-9a-z-]+\.\d{13}$/;
 
-// Optional label to distinguish test versions (examples: "sticker-optimization", "cli-updates", etc.)
+// Read the command-line arguments
+// Example: pnpm publish:local sticker-optimization --random
+const { values, positionals } = parseArgs({
+	allowPositionals: true,
+	options: {
+		random: { type: "boolean", default: false },
+	},
+});
+
+// --random publishes throwaway test versions instead of the current package.json versions
+const isRandom = values.random;
+
+// A label only makes sense for random test versions
+if (positionals[0] && !isRandom) {
+	throw new Error(
+		`A label only applies with --random (e.g. pnpm publish:local ${positionals[0]} --random)`,
+	);
+}
+
+// (Only used with --random flag) Label to distinguish test versions (examples: "sticker-optimization", "cli-updates", etc.)
 // Must contain at least one letter, number or hyphen
 // If a custom label isn't provided, value defaults to "test"
-const label = (process.argv[2] ?? "test")
+const label = (positionals[0] ?? "test")
 	.toLowerCase()
 	// Replace anything that isn't a letter, number or hyphen with "-"
 	.replace(/[^0-9a-z-]+/g, "-")
@@ -75,6 +94,62 @@ let cliVersion;
 
 // On Ctrl+C, let the pnpm child process exit first so "finally" still restores files
 process.on("SIGINT", () => {});
+
+// Publish every workspace package to Verdaccio, hiding pnpm's output unless it fails
+function publish() {
+	console.log(
+		`\n${styleText("#990000", "=>")} Publishing to Verdaccio (${styleText("cyan", VERDACCIO_URL)})\n`,
+	);
+
+	try {
+		execFileSync(
+			"pnpm",
+			["publish", "-r", "--registry", VERDACCIO_URL, "--no-git-checks"],
+			// Capture output instead of showing it
+			{ stdio: "pipe", maxBuffer: 64 * 1024 * 1024 },
+		);
+	} catch (error) {
+		// Publishing failed
+		// Show the hidden output to help with troubleshooting
+		process.stdout.write(error.stdout ?? "");
+		process.stderr.write(error.stderr ?? "");
+		throw error;
+	}
+}
+
+// Find package versions that are already in Verdaccio, since "pnpm publish -r" skips them silently
+async function findPublished(packages) {
+	const published = [];
+
+	for (const { name, pkg } of packages) {
+		let response;
+
+		try {
+			response = await fetch(`${VERDACCIO_URL}/@rivet-iu%2f${name}`);
+		} catch {
+			throw new Error(
+				`Couldn't reach Verdaccio at ${VERDACCIO_URL}. Is it running? (pnpm dlx verdaccio)`,
+			);
+		}
+
+		// 404 means this package has never been published to Verdaccio
+		if (response.status === 404) continue;
+
+		if (!response.ok) {
+			throw new Error(
+				`Verdaccio returned ${response.status} for @rivet-iu/${name}`,
+			);
+		}
+
+		const { versions = {} } = await response.json();
+
+		if (Object.hasOwn(versions, pkg.version)) {
+			published.push(`@rivet-iu/${name}@${pkg.version}`);
+		}
+	}
+
+	return published;
+}
 
 console.log(
 	`\n${styleText("#990000", "=>")} Starting publish of local packages to Verdaccio\n`,
@@ -97,76 +172,89 @@ for (const name of PACKAGES) {
 	}
 
 	packages.push({ name, file, originalContents, pkg });
+
+	// The version to run afterwards; --random replaces it with the test version
+	if (name === "cli") cliVersion = pkg.version;
 }
 
-console.log(`${styleText("#990000", "=>")} Original package versions:`);
+console.log(
+	`${styleText("#990000", "=>")} ${isRandom ? "Original package versions:" : "Package versions to publish:"}`,
+);
 
 for (const { name, pkg } of packages) {
 	console.log(`   - ${name}: ${pkg.version}`);
 }
 
-try {
-	console.log(
-		`\n${styleText("#990000", "=>")} Updating package versions to random version:`,
-	);
-
-	for (const { name, file, originalContents, pkg } of packages) {
-		// Record each file just before changing it, so "finally" restores only what was changed
-		originals.push({
-			name,
-			file,
-			originalContents,
-			originalVersion: pkg.version,
-		});
-
-		pkg.version = `${pkg.version}-${suffix}`;
-		if (name === "cli") cliVersion = pkg.version;
-
-		console.log(`   - ${name}: ${pkg.version}`);
-
-		writeFileSync(file, `${JSON.stringify(pkg, null, "\t")}\n`);
-	}
-
-	console.log(
-		`\n${styleText("#990000", "=>")} Publishing to Verdaccio (${styleText("cyan", `${VERDACCIO_URL}`)})\n`,
-	);
-
+if (isRandom) {
+	// Publish randomized package versions for testing
 	try {
-		execFileSync(
-			"pnpm",
-			["publish", "-r", "--registry", VERDACCIO_URL, "--no-git-checks"],
-			// Capture output instead of showing it
-			{ stdio: "pipe", maxBuffer: 64 * 1024 * 1024 },
-		);
-	} catch (error) {
-		// Publishing failed
-		// Show the hidden output to help with troubleshooting
-		process.stdout.write(error.stdout ?? "");
-		process.stderr.write(error.stderr ?? "");
-		throw error;
-	}
-} finally {
-	// Put back the exact original package.json file contents
-	for (const { file, originalContents } of originals) {
-		writeFileSync(file, originalContents);
-	}
-
-	// Print confirmation of restored package.json files only if any were modified
-	if (originals.length) {
 		console.log(
-			`${styleText("#990000", "=>")} Restored original package versions:`,
+			`\n${styleText("#990000", "=>")} Updating package versions to random version:`,
 		);
 
-		for (const { name, originalVersion } of originals) {
-			console.log(`   - ${name}: ${originalVersion}`);
+		for (const { name, file, originalContents, pkg } of packages) {
+			// Record each file just before changing it, so "finally" restores only what was changed
+			originals.push({
+				name,
+				file,
+				originalContents,
+				originalVersion: pkg.version,
+			});
+
+			pkg.version = `${pkg.version}-${suffix}`;
+			if (name === "cli") cliVersion = pkg.version;
+
+			console.log(`   - ${name}: ${pkg.version}`);
+
+			writeFileSync(file, `${JSON.stringify(pkg, null, "\t")}\n`);
+		}
+
+		publish();
+	} finally {
+		// Put back the exact original package.json file contents
+		for (const { file, originalContents } of originals) {
+			writeFileSync(file, originalContents);
+		}
+
+		// Print confirmation of restored package.json files only if any were modified
+		if (originals.length) {
+			console.log(
+				`${styleText("#990000", "=>")} Restored original package versions:`,
+			);
+
+			for (const { name, originalVersion } of originals) {
+				console.log(`   - ${name}: ${originalVersion}`);
+			}
+
+			console.log("");
 		}
 	}
+} else {
+	// Publish packages as-is without changing versions
+	const published = await findPublished(packages);
+
+	// Nothing new to publish: stop instead of reporting a publish that didn't happen
+	if (published.length === packages.length) {
+		throw new Error(
+			`Every version is already in Verdaccio:\n  ${published.join("\n  ")}\nBump a version, or use --random for throwaway test versions.`,
+		);
+	}
+
+	if (published.length) {
+		console.log(
+			`\n${styleText("yellow", "Skipping (already in Verdaccio):")}\n  ${published.join("\n  ")}`,
+		);
+	}
+
+	publish();
 }
 
-console.log(`\n${styleText("#990000", "=>")} Publish complete!`);
+console.log(`${styleText("#990000", "=>")} Publish complete!`);
 
-// Displays published test version command to run with the Rivet CLI
-// Example: "pnpm dlx @rivet-iu/cli@1.0.0-alpha.1-sticker-optimization.<13-digit-timestamp> build"
+// Displays the command to run the published CLI
+// Examples:
+//   pnpm dlx @rivet-iu/cli@1.0.0-alpha.2 build
+//   pnpm dlx @rivet-iu/cli@1.0.0-alpha.1-sticker-optimization.<13-digit-timestamp> build (--random)
 console.log(
 	`\n${styleText("blue", "Run the published package:")}\npnpm dlx @rivet-iu/cli@${cliVersion} <command>`,
 );
