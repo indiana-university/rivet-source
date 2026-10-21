@@ -24,7 +24,7 @@
 		font: var(--rvt-font-20-bold);
 	}
 
-	&__address-eyebrow + &__address-title {
+	:is(rvt-eyebrow, &__address-eyebrow) + &__address-title {
 		margin-top: var(--rvt-spacing-xxs);
 	}
 
