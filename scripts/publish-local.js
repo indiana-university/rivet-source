@@ -26,7 +26,6 @@
  *	  Check it worked: pnpm config get @rivet-iu:registry  (→ http://localhost:4873/)
  *	  When done testing: pnpm logout --registry http://localhost:4873
 
- *
  * Steps:
  *	1. Adds "-<label>.<timestamp>" to each Rivet package's package.json version
  *	2. Publishes all packages to Verdaccio
