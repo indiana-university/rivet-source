@@ -6,6 +6,10 @@
 import { expect, test } from "vitest";
 import "html-validate/vitest";
 
+test("attributes", async () => {
+	await expect(`<rvt-sr-only tabindex="0"></rvt-sr-only>`).toBeInvalid();
+});
+
 test("flow", async () => {
 	await expect(`<div><rvt-sr-only></rvt-sr-only></div>`).toBeValid();
 });

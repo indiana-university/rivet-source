@@ -3,9 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-rvt-sr-only,
-[rvt-util~="sr-only"],
-.rvt-sr-only {
+:is(rvt-sr-only, [rvt-util~="sr-only"], .rvt-sr-only):not(:focus) {
 	/* Set color to prevent false positives in a11y tools */
 	background-color: var(--rvt-color-theme-background);
 	border: 0;
@@ -17,13 +15,4 @@ rvt-sr-only,
 	padding: 0;
 	position: absolute;
 	width: var(--rvt-size-1);
-}
-
-:is([rvt-util~="sr-only"], .rvt-sr-only).rvt-focusable:is(&:active, &:focus) {
-	clip: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	position: static;
-	width: auto;
 }

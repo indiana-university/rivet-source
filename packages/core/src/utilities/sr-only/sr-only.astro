@@ -3,8 +3,12 @@ export const title = "Screen reader only";
 ---
 
 <p>
-	This text is visible.
+	This text is visible for everyone.
 	<span rvt-util="sr-only">
 		This text is visually hidden but still accessible to screen readers.
 	</span>
+	<a href="?" rvt-util="sr-only">
+		This text is visually hidden until in focus.
+	</a>
+	This is more text.
 </p>

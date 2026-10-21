@@ -5,6 +5,9 @@
 
 export const deprecatedClasses = [
 	{
+		class: "rvt-focusable",
+	},
+	{
 		class: "rvt-sr-only",
 		replacement: `rvt-util="sr-only"`,
 	},
