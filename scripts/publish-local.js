@@ -11,8 +11,21 @@
  *	Example: pnpm publish:local sticker-optimization
  *
  * Requires:
- *	- Verdaccio running at http://localhost:4873 (pnpm dlx verdaccio)
- *	- A Verdaccio login (pnpm login --registry http://localhost:4873 --scope @rivet-iu)
+ *	- Verdaccio running at http://localhost:4873
+ *	  Start it in a separate terminal and leave it running: pnpm dlx verdaccio
+ *
+ *	- A one-time Verdaccio login from the command line (not the web UI):
+ *	  pnpm login --registry http://localhost:4873 --scope @rivet-iu
+ *	  Any username, password and email work; the account only exists locally.
+ *
+ *	  The login does two things:
+ *	    1. Allows publishing to Verdaccio
+ *	    2. Makes pnpm install @rivet-iu/* packages from Verdaccio instead of npm
+ *	  Always include "--scope @rivet-iu". Without it, pnpm uses Verdaccio for every package on your machine, which breaks installs whenever Verdaccio isn't running.
+ *
+ *	  Check it worked: pnpm config get @rivet-iu:registry  (→ http://localhost:4873/)
+ *	  When done testing: pnpm logout --registry http://localhost:4873
+
  *
  * Steps:
  *	1. Adds "-<label>.<timestamp>" to each Rivet package's package.json version
