@@ -13,49 +13,49 @@ import StatGroup from "#components/stat-group/stat-group.astro";
 <Header />
 <main id="main-content">
 	<!--
-    When the hero is crimson theme we need to remove the bottom section padding
-    for alignment purposes
-  -->
+		When the hero is crimson theme we need to remove the bottom section padding
+		for alignment purposes
+	-->
 	<div class="rvt-section rvt-theme-light rvt-p-bottom-xxl-md-up">
 		<slot />
 	</div>
 	<div class="rvt-section rvt-border-top rvt-border-bottom rvt-p-top-none rvt-p-bottom-none">
 		<div class="rvt-container">
 			<!--
-        Data definition notes: "Landing Page" Content Type
+				Data definition notes: "Landing Page" Content Type
 
-        Stats section:
-          - Stat section is optional (show/hide via checkbox?)
-          - Minimum of 2 stats required
-          - Maximum of 4 stats allowed
+				Stats section:
+					- Stat section is optional (show/hide via checkbox?)
+					- Minimum of 2 stats required
+					- Maximum of 4 stats allowed
 
-        Stat fields:
-          - Sticker - plain text field to specify id e.g., "globe" or "badge-check"
-          - Number - plain text field for a number - must be text so that "%" and "+" can be included
-          - Description - plain text field for description
-      -->
+				Stat fields:
+					- Sticker - plain text field to specify id e.g., "globe" or "badge-check"
+					- Number - plain text field for a number - must be text so that "%" and "+" can be included
+					- Description - plain text field for description
+			-->
 			<StatGroup />
 		</div>
 	</div>
 
 	<!--
-    Data definition notes: "Landing Page" Content Type
+		Data definition notes: "Landing Page" Content Type
 
-    Statement section:
-      - Statement section is optional (show/hide via checkbox?)
+		Statement section:
+			- Statement section is optional (show/hide via checkbox?)
 
-    Section intro - fields
-      - Featured? - checkbox that conditionally applies the `--feature` variant
-      - Title - Plain text <= 40 characters
-      - Text - Rich text that allows bold, italic
-      - CTA(s) - repeater field, max of two
-        - CTA text
-        - CTA URL
-      - Image - This uses the Image Hub component
-        - Image uploader
-          - Max of 1 image or video/video embed
-          - 16:9 aspect-ratio
-  -->
+		Section intro - fields
+			- Featured? - checkbox that conditionally applies the `--feature` variant
+			- Title - Plain text <= 40 characters
+			- Text - Rich text that allows bold, italic
+			- CTA(s) - repeater field, max of two
+				- CTA text
+				- CTA URL
+			- Image - This uses the Image Hub component
+				- Image uploader
+					- Max of 1 image or video/video embed
+					- 16:9 aspect-ratio
+	-->
 	<div class="rvt-section rvt-theme-light [ rvt-p-bottom-xxl-lg-up ]">
 		<div class="rvt-container">
 			<div class="rvt-stack">
@@ -146,10 +146,10 @@ import StatGroup from "#components/stat-group/stat-group.astro";
 	<div class="rvt-section">
 		<div class="rvt-container">
 			<!--
-        Billboard section
+				Billboard section
 
-        - Repeater that allows user to add up to three billboards
-      -->
+				- Repeater that allows user to add up to three billboards
+			-->
 			<div class="rvt-billboard rvt-billboard--reverse">
 				<div class="rvt-billboard__image">
 					<img
