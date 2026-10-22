@@ -10,8 +10,8 @@
 	list-style: none;
 	margin: 0;
 	/**
-   * Allows content to be scrollable on smaller screens
-   */
+	* Allows content to be scrollable on smaller screens
+	*/
 	overflow-x: scroll;
 	padding: 0;
 
@@ -44,10 +44,10 @@
 		align-items: center;
 		color: var(--rvt-color-theme-text-strong);
 		/**
-     * If we set the link to display flex, we can use
-     * flex-direction: column-reverse to add a variant where the label
-     * is on the bottom.
-     */
+		* If we set the link to display flex, we can use
+		* flex-direction: column-reverse to add a variant where the label
+		* is on the bottom.
+		*/
 		display: inline-flex;
 		flex-direction: column;
 	}
@@ -111,8 +111,8 @@
 	}
 
 	/**
-   * Start vertical variant
-   */
+	* Start vertical variant
+	*/
 
 	&--vertical {
 		flex-direction: column;
