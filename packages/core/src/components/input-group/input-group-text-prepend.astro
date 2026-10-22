@@ -7,10 +7,14 @@ const inputId = `text-prepend-example-${createId()}`;
 const textId = `website-text-${createId()}`;
 ---
 
-<label class="rvt-sr-only" for={inputId}>Website</label>
+<label for={inputId} rvt-util="sr-only">
+	Website
+</label>
 <div class="rvt-input-group">
 	<div class="rvt-input-group__prepend">
-		<div class="rvt-input-group__text" id={textId}>https://</div>
+		<div class="rvt-input-group__text" id={textId}>
+			https://
+		</div>
 	</div>
 	<input
 		aria-describedby={textId}

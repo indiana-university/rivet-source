@@ -31,7 +31,8 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 						<li aria-current={item.current}>
 							{!item.last && (
 								<a href={item.url}>
-									<span class={item.first && "rvt-sr-only"}>{item.label}</span>
+									{item.first && <rvt-sr-only>{item.label}</rvt-sr-only>}
+									{!item.first && <span>{item.label}</span>}
 								</a>
 							)}
 							{item.last && item.label}
@@ -41,7 +42,7 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 			</nav>
 		)}
 	</header>
-	<h1 class="rvt-sr-only">{title}</h1>
+	<h1 rvt-util="sr-only">{title}</h1>
 	<slot />
 </Layout>
 

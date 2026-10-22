@@ -18,7 +18,9 @@ const searchDialogId = `search-dialog-${createId()}`;
 	aria-label={label}
 	class:list={["rvt-header", { "rvt-theme-crimson": crimsonTheme }]}
 >
-	<a class="rvt-skip-link" href="#main-content">Skip to main content</a>
+	<a class="rvt-skip-link" href="#main-content">
+		Skip to main content
+	</a>
 	<div class="rvt-header__inner">
 		<Lockup />
 		<div class="rvt-header__controls">
@@ -31,7 +33,7 @@ const searchDialogId = `search-dialog-${createId()}`;
 				type="button"
 			>
 				<rvt-icon name="menu"></rvt-icon>
-				<span class="rvt-sr-only">Menu</span>
+				<rvt-sr-only>Menu</rvt-sr-only>
 			</button>
 			<button
 				class="rvt-button rvt-button--medium rvt-button--icon-only"
@@ -39,7 +41,7 @@ const searchDialogId = `search-dialog-${createId()}`;
 				type="button"
 			>
 				<rvt-icon name="magnifying-glass"></rvt-icon>
-				<span class="rvt-sr-only">Search</span>
+				<rvt-sr-only>Search</rvt-sr-only>
 			</button>
 		</div>
 	</div>

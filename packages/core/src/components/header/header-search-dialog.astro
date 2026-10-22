@@ -18,13 +18,11 @@ const searchInputId = Astro.props.searchInputId ?? `search-query-${createId()}`;
 >
 	<div class="rvt-header__search-bar-inner">
 		<form class="rvt-container">
-			<label class="rvt-label rvt-sr-only" for={searchInputId}
-				>Search the site</label
-			>
+			<label class="rvt-label" for={searchInputId} rvt-util="sr-only">
+				Search the site
+			</label>
 			<div class="rvt-input-group [ rvt-m-top-none rvt-gap-xs ]">
-				<div
-					class="rvt-input-group__prepend [ rvt-p-all-sm rvt-flex rvt-items-center rvt-justify-center rvt-color-crimson-500 ]"
-				>
+				<div class="rvt-input-group__prepend [ rvt-p-all-sm rvt-flex rvt-items-center rvt-justify-center rvt-color-crimson-500 ]">
 					<rvt-icon name="magnifying-glass"></rvt-icon>
 				</div>
 				<input
@@ -39,9 +37,10 @@ const searchInputId = Astro.props.searchInputId ?? `search-query-${createId()}`;
 						<span>Search</span>
 					</button>
 					<button
-						class="rvt-button rvt-sr-only rvt-focusable"
+						class="rvt-button"
 						data-rvt-dialog-close={dialogId}
 						type="button"
+						rvt-util="sr-only focusable"
 					>
 						Close search
 					</button>

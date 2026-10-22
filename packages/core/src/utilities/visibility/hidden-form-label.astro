@@ -7,13 +7,17 @@ const inputId = `hidden-form-search-${createId()}`;
 ---
 
 <div class="rvt-input-group">
-	<label class="rvt-sr-only" for={inputId}>Search</label>
+	<label for={inputId} rvt-util="sr-only">
+		Search
+	</label>
 	<input
 		class="rvt-input-group__input rvt-text-input"
 		id={inputId}
 		type="text"
 	/>
 	<div class="rvt-input-group__append">
-		<button class="rvt-button" type="button">Search</button>
+		<button class="rvt-button" type="button">
+			Search
+		</button>
 	</div>
 </div>

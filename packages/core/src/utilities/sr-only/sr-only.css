@@ -1,0 +1,18 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+:is(rvt-sr-only, [rvt-util~="sr-only"], .rvt-sr-only):not(:focus) {
+	/* Set color to prevent false positives in a11y tools */
+	background-color: var(--rvt-color-theme-background);
+	border: 0;
+	color: var(--rvt-color-theme-text);
+	clip: rect(0 0 0 0);
+	height: var(--rvt-size-1);
+	margin: var(--rvt-size-n1);
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: var(--rvt-size-1);
+}

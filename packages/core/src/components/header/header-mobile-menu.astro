@@ -22,26 +22,30 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 >
 	<nav aria-labelledby={labelId} class="rvt-sidenav" data-rvt-sidenav>
 		<span class="rvt-sidenav__label [ rvt-p-left-sm ]" id={labelId}>
-			Site navigation <span class="rvt-sr-only">({Astro.props.label})</span>
+			Site navigation <rvt-sr-only>({Astro.props.label})</rvt-sr-only>
 		</span>
 		<ul class="rvt-sidenav__list [ rvt-p-top-xs ]">
 			<li class="rvt-sidenav__item">
-				<a class="rvt-sidenav__link" href="#">Section nav one</a>
+				<a class="rvt-sidenav__link" href="#">
+					Section nav one
+				</a>
 			</li>
 			<li class="rvt-sidenav__item">
-				<a aria-current="page" class="rvt-sidenav__link" href="#"
-					>Section nav two</a
-				>
+				<a aria-current="page" class="rvt-sidenav__link" href="#">
+					Section nav two
+				</a>
 			</li>
 			<li class="rvt-sidenav__item">
 				<div class="rvt-sidenav__item-wrapper">
-					<a class="rvt-sidenav__link" href="#">Section nav three</a>
+					<a class="rvt-sidenav__link" href="#">
+						Section nav three
+					</a>
 					<button
 						class="rvt-sidenav__toggle"
 						data-rvt-sidenav-toggle
 						type="button"
 					>
-						<span class="rvt-sr-only">Show more section nav three links</span>
+						<rvt-sr-only>Show more section nav three links</rvt-sr-only>
 						<svg
 							fill="currentColor"
 							height="16"
@@ -49,28 +53,32 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 							width="16"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<path
-								d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"
-							></path>
+							<path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path>
 						</svg>
 					</button>
 				</div>
 				<ul class="rvt-sidenav__list" data-rvt-sidenav-list>
 					<li class="rvt-sidenav__item">
-						<a class="rvt-sidenav__link" href="#">Level two</a>
+						<a class="rvt-sidenav__link" href="#">
+							Level two
+						</a>
 					</li>
 					<li class="rvt-sidenav__item">
-						<a class="rvt-sidenav__link" href="#">Level two</a>
+						<a class="rvt-sidenav__link" href="#">
+							Level two
+						</a>
 					</li>
 					<li class="rvt-sidenav__item">
 						<div class="rvt-sidenav__item-wrapper">
-							<a class="rvt-sidenav__link" href="#">Level two</a>
+							<a class="rvt-sidenav__link" href="#">
+								Level two
+							</a>
 							<button
 								class="rvt-sidenav__toggle"
 								data-rvt-sidenav-toggle
 								type="button"
 							>
-								<span class="rvt-sr-only">Show more level two links</span>
+								<rvt-sr-only>Show more level two links</rvt-sr-only>
 								<svg
 									fill="currentColor"
 									height="16"
@@ -78,18 +86,20 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 									width="16"
 									xmlns="http://www.w3.org/2000/svg"
 								>
-									<path
-										d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"
-									></path>
+									<path d="m15.146 6.263-1.292-1.526L8 9.69 2.146 4.737.854 6.263 8 12.31l7.146-6.047Z"></path>
 								</svg>
 							</button>
 						</div>
 						<ul class="rvt-sidenav__list" data-rvt-sidenav-list>
 							<li class="rvt-sidenav__item">
-								<a class="rvt-sidenav__link" href="#">Level three</a>
+								<a class="rvt-sidenav__link" href="#">
+									Level three
+								</a>
 							</li>
 							<li class="rvt-sidenav__item">
-								<a class="rvt-sidenav__link" href="#">Level three</a>
+								<a class="rvt-sidenav__link" href="#">
+									Level three
+								</a>
 							</li>
 						</ul>
 					</li>
@@ -113,9 +123,7 @@ const dialogDescriptionId = `mobile-menu-description-${createId()}`;
 			width="16"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<path
-				d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"
-			></path>
+			<path d="m3.5 2.086 4.5 4.5 4.5-4.5L13.914 3.5 9.414 8l4.5 4.5-1.414 1.414-4.5-4.5-4.5 4.5L2.086 12.5l4.5-4.5-4.5-4.5L3.5 2.086Z"></path>
 		</svg>
 	</button>
 </div>

@@ -8,28 +8,32 @@ const labelId = `sidenav-label-${createId()}`;
 
 <nav aria-labelledby={labelId} class="rvt-sidenav" data-rvt-sidenav>
 	<span class="rvt-sidenav__label" id={labelId}>
-		Section pages <span class="rvt-sr-only">({Astro.props.label})</span>
+		Section pages <rvt-sr-only>({Astro.props.label})</rvt-sr-only>
 	</span>
 	<ul class="rvt-sidenav__list">
 		<li class="rvt-sidenav__item">
-			<a class="rvt-sidenav__link" href="#">Section nav one</a>
+			<a class="rvt-sidenav__link" href="#">
+				Section nav one
+			</a>
 		</li>
 		<li class="rvt-sidenav__item">
-			<a aria-current="page" class="rvt-sidenav__link" href="#"
-				>Section nav two</a
-			>
+			<a aria-current="page" class="rvt-sidenav__link" href="#">
+				Section nav two
+			</a>
 		</li>
 		<li class="rvt-sidenav__item">
 			<div class="rvt-sidenav__item-wrapper">
-				<a class="rvt-sidenav__link" href="#">Section nav three</a>
+				<a class="rvt-sidenav__link" href="#">
+					Section nav three
+				</a>
 				<button
 					class="rvt-sidenav__toggle"
 					data-rvt-sidenav-toggle="toggle-1"
 					type="button"
 				>
-					<span class="rvt-sr-only"
-						>Expand or hide links nested under the third section</span
-					>
+					<rvt-sr-only>
+						Expand or hide links nested under the third section
+					</rvt-sr-only>
 					<svg
 						height="16"
 						viewBox="0 0 16 16"
@@ -38,16 +42,21 @@ const labelId = `sidenav-label-${createId()}`;
 					>
 						<path
 							d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-							fill="currentColor"></path>
+							fill="currentColor"
+						></path>
 					</svg>
 				</button>
 			</div>
 			<ul class="rvt-sidenav__list" data-rvt-sidenav-list="toggle-1">
 				<li class="rvt-sidenav__item">
-					<a class="rvt-sidenav__link" href="#">Level two</a>
+					<a class="rvt-sidenav__link" href="#">
+						Level two
+					</a>
 				</li>
 				<li class="rvt-sidenav__item">
-					<a class="rvt-sidenav__link" href="#">Level two</a>
+					<a class="rvt-sidenav__link" href="#">
+						Level two
+					</a>
 				</li>
 			</ul>
 		</li>

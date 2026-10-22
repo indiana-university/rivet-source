@@ -33,20 +33,28 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 		aria-label={`Dialog (${Astro.props.label})`}
 		class="rvt-dialog__header"
 	>
-		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>
+			Dialog title
+		</h1>
 	</header>
 	<div class="rvt-dialog__body">
 		<div class="m-bottom-sm">
-			<label class="rvt-label" for={titleInputId}>Title</label>
+			<label class="rvt-label" for={titleInputId}>
+				Title
+			</label>
 			<input class="rvt-text-input" id={titleInputId} type="text" />
 		</div>
-		<label class="rvt-label" for={descriptionInputId}>Description</label>
+		<label class="rvt-label" for={descriptionInputId}>
+			Description
+		</label>
 		<textarea class="rvt-textarea" id={descriptionInputId}></textarea>
 		<fieldset class="rvt-fieldset">
 			<legend class="rvt-ts-20 rvt-m-bottom-sm">
 				<strong>Select dropdown</strong> default
 			</legend>
-			<label class="rvt-label" for={selectInputId}>Select input:</label>
+			<label class="rvt-label" for={selectInputId}>
+				Select input:
+			</label>
 			<div class="rvt-select m-bottom-md">
 				<select id={selectInputId}>
 					<option value="">Option One</option>
@@ -106,7 +114,7 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 		data-rvt-dialog-close={dialogId}
 		type="button"
 	>
-		<span class="rvt-sr-only">Close</span>
+		<rvt-sr-only>Close</rvt-sr-only>
 		<svg
 			aria-hidden="true"
 			height="16"
@@ -116,7 +124,8 @@ const checkboxThreeId = `dialog-form-checkbox-three-${createId()}`;
 		>
 			<path
 				d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
-				fill="currentColor"></path>
+				fill="currentColor"
+			></path>
 		</svg>
 	</button>
 </div>
