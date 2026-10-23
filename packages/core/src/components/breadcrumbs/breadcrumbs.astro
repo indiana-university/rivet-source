@@ -15,3 +15,17 @@ const label = `${title} (${Astro.props.label})`;
 		<li aria-current="page">Tier three</li>
 	</ol>
 </nav>
+
+<nav aria-label={label}>
+	<rvt-breadcrumbs>
+		<ol>
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">Tier two</a>
+			</li>
+			<li aria-current="page">Tier three</li>
+		</ol>
+	</rvt-breadcrumbs>
+</nav>

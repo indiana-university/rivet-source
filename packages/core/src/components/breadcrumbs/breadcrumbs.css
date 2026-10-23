@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+rvt-breadcrumbs > ol,
 .rvt-breadcrumbs {
 	display: inline-flex;
 	flex-wrap: wrap;
