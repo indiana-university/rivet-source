@@ -2,6 +2,7 @@ import { defineConfig, defineMetadata } from "html-validate";
 import { globSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import ElementRequiredDescendantsRule from "./rules/element-required-descendants.js";
 
 const configDir = path.dirname(fileURLToPath(import.meta.url));
 const metadataFiles = globSync(path.join(configDir, "src/**/*.metadata.js"));
@@ -31,6 +32,13 @@ for (const file of metadataFiles) {
 
 export default defineConfig({
 	extends: ["html-validate:recommended"],
+	plugins: [
+		{
+			rules: {
+				"rvt/element-required-descendants": ElementRequiredDescendantsRule,
+			},
+		},
+	],
 	elements: [
 		"html5",
 		...getOrCreateArray(config, "elements").map(defineMetadata),
@@ -45,6 +53,10 @@ export default defineConfig({
 			{
 				classes: getOrCreateArray(config, "deprecatedClasses").flat(),
 			},
+		],
+		"rvt/element-required-descendants": [
+			"error",
+			getOrCreateArray(config, "requiredDescendants").flat(),
 		],
 	},
 });
