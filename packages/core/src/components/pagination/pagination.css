@@ -3,13 +3,15 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+rvt-pagination ul,
 .rvt-pagination {
 	display: flex;
-	gap: var(--rvt-spacing-xs);
+	gap: var(--rvt-size-8);
 	list-style: none;
 	margin: 0;
 	padding: 0;
 
+	li,
 	.rvt-pagination__item {
 		align-items: center;
 		display: flex;
@@ -31,9 +33,9 @@
 
 		> *:not(a) {
 			color: var(--rvt-color-theme-text);
-			min-height: var(--rvt-spacing-xl);
-			min-width: var(--rvt-spacing-xl);
-			padding: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+			min-height: var(--rvt-size-40);
+			min-width: var(--rvt-size-40);
+			padding: var(--rvt-size-8) var(--rvt-size-16);
 		}
 
 		a {
@@ -41,22 +43,49 @@
 			color: var(--rvt-color-theme-text);
 			display: flex;
 			flex-grow: 1;
-			gap: var(--rvt-spacing-xxs);
-			min-height: var(--rvt-spacing-xl);
-			min-width: var(--rvt-spacing-xl);
-			padding: var(--rvt-spacing-xs);
+			gap: var(--rvt-size-4);
+			min-height: var(--rvt-size-40);
+			min-width: var(--rvt-size-40);
+			padding: var(--rvt-size-8);
 			text-decoration: none;
 			z-index: var(--rvt-z-index-100);
-		}
 
-		a:hover {
-			background-color: var(--rvt-color-theme-background-light);
-		}
+			&:hover {
+				background-color: var(--rvt-color-theme-background-light);
+			}
 
-		a[aria-current="page"] {
-			background-color: var(--rvt-color-theme-accent);
-			border-color: transparent;
-			color: var(--rvt-color-theme-background);
+			&[aria-current="page"] {
+				background-color: var(--rvt-color-theme-accent);
+				border-color: transparent;
+				color: var(--rvt-color-theme-background);
+			}
+
+			&:is([rel="first"], [rel="prev"])::before,
+			&:is([rel="next"], [rel="last"])::after {
+				background-color: currentColor;
+				clip-path: path(var(--rvt-pagination-link-icon));
+				content: "";
+				display: block;
+				flex-shrink: 0;
+				height: var(--rvt-size-16);
+				width: var(--rvt-size-16);
+			}
+
+			&[rel="first"] {
+				--rvt-pagination-link-icon: var(--rvt-icon-chevrons-left);
+			}
+
+			&[rel="prev"] {
+				--rvt-pagination-link-icon: var(--rvt-icon-chevron-left);
+			}
+
+			&[rel="next"] {
+				--rvt-pagination-link-icon: var(--rvt-icon-chevron-right);
+			}
+
+			&[rel="last"] {
+				--rvt-pagination-link-icon: var(--rvt-icon-chevrons-right);
+			}
 		}
 	}
 }
