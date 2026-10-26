@@ -6,36 +6,6 @@
 import { expect, test } from "vitest";
 import "html-validate/vitest";
 
-test("descendant count", async () => {
-	await expect(`
-		<nav aria-label="Breadcrumbs">
-			<rvt-breadcrumbs>
-				<ol aria-current></ol>
-			</rvt-breadcrumbs>
-		</nav>
-	`).toBeInvalid();
-	await expect(`
-		<nav aria-label="Breadcrumbs">
-			<rvt-breadcrumbs>
-				<ol>
-					<li aria-current></li>
-				</ol>
-			</rvt-breadcrumbs>
-		</nav>
-	`).toBeInvalid();
-	/*
-	await expect(`
-		<nav aria-label="Breadcrumbs">
-			<rvt-breadcrumbs>
-				<ol>
-					<li aria-current="page"></li>
-				</ol>
-			</rvt-breadcrumbs>
-		</nav>
-	`).toBeValid();
-	*/
-});
-
 test("element", async () => {
 	await expect(`
 		<nav aria-label="Breadcrumbs">
@@ -83,4 +53,32 @@ test("permitted content", async () => {
 
 test("required ancestors", async () => {
 	await expect(`<rvt-breadcrumbs></rvt-breadcrumbs>`).toBeInvalid();
+});
+
+test("required descendants", async () => {
+	await expect(`
+		<nav aria-label="Breadcrumbs">
+			<rvt-breadcrumbs>
+				<ol aria-current></ol>
+			</rvt-breadcrumbs>
+		</nav>
+	`).toBeInvalid();
+	await expect(`
+		<nav aria-label="Breadcrumbs">
+			<rvt-breadcrumbs>
+				<ol>
+					<li aria-current></li>
+				</ol>
+			</rvt-breadcrumbs>
+		</nav>
+	`).toBeInvalid();
+	await expect(`
+		<nav aria-label="Breadcrumbs">
+			<rvt-breadcrumbs>
+				<ol>
+					<li aria-current="page"></li>
+				</ol>
+			</rvt-breadcrumbs>
+		</nav>
+	`).toBeValid();
 });

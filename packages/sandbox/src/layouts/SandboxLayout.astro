@@ -10,7 +10,7 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 	.map((part: any, i: any, source: any) => {
 		const first = i === 0;
 		const last = i === source.length - 1;
-		const current: boolean | "page" = last ? "page" : false;
+		const current: boolean | "page" = last ? "page" : null;
 		const label = current ? title : part || SITE_TITLE;
 		const _url = source.slice(1, i + 1).join("/");
 		const url = baseUrl(_url);

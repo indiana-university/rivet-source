@@ -2,7 +2,7 @@ import { defineConfig, defineMetadata } from "html-validate";
 import { globSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import DescendantCountRule from "./rules/descendant-count.js";
+import ElementRequiredDescendantsRule from "./rules/element-required-descendants.js";
 
 const configDir = path.dirname(fileURLToPath(import.meta.url));
 const metadataFiles = globSync(path.join(configDir, "src/**/*.metadata.js"));
@@ -35,7 +35,7 @@ export default defineConfig({
 	plugins: [
 		{
 			rules: {
-				"rvt/descendant-count": DescendantCountRule,
+				"rvt/element-required-descendants": ElementRequiredDescendantsRule,
 			},
 		},
 	],
@@ -54,9 +54,9 @@ export default defineConfig({
 				classes: getOrCreateArray(config, "deprecatedClasses").flat(),
 			},
 		],
-		"rvt/descendant-count": [
+		"rvt/element-required-descendants": [
 			"error",
-			getOrCreateArray(config, "descendantCount").flat(),
+			getOrCreateArray(config, "requiredDescendants").flat(),
 		],
 	},
 });

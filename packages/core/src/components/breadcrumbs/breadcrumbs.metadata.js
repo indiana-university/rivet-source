@@ -3,16 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export const descendantCount = [
-	{
-		container: "rvt-breadcrumbs",
-		constraints: [
-			{ selector: `li[aria-current="page"]`, max: 1 },
-			{ selector: "[aria-current]", max: 0 },
-		],
-	},
-];
-
 export const elements = {
 	"rvt-breadcrumbs": {
 		flow: true,
@@ -20,3 +10,11 @@ export const elements = {
 		requiredAncestors: ["nav[aria-label]", "nav[aria-labelledby]"],
 	},
 };
+
+export const requiredDescendants = [
+	{
+		element: "rvt-breadcrumbs",
+		query: "[aria-current]",
+		pattern: `li[aria-current="page"]:last-child`,
+	},
+];
