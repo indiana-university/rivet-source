@@ -24,11 +24,14 @@
 		".": "./dist/rivet.js",
 		"./package.json": "./package.json",
 		"./dist/*": "./dist/*",
+		"./lib/*": "./lib/*",
 		"./src/*": "./src/*"
 	},
 	"files": [
 		"dist",
-		"src"
+		"lib",
+		"src",
+		"vite.config.js"
 	],
 	"scripts": {
 		"prebuild": "pnpm test",
@@ -40,19 +43,19 @@
 		"test:watch": "vitest"
 	},
 	"devDependencies": {
-		"@laynezh/vite-plugin-lib-assets": "2.2.0",
 		"html-validate": "catalog:",
-		"sass": "1.105.1",
-		"vite": "8.3.4",
-		"vite-plugin-banner": "0.8.1",
 		"vitest": "5.0.5"
 	},
 	"dependencies": {
 		"@fontsource-variable/crimson-pro": "5.3.0",
 		"@fontsource-variable/roboto-flex": "5.3.0",
 		"@fontsource-variable/roboto-mono": "5.3.0",
+		"@laynezh/vite-plugin-lib-assets": "2.2.0",
 		"@oddbird/css-anchor-positioning": "0.10.2",
 		"@rivet-iu/tokens": "workspace:*",
+		"sass": "1.105.1",
+		"vite": "8.3.4",
+		"vite-plugin-banner": "0.8.1",
 		"wicked-elements": "3.1.2"
 	}
 }

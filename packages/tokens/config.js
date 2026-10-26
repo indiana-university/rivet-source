@@ -2,7 +2,13 @@ import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import pngToIco from "png-to-ico";
 import sharp from "sharp";
-import { formats, transformGroups, transforms } from "style-dictionary/enums";
+import {
+	formats,
+	transformGroups,
+	transformTypes,
+	transforms,
+} from "style-dictionary/enums";
+import { optimize } from "svgo";
 
 const PREFIX = "rvt";
 
@@ -29,6 +35,66 @@ function isSticker(token) {
 	return token.attributes.category === "sticker";
 }
 
+// Return only tokens with "path-fill" or "path-stroke"
+function isStickerPath(token) {
+	return (
+		isSticker(token) &&
+		(token.attributes.item === "path-fill" ||
+			token.attributes.item === "path-stroke")
+	);
+}
+
+// Returns true if this token is one of the selected stickers
+function isSelectedSticker(token, stickers) {
+	// Exit if token is not a sticker
+	if (!isSticker(token)) return false;
+
+	// If no "stickers" list is found in Rivet config, include every sticker
+	if (stickers === null) return true;
+	return stickers.includes(token.attributes.type);
+}
+
+// Optimize SVG "d" (path) data using SVGO
+function optimizeSvgPath(d) {
+	// Get unoptimized path data
+	let optimized = d;
+
+	// Wrap path data with dummy <svg> syntax so SVGO can parse it
+	const wrappedSvg = `<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`;
+
+	// Run SVGO's "optimize" utility
+	optimize(wrappedSvg, {
+		// These plugins are run sequentially
+		plugins: [
+			// Run the SVGO "convertPathData" plugin with params to optimize the path data
+			// floatPrecision: 2 is a step below the default "3" value, but should be imperceptible to the human eye
+			{
+				name: "convertPathData",
+				params: {
+					floatPrecision: 2,
+					transformPrecision: 5,
+				},
+			},
+
+			// This custom plugin hooks into SVGO's traversal and gets the (now optimized) "d" from the <path> element
+			{
+				name: "getOptimizedD",
+				fn: () => ({
+					element: {
+						enter: (pathElement) => {
+							if (pathElement.name === "path") {
+								optimized = pathElement.attributes.d;
+							}
+						},
+					},
+				}),
+			},
+		],
+	});
+	return optimized;
+}
+
+// Return the <rvt-icon> CSS rule from token name
 function formatIconComponent(name) {
 	return `${PREFIX}-icon[name="${name}"] {
 	--name: var(--${PREFIX}-icon-${name});
@@ -36,6 +102,7 @@ function formatIconComponent(name) {
 `;
 }
 
+// Generate the <rvt-sticker> CSS rule from token name
 function formatStickerComponent(name) {
 	return `${PREFIX}-sticker[name="${name}"] {
 	--path-fill: var(--${PREFIX}-sticker-${name}-path-fill);
@@ -154,191 +221,212 @@ async function removeGenerated(files) {
 	await Promise.all(files.map((file) => rm(file, { force: true })));
 }
 
-export default {
-	source: ["tokens/**/*.json"],
-	expand: {
-		include: ["graphic", "sticker"],
-		typesMap: {
-			graphic: {
-				"container-height": "dimension",
-				"container-width": "dimension",
-				height: "dimension",
-				path: "content",
-				width: "dimension",
-			},
-			sticker: {
-				"path-fill": "content",
-				"path-stroke": "content",
+export function createConfig({ stickers = null } = {}) {
+	return {
+		source: ["tokens/**/*.json"],
+		expand: {
+			include: ["graphic", "sticker"],
+			typesMap: {
+				graphic: {
+					"container-height": "dimension",
+					"container-width": "dimension",
+					height: "dimension",
+					path: "content",
+					width: "dimension",
+				},
+				sticker: {
+					"path-fill": "content",
+					"path-stroke": "content",
+				},
 			},
 		},
-	},
-	hooks: {
-		actions: {
-			"graphic/svg": {
-				do: async (dictionary) => {
-					await mkdir(GRAPHIC_PATH, { recursive: true });
+		hooks: {
+			actions: {
+				"graphic/svg": {
+					do: async (dictionary) => {
+						await mkdir(GRAPHIC_PATH, { recursive: true });
 
-					for (const source of buildGraphicSources(dictionary)) {
-						const file = join(GRAPHIC_PATH, `${source.name}.svg`);
+						for (const source of buildGraphicSources(dictionary)) {
+							const file = join(GRAPHIC_PATH, `${source.name}.svg`);
 
-						await writeFile(file, source.svg);
-						logGenerated(file);
-					}
-				},
-				undo: async (dictionary) =>
-					removeGenerated(
-						renderableGraphics(dictionary).map(([name]) =>
-							join(GRAPHIC_PATH, `${name}.svg`),
-						),
-					),
-			},
-			"graphic/png": {
-				do: async (dictionary) => {
-					await mkdir(GRAPHIC_PATH, { recursive: true });
-
-					for (const source of buildGraphicSources(dictionary)) {
-						for (const scale of GRAPHIC_SCALES) {
-							const suffix = scale === 1 ? "" : `-${scale}x`;
-							const file = join(GRAPHIC_PATH, `${source.name}${suffix}.png`);
-
-							await rasterizeGraphic(source, scale).toFile(file);
+							await writeFile(file, source.svg);
 							logGenerated(file);
 						}
-					}
+					},
+					undo: async (dictionary) =>
+						removeGenerated(
+							renderableGraphics(dictionary).map(([name]) =>
+								join(GRAPHIC_PATH, `${name}.svg`),
+							),
+						),
 				},
-				undo: async (dictionary) =>
-					removeGenerated(
-						renderableGraphics(dictionary).flatMap(([name]) =>
-							GRAPHIC_SCALES.map((scale) =>
-								join(
-									GRAPHIC_PATH,
-									`${name}${scale === 1 ? "" : `-${scale}x`}.png`,
+				"graphic/png": {
+					do: async (dictionary) => {
+						await mkdir(GRAPHIC_PATH, { recursive: true });
+
+						for (const source of buildGraphicSources(dictionary)) {
+							for (const scale of GRAPHIC_SCALES) {
+								const suffix = scale === 1 ? "" : `-${scale}x`;
+								const file = join(GRAPHIC_PATH, `${source.name}${suffix}.png`);
+
+								await rasterizeGraphic(source, scale).toFile(file);
+								logGenerated(file);
+							}
+						}
+					},
+					undo: async (dictionary) =>
+						removeGenerated(
+							renderableGraphics(dictionary).flatMap(([name]) =>
+								GRAPHIC_SCALES.map((scale) =>
+									join(
+										GRAPHIC_PATH,
+										`${name}${scale === 1 ? "" : `-${scale}x`}.png`,
+									),
 								),
 							),
 						),
-					),
-			},
-			"graphic/ico": {
-				do: async (dictionary) => {
-					const sources = buildGraphicSources(dictionary);
-					const file = join(GRAPHIC_PATH, "favicon.ico");
+				},
+				"graphic/ico": {
+					do: async (dictionary) => {
+						const sources = buildGraphicSources(dictionary);
+						const file = join(GRAPHIC_PATH, "favicon.ico");
 
-					const pngs = await Promise.all(
-						ICO_SIZES.map((size) => {
-							const source = sources.find(
-								(candidate) => candidate.name === `favicon-${size}`,
-							);
-
-							if (!source) {
-								throw new Error(
-									`Expected graphic.favicon-${size} to exist for favicon.ico.`,
+						const pngs = await Promise.all(
+							ICO_SIZES.map((size) => {
+								const source = sources.find(
+									(candidate) => candidate.name === `favicon-${size}`,
 								);
-							}
 
-							return rasterizeGraphic(source, 1).toBuffer();
-						}),
-					);
+								if (!source) {
+									throw new Error(
+										`Expected graphic.favicon-${size} to exist for favicon.ico.`,
+									);
+								}
 
-					await mkdir(GRAPHIC_PATH, { recursive: true });
-					await writeFile(file, await pngToIco(pngs));
-					logGenerated(file);
+								return rasterizeGraphic(source, 1).toBuffer();
+							}),
+						);
+
+						await mkdir(GRAPHIC_PATH, { recursive: true });
+						await writeFile(file, await pngToIco(pngs));
+						logGenerated(file);
+					},
+					undo: async () =>
+						removeGenerated([join(GRAPHIC_PATH, "favicon.ico")]),
 				},
-				undo: async () => removeGenerated([join(GRAPHIC_PATH, "favicon.ico")]),
+			},
+			filters: {
+				core: (token) => {
+					if (isIcon(token)) {
+						return token.$core;
+					}
+					if (isSticker(token)) {
+						return false;
+					}
+					return true;
+				},
+				"core-icon": (token) => isIcon(token) && token.$core,
+				"extra-icon": (token) => isIcon(token) && !token.$core,
+				sticker: (token) => isSelectedSticker(token, stickers),
+			},
+			transforms: {
+				"content/svg-path": {
+					type: transformTypes.value,
+					filter: isStickerPath,
+					transform: (token) => optimizeSvgPath(token.$value),
+				},
+			},
+			formats: {
+				"css/icons": ({ dictionary }) =>
+					dictionary.allTokens
+						.map((token) => token.attributes.type)
+						.map(formatIconComponent)
+						.join("\n"),
+				"css/stickers": ({ dictionary }) =>
+					dictionary.allTokens
+						.filter((token) => token.attributes.item === "path-stroke")
+						.map((token) => token.attributes.type)
+						.map(formatStickerComponent)
+						.join("\n"),
 			},
 		},
-		filters: {
-			core: (token) => {
-				if (isIcon(token)) {
-					return token.$core;
-				}
-				if (isSticker(token)) {
-					return false;
-				}
-				return true;
+		platforms: {
+			scss: {
+				transformGroup: transformGroups.scss,
+				files: [
+					{
+						destination: "tmp/core-vars.scss",
+						format: formats.scssMapDeep,
+					},
+				],
+				transforms: [transforms.contentQuote, transforms.sizePxToRem],
 			},
-			"core-icon": (token) => isIcon(token) && token.$core,
-			"extra-icon": (token) => isIcon(token) && !token.$core,
-			sticker: (token) => isSticker(token),
+			css: {
+				transformGroup: transformGroups.css,
+				prefix: PREFIX,
+				files: [
+					{
+						destination: "tmp/core-vars.css",
+						filter: "core",
+						format: formats.cssVariables,
+					},
+					{
+						destination: "tmp/core-icon.css",
+						filter: "core-icon",
+						format: "css/icons",
+					},
+					{
+						destination: "tmp/icon-vars.css",
+						filter: "extra-icon",
+						format: formats.cssVariables,
+					},
+					{
+						destination: "tmp/icon.css",
+						filter: "extra-icon",
+						format: "css/icons",
+					},
+					{
+						destination: "tmp/sticker-vars.css",
+						filter: "sticker",
+						format: formats.cssVariables,
+					},
+					{
+						destination: "tmp/sticker.css",
+						filter: "sticker",
+						format: "css/stickers",
+					},
+				],
+				transforms: [
+					"content/svg-path",
+					transforms.contentQuote,
+					transforms.sizePxToRem,
+				],
+			},
+			// Raw values only: the css/scss transforms quote `path` and convert
+			// dimensions to rem, both of which corrupt SVG geometry.
+			graphic: {
+				actions: ["graphic/svg", "graphic/png", "graphic/ico"],
+				files: [],
+				transforms: [],
+			},
+			json: {
+				transformGroup: transformGroups.json,
+				prefix: PREFIX,
+				files: [
+					{
+						destination: "dist/tokens.json",
+						format: formats.jsonNested,
+					},
+				],
+				transforms: [transforms.nameKebab],
+			},
 		},
-		formats: {
-			"css/icons": ({ dictionary }) =>
-				dictionary.allTokens
-					.map((token) => token.attributes.type)
-					.map(formatIconComponent)
-					.join("\n"),
-			"css/stickers": ({ dictionary }) =>
-				dictionary.allTokens
-					.filter((token) => token.attributes.item === "path-stroke")
-					.map((token) => token.attributes.type)
-					.map(formatStickerComponent)
-					.join("\n"),
-		},
-	},
-	platforms: {
-		scss: {
-			transformGroup: transformGroups.scss,
-			files: [
-				{
-					destination: "tmp/core-vars.scss",
-					format: formats.scssMapDeep,
-				},
-			],
-			transforms: [transforms.contentQuote, transforms.sizePxToRem],
-		},
-		css: {
-			transformGroup: transformGroups.css,
-			prefix: PREFIX,
-			files: [
-				{
-					destination: "tmp/core-vars.css",
-					filter: "core",
-					format: formats.cssVariables,
-				},
-				{
-					destination: "tmp/core-icon.css",
-					filter: "core-icon",
-					format: "css/icons",
-				},
-				{
-					destination: "tmp/icon-vars.css",
-					filter: "extra-icon",
-					format: formats.cssVariables,
-				},
-				{
-					destination: "tmp/icon.css",
-					filter: "extra-icon",
-					format: "css/icons",
-				},
-				{
-					destination: "tmp/sticker-vars.css",
-					filter: "sticker",
-					format: formats.cssVariables,
-				},
-				{
-					destination: "tmp/sticker.css",
-					filter: "sticker",
-					format: "css/stickers",
-				},
-			],
-			transforms: [transforms.contentQuote, transforms.sizePxToRem],
-		},
-		// Raw values only: the css/scss transforms quote `path` and convert
-		// dimensions to rem, both of which corrupt SVG geometry.
-		graphic: {
-			actions: ["graphic/svg", "graphic/png", "graphic/ico"],
-			files: [],
-			transforms: [],
-		},
-		json: {
-			transformGroup: transformGroups.json,
-			prefix: PREFIX,
-			files: [
-				{
-					destination: "dist/tokens.json",
-					format: formats.jsonNested,
-				},
-			],
-			transforms: [transforms.nameKebab],
-		},
-	},
-};
+	};
+}
+
+// Used by `style-dictionary build` (pnpm build)
+export default createConfig({
+	stickers: process.env.RIVET_STICKERS
+		? JSON.parse(process.env.RIVET_STICKERS)
+		: null,
+});
