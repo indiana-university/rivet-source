@@ -179,8 +179,19 @@ async function findPublished(packages) {
 // - Publish
 // - Restore original package version
 function publishTestVersions(packages, label) {
+	const date = new Date(Date.now());
+
+	const dateOptions = {
+		year: date.getFullYear(),
+		month: String(date.getMonth() + 1).padStart(2, "0"),
+		day: String(date.getDate()).padStart(2, "0"),
+		hours: String(date.getHours()).padStart(2, "0"),
+		minutes: String(date.getMinutes()).padStart(2, "0"),
+		seconds: String(date.getSeconds()).padStart(2, "0"),
+	};
+
 	// Unique test version per run so pnpm never reuses a cached copy
-	const suffix = `${label}.${Date.now()}`;
+	const suffix = `${label}-${dateOptions.year}${dateOptions.month}${dateOptions.day}-${dateOptions.hours}${dateOptions.minutes}${dateOptions.seconds}`;
 
 	// Files changed so far, so "finally" restores only what was changed
 	const originals = [];
