@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from "#components/breadcrumbs/breadcrumbs-demo.astro";
 import Callout from "#components/callout/callout-demo.astro";
 import ContactInfo from "#components/contact-info/contact-info-demo.astro";
 import Header from "#components/header/header-crimson-demo.astro";
@@ -14,23 +15,7 @@ export const title = "Card grid - Category";
 	</div>
 	<div class="rvt-section rvt-theme-light [ rvt-p-top-sm ]">
 		<div class="rvt-container">
-			<nav aria-label="Breadcrumbs">
-				<ol class="rvt-breadcrumbs">
-					<li>
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Visited page</a>
-					</li>
-					<li>
-						<a href="#">Visited page</a>
-					</li>
-					<li>
-						<a href="#">Visited page</a>
-					</li>
-					<li aria-current="page">Current page</li>
-				</ol>
-			</nav>
+			<Breadcrumbs />
 		</div>
 	</div>
 	<div class="rvt-section rvt-theme-light">

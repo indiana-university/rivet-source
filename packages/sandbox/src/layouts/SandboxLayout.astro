@@ -26,19 +26,21 @@ const breadcrumbs = removeEnd(Astro.url.pathname, "/")
 		</a>
 		{breadcrumbs.length > 1 && (
 			<nav aria-label="Sandbox breadcrumbs">
-				<ol class="rvt-breadcrumbs">
-					{breadcrumbs.map((item: any) => (
-						<li aria-current={item.current}>
-							{!item.last && (
-								<a href={item.url}>
-									{item.first && <rvt-sr-only>{item.label}</rvt-sr-only>}
-									{!item.first && <span>{item.label}</span>}
-								</a>
-							)}
-							{item.last && item.label}
-						</li>
-					))}
-				</ol>
+				<rvt-breadcrumbs>
+					<ol>
+						{breadcrumbs.map((item: any) => (
+							<li aria-current={item.current}>
+								{!item.last && (
+									<a href={item.url}>
+										{item.first && <rvt-sr-only>{item.label}</rvt-sr-only>}
+										{!item.first && <span>{item.label}</span>}
+									</a>
+								)}
+								{item.last && item.label}
+							</li>
+						))}
+					</ol>
+				</rvt-breadcrumbs>
 			</nav>
 		)}
 	</header>

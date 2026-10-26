@@ -3,6 +3,13 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+export const deprecatedClasses = [
+	{
+		class: "rvt-breadcrumbs",
+		replacement: "<rvt-breadcrumbs>",
+	},
+];
+
 export const elements = {
 	"rvt-breadcrumbs": {
 		flow: true,

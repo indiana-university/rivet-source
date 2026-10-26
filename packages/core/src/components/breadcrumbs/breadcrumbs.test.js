@@ -6,6 +6,10 @@
 import { expect, test } from "vitest";
 import "html-validate/vitest";
 
+test("deprecated classes", async () => {
+	await expect(`<ol class="rvt-breadcrumbs"></ol>`).toBeInvalid();
+});
+
 test("element", async () => {
 	await expect(`
 		<nav aria-label="Breadcrumbs">
