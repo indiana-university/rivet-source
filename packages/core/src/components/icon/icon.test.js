@@ -19,8 +19,8 @@ test("flow", async () => {
 });
 
 test("permitted content", async () => {
-	await expect(Icon(`<span class="rvt-sr-only">Phrasing</span>`)).toBeValid();
-	await expect(Icon(`<div class="rvt-sr-only">Flow</div>`)).toBeInvalid();
+	await expect(Icon(`<span></span>`)).toBeValid();
+	await expect(Icon(`<div></div>`)).toBeInvalid();
 });
 
 test("phrasing", async () => {

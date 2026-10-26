@@ -17,10 +17,18 @@ export const title = "Card grid - News";
 		<div class="rvt-container">
 			<nav aria-label="Breadcrumbs">
 				<ol class="rvt-breadcrumbs">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
 					<li aria-current="page">Current page</li>
 				</ol>
 			</nav>
@@ -29,51 +37,49 @@ export const title = "Card grid - News";
 	<div class="rvt-section rvt-theme-light">
 		<div class="rvt-container">
 			<!--
-        NOT using the "collapsed" modifier for the grid here.
-        Not using it was part of the design specs for regular
-        non-"Category" card grid items like people, etc.
-      -->
+				NOT using the "collapsed" modifier for the grid here.
+				Not using it was part of the design specs for regular
+				non-"Category" card grid items like people, etc.
+			-->
 			<ul class="rvt-card-grid">
-				{
-					[...Array(8).keys()].map((i) => (
-						<li>
-							<div class="rvt-card rvt-card--news">
-								<div class="rvt-card__image rvt-p-top-lg rvt-p-lr-lg">
-									<img
-										alt="Smiling students sitting outside on a bench"
-										src={`https://picsum.photos/id/${i * 3}/800/450`}
-									/>
-								</div>
-								<div class="rvt-card__body">
-									<div class="rvt-card__eyebrow">Campus or category</div>
-									<h2 class="rvt-card__title">
-										<a href="#">Title should not exceed 32 characters</a>
-									</h2>
-									<div class="rvt-card__meta">
-										<time datetime="">October 1, 2025</time>
-										<ul class="rvt-list-reset rvt-flex rvt-wrap rvt-gap-sm rvt-m-top-sm">
-											<li>
-												<span class="rvt-badge rvt-badge--secondary">
-													Tag Lorem 1
-												</span>
-											</li>
-											<li>
-												<span class="rvt-badge rvt-badge--secondary">
-													Tag Lorem 1
-												</span>
-											</li>
-											<li>
-												<span class="rvt-badge rvt-badge--secondary">
-													Tag Lorem 1
-												</span>
-											</li>
-										</ul>
-									</div>
+				{[...Array(8).keys()].map((i) => (
+					<li>
+						<div class="rvt-card rvt-card--news">
+							<div class="rvt-card__image rvt-p-top-lg rvt-p-lr-lg">
+								<img
+									alt="Smiling students sitting outside on a bench"
+									src={`https://picsum.photos/id/${i * 3}/800/450`}
+								/>
+							</div>
+							<div class="rvt-card__body">
+								<rvt-eyebrow>Campus or category</rvt-eyebrow>
+								<h2 class="rvt-card__title">
+									<a href="#">Title should not exceed 32 characters</a>
+								</h2>
+								<div class="rvt-card__meta">
+									<time datetime="">October 1, 2025</time>
+									<ul class="rvt-list-reset rvt-flex rvt-wrap rvt-gap-sm rvt-m-top-sm">
+										<li>
+											<span class="rvt-badge rvt-badge--secondary">
+												Tag Lorem 1
+											</span>
+										</li>
+										<li>
+											<span class="rvt-badge rvt-badge--secondary">
+												Tag Lorem 1
+											</span>
+										</li>
+										<li>
+											<span class="rvt-badge rvt-badge--secondary">
+												Tag Lorem 1
+											</span>
+										</li>
+									</ul>
 								</div>
 							</div>
-						</li>
-					))
-				}
+						</div>
+					</li>
+				))}
 			</ul>
 			<div class="rvt-flex rvt-justify-center rvt-m-top-xxl">
 				<Pagination />

@@ -7,62 +7,60 @@ const { menus = example } = Astro.props;
 ---
 
 <rvt-drilldown>
-	{
-		menus.map((menu: any) => (
-			<div
-				data-rvt-drilldown-menu={menu.id}
-				data-rvt-drilldown-parent={menu.parent?.id}
-			>
-				<header aria-label={`${menu.label} (${Astro.props.label})`}>
-					{menu.parent && (
-						<div class="rvt-button-group">
-							{menu.depth > 1 && (
-								<button
-									class="rvt-button rvt-button--medium"
-									data-rvt-drilldown-open="main"
-									type="button"
-								>
-									<rvt-icon name="chevrons-left" />
-									Main
-								</button>
-							)}
+	{menus.map((menu: any) => (
+		<div
+			data-rvt-drilldown-menu={menu.id}
+			data-rvt-drilldown-parent={menu.parent?.id}
+		>
+			<header aria-label={`${menu.label} (${Astro.props.label})`}>
+				{menu.parent && (
+					<div class="rvt-button-group">
+						{menu.depth > 1 && (
 							<button
 								class="rvt-button rvt-button--medium"
-								data-rvt-drilldown-open="parent"
+								data-rvt-drilldown-open="main"
 								type="button"
 							>
-								<rvt-icon name="chevron-left" />
-								Back
+								<rvt-icon name="chevrons-left" />
+								Main
 							</button>
-						</div>
-					)}
-					<h2>
-						<a href={menu.url}>{menu.label}</a>
-					</h2>
-				</header>
-				<ul>
-					{menu.items.map((item: any) => (
-						<li data-rvt-drilldown-child={item.id}>
-							<a
-								aria-current={item.current ? "page" : null}
-								href={item.url || "#"}
+						)}
+						<button
+							class="rvt-button rvt-button--medium"
+							data-rvt-drilldown-open="parent"
+							type="button"
+						>
+							<rvt-icon name="chevron-left" />
+							Back
+						</button>
+					</div>
+				)}
+				<h2>
+					<a href={menu.url}>{menu.label}</a>
+				</h2>
+			</header>
+			<ul>
+				{menu.items.map((item: any) => (
+					<li data-rvt-drilldown-child={item.id}>
+						<a
+							aria-current={item.current ? "page" : null}
+							href={item.url || "#"}
+						>
+							{item.label}
+						</a>
+						{item.hasChildren && (
+							<button
+								class="rvt-button rvt-button--medium rvt-button--icon-only"
+								data-rvt-drilldown-open="child"
+								type="button"
 							>
-								{item.label}
-							</a>
-							{item.hasChildren && (
-								<button
-									class="rvt-button rvt-button--medium rvt-button--icon-only"
-									data-rvt-drilldown-open="child"
-									type="button"
-								>
-									<span class="rvt-sr-only">{`${item.label} menu`}</span>
-									<rvt-icon name="chevron-right" />
-								</button>
-							)}
-						</li>
-					))}
-				</ul>
-			</div>
-		))
-	}
+								<rvt-sr-only>{`${item.label} menu`}</rvt-sr-only>
+								<rvt-icon name="chevron-right" />
+							</button>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	))}
 </rvt-drilldown>

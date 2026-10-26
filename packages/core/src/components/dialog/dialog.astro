@@ -25,7 +25,9 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		aria-label={`Dialog (${Astro.props.label})`}
 		class="rvt-dialog__header"
 	>
-		<h1 class="rvt-dialog__title" id={dialogTitleId}>Dialog title</h1>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>
+			Dialog title
+		</h1>
 	</header>
 	<div class="rvt-dialog__body">
 		<p id={dialogDescriptionId}>
@@ -52,7 +54,7 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		data-rvt-dialog-close={dialogId}
 		type="button"
 	>
-		<span class="rvt-sr-only">Close</span>
+		<rvt-sr-only>Close</rvt-sr-only>
 		<svg
 			aria-hidden="true"
 			height="16"
@@ -62,7 +64,8 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		>
 			<path
 				d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
-				fill="currentColor"></path>
+				fill="currentColor"
+			></path>
 		</svg>
 	</button>
 </div>

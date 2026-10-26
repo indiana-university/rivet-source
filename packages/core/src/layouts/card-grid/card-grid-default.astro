@@ -16,10 +16,18 @@ export const title = "Card grid - Category";
 		<div class="rvt-container">
 			<nav aria-label="Breadcrumbs">
 				<ol class="rvt-breadcrumbs">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
-					<li><a href="#">Visited page</a></li>
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
+					<li>
+						<a href="#">Visited page</a>
+					</li>
 					<li aria-current="page">Current page</li>
 				</ol>
 			</nav>
@@ -39,31 +47,29 @@ export const title = "Card grid - Category";
 		</div>
 		<div class="rvt-container">
 			<ul class="rvt-card-grid">
-				{
-					[1, 2, 3, 4, 5, 6].map((i) => (
-						<li>
-							<div class="rvt-card rvt-card--feature">
-								<div class="rvt-card__image">
-									<img
-										alt="Smiling students sitting outside on a bench"
-										src={`https://picsum.photos/id/${i * 3}/800/450`}
-									/>
-								</div>
-								<div class="rvt-card__body">
-									<div class="rvt-card__eyebrow">Campus or category</div>
-									<h2 class="rvt-card__title">
-										<a href="#">This card title should be concise</a>
-									</h2>
-									<div class="rvt-card__content">
-										<p>
-											Minus ducimus sint amet similique, saepe aut natus fuga.
-										</p>
-									</div>
+				{[1, 2, 3, 4, 5, 6].map((i) => (
+					<li>
+						<div class="rvt-card rvt-card--feature">
+							<div class="rvt-card__image">
+								<img
+									alt="Smiling students sitting outside on a bench"
+									src={`https://picsum.photos/id/${i * 3}/800/450`}
+								/>
+							</div>
+							<div class="rvt-card__body">
+								<rvt-eyebrow>Campus or category</rvt-eyebrow>
+								<h2 class="rvt-card__title">
+									<a href="#">This card title should be concise</a>
+								</h2>
+								<div class="rvt-card__content">
+									<p>
+										Minus ducimus sint amet similique, saepe aut natus fuga.
+									</p>
 								</div>
 							</div>
-						</li>
-					))
-				}
+						</div>
+					</li>
+				))}
 			</ul>
 		</div>
 	</div>
@@ -82,28 +88,26 @@ export const title = "Card grid - Category";
 		</div>
 		<div class="rvt-container">
 			<ul class="rvt-card-grid">
-				{
-					"branch,book,camera,calendar,form-check".split(",").map((sticker) => (
-						<li>
-							<div class="rvt-card rvt-card--feature">
-								<div class="rvt-card__sticker">
-									<rvt-sticker name={sticker} />
-								</div>
-								<div class="rvt-card__body">
-									<div class="rvt-card__eyebrow">Campus or category</div>
-									<h2 class="rvt-card__title">
-										<a href="#">This card title should be concise</a>
-									</h2>
-									<div class="rvt-card__content">
-										<p>
-											Minus ducimus sint amet similique, saepe aut natus fuga.
-										</p>
-									</div>
+				{"branch,book,camera,calendar,form-check".split(",").map((sticker) => (
+					<li>
+						<div class="rvt-card rvt-card--feature">
+							<div class="rvt-card__sticker">
+								<rvt-sticker name={sticker} />
+							</div>
+							<div class="rvt-card__body">
+								<rvt-eyebrow>Campus or category</rvt-eyebrow>
+								<h2 class="rvt-card__title">
+									<a href="#">This card title should be concise</a>
+								</h2>
+								<div class="rvt-card__content">
+									<p>
+										Minus ducimus sint amet similique, saepe aut natus fuga.
+									</p>
 								</div>
 							</div>
-						</li>
-					))
-				}
+						</div>
+					</li>
+				))}
 			</ul>
 		</div>
 	</div>

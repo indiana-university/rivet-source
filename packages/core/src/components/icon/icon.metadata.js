@@ -3,9 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import { defineMetadata } from "html-validate";
-
-export default defineMetadata({
+export const elements = {
 	"rvt-icon": {
 		attributes: {
 			name: {
@@ -16,4 +14,4 @@ export default defineMetadata({
 		permittedContent: ["@phrasing"],
 		phrasing: true,
 	},
-});
+};

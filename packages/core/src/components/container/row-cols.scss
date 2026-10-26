@@ -125,9 +125,9 @@ $gutter: math.div($spacing-md, 2);
 
 	[class^="rvt-cols"] {
 		/**
-     * This keeps the row from collapsing when cols inside are too
-     * big for their parent .rvt-row__cols.
-     */
+		* This keeps the row from collapsing when cols inside are too
+		* big for their parent .rvt-row__cols.
+		*/
 		min-width: 0;
 		display: block;
 	}

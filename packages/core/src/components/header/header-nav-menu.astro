@@ -106,33 +106,31 @@ function toSlug(str: string) {
 	data-rvt-priority-nav
 >
 	<ul class="rvt-header-menu__list" data-rvt-priority-nav-links>
-		{
-			links.map((link) => (
-				<li
-					class="rvt-header-menu__item"
-					data-rvt-dropdown-open-on-hover={link.hasChildren}
-				>
-					<a href={link.url} set:html={link.label} />
-					{link.hasChildren && (
-						<div class="rvt-dropdown" data-rvt-dropdown>
-							<button data-rvt-dropdown-toggle type="button">
-								<rvt-icon name="chevron-down" />
-								<span class="rvt-sr-only">{link.label}</span>
-							</button>
-							<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden>
-								<ul>
-									{link.children.map((child) => (
-										<li>
-											<a href={child.url} set:html={child.label} />
-										</li>
-									))}
-								</ul>
-							</div>
+		{links.map((link) => (
+			<li
+				class="rvt-header-menu__item"
+				data-rvt-dropdown-open-on-hover={link.hasChildren}
+			>
+				<a href={link.url} set:html={link.label} />
+				{link.hasChildren && (
+					<div class="rvt-dropdown" data-rvt-dropdown>
+						<button data-rvt-dropdown-toggle type="button">
+							<rvt-icon name="chevron-down" />
+							<rvt-sr-only>{link.label}</rvt-sr-only>
+						</button>
+						<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden>
+							<ul>
+								{link.children.map((child) => (
+									<li>
+										<a href={child.url} set:html={child.label} />
+									</li>
+								))}
+							</ul>
 						</div>
-					)}
-				</li>
-			))
-		}
+					</div>
+				)}
+			</li>
+		))}
 	</ul>
 </nav>
 

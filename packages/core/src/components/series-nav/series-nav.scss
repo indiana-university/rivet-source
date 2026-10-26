@@ -35,14 +35,18 @@
 
 	&__label {
 		@include eyebrow;
-		align-items: center;
-		display: flex;
 		font: var(--rvt-font-14-mono);
-		gap: var(--rvt-spacing-xs);
 	}
 
-	&__previous &__label::before,
-	&__next &__label::after {
+	rvt-eyebrow,
+	&__label {
+		align-items: center;
+		display: flex;
+		gap: var(--rvt-size-4);
+	}
+
+	&__previous :is(rvt-eyebrow, &__label)::before,
+	&__next :is(rvt-eyebrow, &__label)::after {
 		background-color: currentColor;
 		content: "";
 		display: block;
@@ -50,11 +54,11 @@
 		width: var(--rvt-size-16);
 	}
 
-	&__previous &__label::before {
+	&__previous :is(rvt-eyebrow, &__label)::before {
 		clip-path: path(var(--rvt-icon-arrow-left));
 	}
 
-	&__next &__label::after {
+	&__next :is(rvt-eyebrow, &__label)::after {
 		clip-path: path(var(--rvt-icon-arrow-right));
 	}
 
