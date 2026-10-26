@@ -7,26 +7,43 @@
  * Publishes cli, core and tokens to a local Verdaccio registry for testing before release
  *
  * Usage:
- *	pnpm publish:local
- *	  Publishes the current package.json versions as they are
- *	  Use this afterbumping versions (e.g. with "pnpm changeset version") to test a real release
- *	  Versions already published in Verdaccio are skipped
- *	  If every outgoing package is already published, the script stops
- *
- *	pnpm publish:local [label] --random
- *	  Publishes throwaway test versions ("<version>-<label>.<version>-<label>-<yyyymmdd>-<hhmmss>") without bumping anything
- *	  The label is optional and defaults to the current branch name, or "test" if one isn't provided
+ *	pnpm publish:local [label]
+ *	  Publishes throwaway test versions ("<version>-<label>-<yyyymmdd>-<hhmmss>") without bumping anything
+ *	  The label is optional and defaults to the current branch name (without a "v#-" prefix), or "test"
  *	  Examples:
- *	    pnpm publish:local --random
- *	    pnpm publish:local sticker-optimization --random
+ *	    pnpm publish:local
+ *	    pnpm publish:local sticker-optimization
+ *
+ * Requires:
+ *	- Verdaccio running at http://localhost:4873
+ *	  Start it in a separate terminal and leave it running:
+ *	    pnpm dlx verdaccio
+ *
+ *	- A one-time Verdaccio login from the command line (not the web UI):
+ *	    pnpm login --registry http://localhost:4873 --scope @rivet-iu
+ *	  Any username, password and email work; the account only exists locally.
+ *
+ *	  The login does two things:
+ *	    1. Allows publishing to Verdaccio
+ *	    2. Makes pnpm install @rivet-iu/* packages from Verdaccio instead of npm
+ *
+ *	  Always include "--scope @rivet-iu". Without it, pnpm uses Verdaccio for every
+ *	  package on your machine, which breaks installs whenever Verdaccio isn't running.
+ *
+ *	  Check it worked:
+ *	    pnpm config get @rivet-iu:registry
+ *	 	  This should return: http://localhost:4873/
+ *
+ *	  When done testing:
+ *	    pnpm logout --registry http://localhost:4873
+ *
+ *
  *
  * Steps:
- *	1. Reads every package.json and stops if one includes a leftover test version
- *	2. Publishes to Verdaccio:
- *	   - Default: skips versions already in Verdaccio, then publishes the rest
- *	   - --random: adds "-<label>.-<label>-<yyyymmdd>-<hhmmss>" to each version, publishes, then
- *	     restores the original package.json files, even if publishing fails
- *	3. Prints the "pnpm dlx" command for the published CLI
+ *	1. Checks that Verdaccio is running
+ *	2. Reads every package.json and stops if one includes a leftover test version
+ *	3. Adds "-<label>-<yyyymmdd>-<hhmmss>" to each version, publishes, then restores the original package.json files, even if publishing fails
+ *	4. Prints the "pnpm dlx" command for the published CLI
  */
 
 import { execFileSync, execSync } from "node:child_process";
@@ -48,8 +65,8 @@ if (new URL(VERDACCIO_URL).protocol !== "http:") {
 
 const PACKAGES = ["cli", "core", "tokens"];
 
-// Regex to match versions created by this script which end in "-<label>-<label>-<yyyymmdd>-<hhmmss>"
-// Example: "3.0.0-alpha.11-sticker-optimization.1792437855778"
+// Regex to match versions created by this script which end in "-<label>-<yyyymmdd>-<hhmmss>"
+// Example: "3.0.0-alpha.12-sticker-optimization-20261026-142233"
 const TEST_VERSION = /-[0-9a-z-]+-\d{8}-\d{6}$/;
 
 /************************************************************
@@ -57,26 +74,13 @@ const TEST_VERSION = /-[0-9a-z-]+-\d{8}-\d{6}$/;
  ************************************************************/
 
 // Read the command-line arguments
-// Example: pnpm publish:local sticker-optimization --random
+// Example: pnpm publish:local sticker-optimization
 function readOptions() {
-	const { values, positionals } = parseArgs({
+	const { positionals } = parseArgs({
 		allowPositionals: true,
-		options: {
-			random: { type: "boolean", default: false },
-		},
 	});
 
-	// --random publishes throwaway test versions instead of the current package.json versions
-	const isRandom = values.random;
-
-	// A label only makes sense for random test versions
-	if (positionals[0] && !isRandom) {
-		throw new Error(
-			`A label only applies with --random (e.g. pnpm publish:local ${positionals[0]} --random)`,
-		);
-	}
-
-	// (Only used with --random flag) Label to distinguish test versions (examples: "sticker-optimization", "cli-updates", etc.)
+	// Optional label to distinguish test versions (examples: "sticker-optimization", "cli-updates", etc.)
 	// Must contain at least one letter, number or hyphen
 	// If no label is given, defaults to the current branch name (without a "v#-" prefix), or "test" if there isn't one
 	const label = (positionals[0] || getCurrentBranch() || "test")
@@ -92,7 +96,7 @@ function readOptions() {
 		throw new Error("Label must contain at least one letter, number or hyphen");
 	}
 
-	return { isRandom, label };
+	return { label };
 }
 
 // Current git branch without a leading version prefix
@@ -156,40 +160,6 @@ function publish() {
 	}
 }
 
-// Find package versions that are already in Verdaccio, since "pnpm publish -r" skips them silently
-async function findPublished(packages) {
-	const published = [];
-
-	for (const { name, pkg } of packages) {
-		let response;
-
-		try {
-			response = await fetch(`${VERDACCIO_URL}/@rivet-iu%2f${name}`);
-		} catch {
-			throw new Error(
-				`Couldn't reach Verdaccio at ${VERDACCIO_URL}. Is it running? (pnpm dlx verdaccio)`,
-			);
-		}
-
-		// 404 means this package has never been published to Verdaccio
-		if (response.status === 404) continue;
-
-		if (!response.ok) {
-			throw new Error(
-				`Verdaccio returned ${response.status} for @rivet-iu/${name}`,
-			);
-		}
-
-		const { versions = {} } = await response.json();
-
-		if (Object.hasOwn(versions, pkg.version)) {
-			published.push(`@rivet-iu/${name}@${pkg.version}`);
-		}
-	}
-
-	return published;
-}
-
 // Publish throwaway test versions:
 // - Change each package.json
 // - Publish
@@ -214,7 +184,7 @@ function publishTestVersions(packages, label) {
 
 	try {
 		console.log(
-			`\n${styleText("#990000", "=>")} Updating package versions to random version:`,
+			`\n${styleText("#990000", "=>")} Updating package versions to test versions:`,
 		);
 
 		for (const { name, file, originalContents, pkg } of packages) {
@@ -255,24 +225,15 @@ function publishTestVersions(packages, label) {
 	}
 }
 
-// Publish the current package.json versions as they are, skipping any already in Verdaccio
-async function publishCurrentVersions(packages) {
-	const published = await findPublished(packages);
-
-	// Nothing new to publish: stop instead of reporting a publish that didn't happen
-	if (published.length === packages.length) {
+// Stop early with a clear message if Verdaccio isn't running
+async function checkVerdaccio() {
+	try {
+		await fetch(`${VERDACCIO_URL}/-/ping`);
+	} catch {
 		throw new Error(
-			`Every version is already in Verdaccio:\n  ${published.join("\n  ")}\nBump a version, or use --random for throwaway test versions.`,
+			`Couldn't reach Verdaccio at ${VERDACCIO_URL}. Is it running? (pnpm dlx verdaccio)`,
 		);
 	}
-
-	if (published.length) {
-		console.log(
-			`\n${styleText("yellow", "Skipping (already in Verdaccio):")}\n  ${published.join("\n  ")}`,
-		);
-	}
-
-	publish();
 }
 
 // Print a heading and the version from each package.json
@@ -285,9 +246,7 @@ function logPackageVersions(packages, heading) {
 }
 
 // Print the command to run the published CLI
-// Examples:
-//   pnpm dlx @rivet-iu/cli@1.0.0-alpha.2 build
-//   pnpm dlx @rivet-iu/cli@1.0.0-alpha.1-sticker-optimization-<yyyymmdd>-<hhmmss> build (--random)
+// Example: pnpm dlx @rivet-iu/cli@1.0.0-alpha.1-sticker-optimization-20261026-142233 build
 function logRunCommand(packages) {
 	const cliVersion = packages.find(({ name }) => name === "cli").pkg.version;
 
@@ -300,7 +259,8 @@ function logRunCommand(packages) {
  * Main
  ************************************************************/
 
-const { isRandom, label } = readOptions();
+// Label from the command line, or the current branch name
+const { label } = readOptions();
 
 // On Ctrl+C, let the pnpm child process exit first so "finally" still restores files
 process.on("SIGINT", () => {});
@@ -309,19 +269,20 @@ console.log(
 	`\n${styleText("#990000", "=>")} Starting publish of local packages to Verdaccio\n`,
 );
 
+// Fail before any package.json is changed if Verdaccio isn't running
+await checkVerdaccio();
+
+// Read each package.json and stop if a previous run left a test version behind
 const packages = readPackages();
 
-logPackageVersions(
-	packages,
-	isRandom ? "Original package versions:" : "Package versions to publish:",
-);
+// Log package versions before publishing
+logPackageVersions(packages, "Original package versions:");
 
-if (isRandom) {
-	publishTestVersions(packages, label);
-} else {
-	await publishCurrentVersions(packages);
-}
+// Add test versions, publish, then restore the original package.json files (even if publishing fails)
+publishTestVersions(packages, label);
 
+// Only runs if publishing succeeded; a failed publish stops the script before this line
 console.log(`${styleText("#990000", "=>")} Publish complete!`);
 
+// Print the "pnpm dlx" command to try the versions just published
 logRunCommand(packages);
