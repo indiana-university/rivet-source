@@ -14,8 +14,8 @@
  *	  If every outgoing package is already published, the script stops
  *
  *	pnpm publish:local [label] --random
- *	  Publishes throwaway test versions ("<version>-<label>.<timestamp>") without bumping anything
- *	  The label is optional and defaults to "test"
+ *	  Publishes throwaway test versions ("<version>-<label>.<version>-<label>-<yyyymmdd>-<hhmmss>") without bumping anything
+ *	  The label is optional and defaults to the current branch name, or "test" if one isn't provided
  *	  Examples:
  *	    pnpm publish:local --random
  *	    pnpm publish:local sticker-optimization --random
@@ -24,12 +24,12 @@
  *	1. Reads every package.json and stops if one includes a leftover test version
  *	2. Publishes to Verdaccio:
  *	   - Default: skips versions already in Verdaccio, then publishes the rest
- *	   - --random: adds "-<label>.<timestamp>" to each version, publishes, then
+ *	   - --random: adds "-<label>.-<label>-<yyyymmdd>-<hhmmss>" to each version, publishes, then
  *	     restores the original package.json files, even if publishing fails
  *	3. Prints the "pnpm dlx" command for the published CLI
  */
 
-import { execFileSync } from "node:child_process";
+import { execFileSync, execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { parseArgs, styleText } from "node:util";
 
@@ -48,9 +48,9 @@ if (new URL(VERDACCIO_URL).protocol !== "http:") {
 
 const PACKAGES = ["cli", "core", "tokens"];
 
-// Regex to match versions created by this script which end in "-<label>.<13-digit timestamp>"
+// Regex to match versions created by this script which end in "-<label>-<label>-<yyyymmdd>-<hhmmss>"
 // Example: "3.0.0-alpha.11-sticker-optimization.1792437855778"
-const TEST_VERSION = /-[0-9a-z-]+\.\d{13}$/;
+const TEST_VERSION = /-[0-9a-z-]+-\d{8}-\d{6}$/;
 
 /************************************************************
  * Steps
@@ -78,8 +78,8 @@ function readOptions() {
 
 	// (Only used with --random flag) Label to distinguish test versions (examples: "sticker-optimization", "cli-updates", etc.)
 	// Must contain at least one letter, number or hyphen
-	// If a custom label isn't provided, value defaults to "test"
-	const label = (positionals[0] ?? "test")
+	// If no label is given, defaults to the current branch name (without a "v#-" prefix), or "test" if there isn't one
+	const label = (positionals[0] || getCurrentBranch() || "test")
 		.toLowerCase()
 		// Replace anything that isn't a letter, number or hyphen with "-"
 		.replace(/[^0-9a-z-]+/g, "-")
@@ -95,6 +95,22 @@ function readOptions() {
 	return { isRandom, label };
 }
 
+// Current git branch without a leading version prefix
+// Example: "v3-sticker-optimization" → "sticker-optimization"
+// Returns "" if there's no branch (e.g. detached HEAD) or git isn't available
+function getCurrentBranch() {
+	try {
+		return execSync("git branch --show-current", {
+			encoding: "utf-8",
+			stdio: ["ignore", "pipe", "ignore"],
+		})
+			.trim()
+			.replace(/^v\d+-/, "");
+	} catch {
+		return "";
+	}
+}
+
 // Read and check every package.json first, so nothing is changed if a check fails
 function readPackages() {
 	const packages = [];
@@ -108,7 +124,7 @@ function readPackages() {
 		// Stop if a previous interrupted run left a test version behind in a package.json file
 		if (TEST_VERSION.test(pkg.version)) {
 			throw new Error(
-				`${file} has a leftover test version (${pkg.version}). Remove the "-<label>.<timestamp>" ending from "version" and run again.`,
+				`${file} has a leftover test version (${pkg.version}). Remove the "-<label>-<yyyymmdd>-<hhmmss>" ending from "version" and run again.`,
 			);
 		}
 
@@ -179,9 +195,9 @@ async function findPublished(packages) {
 // - Publish
 // - Restore original package version
 function publishTestVersions(packages, label) {
-	const date = new Date(Date.now());
+	const date = new Date();
 
-	const dateOptions = {
+	const dateFragments = {
 		year: date.getFullYear(),
 		month: String(date.getMonth() + 1).padStart(2, "0"),
 		day: String(date.getDate()).padStart(2, "0"),
@@ -191,7 +207,7 @@ function publishTestVersions(packages, label) {
 	};
 
 	// Unique test version per run so pnpm never reuses a cached copy
-	const suffix = `${label}-${dateOptions.year}${dateOptions.month}${dateOptions.day}-${dateOptions.hours}${dateOptions.minutes}${dateOptions.seconds}`;
+	const suffix = `${label}-${dateFragments.year}${dateFragments.month}${dateFragments.day}-${dateFragments.hours}${dateFragments.minutes}${dateFragments.seconds}`;
 
 	// Files changed so far, so "finally" restores only what was changed
 	const originals = [];
@@ -271,7 +287,7 @@ function logPackageVersions(packages, heading) {
 // Print the command to run the published CLI
 // Examples:
 //   pnpm dlx @rivet-iu/cli@1.0.0-alpha.2 build
-//   pnpm dlx @rivet-iu/cli@1.0.0-alpha.1-sticker-optimization.<13-digit-timestamp> build (--random)
+//   pnpm dlx @rivet-iu/cli@1.0.0-alpha.1-sticker-optimization-<yyyymmdd>-<hhmmss> build (--random)
 function logRunCommand(packages) {
 	const cliVersion = packages.find(({ name }) => name === "cli").pkg.version;
 
