@@ -5,6 +5,7 @@
 
 @use "../../base/core.scss" as *;
 
+rvt-series-nav,
 .rvt-series-nav {
 	background-color: var(--rvt-color-theme-ui);
 	border: var(--rvt-border);
@@ -12,6 +13,7 @@
 	flex-wrap: wrap;
 	gap: var(--rvt-size-1);
 
+	a[rel],
 	:is(&__previous, &__next) {
 		background-color: var(--rvt-color-theme-background);
 		color: var(--rvt-color-theme-text);
@@ -19,8 +21,8 @@
 		flex-basis: var(--rvt-size-320);
 		flex-direction: column;
 		flex-grow: 1;
-		gap: var(--rvt-spacing-xs);
-		padding: var(--rvt-spacing-md);
+		gap: var(--rvt-size-8);
+		padding: var(--rvt-size-24);
 		text-decoration: none;
 
 		&:hover {
@@ -28,7 +30,7 @@
 			color: var(--rvt-color-theme-text);
 		}
 
-		&:hover .rvt-series-nav__item {
+		&:hover :is(.rvt-series-nav__item, span) {
 			text-decoration: underline;
 		}
 	}
@@ -45,23 +47,27 @@
 		gap: var(--rvt-size-4);
 	}
 
-	&__previous :is(rvt-eyebrow, &__label)::before,
-	&__next :is(rvt-eyebrow, &__label)::after {
+	:is(a[rel="prev"], &__previous) :is(rvt-eyebrow, &__label)::before,
+	:is(a[rel="next"], &__next) :is(rvt-eyebrow, &__label)::after {
 		background-color: currentColor;
+		clip-path: path(var(--_icon));
 		content: "";
 		display: block;
 		height: var(--rvt-size-16);
 		width: var(--rvt-size-16);
 	}
 
-	&__previous :is(rvt-eyebrow, &__label)::before {
-		clip-path: path(var(--rvt-icon-arrow-left));
+	a[rel="prev"],
+	&__previous {
+		--_icon: var(--rvt-icon-arrow-left);
 	}
 
-	&__next :is(rvt-eyebrow, &__label)::after {
-		clip-path: path(var(--rvt-icon-arrow-right));
+	a[rel="next"],
+	&__next {
+		--_icon: var(--rvt-icon-arrow-right);
 	}
 
+	span,
 	&__item {
 		display: block;
 		font: var(--rvt-font-20-bold);
