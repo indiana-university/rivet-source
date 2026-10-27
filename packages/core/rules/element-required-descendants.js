@@ -1,5 +1,9 @@
 import { Rule } from "html-validate";
 
+function pluralize(count, singular, plural = `${singular}s`) {
+	return count === 1 ? singular : plural;
+}
+
 function querySelectorAllWithLastChild(node, selector) {
 	const isLastChildRequired = selector.endsWith(":last-child");
 	const baseSelector = isLastChildRequired
@@ -34,7 +38,7 @@ export default class ElementRequiredDescendantsRule extends Rule {
 			const node = event.target;
 
 			for (const config of configs) {
-				const { element, query, pattern } = config;
+				const { element, query, pattern, max, message } = config;
 
 				if (!element || !query || !node.matches || !node.matches(element)) {
 					continue;
@@ -45,6 +49,15 @@ export default class ElementRequiredDescendantsRule extends Rule {
 
 				if (matchedSet.size === 0) {
 					continue;
+				}
+
+				const extraMessage = message ? `: ${message}` : "";
+
+				if (max !== undefined && matchedSet.size > max) {
+					this.report({
+						node,
+						message: `<${node.tagName}> can contain at most ${max} ${pluralize(max, "element")} matching "${query}" but found ${matchedSet.size}${extraMessage}`,
+					});
 				}
 
 				if (pattern) {
@@ -58,7 +71,7 @@ export default class ElementRequiredDescendantsRule extends Rule {
 					for (const invalidNode of invalidNodes) {
 						this.report({
 							node: invalidNode,
-							message: `Element matching "${query}" must match "${pattern}".`,
+							message: `Element matching "${query}" must match "${pattern}"${extraMessage}`,
 						});
 					}
 				}
