@@ -3,52 +3,42 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-@use "../../base/core.scss" as *;
-
-rvt-series-nav,
-.rvt-series-nav {
-	background-color: var(--rvt-color-theme-ui);
-	border: var(--rvt-border);
+rvt-series-nav {
+	border-block-end: var(--rvt-border);
+	border-inline-end: var(--rvt-border);
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--rvt-size-1);
 
-	a[rel],
-	:is(&__previous, &__next) {
-		background-color: var(--rvt-color-theme-background);
+	a {
+		border-block-start: var(--rvt-border);
+		border-inline-start: var(--rvt-border);
 		color: var(--rvt-color-theme-text);
 		display: flex;
 		flex-basis: var(--rvt-size-320);
 		flex-direction: column;
 		flex-grow: 1;
+		font: var(--rvt-font-20-bold);
 		gap: var(--rvt-size-8);
 		padding: var(--rvt-size-24);
 		text-decoration: none;
 
 		&:hover {
 			background-color: var(--rvt-color-theme-background-light);
-			color: var(--rvt-color-theme-text);
-		}
 
-		&:hover :is(.rvt-series-nav__item, span) {
-			text-decoration: underline;
+			span {
+				text-decoration: underline;
+			}
 		}
 	}
 
-	&__label {
-		@include eyebrow;
-		font: var(--rvt-font-14-mono);
-	}
-
-	rvt-eyebrow,
-	&__label {
+	rvt-eyebrow {
 		align-items: center;
 		display: flex;
 		gap: var(--rvt-size-4);
 	}
 
-	:is(a[rel="prev"], &__previous) :is(rvt-eyebrow, &__label)::before,
-	:is(a[rel="next"], &__next) :is(rvt-eyebrow, &__label)::after {
+	a[rel="prev"] rvt-eyebrow::before,
+	a[rel="next"] rvt-eyebrow::after {
 		background-color: currentColor;
 		clip-path: path(var(--_icon));
 		content: "";
@@ -57,18 +47,15 @@ rvt-series-nav,
 		width: var(--rvt-size-16);
 	}
 
-	a[rel="prev"],
-	&__previous {
+	a[rel="prev"] {
 		--_icon: var(--rvt-icon-arrow-left);
 	}
 
-	a[rel="next"],
-	&__next {
+	a[rel="next"] {
 		--_icon: var(--rvt-icon-arrow-right);
 	}
 
-	span,
-	&__item {
+	span {
 		display: block;
 		font: var(--rvt-font-20-bold);
 	}
