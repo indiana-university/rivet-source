@@ -36,7 +36,6 @@ rvt-eyebrow {
 		.rvt-hero__body > &,
 		.rvt-section-intro &,
 		rvt-series-nav &,
-		.rvt-series-nav &,
 		.rvt-text-essay &
 	):not([type]) {
 		letter-spacing: var(--rvt-letter-spacing-wide);
