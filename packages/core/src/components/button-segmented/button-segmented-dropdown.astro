@@ -3,32 +3,19 @@ export const title = "Segmented Button with Dropdown";
 ---
 
 <div aria-label="Dropdown group" class="rvt-button-segmented" role="group">
-	<button class="rvt-button" type="button">
-		<svg fill="currentColor" height="16" viewBox="0 0 16 16" width="16">
-			<path d="M2 1h8.414L14 4.586V15H2V1Zm2 2v10h8V7.5H7.5V3H4Zm5.5 0v2.5H12v-.086L9.586 3H9.5Z"></path>
-		</svg>
-		Meeting Agenda.pdf
-	</button>
-	<div class="rvt-dropdown" data-rvt-dropdown>
-		<button
-			class="rvt-button rvt-p-right-xs rvt-p-left-xs"
-			data-rvt-dropdown-toggle
-			type="button"
-		>
-			<rvt-sr-only>Toggle options menu</rvt-sr-only>
-			<svg
-				aria-hidden="true"
-				height="16"
-				viewBox="0 0 16 16"
-				width="16"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M8,12.46a2,2,0,0,1-1.52-.7L1.24,5.65a1,1,0,1,1,1.52-1.3L8,10.46l5.24-6.11a1,1,0,0,1,1.52,1.3L9.52,11.76A2,2,0,0,1,8,12.46Z"
-					fill="currentColor"
-				></path>
-			</svg>
+	<rvt-button>
+		<button type="button">
+			<rvt-icon name="file"></rvt-icon>
+			Meeting Agenda.pdf
 		</button>
+	</rvt-button>
+	<div class="rvt-dropdown rvt-p-left-xxs" data-rvt-dropdown>
+		<rvt-button>
+			<button data-rvt-dropdown-toggle type="button">
+				<rvt-icon name="chevron-down"></rvt-icon>
+				<rvt-sr-only>Toggle options menu</rvt-sr-only>
+			</button>
+		</rvt-button>
 		<div class="rvt-dropdown__menu" data-rvt-dropdown-menu hidden>
 			<button role="menuitemradio" type="button">
 				Preview
