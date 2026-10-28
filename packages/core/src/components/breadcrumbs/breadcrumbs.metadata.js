@@ -21,7 +21,9 @@ export const elements = {
 export const requiredDescendants = [
 	{
 		element: "rvt-breadcrumbs",
-		query: "[aria-current]",
-		pattern: `li[aria-current="page"]:last-child`,
+		required: [
+			{ query: `[aria-current]`, not: [`li[aria-current="page"]`], max: 0 },
+			{ query: `li[aria-current="page"]:last-child`, max: 1 },
+		],
 	},
 ];

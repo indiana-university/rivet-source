@@ -18,7 +18,7 @@ rvt-eyebrow {
 	}
 
 	&[size="large"],
-	:where(.rvt-series-nav &):not([size]) {
+	:where(rvt-series-nav &):not([size]) {
 		font: var(--rvt-font-14-mono);
 	}
 
@@ -35,7 +35,7 @@ rvt-eyebrow {
 		.rvt-callout &,
 		.rvt-hero__body > &,
 		.rvt-section-intro &,
-		.rvt-series-nav &,
+		rvt-series-nav &,
 		.rvt-text-essay &
 	):not([type]) {
 		letter-spacing: var(--rvt-letter-spacing-wide);

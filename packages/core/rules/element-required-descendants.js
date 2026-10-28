@@ -38,40 +38,42 @@ export default class ElementRequiredDescendantsRule extends Rule {
 			const node = event.target;
 
 			for (const config of configs) {
-				const { element, query, pattern, max, message } = config;
+				const { element, required } = config;
 
-				if (!element || !query || !node.matches || !node.matches(element)) {
+				if (!element || !node.matches || !node.matches(element)) {
 					continue;
 				}
 
-				const matchedElements = node.querySelectorAll(query);
-				const matchedSet = new Set(matchedElements);
-
-				if (matchedSet.size === 0) {
+				if (!required || !Array.isArray(required)) {
 					continue;
 				}
 
-				const extraMessage = message ? `: ${message}` : "";
+				for (const req of required) {
+					const { query, not, max, message } = req;
+					if (!query) continue;
 
-				if (max !== undefined && matchedSet.size > max) {
-					this.report({
-						node,
-						message: `<${node.tagName}> can contain at most ${max} ${pluralize(max, "element")} matching "${query}" but found ${matchedSet.size}${extraMessage}`,
-					});
-				}
+					const extraMessage = message ? `: ${message}` : "";
 
-				if (pattern) {
-					const requiredElements = querySelectorAllWithLastChild(node, pattern);
-					const requiredSet = new Set(requiredElements);
-					const invalidNodes =
-						typeof matchedSet.difference === "function"
-							? matchedSet.difference(requiredSet)
-							: new Set([...matchedSet].filter((el) => !requiredSet.has(el)));
+					let matchedElements = querySelectorAllWithLastChild(node, query);
 
-					for (const invalidNode of invalidNodes) {
+					if (not && Array.isArray(not)) {
+						const excludedNodes = new Set();
+						for (const notQuery of not) {
+							querySelectorAllWithLastChild(node, notQuery).forEach((el) =>
+								excludedNodes.add(el),
+							);
+						}
+						matchedElements = matchedElements.filter(
+							(el) => !excludedNodes.has(el),
+						);
+					}
+
+					const matchedSet = new Set(matchedElements);
+
+					if (max !== undefined && matchedSet.size > max) {
 						this.report({
-							node: invalidNode,
-							message: `Element matching "${query}" must match "${pattern}"${extraMessage}`,
+							node,
+							message: `<${node.tagName}> can contain at most ${max} ${pluralize(max, "element")} matching "${query}" but found ${matchedSet.size}${extraMessage}`,
 						});
 					}
 				}

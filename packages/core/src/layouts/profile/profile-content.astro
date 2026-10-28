@@ -99,21 +99,23 @@ import RelatedContent from "#layouts/details/related-content-demo.astro";
 
 <Accordion />
 
-<nav aria-label="Series" class="rvt-series-nav">
-	<a class="rvt-series-nav__previous" href="#">
-		<rvt-eyebrow>Previous</rvt-eyebrow>
-		<span class="rvt-series-nav__item">
-			This title should not exceed three lines and should have an ellipsis if it
-			does
-		</span>
-	</a>
-	<a class="rvt-series-nav__next" href="#">
-		<rvt-eyebrow>Previous</rvt-eyebrow>
-		<span class="rvt-series-nav__item">
-			This title should not exceed three lines and should have an ellipsis if it
-			does
-		</span>
-	</a>
+<nav aria-label="Series">
+	<rvt-series-nav>
+		<a href="?prev" rel="prev">
+			<rvt-eyebrow>Previous</rvt-eyebrow>
+			<span>
+				This title should not exceed three lines and should have an ellipsis if
+				it does
+			</span>
+		</a>
+		<a href="?next" rel="next">
+			<rvt-eyebrow>Next</rvt-eyebrow>
+			<span>
+				This title should not exceed three lines and should have an ellipsis if
+				it does
+			</span>
+		</a>
+	</rvt-series-nav>
 </nav>
 
 <RelatedContent />
