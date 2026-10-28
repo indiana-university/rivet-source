@@ -7,35 +7,26 @@ import { expect, test } from "vitest";
 import "html-validate/vitest";
 
 test("deprecated classes", async () => {
-	await expect(`<nav class="rvt-series-nav"></nav>`).toBeInvalid();
-	await expect(`<a class="rvt-series-nav__previous"></a>`).toBeInvalid();
-	await expect(`<a class="rvt-series-nav__next"></a>`).toBeInvalid();
-	await expect(`<div class="rvt-series-nav__text"></div>`).toBeInvalid();
-	await expect(`<span class="rvt-series-nav__label"></span>`).toBeInvalid();
-	await expect(`<span class="rvt-series-nav__item"></span>`).toBeInvalid();
-	await expect(`<span class="rvt-series-nav__icon"></span>`).toBeInvalid();
+	await expect(`<nav class="rvt-seriesnav"></nav>`).toBeInvalid();
+	await expect(`<a class="rvt-seriesnav__previous"></a>`).toBeInvalid();
+	await expect(`<a class="rvt-seriesnav__next"></a>`).toBeInvalid();
+	await expect(`<div class="rvt-seriesnav__text"></div>`).toBeInvalid();
+	await expect(`<span class="rvt-seriesnav__label"></span>`).toBeInvalid();
+	await expect(`<span class="rvt-seriesnav__item"></span>`).toBeInvalid();
+	await expect(`<span class="rvt-seriesnav__icon"></span>`).toBeInvalid();
 });
 
 test("element", async () => {
-	/*
 	await expect(`
 		<nav aria-label="Series">
 			<rvt-series-nav>
-				<a rel="first" href="?first">First</a>
-			</rvt-series-nav>
-		</nav>
-	`).toBeInvalid();
-	*/
-	await expect(`
-		<nav aria-label="Series">
-			<rvt-series-nav>
-				<a href="?prev" rel="prev">
+				<a href="?banana" rel="prev">
 					<rvt-eyebrow>Previous</rvt-eyebrow>
-					<span>Apple</span>
-				</a>
-				<a href="?next" rel="next">
-					<rvt-eyebrow>Next</rvt-eyebrow>
 					<span>Banana</span>
+				</a>
+				<a href="?cranberry" rel="next">
+					<rvt-eyebrow>Next</rvt-eyebrow>
+					<span>Cranberry</span>
 				</a>
 			</rvt-series-nav>
 		</nav>
@@ -67,14 +58,6 @@ test("permitted content", async () => {
 			</rvt-series-nav>
 		</nav>
 	`).toBeInvalid();
-	await expect(`
-		<nav aria-label="Series">
-			<rvt-series-nav>
-				<a href="?next" rel="next">Next</a>
-				<a href="?next" rel="next">Next</a>
-			</rvt-series-nav>
-		</nav>
-	`).toBeInvalid();
 });
 
 test("required ancestors", async () => {
@@ -85,17 +68,23 @@ test("required descendants", async () => {
 	await expect(`
 		<nav aria-label="Series">
 			<rvt-series-nav>
-				<a href="?apple">Apple</a>
 				<a href="?banana">Banana</a>
-				<a href="?cranberry">Cranberry</a>
 			</rvt-series-nav>
 		</nav>
 	`).toBeInvalid();
 	await expect(`
 		<nav aria-label="Series">
 			<rvt-series-nav>
-				<a href="?next" rel="next">Next</a>
-				<a href="?next" rel="next">Next</a>
+				<a href="?banana" rel="prev">Banana</a>
+				<a href="?banana" rel="prev">Banana</a>
+			</rvt-series-nav>
+		</nav>
+	`).toBeInvalid();
+	await expect(`
+		<nav aria-label="Series">
+			<rvt-series-nav>
+				<a href="?cranberry" rel="next">Cranberry</a>
+				<a href="?cranberry" rel="next">Cranberry</a>
 			</rvt-series-nav>
 		</nav>
 	`).toBeInvalid();

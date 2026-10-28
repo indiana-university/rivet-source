@@ -43,17 +43,10 @@ export const elements = {
 export const requiredDescendants = [
 	{
 		element: "rvt-series-nav",
-		query: `a`,
-		max: 2,
-	},
-	{
-		element: "rvt-series-nav",
-		query: `a[rel="prev"]`,
-		max: 1,
-	},
-	{
-		element: "rvt-series-nav",
-		query: `a[rel="next"]`,
-		max: 1,
+		required: [
+			{ query: "a", not: [`a[rel="prev"]`, `a[rel="next"]`], max: 0 },
+			{ query: `a[rel="prev"]`, max: 1 },
+			{ query: `a[rel="next"]`, max: 1 },
+		],
 	},
 ];

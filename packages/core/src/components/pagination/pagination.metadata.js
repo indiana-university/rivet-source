@@ -24,14 +24,14 @@ export const elements = {
 export const requiredDescendants = [
 	{
 		element: "rvt-pagination",
-		query: "[aria-current]",
-		pattern: `a[aria-current="page"]`,
-		max: 1,
-	},
-	{
-		element: "rvt-pagination",
-		query: "svg",
-		max: 0,
-		message: `Replace with a[rel="first|prev|next|last"]`,
+		required: [
+			{ query: "[aria-current]", not: [`a[aria-current="page"]`], max: 0 },
+			{ query: `a[aria-current="page"]`, max: 1 },
+			{
+				query: "svg",
+				max: 0,
+				message: `Replace with a[rel="first|prev|next|last"]`,
+			},
+		],
 	},
 ];
