@@ -1,5 +1,17 @@
 ---
 export const title = "Form Button";
+
+const rows = [
+	{ label: "Strong / Large", props: { type: "strong" } },
+	{ label: "Strong / Medium", props: { size: "medium", type: "strong" } },
+	{ label: "Strong / Small", props: { size: "small", type: "strong" } },
+	{ label: "Normal / Large", props: {} },
+	{ label: "Normal / Medium", props: { size: "medium" } },
+	{ label: "Normal / Small", props: { size: "small" } },
+	{ label: "Subtle / Large", props: { type: "subtle" } },
+	{ label: "Subtle / Medium", props: { size: "medium", type: "subtle" } },
+	{ label: "Subtle / Small", props: { size: "small", type: "subtle" } },
+];
 ---
 
 <table class="rvt-table">
@@ -14,371 +26,45 @@ export const title = "Form Button";
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th scope="row">Strong / Large</th>
-			<td>
-				<button class="rvt-button rvt-button--strong" type="button">
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--strong" type="button">
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--strong"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--strong" disabled type="button">
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Strong / Medium</th>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--medium"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--medium"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--medium rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--strong rvt-button--medium"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--medium"
-					disabled
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Strong / Small</th>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--small"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--small"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--small rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--strong rvt-button--small"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--strong rvt-button--small"
-					disabled
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Normal / Large</th>
-			<td>
-				<button class="rvt-button" type="button">
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button" type="button">
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--icon-only" type="button">
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button aria-pressed="true" class="rvt-button" type="button">
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button" disabled type="button">
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Normal / Medium</th>
-			<td>
-				<button class="rvt-button rvt-button--medium" type="button">
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--medium" type="button">
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--medium rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--medium"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--medium" disabled type="button">
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Normal / Small</th>
-			<td>
-				<button class="rvt-button rvt-button--small" type="button">
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--small" type="button">
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--small rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--small"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--small" disabled type="button">
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Subtle / Large</th>
-			<td>
-				<button class="rvt-button rvt-button--subtle" type="button">
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--subtle" type="button">
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--subtle"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button class="rvt-button rvt-button--subtle" disabled type="button">
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Subtle / Medium</th>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--medium"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--medium"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--medium rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--subtle rvt-button--medium"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--medium"
-					disabled
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Subtle / Small</th>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--small"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--small"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--small rvt-button--icon-only"
-					type="button"
-				>
-					<rvt-icon name="plus"></rvt-icon>
-					<rvt-sr-only>Button</rvt-sr-only>
-				</button>
-			</td>
-			<td>
-				<button
-					aria-pressed="true"
-					class="rvt-button rvt-button--subtle rvt-button--small"
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-			<td>
-				<button
-					class="rvt-button rvt-button--subtle rvt-button--small"
-					disabled
-					type="button"
-				>
-					Button
-				</button>
-			</td>
-		</tr>
+		{rows.map((row) => (
+			<tr>
+				<th scope="row">{row.label}</th>
+				<td>
+					<rvt-button {...row.props}>
+						<button type="button">Button</button>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<button type="button">
+							<rvt-icon name="plus"></rvt-icon>
+							Button
+						</button>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<button type="button">
+							<rvt-icon name="plus"></rvt-icon>
+							<rvt-sr-only>Button</rvt-sr-only>
+						</button>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<button aria-pressed="true" type="button">
+							Button
+						</button>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<button disabled type="button">
+							Button
+						</button>
+					</rvt-button>
+				</td>
+			</tr>
+		))}
 	</tbody>
 </table>

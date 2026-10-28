@@ -1,5 +1,17 @@
 ---
 export const title = "Call-to-Action Button";
+
+const rows = [
+	{ label: "Strong / Large", props: { type: "strong" } },
+	{ label: "Strong / Medium", props: { size: "medium", type: "strong" } },
+	{ label: "Strong / Small", props: { size: "small", type: "strong" } },
+	{ label: "Normal / Large", props: {} },
+	{ label: "Normal / Medium", props: { size: "medium" } },
+	{ label: "Normal / Small", props: { size: "small" } },
+	{ label: "Subtle / Large", props: { type: "subtle" } },
+	{ label: "Subtle / Medium", props: { size: "medium", type: "subtle" } },
+	{ label: "Subtle / Small", props: { size: "small", type: "subtle" } },
+];
 ---
 
 <table class="rvt-table">
@@ -13,263 +25,30 @@ export const title = "Call-to-Action Button";
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th scope="row">Strong / Large</th>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--strong" href="#">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--strong" href="/">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--strong">
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Strong / Medium</th>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--medium"
-					href="#"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--medium"
-					href="/"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--medium"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--medium"
-				>
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Strong / Small</th>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--small"
-					href="#"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--small"
-					href="/"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--small"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--strong rvt-button--small"
-				>
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Normal / Large</th>
-			<td>
-				<a class="rvt-button rvt-button--cta" href="#"> Call to action </a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta" href="/"> Call to action </a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta" href="https://rivet.iu.edu">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta"> Call to action </a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Normal / Medium</th>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--medium" href="#">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--medium" href="/">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--medium"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--medium">
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Normal / Small</th>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--small" href="#">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--small" href="/">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--small"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--small">
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Subtle / Large</th>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--subtle" href="#">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--subtle" href="/">
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a class="rvt-button rvt-button--cta rvt-button--subtle">
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Subtle / Medium</th>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--medium"
-					href="#"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--medium"
-					href="/"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--medium"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--medium"
-				>
-					Call to action
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">Subtle / Small</th>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--small"
-					href="#"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--small"
-					href="/"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--small"
-					href="https://rivet.iu.edu"
-				>
-					Call to action
-				</a>
-			</td>
-			<td>
-				<a
-					class="rvt-button rvt-button--cta rvt-button--subtle rvt-button--small"
-				>
-					Call to action
-				</a>
-			</td>
-		</tr>
+		{rows.map((row) => (
+			<tr>
+				<th scope="row">{row.label}</th>
+				<td>
+					<rvt-button {...row.props}>
+						<a href="#">Call to action</a>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<a href="/">Call to action</a>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<a href="https://rivet.iu.edu">Call to action</a>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<a>Call to action</a>
+					</rvt-button>
+				</td>
+			</tr>
+		))}
 	</tbody>
 </table>

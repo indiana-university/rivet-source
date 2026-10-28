@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+rvt-button,
 .rvt-button {
 	--color-border: var(--rvt-color-theme-text-strong);
 	--color-border-hover: var(--rvt-color-theme-background-inverse-strong);
@@ -23,6 +24,14 @@
 	--size-height: var(--rvt-size-48);
 	--size-line-gap: var(--rvt-size-4);
 	--size-pressed: var(--rvt-size-2);
+}
+
+rvt-button {
+	display: inline-flex;
+}
+
+rvt-button :is(a, button),
+.rvt-button {
 	align-items: center;
 	background: var(--color-background);
 	border: var(--size-border) solid var(--color-border);
@@ -63,6 +72,7 @@
 		opacity: 0.4;
 	}
 
+	&:has(> rvt-icon):has(> rvt-sr-only),
 	&.rvt-button--icon-only {
 		--padding-inline-extra: 0rem;
 	}
@@ -72,11 +82,13 @@
 	}
 }
 
+rvt-button[size="medium"],
 .rvt-button--medium {
 	--font: var(--rvt-font-14-bold);
 	--size-height: var(--rvt-size-32);
 }
 
+rvt-button[size="small"],
 .rvt-button--small {
 	--color-border: var(--rvt-color-theme-ui);
 	--color-border-hover: var(--rvt-color-theme-ui);
@@ -92,6 +104,7 @@
 	}
 }
 
+rvt-button[type="strong"],
 .rvt-button--strong {
 	--color-background: var(--rvt-color-theme-background-inverse);
 	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
@@ -101,6 +114,7 @@
 	--color-text-hover: var(--rvt-color-theme-background);
 }
 
+rvt-button[type="subtle"],
 .rvt-button--subtle {
 	--color-background-hover: transparent;
 	--color-background-pressed: var(--rvt-color-theme-background-strong);
@@ -110,6 +124,7 @@
 	--color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 }
 
+rvt-button:has(> a),
 .rvt-button--cta {
 	--color-background-hover: transparent;
 	--color-border: var(--rvt-color-theme-accent);
@@ -117,6 +132,28 @@
 	--color-text: var(--rvt-color-theme-accent);
 	--color-text-hover: var(--rvt-color-theme-accent-strong);
 	--rotate: 0;
+
+	&[type="strong"],
+	&.rvt-button--strong {
+		--color-background: var(--rvt-color-theme-accent);
+		--color-background-hover: var(--rvt-color-theme-accent-strong);
+		--color-border: transparent;
+		--color-text: var(--rvt-color-theme-background);
+		--color-text-hover: var(--rvt-color-theme-background);
+	}
+
+	&[type="subtle"],
+	&.rvt-button--subtle {
+		--color-background-hover: var(--color-background);
+		--color-border: var(--color-background);
+		--color-border-hover: var(--color-background);
+		--color-text: var(--rvt-color-theme-accent);
+		--color-text-hover: var(--rvt-color-theme-accent-strong);
+	}
+}
+
+rvt-button a,
+.rvt-button--cta {
 	justify-content: space-between;
 
 	&[href^="#"] {
@@ -137,24 +174,10 @@
 		transform: rotate(var(--rotate));
 		width: var(--rvt-spacing-sm);
 	}
-
-	&.rvt-button--strong {
-		--color-background: var(--rvt-color-theme-accent);
-		--color-background-hover: var(--rvt-color-theme-accent-strong);
-		--color-border: transparent;
-		--color-text: var(--rvt-color-theme-background);
-		--color-text-hover: var(--rvt-color-theme-background);
-	}
-
-	&.rvt-button--subtle {
-		--color-background-hover: var(--color-background);
-		--color-border: var(--color-background);
-		--color-border-hover: var(--color-background);
-		--color-text: var(--rvt-color-theme-accent);
-		--color-text-hover: var(--rvt-color-theme-accent-strong);
-	}
 }
 
+rvt-button[width="full"],
+rvt-button[width="full"] :is(a, button),
 .rvt-button--full-width {
 	width: 100%;
 }
