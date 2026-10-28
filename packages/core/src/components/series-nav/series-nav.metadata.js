@@ -30,33 +30,6 @@ export const deprecatedClasses = [
 	{
 		class: "rvt-seriesnav__icon",
 	},
-	// v3 alpha classes
-	{
-		class: "rvt-series-nav",
-		replacement: "<rvt-series-nav>",
-	},
-	{
-		class: "rvt-series-nav__previous",
-		replacement: `<a rel="prev">`,
-	},
-	{
-		class: "rvt-series-nav__next",
-		replacement: `<a rel="next">`,
-	},
-	{
-		class: "rvt-series-nav__text",
-	},
-	{
-		class: "rvt-series-nav__label",
-		replacement: "<rvt-eyebrow>",
-	},
-	{
-		class: "rvt-series-nav__item",
-		replacement: "<span>",
-	},
-	{
-		class: "rvt-series-nav__icon",
-	},
 ];
 
 export const elements = {
