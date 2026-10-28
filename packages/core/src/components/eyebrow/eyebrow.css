@@ -18,7 +18,7 @@ rvt-eyebrow {
 	}
 
 	&[size="large"],
-	:where(:is(rvt-series-nav, .rvt-series-nav) &):not([size]) {
+	:where(rvt-series-nav &):not([size]) {
 		font: var(--rvt-font-14-mono);
 	}
 
