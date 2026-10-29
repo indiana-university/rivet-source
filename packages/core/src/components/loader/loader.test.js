@@ -5,8 +5,7 @@
 
 import { expect, test } from "vitest";
 import "html-validate/vitest";
-
-const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"];
+import { sizes } from "./loader.metadata.js";
 
 test("attributes", async () => {
 	for (const size of sizes) {

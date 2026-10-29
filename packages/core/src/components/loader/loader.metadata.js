@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+export const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"];
+
 export const deprecatedClasses = [
 	{
 		class: "rvt-loader",
@@ -45,7 +47,7 @@ export const elements = {
 	"rvt-loader": {
 		attributes: {
 			size: {
-				enum: ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+				enum: sizes,
 			},
 		},
 		flow: true,
