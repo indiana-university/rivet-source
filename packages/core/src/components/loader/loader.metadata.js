@@ -10,7 +10,6 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-loader--reverse",
-		replacement: `<rvt-loader type="reverse">`,
 	},
 	{
 		class: "rvt-loader--xxs",
@@ -47,9 +46,6 @@ export const elements = {
 		attributes: {
 			size: {
 				enum: ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
-			},
-			type: {
-				enum: ["normal", "reverse"],
 			},
 		},
 		flow: true,

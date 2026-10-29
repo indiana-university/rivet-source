@@ -17,10 +17,6 @@ test("attributes", async () => {
 	}
 	await expect(Loader(`size="large"`)).toBeInvalid();
 	await expect(Loader(`size="sm lg"`)).toBeInvalid();
-	await expect(Loader(`type="normal"`)).toBeValid();
-	await expect(Loader(`type="reverse"`)).toBeValid();
-	await expect(Loader(`type="strong"`)).toBeInvalid();
-	await expect(Loader(`type="normal reverse"`)).toBeInvalid();
 });
 
 test("deprecated classes", async () => {

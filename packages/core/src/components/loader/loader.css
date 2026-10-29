@@ -17,13 +17,6 @@ rvt-loader,
 	position: relative;
 	width: var(--size);
 
-	&[type="reverse"],
-	&.rvt-loader--reverse {
-		border-bottom-color: var(--rvt-color-theme-background);
-		border-right-color: var(--rvt-color-theme-background);
-		border-top-color: var(--rvt-color-theme-background);
-	}
-
 	&[size="xxs"],
 	&.rvt-loader--xxs {
 		--size: var(--rvt-size-16);
