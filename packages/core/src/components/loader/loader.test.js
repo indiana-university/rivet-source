@@ -6,17 +6,14 @@
 import { expect, test } from "vitest";
 import "html-validate/vitest";
 
-const el = "rvt-loader";
 const sizes = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"];
-const Loader = (attributes = "") =>
-	`<${el}${attributes && ` ${attributes}`}></${el}>`;
 
 test("attributes", async () => {
 	for (const size of sizes) {
-		await expect(Loader(`size="${size}"`)).toBeValid();
+		await expect(`<rvt-loader size="${size}"></rvt-loader>`).toBeValid();
 	}
-	await expect(Loader(`size="large"`)).toBeInvalid();
-	await expect(Loader(`size="sm lg"`)).toBeInvalid();
+	await expect(`<rvt-loader size="large"></rvt-loader>`).toBeInvalid();
+	await expect(`<rvt-loader size="sm lg"></rvt-loader>`).toBeInvalid();
 });
 
 test("deprecated classes", async () => {
@@ -28,19 +25,19 @@ test("deprecated classes", async () => {
 });
 
 test("flow", async () => {
-	await expect(`<div>${Loader()}</div>`).toBeValid();
+	await expect(`<div><rvt-loader></rvt-loader></div>`).toBeValid();
 });
 
 test("permitted content", async () => {
-	await expect(`<${el}><span></span></${el}>`).toBeInvalid();
+	await expect(`<rvt-loader><span></span></rvt-loader>`).toBeInvalid();
 });
 
 test("phrasing", async () => {
-	await expect(`<span>${Loader()}</span>`).toBeValid();
-	await expect(`<p>${Loader()}</p>`).toBeValid();
+	await expect(`<span><rvt-loader></rvt-loader></span>`).toBeValid();
+	await expect(`<p><rvt-loader></rvt-loader></p>`).toBeValid();
 });
 
 test("text content", async () => {
-	await expect(Loader()).toBeValid();
-	await expect(`<${el}>Loading</${el}>`).toBeInvalid();
+	await expect(`<rvt-loader></rvt-loader>`).toBeValid();
+	await expect(`<rvt-loader>Loading</rvt-loader>`).toBeInvalid();
 });
