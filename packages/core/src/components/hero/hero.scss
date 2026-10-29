@@ -17,7 +17,7 @@
 		display: flex;
 		grid-area: avatar;
 
-		> .rvt-button {
+		> :is(rvt-button, .rvt-button) {
 			align-self: flex-end;
 			background-color: var(--rvt-color-theme-background);
 			border-radius: var(--rvt-border-radius-circle);

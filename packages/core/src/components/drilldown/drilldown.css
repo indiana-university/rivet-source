@@ -24,6 +24,7 @@ rvt-drilldown {
 		}
 	}
 
+	rvt-button button,
 	button.rvt-button {
 		--color-border: var(--rvt-color-theme-ui);
 		--color-border-hover: var(--rvt-color-theme-ui);
