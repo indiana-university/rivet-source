@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+rvt-loader,
 .rvt-loader {
 	--size: var(--rvt-size-16);
 	animation: 0.8s linear infinite loader;
@@ -16,37 +17,45 @@
 	position: relative;
 	width: var(--size);
 
-	&--reverse {
+	&[type="reverse"],
+	&.rvt-loader--reverse {
 		border-bottom-color: var(--rvt-color-theme-background);
 		border-right-color: var(--rvt-color-theme-background);
 		border-top-color: var(--rvt-color-theme-background);
 	}
 
-	&--xxs {
+	&[size="xxs"],
+	&.rvt-loader--xxs {
 		--size: var(--rvt-size-16);
 	}
 
-	&--xs {
+	&[size="xs"],
+	&.rvt-loader--xs {
 		--size: var(--rvt-size-20);
 	}
 
-	&--sm {
+	&[size="sm"],
+	&.rvt-loader--sm {
 		--size: var(--rvt-size-28);
 	}
 
-	&--md {
+	&[size="md"],
+	&.rvt-loader--md {
 		--size: var(--rvt-size-32);
 	}
 
-	&--lg {
+	&[size="lg"],
+	&.rvt-loader--lg {
 		--size: var(--rvt-size-44);
 	}
 
-	&--xl {
+	&[size="xl"],
+	&.rvt-loader--xl {
 		--size: var(--rvt-size-52);
 	}
 
-	&--xxl {
+	&[size="xxl"],
+	&.rvt-loader--xxl {
 		--size: var(--rvt-size-64);
 	}
 }
