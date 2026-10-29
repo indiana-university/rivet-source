@@ -2,13 +2,8 @@
 export const title = "Loader - Button";
 ---
 
-<button
-	aria-busy="true"
-	class="rvt-button rvt-button--loading"
-	disabled
-	type="button"
->
+<button aria-busy="true" class="rvt-button" disabled type="button">
 	<span class="rvt-button__content">Update settings</span>
-	<span class="rvt-loader rvt-loader--xs"></span>
+	<rvt-loader size="xs"></rvt-loader>
 	<rvt-sr-only>Content loading</rvt-sr-only>
 </button>
