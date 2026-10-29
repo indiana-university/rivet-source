@@ -5,51 +5,51 @@
 
 rvt-loader,
 .rvt-loader {
-	--size: var(--rvt-size-16);
+	--_size: var(--rvt-size-16);
 	animation: 0.8s linear infinite loader;
 	display: inline-block;
-	border: calc(var(--size) / 8) solid transparent;
+	border: calc(var(--_size) / 8) solid transparent;
 	border-bottom-color: var(--rvt-color-theme-accent);
 	border-right-color: var(--rvt-color-theme-accent);
 	border-top-color: var(--rvt-color-theme-accent);
 	border-radius: 50%;
-	height: var(--size);
+	height: var(--_size);
 	position: relative;
-	width: var(--size);
+	width: var(--_size);
 
 	&[size="xxs"],
 	&.rvt-loader--xxs {
-		--size: var(--rvt-size-16);
+		--_size: var(--rvt-size-16);
 	}
 
 	&[size="xs"],
 	&.rvt-loader--xs {
-		--size: var(--rvt-size-20);
+		--_size: var(--rvt-size-20);
 	}
 
 	&[size="sm"],
 	&.rvt-loader--sm {
-		--size: var(--rvt-size-28);
+		--_size: var(--rvt-size-28);
 	}
 
 	&[size="md"],
 	&.rvt-loader--md {
-		--size: var(--rvt-size-32);
+		--_size: var(--rvt-size-32);
 	}
 
 	&[size="lg"],
 	&.rvt-loader--lg {
-		--size: var(--rvt-size-44);
+		--_size: var(--rvt-size-44);
 	}
 
 	&[size="xl"],
 	&.rvt-loader--xl {
-		--size: var(--rvt-size-52);
+		--_size: var(--rvt-size-52);
 	}
 
 	&[size="xxl"],
 	&.rvt-loader--xxl {
-		--size: var(--rvt-size-64);
+		--_size: var(--rvt-size-64);
 	}
 }
 
