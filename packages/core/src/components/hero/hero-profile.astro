@@ -11,10 +11,18 @@ export const title = "Hero - Profile";
 				src="https://rivet.iu.edu/img/placeholder/avatar-1.webp"
 			/>
 		</div>
+		<rvt-button size="small">
+			<a href="#">
+				<rvt-icon name="download"></rvt-icon>
+				<rvt-sr-only>Download avatar image</rvt-sr-only>
+			</a>
+		</rvt-button>
+		<!--
 		<a class="rvt-button rvt-button--small rvt-button--icon-only" href="#">
 			<rvt-icon name="download"></rvt-icon>
 			<rvt-sr-only>Download avatar image</rvt-sr-only>
 		</a>
+		-->
 	</div>
 	<div class="rvt-hero__body">
 		<rvt-eyebrow>Faculty</rvt-eyebrow>
@@ -22,12 +30,9 @@ export const title = "Hero - Profile";
 		<p class="rvt-hero__subtitle">PhD, MA</p>
 		<p class="rvt-hero__teaser">Assistant Professor of Sports Marketing</p>
 		<div class="rvt-hero__actions">
-			<a
-				class="rvt-button rvt-button--cta rvt-button--strong"
-				href="https://mediaschool.indiana.edu"
-			>
-				Read publications
-			</a>
+			<rvt-button type="strong">
+				<a href="https://mediaschool.indiana.edu">Read publications</a>
+			</rvt-button>
 		</div>
 	</div>
 </div>

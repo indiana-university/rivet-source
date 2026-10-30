@@ -13,15 +13,21 @@ const selectId = `filter-form-select-${createId()}`;
 <form class="rvt-bg-black-000 rvt-p-all-md rvt-flex rvt-flex-column rvt-gap-md">
 	<div class="rvt-grid rvt-grid--4">
 		<div>
-			<label class="rvt-label" for={textOneId}>Lorem Ipsum</label>
+			<label class="rvt-label" for={textOneId}>
+				Lorem Ipsum
+			</label>
 			<input class="rvt-input" id={textOneId} type="text" />
 		</div>
 		<div>
-			<label class="rvt-label" for={textTwoId}>Lorem Ipsum</label>
+			<label class="rvt-label" for={textTwoId}>
+				Lorem Ipsum
+			</label>
 			<input class="rvt-input" id={textTwoId} type="text" />
 		</div>
 		<div>
-			<label class="rvt-label" for={selectId}>Select Input</label>
+			<label class="rvt-label" for={selectId}>
+				Select Input
+			</label>
 			<div class="rvt-select">
 				<select id={selectId}>
 					<option value="option one">Option One</option>
@@ -31,7 +37,9 @@ const selectId = `filter-form-select-${createId()}`;
 			</div>
 		</div>
 		<div>
-			<label class="rvt-label" for={textThreeId}>Lorem Ipsum</label>
+			<label class="rvt-label" for={textThreeId}>
+				Lorem Ipsum
+			</label>
 			<input class="rvt-input" id={textThreeId} type="text" />
 		</div>
 	</div>
@@ -74,9 +82,11 @@ const selectId = `filter-form-select-${createId()}`;
 	</fieldset>
 
 	<div class="rvt-flex rvt-gap-sm rvt-justify-end">
-		<button class="rvt-button rvt-button--strong" type="submit"
-			>Filter results</button
-		>
-		<button class="rvt-button" type="button">Filter results</button>
+		<rvt-button type="strong">
+			<button type="submit">Filter results</button>
+		</rvt-button>
+		<rvt-button>
+			<button type="button">Filter results</button>
+		</rvt-button>
 	</div>
 </form>

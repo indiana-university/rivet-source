@@ -8,13 +8,11 @@ const dialogTitleId = `dialog-title-${createId()}`;
 const dialogDescriptionId = `dialog-description-${createId()}`;
 ---
 
-<button
-	class="rvt-button rvt-button--strong"
-	data-rvt-dialog-trigger={dialogId}
-	type="button"
->
-	<span>Delete files</span>
-</button>
+<rvt-button type="strong">
+	<button data-rvt-dialog-trigger={dialogId} type="button">
+		Delete files
+	</button>
+</rvt-button>
 <div
 	aria-describedby={dialogDescriptionId}
 	aria-labelledby={dialogTitleId}
@@ -32,7 +30,9 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		aria-label={`Dialog (${Astro.props.label})`}
 		class="rvt-dialog__header"
 	>
-		<h1 class="rvt-dialog__title" id={dialogTitleId}>Delete files</h1>
+		<h1 class="rvt-dialog__title" id={dialogTitleId}>
+			Delete files
+		</h1>
 	</header>
 	<div class="rvt-dialog__body">
 		<p class="m-top-remove m-bottom-xl" id={dialogDescriptionId}>
@@ -41,15 +41,13 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		</p>
 	</div>
 	<div class="rvt-dialog__controls">
-		<button class="rvt-button rvt-button--strong" type="button">
-			<span>Delete my files</span>
-		</button>
-		<button
-			class="rvt-button rvt-button--secondary"
-			data-rvt-dialog-close={dialogId}
-			type="button"
-		>
-			<span>Cancel</span>
-		</button>
+		<rvt-button type="strong">
+			<button type="button">Delete my files</button>
+		</rvt-button>
+		<rvt-button>
+			<button data-rvt-dialog-close={dialogId} type="button">
+				Cancel
+			</button>
+		</rvt-button>
 	</div>
 </div>

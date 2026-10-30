@@ -25,15 +25,13 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 		</p>
 	</div>
 	<div class="rvt-dialog__controls">
-		<button class="rvt-button" type="button">
-			<span>Chat</span>
-		</button>
-		<button
-			class="rvt-button rvt-button--secondary"
-			data-rvt-dialog-close={dialogId}
-			type="button"
-		>
-			<span>No thanks</span>
-		</button>
+		<rvt-button type="strong">
+			<button type="button">Chat</button>
+		</rvt-button>
+		<rvt-button>
+			<button data-rvt-dialog-close={dialogId} type="button">
+				No thanks
+			</button>
+		</rvt-button>
 	</div>
 </div>

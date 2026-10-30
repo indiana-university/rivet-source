@@ -11,9 +11,11 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 
 <div data-rvt-dialog-mount id={appId}>
 	<h1>Some test header</h1>
-	<button class="rvt-button" data-rvt-dialog-trigger={dialogId} type="button">
-		<span>Dialog example</span>
-	</button>
+	<rvt-button>
+		<button data-rvt-dialog-trigger={dialogId} type="button">
+			Dialog example
+		</button>
+	</rvt-button>
 	<div
 		aria-describedby={dialogDescriptionId}
 		aria-labelledby={dialogTitleId}
@@ -43,35 +45,22 @@ const dialogDescriptionId = `dialog-description-${createId()}`;
 			</p>
 		</div>
 		<div class="rvt-dialog__controls">
-			<button class="rvt-button" type="button">
-				<span>OK</span>
-			</button>
-			<button
-				class="rvt-button rvt-button--secondary"
-				data-rvt-dialog-close={dialogId}
-				type="button"
-			>
-				<span>Cancel</span>
-			</button>
+			<rvt-button type="strong">
+				<button type="button">OK</button>
+			</rvt-button>
+			<rvt-button>
+				<button data-rvt-dialog-close={dialogId} type="button">
+					Cancel
+				</button>
+			</rvt-button>
 		</div>
 		<button
-			class="rvt-button rvt-button--subtle rvt-dialog__close"
+			class="rvt-dialog__close"
 			data-rvt-dialog-close={dialogId}
 			type="button"
 		>
+			<rvt-icon name="close"></rvt-icon>
 			<rvt-sr-only>Close</rvt-sr-only>
-			<svg
-				aria-hidden="true"
-				height="16"
-				viewBox="0 0 16 16"
-				width="16"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
-					fill="currentColor"
-				></path>
-			</svg>
 		</button>
 	</div>
 </div>
