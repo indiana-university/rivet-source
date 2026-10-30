@@ -33,17 +33,18 @@ const searchInputId = Astro.props.searchInputId ?? `search-query-${createId()}`;
 					type="text"
 				/>
 				<div class="rvt-input-group__append [ rvt-flex rvt-gap-xs ]">
-					<button class="rvt-button rvt-button--strong" type="submit">
-						<span>Search</span>
-					</button>
-					<button
-						class="rvt-button"
-						data-rvt-dialog-close={dialogId}
-						type="button"
-						rvt-util="sr-only focusable"
-					>
-						Close search
-					</button>
+					<rvt-button type="strong">
+						<button type="submit">Search</button>
+					</rvt-button>
+					<rvt-button>
+						<button
+							data-rvt-dialog-close={dialogId}
+							rvt-util="sr-only"
+							type="button"
+						>
+							Close search
+						</button>
+					</rvt-button>
 				</div>
 			</div>
 		</form>

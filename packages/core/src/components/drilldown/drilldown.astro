@@ -16,23 +16,19 @@ const { menus = example } = Astro.props;
 				{menu.parent && (
 					<div class="rvt-button-group">
 						{menu.depth > 1 && (
-							<button
-								class="rvt-button rvt-button--medium"
-								data-rvt-drilldown-open="main"
-								type="button"
-							>
-								<rvt-icon name="chevrons-left" />
-								Main
-							</button>
+							<rvt-button size="medium">
+								<button data-rvt-drilldown-open="main" type="button">
+									<rvt-icon name="chevrons-left" />
+									Main
+								</button>
+							</rvt-button>
 						)}
-						<button
-							class="rvt-button rvt-button--medium"
-							data-rvt-drilldown-open="parent"
-							type="button"
-						>
-							<rvt-icon name="chevron-left" />
-							Back
-						</button>
+						<rvt-button size="medium">
+							<button data-rvt-drilldown-open="parent" type="button">
+								<rvt-icon name="chevron-left"></rvt-icon>
+								Back
+							</button>
+						</rvt-button>
 					</div>
 				)}
 				<h2>
@@ -49,14 +45,12 @@ const { menus = example } = Astro.props;
 							{item.label}
 						</a>
 						{item.hasChildren && (
-							<button
-								class="rvt-button rvt-button--medium rvt-button--icon-only"
-								data-rvt-drilldown-open="child"
-								type="button"
-							>
-								<rvt-sr-only>{`${item.label} menu`}</rvt-sr-only>
-								<rvt-icon name="chevron-right" />
-							</button>
+							<rvt-button size="medium">
+								<button data-rvt-drilldown-open="child" type="button">
+									<rvt-sr-only>{`${item.label} menu`}</rvt-sr-only>
+									<rvt-icon name="chevron-right"></rvt-icon>
+								</button>
+							</rvt-button>
 						)}
 					</li>
 				))}
