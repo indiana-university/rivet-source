@@ -164,7 +164,7 @@ rvt-button a,
 		--rotate: -45deg;
 	}
 
-	&::after {
+	&:not(:has(rvt-icon))::after {
 		background-color: currentColor;
 		clip-path: path(var(--rvt-icon-arrow-right));
 		content: "";
