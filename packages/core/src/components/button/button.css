@@ -5,25 +5,25 @@
 
 rvt-button,
 .rvt-button {
-	--color-border: var(--rvt-color-theme-text-strong);
-	--color-border-hover: var(--rvt-color-theme-background-inverse-strong);
-	--color-background: transparent;
-	--color-background-hover: transparent;
-	--color-background-pressed: var(--rvt-color-theme-background-strong);
-	--color-text: var(--rvt-color-theme-text-strong);
-	--color-text-hover: var(--rvt-color-theme-background-inverse-strong);
-	--font: var(--rvt-font-16-bold);
-	--gap: var(--rvt-spacing-xs);
-	--padding-block: calc(var(--padding-block-total) / 2);
-	--padding-block-total: calc(
-		var(--size-height) - 1lh - var(--size-border-total)
+	--_color-border: var(--rvt-color-theme-text-strong);
+	--_color-border-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_color-background: transparent;
+	--_color-background-hover: transparent;
+	--_color-background-pressed: var(--rvt-color-theme-background-strong);
+	--_color-text: var(--rvt-color-theme-text-strong);
+	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_font: var(--rvt-font-16-bold);
+	--_gap: var(--rvt-spacing-xs);
+	--_padding-block: calc(var(--_padding-block-total) / 2);
+	--_padding-block-total: calc(
+		var(--_size-height) - 1lh - var(--_size-border-total)
 	);
-	--padding-inline-extra: var(--rvt-spacing-xs);
-	--size-border: var(--rvt-size-1);
-	--size-border-total: calc(var(--size-border) * 2);
-	--size-height: var(--rvt-size-48);
-	--size-line-gap: var(--rvt-size-4);
-	--size-pressed: var(--rvt-size-2);
+	--_padding-inline-extra: var(--rvt-spacing-xs);
+	--_size-border: var(--rvt-size-1);
+	--_size-border-total: calc(var(--_size-border) * 2);
+	--_size-height: var(--rvt-size-48);
+	--_size-line-gap: var(--rvt-size-4);
+	--_size-pressed: var(--rvt-size-2);
 }
 
 rvt-button {
@@ -33,48 +33,48 @@ rvt-button {
 rvt-button :is(a, button),
 .rvt-button {
 	align-items: center;
-	background: var(--color-background);
-	border: var(--size-border) solid var(--color-border);
+	background: var(--_color-background);
+	border: var(--_size-border) solid var(--_color-border);
 	cursor: pointer;
 	display: inline-flex;
-	font: var(--font);
-	gap: var(--gap);
+	font: var(--_font);
+	gap: var(--_gap);
 	justify-content: center;
-	padding-block: var(--padding-block);
-	padding-inline: calc(var(--padding-block) + var(--padding-inline-extra));
+	padding-block: var(--_padding-block);
+	padding-inline: calc(var(--_padding-block) + var(--_padding-inline-extra));
 	text-decoration: none;
 
 	&,
 	&:is(a:visited) {
-		color: var(--color-text);
+		color: var(--_color-text);
 	}
 
 	&:hover,
 	&:is(a:visited:hover) {
-		background-color: var(--color-background-hover);
-		border-color: var(--color-border-hover);
-		color: var(--color-text-hover);
+		background-color: var(--_color-background-hover);
+		border-color: var(--_color-border-hover);
+		color: var(--_color-text-hover);
 	}
 
 	&:is(button[aria-pressed="true"]) {
-		--color-background: var(--color-background-pressed);
-		--color-background-hover: var(--color-background-pressed);
+		--_color-background: var(--_color-background-pressed);
+		--_color-background-hover: var(--_color-background-pressed);
 		box-shadow:
-			inset 0 0 0 var(--size-pressed) var(--rvt-color-theme-background),
-			inset 0 0 0 calc(var(--size-pressed) * 2)
+			inset 0 0 0 var(--_size-pressed) var(--rvt-color-theme-background),
+			inset 0 0 0 calc(var(--_size-pressed) * 2)
 				var(--rvt-color-theme-background-inverse-strong);
 	}
 
 	&:is(a:not([href]), button[aria-disabled="true"], button:disabled) {
-		--color-background-hover: var(--color-background);
-		--color-text-hover: var(--color-text);
+		--_color-background-hover: var(--_color-background);
+		--_color-text-hover: var(--_color-text);
 		cursor: not-allowed;
 		opacity: 0.4;
 	}
 
 	&:has(> rvt-icon):has(> rvt-sr-only),
 	&.rvt-button--icon-only {
-		--padding-inline-extra: 0rem;
+		--_padding-inline-extra: 0rem;
 	}
 
 	rvt-icon {
@@ -84,16 +84,16 @@ rvt-button :is(a, button),
 
 rvt-button[size="medium"],
 .rvt-button--medium {
-	--font: var(--rvt-font-14-bold);
-	--size-height: var(--rvt-size-32);
+	--_font: var(--rvt-font-14-bold);
+	--_size-height: var(--rvt-size-32);
 }
 
 rvt-button[size="small"],
 .rvt-button--small {
-	--font: var(--rvt-font-14-bold);
-	--gap: var(--rvt-spacing-xxs);
-	--size-height: var(--rvt-size-24);
-	--size-pressed: var(--rvt-size-1);
+	--_font: var(--rvt-font-14-bold);
+	--_gap: var(--rvt-spacing-xxs);
+	--_size-height: var(--rvt-size-24);
+	--_size-pressed: var(--rvt-size-1);
 
 	&:not(.rvt-button--subtle) rvt-icon svg {
 		transform: scale(calc(12 / 16));
@@ -102,49 +102,49 @@ rvt-button[size="small"],
 
 rvt-button[type="strong"],
 .rvt-button--strong {
-	--color-background: var(--rvt-color-theme-background-inverse);
-	--color-background-hover: var(--rvt-color-theme-background-inverse-strong);
-	--color-background-pressed: var(--rvt-color-theme-background-inverse-strong);
-	--color-border: transparent;
-	--color-text: var(--rvt-color-theme-background);
-	--color-text-hover: var(--rvt-color-theme-background);
+	--_color-background: var(--rvt-color-theme-background-inverse);
+	--_color-background-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_color-background-pressed: var(--rvt-color-theme-background-inverse-strong);
+	--_color-border: transparent;
+	--_color-text: var(--rvt-color-theme-background);
+	--_color-text-hover: var(--rvt-color-theme-background);
 }
 
 rvt-button[type="subtle"],
 .rvt-button--subtle {
-	--color-background-hover: transparent;
-	--color-background-pressed: var(--rvt-color-theme-background-strong);
-	--color-border: transparent;
-	--color-border-hover: transparent;
-	--color-text: var(--rvt-color-theme-text);
-	--color-text-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_color-background-hover: transparent;
+	--_color-background-pressed: var(--rvt-color-theme-background-strong);
+	--_color-border: transparent;
+	--_color-border-hover: transparent;
+	--_color-text: var(--rvt-color-theme-text);
+	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 }
 
 rvt-button:has(> a),
 .rvt-button--cta {
-	--color-background-hover: transparent;
-	--color-border: var(--rvt-color-theme-accent);
-	--color-border-hover: var(--rvt-color-theme-accent-strong);
-	--color-text: var(--rvt-color-theme-accent);
-	--color-text-hover: var(--rvt-color-theme-accent-strong);
+	--_color-background-hover: transparent;
+	--_color-border: var(--rvt-color-theme-accent);
+	--_color-border-hover: var(--rvt-color-theme-accent-strong);
+	--_color-text: var(--rvt-color-theme-accent);
+	--_color-text-hover: var(--rvt-color-theme-accent-strong);
 	--rotate: 0;
 
 	&[type="strong"],
 	&.rvt-button--strong {
-		--color-background: var(--rvt-color-theme-accent);
-		--color-background-hover: var(--rvt-color-theme-accent-strong);
-		--color-border: transparent;
-		--color-text: var(--rvt-color-theme-background);
-		--color-text-hover: var(--rvt-color-theme-background);
+		--_color-background: var(--rvt-color-theme-accent);
+		--_color-background-hover: var(--rvt-color-theme-accent-strong);
+		--_color-border: transparent;
+		--_color-text: var(--rvt-color-theme-background);
+		--_color-text-hover: var(--rvt-color-theme-background);
 	}
 
 	&[type="subtle"],
 	&.rvt-button--subtle {
-		--color-background-hover: var(--color-background);
-		--color-border: var(--color-background);
-		--color-border-hover: var(--color-background);
-		--color-text: var(--rvt-color-theme-accent);
-		--color-text-hover: var(--rvt-color-theme-accent-strong);
+		--_color-background-hover: var(--_color-background);
+		--_color-border: var(--_color-background);
+		--_color-border-hover: var(--_color-background);
+		--_color-text: var(--rvt-color-theme-accent);
+		--_color-text-hover: var(--rvt-color-theme-accent-strong);
 	}
 }
 
