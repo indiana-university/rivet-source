@@ -127,7 +127,7 @@ rvt-button:has(> a),
 	--_color-border-hover: var(--rvt-color-theme-accent-strong);
 	--_color-text: var(--rvt-color-theme-accent);
 	--_color-text-hover: var(--rvt-color-theme-accent-strong);
-	--rotate: 0;
+	--_rotate: 0;
 
 	&[type="strong"],
 	&.rvt-button--strong {
@@ -153,11 +153,11 @@ rvt-button a,
 	justify-content: space-between;
 
 	&[href^="#"] {
-		--rotate: 90deg;
+		--_rotate: 90deg;
 	}
 
 	&[href^="http"] {
-		--rotate: -45deg;
+		--_rotate: -45deg;
 	}
 
 	&:not(:has(rvt-icon))::after {
@@ -167,7 +167,7 @@ rvt-button a,
 		display: block;
 		flex-shrink: 0;
 		height: var(--rvt-spacing-sm);
-		transform: rotate(var(--rotate));
+		transform: rotate(var(--_rotate));
 		width: var(--rvt-spacing-sm);
 	}
 }
