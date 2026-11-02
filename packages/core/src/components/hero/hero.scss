@@ -23,11 +23,6 @@
 			background-color: var(--rvt-color-theme-background);
 			justify-self: flex-end;
 		}
-
-		> rvt-button :is(a, button),
-		> .rvt-button {
-			border-radius: var(--rvt-border-radius-circle);
-		}
 	}
 
 	.rvt-hero__body {
