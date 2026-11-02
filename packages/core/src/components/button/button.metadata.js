@@ -50,6 +50,17 @@ export const deprecatedClasses = [
 
 export const elements = {
 	"rvt-button": {
+		attributes: {
+			size: {
+				enum: ["large", "medium", "small"],
+			},
+			type: {
+				enum: ["normal", "strong", "subtle"],
+			},
+			width: {
+				enum: ["normal", "full"],
+			},
+		},
 		flow: true,
 		phrasing: true,
 	},

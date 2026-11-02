@@ -5,7 +5,18 @@
 
 import { expect, test } from "vitest";
 import "html-validate/vitest";
-import { deprecatedClasses } from "./button.metadata.js";
+import { deprecatedClasses, elements } from "./button.metadata.js";
+
+test("attributes", async () => {
+	const { attributes } = elements["rvt-button"];
+	for (const attr of Object.keys(attributes)) {
+		for (const value of attributes[attr].enum) {
+			await expect(`<rvt-button ${attr}="${value}"></rvt-button>`).toBeValid();
+		}
+	}
+	await expect(`<rvt-button size="sm"></rvt-button>`).toBeInvalid();
+	await expect(`<rvt-button size="small medium"></rvt-button>`).toBeInvalid();
+});
 
 test("deprecated classes", async () => {
 	const deprecatedButtonClasses = deprecatedClasses
@@ -17,6 +28,14 @@ test("deprecated classes", async () => {
 		`).toBeInvalid();
 	}
 	await expect(`<span class="rvt-button__content"></span>`).toBeInvalid();
+});
+
+test("flow", async () => {
+	await expect(`<div><rvt-button></rvt-button></div>`).toBeValid();
+});
+
+test("phrasing", async () => {
+	await expect(`<span><rvt-button></rvt-button></span>`).toBeValid();
 });
 
 test("required descendants", async () => {
