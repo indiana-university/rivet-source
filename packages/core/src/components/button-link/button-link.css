@@ -13,12 +13,12 @@ a.rvt-button--cta {
 	--_color-text: var(--rvt-color-theme-text-strong);
 	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 	--_font: var(--rvt-font-16-bold);
-	--_gap: var(--rvt-spacing-xs);
+	--_gap: var(--rvt-size-8);
 	--_padding-block: calc(var(--_padding-block-total) / 2);
 	--_padding-block-total: calc(
 		var(--_size-height) - 1lh - var(--_size-border-total)
 	);
-	--_padding-inline-extra: var(--rvt-spacing-xs);
+	--_padding-inline-extra: var(--rvt-size-8);
 	--_size-border: var(--rvt-size-1);
 	--_size-border-total: calc(var(--_size-border) * 2);
 	--_size-height: var(--rvt-size-40);
@@ -85,7 +85,7 @@ a.rvt-button--cta.rvt-button--medium {
 rvt-button-link[size="small"],
 a.rvt-button--cta.rvt-button--small {
 	--_font: var(--rvt-font-14-bold);
-	--_gap: var(--rvt-spacing-xxs);
+	--_gap: var(--rvt-size-4);
 	--_size-height: var(--rvt-size-24);
 	--_size-pressed: var(--rvt-size-1);
 
@@ -121,7 +121,7 @@ a.rvt-button--cta {
 	--_color-border-hover: var(--rvt-color-theme-accent-strong);
 	--_color-text: var(--rvt-color-theme-accent);
 	--_color-text-hover: var(--rvt-color-theme-accent-strong);
-	--_rotate: 0;
+	--_icon: var(--rvt-icon-arrow-right);
 
 	&[tone="strong"],
 	&.rvt-button--strong {
@@ -147,22 +147,21 @@ a.rvt-button--cta {
 	justify-content: space-between;
 
 	&[href^="#"] {
-		--_rotate: 90deg;
+		--_icon: var(--rvt-icon-arrow-down);
 	}
 
 	&[href^="http"] {
-		--_rotate: -45deg;
+		--_icon: var(--rvt-icon-arrow-up-right);
 	}
 
 	&:not(:has(rvt-icon))::after {
 		background-color: currentColor;
-		clip-path: path(var(--rvt-icon-arrow-right));
+		clip-path: path(var(--_icon));
 		content: "";
 		display: block;
 		flex-shrink: 0;
-		height: var(--rvt-spacing-sm);
-		transform: rotate(var(--_rotate));
-		width: var(--rvt-spacing-sm);
+		height: var(--rvt-size-16);
+		width: var(--rvt-size-16);
 	}
 }
 
