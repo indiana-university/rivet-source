@@ -13,12 +13,12 @@ rvt-button,
 	--_color-text: var(--rvt-color-theme-text-strong);
 	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 	--_font: var(--rvt-font-16-bold);
-	--_gap: var(--rvt-spacing-xs);
+	--_gap: var(--rvt-size-8);
 	--_padding-block: calc(var(--_padding-block-total) / 2);
 	--_padding-block-total: calc(
 		var(--_size-height) - 1lh - var(--_size-border-total)
 	);
-	--_padding-inline-extra: var(--rvt-spacing-xs);
+	--_padding-inline-extra: var(--rvt-size-8);
 	--_size-border: var(--rvt-size-1);
 	--_size-border-total: calc(var(--_size-border) * 2);
 	--_size-height: var(--rvt-size-40);
@@ -95,7 +95,7 @@ rvt-button[size="medium"],
 rvt-button[size="small"],
 .rvt-button--small:not(.rvt-button--cta) {
 	--_font: var(--rvt-font-14-bold);
-	--_gap: var(--rvt-spacing-xxs);
+	--_gap: var(--rvt-size-4);
 	--_size-height: var(--rvt-size-24);
 	--_size-pressed: var(--rvt-size-1);
 
