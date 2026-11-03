@@ -1,0 +1,69 @@
+---
+export const title = "Link as button";
+
+const rows = [
+	{
+		label: "Strong / Extra Large",
+		props: { size: "extra-large", tone: "strong" },
+	},
+	{ label: "Strong / Large", props: { tone: "strong" } },
+	{ label: "Strong / Medium", props: { size: "medium", tone: "strong" } },
+	{ label: "Strong / Small", props: { size: "small", tone: "strong" } },
+	{ label: "Normal / Extra Large", props: { size: "extra-large" } },
+	{ label: "Normal / Large", props: {} },
+	{ label: "Normal / Medium", props: { size: "medium" } },
+	{ label: "Normal / Small", props: { size: "small" } },
+	{
+		label: "Subtle / Extra Large",
+		props: { size: "extra-large", tone: "subtle" },
+	},
+	{ label: "Subtle / Large", props: { tone: "subtle" } },
+	{ label: "Subtle / Medium", props: { size: "medium", tone: "subtle" } },
+	{ label: "Subtle / Small", props: { size: "small", tone: "subtle" } },
+];
+---
+
+<table class="rvt-table">
+	<thead>
+		<tr>
+			<th scope="col"></th>
+			<th scope="col">Text</th>
+			<th scope="col">Icon text</th>
+			<th scope="col">Icon only</th>
+			<th scope="col">Disabled</th>
+		</tr>
+	</thead>
+	<tbody>
+		{rows.map((row) => (
+			<tr>
+				<th scope="row">{row.label}</th>
+				<td>
+					<rvt-button {...row.props}>
+						<a href="?action=new">New</a>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<a href="?action=new">
+							<rvt-icon name="plus"></rvt-icon>
+							New
+						</a>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<a href="?action=new">
+							<rvt-icon name="plus"></rvt-icon>
+							<rvt-sr-only>New</rvt-sr-only>
+						</a>
+					</rvt-button>
+				</td>
+				<td>
+					<rvt-button {...row.props}>
+						<a>Remove</a>
+					</rvt-button>
+				</td>
+			</tr>
+		))}
+	</tbody>
+</table>
