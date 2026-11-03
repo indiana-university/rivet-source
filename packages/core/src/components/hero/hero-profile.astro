@@ -12,7 +12,8 @@ export const title = "Hero - Profile";
 			/>
 		</div>
 		<rvt-button size="small">
-			<a href="#">
+			<!-- Download is ignored because the file is on a different origin. -->
+			<a download href="https://rivet.iu.edu/img/placeholder/avatar-1.webp">
 				<rvt-icon name="download"></rvt-icon>
 				<rvt-sr-only>Download avatar image</rvt-sr-only>
 			</a>
@@ -24,9 +25,9 @@ export const title = "Hero - Profile";
 		<p class="rvt-hero__subtitle">PhD, MA</p>
 		<p class="rvt-hero__teaser">Assistant Professor of Sports Marketing</p>
 		<div class="rvt-hero__actions">
-			<rvt-button type="strong">
+			<rvt-button-link tone="strong">
 				<a href="https://mediaschool.indiana.edu">Read publications</a>
-			</rvt-button>
+			</rvt-button-link>
 		</div>
 	</div>
 </div>

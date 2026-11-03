@@ -20,14 +20,14 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-button--link",
-		replacement: `<rvt-button>`,
+		replacement: `<rvt-button tone="subtle">`,
 	},
 	{
 		class: "rvt-button--loading",
 	},
 	{
 		class: "rvt-button--plain",
-		replacement: `<rvt-button type="subtle">`,
+		replacement: `<rvt-button tone="subtle">`,
 	},
 	{
 		class: "rvt-button--small",
@@ -41,7 +41,7 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-button--secondary",
-		replacement: `<rvt-button> or <rvt-button type="normal">`,
+		replacement: `<rvt-button> or <rvt-button tone="normal">`,
 	},
 	{
 		class: "rvt-button__content",
@@ -52,9 +52,9 @@ export const elements = {
 	"rvt-button": {
 		attributes: {
 			size: {
-				enum: ["large", "medium", "small"],
+				enum: ["large", "small", "medium", "extra-large"],
 			},
-			type: {
+			tone: {
 				enum: ["normal", "strong", "subtle"],
 			},
 			width: {
@@ -74,7 +74,7 @@ export const requiredDescendants = [
 				query: `button[class="rvt-button"]`,
 				not: [`button[class="rvt-button--secondary"]`],
 				max: 0,
-				message: `Replace with <rvt-button type="strong">`,
+				message: `Replace with <rvt-button tone="strong">`,
 			},
 		],
 	},

@@ -1,16 +1,25 @@
 ---
-export const title = "Form Button";
+export const title = "Button";
 
 const rows = [
-	{ label: "Strong / Large", props: { type: "strong" } },
-	{ label: "Strong / Medium", props: { size: "medium", type: "strong" } },
-	{ label: "Strong / Small", props: { size: "small", type: "strong" } },
+	{
+		label: "Strong / Extra Large",
+		props: { size: "extra-large", tone: "strong" },
+	},
+	{ label: "Strong / Large", props: { tone: "strong" } },
+	{ label: "Strong / Medium", props: { size: "medium", tone: "strong" } },
+	{ label: "Strong / Small", props: { size: "small", tone: "strong" } },
+	{ label: "Normal / Extra Large", props: { size: "extra-large" } },
 	{ label: "Normal / Large", props: {} },
 	{ label: "Normal / Medium", props: { size: "medium" } },
 	{ label: "Normal / Small", props: { size: "small" } },
-	{ label: "Subtle / Large", props: { type: "subtle" } },
-	{ label: "Subtle / Medium", props: { size: "medium", type: "subtle" } },
-	{ label: "Subtle / Small", props: { size: "small", type: "subtle" } },
+	{
+		label: "Subtle / Extra Large",
+		props: { size: "extra-large", tone: "subtle" },
+	},
+	{ label: "Subtle / Large", props: { tone: "subtle" } },
+	{ label: "Subtle / Medium", props: { size: "medium", tone: "subtle" } },
+	{ label: "Subtle / Small", props: { size: "small", tone: "subtle" } },
 ];
 ---
 

@@ -1,0 +1,173 @@
+/*
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+rvt-button-link,
+a.rvt-button--cta {
+	--_color-border: var(--rvt-color-theme-text-strong);
+	--_color-border-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_color-background: transparent;
+	--_color-background-hover: transparent;
+	--_color-background-pressed: var(--rvt-color-theme-background-strong);
+	--_color-text: var(--rvt-color-theme-text-strong);
+	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_font: var(--rvt-font-16-bold);
+	--_gap: var(--rvt-spacing-xs);
+	--_padding-block: calc(var(--_padding-block-total) / 2);
+	--_padding-block-total: calc(
+		var(--_size-height) - 1lh - var(--_size-border-total)
+	);
+	--_padding-inline-extra: var(--rvt-spacing-xs);
+	--_size-border: var(--rvt-size-1);
+	--_size-border-total: calc(var(--_size-border) * 2);
+	--_size-height: var(--rvt-size-40);
+	--_size-line-gap: var(--rvt-size-4);
+	--_size-pressed: var(--rvt-size-2);
+}
+
+rvt-button-link {
+	display: inline-flex;
+}
+
+rvt-button-link a,
+a.rvt-button--cta {
+	align-items: center;
+	background: var(--_color-background);
+	border: var(--_size-border) solid var(--_color-border);
+	cursor: pointer;
+	display: inline-flex;
+	font: var(--_font);
+	gap: var(--_gap);
+	justify-content: center;
+	padding-block: var(--_padding-block);
+	padding-inline: calc(var(--_padding-block) + var(--_padding-inline-extra));
+	text-decoration: none;
+
+	&,
+	&:visited {
+		color: var(--_color-text);
+	}
+
+	&:hover,
+	&:visited:hover {
+		background-color: var(--_color-background-hover);
+		border-color: var(--_color-border-hover);
+		color: var(--_color-text-hover);
+	}
+
+	&:not([href]) {
+		--_color-background-hover: var(--_color-background);
+		--_color-text-hover: var(--_color-text);
+		cursor: not-allowed;
+		opacity: 0.4;
+	}
+
+	&:has(> rvt-sr-only) {
+		--_padding-inline-extra: 0rem;
+	}
+
+	rvt-icon {
+		padding: calc((1lh - var(--rvt-size-16)) / 2);
+	}
+}
+
+rvt-button-link[size="extra-large"] {
+	--_size-height: var(--rvt-size-48);
+}
+
+rvt-button-link[size="medium"],
+a.rvt-button--cta.rvt-button--medium {
+	--_font: var(--rvt-font-14-bold);
+	--_size-height: var(--rvt-size-32);
+}
+
+rvt-button-link[size="small"],
+a.rvt-button--cta.rvt-button--small {
+	--_font: var(--rvt-font-14-bold);
+	--_gap: var(--rvt-spacing-xxs);
+	--_size-height: var(--rvt-size-24);
+	--_size-pressed: var(--rvt-size-1);
+
+	&:not(.rvt-button--subtle) rvt-icon svg {
+		transform: scale(calc(12 / 16));
+	}
+}
+
+rvt-button-link[tone="strong"],
+a.rvt-button--cta.rvt-button--strong {
+	--_color-background: var(--rvt-color-theme-background-inverse);
+	--_color-background-hover: var(--rvt-color-theme-background-inverse-strong);
+	--_color-background-pressed: var(--rvt-color-theme-background-inverse-strong);
+	--_color-border: transparent;
+	--_color-text: var(--rvt-color-theme-background);
+	--_color-text-hover: var(--rvt-color-theme-background);
+}
+
+rvt-button-link[tone="subtle"],
+a.rvt-button--cta.rvt-button--subtle {
+	--_color-background-hover: transparent;
+	--_color-background-pressed: var(--rvt-color-theme-background-strong);
+	--_color-border: transparent;
+	--_color-border-hover: transparent;
+	--_color-text: var(--rvt-color-theme-text);
+	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
+}
+
+rvt-button-link,
+a.rvt-button--cta {
+	--_color-background-hover: transparent;
+	--_color-border: var(--rvt-color-theme-accent);
+	--_color-border-hover: var(--rvt-color-theme-accent-strong);
+	--_color-text: var(--rvt-color-theme-accent);
+	--_color-text-hover: var(--rvt-color-theme-accent-strong);
+	--_rotate: 0;
+
+	&[tone="strong"],
+	&.rvt-button--strong {
+		--_color-background: var(--rvt-color-theme-accent);
+		--_color-background-hover: var(--rvt-color-theme-accent-strong);
+		--_color-border: transparent;
+		--_color-text: var(--rvt-color-theme-background);
+		--_color-text-hover: var(--rvt-color-theme-background);
+	}
+
+	&[tone="subtle"],
+	&.rvt-button--subtle {
+		--_color-background-hover: var(--_color-background);
+		--_color-border: var(--_color-background);
+		--_color-border-hover: var(--_color-background);
+		--_color-text: var(--rvt-color-theme-accent);
+		--_color-text-hover: var(--rvt-color-theme-accent-strong);
+	}
+}
+
+rvt-button-link a,
+a.rvt-button--cta {
+	justify-content: space-between;
+
+	&[href^="#"] {
+		--_rotate: 90deg;
+	}
+
+	&[href^="http"] {
+		--_rotate: -45deg;
+	}
+
+	&:not(:has(rvt-icon))::after {
+		background-color: currentColor;
+		clip-path: path(var(--rvt-icon-arrow-right));
+		content: "";
+		display: block;
+		flex-shrink: 0;
+		height: var(--rvt-spacing-sm);
+		transform: rotate(var(--_rotate));
+		width: var(--rvt-spacing-sm);
+	}
+}
+
+rvt-button-link[width="full"],
+rvt-button-link[width="full"] a,
+a.rvt-button--cta.rvt-button--full-width {
+	width: 100%;
+}
