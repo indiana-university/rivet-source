@@ -5,21 +5,17 @@
 
 import { expect, test } from "vitest";
 import "html-validate/vitest";
-import { deprecatedClasses, elements } from "./button-link.metadata.js";
+import { deprecatedClasses, elements } from "./link.metadata.js";
 
 test("attributes", async () => {
-	const { attributes } = elements["rvt-button-link"];
+	const { attributes } = elements["rvt-link"];
 	for (const attr of Object.keys(attributes)) {
 		for (const value of attributes[attr].enum) {
-			await expect(
-				`<rvt-button-link ${attr}="${value}"></rvt-button-link>`,
-			).toBeValid();
+			await expect(`<rvt-link ${attr}="${value}"></rvt-link>`).toBeValid();
 		}
 	}
-	await expect(`<rvt-button-link size="sm"></rvt-button-link>`).toBeInvalid();
-	await expect(
-		`<rvt-button-link size="small medium"></rvt-button-link>`,
-	).toBeInvalid();
+	await expect(`<rvt-link size="sm"></rvt-link>`).toBeInvalid();
+	await expect(`<rvt-link size="small medium"></rvt-link>`).toBeInvalid();
 });
 
 test("deprecated classes", async () => {
@@ -32,33 +28,33 @@ test("deprecated classes", async () => {
 });
 
 test("flow", async () => {
-	await expect(`<div><rvt-button-link></rvt-button-link></div>`).toBeValid();
+	await expect(`<div><rvt-link></rvt-link></div>`).toBeValid();
 });
 
 test("phrasing", async () => {
-	await expect(`<span><rvt-button-link></rvt-button-link></span>`).toBeValid();
+	await expect(`<span><rvt-link></rvt-link></span>`).toBeValid();
 });
 
 test("required descendants", async () => {
 	await expect(`
-		<rvt-button-link>
+		<rvt-link>
 			<a></a>
-		</rvt-button-link>
+		</rvt-link>
 	`).toBeValid();
 	await expect(`
-		<rvt-button-link>
+		<rvt-link>
 			<button type="button">Go</button>
-		</rvt-button-link>
+		</rvt-link>
 	`).toBeInvalid();
 	await expect(`
-		<rvt-button-link>
+		<rvt-link>
 			<span></span>
-		</rvt-button-link>
+		</rvt-link>
 	`).toBeInvalid();
 	await expect(`
-		<rvt-button-link>
+		<rvt-link>
 			<a></a>
 			<a></a>
-		</rvt-button-link>
+		</rvt-link>
 	`).toBeInvalid();
 });

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-rvt-button-link,
+rvt-link[type="action"],
 a.rvt-button--cta {
 	--_color-border: var(--rvt-color-theme-text-strong);
 	--_color-border-hover: var(--rvt-color-theme-background-inverse-strong);
@@ -26,11 +26,11 @@ a.rvt-button--cta {
 	--_size-pressed: var(--rvt-size-2);
 }
 
-rvt-button-link {
+rvt-link[type="action"] {
 	display: inline-flex;
 }
 
-rvt-button-link a,
+rvt-link[type="action"] a,
 a.rvt-button--cta {
 	align-items: center;
 	background: var(--_color-background);
@@ -72,17 +72,17 @@ a.rvt-button--cta {
 	}
 }
 
-rvt-button-link[size="extra-large"] {
+rvt-link[type="action"][size="extra-large"] {
 	--_size-height: var(--rvt-size-48);
 }
 
-rvt-button-link[size="medium"],
+rvt-link[type="action"][size="medium"],
 a.rvt-button--cta.rvt-button--medium {
 	--_font: var(--rvt-font-14-bold);
 	--_size-height: var(--rvt-size-32);
 }
 
-rvt-button-link[size="small"],
+rvt-link[type="action"][size="small"],
 a.rvt-button--cta.rvt-button--small {
 	--_font: var(--rvt-font-14-bold);
 	--_gap: var(--rvt-size-4);
@@ -94,7 +94,7 @@ a.rvt-button--cta.rvt-button--small {
 	}
 }
 
-rvt-button-link[tone="strong"],
+rvt-link[type="action"][tone="strong"],
 a.rvt-button--cta.rvt-button--strong {
 	--_color-background: var(--rvt-color-theme-background-inverse);
 	--_color-background-hover: var(--rvt-color-theme-background-inverse-strong);
@@ -104,7 +104,7 @@ a.rvt-button--cta.rvt-button--strong {
 	--_color-text-hover: var(--rvt-color-theme-background);
 }
 
-rvt-button-link[tone="subtle"],
+rvt-link[type="action"][tone="subtle"],
 a.rvt-button--cta.rvt-button--subtle {
 	--_color-background-hover: transparent;
 	--_color-background-pressed: var(--rvt-color-theme-background-strong);
@@ -114,7 +114,7 @@ a.rvt-button--cta.rvt-button--subtle {
 	--_color-text-hover: var(--rvt-color-theme-background-inverse-strong);
 }
 
-rvt-button-link,
+rvt-link[type="action"],
 a.rvt-button--cta {
 	--_color-background-hover: transparent;
 	--_color-border: var(--rvt-color-theme-accent);
@@ -142,7 +142,7 @@ a.rvt-button--cta {
 	}
 }
 
-rvt-button-link a,
+rvt-link[type="action"] a,
 a.rvt-button--cta {
 	justify-content: space-between;
 
@@ -165,8 +165,8 @@ a.rvt-button--cta {
 	}
 }
 
-rvt-button-link[width="full"],
-rvt-button-link[width="full"] a,
+rvt-link[type="action"][width="full"],
+rvt-link[type="action"][width="full"] a,
 a.rvt-button--cta.rvt-button--full-width {
 	width: 100%;
 }

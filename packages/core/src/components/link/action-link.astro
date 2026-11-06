@@ -1,5 +1,5 @@
 ---
-export const title = "Button Link";
+export const title = "Action Link";
 
 const rows = [
 	{
@@ -39,31 +39,31 @@ const rows = [
 			<tr>
 				<th scope="row">{row.label}</th>
 				<td>
-					<rvt-button-link {...row.props}>
+					<rvt-link type="action" {...row.props}>
 						<a href="#">Read more</a>
-					</rvt-button-link>
+					</rvt-link>
 				</td>
 				<td>
-					<rvt-button-link {...row.props}>
+					<rvt-link type="action" {...row.props}>
 						<a href="/">Visit</a>
-					</rvt-button-link>
+					</rvt-link>
 				</td>
 				<td>
-					<rvt-button-link {...row.props}>
+					<rvt-link type="action" {...row.props}>
 						<a href="https://rivet.iu.edu">Support</a>
-					</rvt-button-link>
+					</rvt-link>
 				</td>
 				<td>
-					<rvt-button-link {...row.props}>
+					<rvt-link type="action" {...row.props}>
 						<a>Nowhere</a>
-					</rvt-button-link>
+					</rvt-link>
 				</td>
 				<td>
-					<rvt-button-link {...row.props}>
+					<rvt-link type="action" {...row.props}>
 						<a href="/">
 							<rvt-sr-only>Go</rvt-sr-only>
 						</a>
-					</rvt-button-link>
+					</rvt-link>
 				</td>
 			</tr>
 		))}

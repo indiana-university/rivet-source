@@ -3,4 +3,4 @@
 ---
 
 - Deprecated `.rvt-button` in favor of `<rvt-button>`.
-- Deprecated `.rvt-button--cta` and `.rvt-cta` in favor of `<rvt-button-link>`.
+- Deprecated `.rvt-button--cta` and `.rvt-cta` in favor of `<rvt-link type="action">`.

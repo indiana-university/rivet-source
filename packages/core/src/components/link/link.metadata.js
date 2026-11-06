@@ -6,22 +6,25 @@
 export const deprecatedClasses = [
 	{
 		class: "rvt-cta",
-		replacement: `<rvt-button-link>`,
+		replacement: `<rvt-link type="action">`,
 	},
 	{
 		class: "rvt-cta--button",
-		replacement: `<rvt-button-link tone="strong">`,
+		replacement: `<rvt-link type="action" tone="strong">`,
 	},
 ];
 
 export const elements = {
-	"rvt-button-link": {
+	"rvt-link": {
 		attributes: {
 			size: {
 				enum: ["large", "small", "medium", "extra-large"],
 			},
 			tone: {
 				enum: ["normal", "strong", "subtle"],
+			},
+			type: {
+				enum: ["action"],
 			},
 			width: {
 				enum: ["normal", "full"],
@@ -34,7 +37,7 @@ export const elements = {
 
 export const requiredDescendants = [
 	{
-		element: "rvt-button-link",
+		element: "rvt-link",
 		required: [
 			{
 				query: `> *`,
