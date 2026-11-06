@@ -106,6 +106,7 @@
 		gap: var(--rvt-spacing-sm);
 		padding: var(--rvt-spacing-sm);
 
+		rvt-button,
 		.rvt-button {
 			justify-content: center;
 			text-align: center;
@@ -115,13 +116,14 @@
 		@include mq($breakpoint-sm) {
 			justify-content: flex-end;
 
+			rvt-button,
 			.rvt-button {
 				width: auto;
 			}
 		}
 	}
 
-	.rvt-button[data-rvt-dialog-close] > * {
+	:is(rvt-button button, .rvt-button)[data-rvt-dialog-close] > * {
 		pointer-events: none;
 	}
 }

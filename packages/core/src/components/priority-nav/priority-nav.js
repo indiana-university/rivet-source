@@ -75,11 +75,12 @@ export default class PriorityNav extends Component {
 				moreMenu.setAttribute("data-rvt-dropdown", "priority-nav-dropdown");
 				moreMenu.setAttribute("data-rvt-priority-nav-more", true);
 
-				const moreMenuToggle = document.createElement("button");
-				moreMenuToggle.classList.add("rvt-button", "rvt-button--medium");
-				moreMenuToggle.setAttribute("data-rvt-dropdown-toggle", true);
-				moreMenuToggle.innerHTML =
-					'More <rvt-icon name="chevron-down"></rvt-icon>';
+				const moreMenuToggle = document.createElement("rvt-button");
+				moreMenuToggle.setAttribute("size", "medium");
+				moreMenuToggle.innerHTML = `<button data-rvt-dropdown-toggle="true" type="button">
+					More
+					<rvt-icon name="chevron-down"></rvt-icon>
+				</button>`;
 
 				const moreMenuDropdown = document.createElement("div");
 				moreMenuDropdown.classList.add(

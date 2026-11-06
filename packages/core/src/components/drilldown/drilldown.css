@@ -24,10 +24,11 @@ rvt-drilldown {
 		}
 	}
 
+	rvt-button button,
 	button.rvt-button {
-		--color-border: var(--rvt-color-theme-ui);
-		--color-border-hover: var(--rvt-color-theme-ui);
-		--color-text-hover: var(--rvt-color-theme-text-accent);
+		--_color-border: var(--rvt-color-theme-ui);
+		--_color-border-hover: var(--rvt-color-theme-ui);
+		--_color-text-hover: var(--rvt-color-theme-text-accent);
 	}
 
 	header {
