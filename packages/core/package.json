@@ -34,6 +34,7 @@
 		"vite.config.js"
 	],
 	"scripts": {
+		"prebuild": "pnpm test",
 		"build": "vite build",
 		"postbuild": "node scripts/copy-favicons.js",
 		"prepare": "pnpm build",

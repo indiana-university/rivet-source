@@ -213,15 +213,16 @@ function buildGraphicSources(dictionary) {
 	}));
 }
 
-function logGenerated(file) {
-	console.log(`✔︎ ${file}`);
-}
-
 async function removeGenerated(files) {
 	await Promise.all(files.map((file) => rm(file, { force: true })));
 }
 
-export function createConfig({ stickers = null } = {}) {
+export function createConfig({ stickers = null, isVerbose = false } = {}) {
+	// Only log generated files when verbose output is requested
+	function logGenerated(file) {
+		if (isVerbose) console.log(`✔︎ ${file}`);
+	}
+
 	return {
 		source: ["tokens/**/*.json"],
 		expand: {
@@ -429,4 +430,5 @@ export default createConfig({
 	stickers: process.env.RIVET_STICKERS
 		? JSON.parse(process.env.RIVET_STICKERS)
 		: null,
+	isVerbose: true,
 });

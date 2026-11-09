@@ -36,6 +36,7 @@ const buildCommand = new Command("build")
 
 		// Initialize bool for sticker existence in config file
 		let stickersExist = false;
+		let stickers = null;
 
 		/************************************************
 		 * Read Rivet configuration file
@@ -63,18 +64,22 @@ const buildCommand = new Command("build")
 				printBuildResults("None", outputDir, stickersExist);
 
 				// Exit script
-				process.exit(1);
+				return;
 			}
 		}
 
 		// Parse contents of config for stickers
 		const config = YAML.parse(file) ?? {};
-		let stickers = null;
 
 		// Only add stickers if they exist, are uncommented, and have values in the config file
 		if (Array.isArray(config.stickers) && config.stickers.length > 0) {
 			stickers = config.stickers;
 			stickersExist = true;
+		} else {
+			// Config is empty or has no usable sticker list; report as a warning
+			console.log(
+				`\n${styleText("yellow", "Warning")}: No stickers are listed in "${options.config}".\n\nContinuing build with full Rivet assets.`,
+			);
 		}
 
 		// Run the "tokens" and "core" builds

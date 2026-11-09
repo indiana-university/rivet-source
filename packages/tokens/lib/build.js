@@ -11,7 +11,7 @@ export async function buildTokens({ isVerbose, stickers } = {}) {
 	const cwd = process.cwd();
 	process.chdir(pkgRoot);
 	try {
-		const sd = new StyleDictionary(createConfig({ stickers }), {
+		const sd = new StyleDictionary(createConfig({ stickers, isVerbose }), {
 			verbosity: isVerbose ? "inherit" : "silent",
 		});
 		await sd.buildAllPlatforms();
