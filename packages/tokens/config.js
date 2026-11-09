@@ -430,5 +430,7 @@ export default createConfig({
 	stickers: process.env.RIVET_STICKERS
 		? JSON.parse(process.env.RIVET_STICKERS)
 		: null,
+	// Show generated files when building tokens
+	// Note: The CLI controls this value with the -v flag
 	isVerbose: true,
 });

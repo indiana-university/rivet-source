@@ -34,14 +34,18 @@ const buildCommand = new Command("build")
 			options.output ?? "@rivet-iu/core/dist",
 		);
 
-		// Initialize bool for sticker existence in config file
+		// Whether the config file lists any stickers
 		let stickersExist = false;
+
+		// Sticker list from the config file; null builds all stickers.
+		// Declared before reading the config so the missing-config branch can use it.
 		let stickers = null;
 
 		/************************************************
 		 * Read Rivet configuration file
 		 ************************************************/
 
+		// Initialize var for config file
 		let file;
 
 		try {
@@ -63,7 +67,7 @@ const buildCommand = new Command("build")
 				// Report build results to terminal
 				printBuildResults("None", outputDir, stickersExist);
 
-				// Exit script
+				// Full build complete; skip config parsing below
 				return;
 			}
 		}
