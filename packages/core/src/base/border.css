@@ -3,6 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-:root {
+:is(:root, .rvt-theme-light, .rvt-theme-dark, .rvt-theme-crimson) {
 	--rvt-border: var(--rvt-size-1) solid var(--rvt-color-theme-ui);
 }

@@ -5,91 +5,55 @@ const label = `${title} (${Astro.props.label})`;
 ---
 
 <nav aria-label={label}>
-	<ul class="rvt-pagination">
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				<svg
-					fill="currentColor"
-					height="16"
-					viewBox="0 0 16 16"
-					width="16"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M.586 8 7 14.414 8.414 13l-5-5 5-5L7 1.586.586 8Z"></path>
-					<path d="M6.586 8 13 14.414 14.414 13l-5-5 5-5L13 1.586 6.586 8Z"></path>
-				</svg>
-				First
-				<rvt-sr-only>page</rvt-sr-only>
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#">
-				<svg
-					fill="currentColor"
-					height="16"
-					viewBox="0 0 16 16"
-					width="16"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M9.737.854 3.69 8l6.047 7.146 1.526-1.292L6.31 8l4.953-5.854L9.737.854Z"></path>
-				</svg>
-				<rvt-sr-only>Previous page</rvt-sr-only>
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				<rvt-sr-only>Page</rvt-sr-only> 6
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				<rvt-sr-only>Page</rvt-sr-only> 7
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a aria-current="page" href="#0">
-				<rvt-sr-only>Page</rvt-sr-only> 8
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				<rvt-sr-only>Page</rvt-sr-only> 9
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				<rvt-sr-only>Page</rvt-sr-only> 10
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				<svg
-					fill="currentColor"
-					height="16"
-					viewBox="0 0 16 16"
-					width="16"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M6.263 15.146 12.31 8 6.263.854 4.737 2.146 9.69 8l-4.953 5.854 1.526 1.292Z"></path>
-				</svg>
-				<rvt-sr-only>Next page</rvt-sr-only>
-			</a>
-		</li>
-		<li class="rvt-pagination__item">
-			<a href="#0">
-				Last
-				<rvt-sr-only>page</rvt-sr-only>
-				<svg
-					fill="currentColor"
-					height="16"
-					viewBox="0 0 16 16"
-					width="16"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M9.414 8 3 1.586 1.586 3l5 5-5 5L3 14.414 9.414 8Z"></path>
-					<path d="M15.414 8 9 1.586 7.586 3l5 5-5 5L9 14.414 15.414 8Z"></path>
-				</svg>
-			</a>
-		</li>
-	</ul>
+	<rvt-pagination>
+		<ul>
+			<li>
+				<a href="?page=1" rel="first">
+					First
+					<rvt-sr-only>page</rvt-sr-only>
+				</a>
+			</li>
+			<li>
+				<a href="?page=7" rel="prev">
+					<rvt-sr-only>Previous page</rvt-sr-only>
+				</a>
+			</li>
+			<li>
+				<a href="?page=6">
+					<rvt-sr-only>Page</rvt-sr-only> 6
+				</a>
+			</li>
+			<li>
+				<a href="?page=7">
+					<rvt-sr-only>Page</rvt-sr-only> 7
+				</a>
+			</li>
+			<li>
+				<a aria-current="page" href="?page=8">
+					<rvt-sr-only>Page</rvt-sr-only> 8
+				</a>
+			</li>
+			<li>
+				<a href="?page=9">
+					<rvt-sr-only>Page</rvt-sr-only> 9
+				</a>
+			</li>
+			<li>
+				<a href="?page=10">
+					<rvt-sr-only>Page</rvt-sr-only> 10
+				</a>
+			</li>
+			<li>
+				<a href="?page=9" rel="next">
+					<rvt-sr-only>Next page</rvt-sr-only>
+				</a>
+			</li>
+			<li>
+				<a href="?page=14" rel="last">
+					Last
+					<rvt-sr-only>page</rvt-sr-only>
+				</a>
+			</li>
+		</ul>
+	</rvt-pagination>
 </nav>
