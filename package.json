@@ -10,7 +10,8 @@
 		"dev": "pnpm --filter @rivet-iu/sandbox... dev",
 		"lint": "lint-staged",
 		"prepare": "husky",
-		"preview": "pnpm --filter @rivet-iu/sandbox... preview"
+		"preview": "pnpm --filter @rivet-iu/sandbox... preview",
+		"publish:local": "node scripts/publish-local.js"
 	},
 	"devEngines": {
 		"runtime": {

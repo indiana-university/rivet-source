@@ -9,7 +9,7 @@
 
 import { readFileSync, writeFileSync } from "fs";
 import { ANSI } from "./utils/ansi-colors.js";
-import { license } from "./utils/license-header.js";
+import { license } from "../packages/core/lib/license-header.js";
 
 // Get array of files via standalone command or lint-staged
 const files = process.argv.slice(2);
