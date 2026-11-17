@@ -27,22 +27,18 @@ const searchDialogId = `search-dialog-${createId()}`;
 			<NavMenu {...Astro.props} />
 		</div>
 		<div class="rvt-header__buttons">
-			<button
-				class="rvt-button rvt-button--medium rvt-button--icon-only rvt-header__button--mobile-menu"
-				data-rvt-dialog-trigger={mobileMenuDialogId}
-				type="button"
-			>
-				<rvt-icon name="menu"></rvt-icon>
-				<rvt-sr-only>Menu</rvt-sr-only>
-			</button>
-			<button
-				class="rvt-button rvt-button--medium rvt-button--icon-only"
-				data-rvt-dialog-trigger={searchDialogId}
-				type="button"
-			>
-				<rvt-icon name="magnifying-glass"></rvt-icon>
-				<rvt-sr-only>Search</rvt-sr-only>
-			</button>
+			<rvt-button class="rvt-header__button--mobile-menu" size="medium">
+				<button data-rvt-dialog-trigger={mobileMenuDialogId} type="button">
+					<rvt-icon name="menu"></rvt-icon>
+					<rvt-sr-only>Menu</rvt-sr-only>
+				</button>
+			</rvt-button>
+			<rvt-button size="medium">
+				<button data-rvt-dialog-trigger={searchDialogId} type="button">
+					<rvt-icon name="magnifying-glass"></rvt-icon>
+					<rvt-sr-only>Search</rvt-sr-only>
+				</button>
+			</rvt-button>
 		</div>
 	</div>
 </header>

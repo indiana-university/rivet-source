@@ -10,12 +10,14 @@
 		display: flex;
 		width: 100%;
 
+		rvt-button,
 		.rvt-button {
 			flex-grow: 1;
 			justify-content: center;
 		}
 	}
 
+	rvt-button,
 	.rvt-button {
 		position: relative;
 
@@ -24,22 +26,23 @@
 		}
 	}
 
+	rvt-button a,
 	a.rvt-button {
 		text-align: center;
 	}
 
-	.rvt-button:first-child {
+	:is(rvt-button, .rvt-button):first-child {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
 
-	.rvt-button:last-child {
+	:is(rvt-button, .rvt-button):last-child {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
-	.rvt-button:not(:first-child):not(:last-child) {
+	:is(rvt-button, .rvt-button):not(:first-child):not(:last-child) {
 		border-radius: 0;
 		margin-left: calc(var(--rvt-size-2) * -1);
 	}
@@ -49,39 +52,45 @@
 	* segmented button.
 	*/
 
-	.dropdown:first-child > .rvt-button:only-of-type,
-	.rvt-dropdown:first-child > .rvt-button:only-of-type {
+	.dropdown:first-child > :is(rvt-button, .rvt-button):only-of-type,
+	.rvt-dropdown:first-child > :is(rvt-button, .rvt-button):only-of-type {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
-	.dropdown:first-child > .rvt-button:first-of-type,
-	.rvt-dropdown:first-child > .rvt-button:first-of-type {
+	.dropdown:first-child > :is(rvt-button, .rvt-button):first-of-type,
+	.rvt-dropdown:first-child > :is(rvt-button, .rvt-button):first-of-type {
 		border-top-left-radius: var(--rvt-spacing-xxs);
 		border-bottom-left-radius: var(--rvt-spacing-xxs);
 	}
 
-	.dropdown:last-child > .rvt-button:only-of-type,
-	.rvt-dropdown:last-child > .rvt-button:only-of-type {
+	.dropdown:last-child > :is(rvt-button, .rvt-button):only-of-type,
+	.rvt-dropdown:last-child > :is(rvt-button, .rvt-button):only-of-type {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
-	.dropdown:last-child > .rvt-button:last-of-type,
-	.rvt-dropdown:last-child > .rvt-button:last-of-type {
+	.dropdown:last-child > :is(rvt-button, .rvt-button):last-of-type,
+	.rvt-dropdown:last-child > :is(rvt-button, .rvt-button):last-of-type {
 		border-top-right-radius: var(--rvt-spacing-xxs);
 		border-bottom-right-radius: var(--rvt-spacing-xxs);
 	}
 
-	.dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type,
-	.rvt-dropdown:not(:first-child):not(:last-child) > .rvt-button:only-of-type {
+	.dropdown:not(:first-child):not(:last-child)
+		> :is(rvt-button, .rvt-button):only-of-type,
+	.rvt-dropdown:not(:first-child):not(:last-child)
+		> :is(rvt-button, .rvt-button):only-of-type {
 		border-radius: 0;
 		margin-left: calc(var(--rvt-size-2) * -1);
 	}
 
-	.rvt-dropdown:last-child > .rvt-button:not(.rvt-button--secondary) {
+	.rvt-dropdown:last-child
+		> :is(rvt-button, .rvt-button):not(
+			[type="normal"],
+			.rvt-button--secondary
+		) {
 		margin-left: var(--rvt-size-2);
 	}
 }
