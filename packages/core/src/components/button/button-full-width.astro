@@ -1,14 +1,12 @@
 ---
-export const title = "Full-width Button";
+export const title = "Button (full width)";
 ---
 
 <div class="rvt-button-group">
-	<button
-		class="rvt-button rvt-button--strong rvt-button--full-width"
-		type="button"
-	>
-		Submit
-	</button>
-	<button class="rvt-button rvt-button--full-width" type="button">Cancel</button
-	>
+	<rvt-button tone="strong" width="full">
+		<button type="button">Submit</button>
+	</rvt-button>
+	<rvt-button width="full">
+		<button type="button">Cancel</button>
+	</rvt-button>
 </div>

@@ -8,6 +8,7 @@
 	gap: var(--rvt-spacing-sm);
 	flex-wrap: wrap;
 
+	&:has(rvt-button[size="medium"], rvt-button[size="small"]),
 	&:has(.rvt-button--medium, .rvt-button--small) {
 		gap: var(--rvt-spacing-xs);
 	}

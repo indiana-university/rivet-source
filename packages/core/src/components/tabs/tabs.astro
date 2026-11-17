@@ -9,19 +9,23 @@ export const title = "Tabs";
 		data-rvt-tablist
 		role="tablist"
 	>
-		<button class="rvt-tabs__tab" data-rvt-tab type="button">Tab one</button>
-		<button class="rvt-tabs__tab" data-rvt-tab="remove-me" type="button"
-			>Tab two</button
-		>
-		<button class="rvt-tabs__tab" data-rvt-tab type="button">Tab three</button>
-		<button class="rvt-tabs__tab" data-rvt-tab="tab-four" type="button"
-			>Tab four</button
-		>
+		<button class="rvt-tabs__tab" data-rvt-tab type="button">
+			Tab one
+		</button>
+		<button class="rvt-tabs__tab" data-rvt-tab="remove-me" type="button">
+			Tab two
+		</button>
+		<button class="rvt-tabs__tab" data-rvt-tab type="button">
+			Tab three
+		</button>
+		<button class="rvt-tabs__tab" data-rvt-tab="tab-four" type="button">
+			Tab four
+		</button>
 	</div>
 	<div class="rvt-tabs__panel" data-rvt-tab-panel>
-		<span class="rvt-ts-23 rvt-text-bold"
-			>Become the best version of yourself at IU</span
-		>
+		<span class="rvt-ts-23 rvt-text-bold">
+			Become the best version of yourself at IU
+		</span>
 		<p>
 			Develop the skills you need for a rewarding career, and follow in the
 			footsteps of more than 729,000 IU alumni who are leading organizations,
@@ -38,9 +42,9 @@ export const title = "Tabs";
 		</p>
 	</div>
 	<div class="rvt-tabs__panel" data-rvt-tab-init data-rvt-tab-panel>
-		<span class="rvt-ts-23 rvt-text-bold"
-			>Pursue your passion or explore the possibilities</span
-		>
+		<span class="rvt-ts-23 rvt-text-bold">
+			Pursue your passion or explore the possibilities
+		</span>
 		<p>
 			From nursing to criminal justice, epidemiology to environmental science,
 			social work to cybersecurity, and more than 900 academic programs in
@@ -50,47 +54,49 @@ export const title = "Tabs";
 		</p>
 	</div>
 	<div class="rvt-tabs__panel" data-rvt-tab-panel="tab-four">
-		<span class="rvt-ts-23 rvt-text-bold"
-			>Find your ideal campus life at IU</span
-		>
+		<span class="rvt-ts-23 rvt-text-bold">
+			Find your ideal campus life at IU
+		</span>
 		<p>
 			Each of our nine campuses offers a welcoming, inclusive environment that
 			feels like home, whatever your background, interests, or goals. Whether
 			you want a Big Ten college experience, the dynamic pace of an urban
 			research university, the community feeling of a regional campus close to
-			home, or the flexibility of a fully online degree program, you’ll find it
+			home, or the flexibility of a fully online degree program, you'll find it
 			at IU.
 		</p>
 	</div>
 </div>
 
-<button class="rvt-button rvt-m-top-xl" data-add-tab type="button"
-	>Add tab</button
->
-<button
-	class="rvt-button rvt-button--strong rvt-m-left-sm"
-	data-remove-tab
-	type="button"
->
-	Remove tab two
-</button>
-<button class="rvt-button rvt-m-left-sm" data-activate-named-tab type="button">
-	Activate tab four by ID
-</button>
-<button
-	class="rvt-button rvt-m-left-sm"
-	data-activate-indexed-tab
-	type="button"
->
-	Activate tab one by index
-</button>
-<button
-	class="rvt-button rvt-button--strong rvt-m-left-sm"
-	data-remove-indexed-tab
-	type="button"
->
-	Remove tab three by index
-</button>
+<rvt-button class="rvt-m-top-xl">
+	<button data-add-tab type="button">
+		Add tab
+	</button>
+</rvt-button>
+
+<rvt-button class="rvt-m-left-sm">
+	<button data-remove-tab type="button">
+		Remove tab two
+	</button>
+</rvt-button>
+
+<rvt-button class="rvt-m-left-sm">
+	<button data-activate-named-tab type="button">
+		Activate tab four by ID
+	</button>
+</rvt-button>
+
+<rvt-button class="rvt-m-left-sm">
+	<button data-activate-indexed-tab type="button">
+		Activate tab one by index
+	</button>
+</rvt-button>
+
+<rvt-button class="rvt-m-left-sm">
+	<button data-remove-indexed-tab type="button">
+		Remove tab three by index
+	</button>
+</rvt-button>
 
 <script>
 	const tabs = document.querySelector("[data-rvt-tabs]");
