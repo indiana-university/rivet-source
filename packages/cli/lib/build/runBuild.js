@@ -22,14 +22,14 @@ function addSpace(isVerbose) {
 export async function runWorkspaceBuild(isVerbose, { outputDir, stickers }) {
 	if (isVerbose) {
 		console.log(
-			`\n${styleText("#990000", "=>")} Starting build (verbose output)...`,
+			`\n${styleText("red", "=>")} Starting build (verbose output)...`,
 		);
 	} else {
-		console.log(`\n${styleText("#990000", "=>")} Starting build...`);
+		console.log(`\n${styleText("red", "=>")} Starting build...`);
 	}
 
 	// Report tokens status
-	console.log(`${styleText("#990000", "=>")} Reading tokens...`);
+	console.log(`${styleText("red", "=>")} Reading tokens...`);
 
 	addSpace(isVerbose);
 
@@ -42,7 +42,7 @@ export async function runWorkspaceBuild(isVerbose, { outputDir, stickers }) {
 	addSpace(isVerbose);
 
 	// Report core asset status
-	console.log(`${styleText("#990000", "=>")} Building core assets...`);
+	console.log(`${styleText("red", "=>")} Building core assets...`);
 
 	addSpace(isVerbose);
 

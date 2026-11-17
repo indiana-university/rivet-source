@@ -10,7 +10,7 @@ const stickersTotal = Object.keys(stickerTokens.sticker).filter(
 ).length;
 
 export function printBuildResults(config, directory, stickersExist) {
-	console.log(`\n--------------------------------\n`);
+	console.log(`\n${"-".repeat(32)}`);
 	console.log(`Build completed successfully\n`);
 
 	// Output directory info

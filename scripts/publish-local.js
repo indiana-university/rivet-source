@@ -141,7 +141,7 @@ function readPackages() {
 // Publish every workspace package to Verdaccio, hiding pnpm's output unless it fails
 function publish() {
 	console.log(
-		`\n${styleText("#990000", "=>")} Publishing to Verdaccio (${styleText("cyan", VERDACCIO_URL)})\n`,
+		`\n${styleText("red", "=>")} Publishing to Verdaccio (${styleText("cyan", VERDACCIO_URL)})\n`,
 	);
 
 	try {
@@ -177,14 +177,24 @@ function publishTestVersions(packages, label) {
 	};
 
 	// Unique test version per run so pnpm never reuses a cached copy
-	const suffix = `${label}-${dateFragments.year}${dateFragments.month}${dateFragments.day}-${dateFragments.hours}${dateFragments.minutes}${dateFragments.seconds}`;
+	const suffix = [
+		label,
+		"-",
+		dateFragments.year,
+		dateFragments.month,
+		dateFragments.day,
+		"-",
+		dateFragments.hours,
+		dateFragments.minutes,
+		dateFragments.seconds,
+	].join("");
 
 	// Files changed so far, so "finally" restores only what was changed
 	const originals = [];
 
 	try {
 		console.log(
-			`\n${styleText("#990000", "=>")} Updating package versions to test versions:`,
+			`\n${styleText("red", "=>")} Updating package versions to test versions:`,
 		);
 
 		for (const { name, file, originalContents, pkg } of packages) {
@@ -213,7 +223,7 @@ function publishTestVersions(packages, label) {
 		// Print confirmation of restored package.json files only if any were modified
 		if (originals.length) {
 			console.log(
-				`${styleText("#990000", "=>")} Restored original package versions:`,
+				`${styleText("red", "=>")} Restored original package versions:`,
 			);
 
 			for (const { name, originalVersion } of originals) {
@@ -238,7 +248,7 @@ async function checkVerdaccio() {
 
 // Print a heading and the version from each package.json
 function logPackageVersions(packages, heading) {
-	console.log(`${styleText("#990000", "=>")} ${heading}`);
+	console.log(`${styleText("red", "=>")} ${heading}`);
 
 	for (const { name, pkg } of packages) {
 		console.log(`   - ${name}: ${pkg.version}`);
@@ -266,7 +276,7 @@ const { label } = readOptions();
 process.on("SIGINT", () => {});
 
 console.log(
-	`\n${styleText("#990000", "=>")} Starting publish of local packages to Verdaccio\n`,
+	`\n${styleText("red", "=>")} Starting publish of local packages to Verdaccio\n`,
 );
 
 // Fail before any package.json is changed if Verdaccio isn't running
@@ -282,7 +292,7 @@ logPackageVersions(packages, "Original package versions:");
 publishTestVersions(packages, label);
 
 // Only runs if publishing succeeded; a failed publish stops the script before this line
-console.log(`${styleText("#990000", "=>")} Publish complete!`);
+console.log(`${styleText("red", "=>")} Publish complete!`);
 
 // Print the "pnpm dlx" command to try the versions just published
 logRunCommand(packages);
