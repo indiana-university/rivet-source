@@ -46,6 +46,19 @@ export const elements = {
 				enum: tones,
 			},
 			trait: {
+				allowed(node, attr) {
+					if (typeof attr !== "string") {
+						return null;
+					}
+					const tokens = attr.split(/\s+/);
+					if (
+						node.getAttribute("tone") === "plain" &&
+						tokens.includes("striped")
+					) {
+						return `not allowed when [tone="plain"] because striping has no effect on a plain table`;
+					}
+					return null;
+				},
 				enum: traits,
 				list: true,
 			},
@@ -94,11 +107,6 @@ export const requiredDescendants = [
 				not: [`section[rvt-table-responsive][tabindex="0"]`],
 				max: 0,
 				message: `Add tabindex="0" so the scrollable region is keyboard accessible`,
-			},
-			{
-				query: `rvt-table[tone="plain"][trait="striped"]`,
-				max: 0,
-				message: `Striping has no effect on a plain table`,
 			},
 		],
 	},
