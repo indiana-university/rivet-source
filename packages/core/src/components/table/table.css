@@ -67,7 +67,7 @@ rvt-table[tone="subtle"] thead,
 	}
 }
 
-rvt-table[borders="none"] table,
+rvt-table[tone="plain"] table,
 .rvt-table-plain {
 	border: none;
 
@@ -76,7 +76,7 @@ rvt-table[borders="none"] table,
 	}
 }
 
-rvt-table[borders="cells"] table,
+rvt-table[trait~="cells"] table,
 .rvt-table-cells {
 	border-top: var(--rvt-border);
 
@@ -91,7 +91,7 @@ rvt-table[borders="cells"] table,
 
 /* Row striping */
 
-rvt-table[striped] tr:nth-child(even),
+rvt-table[trait~="striped"] tr:nth-child(even),
 .rvt-table-stripes tr:nth-child(even) {
 	background-color: var(--rvt-color-theme-background-light);
 }

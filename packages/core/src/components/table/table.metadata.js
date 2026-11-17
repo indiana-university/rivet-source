@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export const borders = ["none", "normal", "cells"];
-
 export const densities = ["normal", "compact"];
 
 export const tones = ["normal", "subtle", "plain"];
+
+export const traits = ["cells", "striped"];
 
 export const deprecatedClasses = [
 	{
@@ -16,7 +16,7 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-table-cells",
-		replacement: `<rvt-table borders="cells">`,
+		replacement: `<rvt-table trait="cells">`,
 	},
 	{
 		class: "rvt-table-compact",
@@ -24,7 +24,7 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-table-plain",
-		replacement: `<rvt-table tone="plain" borders="none">`,
+		replacement: `<rvt-table tone="plain">`,
 	},
 	{
 		class: "rvt-table-responsive",
@@ -32,24 +32,22 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-table-stripes",
-		replacement: "<rvt-table striped>",
+		replacement: `<rvt-table trait="striped">`,
 	},
 ];
 
 export const elements = {
 	"rvt-table": {
 		attributes: {
-			borders: {
-				enum: borders,
-			},
 			density: {
 				enum: densities,
 			},
-			striped: {
-				boolean: true,
-			},
 			tone: {
 				enum: tones,
+			},
+			trait: {
+				enum: traits,
+				list: true,
 			},
 		},
 		flow: true,
@@ -98,7 +96,7 @@ export const requiredDescendants = [
 				message: `Add tabindex="0" so the scrollable region is keyboard accessible`,
 			},
 			{
-				query: `rvt-table[tone="plain"][striped]`,
+				query: `rvt-table[tone="plain"][trait="striped"]`,
 				max: 0,
 				message: `Striping has no effect on a plain table`,
 			},

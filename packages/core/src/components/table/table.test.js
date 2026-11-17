@@ -5,14 +5,9 @@
 
 import { expect, test } from "vitest";
 import "html-validate/vitest";
-import { borders, densities, tones } from "./table.metadata.js";
+import { densities, tones, traits } from "./table.metadata.js";
 
 test("attributes", async () => {
-	for (const value of borders) {
-		await expect(
-			`<rvt-table borders="${value}"><table></table></rvt-table>`,
-		).toBeValid();
-	}
 	for (const value of densities) {
 		await expect(
 			`<rvt-table density="${value}"><table></table></rvt-table>`,
@@ -23,9 +18,19 @@ test("attributes", async () => {
 			`<rvt-table tone="${value}"><table></table></rvt-table>`,
 		).toBeValid();
 	}
-	await expect(`<rvt-table striped><table></table></rvt-table>`).toBeValid();
+	for (const value of traits) {
+		await expect(
+			`<rvt-table trait="${value}"><table></table></rvt-table>`,
+		).toBeValid();
+	}
 	await expect(
-		`<rvt-table borders="grid"><table></table></rvt-table>`,
+		`<rvt-table trait="cells striped"><table></table></rvt-table>`,
+	).toBeValid();
+	await expect(
+		`<rvt-table trait="grid"><table></table></rvt-table>`,
+	).toBeInvalid();
+	await expect(
+		`<rvt-table trait="cells grid"><table></table></rvt-table>`,
 	).toBeInvalid();
 	await expect(
 		`<rvt-table density="tight"><table></table></rvt-table>`,
@@ -130,7 +135,7 @@ test("striped conflicts with plain tone", async () => {
 		<html lang="en">
 			<head><title>Plain table</title></head>
 			<body>
-				<rvt-table tone="plain" borders="none"><table></table></rvt-table>
+				<rvt-table tone="plain"><table></table></rvt-table>
 			</body>
 		</html>
 	`).toBeValid();
@@ -139,7 +144,7 @@ test("striped conflicts with plain tone", async () => {
 		<html lang="en">
 			<head><title>Plain table</title></head>
 			<body>
-				<rvt-table tone="plain" striped><table></table></rvt-table>
+				<rvt-table tone="plain" trait="striped"><table></table></rvt-table>
 			</body>
 		</html>
 	`).toBeInvalid();
