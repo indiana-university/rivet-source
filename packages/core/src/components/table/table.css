@@ -95,9 +95,9 @@ rvt-table[trait~="striped"] tr:nth-child(even),
 	background-color: var(--rvt-color-theme-background-light);
 }
 
-/* Cell density */
+/* Cell spacing */
 
-rvt-table[density="compact"] tr :is(th, td),
+rvt-table[spacing="compact"] tr :is(th, td),
 .rvt-table-compact tr :is(th, td) {
 	padding: var(--rvt-size-8);
 }

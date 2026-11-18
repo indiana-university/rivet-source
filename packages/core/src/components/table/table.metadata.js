@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export const densities = ["normal", "compact"];
+export const spacing = ["normal", "compact"];
 
 export const tones = ["normal", "strong", "subtle"];
 
@@ -20,7 +20,7 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-table-compact",
-		replacement: `<rvt-table density="compact">`,
+		replacement: `<rvt-table spacing="compact">`,
 	},
 	{
 		class: "rvt-table-plain",
@@ -39,8 +39,8 @@ export const deprecatedClasses = [
 export const elements = {
 	"rvt-table": {
 		attributes: {
-			density: {
-				enum: densities,
+			spacing: {
+				enum: spacing,
 			},
 			tone: {
 				enum: tones,

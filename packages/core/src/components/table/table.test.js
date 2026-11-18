@@ -5,12 +5,12 @@
 
 import { expect, test } from "vitest";
 import "html-validate/vitest";
-import { densities, tones, traits } from "./table.metadata.js";
+import { spacing, tones, traits } from "./table.metadata.js";
 
 test("attributes", async () => {
-	for (const value of densities) {
+	for (const value of spacing) {
 		await expect(
-			`<rvt-table density="${value}"><table></table></rvt-table>`,
+			`<rvt-table spacing="${value}"><table></table></rvt-table>`,
 		).toBeValid();
 	}
 	for (const value of tones) {
@@ -33,7 +33,7 @@ test("attributes", async () => {
 		`<rvt-table trait="cells grid"><table></table></rvt-table>`,
 	).toBeInvalid();
 	await expect(
-		`<rvt-table density="tight"><table></table></rvt-table>`,
+		`<rvt-table spacing="tight"><table></table></rvt-table>`,
 	).toBeInvalid();
 	await expect(
 		`<rvt-table tone="normal subtle"><table></table></rvt-table>`,
