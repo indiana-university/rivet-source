@@ -3,16 +3,19 @@ import fs from "fs";
 import path from "path";
 import { styleText } from "util";
 
-import { configFileName } from "../lib/config.js";
+import { configFileName, defaultOutputDir } from "../lib/config.js";
 
 const configTemplate = `# Rivet CLI configuration
 # https://rivet.iu.edu
 
+# Directory to output built assets into, relative to where you run 'rivet build'.
+# Defaults to ${defaultOutputDir}. The --output flag overrides this value.
+
+# outputDir: '${defaultOutputDir}'
+
 # Include any stickers you'd like to use in your project here.
 # You can find a list of available stickers at:
 # https://rivet.iu.edu/icons-stickers/sticker-library/
-
-# outputDir: '@rivet-iu/core/dist'
 
 # stickers:
 #   - accessibility

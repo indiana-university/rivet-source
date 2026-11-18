@@ -9,12 +9,27 @@ const stickersTotal = Object.keys(stickerTokens.sticker).filter(
 	(key) => !key.startsWith("$"),
 ).length;
 
-export function printBuildResults(config, directory, stickersExist) {
+export function printBuildResults(
+	config,
+	directory,
+	stickersExist,
+	outputSource,
+) {
 	console.log(`\n${"-".repeat(32)}`);
 	console.log(`Build completed successfully\n`);
 
-	// Output directory info
-	console.log(`${styleText("blue", "Output directory")}:\n ${directory}\n`);
+	// Output directory info, including where the directory setting came from
+	// Start with the default label, then override if the setting came from somewhere else
+	let sourceLabel = "default";
+
+	if (outputSource !== "default") {
+		// Ex: "from rivet.yaml" or "from --output flag"
+		sourceLabel = `from ${outputSource}`;
+	}
+
+	console.log(
+		`${styleText("blue", "Output directory")} (${sourceLabel}):\n ${directory}\n`,
+	);
 
 	// Output sticker info
 	const stickersCount = stickersExist ? config.stickers.length : stickersTotal;

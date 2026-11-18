@@ -4,7 +4,7 @@ import path from "node:path";
 import { styleText } from "util";
 import YAML from "yaml";
 
-import { configFileName } from "../lib/config.js";
+import { configFileName, defaultOutputDir } from "../lib/config.js";
 import { printBuildResults } from "../lib/build/results.js";
 import { runWorkspaceBuild } from "../lib/build/runBuild.js";
 
@@ -34,7 +34,8 @@ const buildCommand = new Command("build")
 		 * Warns (even when the CLI flag is used) if `outputDir` is set but isn't a non-empty string.
 		 *
 		 * @param {unknown} [configOutputDir] - `outputDir` value from the parsed config, if any.
-		 * @returns {string} Absolute path to the output directory.
+		 * @returns {{ path: string, source: string }} Absolute path to the output directory,
+		 *   and where it came from ("--output flag", the config file name, or "default").
 		 */
 
 		function resolveOutputDir(configOutputDir) {
@@ -57,18 +58,21 @@ const buildCommand = new Command("build")
 			}
 
 			// Start with the default, then override in order of precedence
-			let dir = "@rivet-iu/core/dist";
+			let dir = defaultOutputDir;
+			let source = "default";
 
 			if (options.output) {
 				// CLI output option/flag override
 				dir = options.output;
+				source = "--output flag";
 			} else if (isValidConfigDir) {
 				// Config outputDir override
 				dir = configOutputDir;
+				source = options.config;
 			}
 
 			// All paths are relative to where the command was run
-			return path.resolve(process.cwd(), dir);
+			return { path: path.resolve(process.cwd(), dir), source };
 		}
 
 		// Whether the config file lists any stickers
@@ -95,7 +99,7 @@ const buildCommand = new Command("build")
 		} catch (error) {
 			if (error.code === "ENOENT") {
 				// No config to read from, so use the CLI flag or default
-				const outputDir = resolveOutputDir();
+				const { path: outputDir, source: outputSource } = resolveOutputDir();
 
 				// No Rivet configuration was found; report as a warning
 				console.log(
@@ -106,7 +110,7 @@ const buildCommand = new Command("build")
 				await runWorkspaceBuild(options.verbose, { outputDir, stickers });
 
 				// Report build results to terminal
-				printBuildResults("None", outputDir, stickersExist);
+				printBuildResults("None", outputDir, stickersExist, outputSource);
 
 				// Full build complete; skip config parsing below
 				return;
@@ -117,7 +121,9 @@ const buildCommand = new Command("build")
 		const config = YAML.parse(file) ?? {};
 
 		// Use the config's outputDir unless the CLI flag overrides it
-		const outputDir = resolveOutputDir(config.outputDir);
+		const { path: outputDir, source: outputSource } = resolveOutputDir(
+			config.outputDir,
+		);
 
 		// Only add stickers if they exist, are uncommented, and have values in the config file
 		if (Array.isArray(config.stickers) && config.stickers.length > 0) {
@@ -134,7 +140,7 @@ const buildCommand = new Command("build")
 		await runWorkspaceBuild(options.verbose, { outputDir, stickers });
 
 		// Report build results to terminal
-		printBuildResults(config, outputDir, stickersExist);
+		printBuildResults(config, outputDir, stickersExist, outputSource);
 	});
 
 export default buildCommand;
