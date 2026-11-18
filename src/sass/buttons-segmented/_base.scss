@@ -28,12 +28,12 @@
     text-align: center;
   }
 
-  .#{$prefix}-button:first-child {
+  .#{$prefix}-button:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .#{$prefix}-button:last-child {
+  .#{$prefix}-button:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: -2px;
