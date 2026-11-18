@@ -5,7 +5,7 @@
 
 export const densities = ["normal", "compact"];
 
-export const tones = ["normal", "subtle", "plain"];
+export const tones = ["normal", "strong", "subtle"];
 
 export const traits = ["cells", "striped"];
 
@@ -24,7 +24,7 @@ export const deprecatedClasses = [
 	},
 	{
 		class: "rvt-table-plain",
-		replacement: `<rvt-table tone="plain">`,
+		replacement: `<rvt-table tone="subtle">`,
 	},
 	{
 		class: "rvt-table-responsive",
@@ -52,10 +52,10 @@ export const elements = {
 					}
 					const tokens = attr.split(/\s+/);
 					if (
-						node.getAttribute("tone") === "plain" &&
+						node.getAttribute("tone") === "subtle" &&
 						tokens.includes("striped")
 					) {
-						return `not allowed when [tone="plain"] because striping has no effect on a plain table`;
+						return `not allowed when [tone="subtle"] because striping has no effect without a header fill`;
 					}
 					return null;
 				},

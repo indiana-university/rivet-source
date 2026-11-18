@@ -28,10 +28,10 @@ tr th {
 }
 
 thead {
-	background-color: var(--rvt-color-theme-accent);
+	background-color: var(--rvt-color-theme-background-strong);
 
 	& tr th {
-		color: var(--rvt-color-theme-background);
+		color: var(--rvt-color-theme-text);
 		font: var(--rvt-font-14-bold);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
@@ -48,7 +48,7 @@ tbody tr :is(td, th) {
 
 /* Header and border treatment */
 
-rvt-table[tone="plain"] thead,
+rvt-table[tone="subtle"] thead,
 .rvt-table-plain thead {
 	background-color: transparent;
 	border-bottom: none;
@@ -58,16 +58,15 @@ rvt-table[tone="plain"] thead,
 	}
 }
 
-rvt-table[tone="subtle"] thead,
-.rvt-table--subtle thead {
-	background-color: var(--rvt-color-theme-background-strong);
+rvt-table[tone="strong"] thead {
+	background-color: var(--rvt-color-theme-accent);
 
 	& th {
-		color: var(--rvt-color-theme-text);
+		color: var(--rvt-color-theme-background);
 	}
 }
 
-rvt-table[tone="plain"] table,
+rvt-table[tone="subtle"] table,
 .rvt-table-plain {
 	border: none;
 

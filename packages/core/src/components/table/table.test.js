@@ -36,7 +36,7 @@ test("attributes", async () => {
 		`<rvt-table density="tight"><table></table></rvt-table>`,
 	).toBeInvalid();
 	await expect(
-		`<rvt-table tone="normal plain"><table></table></rvt-table>`,
+		`<rvt-table tone="normal subtle"><table></table></rvt-table>`,
 	).toBeInvalid();
 });
 
@@ -129,19 +129,19 @@ test("responsive region", async () => {
 	`).toBeInvalid();
 });
 
-test("striped conflicts with plain tone", async () => {
+test("striped conflicts with subtle tone", async () => {
 	await expect(
-		`<rvt-table tone="plain"><table></table></rvt-table>`,
+		`<rvt-table tone="subtle"><table></table></rvt-table>`,
 	).toBeValid();
 	for (const value of ["striped", "cells striped", "striped cells"]) {
 		await expect(
-			`<rvt-table tone="plain" trait="${value}"><table></table></rvt-table>`,
+			`<rvt-table tone="subtle" trait="${value}"><table></table></rvt-table>`,
 		).toBeInvalid();
 	}
 	await expect(
-		`<rvt-table tone="plain" trait="cells"><table></table></rvt-table>`,
+		`<rvt-table tone="subtle" trait="cells"><table></table></rvt-table>`,
 	).toBeValid();
 	await expect(
-		`<rvt-table tone="subtle" trait="striped"><table></table></rvt-table>`,
+		`<rvt-table tone="strong" trait="striped"><table></table></rvt-table>`,
 	).toBeValid();
 });
