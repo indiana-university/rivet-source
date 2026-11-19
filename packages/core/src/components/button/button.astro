@@ -23,57 +23,59 @@ const rows = [
 ];
 ---
 
-<table class="rvt-table">
-	<thead>
-		<tr>
-			<th scope="col"></th>
-			<th scope="col">Text</th>
-			<th scope="col">Icon text</th>
-			<th scope="col">Icon only</th>
-			<th scope="col">Pressed</th>
-			<th scope="col">Disabled</th>
-		</tr>
-	</thead>
-	<tbody>
-		{rows.map((row) => (
+<rvt-table>
+	<table>
+		<thead>
 			<tr>
-				<th scope="row">{row.label}</th>
-				<td>
-					<rvt-button {...row.props}>
-						<button type="button">New</button>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<button type="button">
-							<rvt-icon name="plus"></rvt-icon>
-							New
-						</button>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<button type="button">
-							<rvt-icon name="plus"></rvt-icon>
-							<rvt-sr-only>New</rvt-sr-only>
-						</button>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<button aria-pressed="true" type="button">
-							Favorite
-						</button>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<button disabled type="button">
-							Remove
-						</button>
-					</rvt-button>
-				</td>
+				<th scope="col"></th>
+				<th scope="col">Text</th>
+				<th scope="col">Icon text</th>
+				<th scope="col">Icon only</th>
+				<th scope="col">Pressed</th>
+				<th scope="col">Disabled</th>
 			</tr>
-		))}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			{rows.map((row) => (
+				<tr>
+					<th scope="row">{row.label}</th>
+					<td>
+						<rvt-button {...row.props}>
+							<button type="button">New</button>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<button type="button">
+								<rvt-icon name="plus"></rvt-icon>
+								New
+							</button>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<button type="button">
+								<rvt-icon name="plus"></rvt-icon>
+								<rvt-sr-only>New</rvt-sr-only>
+							</button>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<button aria-pressed="true" type="button">
+								Favorite
+							</button>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<button disabled type="button">
+								Remove
+							</button>
+						</rvt-button>
+					</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+</rvt-table>

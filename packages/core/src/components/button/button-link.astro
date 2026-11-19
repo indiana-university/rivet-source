@@ -23,47 +23,49 @@ const rows = [
 ];
 ---
 
-<table class="rvt-table">
-	<thead>
-		<tr>
-			<th scope="col"></th>
-			<th scope="col">Text</th>
-			<th scope="col">Icon text</th>
-			<th scope="col">Icon only</th>
-			<th scope="col">Disabled</th>
-		</tr>
-	</thead>
-	<tbody>
-		{rows.map((row) => (
+<rvt-table>
+	<table>
+		<thead>
 			<tr>
-				<th scope="row">{row.label}</th>
-				<td>
-					<rvt-button {...row.props}>
-						<a href="?action=new">New</a>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<a href="?action=new">
-							<rvt-icon name="plus"></rvt-icon>
-							New
-						</a>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<a href="?action=new">
-							<rvt-icon name="plus"></rvt-icon>
-							<rvt-sr-only>New</rvt-sr-only>
-						</a>
-					</rvt-button>
-				</td>
-				<td>
-					<rvt-button {...row.props}>
-						<a>Remove</a>
-					</rvt-button>
-				</td>
+				<th scope="col"></th>
+				<th scope="col">Text</th>
+				<th scope="col">Icon text</th>
+				<th scope="col">Icon only</th>
+				<th scope="col">Disabled</th>
 			</tr>
-		))}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			{rows.map((row) => (
+				<tr>
+					<th scope="row">{row.label}</th>
+					<td>
+						<rvt-button {...row.props}>
+							<a href="?action=new">New</a>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<a href="?action=new">
+								<rvt-icon name="plus"></rvt-icon>
+								New
+							</a>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<a href="?action=new">
+								<rvt-icon name="plus"></rvt-icon>
+								<rvt-sr-only>New</rvt-sr-only>
+							</a>
+						</rvt-button>
+					</td>
+					<td>
+						<rvt-button {...row.props}>
+							<a>Remove</a>
+						</rvt-button>
+					</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+</rvt-table>

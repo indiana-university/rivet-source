@@ -6,41 +6,50 @@ export const title = "Responsive Table";
 const tableLabel = `Responsive table ${createId()}`;
 ---
 
-<section aria-label={tableLabel} class="rvt-table-responsive" tabindex="0">
-	<table class="rvt-table">
-		<caption>{tableLabel}</caption>
-		<thead>
-			<tr>
-				<th scope="col">Services</th>
-				<th scope="col">Description</th>
-				<th scope="col">URL</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">One.IU</th>
-				<td>
-					One.IU was created to bring a modern app store experience to finding
-					what you need at IU. With One.IU, you search for what you want to do,
-					and click to launch it.
-				</td>
-				<td><a href="#">one.iu.edu</a></td>
-			</tr>
-			<tr>
-				<th scope="row">Zoom</th>
-				<td>
-					Zoom is a web collaboration tool available to all Indiana University
-					students, faculty, and staff.
-				</td>
-				<td><a href="#">zoom.iu.edu</a></td>
-			</tr>
-			<tr>
-				<th scope="row">Canvas</th>
-				<td>
-					Canvas is a learning management system developed by Instructure, Inc.
-				</td>
-				<td><a href="#">canvas.iu.edu</a></td>
-			</tr>
-		</tbody>
-	</table>
+<section rvt-table-responsive aria-label={tableLabel} tabindex="0">
+	<rvt-table>
+		<table>
+			<caption>{tableLabel}</caption>
+			<thead>
+				<tr>
+					<th scope="col">Services</th>
+					<th scope="col">Description</th>
+					<th scope="col">URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">One.IU</th>
+					<td>
+						One.IU was created to bring a modern app store experience to finding
+						what you need at IU. With One.IU, you search for what you want to
+						do, and click to launch it.
+					</td>
+					<td>
+						<a href="#">one.iu.edu</a>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">Zoom</th>
+					<td>
+						Zoom is a web collaboration tool available to all Indiana University
+						students, faculty, and staff.
+					</td>
+					<td>
+						<a href="#">zoom.iu.edu</a>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">Canvas</th>
+					<td>
+						Canvas is a learning management system developed by Instructure,
+						Inc.
+					</td>
+					<td>
+						<a href="#">canvas.iu.edu</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</rvt-table>
 </section>

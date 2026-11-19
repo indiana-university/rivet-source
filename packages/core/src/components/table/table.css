@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-@use "../../base/core.scss" as *;
+rvt-table {
+	display: block;
+}
 
 table,
 .rvt-table {
@@ -13,7 +15,7 @@ table,
 	text-align: left;
 	width: 100%;
 
-	caption {
+	& caption {
 		font: var(--rvt-font-20-bold);
 		margin-block-end: var(--rvt-spacing-sm);
 		text-align: left;
@@ -26,10 +28,10 @@ tr th {
 }
 
 thead {
-	background-color: var(--rvt-color-theme-accent);
+	background-color: var(--rvt-color-theme-background-strong);
 
-	tr th {
-		color: var(--rvt-color-theme-background);
+	& tr th {
+		color: var(--rvt-color-theme-text);
 		font: var(--rvt-font-14-bold);
 		padding-block: var(--rvt-spacing-sm);
 		padding-inline: var(--rvt-spacing-md);
@@ -44,39 +46,40 @@ tbody tr :is(td, th) {
 	padding: var(--rvt-spacing-md);
 }
 
+/* Header and border treatment */
+
+rvt-table[tone="subtle"] thead,
+.rvt-table-plain thead {
+	background-color: transparent;
+	border-bottom: none;
+
+	& th {
+		color: inherit;
+	}
+}
+
+rvt-table[tone="strong"] thead {
+	background-color: var(--rvt-color-theme-accent);
+
+	& th {
+		color: var(--rvt-color-theme-background);
+	}
+}
+
+rvt-table[tone="subtle"] table,
 .rvt-table-plain {
 	border: none;
 
-	thead {
-		background-color: transparent;
-		border-bottom: none;
-
-		th {
-			color: inherit;
-		}
-	}
-
-	tr {
+	& tr {
 		border-bottom: none;
 	}
 }
 
-.rvt-table-stripes {
-	tr:nth-child(even) {
-		background-color: var(--rvt-color-theme-background-light);
-	}
-}
-
-.rvt-table-compact {
-	tr :is(th, td) {
-		padding: var(--rvt-size-8);
-	}
-}
-
+rvt-table[trait~="cells"] table,
 .rvt-table-cells {
 	border-top: var(--rvt-border);
 
-	tr :is(td, th) {
+	& tr :is(td, th) {
 		border-right: var(--rvt-border);
 
 		&:first-child {
@@ -85,20 +88,25 @@ tbody tr :is(td, th) {
 	}
 }
 
-.rvt-table--subtle {
-	thead {
-		background-color: var(--rvt-color-theme-background-strong);
+/* Row striping */
 
-		th {
-			color: var(--rvt-color-theme-text);
-		}
-	}
+rvt-table[trait~="striped"] tr:nth-child(even),
+.rvt-table-stripes tr:nth-child(even) {
+	background-color: var(--rvt-color-theme-background-light);
+}
+
+/* Cell spacing */
+
+rvt-table[spacing="compact"] tr :is(th, td),
+.rvt-table-compact tr :is(th, td) {
+	padding: var(--rvt-size-8);
 }
 
 /**
  * Adapted from Adrian Roselli's "Under-Engineered Responsive Tables"
  * https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
  */
+section[rvt-table-responsive],
 .rvt-table-responsive[role="region"][tabindex] {
 	/* stylelint-disable */
 	background:
@@ -143,7 +151,9 @@ tbody tr :is(td, th) {
 	overflow: auto;
 }
 
-@include mq($breakpoint-md) {
+/* Matches $breakpoint-md; media queries cannot reference custom properties. */
+@media screen and (min-width: 800px) {
+	section[rvt-table-responsive],
 	.rvt-table-responsive[role="region"][tabindex] {
 		border: none;
 		border-radius: 0;

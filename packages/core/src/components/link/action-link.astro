@@ -23,49 +23,51 @@ const rows = [
 ];
 ---
 
-<table class="rvt-table">
-	<thead>
-		<tr>
-			<th scope="col"></th>
-			<th scope="col">In-page link</th>
-			<th scope="col">Internal link</th>
-			<th scope="col">External link</th>
-			<th scope="col">Disabled link</th>
-			<th scope="col">Icon only</th>
-		</tr>
-	</thead>
-	<tbody>
-		{rows.map((row) => (
+<rvt-table>
+	<table>
+		<thead>
 			<tr>
-				<th scope="row">{row.label}</th>
-				<td>
-					<rvt-link type="action" {...row.props}>
-						<a href="#">Read more</a>
-					</rvt-link>
-				</td>
-				<td>
-					<rvt-link type="action" {...row.props}>
-						<a href="/">Visit</a>
-					</rvt-link>
-				</td>
-				<td>
-					<rvt-link type="action" {...row.props}>
-						<a href="https://rivet.iu.edu">Support</a>
-					</rvt-link>
-				</td>
-				<td>
-					<rvt-link type="action" {...row.props}>
-						<a>Nowhere</a>
-					</rvt-link>
-				</td>
-				<td>
-					<rvt-link type="action" {...row.props}>
-						<a href="/">
-							<rvt-sr-only>Go</rvt-sr-only>
-						</a>
-					</rvt-link>
-				</td>
+				<th scope="col"></th>
+				<th scope="col">In-page link</th>
+				<th scope="col">Internal link</th>
+				<th scope="col">External link</th>
+				<th scope="col">Disabled link</th>
+				<th scope="col">Icon only</th>
 			</tr>
-		))}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			{rows.map((row) => (
+				<tr>
+					<th scope="row">{row.label}</th>
+					<td>
+						<rvt-link type="action" {...row.props}>
+							<a href="#">Read more</a>
+						</rvt-link>
+					</td>
+					<td>
+						<rvt-link type="action" {...row.props}>
+							<a href="/">Visit</a>
+						</rvt-link>
+					</td>
+					<td>
+						<rvt-link type="action" {...row.props}>
+							<a href="https://rivet.iu.edu">Support</a>
+						</rvt-link>
+					</td>
+					<td>
+						<rvt-link type="action" {...row.props}>
+							<a>Nowhere</a>
+						</rvt-link>
+					</td>
+					<td>
+						<rvt-link type="action" {...row.props}>
+							<a href="/">
+								<rvt-sr-only>Go</rvt-sr-only>
+							</a>
+						</rvt-link>
+					</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+</rvt-table>
