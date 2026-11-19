@@ -5,6 +5,7 @@ import { styleText } from "util";
 import YAML from "yaml";
 
 import { configFileName, defaultOutputDir } from "../lib/config.js";
+import { isSafeToEmpty } from "../lib/build/outputDir.js";
 import { printBuildResults } from "../lib/build/results.js";
 import { runWorkspaceBuild } from "../lib/build/runBuild.js";
 
@@ -72,7 +73,18 @@ const buildCommand = new Command("build")
 			}
 
 			// All paths are relative to where the command was run
-			return { path: path.resolve(process.cwd(), dir), source };
+			const resolvedDir = path.resolve(process.cwd(), dir);
+
+			// The build empties the output directory
+			// Stop if it contains files the Rivet build didn't create
+			if (!isSafeToEmpty(resolvedDir)) {
+				console.log(
+					`\n${styleText("red", "Error")}: The output directory ${styleText("blue", `"${dir}"`)} (from ${source}) contains files that weren't created by Rivet.\n\nThe build empties its output directory before writing. Choose an empty or new directory, or delete ${styleText("blue", `"${resolvedDir}"`)} first.\n`,
+				);
+				process.exit(1);
+			}
+
+			return { path: resolvedDir, source };
 		}
 
 		// Whether the config file lists any stickers

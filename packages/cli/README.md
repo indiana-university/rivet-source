@@ -85,6 +85,8 @@ The output directory is chosen in this order:
 
 All output paths are relative to the directory where you run the command, including `outputDir` values from the config file. The build results show which of these was used, for example `Output directory (from rivet.yaml)`.
 
+Each build empties the output directory before writing, so it only contains the latest build. To protect your other files, the build only empties a directory that is new, empty, or holds a previous Rivet build, which it recognizes by the presence of the `rivet.css` and `rivet.js` files. Otherwise the build stops with an error. Don't keep your own files in the output directory, since they're deleted on the next build.
+
 ### Usage
 
 Build using the settings in `rivet.yaml` in the current directory.
