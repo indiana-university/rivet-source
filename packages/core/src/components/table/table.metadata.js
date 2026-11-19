@@ -37,6 +37,27 @@ export const deprecatedClasses = [
 ];
 
 export const elements = {
+	"*": {
+		attributes: {
+			"rvt-table-responsive": {
+				allowed(node) {
+					if (!node.closest(`section[rvt-table-responsive]`)) {
+						return `only allowed on <section> so the scrollable region is announced`;
+					}
+					if (
+						!node.hasAttribute("aria-label") &&
+						!node.hasAttribute("aria-labelledby")
+					) {
+						return `requires aria-label or aria-labelledby to name the scrollable region`;
+					}
+					if (node.getAttribute("tabindex") !== "0") {
+						return `requires tabindex="0" so the scrollable region is keyboard accessible`;
+					}
+					return null;
+				},
+			},
+		},
+	},
 	"rvt-table": {
 		attributes: {
 			spacing: {
@@ -81,32 +102,6 @@ export const requiredDescendants = [
 			{
 				query: `> *`,
 				max: 1,
-			},
-		],
-	},
-	{
-		element: "body",
-		required: [
-			{
-				query: `[rvt-table-responsive]`,
-				not: ["section"],
-				max: 0,
-				message: `Use <section rvt-table-responsive> so the scrollable region is announced`,
-			},
-			{
-				query: `section[rvt-table-responsive]`,
-				not: [
-					`section[rvt-table-responsive][aria-label]`,
-					`section[rvt-table-responsive][aria-labelledby]`,
-				],
-				max: 0,
-				message: `Add aria-label or aria-labelledby to name the scrollable region`,
-			},
-			{
-				query: `section[rvt-table-responsive]`,
-				not: [`section[rvt-table-responsive][tabindex="0"]`],
-				max: 0,
-				message: `Add tabindex="0" so the scrollable region is keyboard accessible`,
 			},
 		],
 	},

@@ -71,61 +71,31 @@ test("required descendants", async () => {
 
 test("responsive region", async () => {
 	await expect(`
-		<!DOCTYPE html>
-		<html lang="en">
-			<head><title>Responsive table</title></head>
-			<body>
-				<section rvt-table-responsive aria-label="Services" tabindex="0">
-					<rvt-table><table></table></rvt-table>
-				</section>
-			</body>
-		</html>
+		<section rvt-table-responsive aria-label="Services" tabindex="0">
+			<rvt-table><table></table></rvt-table>
+		</section>
 	`).toBeValid();
 	await expect(`
-		<!DOCTYPE html>
-		<html lang="en">
-			<head><title>Responsive table</title></head>
-			<body>
-				<section rvt-table-responsive aria-labelledby="caption" tabindex="0">
-					<rvt-table>
-						<table><caption id="caption">Services</caption></table>
-					</rvt-table>
-				</section>
-			</body>
-		</html>
+		<section rvt-table-responsive aria-labelledby="caption" tabindex="0">
+			<rvt-table>
+				<table><caption id="caption">Services</caption></table>
+			</rvt-table>
+		</section>
 	`).toBeValid();
 	await expect(`
-		<!DOCTYPE html>
-		<html lang="en">
-			<head><title>Responsive table</title></head>
-			<body>
-				<section rvt-table-responsive tabindex="0">
-					<rvt-table><table></table></rvt-table>
-				</section>
-			</body>
-		</html>
+		<section rvt-table-responsive tabindex="0">
+			<rvt-table><table></table></rvt-table>
+		</section>
 	`).toBeInvalid();
 	await expect(`
-		<!DOCTYPE html>
-		<html lang="en">
-			<head><title>Responsive table</title></head>
-			<body>
-				<section rvt-table-responsive aria-label="Services">
-					<rvt-table><table></table></rvt-table>
-				</section>
-			</body>
-		</html>
+		<section rvt-table-responsive aria-label="Services">
+			<rvt-table><table></table></rvt-table>
+		</section>
 	`).toBeInvalid();
 	await expect(`
-		<!DOCTYPE html>
-		<html lang="en">
-			<head><title>Responsive table</title></head>
-			<body>
-				<div rvt-table-responsive aria-label="Services" tabindex="0">
-					<rvt-table><table></table></rvt-table>
-				</div>
-			</body>
-		</html>
+		<div rvt-table-responsive aria-label="Services" tabindex="0">
+			<rvt-table><table></table></rvt-table>
+		</div>
 	`).toBeInvalid();
 });
 
