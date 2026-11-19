@@ -119,7 +119,6 @@ outputDir: "./custom-dir"
 stickers:
   - accessibility
   - airplane
-  - etc
 ```
 
 | Setting     | Description                                                                                                  |
