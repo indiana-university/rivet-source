@@ -121,9 +121,7 @@ stickers:
   - airplane
 ```
 
-| Setting     | Description                                                                                                  |
-| ----------- | ------------------------------------------------------------------------------------------------------------ |
-| `outputDir` | directory to output built assets into (default: `@rivet-iu/core/dist`)                                       |
-| `stickers`  | list of stickers to include; see the [sticker library](https://rivet.iu.edu/icons-stickers/sticker-library/) |
-
-Paths that start with `@` must be wrapped in quotes, for example `outputDir: '@rivet-iu/core/dist'`.
+| Setting     | Description                                                                                                                                   |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `outputDir` | Directory to output built assets. Defaults to `"@rivet-iu/core/dist"`. Paths with special characters such as `"@"` must be wrapped in quotes. |
+| `stickers`  | List of stickers to include; see the [sticker library](https://rivet.iu.edu/icons-stickers/sticker-library/) for options.                     |
