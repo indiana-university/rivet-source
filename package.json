@@ -11,6 +11,7 @@
 		"lint": "lint-staged",
 		"prepare": "husky",
 		"preview": "pnpm --filter @rivet-iu/sandbox... preview",
+		"publish:local": "node scripts/publish-local.js",
 		"test": "pnpm --filter @rivet-iu/core test"
 	},
 	"devEngines": {

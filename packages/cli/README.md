@@ -39,3 +39,89 @@ Output full results to a Markdown file on the desktop.
 ```shell
 pnpm dlx @rivet-iu/cli search src "rvt-m-" "rvt-p-" --output ~/Desktop/results.md
 ```
+
+## `init`
+
+Generate a starter `rivet.yaml` configuration file in the current directory.
+
+`pnpm dlx @rivet-iu/cli init`
+
+| Element               | Description                                                 |
+| --------------------- | ----------------------------------------------------------- |
+| `-c, --config <file>` | name of the config file to generate (default: `rivet.yaml`) |
+| `-f, --force`         | overwrite an existing config file                           |
+
+### Usage
+
+Generate a `rivet.yaml` file in the current directory.
+
+```shell
+pnpm dlx @rivet-iu/cli init
+```
+
+Replace an existing `rivet.yaml` file with a fresh starter file.
+
+```shell
+pnpm dlx @rivet-iu/cli init --force
+```
+
+## `build`
+
+Build Rivet's CSS, JavaScript, and assets using the settings in your Rivet config file. If no config file is found, the build includes all Rivet assets.
+
+`pnpm dlx @rivet-iu/cli build`
+
+| Element               | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| `-c, --config <file>` | name of the config file to use (default: `rivet.yaml`)       |
+| `-o, --output <dir>`  | directory to output built assets into; overrides `outputDir` |
+| `-v, --verbose`       | print detailed output from the build process                 |
+
+The output directory is chosen in this order:
+
+1. The `--output` option, if provided
+2. The `outputDir` value in the config file, if set
+3. The default, `@rivet-iu/core/dist`
+
+All output paths are relative to the directory where you run the command, including `outputDir` values from the config file. The build results show which of these was used, for example `Output directory (from rivet.yaml)`.
+
+Each build empties the output directory before writing, so it only contains the latest build. To protect your other files, the build only empties a directory that is new, empty, or holds a previous Rivet build, which it recognizes by the presence of the `rivet.css` and `rivet.js` files. Otherwise the build stops with an error. Don't keep your own files in the output directory, since they're deleted on the next build.
+
+### Usage
+
+Build using the settings in `rivet.yaml` in the current directory.
+
+```shell
+pnpm dlx @rivet-iu/cli build
+```
+
+Build using a config file with a different name.
+
+```shell
+pnpm dlx @rivet-iu/cli build --config rivet.dev.yaml
+```
+
+Output built assets to a `dist` directory, overriding `outputDir` in the config file.
+
+```shell
+pnpm dlx @rivet-iu/cli build --output dist
+```
+
+## Configuration
+
+The `rivet.yaml` file controls what the `build` command produces. Run `init` to generate a starter file.
+
+```yaml
+# Directory to output built assets into, relative to where you run 'rivet build'
+outputDir: "./custom-dir"
+
+# Stickers to include in the build; omit to include all stickers
+stickers:
+  - accessibility
+  - airplane
+```
+
+| Setting     | Description                                                                                                                                   |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `outputDir` | Directory to output built assets. Defaults to `"@rivet-iu/core/dist"`. Paths with special characters such as `"@"` must be wrapped in quotes. |
+| `stickers`  | List of stickers to include; see the [sticker library](https://rivet.iu.edu/icons-stickers/sticker-library/) for options.                     |
